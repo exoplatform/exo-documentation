@@ -838,9 +838,6 @@ eXo Chat installation into eXo Pltaform server
    installation procedure is the same to that of other add-ons, as 
    detailed in :ref:`Installing/Uninstalling add-ons, Administrator Guide <AddonsManagement.InstallingUninstalling>`.
 
-.. note:: For Community Edition: ``addon install exo-chat-community``.
-		  For Enterprise edition bundles, eXo Chat is installed by default.
-
 .. note:: By default, a ``chatPassPhrase`` property has been created. The eXo Chat server provides some operations via REST service so that
 		  anyone who knows the passphrase can do things, such as dropping, re-creating and indexing the database, so you need to change this
 		  property in the :ref:`configuration file <Configuration.ChatConfiguration>`.
