@@ -82,7 +82,7 @@ name.
 | Status         | Description                                               |
 +================+===========================================================+
 | |image7|       | You are online and available to talk or get instant       |
-| **Available**  | messages from another. When you use BRAND\_CHAT for the   |
+| **Available**  | messages from another. When you use eXo Chat for the      |
 |                | first time, your status is available by default.          |
 +----------------+-----------------------------------------------------------+
 | |image8| **Do  | You are online but don't want to be disturbed. Another    |
