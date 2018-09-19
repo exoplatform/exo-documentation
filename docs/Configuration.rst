@@ -3105,7 +3105,7 @@ file.
 
 ::
 
-    #== COMMONS Caches Configuration == #
+        #== COMMONS Caches Configuration == #
 
     # Commons Cache Configuration - Settings Service
     exo.cache.commons.SettingService.MaxNodes=100000
@@ -3114,35 +3114,35 @@ file.
     exo.cache.commons.SettingService=replication
     exo.cache.commons.SettingService.strategy=LIRS
     
-	# Commons Cache Configuration - Web Notification Count
-	exo.cache.commons.WebNotificationCountCache.MaxNodes=1000
-	exo.cache.commons.WebNotificationCountCache.TimeToLive=86400
-	exo.cache.commons.WebNotificationCountCache.strategy=LIRS
-	exo.cache.commons.WebNotificationCountCache.cacheMode=asyncReplication
+    # Commons Cache Configuration - Web Notification Count
+    exo.cache.commons.WebNotificationCountCache.MaxNodes=1000
+    exo.cache.commons.WebNotificationCountCache.TimeToLive=86400
+    exo.cache.commons.WebNotificationCountCache.strategy=LIRS
+    exo.cache.commons.WebNotificationCountCache.cacheMode=asyncReplication
 
-	# Commons Cache Configuration - Web Notification
-	exo.cache.commons.WebNotificationCache.MaxNode=100000
-	exo.cache.commons.WebNotificationCache.TimeToLive=86400
-	exo.cache.commons.WebNotificationCache.strategy=LIRS
-	exo.cache.commons.WebNotificationCache.cacheMode=asyncReplication
+    # Commons Cache Configuration - Web Notification
+    exo.cache.commons.WebNotificationCache.MaxNode=100000
+    exo.cache.commons.WebNotificationCache.TimeToLive=86400
+    exo.cache.commons.WebNotificationCache.strategy=LIRS
+    exo.cache.commons.WebNotificationCache.cacheMode=asyncReplication
 
-	# Commons Cache Configuration - Web Notifications
-	exo.cache.commons.WebNotificationsCache.MaxNodes=1000
-	exo.cache.commons.WebNotificationsCache.TimeToLive=86400
-	exo.cache.commons.WebNotificationsCache.strategy=LIRS
-	exo.cache.commons.WebNotificationsCache.cacheMode=asyncReplication
+    # Commons Cache Configuration - Web Notifications
+    exo.cache.commons.WebNotificationsCache.MaxNodes=1000
+    exo.cache.commons.WebNotificationsCache.TimeToLive=86400
+    exo.cache.commons.WebNotificationsCache.strategy=LIRS
+    exo.cache.commons.WebNotificationsCache.cacheMode=asyncReplication
 
-	# Commons Cache Configuration - User State Service
-	exo.cache.commons.UserStateService.MaxNodes=1000
-	exo.cache.commons.UserStateService.TimeToLive=600
-	exo.cache.commons.UserStateService.strategy=LIRS
-	exo.cache.commons.UserStateService.cacheMode=asyncReplication
+    # Commons Cache Configuration - User State Service
+    exo.cache.commons.UserStateService.MaxNodes=1000
+    exo.cache.commons.UserStateService.TimeToLive=600
+    exo.cache.commons.UserStateService.strategy=LIRS
+    exo.cache.commons.UserStateService.cacheMode=asyncReplication
 
-	# Commons Cache Configuration - User State Service
-	exo.cache.commons.UserSettingService.MaxNodes=500
-	exo.cache.commons.UserSettingService.TimeToLivee=86400
-	exo.cache.commons.UserSettingService.strategy=LIRS
-	exo.cache.commons.UserSettingService.cacheMode=asyncInvalidation
+    # Commons Cache Configuration - User State Service
+    exo.cache.commons.UserSettingService.MaxNodes=500
+    exo.cache.commons.UserSettingService.TimeToLivee=86400
+    exo.cache.commons.UserSettingService.strategy=LIRS
+    exo.cache.commons.UserSettingService.cacheMode=asyncInvalidation
 
 
 The specific configuration of **SettingCache** can be found in the file:
