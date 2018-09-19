@@ -2910,8 +2910,9 @@ These Portal caches can be overridden in
     # Portal Cache Configuration - MOP session Manager
     exo.cache.portal.mop.MaxNodes=1400
     exo.cache.portal.mop.TimeToLive=86400
-    # For Cluster mode
     exo.cache.portal.mop.strategy=LIRS
+    # For Cluster mode
+
     exo.cache.portal.mop.cacheMode=replication
 
     # Portal Cache Configuration - Navigation Service
@@ -3098,10 +3099,11 @@ eXo Platform provides a list of Common Caches:
 
 -  :ref:`User Setting Service <UserSettingService>`
 
-These Common caches can be overridden in
-:ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+The *Settings*, *Notifications* and *User State* caches can be 
+overridden in:ref:`exo.properties <Configuration.ConfigurationOverview>` 
+file.
 
-.. code:: xml
+::
 
     #== COMMONS Caches Configuration == #
 
@@ -3118,13 +3120,11 @@ These Common caches can be overridden in
 	exo.cache.commons.WebNotificationCountCache.strategy=LIRS
 	exo.cache.commons.WebNotificationCountCache.cacheMode=asyncReplication
 
-
 	# Commons Cache Configuration - Web Notification
 	exo.cache.commons.WebNotificationCache.MaxNode=100000
 	exo.cache.commons.WebNotificationCache.TimeToLive=86400
 	exo.cache.commons.WebNotificationCache.strategy=LIRS
 	exo.cache.commons.WebNotificationCache.cacheMode=asyncReplication
-
 
 	# Commons Cache Configuration - Web Notifications
 	exo.cache.commons.WebNotificationsCache.MaxNodes=1000
