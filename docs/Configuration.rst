@@ -2882,6 +2882,8 @@ explanation of properties used for eXo Platform caches.
 		-  :ref:`Cache Levels <MonitoringGadget.CacheLevels>` in User Guide.
 
 		-  :ref:`Cache management view <Management.ManagementViews.CacheManagementView>`.
+		
+You can have the full list of different caches and their values `here <https://github.com/exodev/platform/blob/develop/extension/config/src/main/resources/conf/platform/configuration.properties#L136>`__		
 
 .. _PortalCaches:
 
@@ -2908,43 +2910,42 @@ These Portal caches can be overridden in
 ::
 
     # Portal Cache Configuration - MOP session Manager
-    exo.cache.portal.mop.MaxNodes=1400
-    exo.cache.portal.mop.TimeToLive=86400
+    exo.cache.portal.mop.MaxNodes=5000
+    exo.cache.portal.mop.TimeToLive=-1
     exo.cache.portal.mop.strategy=LIRS
     # For Cluster mode
-
     exo.cache.portal.mop.cacheMode=replication
 
     # Portal Cache Configuration - Navigation Service
-    exo.cache.portal.navigation.MaxNodes=700
-    exo.cache.portal.navigation.TimeToLive=86400
-    # For Cluster mode
+    exo.cache.portal.navigation.MaxNodes=5000
+    exo.cache.portal.navigation.TimeToLive=-1
     exo.cache.portal.navigation.strategy=LIRS
+    # For Cluster mode
     exo.cache.portal.navigation.cacheMode=replication
 
     # Portal Cache Configuration - Description Service
-    exo.cache.portal.description.MaxNodes=1400
-    exo.cache.portal.description.TimeToLive=86400
-    # For Cluster mode
+    exo.cache.portal.description.MaxNodes=5000
+    exo.cache.portal.description.TimeToLive=-1
     exo.cache.portal.description.strategy=LIRS
+    # For Cluster mode
     exo.cache.portal.description.cacheMode=replication
 
     # Portal Cache Configuration - Page Service
-    exo.cache.portal.page.MaxNodes=700
-    exo.cache.portal.page.TimeToLive=86400
-    # For Cluster mode
+    exo.cache.portal.page.MaxNodes=5000
+    exo.cache.portal.page.TimeToLive=-1
     exo.cache.portal.page.strategy=LIRS
+    # For Cluster mode
     exo.cache.portal.page.cacheMode=replication
 
     # Portal Cache Configuration - Template Service
-    exo.cache.portal.template.MaxNodes=1000
+    exo.cache.portal.template.MaxNodes=5000
     exo.cache.portal.template.TimeToLive=-1
-    # For Cluster mode
     exo.cache.portal.template.strategy=LIRS
+    # For Cluster mode
     exo.cache.portal.template.cacheMode=replication
 
     # Portal Cache Configuration - ResourceBundleData
-    exo.cache.portal.ResourceBundleData.MaxNodes=1000
+    exo.cache.portal.ResourceBundleData.MaxNodes=3000
     exo.cache.portal.ResourceBundleData.TimeToLive=-1
 
 The specific configuration of Portal caches can be found in the files:
@@ -3108,38 +3109,38 @@ file.
         #== COMMONS Caches Configuration == #
 
     # Commons Cache Configuration - Settings Service
-    exo.cache.commons.SettingService.MaxNodes=100000
-    exo.cache.commons.SettingService.TimeToLive=86400
+    exo.cache.commons.SettingService.MaxNodes=2000
+    exo.cache.commons.SettingService.TimeToLive=360000
+    exo.cache.commons.SettingService.strategy=LIRS
     # For cluster mode
     exo.cache.commons.SettingService=replication
-    exo.cache.commons.SettingService.strategy=LIRS
-    
+        
     # Commons Cache Configuration - Web Notification Count
-    exo.cache.commons.WebNotificationCountCache.MaxNodes=1000
-    exo.cache.commons.WebNotificationCountCache.TimeToLive=86400
+    exo.cache.commons.WebNotificationCountCache.MaxNodes=5000
+    exo.cache.commons.WebNotificationCountCache.TimeToLive=-1
     exo.cache.commons.WebNotificationCountCache.strategy=LIRS
     exo.cache.commons.WebNotificationCountCache.cacheMode=asyncReplication
 
     # Commons Cache Configuration - Web Notification
-    exo.cache.commons.WebNotificationCache.MaxNode=100000
-    exo.cache.commons.WebNotificationCache.TimeToLive=86400
+    exo.cache.commons.WebNotificationCache.MaxNode=5000
+    exo.cache.commons.WebNotificationCache.TimeToLive=3600
     exo.cache.commons.WebNotificationCache.strategy=LIRS
     exo.cache.commons.WebNotificationCache.cacheMode=asyncReplication
 
     # Commons Cache Configuration - Web Notifications
-    exo.cache.commons.WebNotificationsCache.MaxNodes=1000
-    exo.cache.commons.WebNotificationsCache.TimeToLive=86400
+    exo.cache.commons.WebNotificationsCache.MaxNodes=5000
+    exo.cache.commons.WebNotificationsCache.TimeToLive=3600
     exo.cache.commons.WebNotificationsCache.strategy=LIRS
     exo.cache.commons.WebNotificationsCache.cacheMode=asyncReplication
 
     # Commons Cache Configuration - User State Service
-    exo.cache.commons.UserStateService.MaxNodes=1000
+    exo.cache.commons.UserStateService.MaxNodes=5000
     exo.cache.commons.UserStateService.TimeToLive=600
     exo.cache.commons.UserStateService.strategy=LIRS
     exo.cache.commons.UserStateService.cacheMode=asyncReplication
 
-    # Commons Cache Configuration - User State Service
-    exo.cache.commons.UserSettingService.MaxNodes=500
+    # Commons Cache Configuration - User Setting Service
+    exo.cache.commons.UserSettingService.MaxNodes=5000
     exo.cache.commons.UserSettingService.TimeToLivee=86400
     exo.cache.commons.UserSettingService.strategy=LIRS
     exo.cache.commons.UserSettingService.cacheMode=asyncInvalidation
@@ -3202,8 +3203,8 @@ file:
     # == ECMS Caches Configuration == #
     
     # ECMS Cache Configuration - Drive Service
-	exo.cache.ecms.drive.MaxNodes=20000
-	exo.cache.ecms.drive.TimeToLive=86400
+	exo.cache.ecms.drive.MaxNodes=5000
+	exo.cache.ecms.drive.TimeToLive=600
 	exo.cache.ecms.drive.strategy=LIRS
 	exo.cache.ecms.drive.cacheMode=syncInvalidation
 	
@@ -3212,8 +3213,8 @@ file:
 	exo.cache.ecms.scriptservice.TimeToLive=86400
 	
 	# ECMS Cache Configuration - Fragment Cache Service (Markup Cache)
-	exo.cache.ecms.fragmentcacheservice.MaxNodes=1000
-	exo.cache.ecms.fragmentcacheservice.TimeToLive=300
+	exo.cache.ecms.fragmentcacheservice.MaxNodes=10000
+	exo.cache.ecms.fragmentcacheservice.TimeToLive=30
 	
 	# ECMS Cache Configuration - Templates Service
 	exo.cache.ecms.templateservice.MaxNodes=100
@@ -3228,20 +3229,20 @@ file:
 	exo.cache.ecms.initialwebcontentplugin.cacheMode=replication
 	
 	# ECMS Cache Configuration - PDF Viewer Service
-	exo.cache.ecms.PDFViewerService.MaxNodes=10000
-	exo.cache.ecms.PDFViewerService.TimeToLive=86400
+	exo.cache.ecms.PDFViewerService.MaxNodes=1000
+	exo.cache.ecms.PDFViewerService.TimeToLive=3600
 	exo.cache.ecms.PDFViewerService.strategy=LIRS
 	exo.cache.ecms.PDFViewerService.cacheMode=syncInvalidation
 	
 	# ECMS Cache Configuration - SEO Cache
 	exo.cache.ecms.seoservice.MaxNode=1000
-	exo.cache.ecms.seoservice.TimeToLive=86400
+	exo.cache.ecms.seoservice.TimeToLive=3600
 	exo.cache.ecms.seoservice.strategy=LIRS
 	exo.cache.ecms.seoservice.cacheMode=asyncReplication
 	
 	# ECMS Cache Configuration - Query Service
 	exo.cache.ecms.queryservice.MaxNodes=5000
-	exo.cache.ecms.queryservice.TimeToLive=86400
+	exo.cache.ecms.queryservice.TimeToLive=600000
 	exo.cache.ecms.queryservice.strategy=LIRS
 	exo.cache.ecms.queryservice.cacheMode=asyncReplication
 
@@ -3254,8 +3255,8 @@ file:
 	exo.cache.ecms.sitesearchservice.drop.TimeToLive=3600		
 
 	# ECMS Cache Configuration - Javascript Cache
-	exo.cache.ecms.javascript.MaxNodes=100
-	exo.cache.ecms.javascript.TimeToLive=-1
+	exo.cache.ecms.javascript.MaxNodes=1000
+	exo.cache.ecms.javascript.TimeToLive=3600
 	exo.cache.ecms.javascript.strategy=LIRS
 	exo.cache.ecms.javascript.cacheMode=replication
 
@@ -3451,94 +3452,94 @@ In particular:
 	# == SOCIAL Caches Configuration == #
 
 	# Social Cache Configuration - Identity
-	exo.cache.social.IdentityCache.MaxNodes=1100
+	exo.cache.social.IdentityCache.MaxNodes=5000
 	exo.cache.social.IdentityCache.TimeToLive=86400
 	exo.cache.social.IdentityCache.strategy=LIRS
 	exo.cache.social.IdentityCache.cacheMode=replication
 
 	# Social Cache Configuration - Identity Index
-	exo.cache.social.IdentityIndexCache.MaxNodes=1100
+	exo.cache.social.IdentityIndexCache.MaxNodes=5000
 	exo.cache.social.IdentityIndexCache.TimeToLive=86400
 	exo.cache.social.IdentityIndexCache.strategy=LIRS
 	exo.cache.social.IdentityIndexCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Profile
-	exo.cache.social.ProfileCache.MaxNodes=1100
+	exo.cache.social.ProfileCache.MaxNodes=5000
 	exo.cache.social.ProfileCache.TimeToLive=86400
 	exo.cache.social.ProfileCache.strategy=LIRS
 	exo.cache.social.ProfileCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Identities
-	exo.cache.social.IdentitiesCache.MaxNodes=1100
+	exo.cache.social.IdentitiesCache.MaxNodes=5000
 	exo.cache.social.IdentitiesCache.TimeToLive=86400
 	exo.cache.social.IdentitiesCache.strategy=LIRS
 	exo.cache.social.IdentitiesCache.cacheMode=replication
 
 	# Social Cache Configuration - Identities Count
-	exo.cache.social.IdentitiesCountCache.MaxNodes=1100
+	exo.cache.social.IdentitiesCountCache.MaxNodes=5000
 	exo.cache.social.IdentitiesCountCache.TimeToLive=86400
 	exo.cache.social.IdentitiesCountCache.strategy=LIRS
 	exo.cache.social.IdentitiesCountCache.cacheMode=asyncInvalidation
 
 
 	# Social Cache Configuration - Relationship
-	exo.cache.social.RelationshipCache.MaxNodes=1000000
+	exo.cache.social.RelationshipCache.MaxNodes=10000
 	exo.cache.social.RelationshipCache.TimeToLive=86400
 	exo.cache.social.RelationshipCache.strategy=LIRS
 	exo.cache.social.RelationshipCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Relationship From Identity
-	exo.cache.social.RelationshipFromIdentityCache.MaxNodes=1000000
+	exo.cache.social.RelationshipFromIdentityCache.MaxNodes=10000
 	exo.cache.social.RelationshipFromIdentityCache.TimeToLive=86400
 	exo.cache.social.RelationshipFromIdentityCache.strategy=LIRS
 	exo.cache.social.RelationshipFromIdentityCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Relationships Count
-	exo.cache.social.RelationshipsCountCache.MaxNodes=10000
+	exo.cache.social.RelationshipsCountCache.MaxNodes=5000
 	exo.cache.social.RelationshipsCountCache.TimeToLive=86400
 	exo.cache.social.RelationshipsCountCache.strategy=LIRS
 	exo.cache.social.RelationshipsCountCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Relationships
-	exo.cache.social.RelationshipsCache.MaxNodes=10000
+	exo.cache.social.RelationshipsCache.MaxNodes=5000
 	exo.cache.social.RelationshipsCache.TimeToLive=86400
 	exo.cache.social.RelationshipsCache.strategy=LIRS
 	exo.cache.social.RelationshipsCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Activity
-	exo.cache.social.ActivityCache.MaxNodes=20000
-	exo.cache.social.ActivityCache.TimeToLive=86400
+	exo.cache.social.ActivityCache.MaxNodes=6000
+	exo.cache.social.ActivityCache.TimeToLive=3600
 	exo.cache.social.ActivityCache.strategy=LIRS
 	exo.cache.social.ActivityCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Activities Count
-	exo.cache.social.ActivitiesCountCache.MaxNodes=20000
+	exo.cache.social.ActivitiesCountCache.MaxNodes=5000
 	exo.cache.social.ActivitiesCountCache.TimeToLive=86400
 
 	# Social Cache Configuration - Activities
-	exo.cache.social.ActivitiesCache.MaxNodes=20000
+	exo.cache.social.ActivitiesCache.MaxNodes=5000
 	exo.cache.social.ActivitiesCache.TimeToLive=86400
 
 	# Social Cache Configuration - Space
-	exo.cache.social.SpaceCache.MaxNodes=100
+	exo.cache.social.SpaceCache.MaxNodes=500
 	exo.cache.social.SpaceCache.TimeToLive=86400
 	exo.cache.social.SpaceCache.strategy=LIRS
 	exo.cache.social.SpaceCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Space Ref
-	exo.cache.social.SpaceRefCache.MaxNodes=100
+	exo.cache.social.SpaceRefCache.MaxNodes=2000
 	exo.cache.social.SpaceRefCache.TimeToLive=86400
 	exo.cache.social.SpaceRefCache.strategy=LIRS
 	exo.cache.social.SpaceRefCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Spaces Count
-	exo.cache.social.SpacesCountCache.MaxNodes=4000
+	exo.cache.social.SpacesCountCache.MaxNodes=5000
 	exo.cache.social.SpacesCountCache.TimeToLive=86400
 	exo.cache.social.SpacesCountCache.strategy=LIRS
 	exo.cache.social.SpacesCountCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Spaces
-	exo.cache.social.SpacesCache.MaxNodes=4000
+	exo.cache.social.SpacesCache.MaxNodes=5000
 	exo.cache.social.SpacesCache.TimeToLive=86400
 	exo.cache.social.SpacesCache.strategy=LIRS
 	exo.cache.social.SpacesCache.cacheMode=asyncInvalidation
@@ -3550,7 +3551,7 @@ In particular:
 	exo.cache.social.ActiveIdentitiesCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Suggestions Cache
-	exo.cache.social.SuggestionsCache.MaxNodes=1000
+	exo.cache.social.SuggestionsCache.MaxNodes=5000
 	exo.cache.social.SuggestionsCache.TimeToLive=86400
 	exo.cache.social.SuggestionsCache.strategy=LIRS
 	exo.cache.social.SuggestionsCache.cacheMode=asyncInvalidation
@@ -3701,68 +3702,68 @@ file.
 	# == FORUM Caches Configuration == #
 
 	# Forum Cache Configuration - ForumPermissions
-	exo.cache.forum.ForumPermissionsUsers.MaxNodes=1000
-	exo.cache.forum.ForumPermissionsUsers.TimeToLive=86400
+	exo.cache.forum.ForumPermissionsUsers.MaxNodes=300
+	exo.cache.forum.ForumPermissionsUsers.TimeToLive=-1
 	exo.cache.forum.ForumPermissionsUsers.strategy=LIRS
 	exo.cache.forum.ForumPermissionsUsers.cacheMode=replication
 
 	# Forum Cache Configuration - BBCodeData
 	exo.cache.forum.BBCodeData.MaxNodes=500
-	exo.cache.forum.BBCodeData.TimeToLive=86400
+	exo.cache.forum.BBCodeData.TimeToLive=-1
 	exo.cache.forum.BBCodeData.strategy=LIRS
 	exo.cache.forum.BBCodeData.cacheMode=asyncReplication
 
 	# Forum Cache Configuration - BBCodeListData
 	exo.cache.forum.BBCodeListData.MaxNodes=500
-	exo.cache.forum.BBCodeListData.TimeToLive=86400
+	exo.cache.forum.BBCodeListData.TimeToLive=-1
 	exo.cache.forum.BBCodeListData.strategy=LIRS
 	exo.cache.forum.BBCodeListData.cacheMode=asyncReplication
 
 	# Forum Cache Configuration - User Profile
-	exo.cache.forum.UserProfile.MaxNodes=1000
-	exo.cache.forum.UserProfile.TimeToLive=86400
+	exo.cache.forum.UserProfile.MaxNodes=800
+	exo.cache.forum.UserProfile.TimeToLive=14400
 	exo.cache.forum.UserProfile.strategy=LIRS
 	exo.cache.forum.UserProfile.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - User Profile List
 	exo.cache.forum.UserProfileList.MaxNodes=300
-	exo.cache.forum.UserProfileList.TimeToLive=86400
+	exo.cache.forum.UserProfileList.TimeToLive=1800
 	exo.cache.forum.UserProfileList=LIRS
 	exo.cache.forum.UserProfileList.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - User Profiles List Count
 	exo.cache.forum.UserProfileListCount.MaxNodes=300
-	exo.cache.forum.UserProfileListCount.TimeToLive=86400
+	exo.cache.forum.UserProfileListCount.TimeToLive=1800
 	exo.cache.forum.UserProfileListCount=LIRS
 	exo.cache.forum.UserProfileListCount.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Login User Profiles
-	exo.cache.forum.LoginUserProfile.MaxNodes=1000
-	exo.cache.forum.LoginUserProfile.TimeToLive=86400
+	exo.cache.forum.LoginUserProfile.MaxNodes=500
+	exo.cache.forum.LoginUserProfile.TimeToLive=-1
 	exo.cache.forum.LoginUserProfile.strategy=LIRS
 	exo.cache.forum.LoginUserProfile.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Category List
 	exo.cache.forum.CategoryList.MaxNodes=50
-	exo.cache.forum.CategoryList.TimeToLive=86400
+	exo.cache.forum.CategoryList.TimeToLive=-1
 	exo.cache.forum.CategoryList.strategy=LIRS
 	exo.cache.forum.CategoryList.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Category Data
-	exo.cache.forum.CategoryData.MaxNodes=500
-	exo.cache.forum.CategoryData.TimeToLive=86400
+	exo.cache.forum.CategoryData.MaxNodes=150
+	exo.cache.forum.CategoryData.TimeToLive=-1
 	exo.cache.forum.CategoryData.strategy=LIRS
 	exo.cache.forum.CategoryData.cacheMode=asyncReplication
 
 	# Forum Cache Configuration - Forum List
 	exo.cache.forum.ForumList.MaxNodes=100
-	exo.cache.forum.ForumList.TimeToLive=86400
+	exo.cache.forum.ForumList.TimeToLive=-1
 	exo.cache.forum.ForumList.strategy=LIRS
 	exo.cache.forum.ForumList.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Forum Data
-	exo.cache.forum.ForumData.MaxNodes=2500
-	exo.cache.forum.ForumData.TimeToLive=86400
+	exo.cache.forum.ForumData.MaxNodes=500
+	exo.cache.forum.ForumData.TimeToLive=-1
 	exo.cache.forum.ForumData.strategy=LIRS
 	exo.cache.forum.ForumData.cacheMode=asyncReplication
 
@@ -3773,68 +3774,68 @@ file.
 	exo.cache.forum.TopicData.cacheMode=asyncReplication
 
 	# Forum Cache Configuration - Topic List
-	exo.cache.forum.TopicList.MaxNodes=1000
-	exo.cache.forum.TopicList.TimeToLive=86400
+	exo.cache.forum.TopicList.MaxNodes=500
+	exo.cache.forum.TopicList.TimeToLive=-1
 	exo.cache.forum.TopicList.strategy=LIRS
 	exo.cache.forum.TopicList.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Topic List Count
-	exo.cache.forum.TopicListCount.MaxNodes=2000
-	exo.cache.forum.TopicListCount.TimeToLive=86400
+	exo.cache.forum.TopicListCount.MaxNodes=500
+	exo.cache.forum.TopicListCount.TimeToLive=-1
 	{exo.cache.forum.TopicListCount.strategy=LIRS
 	exo.cache.forum.TopicListCount.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Post data
-	exo.cache.forum.PostData.MaxNodes=1000
-	exo.cache.forum.PostData.TimeToLive=86400
+	exo.cache.forum.PostData.MaxNodes=20000
+	exo.cache.forum.PostData.TimeToLive=-1
 	exo.cache.forum.PostData.strategy=LIRS
 	exo.cache.forum.PostData.cacheMode=asyncReplication
 
 	# Forum Cache Configuration - Post List
-	exo.cache.forum.PostList.MaxNodes=20000
-	exo.cache.forum.PostList.TimeToLive=86400
+	exo.cache.forum.PostList.MaxNodes=500
+	exo.cache.forum.PostList.TimeToLive=-1
 	exo.cache.forum.PostList.strategy=LIRS
 	exo.cache.forum.PostList.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Post List Count
-	exo.cache.forum.PostListCount.MaxNodes=20000
-	exo.cache.forum.PostListCount.TimeToLive=86400
+	exo.cache.forum.PostListCount.MaxNodes=500
+	exo.cache.forum.PostListCount.TimeToLive=-1
 	exo.cache.forum.PostListCount.strategy=LIRS
 	exo.cache.forum.PostListCount.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Poll Data
-	exo.cache.poll.PollData.MaxNodes=1000
-	exo.cache.poll.PollData.TimeToLive=86400
+	exo.cache.poll.PollData.MaxNodes=100
+	exo.cache.poll.PollData.TimeToLive=-1
 	exo.cache.poll.PollData.strategy=LIRS
 	exo.cache.poll.PollData.cacheMode=replication
 
 	# Forum Cache Configuration - Poll List
-	exo.cache.poll.PollList.MaxNodes=1000
-	exo.cache.poll.PollList.TimeToLive=86400
+	exo.cache.poll.PollList.MaxNodes=500
+	exo.cache.poll.PollList.TimeToLive=-1
 	exo.cache.poll.PollList.strategy=LIRS
 	exo.cache.poll.PollList.cacheMode=replication
 
 	# Forum Cache Configuration - Poll Summary Data
-	exo.cache.poll.PollSummaryData.MaxNodes=1000
-	exo.cache.poll.PollSummaryData.TimeToLive=86400
+	exo.cache.poll.PollSummaryData.MaxNodes=500
+	exo.cache.poll.PollSummaryData.TimeToLive=-1
 	exo.cache.poll.PollSummaryData.strategy=LIRS
 	exo.cache.poll.PollSummaryData.cacheMode=replication
 
 	# Forum Cache Configuration - Watch List Data
-	exo.cache.forum.WatchListData.MaxNodes=1000
-	exo.cache.forum.WatchListData.TimeToLive=86400
+	exo.cache.forum.WatchListData.MaxNodes=5000
+	exo.cache.forum.WatchListData.TimeToLive=-1
 	exo.cache.forum.WatchListData.strategy=LIRS
 	exo.cache.forum.WatchListData.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Link List Data
-	exo.cache.forum.LinkListData.MaxNodes=100
-	exo.cache.forum.LinkListData.TimeToLive=86400
+	exo.cache.forum.LinkListData.MaxNodes=150
+	exo.cache.forum.LinkListData.TimeToLive=-1
 	exo.cache.forum.LinkListData.strategy=LIRS
 	exo.cache.forum.LinkListData.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Object Name Data
 	exo.cache.forum.ObjectNameData.MaxNodes=10000
-	exo.cache.forum.ObjectNameData.TimeToLive=86400
+	exo.cache.forum.ObjectNameData.TimeToLive=-1
 	exo.cache.forum.ObjectNameData.strategy=LIRS
 	exo.cache.forum.ObjectNameData.cacheMode=asyncReplication
 
@@ -4052,20 +4053,20 @@ In particular:
     # == WIKI Caches Configuration == #
 
 	# Wiki Cache Configuration - Page Rendering
-	exo.cache.wiki.PageRenderingCache.MaxNodes=1000
-	exo.cache.wiki.PageRenderingCache.TimeToLive=86400
+	exo.cache.wiki.PageRenderingCache.MaxNodes=3500
+	exo.cache.wiki.PageRenderingCache.TimeToLive=-1
 	exo.cache.wiki.PageRenderingCache.strategy=LIRS
 	exo.cache.wiki.PageRenderingCache.cacheMode=asyncReplication
 
 	# Wiki Cache Configuration - Page Uuid
-	exo.cache.wiki.PageUuidCache.MaxNodes=100000
-	exo.cache.wiki.PageUuidCache.TimeToLive=86400
+	exo.cache.wiki.PageUuidCache.MaxNodes=3500
+	exo.cache.wiki.PageUuidCache.TimeToLive=-1
 	exo.cache.wiki.PageUuidCache.strategy=LIRS
 	exo.cache.wiki.PageUuidCache.cacheMode=asyncReplication
 
 	# Wiki Cache Configuration - Page Attachment
-	exo.cache.wiki.PageAttachmentCache.MaxNodes=100000
-	exo.cache.wiki.PageAttachmentCache.TimeToLive=86400
+	exo.cache.wiki.PageAttachmentCache.MaxNodes=3500
+	exo.cache.wiki.PageAttachmentCache.TimeToLive=-1
 	exo.cache.wiki.PageAttachmentCache.strategy=LIRS
 	exo.cache.wiki.PageAttachmentCache.cacheMode=asyncReplication
 
@@ -4164,13 +4165,13 @@ You can change values of these Calendar caches in
 
 	# Calendar Cache By Id - Group/User/Shared Calendars
 	exo.cache.calendar.Calendar.MaxNodes=1000
-	exo.cache.calendar.Calendar.TimeToLive=86400
+	exo.cache.calendar.Calendar.TimeToLive=3600
 	exo.cache.calendar.Calendar.strategy=LIRS
 	exo.cache.Calendar.Calendar.cacheMode=asyncReplication
 
 	# Calendar originating datasource by calendarId
-	exo.cache.calendar.dsNameById.MaxNodes=2200
-	exo.cache.calendar.dsNameById.TimeToLive=86400
+	exo.cache.calendar.dsNameById.MaxNodes=1000
+	exo.cache.calendar.dsNameById.TimeToLive=-1
 
 	# Calendar Cache Configuration - Group Calendar
 	exo.cache.calendar.GroupCalendar.MaxNodes=100
@@ -4179,32 +4180,32 @@ You can change values of these Calendar caches in
 	exo.cache.calendar.GroupCalendar.cacheMode=asyncReplication
 
 	# Calendar Cache Configuration - Group Calendar Event
-	exo.cache.calendar.GroupCalendarEvent.MaxNodes=4000
-	exo.cache.calendar.GroupCalendarEvent.TimeToLive=86400
+	exo.cache.calendar.GroupCalendarEvent.MaxNodes=1000
+	exo.cache.calendar.GroupCalendarEvent.TimeToLive=3600
 	exo.cache.calendar.GroupCalendarEvent.strategy=LIRS
 	exo.cache.calendar.GroupCalendarEvent.cacheMode=asyncReplication
 
 	# Calendar Cache Configuration - Group Calendar Recurrent Event
-	exo.cache.calendar.GroupCalendarRecurrentEvent.MaxNodes=500
-	exo.cache.calendar.GroupCalendarRecurrentEvent.TimeToLive=86400
+	exo.cache.calendar.GroupCalendarRecurrentEvent.MaxNodes=1000
+	exo.cache.calendar.GroupCalendarRecurrentEvent.TimeToLive=3600
 	exo.cache.calendar.GroupCalendarRecurrentEvent.strategy=LIRS
 	exo.cache.calendar.GroupCalendarRecurrentEvent.cacheMode=asyncReplication
 
 	# Calendar Cache Configuration - User Calendar
-	exo.cache.calendar.UserCalendarSetting.MaxNodes=1000
-	exo.cache.calendar.UserCalendar.TimeToLive=86400
+	exo.cache.calendar.UserCalendar.MaxNodes=1000
+	exo.cache.calendar.UserCalendar.TimeToLive=3600
 	exo.cache.calendar.UserCalendar.strategy=LIRS
 	exo.cache.calendar.UserCalendar.cacheMode=asyncInvalidation
 
 	# Calendar Cache Configuration - User Calendar Setting
 	exo.cache.calendar.UserCalendarSetting.MaxNodes=1000
-	exo.cache.calendar.UserCalendarSetting.TimeToLive=86400
+	exo.cache.calendar.UserCalendarSetting.TimeToLive=3600
 	exo.cache.calendar.UserCalendarSetting.strategy=LIRS
 	exo.cache.calendar.UserCalendarSetting.cacheMode=asyncInvalidation
 
 	# Calendar Cache Configuration -Event Categories
-	exo.cache.calendar.EventCategories.MaxNodes=50000
-	exo.cache.calendar.EventCategories.TimeToLive=86400
+	exo.cache.calendar.EventCategories.MaxNodes=1000
+	exo.cache.calendar.EventCategories.TimeToLive=3600
 	exo.cache.calendar.EventCategories.strategy=LIRS
 	exo.cache.calendar.EventCategories.cacheMode=asyncReplication
 
