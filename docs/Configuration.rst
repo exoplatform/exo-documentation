@@ -2883,7 +2883,10 @@ explanation of properties used for eXo Platform caches.
 
 		-  :ref:`Cache management view <Management.ManagementViews.CacheManagementView>`.
 		
-You can have the full list of different caches and their values `here <https://github.com/exodev/platform/blob/develop/extension/config/src/main/resources/conf/platform/configuration.properties#L136>`__		
+The below properties are all the cache configuration properties with 
+their default value.
+
+.. note:: Default values should be changed to better tune eXo Platform.	
 
 .. _PortalCaches:
 
@@ -2914,35 +2917,35 @@ These Portal caches can be overridden in
     exo.cache.portal.mop.TimeToLive=-1
     exo.cache.portal.mop.strategy=LIRS
     # For Cluster mode
-    exo.cache.portal.mop.cacheMode=replication
+    exo.cache.portal.mop.cacheMode=asyncInvalidation
 
     # Portal Cache Configuration - Navigation Service
     exo.cache.portal.navigation.MaxNodes=5000
     exo.cache.portal.navigation.TimeToLive=-1
     exo.cache.portal.navigation.strategy=LIRS
     # For Cluster mode
-    exo.cache.portal.navigation.cacheMode=replication
+    exo.cache.portal.navigation.cacheMode=asyncInvalidation
 
     # Portal Cache Configuration - Description Service
     exo.cache.portal.description.MaxNodes=5000
     exo.cache.portal.description.TimeToLive=-1
     exo.cache.portal.description.strategy=LIRS
     # For Cluster mode
-    exo.cache.portal.description.cacheMode=replication
+    exo.cache.portal.description.cacheMode=asyncReplication
 
     # Portal Cache Configuration - Page Service
     exo.cache.portal.page.MaxNodes=5000
     exo.cache.portal.page.TimeToLive=-1
     exo.cache.portal.page.strategy=LIRS
     # For Cluster mode
-    exo.cache.portal.page.cacheMode=replication
+    exo.cache.portal.page.cacheMode=asyncInvalidation
 
     # Portal Cache Configuration - Template Service
     exo.cache.portal.template.MaxNodes=5000
     exo.cache.portal.template.TimeToLive=-1
     exo.cache.portal.template.strategy=LIRS
     # For Cluster mode
-    exo.cache.portal.template.cacheMode=replication
+    exo.cache.portal.template.cacheMode=asyncInvalidation
 
     # Portal Cache Configuration - ResourceBundleData
     exo.cache.portal.ResourceBundleData.MaxNodes=3000
@@ -3113,7 +3116,7 @@ file.
     exo.cache.commons.SettingService.TimeToLive=360000
     exo.cache.commons.SettingService.strategy=LIRS
     # For cluster mode
-    exo.cache.commons.SettingService=replication
+    exo.cache.commons.SettingService=asyncInvalidation
         
     # Commons Cache Configuration - Web Notification Count
     exo.cache.commons.WebNotificationCountCache.MaxNodes=5000
@@ -3220,13 +3223,13 @@ file:
 	exo.cache.ecms.templateservice.MaxNodes=100
 	exo.cache.ecms.templateservice.TimeToLive=-1
 	exo.cache.ecms.TemplateService.strategy=LIRS
-	exo.cache.ecms.templateservice.cacheMode=asyncInvalidation	
+	exo.cache.ecms.templateservice.cacheMode=asyncReplication	
 	
 	# ECMS Cache Configuration - Initial Webcontent
 	exo.cache.ecms.initialwebcontentplugin.MaxNodes=300
 	exo.cache.ecms.initialwebcontentplugin.TimeToLive=86400
 	exo.cache.ecms.InitialWebContentPlugin.strategy=LIRS
-	exo.cache.ecms.initialwebcontentplugin.cacheMode=replication
+	exo.cache.ecms.initialwebcontentplugin.cacheMode=asyncInvalidation
 	
 	# ECMS Cache Configuration - PDF Viewer Service
 	exo.cache.ecms.PDFViewerService.MaxNodes=1000
@@ -3258,7 +3261,7 @@ file:
 	exo.cache.ecms.javascript.MaxNodes=1000
 	exo.cache.ecms.javascript.TimeToLive=3600
 	exo.cache.ecms.javascript.strategy=LIRS
-	exo.cache.ecms.javascript.cacheMode=replication
+	exo.cache.ecms.javascript.cacheMode=asyncReplication
 
 	# ECMS Cache Configuration - Lock
 	exo.cache.ecms.lockservice.MaxNodes=300
@@ -3455,7 +3458,7 @@ In particular:
 	exo.cache.social.IdentityCache.MaxNodes=5000
 	exo.cache.social.IdentityCache.TimeToLive=86400
 	exo.cache.social.IdentityCache.strategy=LIRS
-	exo.cache.social.IdentityCache.cacheMode=replication
+	exo.cache.social.IdentityCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Identity Index
 	exo.cache.social.IdentityIndexCache.MaxNodes=5000
@@ -3473,7 +3476,7 @@ In particular:
 	exo.cache.social.IdentitiesCache.MaxNodes=5000
 	exo.cache.social.IdentitiesCache.TimeToLive=86400
 	exo.cache.social.IdentitiesCache.strategy=LIRS
-	exo.cache.social.IdentitiesCache.cacheMode=replication
+	exo.cache.social.IdentitiesCache.cacheMode=asyncInvalidation
 
 	# Social Cache Configuration - Identities Count
 	exo.cache.social.IdentitiesCountCache.MaxNodes=5000
@@ -3492,7 +3495,7 @@ In particular:
 	exo.cache.social.RelationshipFromIdentityCache.MaxNodes=10000
 	exo.cache.social.RelationshipFromIdentityCache.TimeToLive=86400
 	exo.cache.social.RelationshipFromIdentityCache.strategy=LIRS
-	exo.cache.social.RelationshipFromIdentityCache.cacheMode=asyncInvalidation
+	exo.cache.social.RelationshipFromIdentityCache.cacheMode=asyncReplication
 
 	# Social Cache Configuration - Relationships Count
 	exo.cache.social.RelationshipsCountCache.MaxNodes=5000
@@ -3705,7 +3708,7 @@ file.
 	exo.cache.forum.ForumPermissionsUsers.MaxNodes=300
 	exo.cache.forum.ForumPermissionsUsers.TimeToLive=-1
 	exo.cache.forum.ForumPermissionsUsers.strategy=LIRS
-	exo.cache.forum.ForumPermissionsUsers.cacheMode=replication
+	exo.cache.forum.ForumPermissionsUsers.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - BBCodeData
 	exo.cache.forum.BBCodeData.MaxNodes=500
@@ -3807,19 +3810,19 @@ file.
 	exo.cache.poll.PollData.MaxNodes=100
 	exo.cache.poll.PollData.TimeToLive=-1
 	exo.cache.poll.PollData.strategy=LIRS
-	exo.cache.poll.PollData.cacheMode=replication
+	exo.cache.poll.PollData.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Poll List
 	exo.cache.poll.PollList.MaxNodes=500
 	exo.cache.poll.PollList.TimeToLive=-1
 	exo.cache.poll.PollList.strategy=LIRS
-	exo.cache.poll.PollList.cacheMode=replication
+	exo.cache.poll.PollList.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Poll Summary Data
 	exo.cache.poll.PollSummaryData.MaxNodes=500
 	exo.cache.poll.PollSummaryData.TimeToLive=-1
 	exo.cache.poll.PollSummaryData.strategy=LIRS
-	exo.cache.poll.PollSummaryData.cacheMode=replication
+	exo.cache.poll.PollSummaryData.cacheMode=asyncInvalidation
 
 	# Forum Cache Configuration - Watch List Data
 	exo.cache.forum.WatchListData.MaxNodes=5000
