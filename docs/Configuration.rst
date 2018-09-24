@@ -3086,10 +3086,11 @@ loaded from cache rather than the database or the file system.
 
 .. _CommonsCaches:
 
-Commons caches
-~~~~~~~~~~~~~~~~
+Notications, settings and user state caches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-eXo Platform provides a list of Common Caches:
+eXo Platform provides a list of Caches for notifications, settings and 
+user state:
 
 -  :ref:`SettingCache <SettingCache>`
 
@@ -3109,7 +3110,7 @@ file.
 
 ::
 
-        #== COMMONS Caches Configuration == #
+    #== Notications, settings and user state Caches Configuration == #
 
     # Commons Cache Configuration - Settings Service
     exo.cache.commons.SettingService.MaxNodes=2000
