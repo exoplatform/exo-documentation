@@ -3105,7 +3105,7 @@ user state:
 -  :ref:`User Setting Service <UserSettingService>`
 
 The *Settings*, *Notifications* and *User State* caches can be 
-overridden in:ref:`exo.properties <Configuration.ConfigurationOverview>` 
+overridden in :ref:`exo.properties <Configuration.ConfigurationOverview>` 
 file.
 
 ::
