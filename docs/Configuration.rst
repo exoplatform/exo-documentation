@@ -2821,6 +2821,300 @@ The logs are configured via the file:
 
 -  ``$PLATFORM_JBOSS_HOME/standalone/configuration/logging.properties``
    (JBoss).
+   
+   
+.. _Configuration.JPA:
+
+=============================
+Hibernate properties for JPA  
+============================= 
+
+Since 4.3 version, eXo Platform uses Java Persistance API (JPA) to 
+manage relational data and Hibernate as a JPA provider.
+In tis section, we will define properties allowing to configure 
+Hibernate in eXo Platform. The following properties should be set in 
+:ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
++------------------+-------------------------------+------------------+
+| Name             | Description                   | Value            |
++==================+===============================+==================+
+| **General        |                               |                  |
+| configuration**  |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The classname of a Hibernate  | A                |
+| e.dialect        | org.hibernate.dialect.Dialect | fully-qualified  |
+|                  |                               | classname for    |
+|                  |                               | example for HSQl |
+|                  |                               | database it is   |
+|                  |                               | org.hibernate.di |
+|                  |                               | alect.HSQLDialec |
+|                  |                               | t                |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Enables/disables log about    | true or false    |
+| e.show_sql       | SQL statements.               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Format log about SQL          | true or false    |
+| e.format_sql     | statements.                   |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The schema name.              | ${gatein.idm.dat |
+| e.default_schema |                               | asource.schema:} |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The catalog name, it          |                  |
+| e.default_catalo | qualifies unqualified table   |                  |
+| g                | names with the given catalog  |                  |
+|                  | in generated SQL.             |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The                           | JNDI name        |
+| e.session_factor | org.hibernate.SessionFactory  |                  |
+| y_name           | is automatically bound to     |                  |
+|                  | this name in JNDI after it is |                  |
+|                  | created.                      |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Sets a maximum depth for the  | A value between  |
+| e.max_fetch_dept | outer join fetch tree for     | 0 and 3          |
+| h                | single-ended associations. A  |                  |
+|                  | single-ended assocation is a  |                  |
+|                  | one-to-one or many-to-one     |                  |
+|                  | assocation. A value of 0      |                  |
+|                  | disables default outer join   |                  |
+|                  | fetching.                     |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Default size for Hibernate    | 4,8 or 16        |
+| e.default_batch_ | batch fetching of             |                  |
+| fetch_size       | associations.                 |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Default mode for entity       | dynamic-map or   |
+| e.default_entity | representation for all        | pojo             |
+| _mode            | sessions opened from this     |                  |
+|                  | SessionFactory, defaults to   |                  |
+|                  | pojo.                         |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Forces Hibernate to order SQL | true or false    |
+| e.order_updates  | updates by the primary key    |                  |
+|                  | value of the items being      |                  |
+|                  | updated. This reduces the     |                  |
+|                  | likelihood of transaction     |                  |
+|                  | deadlocks in                  |                  |
+|                  | highly-concurrent systems.    |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Defines precedence of null    | none, first or   |
+| e.order_by.defau | values in ORDER BY clause.    | last             |
+| lt_null_ordering | Defaults to none which varies |                  |
+|                  | between RDBMS implementation. |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Causes Hibernate to collect   | true or false    |
+| e.generate_stati | statistics for performance    |                  |
+| stics            | tuning                        |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | if true, generated identifier | true or false    |
+| e.use_identifier | properties are reset to       |                  |
+| _rollback        | default values when objects   |                  |
+|                  | are deleted.                  |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | If true, Hibernate generates  | true or false    |
+| e.use_sql_commen | comments inside the SQL, for  |                  |
+| ts               | easier debugging.             |                  |
++------------------+-------------------------------+------------------+
+| **Database       |                               |                  |
+| configuration:   |                               |                  |
+| JDBC**           |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | A non-zero value determines   | An integer or 0  |
+| e.jdbc.fetch_siz | the JDBC fetch size, by       |                  |
+| e                | calling                       |                  |
+|                  | Statement.setFetchSize().     |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | A non-zero value causes       | A value between  |
+| e.jdbc.batch_siz | Hibernate to use JDBC2 batch  | 5 and 30         |
+| e                | updates.                      |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Set this property to true if  | true or false    |
+| e.jdbc.batch_ver | your JDBC driver returns      |                  |
+| sioned_data      | correct row counts from       |                  |
+|                  | executeBatch(). This option   |                  |
+|                  | is usually safe, but is       |                  |
+|                  | disabled by default. If       |                  |
+|                  | enabled, Hibernate uses       |                  |
+|                  | batched DML for automatically |                  |
+|                  | versioned data.               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Select a custom               | The              |
+| e.jdbc.factory_c | org.hibernate.jdbc.Batcher.   | fully-qualified  |
+| lass             | Irrelevant for most           | class name of    |
+|                  | applications.                 | the factory      |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Enables Hibernate to use      | true or false    |
+| e.jdbc.use_scrol | JDBC2 scrollable resultsets.  |                  |
+| lable_resultset  | This property is only         |                  |
+|                  | relevant for user-supplied    |                  |
+|                  | JDBC connections. Otherwise,  |                  |
+|                  | Hibernate uses connection     |                  |
+|                  | metadata.                     |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Use streams when writing or   | true or false    |
+| e.jdbc.use_strea | reading binary or             |                  |
+| ms_for_binary    | serializable types to or from |                  |
+|                  | JDBC. This is a system-level  |                  |
+|                  | property.                     |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Allows Hibernate to use JDBC3 | true or false    |
+| e.jdbc.use_get_g | PreparedStatement.getGenerate |                  |
+| enerated_keys    | dKeys()                       |                  |
+|                  | to retrieve                   |                  |
+|                  | natively-generated keys after |                  |
+|                  | insert. You need the JDBC3+   |                  |
+|                  | driver and JRE1.4+. Disable   |                  |
+|                  | this property if your driver  |                  |
+|                  | has problems with the         |                  |
+|                  | Hibernate identifier          |                  |
+|                  | generators. By default, it    |                  |
+|                  | tries to detect the driver    |                  |
+|                  | capabilities from connection  |                  |
+|                  | metadata.                     |                  |
++------------------+-------------------------------+------------------+
+| **Database       |                               |                  |
+| configuration:   |                               |                  |
+| Cache            |                               |                  |
+| properties**     |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The classname of a custom     | org.hibernate.ca |
+| e.cache.provider | CacheProvider.                | che.HashtableCac |
+| _class           |                               | heProvider       |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Optimizes second-level cache  | true or false    |
+| e.cache.use_mini | operation to minimize writes, |                  |
+| mal_puts         | at the cost of more frequent  |                  |
+|                  | reads. This is most useful    |                  |
+|                  | for clustered caches and is   |                  |
+|                  | enabled by default for        |                  |
+|                  | clustered cache               |                  |
+|                  | implementations.              |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Enables the query cache. You  | true or false    |
+| e.cache.use_quer | still need to set individual  |                  |
+| y_cache          | queries to be cachable.       |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Completely disable the second | true or false    |
+| e.cache.use_seco | level cache, which is enabled |                  |
+| nd_level_cache   | by default for classes which  |                  |
+|                  | specify a cache mapping.      |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | A custom QueryCache           | Fully-qualified  |
+| e.cache.query_ca | interface. The default is the | classname        |
+| che_factory      | built-in StandardQueryCache.  |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | A prefix for second-level     | a string         |
+| e.cache.region_p | cache region names.           |                  |
+| refix            |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Forces Hibernate to store     | true or false    |
+| e.cache.use_stru | data in the second-level      |                  |
+| ctured_entries   | cache in a more               |                  |
+|                  | human-readable format.        |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Optimizes second-level cache  | true or false    |
+| e.cache.use_refe | operation to store immutable  |                  |
+| rence_entries    | entities (aka "reference")    |                  |
+|                  | which do not have             |                  |
+|                  | associations into cache       |                  |
+|                  | directly, this case, lots of  |                  |
+|                  | disassemble and deep copy     |                  |
+|                  | operations could be avoided.  |                  |
+|                  | Default value of this         |                  |
+|                  | property is false.            |                  |
++------------------+-------------------------------+------------------+
+| **Database       |                               |                  |
+| configuration:   |                               |                  |
+| Transactions     |                               |                  |
+| properties**     |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The classname of a            | org.hibernate.tr |
+| e.transaction.fa | TransactionFactory to use     | ansaction.JTATra |
+| ctory_class      | with Hibernate Transaction    | nsactionFactory  |
+|                  | API. The default is           |                  |
+|                  | JDBCTransactionFactory.       |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The JTATransactionFactory     | a JNDI name      |
+| e.jta.UserTransa | needs a JNDI name to obtain   |                  |
+| ction            | the JTA UserTransaction from  |                  |
+|                  | the application server.       |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | The classname of a            | org.hibernate.tr |
+| e.transaction.ma | TransactionManagerLookup,     | ansaction.JBossT |
+| nager_lookup_cla | which is used in conjunction  | ransactionManage |
+| ss               | with JVM-level or the hilo    | rLookup          |
+|                  | generator in a JTA            |                  |
+|                  | environment.                  |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Causes the session be flushed | true or false    |
+| e.transaction.fl | during the before completion  |                  |
+| ush_before_compl | phase of the transaction. If  |                  |
+| etion            | possible, use built-in and    |                  |
+|                  | automatic session context     |                  |
+|                  | management instead.           |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Causes the session to be      | true or false    |
+| e.transaction.au | closed during the after       |                  |
+| to_close_session | completion phase of the       |                  |
+|                  | transaction. If possible, use |                  |
+|                  | built-in and automatic        |                  |
+|                  | session context management    |                  |
+|                  | instead.                      |                  |
++------------------+-------------------------------+------------------+
+| **Database       |                               |                  |
+| configuration:   |                               |                  |
+| Miscellaneous    |                               |                  |
+| properties**     |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.current_ | Supply a custom strategy for  | jta, thread,     |
+| session_context_ | the scoping of the Current    | managed, or      |
+| class            | Session.                      | custom.Class     |
++------------------+-------------------------------+------------------+
+| exo.jpa.factory_ | Chooses the HQL parser        | org.hibernate.hq |
+| class            | implementation.               | l.internal.ast.A |
+|                  |                               | STQueryTranslato |
+|                  |                               | rFactory         |
+|                  |                               | or               |
+|                  |                               | org.hibernate.hq |
+|                  |                               | l.internal.class |
+|                  |                               | ic.ClassicQueryT |
+|                  |                               | ranslatorFactory |
++------------------+-------------------------------+------------------+
+| exo.jpa.query.su | Map from tokens in Hibernate  | hqlLiteral=SQL_L |
+| bstitutions      | queries to SQL tokens, such   | ITERAL           |
+|                  | as function or literal names. | or               |
+|                  |                               | hqlFunction=SQLF |
+|                  |                               | UNC              |
++------------------+-------------------------------+------------------+
+| exo.jpa.hbm2ddl. | Validates or exports schema   | validate,        |
+| auto             | DDL to the database when the  | update, create,  |
+|                  | SessionFactory is created.    | create-drop      |
+|                  | With create-drop, the         |                  |
+|                  | database schema is dropped    |                  |
+|                  | when the SessionFactory is    |                  |
+|                  | closed explicitly.            |                  |
++------------------+-------------------------------+------------------+
+| **Connection     |                               |                  |
+| pool             |                               |                  |
+| properties**     |                               |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Configure Proxool provider    |                  |
+| e.proxool.xml    | using an XML file (.xml is    |                  |
+|                  | appended automatically)       |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Configure the Proxool         |                  |
+| e.proxool.proper | provider using a properties   |                  |
+| ties             | file (.properties is appended |                  |
+|                  | automatically)                |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Whether to configure the      |                  |
+| e.proxool.existi | Proxool provider from an      |                  |
+| ng_pool          | existing pool.                |                  |
++------------------+-------------------------------+------------------+
+| exo.jpa.hibernat | Proxool pool alias to use.    |                  |
+| e.proxool.pool_a | Required.                     |                  |
+| lias             |                               |                  |
++------------------+-------------------------------+------------------+
 
 .. _Configuration.JCR:
 
