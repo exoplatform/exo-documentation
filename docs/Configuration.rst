@@ -2560,6 +2560,10 @@ needed for which services.
 Limiting size of uploaded files
 ===============================
 
+Files can be uploaded in multiple applications such as Documents, Wiki, 
+Forum, ... The maximum allowed size for the uploaded files can be 
+changed by  configuration for each application. 
+
 **In Documents application**
 
 When you upload a file in Documents or Sites Explorer, its size is
@@ -2605,8 +2609,28 @@ For example:
 ::
 
     exo.wiki.attachment.uploadLimit=200
+    
+**In Forum application**    
 
-.. note:: The size is in MB for all the three properties.
+In forum application, you can upload files as attachements in topics or 
+import a  whole forum to eXo Platform forum application. 
+
+Both sizes could be defined through these properties:
+
+-  File size in topic:
+
+::
+
+	exo.forum.attachment.upload.limit=10
+
+-  Forum import size:
+
+::
+
+	exo.forum.import.upload.limit=200
+
+
+.. note:: The size is in MB for all the above properties.
 
 .. warning:: If you are using eXo Platform in JBoss application server, note that in
 			 addition to the parameters described above aiming to customize files
@@ -2617,6 +2641,15 @@ For example:
 			 .. code:: xml
 
 					<http-listener name="default" socket-binding="http" redirect-socket="https" max-post-size="209715200"/>
+
+.. tip:: For any others file upload location, the maximum file size is defined by the property ``exo.uploadLimit``.
+		 
+			 .. code::xml
+			 
+					exo.uploadLimit=10
+				
+		 Default value set to 10 Mb.
+		 		
 
 .. _Configuration.UploadHandler:
 
