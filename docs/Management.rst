@@ -268,7 +268,7 @@ CacheService
 +======================+=====================================================+
 | ``Name``             | The name of the cache.                              |
 +----------------------+-----------------------------------------------------+
-| ``Capacity``         | The maximum capacity of the cache.                  |
+| ``MaxNodes``         | The maximum capacity (nodes) of the cache.          |
 +----------------------+-----------------------------------------------------+
 | ``HitCount``         | The total number of times the cache was             |
 |                      | successfully queried.                               |
