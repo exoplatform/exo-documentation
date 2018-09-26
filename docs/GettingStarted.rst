@@ -617,7 +617,7 @@ and what you should do first via the following links:
 
 -  :ref:`Join a space <Join-space>`
 
--  :ref:`Post anactivity <Share-AS>`
+-  :ref:`Post an activity <Share-AS>`
 
 -  :ref:`Upload a document <Uploading-files>`
 
