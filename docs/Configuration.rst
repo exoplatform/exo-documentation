@@ -2744,20 +2744,20 @@ To disable the activity type, simply set the parameter to ``false``.
 		  
 ``activity-type-key`` could take these values:
 
-			-  **DEFAULT_ACTIVITY**: For Activities posted by a user,  
+			-  **DEFAULT_ACTIVITY**: Activity posted by a user,  
 			   without documents or link attached.
-			-  **SPACE_ACTIVITY**: For activities about a space creation. 
-			   It contains the space's description and the number of 
-			   members.
-			-  **USER\_ACTIVITIES\_FOR\_SPACE**: An activity is posted when 
-			   a user creates an activity in a space.
+			-  **SPACE_ACTIVITY**: Activity posted when a space is  
+			   created. It contains the space's description and the 
+			   number of members.
+			-  **USER\_ACTIVITIES\_FOR\_SPACE**: Activity  posted when a 
+			   user creates an activity in a space.
 			-  **LINK\_ACTIVITY**: Activity with a link attachement.
-			-  sharecontents:spaces: An activity for contents sharing
+			-  **sharecontents:spaces**: Activity for contents sharing
 			   in a space.
 			-  **USER\_PROFILE\_ACTIVITY**: Activity automatically posted 
 			   the first time a user updates his/her profile.
 			-  **DOC\_ACTIVITY**: Activity with document posted via the 
-			   **Share feature** of the mobile application.
+			   *Share feature* of the mobile application.
 			-  **files:spaces**: Activity with documents attached.
 			-  **sharefiles:spaces**: Activity automatically posted when a 
 			   document is shared in a space.
