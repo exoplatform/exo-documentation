@@ -2739,27 +2739,58 @@ type `` activity-type-key`` is enabled i.e it posts in the streams.
 To disable the activity type, simply set the parameter to ``false``.
 
 .. note:: In the ``exo.activity-type.activity-type-key.enabled``,
-		  activity-type-key could take many values depending on the activity
-		  type:
+		  activity-type-key could take many values depending on the activity type.
+		  Learn more about different activity types below.
+		  
+``activity-type-key`` could take these values:
 
-			-  DEFAULT\_ACTIVITY
-			-  SPACE\_ACTIVITY
-			-  USER\_ACTIVITIES\_FOR\_SPACE
-			-  exosocial\\:relationship
-			-  LINK\_ACTIVITY
-			-  sharecontents\\:spaces
-			-  USER\_PROFILE\_ACTIVITY
-			-  DOC\_ACTIVITY
-			-  files\\:spaces
-			-  sharefiles\\:spaces
-			-  contents\\:spaces
-			-  cs-calendar\\:spaces
-			-  TaskAdded
-			-  ks-forum\\:spaces
-			-  ks-answer\\:spaces
-			-  ks-poll\\:spaces
-			-  ks-wiki\\:spaces
-			-  USER\_ACTIVITIES\_FOR\_RELATIONSHIP
+			-  **DEFAULT_ACTIVITY**: Activity posted by a user,  
+			   without documents or link attached.
+			-  **SPACE_ACTIVITY**: Activity posted when a space is  
+			   created. It contains the space's description and the 
+			   number of members.
+			-  **USER\_ACTIVITIES\_FOR\_SPACE**: Activity  posted when a 
+			   user creates an activity in a space.
+			-  **LINK\_ACTIVITY**: Activity with a link attachement.
+			-  **sharecontents:spaces**: Activity for contents sharing
+			   in a space.
+			-  **USER\_PROFILE\_ACTIVITY**: Activity automatically posted 
+			   the first time a user updates his/her profile.
+			-  **DOC\_ACTIVITY**: Activity with document posted via the 
+			   *Share feature* of the mobile application.
+			-  **files:spaces**: Activity with documents attached.
+			-  **sharefiles:spaces**: Activity automatically posted when a 
+			   document is shared in a space.
+			-  **contents:spaces**: Activity automatically posted when a 
+			   content is created.
+			-  **cs-calendar:spaces**: Activity automatically posted when a 
+			   new event is created.
+			-  **ks-forum:spaces**: Activity automatically posted when a new 
+			   forum topic or post is created.
+			-  **ks-answer:spaces**: Activity automatically posted when a 
+			   new question or answer is created.
+			-  **ks-poll:spaces**: Activity automatically posted when a new 
+			   poll is created.
+			-  **ks-wiki:spaces**: Activity automatically posted when a new 
+			   wiki page is created in a space wiki.
+			-  **USER\_ACTIVITIES\_FOR\_RELATIONSHIP**: Activity 
+			   automatically posted the first time a user is getting 
+			   connected to another one, containing the number of 
+			   relations.
+			-  **CALENDAR\_ACTIVITY**: Comment posted when an event is 
+			   updated
+			-  **exosocial:people**: Comment posted when a user updates 
+			   his/her profile.
+			-  **exosocial:spaces**: Comment posted when a member 
+			   joins/leaves a space.
+			-  **poll:spaces**: Comment posted when a poll is updated.
+			-  **USER\_COMMENTS\_ACTIVITY\_FOR\_RELATIONSHIP**: Comment 
+			   automatically posted when two users are getting connected.
+			-  **sharecontents:spaces**: Activity automatically posted when 
+			   a content is shared in a space.  
+			-  **exosocial:relationship**: Activity post when two user are
+			   connected together.
+			    
 
 .. _SpacesAdministration:
 
