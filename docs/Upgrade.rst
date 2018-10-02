@@ -20,7 +20,7 @@ Upgrade
     **Upgrade Service**.
 
     This chapter outlines requirements before the upgrade and helps you
-    get familiar with the upgrade process between versions of eXo Platform 4
+    get familiar with the upgrade process between versions of eXo Platform 5
     via the following topics:
 
     -  :ref:`Breaking Changes <Upgrade.BreakingChanges>`
@@ -50,102 +50,18 @@ Breaking Changes
 In this section, we will present all the breaking changes you should
 know before starting the upgrade to 5.1 version.
 
-**Tomcat upgrade**
-
-eXo Platform 5.1 requires the version 8.5.24+ of Tomcat application
-server. It is the supported version starting from 5.1, older
-versions are no more compatible.
-
-The major impact coming with the Tomcat upgrade is that the wars are by
-default unpacked: ``unpackWARs="true"``.
-
-Setting the parameter ``unpackWARs`` to false will significally slower
-the server's startup time so it is highly recommended to keep the
-default configuration.
-
-You can find `here <https://tomcat.apache.org/migration-8.html>`__ the
-main changes between tomcat 7 and tomcat 8.0 and
-`here <https://tomcat.apache.org/migration-85.html>`__ the changes
-between 8.0 and 8.5.
 
 **JBoss EAP upgrade**
 
-JBoss EAP 7.1 version is used in eXo Platform 5.1, older versions
-are no more compatible.
+JBoss EAP 7.1 version is used in eXo Platform 5.1.
 
-The main change coming with this version is that JBoss web (based on
-Tomcat) was replaced by Undertow which leads to the replacement of valve
-by Undertow handlers.
+The main change coming with this version is that it uses new security 
+framework WildFly Elytron and it provides support for HTTP/2.
 
 You can find
 `here <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html-single/migration_guide/index>`__,
 a full documentation about the upgrade to JBoss EAP 7.1.
 
-**JQuery upgrade**
-
-In eXo Platform 5.1 JQuery version was upgraded to 3.2.1 version
-instead of 1.9 in eXo Platform 4.4.
-
-If your platform contains applications or extensions relying on JQuery,
-they should be updated with the newer version.
-
-It is possible to keep using the older version but you need to configure
-it according to this
-:ref:`tuotorial <#PLFDevGuide.Site.Features.JavaScript.UsingCustomjQueryVersion>`.
-
-You can find `here <https://jquery.com/upgrade-guide/3.0/>`__ a complete
-guide to upgrade to JQuery 3. You can also use the `plugin
-tool <https://jquery.com/upgrade-guide/3.0/#jquery-migrate-plugin>`__.
-
-**Elasticsearch upgrade**
-
-eXo Platform 5.1 requires Elasticsearch 5.6.3 version.
-
-The major impact on eXo Platform is that data should be reindexed as indices
-created by Elasticsearch 2.3 are not compatible with those of
-Elasticsearch 5.6.
-
-.. tip:: During the first startup of eXo Platform 5.1 version, the
-		 reindexing is launched automatically. You can find required
-		 configuration while upgrading to 5.1 from previous version
-		 in next sections of this upgrade chapter.
-
-You can find
-`here <https://www.elastic.co/guide/en/elasticsearch/reference/2.4/breaking-changes.html>`__
-the breaking changes in 2.4 version and
-`here <https://www.elastic.co/guide/en/elasticsearch/reference/5.6/breaking-changes.html>`__
-the breaking changes in 5.6 version.
-
-**Infinispan upgrade**
-
-Infinispan was upgraded to 8.2.6 version in eXo Platform 5.1. No
-major impacts are visible on the platform which means that the upgrade
-is transparent.
-
-In case you have customized cache configuration templates, you should
-update the templates as they are no more compatible with the newer
-version.
-
-**Shindig upgrade**
-
-Shindig is the tool allowing you to develop Gadgets and host OpenSocial
-applications. eXo Platform 5.1 is using the version 2.5.1.
-
-This newer version does not support OpenSocial 0.8 and below so if you
-have gadgets or applications requiring OpenSocial 0.8 version or below,
-You should update them.
-
-For example, if you have a gadget containing:
-
-::
-
-    <Require feature="opensocial-0.8"/>
-
-You should update it to:
-
-::
-
-    <Require feature="opensocial-2.5"/>
 
 **Templates changes**
 
@@ -162,291 +78,115 @@ Changed Templates
 
 This is the list of templates changed in eXo Platform 5.1.
 
-**GATEIN-PORTAL**
-
--  web/eXoResources/src/main/webapp/groovy/portal/webui/page/UIPageBody.gtmpl
-
--  web/eXoResources/src/main/webapp/groovy/portal/webui/portal/UIPortalComposer.gtmpl
-
--  web/eXoResources/src/main/webapp/groovy/webui/organization/account/UIUserGroupSelector.gtmpl
-
--  web/eXoResources/src/main/webapp/groovy/webui/organization/account/UIUserSelector.gtmpl
-
--  web/portal/src/main/webapp/groovy/portal/webui/workspace/UIPortalApplication.gtmpl
-
 **SOCIAL**
 
--  extension/notification/src/main/webapp/WEB-INF/intranet-notification/templates/ActivityReplyToCommentPlugin.gtmpl
+-  ``extension/notification/src/main/webapp/WEB-INF/intranet-notification/templates/PostActivitySpaceStreamPlugin.gtmpl``
 
--  extension/notification/src/main/webapp/WEB-INF/intranet-notification/templates/LikeCommentPlugin.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/activity/UIDefaultActivity.gtmpl``
 
--  extension/notification/src/main/webapp/WEB-INF/notification/templates/ActivityReplyToCommentPlugin.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/activity/UISpaceActivity.gtmpl``
 
--  extension/notification/src/main/webapp/WEB-INF/notification/templates/LikeCommentPlugin.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/activity/UIUserActivitiesForRelationShip.gtmpl``
 
--  extension/notification/src/main/webapp/WEB-INF/notification/templates/LikePlugin.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/activity/UIUserActivitiesForSpace.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/UIActivitiesContainer.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/activity/UIUserProfileActivity.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/UIApplicationCategorySelector.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/activity/plugin/UIRelationshipActivity.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/UIBannerAvatarUploader.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/connections/UIAllPeople.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/UIBannerUploader.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/connections/UIInvitations.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UIActivityCommentActions.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/connections/UIMyConnections.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UIDefaultActivity.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/connections/UIPendingRelation.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UISpaceActivity.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/profile/UIDisplayProfileList.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UIStatusActivity.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/space/UISpaceMember.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UIUserActivitiesForRelationShip.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/space/UISpaceMenu.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UIUserActivitiesForSpace.gtmpl
+-  ``extension/war/src/main/webapp/groovy/social/webui/space/UISpacePermission.gtmpl``
 
--  extension/war/src/main/webapp/groovy/social/webui/activity/UIUserProfileActivity.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/activity/plugin/UIRelationshipActivity.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/composer/UIComposer.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/profile/UIProfile.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/profile/UIRecentActivity.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/profile/UIUserActivitiesDisplay.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UIManageAllSpaces.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UIManageInvitationSpaces.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UIManageMySpaces.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UIManagePendingSpaces.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UISpaceAccess.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UISpaceActivitiesDisplay.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UISpaceInfo.gtmpl
-
--  extension/war/src/main/webapp/groovy/social/webui/space/UISpaceMenu.gtmpl
-
--  webapp/juzu-portlet/src/main/java/org/exoplatform/social/portlet/userNotification/templates/index.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIAllPeoplePortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIAllSpacesPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIConnectionsPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIInvitationSpacesPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIInvitationsPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIMembersPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIMySpacesPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIPendingSpacesPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIPeoplePortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIRequestsPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UISpaceAccessPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/UIUserActivityStreamPortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/user/UIBasicProfilePortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/user/UIExperienceProfilePortlet.gtmpl
-
--  webapp/portlet/src/main/webapp/groovy/social/portlet/user/UIStatusProfilePortlet.gtmpl
+-  ``webapp/portlet/src/main/webapp/groovy/social/portlet/UIMembersPortlet.gtmpl``
 
 **ECMS**
 
--  apps/portlet-administration/src/main/webapp/groovy/webui/component/admin/UIECMAdminPortlet.gtmpl
-
--  apps/portlet-administration/src/main/webapp/groovy/webui/component/admin/drives/UINodeTypeSelector.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/UIDocumentFormController.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/UIDocumentTabPane.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/UIDrivesArea.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/UIWorkingArea.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/control/UIActionBar.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/control/UIAddressBar.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/popup/info/UINodeTypeInfo.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/sidebar/UITreeExplorer.gtmpl
-
--  apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/versions/UIVersionInfo.gtmpl
-
--  core/viewer/src/main/resources/resources/templates/HTML5VideoViewer.gtmpl
-
--  core/viewer/src/main/resources/resources/templates/PDFJSViewer.gtmpl
-
--  packaging/wcm/webapp/src/main/webapp/WEB-INF/conf/dms-extension/dms/artifacts/views/templates/ecm-explorer/TreeList.gtmpl
-
--  packaging/wcm/webapp/src/main/webapp/groovy/SingleContentViewer/UIPresentationContainer.gtmpl
-
--  packaging/wcm/webapp/src/main/webapp/groovy/portal/webui/workspace/UIPortalApplication.gtmpl
-
-**WIKI**
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/UIWikiBreadCrumb.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/UIWikiDeletePageConfirm.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/UIWikiMiddleArea.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/UIWikiPageContainer.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/UIWikiPageContentArea.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/pageinfo/UIPageInfoHierarchy.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/pageinfo/UIPageInfoSummary.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/popup/UIWikiSettingContainer.gtmpl
-
--  wiki-webapp/src/main/webapp/templates/wiki/webui/tree/UITreeExplorer.gtmpl
-
-**FORUM**
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UICategories.gtmpl
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UICategory.gtmpl
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UICategoryInfo.gtmpl
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UIForumModerator.gtmpl
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UIPostRules.gtmpl
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UITopicDetail.gtmpl
-
--  forum/webapp/src/main/webapp/templates/forum/webui/UITopicPoll.gtmpl
+-  ``apps/portlet-explorer/src/main/webapp/groovy/webui/component/explorer/control/UIActionBar.gtmpl``
 
 **CALENDAR**
 
--  calendar-component-create/src/main/resources/groovy/webui/create/UICreateEvent.gtmpl
+-  ``calendar-webapp/src/main/webapp/templates/calendar/webui/UIPopup/UIGroupCalendarTab.gtmpl``
 
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UICalendarViewContainer.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UICalendarWorkingContainer.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UICalendars.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIDayView.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIEventPreview.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIListContainer.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIListEvent.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIListView.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIMonthView.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UITaskPreview.gtmpl
-
--  calendar-webapp/src/main/webapp/templates/calendar/webui/UIWeekView.gtmpl
+-  ``calendar-webapp/src/main/webapp/templates/calendar/webui/UIPopup/UIRemoteCalendar.gtmpl``
 
 **INTEGRATION**
 
--  integ-calendar/integ-calendar-social/src/main/resources/groovy/cs/social-integration/plugin/space/CalendarUIActivity.gtmpl
+-  ``integ-calendar/integ-calendar-social/src/main/resources/groovy/cs/social-integration/plugin/space/CalendarUIActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/UIPreviewCommentArea.gtmpl
+-  ``integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/UISharedContent.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/UISharedContent.gtmpl
+-  ``integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/UISharedFile.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/UISharedFile.gtmpl
+-  ``integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/link/UILinkActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/link/UILinkActivity.gtmpl
+-  ``integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/space/ContentUIActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/link/UILinkActivityComposer.gtmpl
+-  ``integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/space/FileUIActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/notification/FileActivity.gtmpl
+-  ``integ-forum/integ-forum-social/src/main/resources/groovy/forum/social-integration/plugin/space/ForumUIActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/space/ContentUIActivity.gtmpl
+-  ``integ-forum/integ-forum-social/src/main/resources/groovy/forum/social-integration/plugin/space/PollUIActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/plugin/space/FileUIActivity.gtmpl
+-  ``integ-social/integ-social-ecms/src/main/resources/groovy/social/plugin/doc/UIDocActivity.gtmpl``
 
--  integ-ecms/integ-ecms-social/src/main/resources/groovy/ecm/social-integration/share-document/UIShareDocuments.gtmpl
-
--  integ-forum/integ-forum-social/src/main/resources/groovy/forum/social-integration/plugin/space/ForumUIActivity.gtmpl
-
--  integ-forum/integ-forum-social/src/main/resources/groovy/forum/social-integration/plugin/space/PollUIActivity.gtmpl
-
--  integ-search-portlet/src/main/java/org/exoplatform/commons/quicksearch/templates/index.gtmpl
-
--  integ-social/integ-social-ecms/src/main/resources/groovy/social/plugin/doc/UIDocActivity.gtmpl
-
--  integ-social/integ-social-ecms/src/main/resources/groovy/social/plugin/doc/UIDocActivityComposer.gtmpl
-
--  integ-social/integ-social-ecms/src/main/resources/groovy/social/plugin/doc/UIDocActivityPopup.gtmpl
-
--  integ-social/integ-social-ecms/src/main/resources/groovy/social/plugin/doc/selector/UIDocumentSelector.gtmpl
-
--  integ-social/integ-social-ecms/src/main/resources/groovy/social/plugin/doc/selector/UIMultiUploadSelectorInput.gtmpl
-
--  integ-wiki/integ-wiki-social/src/main/resources/groovy/wiki/social-integration/plugin/space/WikiUIActivity.gtmpl
+-  ``integ-wiki/integ-wiki-social/src/main/resources/groovy/wiki/social-integration/plugin/space/WikiUIActivity.gtmpl``
 
 **PLATFORM**
 
--  extension/portlets/homepagePortlets/src/main/java/org/exoplatform/platform/portlet/juzu/calendar/templates/calendar.gtmpl
+-  ``extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UINotificationPopoverToolbarPortlet/UINotificationPopoverToolbarPortlet.gtmpl``
 
--  extension/portlets/homepagePortlets/src/main/java/org/exoplatform/platform/portlet/juzu/whoisonline/templates/index.gtmpl
-
--  extension/portlets/homepagePortlets/src/main/java/org/exoplatform/platform/portlet/juzu/whoisonline/templates/users.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIBreadCrumbsNavigationPortlet/UIBreadCrumbsNavigationPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UICompanyNavigationPortlet/UICompanyNavigationPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UICreatePlatformToolBarPortlet/UICreatePlatformToolBarPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIGroupsNavigationPortlet/UIGroupsNavigationPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UINotificationPopoverToolbarPortlet/UINotificationPopoverToolbarPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UISearchPlatformToolBarPortlet/UISearchPlatformToolBarPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UISpaceNavigationPortlet/UISpaceNavigationPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIUserNavigationPortlet/UIUserNavigationPortlet.gtmpl
-
--  extension/portlets/platformNavigation/src/main/webapp/groovy/platformNavigation/portlet/UIUserPlatformToolBarPortlet/UIUserPlatformToolBarPortlet.gtmpl
-
--  extension/webapp/src/main/webapp/groovy/portal/webui/container/UIHomeLinkContainer.gtmpl
-
--  extension/webapp/src/main/webapp/groovy/portal/webui/container/UITableColumnContainer.gtmpl
-
--  extension/webapp/src/main/webapp/groovy/portal/webui/workspace/UIPortalApplication.gtmpl
-
--  samples/acme-intranet/webapp/src/main/webapp/WEB-INF/conf/office-extension/wcm/nodetype-templates/announcement/views/view1.gtmpl
+-  ``extension/webapp/src/main/webapp/groovy/portal/webui/workspace/UIPortalApplication.gtmpl``
 
 **ANSWERS**
 
--  integration/src/main/resources/groovy/forum/social-integration/plugin/space/AnswerUIActivity.gtmpl
+-  ``integration/src/main/resources/groovy/forum/social-integration/plugin/space/AnswerUIActivity.gtmpl``
 
-**WCM-TEMPLATE-PACK**
+**CHAT-APPLICATION**
 
--  wai-template/src/main/webapp/WEB-INF/conf/sample-portal/wcm/artifacts/nodetype-templates/siteBreadcrumbWebContent/views/view1.gtmpl
+-  ``application/src/main/java/org/exoplatform/chat/portlet/chat/templates/index.gtmpl``
 
--  wai-template/src/main/webapp/WEB-INF/conf/sample-portal/wcm/artifacts/nodetype-templates/siteNavigationWebContent/views/view1.gtmpl
+-  ``application/src/main/java/org/exoplatform/chat/portlet/notification/templates/index.gtmpl``
 
--  wai-template/src/main/webapp/WEB-INF/conf/sample-portal/wcm/artifacts/nodetype-templates/siteSearchBoxWebContent/views/view1.gtmpl
+-  ``application/src/main/java/org/exoplatform/chat/portlet/statistics/templates/index.gtmpl``
+
+**TASK**
+
+-  ``integration/src/main/resources/groovy/TaskMenuItem.gtmpl``
+
+-  ``integration/src/main/resources/groovy/TaskPopup.gtmpl``
+
+-  ``task-management/src/main/java/org/exoplatform/task/management/templates/confirmCloneTask.gtmpl``
+
+-  ``task-management/src/main/java/org/exoplatform/task/management/templates/detail.gtmpl``
+
+-  ``task-management/src/main/java/org/exoplatform/task/management/templates/index.gtmpl``
+
+-  ``task-management/src/main/java/org/exoplatform/task/management/templates/taskListView.gtmpl``
+
+-  ``task-management/src/main/webapp/WEB-INF/notification/templates/push/TaskAssignPlugin.gtmpl``
+
+-  ``task-management/src/main/webapp/WEB-INF/notification/templates/push/TaskCommentPlugin.gtmpl``
+
+-  ``task-management/src/main/webapp/WEB-INF/notification/templates/push/TaskCompletedPlugin.gtmpl``
+
+-  ``task-management/src/main/webapp/WEB-INF/notification/templates/push/TaskCoworkerPlugin.gtmpl``
+
+-  ``task-management/src/main/webapp/WEB-INF/notification/templates/push/TaskDueDatePlugin.gtmpl``
+
+-  ``task-management/src/main/webapp/WEB-INF/notification/templates/push/TaskMentionPlugin.gtmpl``
 
 .. _Upgrade.Prerequisites:
 
@@ -457,7 +197,7 @@ Prerequisites
 Before the upgrade, you need to:
 
 -  Back up data, as described in :ref:`Backup and Restore <Backup>`, 
-   before upgrading. In case anything turns badly, your data is safe and *
+   before upgrading. In case anything turns badly, your data is safe and 
    you can start over.
 
 -  Back up customizations (including configuration, deployed extensions
@@ -465,10 +205,11 @@ Before the upgrade, you need to:
 
 -  Download eXo Platform 5.1 version.
 
--  eXo Platform 5.1 requires :ref:`Elasticsearch 5.6 <Elasticsearch.ES_External>`
-   , so you must upgrade your Elasticsearch cluster to this version. 
-   Please refer to the `Elasticsearch documentation <https://www.elastic.co/guide/en/elasticsearch/reference/5.6/setup-upgrade.html>`__
-   to perform this upgrade.
+-  The configuration properties for caches have been changed for eXo 
+   Platform 5.1 in order to harmonize them and use the same name in 
+   standalone and cluster modes. You should then update cache properties
+   in the new server. Please refer to this :ref:`documentation <Configuration.CacheConfiguration>`
+   for get the list of cache names.
 
 -  Perform one or more dry-run upgrade(s) to find out potential problems
    and estimate the upgrade time.
@@ -480,8 +221,8 @@ Before the upgrade, you need to:
 			-  Find out if you need to adjust anything to make your upgrade faster and more efficient.
 
 
-.. tip:: With eXo Platform 5.1 version, Tomcat was upgraded to 8.5.24 version and JBoss EAP to 7.1 version to benefit from their last updates and improvements.
-		 You can check changelogs `for tomcat <https://tomcat.apache.org/tomcat-8.5-doc/changelog.html>`__ and `for JBOSS <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/7.1.0_release_notes/index>`__.
+.. tip:: JBoss EAP was upgraded to 7.1 version to benefit from its last updates and improvements.
+		 You can check changelogs `for JBOSS <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/7.1.0_release_notes/index>`__.
 
 
 .. _Upgrade.Process:
@@ -498,11 +239,12 @@ Upgrade process
 The upgrade procedure is only guaranteed and tested to be transparent
 from the previous maintenance version (x.y.z from x.y.z-1). So, we
 recommend to apply upgrade procedures for all versions between your
-current one and the target one. In this case it is from 4.4 to
-5.1. If you are on 4.4.2 version, you should move into the
-4.4.3 then to 4.4.4 and then move to 5.1 version. However, if
-you still insist on skipping versions, we strongly advise to read all
-upgrade notes of the versions you are skipping to see if your project is
+current one and the target one. In this case it is from the latest 
+maitenance version of 5.0 to 5.1. 
+If you are on 5.0.1 version, you  should move into the 5.0.2 then to 
+5.0.3 then to 5.0.4 and then move to 5.1 version. However, if you still 
+insist on skipping versions, we strongly advise to read all upgrade 
+notes of the versions you are skipping to see if your project is 
 impacted by any previous upgrade procedure.
 
 
@@ -531,24 +273,18 @@ impacted by any previous upgrade procedure.
 4. Configure the **EXO\_DATA\_DIR** variable. Refer to :ref:`Data directory configuration <Configuration.DataDirectory>`
    for more details.
 
-5. Go to the new eXo Platform package (``$PLATFORM_TOMCAT_HOME/gatein/conf/`` 
-   or ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/``), then 
-   rename the sample upgrade file regarding the version you want to 
-   upgrade known as ``upgrade-sample.properties``) into 
-   ``upgrade.properties`` as described in `Release Notes <https://community.exoplatform.com/portal/g/:spaces:platform_4/exo_platform/wiki/group/spaces/platform_4/Release_Notes_-_Platform_5.0>`__.
-
-6. Start the eXo Platform server. The upgrade will be run automatically. 
+5. Start the eXo Platform server. The upgrade will be run automatically. 
    The startup is successful when you see a message like **INFO \| Server startup in XXXX ms**.
 
-7. Stop the server.
+6. Stop the server.
 
-8. Remove or rename the ``upgrade.properties`` in Step 5. This is to 
+7. Remove or rename the ``upgrade.properties`` in Step 5. This is to 
    avoid running the upgrade again for next time.
 
-9. Restart the server, then do some tests on the upgraded version. See
+8. Restart the server, then do some tests on the upgraded version. See
    :ref:`Best practices <Upgrade.BestPractices>` for more details.
 
-.. note::-  eXo Platform 5.1 version requires the version 5.6 of
+.. note::-  eXo Platform 5.1 version requires the version 5.6.9 of
             Elasticsearch, you should `upgrade <https://www.elastic.co/guide/en/elasticsearch/reference/5.6/setup-upgrade.html>`__
             to this version.
 		    eXo Platform is shipped with an embedded version of Elasticsearch which **automatically starts** when eXo Platform starts. 
@@ -559,12 +295,6 @@ impacted by any previous upgrade procedure.
 			for more details). In order to use a standalone Elasticsearch cluster, some properties must be defined in
 			:ref:`exo.properties <Configuration.ConfigurationOverview>`. Please refer to :ref:`Elasticsearch Configuration <Configuration.ElasticSearch>`
 			for more details.
-		 -  Starting from eXo Platform 5.1:
-				*  Settings and Notifications data has been moved from JCR to JPA datasources.
-				*  ECMS files are indexed in Elasticsearch.
-		 -  If you run eXo Platform 5.1 for the first time, the Enterprise skin will be the default skin. If you upgrade your eXo Platform instance from a previous version, your previous skin will still be applied.
-			We do not want to force the change to the new Enterprise Skin if you used another skin and it could break skin customizations. 
-			You can change it by yourself in :ref:`portal settings <ManagingSites.SelectSkin>`.
 
 
 .. _Upgrade.BestPractices:
