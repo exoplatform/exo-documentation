@@ -165,6 +165,9 @@ Configuration
 
     -  :ref:`Chat Configuration <Configuration.ChatConfiguration>`
        Configuration needed for eXo Chat.
+       
+    -  :ref:`eXo Web Conferencing Configuration <Configuration.WebConferencing>`
+       Configuration needed for eXo Web Conferencing add-on.
 
     -  :ref:`Update of last login time <Configuration.lastlogintime>`
        Parameter for enabling/disabling the update of user's last login
@@ -5771,6 +5774,63 @@ Chat Client updates
 |                    |                    | considered *offline*.                |
 +--------------------+--------------------+--------------------------------------+
 
+.. _Configuration.WebConferencing:
+
+==================================
+Configuring eXo Web Conferencing
+==================================
+
+:ref:`eXo Web Conferencing <webconferencing>` add-on enables users to 
+make video calls through the interface of eXo Platform.
+You can parameter this add-on by configuring the below variables in 
+:ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
++------------------------------------------------+--------------------+--------------------------------------+
+| Parameter                                      | Default            | Description                          |
++================================================+====================+======================================+
+| ``webconferencing.webrtc.bundlePolicy``        |      balanced      | WebRTC setting to indicate which     |
+|						 |                    | media-bundling policy to use when    |
+|						 |                    | gathering ICE candidates.            |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.iceCandidatePoolSize``|        0           | WebRTC setting which define the size |
+|                                                |                    | of the prefetched ICE pool.          |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.iceTransportPolicy``  |       all          | WebRTC setting to indicate which     |
+|                                                |                    | candidates the ICE Agent is allowed  |
+|						 |		      | to use.				     |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.default.stun.enabled``|      true          | Indicates if the default defined     |
+|                                                |                    | STUN servers must be used.           |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.exo.stun.enabled``    |      false         | Indicates if the default defined eXo |
+|                                                |                    | STUN servers must be used.           |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.xirsys.stun.enabled`` |      false         | Indicates if the Xirsys STUN servers |
+|                                                |                    | must be used.                        |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.exo.turn.enabled``    |      false         | Indicates if the default defined     |
+|						 |                    | TURN servers must be used.           |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.exo.turn.username``   |                    | Username to authenticate on default  |
+|                                                |                    | TURN servers.                        |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.exo.turn.credential`` |                    | Password to authenticate on default  |
+|                                                |                    | TURN servers.                        |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.xirsys.turn.enabled`` |      false         | Indicates if the Xirsys TURN servers |
+|                                                |                    | must be used.                        |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.xirsys.username``     |                    | Username to authenticate on Xirsys   |
+|                                                |                    | TURN servers.                        |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.xirsys.credential``   |                    | Password to authenticate on Xirsys   |
+|                                                |                    | TURN servers.                        |
++------------------------------------------------+--------------------+--------------------------------------+
+| ``webconferencing.webrtc.active``              |      true          | Indicates if the WebRTC connector    |
+|                                                |                    | is active.                           |
++------------------------------------------------+--------------------+--------------------------------------+
+
+
 .. _Configuration.lastlogintime:
 
 =========================
@@ -5782,7 +5842,7 @@ user in an internal database. You may need to disable this parameter to
 optimize login time especially when your system is highly solicited by a
 lot of concurrent users. You can disable this feature by configuring the
 parameter ``exo.idm.user.updateLastLoginTime`` in
-:ref:`exo.properties <Configuration.ConfigurationOverview>`file.
+:ref:`exo.properties <Configuration.ConfigurationOverview>` file.
 The default value is set to true.
 
 Setting ``exo.idm.user.updateLastLoginTime`` to true enables the update,
