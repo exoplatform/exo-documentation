@@ -34,12 +34,10 @@ Starting from the 5.0 version of eXo Platform it is possible to make
 one-to-one video calls through the Web Conferencing add-on.
 
 
-.. warning:: * The video call functionality operates with the standard
-				`WebRTC <https://webrtc.org/>`__ and requires modern web browsers.
-			 * Web Conferencing is not supported for the browser IE11. Check the
-				full list of supported web browsers in `this
-				file <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__.
-			 * One-to-one video calls are not available for mobile devices.
+.. warning:: * The video call functionality operates with the standard `WebRTC <https://webrtc.org/>`__ and requires modern web 	       browsers.
+	     * Web Conferencing is not supported for the browser IE11. Check the full list of supported web browsers in `this
+	       file <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__.
+	     * One-to-one video calls are not available for mobile devices.
 
 To use the Web Conferencing functionality and make video call with
 another user, you just need to click on the Call button |image0|.
