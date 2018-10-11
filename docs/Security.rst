@@ -338,12 +338,46 @@ In this case, a user accesses the site via https, for example
 *https://proxy1.com*, all his requests and all reponses to him are
 encrypted by the proxy.
 
-.. note:: We are assuming you have a standard ssl certificate issued by 
+.. note:: We are assuming you have a :ref:`standard ssl certificate <Import_SSL_certificate>` issued by 
 		  an official certification authority.
 		  The examples allow you to have a basic installation with ssl
 		  enabled. You should fine tune your installation before opening 
 		  it on the web. Mozilla provide a `great site <https://mozilla.github.io/server-side-tls/ssl-config-generator/>`__
 		  to help you to find a configuration adapted to your needs.
+
+.. _Import_SSL_certificate:
+
+Importing your SSL certificate into Java truststore
+----------------------------------------------------
+
+You need an SSL certificate for enabling https access to your site. You
+will configure your certificate in your front-end server (proxy1.com).
+Besides, you need to add the certificate to JVM **truststore**. For
+testing purpose, you can generate and use a self-signed certificate, as
+follows:
+
+1. Create a certificate using openssl (if you are using Windows, replace
+   parentheses with quotation marks):
+
+   ::
+     	openssl req -x509 -nodes -newkey rsa:2048 -keyout mykey.pem -out mycert.pem -subj '/O=MYORG/OU=MYUNIT/C=MY/ST=MYSTATE/L=MYCITY/CN=proxy1.com' -days 730
+
+   You will use ``mycert.pem`` to certificate the Apache/Nginx server
+   proxy1.com, so the part "*CN=proxy1.com*" is important.
+
+2. Import the certificate to Java truststore. This step is necessary to
+   make gadgets work. Because Java keytool does not accept PEM file, you
+   need to convert ``mycert.pem`` into DER format.
+
+   ::
+
+		openssl x509 -outform der -in mycert.pem -out mycert.der``
+
+   ::
+		keytool -import -trustcacerts -file mycert.der -keystore $JAVA_HOME/jre/lib/security/cacerts -alias proxy1.com``
+
+.. note:: -  The default password of the Java keystore is "*changeit*".
+          -  Users will need to point their browser to *https://proxy1.com* and accept the certificate exception.
 
 .. _ApacheConfiguration:
 
