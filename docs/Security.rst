@@ -358,10 +358,11 @@ follows:
 
 1. Create a certificate using openssl (if you are using Windows, replace
    parentheses with quotation marks):
-
+	
 	::
-			openssl req -x509 -nodes -newkey rsa:2048 -keyout mykey.pem -out mycert.pem -subj '/O=MYORG/OU=MYUNIT/C=MY/ST=MYSTATE/L=MYCITY/CN=proxy1.com' -days 730
 
+			openssl req -x509 -nodes -newkey rsa:2048 -keyout mykey.pem -out mycert.pem -subj '/O=MYORG/OU=MYUNIT/C=MY/ST=MYSTATE/L=MYCITY/CN=proxy1.com' -days 730
+			
    You will use ``mycert.pem`` to certificate the Apache/Nginx server
    proxy1.com, so the part "*CN=proxy1.com*" is important.
 
@@ -371,11 +372,13 @@ follows:
 
 	::
 
-			openssl x509 -outform der -in mycert.pem -out mycert.der
-
+			openssl x509 -outform der -in mycert.pem -out mycert.der7
+	
 	::
-			keytool -import -trustcacerts -file mycert.der -keystore $JAVA_HOME/jre/lib/security/cacerts -alias proxy1.com
 
+			keytool -import -trustcacerts -file mycert.der -keystore $JAVA_HOME/jre/lib/security/cacerts -alias proxy1.com
+			
+			
 .. note:: -  The default password of the Java keystore is "*changeit*".
           -  Users will need to point their browser to *https://proxy1.com* and accept the certificate exception.
 
