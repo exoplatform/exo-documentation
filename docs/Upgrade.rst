@@ -298,7 +298,7 @@ Best practices
 Here are good ways you can follow during and after upgrading:
 
 -  Monitor the server console/log file to be aware of the upgrade status
-   or any issues during the upgrade. By default, PRODUCT records all
+   or any issues during the upgrade. By default, eXo Platform records all
    information in ``$PLATFORM_TOMCAT_HOME/logs/platform.log`` (in
    Tomcat), ``$PLATFORM_JBOSS_HOME/standalone/log/server.log`` (in
    JBoss).
@@ -311,191 +311,47 @@ Here are good ways you can follow during and after upgrading:
 
           | INFO  | Start transparent upgrade framework [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
 
-   -  The list of activated plugins: five upgrade plugins exist between
-      5.0.2 version to 5.1.
+   -  The list of activated plugins: 
 
       ::
 
-          | INFO  | Proceed upgrade the plugin (async = false): name = FavoriteActionUpgradePlugin from version 5.0.2 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
+          | INFO  | Proceed upgrade the plugin (async = true): name = PushNotificationSettingsUpgradePlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
 
       ::
 
-          | INFO  | Proceed upgrade the plugin (async = false): name = SpaceMemberAnyMembershipUpgradePlugin from version 5.0.2 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] ]
+          | INFO  | Proceed upgrade the plugin (async = false): name = NodeTypeTemplateUpgradePlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
 
       ::
 
-          | INFO  | Proceed upgrade the plugin (async = false): name = EnableUserUpgradePlugin from version 5.0.2 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] ]
+          | INFO  | Proceed upgrade the plugin (async = false): name = MetadataTemplateUpgradePlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
 
       ::
 
-          | INFO  | Proceed upgrade the plugin (async = true): name = FileESMigration from version 5.0.2 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>]  ]
+          | INFO  | Proceed upgrade the plugin (async = false): name = QueryUpgradePlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
 
       ::
 
-          | INFO  | Proceed upgrade the plugin (async = false): name = UpgradeDefaultSkin from version 5.0.2 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] ]
+          | INFO  | Proceed upgrade the plugin (async = false): name = ScriptUpgradePlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
+      
+      ::
+
+          | INFO  | Proceed upgrade the plugin (async = false): name = WCMTemplateUpgradePlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
+
+      
+      ::
+
+          | INFO  | Proceed upgrade the plugin (async = false): name = UpgradeSecureJCRFoldersPlugin from version 5.0.3 to 5.1.0 [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
 
    -  The message informing that the upgrade plugin execution is
-      completed:
+      completed for each executed plugin:
 
       ::
 
-          | INFO  | Upgrade of plugin FavoriteActionUpgradePlugin completed. [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] ]
-
+          | INFO  | Upgrade of plugin PushNotificationSettingsUpgradePlugin completed. [o.e.c.upgrade.UpgradeProductService<pool-6-thread-1>] 
       ::
 
-          | INFO  | Upgrade of plugin SpaceMemberAnyMembershipUpgradePlugin completed. [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>]]]
-
-      ::
-
-          | INFO  | Upgrade of plugin EnableUserUpgradePlugin completed. [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] ]]
-
-      ::
-
-          | INFO  | Upgrade of plugin FileESMigration completed. [o.e.c.upgrade.UpgradeProductService<pool-6-thread-1>]]]
-
-      ::
-
-          | INFO  | Upgrade of plugin UpgradeDefaultSkin completed. [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] ]]
-
-   -  Logs related to notifications migration from JCR to JPA:
-
-      -  Notifications data migration (Web and mail notications):
-
-         ::
-
-             | INFO  | === Start migration of Web Notifications data from JCR [o.e.c.m.WebNotificationsMigration<COMMONS-RDBMS-MIGRATION>]  ] 
-
-         ::
-
-             | INFO  | === Start migration of Mail Notifications data from JCR [o.e.c.m.MailNotificationsMigration<COMMONS-RDBMS-MIGRATION>] ] ] 
-
-      -  Notifications data migration end:
-
-         ::
-
-             | INFO  | === Migration of Web Notification data done in 11139 ms [o.e.c.m.WebNotificationsMigration<COMMONS-RDBMS-MIGRATION>] ] 
-
-         ::
-
-             | INFO  | === Migration of Mail Notification data done in 4507 ms [o.e.c.m.MailNotificationsMigration<COMMONS-RDBMS-MIGRATION>]  ] ] 
-
-      -  Notifications JCR data cleaning start:
-
-         ::
-
-             | INFO  | === Start Cleaning Web Notifications data from JCR [o.e.c.m.WebNotificationsMigration<COMMONS-RDBMS-MIGRATION>]  ] ] 
-
-         ::
-
-             | INFO  | === Start cleaning Mail notifications data from JCR [o.e.c.m.MailNotificationsMigration<COMMONS-RDBMS-MIGRATION>]  ] ] 
-
-      -  Notifications JCR data cleaning end:
-
-         ::
-
-             | INFO  | === Web notifications JCR data cleaning due to RDBMS migration done in 590 ms [o.e.c.m.WebNotificationsMigration<COMMONS-RDBMS-MIGRATION>] ] ] 
-
-         ::
-
-             | INFO  | === Mail notifications JCR data cleaning due to RDBMS migration done in 1815 ms [o.e.c.m.MailNotificationsMigration<COMMONS-RDBMS-MIGRATION>] ] ] 
-
-   -  Logs related to settings migration from JCR to JPA:
-
-      -  Settings data migration start:
-
-         ::
-
-             | INFO  | === Start migration of Global Settings data from JCR to RDBMS [o.e.commons.migration.SettingsMigration<Catalina-startStop-1>] ] ] 
-
-         ::
-
-             | INFO  | === Start migration of User Settings data from JCR [o.e.commons.migration.SettingsMigration<Catalina-startStop-1>] ] ] 
-
-      -  Settings data migration end:
-
-         ::
-
-             | INFO  | Global Settings data migrated in 4137 ms [o.e.commons.migration.SettingsMigration<Catalina-startStop-1>]] ] 
-
-         ::
-
-             | INFO  | User Settings data migrated in 4574 ms [o.e.commons.migration.SettingsMigration<Catalina-startStop-1>] ] ] 
-
-      -  Settings JCR data cleaning start:
-
-         ::
-
-             | INFO  | === Start cleaning Global Settings data from JCR [o.e.commons.migration.SettingsMigration<COMMONS-RDBMS-MIGRATION>]  ] ] 
-
-         ::
-
-             | INFO  | === Start cleaning User Settings data from JCR [o.e.commons.migration.SettingsMigration<COMMONS-RDBMS-MIGRATION>] ] ] 
-
-      -  Settings JCR data cleaning end:
-
-         ::
-
-             | INFO  | === Global Settings JCR data cleaning due to RDBMS migration done in 351 ms [o.e.commons.migration.SettingsMigration<COMMONS-RDBMS-MIGRATION>] ] ] 
-
-         ::
-
-             | INFO  | === User Settings JCR data cleaning due to RDBMS migration done in 182 ms [o.e.commons.migration.SettingsMigration<COMMONS-RDBMS-MIGRATION>] ] ] 
-
-   -  The progression of the execution of the upgrade plugin
-      **SpaceMemberAnyMembershipUpgradePlugin**:
-
-      -  Membership migration:
-
-         ::
-
-             | INFO  | === Start IDM Membership '*'  to Space Entity migration [o.e.s.c.j.u.SpaceMemberAnyMembershipUpgradePlugin<Catalina-startStop-1>] ] ] 
-
-      -  Consistency check for spaces:
-
-         ::
-
-             | INFO  | === End of consistency check of space members in 412ms. No inconsistency detected. Total scanned spaces count = 1 [o.e.s.c.j.u.SpaceMemberAnyMembershipUpgradePlugin<Catalina-startStop-1>] ] ] 
-
-   -  The progression of the execution of the upgrade plugin
-      **FileESMigration**:
-
-      -  Information about the number of files to index:
-
-         ::
-
-             | INFO  | == Files ES migration - Number of files to index : 19 [o.e.services.wcm.search.FileESMigration<pool-6-thread-1>] ] ] 
-
-      -  Start pushing files:
-
-         ::
-
-              | INFO  | == Files ES migration - Starting pushing all files in indexation queue [o.e.services.wcm.search.FileESMigration<pool-6-thread-1>]  ] ] 
-
-      -  End pushing files:
-
-         ::
-
-              | INFO  | == Files ES migration - Push of all files in indexation queue done [o.e.services.wcm.search.FileESMigration<pool-6-thread-1>]   ] ] 
-
-      -  Start JCR reindexation (by repository):
-
-         ::
-
-             | INFO  | == Files ES migration - Reindexation of JCR collaboration workspace done [o.e.services.wcm.search.FileESMigration<HotReindexing-repository-collaboration>]  ] ] 
-
-         ::
-
-             | INFO  | == Files ES migration - Reindexation of JCR system workspace done [o.e.services.wcm.search.FileESMigration<HotReindexing-repository-system>]  ] ] 
-
-      -  End of JCR reindexation (by repository):
-
-         ::
-
-             | INFO  | == Files ES migration - Starting reindexation of JCR collaboration workspace [o.e.services.wcm.search.FileESMigration<pool-6-thread-1>] ] ] 
-
-         ::
-
-             | INFO  | == Files ES migration - Starting reindexation of JCR system workspace [o.e.services.wcm.search.FileESMigration<pool-6-thread-1>] ] ] 
+          | INFO  | Upgrade of plugin NodeTypeTemplateUpgradePlugin completed. [o.e.c.upgrade.UpgradeProductService<Catalina-startStop-1>] 
+      
 
    -  A message informing the successful startup:
 
