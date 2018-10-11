@@ -20,7 +20,7 @@ Upgrade
     **Upgrade Service**.
 
     This chapter outlines requirements before the upgrade and helps you
-    get familiar with the upgrade process between versions of eXo Platform 5
+    get familiar with the upgrade process between versions of eXo Platform 
     via the following topics:
 
     -  :ref:`Breaking Changes <Upgrade.BreakingChanges>`
@@ -55,8 +55,11 @@ know before starting the upgrade to 5.1 version.
 
 JBoss EAP 7.1 version is used in eXo Platform 5.1.
 
-The main change coming with this version is that it uses new security 
-framework WildFly Elytron and it provides support for HTTP/2.
+This version comes with a bunch of improvements, including the use of 
+the new security framework WildFly Elytron and the support of HTTP/2.
+More information on this new version are available at 
+`https://www.redhat.com/en/blog/red-hat-releases-jboss-eap-71 <https://www.redhat.com/en/blog/red-hat-releases-jboss-eap-71>`__.
+
 
 You can find
 `here <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html-single/migration_guide/index>`__,
@@ -154,13 +157,6 @@ This is the list of templates changed in eXo Platform 5.1.
 
 -  ``integration/src/main/resources/groovy/forum/social-integration/plugin/space/AnswerUIActivity.gtmpl``
 
-**CHAT-APPLICATION**
-
--  ``application/src/main/java/org/exoplatform/chat/portlet/chat/templates/index.gtmpl``
-
--  ``application/src/main/java/org/exoplatform/chat/portlet/notification/templates/index.gtmpl``
-
--  ``application/src/main/java/org/exoplatform/chat/portlet/statistics/templates/index.gtmpl``
 
 **TASK**
 
@@ -205,14 +201,17 @@ Before the upgrade, you need to:
 
 -  Download eXo Platform 5.1 version.
 
--  The configuration properties for caches have been changed for eXo 
-   Platform 5.1 in order to harmonize them and use the same name in 
-   standalone and cluster modes. You should then update cache properties
-   in the new server. Please refer to this :ref:`documentation <Configuration.CacheConfiguration>`
-   for get the list of cache names.
-
 -  Perform one or more dry-run upgrade(s) to find out potential problems
    and estimate the upgrade time.
+   
+-  :ref:`Rename <Caches-warning>` all caches.   
+   
+.. _Caches-warning:
+   
+.. warning:: The configuration properties names for caches have been changed for eXo Platform 5.1 in order 
+             to use the same names in standalone and cluster modes. 
+             In case you changed default cache configuration, take care to update the cache properties names  
+             as documented at this :ref:`documentation <Configuration.CacheConfiguration>`. 
 
 .. note:: The dry-run upgrade allows you to:
 
@@ -276,15 +275,8 @@ impacted by any previous upgrade procedure.
 5. Start the eXo Platform server. The upgrade will be run automatically. 
    The startup is successful when you see a message like **INFO \| Server startup in XXXX ms**.
 
-6. Stop the server.
 
-7. Remove or rename the ``upgrade.properties`` in Step 5. This is to 
-   avoid running the upgrade again for next time.
-
-8. Restart the server, then do some tests on the upgraded version. See
-   :ref:`Best practices <Upgrade.BestPractices>` for more details.
-
-.. note::-  eXo Platform 5.1 version requires the version 5.6.9 of
+.. note::-  eXo Platform 5.1 version requires the version 5.6 of
             Elasticsearch, you should `upgrade <https://www.elastic.co/guide/en/elasticsearch/reference/5.6/setup-upgrade.html>`__
             to this version.
 		    eXo Platform is shipped with an embedded version of Elasticsearch which **automatically starts** when eXo Platform starts. 
