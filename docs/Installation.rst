@@ -56,7 +56,7 @@ System requirements
 
 .. warning:: The requirements cited below are provisional and may change according to quality tests findings.
 
-To run eXo Platform 5.1, your system is required to meet the following 
+To run eXo Platform 5.2, your system is required to meet the following 
 specifications or higher:
 
 -  CPU: Multi-core recommended, 2GHz minimum.
@@ -68,11 +68,11 @@ specifications or higher:
 
 -  Free disk space: 10GB minimum
 
--  Java 9+: JDK 9 is required for eXo Platform 5.1 version. Set the
+-  Java 9+: JDK 9 is required for eXo Platform 5.2 version. Set the
    **JAVA\_HOME** environment variable to point to your JDK
    installation.
 
--  Java 7 and below is incompatible for eXo Platform 5.1 version.
+-  Java 7 and below is incompatible for eXo Platform 5.2 version.
 
 -  Browser Compatibility:
 
@@ -502,7 +502,7 @@ Installing the Tomcat bundle
 
 The eXo Platform Tomcat bundle is a ready-made package on top of the Tomcat 8.5
 application server. So, you just need to download and extract the
-package (named ``eXo-Platform-5.1.0.zip``, for example) on your server.
+package (named ``eXo-Platform-5.2.0.zip``, for example) on your server.
 In this guideline, ``$PLATFORM_TOMCAT_HOME`` is the folder path of the
 extracted package.
 
@@ -679,7 +679,7 @@ The second way: Using the NSSM tool
 Installing on JBoss EAP
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-eXo Platform 5.1 version integrates with JBoss EAP 7.1.
+Starting from the versions 5.1, eXo Platform integrates with JBoss EAP 7.1.
 
 Prerequisites
 ---------------

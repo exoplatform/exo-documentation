@@ -25,13 +25,13 @@ Upgrade
 
     -  :ref:`Breaking Changes <Upgrade.BreakingChanges>`
        Breaking changes you should be aware about before starting the
-       upgrade to 5.1 version.
+       upgrade to 5.2 version.
 
     -  :ref:`Prerequisites <Upgrade.Prerequisites>`
        A list of things you need to do before the upgrade.
 
     -  :ref:`Upgrade process <Upgrade.Process>`
-       How to upgrade from eXo Platform 5.0 to eXo Platform 5.1.
+       How to upgrade from eXo Platform 5.1 to eXo Platform 5.2.
 
     -  :ref:`Best practices <Upgrade.BestPractices>`
        Some tips that help you monitor the upgrade.
@@ -48,7 +48,7 @@ Breaking Changes
 ================
 
 In this section, we will present all the breaking changes you should
-know before starting the upgrade to 5.1 version.
+know before starting the upgrade to 5.2 version.
 
 
 **JBoss EAP upgrade**
@@ -68,7 +68,7 @@ a full documentation about the upgrade to JBoss EAP 7.1.
 
 **Templates changes**
 
-Some Groovy templates have been changed in eXo Platform 5.1, check
+Some Groovy templates have been changed in eXo Platform 5.2, check
 out the :ref:`complete list <Upgrade.BreakingChanges.Templates>`. If 
 your custom extension overrides some Groovy templates, you must check 
 if it has been changed, and update it if it is the case.
@@ -79,7 +79,7 @@ if it has been changed, and update it if it is the case.
 Changed Templates
 ~~~~~~~~~~~~~~~~~~
 
-This is the list of templates changed in eXo Platform 5.1.
+This is the list of templates changed in eXo Platform 5.2.
 
 **SOCIAL**
 
@@ -199,7 +199,7 @@ Before the upgrade, you need to:
 -  Back up customizations (including configuration, deployed extensions
    and applications) that you plan to reuse in the new version.
 
--  Download eXo Platform 5.1 version.
+-  Download eXo Platform 5.2 version.
 
 -  Perform one or more dry-run upgrade(s) to find out potential problems
    and estimate the upgrade time.
@@ -239,21 +239,21 @@ The upgrade procedure is only guaranteed and tested to be transparent
 from the previous maintenance version (x.y.z from x.y.z-1). So, we
 recommend to apply upgrade procedures for all versions between your
 current one and the target one. In this case it is from the latest 
-maitenance version of 5.0 to 5.1. 
-If you are on 5.0.1 version, you  should move into the 5.0.2 then to 
-5.0.3 then to 5.0.4 and then move to 5.1 version. However, if you still 
-insist on skipping versions, we strongly advise to read all upgrade 
-notes of the versions you are skipping to see if your project is 
-impacted by any previous upgrade procedure.
+maitenance version of 5.1 to 5.2. 
+If you are on 5.1.1 version, you  should move into the 5.1.2 and then 
+move to 5.2 version. However, if you still  insist on skipping versions, 
+we strongly advise to read all upgrade notes of the versions you are 
+skipping to see if your project is  impacted by any previous upgrade 
+procedure.
 
 
 **Upgrade to a new eXo Platform version**
 
 **For Tomcat and JBoss packages**
 
-1. Stop the old version of eXo Platform, in this case the 5.0 version.
+1. Stop the old version of eXo Platform, in this case the 5.1 version.
 
-2. Apply your customizations into eXo Platform 5.1.
+2. Apply your customizations into eXo Platform 5.2.
 
    -  If you have changed the configuration properties via
       ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` (Tomcat) or
