@@ -1641,7 +1641,7 @@ is highlighted.
 .. |image21| image:: images/platform/account_settings.png
 .. |image22| image:: images/platform/account_settings_form.png
 .. |image23| image:: images/platform/change_password_form.png
-.. |image24| image:: images/platform/social_networks_form.png
+.. |image24| image:: images/platform/login_form.png
 .. |image24| image:: images/platform/social_networks_form.png
 .. |image25| image:: images/platform/forgot_password_1.png
 .. |image26| image:: images/platform/forgot_password_2.png
