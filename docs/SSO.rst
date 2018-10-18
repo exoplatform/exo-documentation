@@ -1472,11 +1472,16 @@ Go to ``$PLATFORM_HOME``, and install SPNEGO add-on with the command:
 
 4. Start eXo Platform by using the command:
 
-	-  ``./standalone.sh -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com``
-	   (on Linux)
+   - On liux:
 
-	-  ``standalone.bat -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com``
-	   (on Windows)
+      ::
+			./standalone.sh -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com
+   
+   - On Windows:
+       
+       ::
+
+			standalone.bat -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com
 
 .. note:: ``$AD_MACHINE_NAME`` is name of the machine that has Active Directory installed.
 
@@ -1814,7 +1819,7 @@ REST callback <#eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`__.
    
    ::
 
-		keytool -import -keystore jbid\_test\_keystore.jks -file idp-certificate.crt -alias Identity\_Provider-idp
+		keytool -import -keystore jbid_test_keystore.jks -file idp-certificate.crt -alias Identity_Provider-idp
 
 .. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
 
@@ -2037,9 +2042,8 @@ Configuring Salesforce as SAML2 SP
 
 -  **Entity ID**: Now, it should be *https://saml.salesforce.com*.
 
--  **Certificate**: Export a ``.crt`` file from `your
-   keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>` to be
-   uploaded here. The command to export:
+-  **Certificate**: Export a ``.crt`` file from :ref:`your keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>` 
+   to be uploaded here. The command to export:
    
    ::
 
@@ -2070,8 +2074,7 @@ Configure eXo Platform as IDP
 		gatein.sso.sp.domains=saml.salesforce.com
 		gatein.sso.sp.host=saml.salesforce.com
 
-2. Edit
-   ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/picketlink-idp.xml``
+2. Edit the file ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/picketlink-idp.xml``
    by making this step:
 
    -  Add domain ``saml.salesforce.com`` as a ``ValidatingAlias``:
@@ -2110,8 +2113,7 @@ Configure eXo Platform as IDP
 6. Copy this ``sp-metadata.xml`` file into
    ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/``
 
-7. Edit the file
-   ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/picketlink-idp.xml``
+7. Edit the file ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/picketlink-idp.xml``
    to add MetaDataProvider element as follows:
 
    .. code:: xml
@@ -2125,8 +2127,8 @@ Configure eXo Platform as IDP
 
 8. Download and import Salesforce client certificate:
 
-   -  Download a new certificate from `this link <>`__. It will downloads a
-      zip file.
+   -  Download a new certificate from `this link <https://developer.salesforce.com/page/Client_Certificate>`__. 
+      It will downloads a zip file.
 
    -  Unzip the downloaded file.
 
@@ -2172,7 +2174,7 @@ screenshot:
 eXo Platform as SP and Salesforce as IDP
 ------------------------------------------
 
-.. note:: Remember to disable SSO if you have enabled as described in :ref`Configuring Salesforce as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF_IDP-Salesforce_SP>`.
+.. note:: Remember to disable SSO if you have enabled as described in :ref:`Configuring Salesforce as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF_IDP-Salesforce_SP>`.
 
 Configuring Salesforce as SAML2 IDP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2229,7 +2231,7 @@ Configuring Salesforce as SAML2 IDP
 Configurations at eXo Platform
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1 Configure eXo Platform as described in :ref`eXo Platform as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF-SP>`. 
+1. Configure eXo Platform as described in :ref:`eXo Platform as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF-SP>`. 
    Notice some values below:
 
    ::
@@ -2248,18 +2250,17 @@ Configurations at eXo Platform
 
    ::
 
-		keytool -import -keystore secure-keystore.jks -file SelfSignedCert\_17Oct2013\_070921.crt -alias salesforce-idp
+		keytool -import -keystore secure-keystore.jks -file SelfSignedCert_17Oct2013_070921.crt -alias salesforce-idp
 
-   For default keystore ``jbid\_test\_keystore.jks``, the command is:
+   For default keystore ``jbid_test_keystore.jks``, the command is:
    
    ::
 
-		keytool -import -keystore jbid\_test\_keystore.jks -file SelfSignedCert\_17Oct2013\_070921.crt -alias salesforce-idp 
+		keytool -import -keystore jbid_test_keystore.jks -file SelfSignedCert_17Oct2013_070921.crt -alias salesforce-idp 
 
    where: ``SelfSignedCert_17Oct2013_070921.crt`` is the downloaded file.
 
-4. Modify
-   ``$PLATFORM_SP/standalone/deployments/platform.ear/exo.portal.web.portal.war/WEB-INF/conf/sso/saml/picketlink-sp.xml``
+4. Modify ``$PLATFORM_SP/standalone/deployments/platform.ear/exo.portal.web.portal.war/WEB-INF/conf/sso/saml/picketlink-sp.xml``
    and update the value of ValidatingAlias key ${gatein.sso.idp.host} to
    salesforce-idp.
 

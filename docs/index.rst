@@ -1,4 +1,4 @@
-.. sphix-poc documentation master file, created by
+.. eXo Platform documentation master file, created by
    sphinx-quickstart on Tue Dec 19 09:26:23 2017.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -90,7 +90,7 @@ The main guides in eXo Platform documentation:
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide  
+   :caption: eXo Add-on Guide 
    
    LeckoAnalytics
    SSO

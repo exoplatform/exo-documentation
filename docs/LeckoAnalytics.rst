@@ -83,9 +83,9 @@ eXo Platform has partnered with `Lecko <http://analytics.lecko.fr/>`__
 to offer an engagement analytics solution that allows to monitor user
 engagement and let you drive end user adoption of eXo Platform.
 
-This solution is presented as an add-on: the **eXo Engagement Analytics
-by `Lecko <http://analytics.lecko.fr/>`__** which can be installed via
-the :ref:`addons manager <eXo_addon>` using this command:
+This solution is presented as an add-on: the eXo Engagement Analytics by `Lecko <http://analytics.lecko.fr/>`__ 
+which can be installed via the :ref:`addons manager <eXo_addon>` using 
+this command:
 
 ::
 
