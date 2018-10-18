@@ -19,7 +19,7 @@ LDAP Integration
     
 .. warning:: -  eXo Platform supports only the **read-only** mode on LDAP/MSAD integration.   
              -  Only one single LDAP/MSAD is allowed.
-             -  The IDM mapped entities from LDAP/MSAD are imported in one way direction: **from LDAP to eXo Platform**. 
+             -  The IDM mapped entities from LDAP/MSAD are imported in one way direction: **from LDAP/MSAD to eXo Platform**. 
 
     This chapter covers the following topics:
 
