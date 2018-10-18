@@ -86,5 +86,15 @@ The main guides in eXo Platform documentation:
    API
    Cookbook
    
-    
+.. _addons-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: User Guide  
+   
+   LeckoAnalytics
+   SSO
+   WCM
+   CMIS
+   
 
