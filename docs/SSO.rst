@@ -149,9 +149,10 @@ In paticular:
 .. note:: The below procedure is for callback to eXo Platform server only. If it is not your case, bypass this.
 
 1. Go to ``$PLATFORM_HOME``, and install CAS add-on with the command:
-   
+
    ::
-		addon install exo-cas``.
+   
+		addon install exo-cas
 
    After successful installation, one zip folder named ``cas-plugin.zip``
    is generated at the root of ``$PLATFORM_HOME``.
@@ -592,6 +593,7 @@ Configuring the OpenAM server for callback case
    yourself with command: 
    
    ::
+	
 		addon list --snapshots
 
    After successful installation, one zip folder named
@@ -612,6 +614,8 @@ Configuring the OpenAM server for callback case
 		context=portal
 		protocol=http
 		httpMethod=POST
+
+.. _ConfigurationOptions_OpenAM:
 
 **Step 2. Configuring realm in OpenAM UI**
 
@@ -714,8 +718,8 @@ DataStore of OpenAM.
 
 1. Start OpenAM Tomcat server, then browse
    `http://localhost:8888/openam <http://localhost:8888/openam/>`__. You
-   will be redirected to the `**Configuration
-   Options** <#ConfigurationOptions_OpenAM>`__ page.
+   will be redirected to the `**Configuration Options** <ConfigurationOptions_OpenAM>` 
+   page.
 
 2. Click the Create Default Configuration link. You will be auto-logged 
    as a default user - *amAdmin*.
@@ -858,7 +862,7 @@ In which:
 			<module-option name="password-stacking" value="useFirstPass"/>
 		</login-module>
 
-After configuring the eXo Platform server, move to the :ref:`nextsection <eXoAddonsGuide.SSO.OpenAM.Testing>` 
+After configuring the eXo Platform server, move to the :ref:`next section <eXoAddonsGuide.SSO.OpenAM.Testing>` 
 for testing.
 
 .. _eXoAddonsGuide.SSO.OpenAM.Testing:
@@ -1296,10 +1300,11 @@ Kerberos Server on Linux
 
 	   You will be asked to enter a password for the user account(s) that
 	   you need to remember to use later.
+	   
 
-.. note:: The ``krb5.keytab`` file will be created after doing this step. You
-		  need to ensure that this file is readable (by using the command:
-          ``sudo chmod a+r /etc/krb5.keytab`` if needed).
+.. note:: The ``krb5.keytab`` file will be created after doing this 
+		  step. You need to ensure that this file is readable (by using 
+          the command:``sudo chmod a+r /etc/krb5.keytab`` if needed).
 
 8. Exit the **kadmin.local** (for example, by entering the **q** key),
    then test your setup by using the command:
@@ -1472,14 +1477,15 @@ Go to ``$PLATFORM_HOME``, and install SPNEGO add-on with the command:
 
 4. Start eXo Platform by using the command:
 
-   - On liux:
+   - On linux:
 
-      ::
+     ::
+     
 			./standalone.sh -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com
    
    - On Windows:
        
-       ::
+     ::
 
 			standalone.bat -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com
 
@@ -1732,13 +1738,14 @@ This chapter covers the following subjects:
 .. _eXoAddonsGuide.SSO.SAML2.PLF-SP:
 
 eXo Platform as SAML2 SP
-~~~~~~~~~~~~~~~~~~~~~~~~~~.
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _Command_Install_SAML2:
 
 1. Install SAML2 add-on with the command:
    
    ::
+   
 	$PLATFORM_SP/addon install exo-saml`` (Windows, Linux / Mac OX)
 
 .. note:: Add the option **--no-compat** for tomcat application server.
@@ -1746,8 +1753,8 @@ eXo Platform as SAML2 SP
 Accordingly, the SAML2 package named ``saml-plugin-jboss.zip`` will be
 downloaded into ``$PLATFORM_SP`` folder. Unzip this package to see
 inside folders including: ``idp-sig.war`` and ``idp-sig-module``. Notice
-these extracted folders will be used for the case `SAML2 scenario with
-REST callback <#eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`__.
+these extracted folders will be used for the case 
+:ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`.
 
 2. 
    **For Jboss**
@@ -2637,65 +2644,34 @@ Platform instance.
 
 
 .. |image0| image:: images/SSO/CAS/cas.png
-   :width: 444px
 .. |image1| image:: images/SSO/OPENAM/openam_config_options.png
-   :width: 12.00000cm
 .. |image2| image:: images/SSO/OPENAM/openam_passwords.png
-   :width: 10.00000cm
 .. |image3| image:: images/SSO/OPENAM/openam_authen_module_class.png
-   :width: 10.00000cm
 .. |image4| image:: images/SSO/OPENAM/openam_new_realm.png
-   :width: 10.00000cm
 .. |image5| image:: images/SSO/OPENAM/openam_ldapservice_properties.png
-   :width: 10.00000cm
 .. |image6| image:: images/SSO/OPENAM/openam_user_profile.png
-   :width: 10.00000cm
 .. |image7| image:: images/SSO/OPENAM/openam_new_user.png
-   :width: 10.00000cm
 .. |image8| image:: images/SSO/SPNEGO/windows_authentication_process.png
-   :width: 12.00000cm
 .. |image9| image:: images/common/1.png
-   :width: 0.40000cm
 .. |image10| image:: images/common/2.png
-   :width: 0.40000cm
 .. |image11| image:: images/common/3.png
-   :width: 0.40000cm
 .. |image12| image:: images/common/4.png
-   :width: 0.40000cm
 .. |image13| image:: images/common/5.png
-   :width: 0.40000cm
 .. |image14| image:: images/common/6.png
-   :width: 0.40000cm
 .. |image15| image:: images/SSO/SPNEGO/create_user_account.png
-   :width: 12.00000cm
 .. |image16| image:: images/SSO/SPNEGO/user_information.png
-   :width: 12.00000cm
 .. |image17| image:: images/SSO/SPNEGO/user_password_creation.png
-   :width: 12.00000cm
 .. |image18| image:: images/SSO/SPNEGO/add_internetexplorer_site.png
-   :width: 10.00000cm
 .. |image19| image:: images/SSO/SAML2/saml2_diagram.png
-   :width: 10.00000cm
 .. |image20| image:: images/SSO/SAML2/Salesforce_my_domain.png
-   :width: 10.00000cm
 .. |image21| image:: images/SSO/SAML2/Salesforce_SP_SSO_settings.png
-   :width: 10.00000cm
 .. |image22| image:: images/SSO/SAML2/Salesforce_SP_login_page_branding.png
-   :width: 10.00000cm
 .. |image23| image:: images/SSO/SAML2/Salesforce_SP_download_metadata.png
-   :width: 15.00000cm
 .. |image24| image:: images/SSO/SAML2/Salesforce_SP_login_screen.png
-   :width: 15.00000cm
 .. |image25| image:: images/SSO/SAML2/Salesforce_IDP_enable.png
-   :width: 15.00000cm
 .. |image26| image:: images/SSO/SAML2/Salesforce_IDP_Connected_Apps_1.png
-   :width: 15.00000cm
 .. |image27| image:: images/SSO/SAML2/Salesforce_IDP_Connected_Apps_2.png
-   :width: 15.00000cm
 .. |image28| image:: images/SSO/SAML2/Salesforce_IDP_Manage_Apps.png
-   :width: 15.00000cm
 .. |image29| image:: images/SSO/SAML2/Salesforce_IDP_download_certificate.png
-   :width: 17.50000cm
 .. |image30| image:: images/SSO/SAML2/Google_SSO_enable.png
-   :width: 17.50000cm
 
