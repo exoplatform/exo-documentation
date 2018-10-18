@@ -1836,19 +1836,19 @@ these extracted folders will be used for the case
    
    ::
 
-		./start\_eXo.sh
+		./start_eXo.sh
    
    and use this command for Windows operating systems:
    
    ::
    
-		start\_eXo.bat
+		start_eXo.bat
 
    **For Jboss** use these commands:
    
    ::
 
-		cd $PLATFORM\_SP/bin
+		cd $PLATFORM_SP/bin
 		./standalone.sh -b www.sp.com
 
 .. _eXoAddonsGuide.SSO.SAML2.PLF-IDP:
@@ -1899,7 +1899,7 @@ the file
    
    ::
    
-		cd $PLATFORM\_IDP/bin
+		cd $PLATFORM_IDP/bin
 		./standalone.sh -b www.idp.com
 
 .. _eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback:
@@ -1974,7 +1974,7 @@ configurations:
 
    ::
 
-		./standalone.sh -b www.idp.com -c standalone.xml -Dsp.host=www.sp.com -Dsp.domains=sp.com -Dpicketlink.keystore=/jbid\_test\_keystore.jks
+		./standalone.sh -b www.idp.com -c standalone.xml -Dsp.host=www.sp.com -Dsp.domains=sp.com -Dpicketlink.keystore=/jbid_test_keystore.jks
 
 **Test case**
 
@@ -2151,7 +2151,7 @@ Configure eXo Platform as IDP
       
       ::
 
-		keytool -import -keystore jbid\_test\_keystore.jks -file proxy-salesforce-com.123 -alias salesforce-cert
+		keytool -import -keystore jbid_test_keystore.jks -file proxy-salesforce-com.123 -alias salesforce-cert
 
 Testing the scenario
 ^^^^^^^^^^^^^^^^^^^^^
@@ -2259,7 +2259,7 @@ Configurations at eXo Platform
 
 		keytool -import -keystore secure-keystore.jks -file SelfSignedCert_17Oct2013_070921.crt -alias salesforce-idp
 
-   For default keystore ``jbid_test_keystore.jks``, the command is:
+   For default keystore ``jbid\_test\_keystore.jks``, the command is:
    
    ::
 
