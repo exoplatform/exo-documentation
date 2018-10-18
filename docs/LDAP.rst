@@ -17,7 +17,7 @@ LDAP Integration
     If SSO is what you need, read the :ref:`SSO chapter, eXo Add-ons guide <#eXoAddonsGuide.SSO>` that explains how eXo Platform works with
     LDAP through an SSO service like CAS or OpenAM.
     
-.. warning:: -  eXo Platform supports only the **readonly** mode on LDAP/MSAD integration.   
+.. warning:: -  eXo Platform supports only the **read-only** mode on LDAP/MSAD integration.   
              -  Only one single LDAP/MSAD is allowed.
              -  The IDM mapped entities from LDAP/MSAD are imported in one way direction: **from LDAP to eXo Platform**. 
 
