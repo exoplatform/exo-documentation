@@ -9,50 +9,40 @@ LDAP Integration
     between eXo Platform and LDAP in which LDAP takes the role of
     organizational data storage.
 
-    Please notice that this integration is not SSO (Single Sign On). The
-    fact that *an identity which is created via eXo Platform UI can be saved
-    into the LDAP directory* differentiates this integration with SSO
-    use cases.
+    Please notice that this integration is not SSO (Single Sign On).
 
     If SSO is what you need, read the :ref:`SSO chapter, eXo Add-ons guide <#eXoAddonsGuide.SSO>` that explains how eXo Platform works with
     LDAP through an SSO service like CAS or OpenAM.
     
-.. warning:: -  eXo Platform supports only the **readonly** mode on LDAP/MSAD integration.   
-             -  Only one single LDAP/MSAD is allowed.
-             -  The IDM mapped entities from LDAP/MSAD are imported in one way direction: **from LDAP to eXo Platform**. 
+.. warning:: -  eXo Platform supports only the **readonly** mode on LDAP/AD integration.   
+             -  Only one single LDAP/AD is allowed.
+             -  The IDM mapped entities from LDAP/AD are imported in one way direction: **from LDAP/AD to eXo Platform**. 
 
     This chapter covers the following topics:
 
-    -  :ref:`LDAP integration using PicketLink <LDAP.PicketLink>`
-       How to configure eXo Platform to work with LDAP. The integration
-       currently uses the PicketLink IDM framework.
+    -  :ref:`LDAP/AD integration using PicketLink <LDAP.PicketLink>`
+       How to configure eXo Platform to work with LDAP/AD. The 
+       integration currently uses the PicketLink IDM framework.
 
     -  :ref:`eXo Platform configuration with a directory server <LDAP.Directoryserverintegration>`
        A step by step tutorial for eXo Platform configuration with a
        directory server: LDAP/AD.
 
-
-    -  :ref:`LDAP integration using legacy organization
-       services <LDAP.LegacyOrganizationService>`
-       Before PicketLink, eXo Platform used some other organization service
-       implementations. These are currently not used by default but are
-       still supported.
-
     -  :ref:`Frequently asked questions <LDAP.FAQ>`
-       How to resolve some possible issues of LDAP integration.
+       How to resolve some possible issues of LDAP/AD integration.
        
 .. _LDAP.PicketLink:
 
-=================================
-LDAP integration using PicketLink
-=================================
+=====================================
+LDAP/AD integration using PicketLink
+=====================================
 
 eXo Platform uses `PicketLink IDM
 framework <https://www.jboss.org/picketlink/IDM>`__ that allows a very
 flexible integration with an LDAP directory:
 
--  It can be plugged to an already populated LDAP directory, in
-   **read-only mode**. The LDAP directory can contain users
+-  It can be plugged to an already populated LDAP/AD directory, in
+   **read-only mode**. The LDAP/AD directory can contain users
    and groups, or only users.
 
 -  It can be plugged into an empty LDAP directory.
@@ -86,11 +76,7 @@ easy for readers, this tutorial is divided into four generic cases:
 
 -  :ref:`LDAP users mapped into Platform <LDAP.PicketLink.MappingLDAPUser>`
 
--  :ref:`Platform users mapped into LDAP <LDAP.PicketLink.MappingPlatformUser>`
-
 -  :ref:`LDAP groups mapped into Platform <LDAP.PicketLink.MappingLDAPGroup>`
-
--  :ref:`Platform groups mapped into LDAP <LDAP.PicketLink.MappingPlatformGroup>`
 
 .. note:: The term "*LDAP users*\ " represents users who are created in 
           LDAP by LDAP utilities. The term "*Platform users*\ " 
@@ -1175,8 +1161,6 @@ For the 5.1 version, this is the list of the supported ones:
 
 -  Microsoft Active Directory.
 
--  OpenDS.
-
 Please refer to
 `supported-environments <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__
 file for more details.
@@ -1459,7 +1443,7 @@ To resolve this, add an ACL (Access Control List) rule in the
     access to * by * read
 
 For more information, refer to `this
-discussion <https://community.exoplatform.com/portal/intranet/forum/topic/topicaf29ef7ca772acc44f16ba9a66b047bf>`__
+discussion <https://commPlatform users mapped into LDAPunity.exoplatform.com/portal/intranet/forum/topic/topicaf29ef7ca772acc44f16ba9a66b047bf>`__
 or `this
 link <http://www.openldap.org/lists/openldap-software/200505/msg00286.html>`__.
 
