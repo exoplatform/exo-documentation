@@ -5,23 +5,24 @@ LDAP Integration
 #################
 
     eXo Platform organizational objects - user, group and membership - can be
-    stored in database or LDAP. This chapter introduces the integration
-    between eXo Platform and LDAP in which LDAP takes the role of
-    organizational data storage.
+    stored in database or a directory such as LDAP or Active Directory 
+    (AD). This chapter introduces the integration between eXo Platform 
+    and LDAP in which LDAP takes the role of  organizational data storage.
 
     Please notice that this integration is not SSO (Single Sign On).
 
-    If SSO is what you need, read the :ref:`SSO chapter, eXo Add-ons guide <#eXoAddonsGuide.SSO>` that explains how eXo Platform works with
-    LDAP through an SSO service like CAS or OpenAM.
+    If SSO is what you need, read the :ref:`SSO chapter, eXo Add-ons guide <eXoAddonsGuide.SSO>` 
+    that explains how eXo Platform works with a directory through an SSO 
+    service like CAS or OpenAM.
     
-.. warning:: -  eXo Platform supports only the **read-only** mode on LDAP/MSAD integration.   
-             -  Only one single LDAP/AD is allowed.
-             -  The IDM mapped entities from LDAP/AD are imported in one way direction: **from LDAP/MSAD to eXo Platform**. 
+.. warning:: -  eXo Platform supports only the **read-only** mode on directory (LDAP/AD) integration.   
+             -  Only one single directory is allowed.
+             -  The IDM mapped entities from directory are imported in one way direction: **from the directory to eXo Platform**. 
 
     This chapter covers the following topics:
 
-    -  :ref:`LDAP/AD integration using PicketLink <LDAP.PicketLink>`
-       How to configure eXo Platform to work with LDAP/AD. The 
+    -  :ref:`Directory integration using PicketLink <LDAP.PicketLink>`
+       How to configure eXo Platform to work with a directory. The 
        integration currently uses the PicketLink IDM framework.
 
     -  :ref:`eXo Platform configuration with a directory server <LDAP.Directoryserverintegration>`
@@ -29,34 +30,32 @@ LDAP Integration
        directory server: LDAP/AD.
 
     -  :ref:`Frequently asked questions <LDAP.FAQ>`
-       How to resolve some possible issues of LDAP/AD integration.
+       How to resolve some possible issues of a directory integration.
        
 .. _LDAP.PicketLink:
 
-=====================================
-LDAP/AD integration using PicketLink
-=====================================
+=======================================
+Directory integration using PicketLink
+=======================================
 
 eXo Platform uses `PicketLink IDM
-framework <https://www.jboss.org/picketlink/IDM>`__ that allows a very
-flexible integration with an LDAP directory:
+framework <https://www.jboss.org/picketlink/IDM>`__ that allows the 
+integration with a directory server:
 
--  It can be plugged to an already populated LDAP/AD directory, in
-   **read-only mode**. The LDAP/AD directory can contain users
-   and groups, or only users.
+-  It can be plugged to an already populated directory, in **read-only 
+   mode**. The directory can contain users and groups, or only users.
 
--  It can be plugged into an empty LDAP directory.
+-  It can be plugged into an empty directory.
 
--  Structure of users and groups in the LDAP directory can be finely
-   customized.
+-  Structure of users and groups in the directory can be finely customized.
 
 -  Multiple directories can be used as single datasources for eXo Platform.
 
--  Users and groups can be managed via eXo Platform, or directly in the LDAP
+-  Users and groups can be managed via eXo Platform, or directly in the
    directory.
 
--  Many LDAP implementations are supported (RedHat Directory Server,
-   Microsoft Active Directory, OpenDS, OpenLDAP).
+-  The directory implementations supported are: OpenLDAP and Microsoft 
+   Active Directory.
 
 **What you need to read from here?**
 
@@ -64,7 +63,7 @@ Take an overview of this guideline:
 
 -  The :ref:`Quick start <LDAP.PicketLink.QuickStart>` section 
    simplifies the configuration by assuming that you will use an
-   empty LDAP directory. Once you complete this Quick start, you can
+   empty directory. Once you complete this Quick start, you can
    easily modify the configuration for other use cases.
 
 -  The :ref:`Configuration review <LDAP.PicketLink.ConfigurationReview>`
@@ -74,17 +73,17 @@ Take an overview of this guideline:
 In reality, the use cases may be very different from one to one. To make
 easy for readers, this tutorial is divided into four generic cases:
 
--  :ref:`LDAP users mapped into Platform <LDAP.PicketLink.MappingLDAPUser>`
+-  :ref:`Directory users mapped into Platform <LDAP.PicketLink.MappingLDAPUser>`
 
--  :ref:`LDAP groups mapped into Platform <LDAP.PicketLink.MappingLDAPGroup>`
+-  :ref:`Directory groups mapped into Platform <LDAP.PicketLink.MappingLDAPGroup>`
 
-.. note:: The term "*LDAP users*\ " represents users who are created in 
-          LDAP by LDAP utilities. The term "*Platform users*\ " 
+.. note:: The term "**Directory users**" represents users who are created in 
+          the directory by its utilities. The term "**Platform users**" 
           represents users who are created via eXo Platform UI. The 
-          understanding is similar to "*LDAP groups*\ " and "*Platform 
-          groups*\ ".
+          understanding is similar to "**Directory groups**" and "**Platform 
+          groups**".
 
-It should be easy to integrate eXo Platform with an LDAP directory if the
+It should be easy to integrate eXo Platform with a directory if the
 directory is well-organized and traditional. For complicated cases, you
 can raise your question and resolution in `eXo Community Forum <http://community.exoplatform.com/portal/intranet/forum>`. 
 Your contribution also helps enrich the :ref:`FAQ <LDAP.FAQ>`
@@ -114,16 +113,16 @@ should contain only the top DN, like:
     dc: example
 
 In this quick start, you configure Platform to write information of
-users and groups into LDAP. It might not match your need exactly, but
+users and groups into directory. It might not match your need exactly, but
 after this start you have everything in an ldap-extension, then you can
 adapt it by following the next sections.
 
 For example, one of the use cases is that you already have a populated
-directory. After this start, you will follow :ref:`LDAP users mapped into Platform <LDAP.PicketLink.MappingLDAPUser>` 
-and :ref:`LDAP groups mapped into Platform <LDAP.PicketLink.MappingLDAPGroup>`.
+directory. After this start, you will follow :ref:`Directory users mapped into Platform <LDAP.PicketLink.MappingLDAPUser>` 
+and :ref:`Directory groups mapped into Platform <LDAP.PicketLink.MappingLDAPGroup>`.
 
 Another note: the ldap-extension is technically a portal extension that
-is described in :ref:`Developer guide <#PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`, 
+is described in :ref:`Developer guide <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`, 
 but it does not require compilation, so administrators can create it 
 without Maven.
 If you are a developer, you can create a Maven project for it like your
@@ -1264,7 +1263,7 @@ To configure eXo Platform with LDAP, you need to follow these steps:
 			   </option>
 
 5. If you want to import users from **multiple trees in the same 
-   LDAP/AD**, you should set multiple values for the ``ctxDNs`` as below:
+   directory**, you should set multiple values for the ``ctxDNs`` as below:
 
    .. code:: xml
 
