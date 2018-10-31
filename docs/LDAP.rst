@@ -1182,10 +1182,12 @@ To configure eXo Platform with LDAP, you need to follow these steps:
 3. Uncomment the appropriate instruction from this
    `section <https://github.com/exo-samples/docs-samples/blob/master/ldap-extension/src/main/webapp/WEB-INF/conf/organization/idm-configuration.xml#L82-L100>`__
    defining the path of the picketlink configuration file corresponding 
-   to the used LDAP and the desired mode (read/write or readOnly):
+   to the used directory:
 
-   -  If you want to configure with LDAP (OpenDJ) in readOnly mode, you
-      should uncomment this section:
+.. note:: ``read-only`` mode is the only supported mode.
+
+   -  If you want to configure with OpenDJ in readOnly mode, you should 
+      uncomment this section:
 
       .. code:: xml
 
@@ -1446,5 +1448,4 @@ discussion <https://commPlatform users mapped into LDAPunity.exoplatform.com/por
 or `this
 link <http://www.openldap.org/lists/openldap-software/200505/msg00286.html>`__.
 
-.. |image0| image:: images/ldap_user.png
-.. |image1| image:: images/JMX.png       
+.. |image0| image:: images/ldap_user.png       
