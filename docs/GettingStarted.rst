@@ -450,7 +450,7 @@ Quickly perform key actions through the following applications:
 Creating content quickly
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In eXo Pltaform, you easily create your preferred content without navigating
+In eXo Platform, you easily create your preferred content without navigating
 to its relevant application. Simply click |image33| to open the drop-down
 menu.
 
