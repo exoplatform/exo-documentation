@@ -805,7 +805,7 @@ eXo Chat installation
 
 eXo Chat application has two installation modes available:
 
--  The embedded mode: eXo Chat is deployed inside eXo Platorm.
+-  The embedded mode: eXo Chat is deployed inside eXo Platform.
 
 -  The standalone mode: eXo Chat is installed into a dedicated
    server.
