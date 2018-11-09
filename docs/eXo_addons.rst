@@ -53,6 +53,8 @@ Add-ons Management
     -  :ref:`Installing/Uninstalling add-ons <AddonsManagement.InstallingUninstalling>`
 
     -  :ref:`Installing/Uninstalling add-ons in a docker container <AddonsManagement.InstallingUninstallingInDocker>`
+    
+    -  :ref:`Using the Add-ons manager behind a proxy server <AddonsManagement.Behindproxy>`    
 
 
 .. _AddonsManagement.Listing:
@@ -370,6 +372,29 @@ uninstall:
     -p 8080:8080 \
     -e EXO_ADDONS_REMOVE_LIST="exo-tasks:1.3.x-SNAPSHOT,exo-answers:1.3.x-SNAPSHOT" \
     exoplatform/exo-community
+
+.. _AddonsManagement.Behindproxy:
+
+================================================
+Using the Add-ons manager behind a proxy server
+================================================
+
+In order to use the Add-ons manager behind a proxy server, use the 
+environment variable EXO_AM_OPTS to pass the proxy server parameters:
+
+::
+
+	export EXO_AM_OPTS="-Dhttp.proxyHost=$httpProxyAdrs -Dhttp.proxyPort=$httpProxyPort -Dhttps.proxyHost=$httpsProxyAdrs -Dhttps.proxyPort=$httpsProxyPort"
+
+
+Where:
+
+-  ``$httpProxyAdrs`` and ``$httpProxyPort`` should be respectively the 
+   values of your proxy hostname address and port for HTTP protocol.
+
+-  ``$httpsProxyAdrs`` and ``$httpsProxyPort`` should be respectively 
+   the values of your proxy hostname address and port for HTTPS protocol. 
+   
 
 
 .. |image0| image:: images/addons/list_screen.png
