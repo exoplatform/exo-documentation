@@ -210,7 +210,7 @@ Contact Information
 +----------------------+-----------------------------------------------------+
 | Job Title            | The job position. Note that the information entered |
 |                      | in the field will be retrieved when you             |
-|					   |  :ref:`search for contacts <SearchingForContact>    | 
+|		       |  :ref:`search for contacts <SearchingForContact>    | 
 +----------------------+-----------------------------------------------------+
 | Gender               | The gender of user. Select your gender from the     |
 |                      | select box, either empty, male or female.           |
