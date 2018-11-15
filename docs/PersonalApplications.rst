@@ -225,6 +225,8 @@ Contact Information
 |                      | format, for example, http://exoplatform.com/.       |
 +----------------------+-----------------------------------------------------+ 
 
+.. note:: The empty choice for ``Gender`` field is designed to enable you to not precize your gender.
+
 
 .. _Change-your-avatar:
 
