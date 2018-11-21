@@ -333,6 +333,12 @@ The toolbar in the **Edit** mode will be changed to activate the following actio
 ||image22|           | **View** mode.                                         |
 +--------------------+--------------------------------------------------------+
 
+.. tip:: When you input the ``Version Note`` field i.e. the field |image98|, and you check the option 
+	     ``Publish on the Activity Stream``, the text appears as a comment to the activity generated 
+	     following to the wiki page creation.
+	         |image99|
+	     You can input the field ``Version Note``even if you did not any change on the wiki page content.
+
 **Editing a page section**
 
 To edit only a section in the whole page content, hover your cursor over
@@ -1345,3 +1351,5 @@ use the wiki syntax to format content as normal.
 .. |image95| image:: images/wiki/usersWiki.png
 .. |image96| image:: images/wiki/spaceWiki.png
 .. |image97| image:: images/wiki/changed-name.png
+.. |image98| image:: images/common/6.png
+.. |image99| image:: images/common/6.png
