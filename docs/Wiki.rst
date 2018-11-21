@@ -1352,4 +1352,4 @@ use the wiki syntax to format content as normal.
 .. |image96| image:: images/wiki/spaceWiki.png
 .. |image97| image:: images/wiki/changed-name.png
 .. |image98| image:: images/common/6.png
-.. |image99| image:: images/common/6.png
+.. |image99| image:: images/wiki/version_note.png
