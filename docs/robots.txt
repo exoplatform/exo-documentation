@@ -1,0 +1,5 @@
+# robots.txt
+User-agent: *
+Crawl-delay: 10
+
+# Sitemap: https://docs.exoplatform.org/sitemaps.xml
