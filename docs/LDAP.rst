@@ -331,7 +331,7 @@ is summarized in the following table:
    +-----------------+---------------------------------+------------------------+---------------------+
    | lastname        | Attribute ``lastName``          | sn                     | sn                  |
    +-----------------+---------------------------------+------------------------+---------------------+
-   | email           | Attribute ``email`              | mail                   | mail                |
+   | email           | Attribute ``email``             | mail                   | mail                |
    +-----------------+---------------------------------+------------------------+---------------------+
 
 You can update them in the file picketlink-idm-ldap-config.xml to match your specific mapping.
