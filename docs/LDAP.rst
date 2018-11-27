@@ -641,7 +641,7 @@ of type ``org.exoplatform.services.organization.idm.Config``:
    group type. Otherwise, only direct (first level) children will use this type.
    This can be leveraged by LDAP if the LDAP DN is configured in PicketLink 
    IDM to only store a specific group type. This will then store the given 
-   branch in the GateIn 3.5 group tree, while all other groups will remain in the database.
+   branch in the eXo Platform group tree, while all other groups will remain in the database.
    
 -  **forceMembershipOfMappedTypes**: groups stored in PicketLink IDM with 
    a type mapped in 'groupTypeMappings' will automatically be members under the mapped parent. 
