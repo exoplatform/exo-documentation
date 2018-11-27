@@ -852,6 +852,84 @@ Assume you are mapping the LDAP users in the tree above, using the ctxDNs
 -  ``object``: no user is mapped.
 -   If omitted: only user1 is mapped.
 
+.._PicketlinkIDM_User_attributes:
+
+Platform user attributes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The list of Platform user attribute names (the asterisk (\*) marks a
+mandatory attribute):
+
++-------------------------------------------------+-------------------------------------+
+| Name                                            | Description                         |
++=================================================+=====================================+
+| *username (\*)*                                 | user id (login name)                |
++-------------------------------------------------+-------------------------------------+
+| *firstName (\*)*                                | first name                          |
++-------------------------------------------------+-------------------------------------+
+| *lastName (\*)*                                 | last name                           |
++-------------------------------------------------+-------------------------------------+
+| *displayName*                                   | display name                        |
++-------------------------------------------------+-------------------------------------+
+| *email (\*)*                                    | email (unique, user1@example.com)   |
++-------------------------------------------------+-------------------------------------+
+| *user.name.given*                               | given name                          |
++-------------------------------------------------+-------------------------------------+
+| *user.name.family*                              | family name                         |
++-------------------------------------------------+-------------------------------------+
+| *user.name.nickName*                            | nick name                           |
++-------------------------------------------------+-------------------------------------+
+| *user.bdate*                                    | birth day                           |
++-------------------------------------------------+-------------------------------------+
+| *user.gender*                                   | "Male/Female"                       |
++-------------------------------------------------+-------------------------------------+
+| *user.employer*                                 | employer                            |
++-------------------------------------------------+-------------------------------------+
+| *user.department*                               | department                          |
++-------------------------------------------------+-------------------------------------+
+| *user.jobtitle*                                 | job title                           |
++-------------------------------------------------+-------------------------------------+
+| *user.language*                                 | language                            |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.postal.name*                    | personal address                    |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.postal.street*                  | personal address                    |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.postal.city*                    | personal address                    |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.postal.stateprov*               | personal address                    |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.postal.postalcode*              | personal postal code                |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.postal.country*                 | personal postal country             |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.telecom.mobile.number*          | personal cell phone                 |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.telecom.telephone.number*       | personal line number                |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.online.email*                   | personal email                      |
++-------------------------------------------------+-------------------------------------+
+| *user.home-info.online.uri*                     | personal page                       |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.postal.name*                | office address                      |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.postal.city*                | office address                      |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.postal.stateprov*           | office address                      |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.postal.postalcode*          | office postal code                  |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.postal.country*             | office postal country               |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.telecom.mobile.number*      | office mobile number                |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.telecom.telephone.number*   | office landline number              |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.online.email*               | business email                      |
++-------------------------------------------------+-------------------------------------+
+| *user.business-info.online.uri*                 | business page                       |
++-------------------------------------------------+-------------------------------------+
+
 .. _PicketlinkIDM_Search_scope:
 
 Placeholder - A note for OpenLDAP
@@ -909,10 +987,9 @@ Q2:How to enable sign-in for LDAP pre-existing users?
 but they are unable to sign in eXo Platform. More exactly, they do not have
 access permission to any pages.
 
-There are additional steps to allow them to sign in. You can choose
-either of two approaches:
+Additional steps should be done to allow them to sign in:
 
--  **Manually adding users to the appropriate groups**
+-  **Manually add users to the appropriate groups**
 
    It is performed in the :ref:`User and Group Management Page <ManagingYourOrganization.ManagingUsers>`
    (http://[your\_host]:[your\_port]/portal/g/:platform:administrators/administration/management).
@@ -925,8 +1002,6 @@ either of two approaches:
 Q3: How to configure PicketLink to look up users in an entire tree?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See real case in `Community forum <http://community.exoplatform.com/portal/intranet/forum/topic/topic1d68746dc06313bc69395c44af5568f4/post207b236dc06313bc6b5f3e6d5ad39827> 
-
 **A:** Use this option:
 
 .. code:: xml
@@ -936,7 +1011,7 @@ See real case in `Community forum <http://community.exoplatform.com/portal/intra
         <value>subtree</value>
     </option>
 
-See more details at :ref:`PicketLink IDM configuration <PLIDMConfiguration.entrySearchScope>`.
+See more details at :ref:`PicketLink IDM configuration <PicketlinkIDM_Search_scope>`.
 
 .. _LDAP.FAQ.Q4:
 
@@ -968,8 +1043,6 @@ To resolve this, add an ACL (Access Control List) rule in the ``slapd.conf`` fil
         by anonymous auth
         by users none
     access to * by * read
-
-For more information, refer to `this discussion <https://community.exoplatform.com/portal/intranet/forum/topic/topicaf29ef7ca772acc44f16ba9a66b047bf> or `this link <http://www.openldap.org/lists/openldap-software/200505/msg00286.html>`__.
 
 			
 
