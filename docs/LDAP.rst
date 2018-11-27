@@ -25,6 +25,24 @@ This chapter covers the following topics:
 
     -  :ref:`Quick start <LDAP.QuickStart>`
        A step by step tutorial for eXo Platform configuration with a directory server.
+   
+    -  :ref:`How to map multiple DNs for users? <LDAP.MapDNsUsers>`
+       A step by step tutorial to map multiple DNs for users from your directory to eXo Platform.
+   
+    -  :ref:`How to change default mandatory users attributes mapping? <LDAP.MandatoryUserAttributes>`
+       A step by step tutorial to map default users attributes.
+   
+    -  :ref:`How to map additional user attributes? <LDAP.AdditionalUserAttributes>`
+       A step by step tutorial to map additional users attributes than the default ones.
+   
+    -  :ref:`How to map multiple DNs for groups? <LDAP.MultipleDNsGroups>`
+       A tutorial allowing to map multiple DNs for groups from your directory to eXo platform.
+   
+    -  :ref:`How to map directory groups to a new eXo Platform group? <LDAP.NewPLFGroups>`
+       A tutorial allowing to map your directory groups to new eXo platform groups.
+
+    -  :ref:`Configuration reference <LDAP.ConfigurationReference>`
+       A reference guide about PicketLink IDM configuration and eXO Platform configuration.
 
     -  :ref:`Frequently asked questions <LDAP.FAQ>`
        How to resolve some possible issues of a directory integration.
@@ -237,7 +255,7 @@ Testing
 If the integration was successful, the directory users and groups will appear in eXo Platform under the menu 
 **Administration --> Users --> Manage Users**.
 
-.. _LDAP_MapDNsUsers:
+.. _LDAP.MapDNsUsers:
 
 ===================================
 How to map multiple DNs for users?
@@ -265,7 +283,7 @@ In such case, you should, in addition to previous steps described in the
 
 Since only one type of user can be defined, all users of these DNs must share the same attributes mapping.
 
-.. _LDAP_MandatoryUserAttributes:
+.. _LDAP.MandatoryUserAttributes:
 
 ===========================================================
 How to change default mandatory users attributes mapping?
@@ -336,7 +354,7 @@ is summarized in the following table:
 
 You can update them in the file picketlink-idm-ldap-config.xml to match your specific mapping.
 
-.. _LDAP_AdditionalUserAttributes:
+.. _LDAP.AdditionalUserAttributes:
 
 ========================================
 How to map additional user attributes?
@@ -363,11 +381,12 @@ you must add this configuration snippet under the “attributes” tag in the fi
 			   </attributes>
 	
 			   
-.. _LDAP_MultipleDNsGroups:
+			   
+.. _LDAP.MultipleDNsGroups:
 
-=====================================
+========================================
 How to map multiple DNs for groups?
-=====================================	   
+========================================	   
 			   
 As in previous sections, we assume that you already have a populated directory and some groups that should be mapped into eXo Platform. 
 
@@ -394,11 +413,11 @@ follow these steps:
 				<value>ou=Groups,o=emca,dc=example,dc=com</value>
 			 </option>
 			 
-.. _LDAP_NewPLFGroups:
+.. _LDAP.NewPLFGroups:
 
-=========================================================
+==========================================================
 How to map directory groups to a new eXo Platform group?
-=========================================================			 
+==========================================================				 
 			
 In the :ref:`Quick start chapter <LDAP.QuickStart>` we map the directory groups to default eXo Platform groups 
 ``/platform`` and ``/organization``. In this chapter we will learn how to map  directory groups into a new eXo Platform group. 
@@ -544,7 +563,7 @@ Then this new object type must be referenced in the PortalRepository repository:
 				</component>
 				
 				
-.. _LDAP_ConfigurationReference:
+.. _LDAP.ConfigurationReference:
 
 =========================
 Configuration reference
@@ -859,7 +878,98 @@ Therefore, PicketLink IDM uses a **placeholder** entry as a fake member in the c
 				</option>
 			  ...  
 
+.. _LDAP.FAQ:
 
+============================
+Frequently asked questions
+============================
+
+.. _LDAP.FAQ.Q1:
+
+Q1:How does Directory get ready for integration?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**A:** Not any condition except that the top DN should be created before being integrated.
+
+You should ensure that the Directory contains an entry like the following:
+
+::
+
+    dn: dc=example,dc=com
+    objectClass: top
+    objectClass: domain
+    dc: example
+
+.. _LDAP.FAQ.Q2:
+
+Q2:How to enable sign-in for LDAP pre-existing users?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**A:** LDAP users are visible in the :ref:`Users and Groups Management Page <ManagingYourOrganization.ManagingUsers>`
+but they are unable to sign in eXo Platform. More exactly, they do not have
+access permission to any pages.
+
+There are additional steps to allow them to sign in. You can choose
+either of two approaches:
+
+-  **Manually adding users to the appropriate groups**
+
+   It is performed in the :ref:`User and Group Management Page <ManagingYourOrganization.ManagingUsers>`
+   (http://[your\_host]:[your\_port]/portal/g/:platform:administrators/administration/management).
+   Just go to this page and add users to appropriate groups. The
+   */platform/users* group is required to access the *intranet* page.
+
+
+.. _LDAP.FAQ.Q3:
+
+Q3: How to configure PicketLink to look up users in an entire tree?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See real case in `Community forum <http://community.exoplatform.com/portal/intranet/forum/topic/topic1d68746dc06313bc69395c44af5568f4/post207b236dc06313bc6b5f3e6d5ad39827> 
+
+**A:** Use this option:
+
+.. code:: xml
+
+    <option>
+        <name>entrySearchScope</name>
+        <value>subtree</value>
+    </option>
+
+See more details at :ref:`PicketLink IDM configuration <PLIDMConfiguration.entrySearchScope>`.
+
+.. _LDAP.FAQ.Q4:
+
+Q4: Cannot log into eXo Platform: error code 49
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**A:** This may happen with OpenLDAP, when users are created successfully but they cannot login, and there is error code 49 in your LDAP log as follows:
+
+    5630e5ba conn=1002 op=0 BIND dn="uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" method=128
+    5630e5ba do_bind: version=3 dn="uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" method=128
+    5630e5ba ==> bdb_bind: dn: uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com
+    5630e5ba bdb_dn2entry("uid=firstuser,ou=people,o=portal,o=gatein,dc=steinhoff,dc=com")
+    5630e5ba => access_allowed: result not in cache (userPassword)
+    5630e5ba => access_allowed: auth access to "uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" "userPassword" requested
+    5630e5ba => dn: [1]
+    5630e5ba <= acl_get: done.
+    5630e5ba => slap_access_allowed: no more rules
+    5630e5ba => access_allowed: no more rules
+    5630e5ba send_ldap_result: conn=1002 op=0 p=3
+    5630e5ba send_ldap_result: err=49 matched="" text=""
+    5630e5ba send_ldap_response: msgid=1 tag=97 err=49
+
+To resolve this, add an ACL (Access Control List) rule in the ``slapd.conf`` file as below:
+
+    # Access and Security Restrictions (Most restrictive entries first)
+    access to attrs=userPassword
+        by self write   
+        ## by dn.sub="ou=admin,dc=domain,dc=example" read ## not mandatory, useful if you need grant a permission to a particular dn
+        by anonymous auth
+        by users none
+    access to * by * read
+
+For more information, refer to `this discussion <https://community.exoplatform.com/portal/intranet/forum/topic/topicaf29ef7ca772acc44f16ba9a66b047bf> or `this link <http://www.openldap.org/lists/openldap-software/200505/msg00286.html>`__.
 
 			
 
