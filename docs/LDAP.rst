@@ -646,7 +646,7 @@ of type ``org.exoplatform.services.organization.idm.Config``:
 -  **forceMembershipOfMappedTypes**: groups stored in PicketLink IDM with 
    a type mapped in 'groupTypeMappings' will automatically be members under the mapped parent. 
    The Group relationships linked by the PicketLink IDM group association will not be necessary.
-   This parameter can be set to false if all groups are added via GateIn 3.5 APIs. This may be 
+   This parameter can be set to false if all groups are added via eXo Platform APIs. This may be 
    useful with the LDAP configuration when being set to true, it will make every entry added to 
    LDAP appear in GateIn 3.5. This, however, is not true for entries added via GateIn 3.5 management UI.
    
