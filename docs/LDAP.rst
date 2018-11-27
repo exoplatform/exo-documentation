@@ -663,7 +663,7 @@ of type ``org.exoplatform.services.organization.idm.Config``:
 -  **useParentIdAsGroupType**: this parameter stores the parent ID path as a group type in PicketLink IDM 
    for any IDs not mapped with a specific type in 'groupTypeMappings'. If this option is set to false, 
    and no mappings are provided under 'groupTypeMappings', only one group with the given name can exist 
-   in the GateIn 3.5 group tree.
+   in the eXo Platform group tree.
    
 -  **pathSeparator**: when 'userParentIdAsGroupType' is set to true, this value will be used to replace 
    all "/" characters in IDs. The "/" character is not allowed in the group type name in PicketLink IDM.
