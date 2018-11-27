@@ -138,12 +138,12 @@ that you can adapt by following the following sections.
 
 4. Copy content from one of PicketLink sample files to your ``picketlink-idm-ldap-config.xml``  file.
 
-note:: The sample files can be found in,``portal.war!/WEB-INF/conf/organization/picketlink-idm/examples``.
-       Choose either of the following files:
+.. note:: The sample files can be found in,``portal.war!/WEB-INF/conf/organization/picketlink-idm/examples``.
+          Choose either of the following files:
 
-		-  ``picketlink-idm-msad-config.xml`` if you use MS Active Directory.
-		-  ``picketlink-idm-openldap-config.xml`` for OpenLDAP.
-		-  ``picketlink-idm-ldap-config.xml`` for other LDAP compliant directories.
+			-  ``picketlink-idm-msad-config.xml`` if you use MS Active Directory.
+			-  ``picketlink-idm-openldap-config.xml`` for OpenLDAP.
+			-  ``picketlink-idm-ldap-config.xml`` for other LDAP compliant directories.
 
 
 5. Modify the ``picketlink-idm-ldap-config.xml`` file according to your directory setup. Most of the time,  
@@ -208,9 +208,9 @@ note:: The sample files can be found in,``portal.war!/WEB-INF/conf/organization/
    to eXo Platform. If you bypass this step, only user mapping is performed.
 
 8. Configure your extension by following the steps 3, 4 and 5 of 
-   :ref:` Creating a portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`.
+   :ref:`Creating a portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`.
 
-9. :ref:`Package and deploy <LDAP.PicketLink.QuickStart.Deployment>` your ldap-extension into Platform.
+9. :ref:`Package and deploy <LDAP.QuickStart.PackagingDeploying>` your ldap-extension into Platform.
 
 .. note:: For JBoss, don’t forget to declare :ref:`deployment dependency <Jboss-deployment>`deployment dependency.
 
@@ -606,7 +606,7 @@ This service has the following parameters:
 							<value>war:/conf/organization/picketlink-idm-ldap-config.xml</value>
 					...
 
-..note:: The “war:” prefix allows to lookup the given location in all deployed webapps.
+.. note:: The “war:” prefix allows to lookup the given location in all deployed webapps.
 
 -  **hibernate.properties** (properties-param): list of hibernate properties 
    used to create SessionFactory that will be injected in Picketlink IDM configuration registry.
@@ -626,7 +626,7 @@ This service has the following parameters:
 			 </properties-param>
 
 
--  **hibernate.annotations*: list of annotated classes that will be added to Hibernate configuration.
+-  **hibernate.annotations**: list of annotated classes that will be added to Hibernate configuration.
 -  **hibernate.mappings**: list of .xml files that will be added to the hibernate configuration as mapping files.
 -  **jndiName** (value-param): if the 'config' parameter is not provided, this parameter will be used to perform the JNDI lookup for IdentitySessionFactory.
 -  **portalRealm** (value-param): the realm name that should be used to obtain the proper IdentitySession. The default value is 'PortalRealm'.
@@ -839,11 +839,13 @@ It is equivalent to the *scope* parameter of the ldapsearch command (-s in OpenL
 -  The ``object`` value is equivalent to ``-s base`` that examines only
    the ctxDNs itself. If the ctxDNs entry does not match the filter, the
    search result is zero.
+   
+   ::
 
-    # o=acme,dc=example,dc=com
-    # uid=user1,o=acme,dc=example,dc=com
-    # ou=People,o=acme,dc=example,dc=com
-    # uid=user2,ou=People,o=acme,dc=example,dc=com
+		# o=acme,dc=example,dc=com
+		# uid=user1,o=acme,dc=example,dc=com
+		# ou=People,o=acme,dc=example,dc=com
+		# uid=user2,ou=People,o=acme,dc=example,dc=com
 
 Assume you are mapping the LDAP users in the tree above, using the ctxDNs 
 *o=acme,dc=example,dc=com*, then:
@@ -852,7 +854,7 @@ Assume you are mapping the LDAP users in the tree above, using the ctxDNs
 -  ``object``: no user is mapped.
 -   If omitted: only user1 is mapped.
 
-.._PicketlinkIDM_User_attributes:
+.. _PicketlinkIDM_User_attributes:
 
 Platform user attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -937,11 +939,13 @@ Placeholder - A note for OpenLDAP
 
 Ruled by OpenLDAP default *core* schema, the *member* attribute is a MUST attribute of *groupOfNames* objectClass:
 
-    objectclass ( 2.5.6.9 NAME 'groupOfNames'
-        DESC 'RFC2256: a group of names (DNs)'
-        SUP top STRUCTURAL
-        MUST ( member $ cn )
-        MAY ( businessCategory $ seeAlso $ owner $ ou $ o $ description ) )
+::
+
+		objectclass ( 2.5.6.9 NAME 'groupOfNames'
+			DESC 'RFC2256: a group of names (DNs)'
+			SUP top STRUCTURAL
+			MUST ( member $ cn )
+			MAY ( businessCategory $ seeAlso $ owner $ ou $ o $ description ) )
 
 Therefore, PicketLink IDM uses a **placeholder** entry as a fake member in the creation of a groupOfNames. The placeholder DN should be configured as an option of any group type:
 
@@ -964,7 +968,7 @@ Frequently asked questions
 
 .. _LDAP.FAQ.Q1:
 
-Q1:How does Directory get ready for integration?
+Q1- How does Directory get ready for integration?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **A:** Not any condition except that the top DN should be created before being integrated.
@@ -980,8 +984,8 @@ You should ensure that the Directory contains an entry like the following:
 
 .. _LDAP.FAQ.Q2:
 
-Q2:How to enable sign-in for LDAP pre-existing users?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Q2- How to enable sign-in for LDAP pre-existing users?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **A:** LDAP users are visible in the :ref:`Users and Groups Management Page <ManagingYourOrganization.ManagingUsers>`
 but they are unable to sign in eXo Platform. More exactly, they do not have
@@ -999,7 +1003,7 @@ Additional steps should be done to allow them to sign in:
 
 .. _LDAP.FAQ.Q3:
 
-Q3: How to configure PicketLink to look up users in an entire tree?
+Q3- How to configure PicketLink to look up users in an entire tree?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **A:** Use this option:
@@ -1015,34 +1019,38 @@ See more details at :ref:`PicketLink IDM configuration <PicketlinkIDM_Search_sco
 
 .. _LDAP.FAQ.Q4:
 
-Q4: Cannot log into eXo Platform: error code 49
+Q4- Cannot log into eXo Platform: error code 49
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **A:** This may happen with OpenLDAP, when users are created successfully but they cannot login, and there is error code 49 in your LDAP log as follows:
 
-    5630e5ba conn=1002 op=0 BIND dn="uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" method=128
-    5630e5ba do_bind: version=3 dn="uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" method=128
-    5630e5ba ==> bdb_bind: dn: uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com
-    5630e5ba bdb_dn2entry("uid=firstuser,ou=people,o=portal,o=gatein,dc=steinhoff,dc=com")
-    5630e5ba => access_allowed: result not in cache (userPassword)
-    5630e5ba => access_allowed: auth access to "uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" "userPassword" requested
-    5630e5ba => dn: [1]
-    5630e5ba <= acl_get: done.
-    5630e5ba => slap_access_allowed: no more rules
-    5630e5ba => access_allowed: no more rules
-    5630e5ba send_ldap_result: conn=1002 op=0 p=3
-    5630e5ba send_ldap_result: err=49 matched="" text=""
-    5630e5ba send_ldap_response: msgid=1 tag=97 err=49
+::
+
+		5630e5ba conn=1002 op=0 BIND dn="uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" method=128
+		5630e5ba do_bind: version=3 dn="uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" method=128
+		5630e5ba ==> bdb_bind: dn: uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com
+		5630e5ba bdb_dn2entry("uid=firstuser,ou=people,o=portal,o=gatein,dc=steinhoff,dc=com")
+		5630e5ba => access_allowed: result not in cache (userPassword)
+		5630e5ba => access_allowed: auth access to "uid=firstuser,ou=People,o=portal,o=gatein,dc=steinhoff,dc=com" "userPassword" requested
+		5630e5ba => dn: [1]
+		5630e5ba <= acl_get: done.
+		5630e5ba => slap_access_allowed: no more rules
+		5630e5ba => access_allowed: no more rules
+		5630e5ba send_ldap_result: conn=1002 op=0 p=3
+		5630e5ba send_ldap_result: err=49 matched="" text=""
+		5630e5ba send_ldap_response: msgid=1 tag=97 err=49
 
 To resolve this, add an ACL (Access Control List) rule in the ``slapd.conf`` file as below:
 
-    # Access and Security Restrictions (Most restrictive entries first)
-    access to attrs=userPassword
-        by self write   
-        ## by dn.sub="ou=admin,dc=domain,dc=example" read ## not mandatory, useful if you need grant a permission to a particular dn
-        by anonymous auth
-        by users none
-    access to * by * read
+::
+
+		# Access and Security Restrictions (Most restrictive entries first)
+		access to attrs=userPassword
+			by self write   
+			## by dn.sub="ou=admin,dc=domain,dc=example" read ## not mandatory, useful if you need grant a permission to a particular dn
+			by anonymous auth
+			by users none
+		access to * by * read
 
 			
 
