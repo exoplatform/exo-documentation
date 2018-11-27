@@ -648,7 +648,7 @@ of type ``org.exoplatform.services.organization.idm.Config``:
    The Group relationships linked by the PicketLink IDM group association will not be necessary.
    This parameter can be set to false if all groups are added via eXo Platform APIs. This may be 
    useful with the LDAP configuration when being set to true, it will make every entry added to 
-   LDAP appear in GateIn 3.5. This, however, is not true for entries added via GateIn 3.5 management UI.
+   LDAP appear in eXo Platform. This, however, is not true for entries added via eXo Platform management UI.
    
 -  **ignoreMappedMembershipType**: if "associationMembershipType" option is used, and this option is set to 
    true, Membership with MembershipType configured to be stored as PicketLink IDM association will not be 
