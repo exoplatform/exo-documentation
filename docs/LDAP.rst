@@ -635,7 +635,7 @@ of type ``org.exoplatform.services.organization.idm.Config``:
    will be used to store groups. The default is ``GTN_GROUP_TYPE``.
    
 -  **groupTypeMappings** : this parameter maps groups added with eXo Platform 
-   3.5 API as children of a given group ID, and stores them with a given 
+   API as children of a given group ID, and stores them with a given 
    group type name in PicketLink IDM.
    If the parent ID ends with "/*", all child groups will have the mapped 
    group type. Otherwise, only direct (first level) children will use this type.
