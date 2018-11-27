@@ -491,7 +491,7 @@ As a prerequisite, the group /acme must be already created in eXo Platform.
    - **parentMembershipAttributeName**: attribute which holds the list of group members. In OpenLDAP or MSAD default schemas, 
      the member attribute is used, but your schema may use another attribute.
 
-Then this new object type must be referenced it in the PortalRepository repository: 
+Then this new object type must be referenced in the PortalRepository repository: 
 
       .. code:: xml
       
