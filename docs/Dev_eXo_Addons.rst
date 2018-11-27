@@ -321,6 +321,8 @@ Manager:
 
 2. Restart the server.
 
+.. _Jboss-deployment:
+
 **For JBoss:**
 
 1. Add new ``WEB-INF/jboss-deployment-structure.xml`` file to 
