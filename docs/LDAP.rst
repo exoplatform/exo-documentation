@@ -383,7 +383,7 @@ In this case, you should, in addition to previous steps described in the :ref:`Q
 follow these steps:
 
 1. Open the configuration file ``picketlink-idm-ldap-config.xml``.
-2. Search for the option ctxDNs to define the different locations of DNs
+2. Search for the option ctxDNs to define the multiple locations of DNs
    where your directory groups are located:
    
     .. code:: xml
