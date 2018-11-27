@@ -43,7 +43,7 @@ that allows a very flexible integration with a directory server:
 -  Structure of users and groups in the directory can be finely customized.
 
 -  The supported directory implementations are: OpenLDAP and Microsoft Active Directory. You can refer to our official 
-   `supported environments <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__ file for more 
+   `supported environments <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__ matrix for more 
    details about the supported versions. 
 
 The term "Directory users" represents users who are created in the directory by its utilities. The term "Platform users" represents users who are created via eXo Platform UI. The understanding is similar for "Directory groups" and "Platform group*".
