@@ -516,7 +516,7 @@ Then this new object type must be referenced it in the PortalRepository reposito
    Besides the :ref:`PicketLink configuration <PicketlinkConfiguration>`, 
    the eXo service configuration define in the file ``idm-configuration.xml`` must be updated. 
    A new entry must be added in the fields ``groupTypeMappings`` and ``ignoreMappedMembershipTypeGroupList`` 
-   to map the group defined in PicketLink configuration with the eXo Platform, as follows: 
+   to map the group defined in PicketLink configuration with the eXo Platform group, as follows: 
 
     .. code:: xml
 
