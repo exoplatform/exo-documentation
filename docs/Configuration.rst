@@ -2755,7 +2755,7 @@ To disable the activity type, simply set the parameter to ``false``.
 			-  **USER\_ACTIVITIES\_FOR\_SPACE**: Activity  posted when a 
 			   user creates an activity in a space.
 			-  **LINK\_ACTIVITY**: Activity with a link attachement.
-			-  **sharecontents\:spaces**: Activity for contents sharing
+			-  **sharecontents\\:spaces**: Activity for contents sharing
 			   in a space.
 			-  **USER\_PROFILE\_ACTIVITY**: Activity automatically posted 
 			   the first time a user updates his/her profile.
