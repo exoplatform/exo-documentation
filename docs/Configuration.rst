@@ -4423,12 +4423,6 @@ In particular:
 	exo.cache.wiki.PageRenderingCache.strategy=LIRS
 	exo.cache.wiki.PageRenderingCache.cacheMode=asyncReplication
 
-	# Wiki Cache Configuration - Page Uuid
-	exo.cache.wiki.PageUuidCache.MaxNodes=3500
-	exo.cache.wiki.PageUuidCache.TimeToLive=-1
-	exo.cache.wiki.PageUuidCache.strategy=LIRS
-	exo.cache.wiki.PageUuidCache.cacheMode=asyncReplication
-
 	# Wiki Cache Configuration - Page Attachment
 	exo.cache.wiki.PageAttachmentCache.MaxNodes=3500
 	exo.cache.wiki.PageAttachmentCache.TimeToLive=-1
