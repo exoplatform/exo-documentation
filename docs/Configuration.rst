@@ -2755,26 +2755,26 @@ To disable the activity type, simply set the parameter to ``false``.
 			-  **USER\_ACTIVITIES\_FOR\_SPACE**: Activity  posted when a 
 			   user creates an activity in a space.
 			-  **LINK\_ACTIVITY**: Activity with a link attachement.
-			-  **sharecontents:spaces**: Activity for contents sharing
+			-  **sharecontents\\:spaces**: Activity for contents sharing
 			   in a space.
 			-  **USER\_PROFILE\_ACTIVITY**: Activity automatically posted 
 			   the first time a user updates his/her profile.
 			-  **DOC\_ACTIVITY**: Activity with document posted via the 
 			   *Share feature* of the mobile application.
-			-  **files:spaces**: Activity with documents attached.
-			-  **sharefiles:spaces**: Activity automatically posted when a 
+			-  **files\\:spaces**: Activity with documents attached.
+			-  **sharefiles\\:spaces**: Activity automatically posted when a 
 			   document is shared in a space.
-			-  **contents:spaces**: Activity automatically posted when a 
+			-  **contents\\:spaces**: Activity automatically posted when a 
 			   content is created.
-			-  **cs-calendar:spaces**: Activity automatically posted when a 
+			-  **cs-calendar\\:spaces**: Activity automatically posted when a 
 			   new event is created.
-			-  **ks-forum:spaces**: Activity automatically posted when a new 
+			-  **ks-forum\\:spaces**: Activity automatically posted when a new 
 			   forum topic or post is created.
-			-  **ks-answer:spaces**: Activity automatically posted when a 
+			-  **ks-answer\\:spaces**: Activity automatically posted when a 
 			   new question or answer is created.
-			-  **ks-poll:spaces**: Activity automatically posted when a new 
+			-  **ks-poll\\:spaces**: Activity automatically posted when a new 
 			   poll is created.
-			-  **ks-wiki:spaces**: Activity automatically posted when a new 
+			-  **ks-wiki\\:spaces**: Activity automatically posted when a new 
 			   wiki page is created in a space wiki.
 			-  **USER\_ACTIVITIES\_FOR\_RELATIONSHIP**: Activity 
 			   automatically posted the first time a user is getting 
@@ -2782,16 +2782,16 @@ To disable the activity type, simply set the parameter to ``false``.
 			   relations.
 			-  **CALENDAR\_ACTIVITY**: Comment posted when an event is 
 			   updated
-			-  **exosocial:people**: Comment posted when a user updates 
+			-  **exosocial\\:people**: Comment posted when a user updates 
 			   his/her profile.
-			-  **exosocial:spaces**: Comment posted when a member 
+			-  **exosocial\\:spaces**: Comment posted when a member 
 			   joins/leaves a space.
-			-  **poll:spaces**: Comment posted when a poll is updated.
+			-  **poll\\:spaces**: Comment posted when a poll is updated.
 			-  **USER\_COMMENTS\_ACTIVITY\_FOR\_RELATIONSHIP**: Comment 
 			   automatically posted when two users are getting connected.
-			-  **sharecontents:spaces**: Activity automatically posted when 
+			-  **sharecontents\\:spaces**: Activity automatically posted when 
 			   a content is shared in a space.  
-			-  **exosocial:relationship**: Activity post when two user are
+			-  **exosocial\\:relationship**: Activity post when two user are
 			   connected together.
 			    
 
