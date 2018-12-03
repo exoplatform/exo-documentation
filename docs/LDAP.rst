@@ -212,7 +212,7 @@ that you can adapt by following the following sections.
 
 9. :ref:`Package and deploy <LDAP.QuickStart.PackagingDeploying>` your ldap-extension into Platform.
 
-.. note:: For JBoss, don’t forget to declare :ref:`deployment dependency <Jboss-deployment>`deployment dependency.
+.. note:: For JBoss, don’t forget to declare :ref:`deployment dependency <Jboss-deployment>`.
 
 10. Make sure the directory server is running, then start eXo Platform.
 
