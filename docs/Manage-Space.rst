@@ -142,24 +142,23 @@ Space banner
 ~~~~~~~~~~~~~~
 
 To change the banner just mouse over in the top right corner of the
-space banner, an icon and a tooltip will appear:
+space banner, an icon |image10| and a tooltip will appear.
 
--  |image10|: Allows you to select a banner image for your space from
-   your hard disk.
+When you click on the icon |image68|, an ``Update`` button |image69| appears  
+allowing you to pick up an image from your computer.
 
-   The tooltip indicates you the banner size which should be 130 pixels
-   height minimum.
+The tooltip indicates you the banner size which should be 130 pixels height minimum.
 
    |image11|
 
-Having chosen the banner and if you mouse over again in the top right,
-two buttons appear:
+Having chosen the banner and if you click again on the button |image70| 
+in the top right, two buttons appear:
 
 |image12|
 
--  |image13|: Allows you to choose another banner image for the space.
+-  ``Update``: Allows you to pick up another banner image from your computer.
 
--  |image14|: Allows you to delete the current banner image and restore
+-  ``Reset``: Allows you to delete the current banner image and restore
    the default grey banner.
 
 .. _SpaceAvatar:
@@ -167,12 +166,22 @@ two buttons appear:
 Space avatar
 ~~~~~~~~~~~~~
 
-Same as for the banner, you can choose an another space avatar, just click on |image15| and the drive from your hard disk appears:
+Same as for the banner, you can choose an another space avatar, just click on 
+|image15| and an ``Upload`` button appears allowing you to pick up an image 
+from your hard disk:
 
 |image16|
 
 Pick up an image by double-clicking on it. The image will be loaded in
 the space's avatar.
+
+After setting a space avtar, when you click again on |image71|, you can:
+
+- ``Update`` the image by selecting an another one from your computer or
+
+- ``Reset`` to restore the default space icon.
+
+|image72|
 
 When scrolling down in the space's activity stream and when you exceed
 the cover section limit, the banner image is collapsed and a new space's
@@ -847,3 +856,8 @@ deleted.
 .. |image65| image:: images/social/status_shared_space.png
 .. |image66| image:: images/social/space_popover.png
 .. |image67| image:: images/social/space_popover_member.png
+.. |image68| image:: images/social/update_image_icon.png
+.. |image69| image:: images/social/update_space_banner
+.. |image70| image:: images/social/update_image_icon.png
+.. |image71| image:: images/social/update_image_icon.png
+.. |image72| image:: images/social/update_reset_space_icon.png
