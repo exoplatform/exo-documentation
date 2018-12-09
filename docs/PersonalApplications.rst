@@ -801,7 +801,8 @@ remove any notification item, simply click the corresponding |image51|.
 .. tip:: When you are not on the platform web page and you receive On-site notifications, 
          to grab your attention, a number appears in the web browser tab indicating the number of unread
          notifications.
-         If the platform browser tab is pinned, an indications appears near the favicon to attract 
+         
+         If the platform browser tab is pinned, an indication appears near the favicon to attract 
          your attention about unread notifications.
                
                  |image96|
