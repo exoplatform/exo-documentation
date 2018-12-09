@@ -789,12 +789,12 @@ notifications. Besides, the **Mark all as read** function allows you to
 change all messages on this menu into the read status. Finally, to
 remove any notification item, simply click the corresponding |image51|.
 
-.. note:: You can also view your all On-site notifications in the page ``My Notifications`` accessible by clicking on
-          your username the on My Notifications:
+.. note:: You can also view all your notifications in the page ``My Notifications`` accessible by clicking on
+          your username then on My Notifications:
 
             |image90|
             
-          It is possible to mark your unread notifications as read simply by clinking on ``Mark all as read`` in the top of the page:
+          It is possible to mark all your unread notifications as read simply by cliking on ``Mark all as read`` on the top of the page:
           
             |image91|
 
