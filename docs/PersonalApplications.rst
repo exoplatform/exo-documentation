@@ -797,6 +797,16 @@ remove any notification item, simply click the corresponding |image51|.
           It is possible to mark all your unread notifications as read simply by cliking on ``Mark all as read`` on the top of the page:
           
             |image91|
+            
+.. tip:: When you are not on the platform web page and you receive On-site notifications, 
+         to grab your attention, a number appears in the web browser tab indicating the number of unread
+         notifications.
+         
+         If the platform browser tab is pinned, an indication appears near the favicon to attract 
+         your attention about unread notifications.
+               
+                 |image96|
+ 
 
 .. _mobilePushNotifs:
 
@@ -1414,6 +1424,7 @@ such as:
 .. |image93| image:: images/social/Edit_profile_icon2.png
 .. |image94| image:: images/social/update_image_icon.png
 .. |image95| image:: images/social/Edit_profile_icon.png
+.. |image96| image:: images/social/Notifications_Web_tab.png
 .. |1| image:: images/common/1.png
 .. |2| image:: images/common/2.png
 .. |3| image:: images/common/3.png
