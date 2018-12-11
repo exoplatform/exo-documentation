@@ -949,6 +949,9 @@ Using the Activity Stream
  * :ref:`Deleting activities/comments <Deleting-Activities-Comments>`
    Steps to remove activities or comments from **Activity Stream**.
    
+ * :ref:`Editing activities/comments <Editing-Activities-Comments>`
+   Steps to edit activities or comments in the **Activity Stream**.
+   
  * :ref:`Commenting on activities <Commenting-Activities>`
    Steps to comment on an activity that allows you to get ideas, answers, and any additional information.     
    
@@ -1340,7 +1343,88 @@ manager.
 
 3. Click **OK** in the confirmation message to accept your deletion.
 
-    .. note:: As an eXo Platform user, you can only delete your own activities. If you are manager of a space, you can delete any activities related to this space.
+.. note:: As an eXo Platform user, you can only delete your own activities. If you are manager of a space, you can delete any activities related to this space.
+
+.. _Editing-Activities-Comments:
+
+Editing activities/comments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Starting from eXo Platform 5.2, you are able to edit an activity you posted or a comment you wrote.
+ 
+.. _Edit_Activity:
+ 
+Editing an activity
+--------------------
+ 
+1. Click the button |image135| on the top right of your activity. Two buttons appears: Edit and Delete.
+	
+	|image136|
+
+2. Click on ``Edit`` button --> Your activity text appears in the editor area allowing you to make changes.
+
+    |image137|
+
+3. Make the needed changes and then click on ``Update`` button.
+
+.. note:: The ``Update`` button still in disabled status until at leat a change is done.
+
+4. If you click the ``Cancel`` button, your changes will be ignored and your activity still the same.
+
+.. note:: Edition is only applicable on the written text. Attached images, files or link could not be edited.
+
+              |image138|
+          
+          If the activity contains only attachments (link or files and/or images) the edit button opens the
+          editor allowing you to type a text message.
+          
+              |image139|
+              
+After saving the chage you made on your activity, a text appears under your name indicating that an edit has been done:
+
+|image140|           
+          
+.. _Edit_Comment:
+ 
+Editing a comment
+------------------
+
+1. Click on the button |image141| in the right of the comment box. Same as for the activity, two buttons appear:
+   
+   |image142|
+
+2. Click on ``Edit`` button --> Your comment text appears in the editor area allowing you to edit it.
+
+   |image143|
+   
+3. Edit your comment and then click on ``Update`` button.
+
+.. note:: The ``Update`` button still disabled until you change the comment.
+
+4. If you click the ``Cancel`` button, your changes will be ignored and your comment still the same.
+
+.. note:: Unlike the activity, you can change an attached link/image to your comment.
+
+           |image144|
+           
+Same as for activities, after saving the change you made to your comment, a text appears near your name indicating that 
+an edit has been done:
+
+|image145| 
+
+.. warning:: Activities and comments generated from other aplications such as:
+             
+				 - Adding topic or reply to a forum discussion
+				 - Creating or joining a space
+				 - Updating your profile
+				 - Adding/Editing a wiki page
+             
+             are not editable, you just can delete them when you click on |image146| button.
+             
+             Only activities generated following a document's upload/add in Documents application are editable, 
+             you can add a text message to that activity.
+
 
 .. _Commenting-Activities:
 
@@ -1753,5 +1837,17 @@ is highlighted.
 .. |image132| image:: images/platform/getting_permalink_activity.png
 .. |image133| image:: images/platform/share_link_icon.png
 .. |image134| image:: images/platform/getting_permalink_comment.png
+.. |image135| image:: images/platform/button_edit_delete.png
+.. |image136| image:: images/platform/delete_edit.png
+.. |image137| image:: images/platform/edit_activity.png
+.. |image138| image:: images/platform/attached_images_edit_activity.png
+.. |image139| image:: images/platform/Activity_Without_text.png
+.. |image140| image:: images/platform/Edited_activity.png
+.. |image141| image:: images/platform/button_edit_delete.png
+.. |image142| image:: images/platform/Edit_comment_buttons.png
+.. |image143| image:: images/platform/Edit_comment.png
+.. |image144| image:: images/platform/edit_comment_attachments.png
+.. |image145| image:: images/platform/Edited_comment.png
+.. |image146| image:: images/platform/button_edit_delete.png
 .. |viewmore| image:: images/platform/more_comments.png
 
