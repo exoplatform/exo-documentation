@@ -1362,7 +1362,7 @@ Editing an activity
 	
 	|image136|
 
-2. Click on ``Edit`` button --> Your activity text appears in the editor area allowing you to make changes.
+2. Click on ``Edit`` --> Your activity’s text appears in the editor area allowing you to make changes.
 
     |image137|
 
