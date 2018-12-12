@@ -1358,7 +1358,7 @@ Starting from eXo Platform 5.2, you can edit an activity you posted or a comment
 Editing an activity
 --------------------
  
-1. Click the button |image135| on the top right of your activity. Two buttons appears: Edit and Delete.
+1. Click the pulldown menu on the top right of your activity : |image135|. Two entries appear: Edit and Delete.
 	
 	|image136|
 
