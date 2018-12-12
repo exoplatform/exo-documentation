@@ -1390,7 +1390,7 @@ After saving the chage you made on your activity, a text appears under your name
 Editing a comment
 ------------------
 
-1. Click on the button |image141| in the right of the comment box. Same as for the activity, two buttons appear:
+1. Click on the pulldown menu at the right of the comment box : |image141|. Just like for activities, two entries appear:
    
    |image142|
 
