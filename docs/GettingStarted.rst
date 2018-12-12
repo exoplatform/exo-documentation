@@ -1334,16 +1334,23 @@ manager.
 
 1. Change the activity filter to **All Activities** or **My spaces** to view all of your activities.
 
-|image105|
+   |image105|
 
-2. Hover your cursor over the activity you want to delete, then click
-|image106| that appears.
+2. Click on the pulldown menu on the top right of your activity you want to delete.
+   Two entries appear: Edit and Delete.
+   
+   |image106|
 
-|image107|
+3. Click on ``Delete`` button --> A confirmation pop up appears.
 
-3. Click **OK** in the confirmation message to accept your deletion.
+   |image107|
+
+
+4. Click ``Yes`` button in the confirmation message to accept your deletion.
 
 .. note:: As an eXo Platform user, you can only delete your own activities. If you are manager of a space, you can delete any activities related to this space.
+
+5. If you click ``Cancel`` button, nothing happens.
 
 .. _Editing-Activities-Comments:
 
@@ -1368,7 +1375,7 @@ Editing an activity
 
 3. Make the needed changes and then click on ``Update`` button.
 
-.. note:: The ``Update`` button remains disabled until at leat one change is done.
+.. note:: The ``Update`` button remains disabled until at least one change is done.
 
 4. If you click the ``Cancel`` button, your changes will be ignored.
 
@@ -1381,7 +1388,7 @@ Editing an activity
           
               |image139|
               
-After saving the chage you made on your activity, a text appears under your name indicating that an edit has been done:
+After saving the change you made on your activity, a text appears under your name indicating that an edit has been done:
 
 |image140|           
           
@@ -1671,34 +1678,28 @@ Default values are:
 Getting permalinks of activities/comments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can easily get the link of any activity or comment from the activity
-stream to share with others. With this feature, you can bring the
+You can easily get the link of any activity or comment (either edited or not) 
+from the activity stream to share with others. With this feature, you can bring the
 attention of other users to an activity/comment without the need to :ref:`mention them <Mentioning-People>`.
 
 Getting permalinks of an activity
 -----------------------------------
 
-Hover your cursor over the activity you want to get the permalink, then
-click on the link icon |image131| that appears.
+Click on the timestamp of the activity to get its permalink.
 
-|image132|
+|image131|
 
 This permalink will then take you to the activity with all comments
 expanded.
 
 Getting permalinks of a comment
--------------------------------------
+----------------------------------
 
-Hover your cursor over the comment you want to get the permalink, then
-click on the link icon |image133| that appears.
+Just like for activities, click on the timestamp of the comment to get its permalink.
 
 |image134|
 
-This permalink will then take you to the activity in which the comment
-is highlighted.
-
-
-
+This permalink will then take you to the activity in which the comment is highlighted.
 
 
 .. |image0| image:: images/platform/top_navigation_bar.png 
@@ -1808,8 +1809,8 @@ is highlighted.
 .. |image103| image:: images/platform/mention_people.png
 .. |image104| image:: images/platform/click_mentioned_user.png
 .. |image105| image:: images/platform/change_activity_filter.png
-.. |image106| image:: images/platform/remove_attachment_icon.png
-.. |image107| image:: images/platform/delete_activity.png
+.. |image106| image:: images/platform/delete_edit.png
+.. |image107| image:: images/platform/delete_activity_confirmation.png
 .. |image108| image:: images/platform/comment_icon.png
 .. |image109| image:: images/platform/comment_activity.png
 .. |image110| image:: images/platform/like_icon.png
@@ -1833,10 +1834,10 @@ is highlighted.
 .. |image128| image:: images/platform/notification.png
 .. |image129| image:: images/platform/email_notif.png
 .. |image130| image:: images/platform/notification_line.png
-.. |image131| image:: images/platform/share_link_icon.png
+.. |image131| image:: images/platform/timestamp.png
 .. |image132| image:: images/platform/getting_permalink_activity.png
 .. |image133| image:: images/platform/share_link_icon.png
-.. |image134| image:: images/platform/getting_permalink_comment.png
+.. |image134| image:: images/platform/timestamp_comment.png
 .. |image135| image:: images/platform/button_edit_delete.png
 .. |image136| image:: images/platform/delete_edit.png
 .. |image137| image:: images/platform/edit_activity.png
