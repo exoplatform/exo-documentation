@@ -1402,7 +1402,7 @@ Editing a comment
 
 .. note:: The ``Update`` button remains disabled until you change the comment.
 
-4. If you click the ``Cancel`` button, your changes will be ignored and your comment still the same.
+4. If you click the ``Cancel`` button, your changes will be ignored.
 
 .. note:: Unlike the activity, you can change an attached link/image to your comment.
 
