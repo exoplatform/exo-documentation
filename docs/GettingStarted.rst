@@ -1368,7 +1368,7 @@ Editing an activity
 
 3. Make the needed changes and then click on ``Update`` button.
 
-.. note:: The ``Update`` button still in disabled status until at leat a change is done.
+.. note:: The ``Update`` button remains disabled until at leat one change is done.
 
 4. If you click the ``Cancel`` button, your changes will be ignored and your activity still the same.
 
