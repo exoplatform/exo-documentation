@@ -1408,7 +1408,7 @@ Editing a comment
 
            |image144|
            
-Same as for activities, after saving the change you made to your comment, a text appears near your name indicating that 
+Like for activities, after saving the change you made to your comment, a text appears near your name indicating that 
 an edit has been done:
 
 |image145| 
