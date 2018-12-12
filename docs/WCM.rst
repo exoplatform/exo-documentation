@@ -122,46 +122,63 @@ addon.
 The table below represents the layout styles proposed by the responsive
 layout:
 
-+--------------------------+--------------------------+--------------------------+
-| Desktop view             | Tablet view              | Smartphone view          |
-+==========================+==========================+==========================+
-| **Single Column Layout:  |
-| Inserts a column layout  |
-| in the page.**           |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
-| **RowResponsive Layout:  |
-| It inserts a row in the  |
-| page.**                  |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
-| **Two columns Layout: It |
-| inserts two columns in   |
-| the page.**              |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
-| **Three columns Layout:  |
-| It inserts three columns |
-| in the page.**           |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
-| **Four columns Layout:   |
-| It inserts four columns  |
-| in the page.**           |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
-| **Big-Small columns      |
-| Layout: It inserts a big |
-| column followed by a     |
-| small one.**             |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
-| **Small-Big columns      |
-| Layout: It inserts a     |
-| small column followed by |
-| a big one.**             |
-+--------------------------+--------------------------+--------------------------+
-+--------------------------+--------------------------+--------------------------+
+
+=============  ============  ===============================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ===============================
+Single Column Layout: Inserts a column layout in the page.
+------------------------------------------------------------
+|image63|      |image64|     |image65|   
+=============  ============  ===============================
+
+=============  ============  ===============================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ===============================
+RowResponsive Layout: It inserts a row in the page.
+------------------------------------------------------------
+|image66|      |image67|     |image68| 
+=============  ============  ===============================
+
+=============  ============  ===============================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ===============================
+Two columns Layout: It inserts two columns in the page.
+------------------------------------------------------------
+|image69|      |image70|     |image71| 
+=============  ============  ===============================
+
+=============  ============  ===============================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ===============================
+Three columns Layout: It inserts three columns in the page.
+------------------------------------------------------------
+|image72|      |image73|     |image74|
+=============  ============  ===============================
+
+=============  ============  ===============================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ===============================
+Four columns Layout: It inserts four columns in the page.
+------------------------------------------------------------
+|image75|      |image76|     |image77|
+=============  ============  ===============================
+
+=============  ============  ==============================================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ==============================================
+Big-Small columns Layout: It inserts a big column followed by a small one.
+---------------------------------------------------------------------------
+|image78|      |image79|     |image80|
+=============  ============  ==============================================
+
+=============  ============  ==============================================
+Desktop view   Tablet view   Smartphone view  
+=============  ============  ==============================================
+Small-Big columns Layout: It inserts a small column followed by a big one.
+---------------------------------------------------------------------------
+|image81|      |image82|     |image83|
+=============  ============  ==============================================
+
 
 You can find other details about containers here :ref:`Arranging Page Layout <RearrangingPageLayout>`.
 
@@ -856,3 +873,25 @@ This accessible site provides you with some following features:
    :width: 0.40000cm
 .. |image62| image:: images/common/7.png
    :width: 0.40000cm
+
+.. |image63| image:: images/wcm/L1_desktop.png
+.. |image64| image:: images/wcm/L1_tablet.png
+.. |image65| image:: images/wcm/L1_smartphone.png
+.. |image66| image:: images/wcm/L2_desktop.png
+.. |image67| image:: images/wcm/L2_tablet.png
+.. |image68| image:: images/wcm/L2_smartphone.png
+.. |image69| image:: images/wcm/L3_desktop.png
+.. |image70| image:: images/wcm/L3_tablet.png
+.. |image71| image:: images/wcm/L3_smartphone.png
+.. |image72| image:: images/wcm/L4_desktop.png
+.. |image73| image:: images/wcm/L4_tablet.png
+.. |image74| image:: images/wcm/L4_smartphone.png
+.. |image75| image:: images/wcm/L5_desktop.png
+.. |image76| image:: images/wcm/L5_tablet.png
+.. |image77| image:: images/wcm/L5_smartphone.png
+.. |image78| image:: images/wcm/L6_desktop.png
+.. |image79| image:: images/wcm/L6_tablet.png
+.. |image80| image:: images/wcm/L6_smartphone.png
+.. |image81| image:: images/wcm/L7_desktop.png
+.. |image82| image:: images/wcm/L7_tablet.png
+.. |image83| image:: images/wcm/L7_smartphone.png
