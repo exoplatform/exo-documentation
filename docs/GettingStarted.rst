@@ -1394,7 +1394,7 @@ Editing a comment
    
    |image142|
 
-2. Click on ``Edit`` button --> Your comment text appears in the editor area allowing you to edit it.
+2. Click on ``Edit``  --> Your comment’s text appears in the editor area allowing you to edit it.
 
    |image143|
    
