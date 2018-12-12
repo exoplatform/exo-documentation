@@ -1404,7 +1404,7 @@ Editing a comment
 
 4. If you click the ``Cancel`` button, your changes will be ignored.
 
-.. note:: Unlike the activity, you can change an attached link/image to your comment.
+.. note:: Unlike activities, you can change an attached link/image to your comment.
 
            |image144|
            
