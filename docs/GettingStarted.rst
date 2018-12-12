@@ -1351,7 +1351,7 @@ Editing activities/comments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Starting from eXo Platform 5.2, you are able to edit an activity you posted or a comment you wrote.
+Starting from eXo Platform 5.2, you can edit an activity you posted or a comment you wrote.
  
 .. _Edit_Activity:
  
