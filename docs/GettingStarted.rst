@@ -1372,7 +1372,7 @@ Editing an activity
 
 4. If you click the ``Cancel`` button, your changes will be ignored.
 
-.. note:: Edition is only applicable on the written text. Attached images, files or link could not be edited.
+.. note:: Edition is only possible on written text. Attached images, files or link can’t be edited.
 
               |image138|
           
