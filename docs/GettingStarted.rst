@@ -1370,7 +1370,7 @@ Editing an activity
 
 .. note:: The ``Update`` button remains disabled until at leat one change is done.
 
-4. If you click the ``Cancel`` button, your changes will be ignored and your activity still the same.
+4. If you click the ``Cancel`` button, your changes will be ignored.
 
 .. note:: Edition is only applicable on the written text. Attached images, files or link could not be edited.
 
