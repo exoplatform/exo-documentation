@@ -1422,7 +1422,7 @@ an edit has been done:
              
              are not editable, you just can delete them when you click on |image146| button.
              
-             Only activities generated following a document's upload/add in Documents application are editable, 
+             Only activities generated following a document upload in Documents application are editable, 
              you can add a text message to that activity.
 
 
