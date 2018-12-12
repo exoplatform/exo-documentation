@@ -1415,7 +1415,7 @@ an edit has been done:
 
 .. warning:: Activities and comments generated from other aplications such as:
              
-				 - Adding topic or reply to a forum discussion
+				 - Adding a topic or replying to a forum discussion
 				 - Creating or joining a space
 				 - Updating your profile
 				 - Adding/Editing a wiki page
