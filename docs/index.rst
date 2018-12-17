@@ -98,3 +98,14 @@ The main guides in eXo Platform documentation:
    CMIS
    
 
+.. _mobile-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: eXo Mobile Guide 
+   
+   eXoMobileGuide.Getting_started
+   Features
+   Settings
+
+   

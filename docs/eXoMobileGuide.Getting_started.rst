@@ -1,0 +1,187 @@
+.. _eXoMobileGuide.Getting_started:
+
+#################
+Getting Started
+#################
+
+This chapter describes how to configure eXo Mobile app to connect with a
+Platform site. The Platform site can be eXo Cloud, eXo Community or your
+own Platform installation (called on-premises in this document).
+
+In a nutshell, the prerequisite is you have an account on the site
+already. You will configure the app using this account. The app supports
+multiple accounts and you can rotate between accounts easily.
+
+.. _eXoMobileGuide.Getting_started.Create_account:
+
+===================
+Creating an account
+===================
+
+
+You must have an account on either of our services, or your own
+on-premises installation of Platform.
+
+Here are the instructions for:
+
+-  :ref:`Creating an account in eXo Cloud <eXoMobileGuide.Getting_started.Create_account.Cloud>`
+
+-  :ref:`Creating an account in eXo Community <eXoMobileGuide.Getting_started.Create_account.Community>`
+
+-  :ref:`Creating an account in your own Platform <eXoMobileGuide.Getting_started.Create_account.On-premises>`
+
+.. _eXoMobileGuide.Getting_started.Create_account.Cloud:
+
+Creating an account in eXo Cloud
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+eXo Cloud is an online, private social intranet that makes it easy to
+connect and collaborate with your co-workers. Your intranet and all its
+data is private, so use it for your own needs.
+
+Visit http://exoplatform.net to sign up. You can also sign up directly
+from eXo mobile app as explained on 
+`this blog post <http://blog.exoplatform.com/en/2013/10/10/sign-up-to-exo-cloud-in-5-minutes-with-the-new-exo-mobile-application>`__.
+
+.. _eXoMobileGuide.Getting_started.Create_account.Community:
+
+Creating an account in eXo Community
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+eXo Community is the website where you can interact with eXoers and the
+eXo Tribe to get news, answers for your questions, and community support
+for your problems.
+
+It is not however a place to store your own data or your organization's
+data.
+
+To create an account on eXo Community, visit `the community register page <http://community.exoplatform.com/portal/intranet/register>__`.
+
+There, you can type in your information to register a new account. You
+can alternatively register in one click with your LinkedIn, Facebook or
+Google+ account.
+
+.. note:: In case you registered with your LinkedIn, Facebook or Google+
+          account, the procedure to connect via eXo mobile application is
+          different. Refer to `this discussion <http://community.exoplatform.com/portal/intranet/forum/topic/topic5e76704ac06313bc1c3c17f1a03e72b5>`__
+          for how-to.
+
+.. _eXoMobileGuide.Getting_started.Create_account.On-premises:
+
+Creating an account in your own Platform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you need all hands on your Social Intranet, you can download our
+Platform bundle (Tomcat), install and run on your server. Download
+Platform from Sourceforge http://sourceforge.net/projects/exo then
+follow :ref:`the Installation and Startup guide <Installation>` to begin.
+
+
+.. _eXoMobileGuide.Getting_started.Configure_account:
+
+========================
+Configuring your account
+========================
+
+
+This page describes how to configure your eXo account on the mobile
+application.
+
+It requires you to have an account on either eXo Cloud, eXo Community or
+any on-premises eXo Platform installation. Please follow 
+:ref:`the previous page <eXoMobileGuide.Getting_started.Create_account>` 
+if you have not one yet.
+
+.. note:: Though the screens you see here illustrate iOS app, the Android app
+          is similar, except that there is no *Settings* button on the app
+          screens. Instead you tap the device's menu button that will open an
+          on-screen menu and you can find *Settings* there.
+
+
+When you launch the application for the first time, the login assistant
+should start immediately:
+
+|image0|
+
+From this screen, you can connect to `eXo Tribe <https://community.exoplatform.com>`__
+or add a new intranet.
+
+Connect to eXo Tribe
+~~~~~~~~~~~~~~~~~~~~~
+
+Click the ``Connect to eXo Tribe`` button, you will be redirected 
+to the tribe's login screen.
+
+|image1|
+
+If you already have an account in `eXo Tribe <https://community.exoplatform.com>`__
+then you click on ``Sign in`` button.
+
+|image2|
+
+Fill in you credentials to be redirected to the tribe's activity stream.
+
+If you don't have an account in `eXo Tribe <https://community.exoplatform.com>`__
+then click on ``Register`` to be redirected to the join form.
+
+|image3|
+
+Fill in the needed fields to create your account.
+
+Add new intranet
+~~~~~~~~~~~~~~~~~
+
+Click the ``Add new intranet`` button, you will be redirected to this screen:
+
+|image4|
+
+Enter the URL of your intranet and click on ``Go``. 
+
+|image5|
+
+You will be redirected to your intranet login page.
+Type your credentials to go to your intranet activity stream.
+
+.. _eXoMobileGuide.Getting_started.Login:
+
+=====
+Login
+=====
+
+When you configured for the first time, you are automatically signed in.
+
+This page describes what you see when you open the app later on, and you
+need to sign in with an existing account.
+
+**Authentication screen**
+
+|image7|
+
+If you have multiple accounts, click on ``others`` button which redirects 
+you to this screen:
+
+|image8|
+
+In which you can:
+
+- Add another intranet site
+- Select one of the existing intranets to connect to.
+
+**Sign in**
+
+To sign in, enter your username and password and tap the *Login* button.
+
+If you activated the *remember me* option, your username and password
+are already filled in, you just have to tap the button.
+
+
+
+.. |image0| image:: images/mobile/sign_up.jpg
+.. |image1| image:: images/mobile/connect_tribe.jpg
+.. |image2| image:: images/mobile/tribe_login.jpg
+.. |image3| image:: images/mobile/register_tribe.jpg  
+.. |image4| image:: images/mobile/new_intranet.jpg
+.. |image5| image:: images/mobile/added_intranet.jpg
+.. |image6| image:: images/mobile/settings.jpg
+.. |image7| image:: images/mobile/others.jpg
+.. |image8| image:: images/mobile/others2.jpg
