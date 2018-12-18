@@ -60,6 +60,10 @@ Share a snapshot of a recent whiteboard session or a new product
 prototype with your co-workers. Your images and files could be added to 
 your eXo Platform social intranet directly from your mobile device.
 
+|image5|
+
+|image4|
+
 Security
 ~~~~~~~~~~
 
@@ -81,10 +85,13 @@ devices, eXo Platform native mobile apps let you access and interact
 with your social intranet in a familiar environment.
 
 .. |image0| image:: images/mobile/AS_Mobile.jpg
+   :width: 10.00000cm
 .. |image1| image:: images/mobile/menu.png
 .. |image2| image:: images/mobile/Documents_mobile.png
 .. |image3| image:: images/mobile/others.jpg
+   :width: 10.00000cm
 .. |image4| image:: images/mobile/documents_share.png
+.. |image5| image:: images/mobile/mobile_upload_files.png
 
 
 
