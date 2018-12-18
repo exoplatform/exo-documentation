@@ -24,24 +24,10 @@ on-premises installation of Platform.
 
 Here are the instructions for:
 
--  :ref:`Creating an account in eXo Cloud <eXoMobileGuide.Getting_started.Create_account.Cloud>`
-
 -  :ref:`Creating an account in eXo Community <eXoMobileGuide.Getting_started.Create_account.Community>`
 
 -  :ref:`Creating an account in your own Platform <eXoMobileGuide.Getting_started.Create_account.On-premises>`
 
-.. _eXoMobileGuide.Getting_started.Create_account.Cloud:
-
-Creating an account in eXo Cloud
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-eXo Cloud is an online, private social intranet that makes it easy to
-connect and collaborate with your co-workers. Your intranet and all its
-data is private, so use it for your own needs.
-
-Visit http://exoplatform.net to sign up. You can also sign up directly
-from eXo mobile app as explained on 
-`this blog post <http://blog.exoplatform.com/en/2013/10/10/sign-up-to-exo-cloud-in-5-minutes-with-the-new-exo-mobile-application>`__.
 
 .. _eXoMobileGuide.Getting_started.Create_account.Community:
 
@@ -71,10 +57,11 @@ Google+ account.
 Creating an account in your own Platform
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you need all hands on your Social Intranet, you can download our
-Platform bundle (Tomcat), install and run on your server. Download
-Platform from Sourceforge http://sourceforge.net/projects/exo then
-follow :ref:`the Installation and Startup guide <Installation>` to begin.
+If you need all hands on your Social Intranet, follow these steps:
+1. `Download <https://community.exoplatform.com/portal/intranet/downloads>`__ 
+   eXo Platform Tomcat bundle (Tomcat).
+2. Install and run your server.
+3. Follow :ref:`the Installation and Startup guide <Installation>`.
 
 
 .. _eXoMobileGuide.Getting_started.Configure_account:
