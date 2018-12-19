@@ -239,7 +239,7 @@ menu.
 
 **Adding content in the CLV**
 
-1. Turn on the :ref`Edit Mode <TurningOnTheEditMode>`.
+1. Turn on the :ref:`Edit Mode <TurningOnTheEditMode>`.
 
 2. Hover your cursor over the CLV to which you want to add new content 
    on the homepage, and clicck |image13|.

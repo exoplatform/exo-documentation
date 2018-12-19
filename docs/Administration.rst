@@ -1584,11 +1584,11 @@ Advanced, select Actions to open the **Actions** panel.
 
 Here, you can do certain actions as follows:
 
--  :ref:Editing an action <Actions.EditingAction>` |image141|
+-  :ref:`Editing an action <Actions.EditingAction>` |image141|
 
--  :ref:Deleting an action <Actions.DeletingAction>` |image142|
+-  :ref:`Deleting an action <Actions.DeletingAction>` |image142|
 
--  :ref:Adding an action type <Actions.AddingActionType>` |image143|
+-  :ref:`Adding an action type <Actions.AddingActionType>` |image143|
 
 Editing an action
 ```````````````````
@@ -2610,7 +2610,7 @@ The Edit window with the **Portal Settings** tab appears.
 In this window, you can make changes on fields in the various tabs,
 except the Portal Name field in the Portal Settings tab.
 
-.. note:: For more details on these fields, refer to the `Creating a new site <CreatingNewSite>` section.
+.. note:: For more details on these fields, refer to the :ref:`Creating a new site <CreatingNewSite>` section.
 
 .. _ManagingSites.SelectSkin:
 
@@ -3521,7 +3521,7 @@ are three navigation types available to PRODUCT users:
 
 -  :ref:`Group navigation <ManagingNavigations.GroupNavigation>`
 
--  :ref`User navigation <ManagingNavigations.UserPageNavigation>`
+-  :ref:`User navigation <ManagingNavigations.UserPageNavigation>`
 
 **Site navigation**
 

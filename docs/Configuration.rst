@@ -2668,7 +2668,7 @@ allow this.
 
 To change this restriction, edit the
 ``exo.portal.uploadhandler.public-restriction`` property in the
-:ref:`exo.properties <Configuration.ConfigurationOverview>`file as follows:
+:ref:`exo.properties <Configuration.ConfigurationOverview>` file as follows:
 
 ::
 

@@ -678,7 +678,7 @@ You can post a reply with the Rich text editor as follows:
 2. Click |image40| on the top or bottom of the topic.
 
 3. Enter your message in the textbox. 
-Use:ref:`BBCodes <Regularusers-UsingBBCodes>`to format texts, or insert 
+Use :ref:`BBCodes <Regularusers-UsingBBCodes>` to format texts, or insert 
 images, videos and links.
 
 |image41|
