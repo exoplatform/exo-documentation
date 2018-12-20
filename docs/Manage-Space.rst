@@ -870,4 +870,4 @@ deleted.
 .. |image70| image:: images/social/update_image_icon.png
 .. |image71| image:: images/social/update_image_icon.png
 .. |image72| image:: images/social/update_reset_space_icon.png
-.. |image73| image:: images/social/rename_space_app.png.png
+.. |image73| image:: images/social/rename_space_app.png
