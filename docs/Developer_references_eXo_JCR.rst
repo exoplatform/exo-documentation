@@ -18,6 +18,38 @@ Developer References
        Workspace data container, Binary values processing, and Link
        producer service.
        
+The main purpose of content repository is to maintain the data. The heart 
+of content repository is the data model:
+
+-  The main data storage abstraction of JCR's data model is a workspace.
+
+-  Each repository should have one or more workspaces.
+
+-  The content is stored in a workspace as a hierarchy of items.
+
+-  Each workspace has its own hierarchy of items.
+
+.. figure:: images/item-hierarchy.gif
+   :alt: Item hierarchy
+   :width: 12.00000cm
+   
+   Item hierarchy
+
+Node is intended to support the data hierarchy. It is of type using
+namespaced names which allow the content to be structured in accordance
+with standardized constraints. A node may be versioned through an
+associated version graph (optional).
+
+Property stored data are values of predefined types (String, Binary,
+Long, Boolean, Double, Date, Reference, Path).
+
+.. note::  The data model for the interface (repository model) is rarely the
+		   same as the data models used by the repository's underlying storage
+		   subsystems. The repository knows how to make the client's changes
+		   persistent because that is a part of the repository configuration,
+		   rather than part of the application programming task.
+
+
 .. _JCR.DeveloperReference.Basic:
 
 ===========
@@ -4755,3 +4787,798 @@ the one configured in the service (defaultEncoding).
 **A:** No. Any instance of Session or Node (acquired through session)
 should not be used after logging out anymore. At least, it is highly
 recommended not to use.
+
+.. _JCR.DeveloperReference.Advanced:
+
+===============
+Advanced usage
+===============
+
+-  :ref:`Extensions <JCR.DeveloperReference.Advanced.Extensions>`
+
+   Details on advanced usage of eXo JCR extensions, including JCR
+   Service extensions, Access control, JCR API extensions, Registry
+   service and Groovy REST services.
+
+-  :ref:`Workspace data container <JCR.DeveloperReference.Advanced.WorkspaceDataContainer>`
+
+   Explanation on the architecture of workspace data container and
+   instructions on how to implement workspace data container.
+
+-  :ref:`Binary values processing <JCR.BinaryValuesProcessing>`
+
+   Instructions on how to process binary large objects in eXo JCR.
+
+-  :ref:`Link Producer service <JCR.LinkProducerService>`
+
+   Explanation on what link producer service is and why and how to use
+   it.
+
+.. _JCR.DeveloperReference.Advanced.Extensions:
+
+Extensions
+-----------
+
+eXo JCR fully covers the `JSR
+170 <http://jcp.org/en/jsr/detail?id=170>`__ specification, but also
+provides a set of out-of-box extensions. This may be very helpful to
+better fulfil with some requirements that cannot be managed by what the
+specification itself proposes.
+
+The sub-sections below will show you how to use the extensions,
+consisting of JCR service, Access control, JCR API, Registry Service,
+and Groovy REST service.
+
+.. _PLF50/JCR.Extensions:
+
+JCR service
+^^^^^^^^^^^^
+
+eXo JCR supports **observation**, which enables applications to register
+interest in events that describe changes on a workspace, and then
+monitor and respond to those events. The standard observation feature
+allows dispatching events when **persistent change** on the workspace is
+made.
+
+eXo JCR also offers a proprietary **Extension Action** which dispatches
+and fires an event upon each **transient session level change**,
+performed by a client. In other words, the event is triggered when a
+client's program invokes some updating methods in a session or a
+workspace, such as\ ``Session.addNode()``,\ ``Session.setProperty()``,
+``Workspace.move()`` and more.
+
+By default, when an action fails, the related exception is simply
+logged. In case you want to change the default exception handling, you
+can implement the ``AdvancedAction`` interface. In case the JCR detects
+that your action is of the ``AdvancedAction`` type, it will call the
+``onError`` method instead of simply logging it. A default
+implementation of the ``onError`` method is available in the
+``AbstractAdvancedAction`` abstract class. It reverts all pending
+changes of the current JCR session for any kind of event corresponding
+to a write operation. Then, in case the provided exception is an
+instance of the ``AdvancedActionException`` type, it will throw it;
+otherwise it will log simply it. An ``AdvancedActionException`` will be
+thrown in case the changes could not be reverted.
+
+.. warning:: The ``AdvancedAction`` interface must be implemented with a lot of caution to avoid being a performance killer.
+
+One important recommendation should be applied for an extension action
+implementation. Each action will add its own execution time to standard
+JCR methods (``Session.addNode()``, ``Session.setProperty()``,
+``Workspace.move()``, and more.) execution time. As a result, you need
+to minimize the ``Action.execute(Context)`` body execution time.
+
+To make the rule, you can use the dedicated Thread in the
+``Action.execute(Context)`` body for a custom logic. But if your
+application logic requires the action to add items to a created/updated
+item and you save these changes immediately after the JCR API method
+call is returned, the suggestion with Thread is not applicable for you
+in this case.
+
+**Implementation**
+
+The JCR Service’s implementation may be illustrated in the following
+interceptor framework class diagram.
+
+|image0|
+
+**Configuration**
+
+Add a **SessionActionCatalog** service and an appropriate
+**AddActionsPlugin** configuration to your eXo Container configuration.
+As usual, the plugin can be configured as in-component-place.
+
+Each Action entry is exposed as
+``org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration`` of
+the actions collection of
+``org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig``.
+The mandatory field named **actionClassName** is the fully qualified
+name of ``org.exoplatform.services.command.action.Action``
+implementation - the command will be launched in case the current event
+matches the **criteria**. All other fields are criteria. The criteria
+are \*AND\*ed together. In other words, for a particular item to be
+listened to, it must meet ALL the criteria:
+
+-  ``workspace``: A comma delimited (ORed) list of workspaces.
+
+-  ``eventTypes``: A comma delimited (ORed) **list of event names** to
+   be listened to. This is the only mandatory field, others are optional
+   and if they are missing they are interpreted as ANY.
+
+-  ``path``: A comma delimited (ORed) list of **item absolute paths**
+   (or within its subtree if **isDeep** is **true**, which is the
+   default value).
+
+-  ``nodeTypes``: A comma delimited (ORed) list of the **current
+   NodeType**. JCR supports the functionality of ``nodeType`` and
+   ``parentNodeType``. This parameter has different semantics, depending
+   on the type of the current item and the operation performed.
+
+   -  If the **current item** is a **property**, it means **parent node
+      type**.
+
+   -  If the **current item** is a **node,** the semantic depends on the
+      event type:
+
+      -  **add node event**: the node type of the newly added node.
+
+      -  **add mixin event**: the newly added mixing node type of the
+         current node.
+
+      -  **remove mixin event**: the removed mixin type of the current
+         node.
+
+      -  **other events**: the already assigned NodeType(s) of the
+         current node (can be both primary and mixin).
+
+.. note:: -  The list of fields can be extended.
+
+          -  No spaces between list elements.
+
+          -  **isDeep=false** means **node, node properties and child nodes**.
+
+The list of supported Event names: **addNode, addProperty,
+changeProperty, removeProperty, removeNode, addMixin, removeMixin, lock,
+unlock, checkin, checkout, read, moveNode.**.
+
+.. code:: xml
+
+    <component>
+       <type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
+       <component-plugins>
+          <component-plugin>
+             <name>addActions</name>
+             <set-method>addPlugin</set-method>
+             <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+             <description>add actions plugin</description>
+             <init-params>
+                <object-param>
+                   <name>actions</name>
+                   <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+                   <field  name="actions">
+                      <collection type="java.util.ArrayList">
+                         <value>
+                            <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                              <field  name="eventTypes"><string>addNode,removeNode</string></field>
+                              <field  name="path"><string>/test,/exo:test</string></field>       
+                              <field  name="isDeep"><boolean>true</boolean></field>       
+                              <field  name="nodeTypes"><string>nt:file,nt:folder,mix:lockable</string></field>       
+                              <!-- field  name="workspace"><string>backup</string></field -->
+                              <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.DummyAction</string></field>       
+                            </object>
+                         </value>
+                      </collection>
+                   </field>
+                </object>
+              </object-param>
+            </init-params>
+          </component-plugin>
+        </component-plugins>
+    </component>
+    
+    .. _PLF50/JCR.AccessControl:
+
+Access control
+^^^^^^^^^^^^^^^
+
+eXo JCR is a complete implementation of the standard 
+`JSR 170 - ContentRepository for Java TM Technology API <http://jcp.org/en/jsr/detail?id=170>`__, 
+including **Level 1, Level 2 and Additional Features** specified in the JCR Specification.
+
+**Standard action permissions**
+
+The JCR specification (`JSR 170 <http://jcp.org/en/jsr/detail?id=170>`__) 
+does not have many requirements about Access Control. It only requires the implementation
+of the ``Session.checkPermission(String absPath, String actions)``
+method. This method checks if a current session has permissions to
+perform some actions on absPath:
+
+-  absPath: The string representation of a JCR absolute path.
+
+-  actions: eXo JCR interprets this string as a comma separated the list
+   of individual action names, such as 4 types defined in JSR 170:
+
+   -  **add\_node**: Permission to add a node.
+
+   -  **set\_property**: Permission to set a property.
+
+   -  **remove**: Permission to remove an item (node or property).
+
+   -  **read**: Permission to retrieve a node or read a property value.
+
+For example:
+
+-  ``session.checkPermission("/Groups/organization",
+           "add_node,set_property")`` will check if the session allows
+   adding a child node to "organization" and modifying its properties.
+   If one of the two permissions is denied, an ``AccessDeniedException``
+   is thrown.
+
+-  ``session.checkPermission("/Groups/organization/exo:name",
+           "read,set_property")`` will check if the session allows
+   reading and changing the "``exo:name``" property of the
+   "``organization``" node.
+
+-  ``session.checkPermission("/Groups/organization/exo:name",
+           "remove")`` will check if the session allows removing the
+   "``exo:name``" property or node.
+
+.. _JCR.AccessControl.eXoAccessControl:
+
+eXo access control
+```````````````````
+
+The `JSR 170 <http://jcp.org/en/jsr/detail?id=170>`__ specification does
+not define how permissions are managed or checked. So eXo JCR has
+implemented its own proprietary extension to manage and check
+permissions on nodes. In essence, this extension uses an `Access Control
+List (ACL) <http://en.wikipedia.org/wiki/Access_control_list>`__ policy
+model applied to eXo Organization model.
+
+**Principal and Identity**
+
+At the heart of eXo Access Control, is the notion of the **identity**
+concept. Access to JCR is made through sessions acquired against a
+repository. Sessions can be authenticated through the standard (but
+optional) repository login mechanism. Each session is associated with a
+**principal**. The principal is an authenticated user or group that may
+act on JCR data. The identity is a string identifying this **group or
+user**.'
+
+There are 3 reserved identities that have special meanings in eXo JCR:
+
+-  **any**: represent any authenticated session.
+
+-  **anonim**: represent a principal for non-authenticated sessions. (No
+   error, it's really "anonim").
+
+-  **system**: represent a principal for system sessions, typically used
+   for administrative purposes. System session has full access (all
+   permissions) to all nodes; therefore be careful when working with
+   system sessions.
+
+.. note:: **Access control nodetypes are not extensible:** The access control
+          mechanism works for **exo:owneable** and **exo:privilegeable**
+          nodetypes only, not for their subtypes. So, you cannot extend those
+          nodetypes.
+
+    **Autocreation:** By default, newly created nodes are neither
+    **exo:privilegeable** nor **exo:owneable** but it is possible to
+    configure the repository to auto-create **exo:privilegeable** or/and
+    **exo:owneable** thanks to eXo's JCR interceptors extension (see :ref:`JCR Extensions <JCR.Extensions>`.
+
+    **OR-based Privilege Inheritance**: Note, that eXo's Access Control
+    implementation supports a privilege inheritance that follows a
+    strategy of either...or/ and has only an ALLOW privilege mechanism
+    (there is no DENY feature). This means that a session is allowed to
+    perform some operations on some nodes if its identity has an
+    appropriate permission assigned to this node. Only if there is no
+    exo:permission property assigned to the node itself, the permissions
+    of the node's ancestors are used.
+
+.. _JCR.AccessControl.eXoAccessControl:
+
+***ACL***
+
+
+An access control list (ACL) is a list of permissions attached to an
+object. An ACL specifies which users, groups or system processes are
+granted access to JCR nodes, as well as what operations are allowed to
+be performed on given objects.
+
+eXo JCR Access Control is based on two facets applied to nodes:
+
+-  **Privilegeable**: Means that the user or group (also called
+   principal) needs the appropriate privileges to access this node. The
+   privileges are defined as (positive) permissions that are granted to
+   users or groups.
+
+-  **Ownable**: The node has an **owner**. The owner has always **full
+   access** (all permissions) to the node, independent of the
+   privilegeable facet.
+
+**Privilegeable**
+
+A privilegeable node defines the permissions required for actions on
+this node. For this purpose, it contains an ACL.
+
+At JCR level, this is implemented by an ``exo:privilegeable`` mixin.
+
+.. code:: xml
+
+    <nodeType name="exo:privilegeable" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
+       <propertyDefinitions>
+          <propertyDefinition name="exo:permissions" requiredType="Permission" autoCreated="true" mandatory="true"
+                              onParentVersion="COPY" protected="true" multiple="true">
+             <valueConstraints/>  
+          </propertyDefinition>        
+       </propertyDefinitions>  
+    </nodeType>
+
+A privilegeable node can have multiple ``exo:permissions`` values. The
+type of these values is the eXo JCR specific Permission type. The
+Permission type contains a list of ACL.
+
+The possible values are corresponding to JCR standard actions:
+
+-  **read**: The node or its properties can be read.
+
+-  **remove**: The node or its properties can be removed.
+
+-  **add\_node**: Child nodes can be added to this node.
+
+-  **set\_property**: The node's properties can be modified, added or
+   removed.
+
+**Ownable**
+
+An ownable node defines an owner identity. The **owner** has always
+**full privileges**. These privileges are independent of the permissions
+set by exo:permissions. At JCR level, the ownership is implemented by an
+``exo:owneable`` mixin. This mixin holds an owner property.
+
+.. code:: xml
+
+    <nodeType name="exo:owneable" isMixin="true" hasOrderableChildNodes="false" primaryItemName="">
+       <propertyDefinitions>
+          <propertyDefinition name="exo:owner" requiredType="String" autoCreated="true" mandatory="true" onParentVersion="COPY"
+                              protected="true" multiple="false">
+             <valueConstraints/>
+          </propertyDefinition>        
+       </propertyDefinitions>
+    </nodeType>
+
+The exo:owner property value contains exactly one identity string value.
+There might be a long list of different permissions for different
+identities (users or groups). All permissions are always positive
+permissions; denials are not possible. When checking a permission of an
+action, it is therefore perfectly sufficient that the principal of a
+session belongs to the groups to which the concerned action is granted.
+
+**ACL inheritance**
+
+To grant or deny access to a node, eXo JCR applies a privilege resolving
+logic at node access time.
+
+If a node is **privilegeable**, the node's ACL is used exclusively. If
+the ACL does not match the principal's identity, the principal has no
+access (except the owner of the node).
+
+Non-privilegeable nodes inherit permissions from their parent node. If
+the parent node is not privilegeable either, the resolving logic looks
+further up the node hierarchy and stops with the first privilegeable
+ancestor of the current node. All nodes potentially inherit from the
+**workspace** root node.
+
+The owner of a node is inherited in accordance with the same logic: If
+the node has no owner, the owner information of the closest owneable
+ancestor is inherited.
+
+This inheritance is implemented by browsing up the node's hierarchy. At
+access time, if the node does not have owner or permissions, the system
+looks up into the node's ancestor hierarchy for the **first** ACL.
+
+**Default ACL of the root node**
+
+When no matching ACL is found in the ancestor hierarchy, the system may
+end up looking at the root node's ACL. As ACL is optional, even for the
+root node. If the root node has no ACL, the following rule is ultimately
+applied to resolve privileges:
+
+-  **any** identity (any authenticated session) is granted all
+   permissions.
+
+.. _JCR.AccessControl.eXoAccessControl:
+
+***Example***
+
+
+**XML**
+
+In the following example, you see a node named "Politics" which contains
+two nodes named "Cats" and "Dogs".
+
+.. note:: These examples are exported from eXo DMS using the \\"document
+          view\\" representation of JCR. Each value of a multi-value property
+          is separated by a whitespace, each whitespace is escaped by *x0020*.
+
+.. code:: xml
+
+    <Politics  jcr:primaryType="nt:unstructured" jcr:mixinTypes="exo:owneable exo:datetime exo:privilegeable" exo:dateCreated="2009-10-08T18:02:43.687+02:00" 
+    exo:dateModified="2009-10-08T18:02:43.703+02:00" 
+    exo:owner="root" 
+    exo:permissions="any_x0020_read *:/platform/administrators_x0020_read *:/platform/administrators_x0020_add_node *:/platform/administrators_x0020_set_property *:/platform/administrators_x0020_remove">
+
+    <Cats jcr:primaryType="exo:article" 
+    jcr:mixinTypes="exo:owneable" 
+    exo:owner="marry"  
+    exo:summary="The_x0020_secret_x0020_power_x0020_of_x0020_cats_x0020_influences_x0020_the_x0020_leaders_x0020_of_x0020_the_x0020_world." 
+    exo:text="" exo:title="Cats_x0020_rule_x0020_the_x0020_world" />
+
+    <Dogs jcr:primaryType="exo:article" 
+    jcr:mixinTypes="exo:privilegeable" 
+    exo:permissions="manager:/organization_x0020_read manager:/organization_x0020_set_property"
+    exo:summary="Dogs" 
+    exo:text="" exo:title="Dogs_x0020_are_x0020_friends" />
+
+    </Politics>
+
+The "Politics" node is ``exo:owneable`` and ``exo:privilegeable``. It
+has both an ``exo:owner`` property and an ``exo:permissions`` property.
+There is an ``exo:owner="root"`` property so that the user root is the
+owner. In the exo:permissions value, you can see the ACL that is a list
+of access controls. In this example, the group
+**\*:/platform/administrators** has all rights on this node (remember
+that the "**\***" means any kind of membership). **any** means that any
+users also have the read permission.s
+
+As you see in the ``jcr:mixinTypes`` property, the "Cats" node is
+``exo:owneable`` and there is an ``exo:owner="marry"`` property so that
+the user marry is the owner. The "Cats" node is **not
+exo:privilegeable** and has **no exo:permissions**. In this case, you
+can see the **inheritance mechanism** here is that the "Cats" node has
+the same permissions as "Politics" node.
+
+Finally, the "Dogs" node is also a child node of "Politics". This node
+is **not** ``exo:owneable`` and inherits the owner of the "Politics"
+node (which is the user root). Otherwise, "Dogs" is
+``exo:privilegeable`` and therefore, it has its own ``exo:permissions``.
+That means only the users having a "manager" role in the group
+"/organization" and the user "root" have the rights to access this node.
+
+**Inheritance**
+
+Here is an example showing the accessibility of two nodes (to show
+inheritance) for two sample users named **manager** and **user**:
+
+The "+" symbol means that there is a child node "exo:owneable".
+
+|image1|
+
+**Permission validation**
+
+This session describes how permission is validated for different JCR
+actions.
+
+-  **read node**: Check the read permission on a target node.
+
+   For example: Read /node1/**subnode** node, JCR will check the "read"
+   permission exactly on "subnode".
+
+-  **read property**: Check the read permission on a parent node.
+
+   For example: Read /**node1**/myprop - JCR will check the "read"
+   permission on "node1".
+
+-  **add node**: Check add\_node on a parent node.
+
+   For example: Add /**node1**/subnode node, JCR will check the
+   "add\_node" permission on "node1".
+
+-  **set property**: set\_property on a parent node.
+
+   For example: Try to set /**node1**/myprop property, JCR will check
+   the "set\_property" permission on "node1".
+
+-  **remove node**: Check the remove permission on a target node.
+
+   For example: Try to remove /node1/**subnode** node, JCR will check
+   the "remove" permission on "subnode".
+
+-  **remove property**: Check the remove permission on a parent node.
+
+   For example: Try to remove /**node1**/myprop property, JCR will check
+   the "remove" permission on "node1".
+
+-  **add mixin**: Check the "add\_node" and "set\_property" permission
+   on a target node.
+
+   For example: Try to add mixin to /node1/**subnode** node, JCR will
+   check the "add\_node" and "set\_property" permission on "subnode".
+
+**Java API**
+
+eXo JCR's ``ExtendedNode`` interface which extends ``javax.jcr.Node``
+interface provides additional methods for Access Control management.
+
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| Method signature                                                | Description                                                                    |
++=================================================================+================================================================================+
+| ``void setPermissions(Map<String, String[]> permissions``       | Assign a set of Permissions to a node.                                         |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| ``void setPermission(String identity, String[] permission)``    | Assign some Identities' Permission to a node.                                  |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| ``void removePermission(String identity)``                      | Remove an Identity's Permission.                                               |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| ``void removePermission(String identity, String permission)``   | Remove the specified permission for a particular identity.                     |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| ``void clearACL()``                                             | Clear the current ACL so it becomes default.                                   |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| ``AccessControlList getACL()``                                  | Return the current ACL.                                                        |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+| ``void checkPermission(String actions)``                        | Check Permission (``AccessDeniedException`` will be thrown if being denied).   |
++-----------------------------------------------------------------+--------------------------------------------------------------------------------+
+
+Table: Additional methods
+
+The "``identity``" parameter is a user or a group name. The permissions
+are the literal strings of the standard action permissions (add\_node,
+set\_property, remove, and read).
+
+.. _JCR.AccessControlExtension:
+
+Access control system
+``````````````````````
+
+
+An extended Access Control system consists of:
+
+-  Specifically configured custom ``ExtendedAccessManager`` which is
+   called by eXo JCR internals to check if user's Session (user) has
+   some privileges to perform some operations or not.
+
+-  The **Action** sets a thread local ``InvocationContext`` at runtime,
+   the InvocationContext instance is then used by the
+   ``ExtendedAccessManager`` in handling permissions of the current
+   Session.
+
+-  ``InvocationContext`` is a collection of properties which reflect the
+   state of a current Session. At present, it contains: the type of the
+   current operation on Session (event), current Item (javax.jcr.Item)
+   on which this operation is performed and the current eXo Container.
+
+**Access context action**
+
+``SetAccessControlContextAction`` implements Action and may be called by
+``SessionActionInterceptor`` as a reaction of some events - usually
+before writing methods and after reading (``getNode(), getProperty()``,
+and more). This ``SetAccessControlContextAction`` calls the
+``AccessManager.setContext(InvocationContext context)`` method which
+sets the ThreadLocal invocation context for the current call.
+
+Action's configuration may look like as the following:
+
+.. code:: xml
+
+    <value>
+      <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+        <field  name="eventTypes"><string>addNode,read</string></field>
+        <field  name="workspace"><string>production</string></field >
+        <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.access.SetAccessControlContextAction</string></field>       
+      </object>
+    </value>
+
+**Invocation context**
+
+The **InvocationContext** contains the current Item, the previous Item,
+the current ``ExoContainer`` and the current ``EventType`` look like
+below:
+
+.. code:: java
+
+    public class InvocationContext extends HashMap implements Context {
+
+        /**
+        * @return The related eXo container.
+        */
+        public final ExoContainer getContainer()
+
+        /**
+        * @return The current item.
+        */
+        public final Item getCurrentItem()
+
+        /**
+        * @return The previous item before the change.
+        */
+        public final Item getPreviousItem()
+
+        /**
+        * @return The type of the event.
+        */
+        public final int getEventType()
+        }
+      
+
+**Custom extended access manager**
+
+By default, all workspaces share an ``AccessManager`` instance, created
+by ``RepositoryService`` at the startup (``DefaultAccessManagerImpl``)
+which supports default access control policy as described in the
+:ref:`Access Control <JCR.AccessControl>` section. Custom Access
+Control policy can be applied to certain Workspace configuring
+``access-manager`` element inside ``workspace`` as follows:
+
+.. code:: xml
+
+    <workspace name="ws">        
+       ...
+       <!-- after query-handler element -->
+       <access-manager class="org.exoplatform.services.jcr.CustomAccessManagerImpl">
+          <properties>
+             <property name="someProperty" value="value"/>
+             ...
+          </properties>
+      </access-manager>
+      ...
+    </workspace>
+
+When implementing ``AccessManager``, the ``hasPermission()`` method has
+to be overridden so it uses the current invocation context at its
+discretion. For instance, it may get the current node's metadata and
+make a decision if the current User has appropriate permissions. Use
+Invocation Context's runtime properties to make a decision about current
+Session's privileges.
+
+For example: The following is a simplified Sequence diagram for the
+``Session.getNode()`` method:
+
+|image2|
+
+**Example of a custom access manager**
+
+The sample ``CustomAccessManagerImpl`` below extends the default access
+manager and uses some ``DecisionMakingService`` in the overloaded
+``hasPermission`` method to find out if a current user has permission to
+use current **item, event type, user** and some parameters of
+``AccessManager``. To make this Access manager work, it is necessary to
+configure it in the JCR configuration as mentioned in :ref:`Extended Access Manager <JCR.AccessControlExtension.CustomExtendedAccessManager>`
+and ``SetAccessControlContextAction`` should be configured in the way
+mentioned in :ref:`Access Context Action <JCR.AccessControlExtension.AccessContextAction>`.
+
+.. code:: java
+
+    public class CustomAccessManagerImpl extends AccessManager {
+
+      private String property;
+      private DecisionMakingService theService;
+
+      public CustomAccessManagerImpl (RepositoryEntry config, WorkspaceEntry wsConfig,
+          DecisionMakingService someService) throws RepositoryException, RepositoryConfigurationException {
+        super(config, wsConfig);
+        this.property = wsConfig.getAccessManager().getParameterValue("someParam");
+        this.theService = someService;
+      }
+
+      @Override
+      public boolean hasPermission(AccessControlList acl, String[] permission, Identity user) {
+        // call the default permission check
+        if (super.hasPermission(acl, permission, user)) {
+          
+          Item curItem = context().getCurrentItem();
+          int eventType = context().getEventType();
+          ExoContainer container = context().getContainer();
+
+          // call some service's method
+          return theService.makeDecision(curItem, eventType, user, property);
+        } else {
+          return false;
+        }
+      }
+    }
+
+.. _JCR.APIExtensions:
+
+JCR API
+^^^^^^^^
+
+
+eXo JCR implementation offers a new extended feature beyond the JCR
+specification. Sometimes one JCR Node has hundreds or even thousands of
+child nodes. This situation is highly not recommended for content
+repository data storage, but sometimes it occurs. They can be iterated
+in a "lazy" manner by giving improvement in terms of performance and RAM
+usage.
+
+.. note:: Current "lazy" child nodes iterator supports caching, when pages are
+		  cached atomically in safe and optimized way. Cache is always kept in
+		  consistent state using invalidation if child list changed. Take into
+		  account the following difference in ``getNodes`` and
+		  ``getNodesLazily``. Specification which defines the ``getNode``
+		  method reads the whole list of nodes, so child items added after
+		  invocation will never be in results. ``GetNodesLazily`` does not
+		  acquire full list of nodes, so child items added after iterator
+		  creation can be found in result. So ``getNodesLazily`` can represent
+		  some types of "real-time" results. But it is highly dependent on
+		  numerous conditions and should not be used as a feature, it is more
+		  likely an implementation specific issue typical for "lazy-pattern".
+
+.. _JCR.APIExtensions.API_and_Usage:
+
+Usage
+``````
+
+Lazy child nodes iteration feature is accessible via the
+``org.exoplatform.services.jcr.core.ExtendedNode`` extended interface,
+the inheritor of ``javax.jcr.Node``. It provides a new single method
+shown below:
+
+.. code:: java
+
+       /**
+        * Returns a NodeIterator over all child Nodes of this Node. Does not include properties 
+        * of this Node. If this node has no child nodes, then an empty iterator is returned.
+        * 
+        * @return A NodeIterator over all child Nodes of this <code>Node</code>.
+        * @throws RepositoryException If an error occurs.
+        */
+       public NodeIterator getNodesLazily() throws RepositoryException;
+
+From the view of end-user or client application, ``getNodesLazily()``
+works similar to JCR specified ``getNodes()`` returning
+``NodeIterator``. "Lazy" iterator supports the same set of features as
+an ordinary NodeIterator, including ``skip()`` and excluding
+``remove()`` features. "Lazy" implementation performs reading from DB by
+pages. Each time when it has no more elements stored in memory, it reads
+the next set of items from persistent layer. This set is called "page".
+The ``getNodesLazily`` feature fully supports session and transaction
+changes log, so it is a functionally-full analogue of specified
+``getNodes()`` operation. Therefore, when having a deal with huge list
+of child nodes, ``getNodes()`` can be simply and safely substituted with
+``getNodesLazily()``.
+
+JCR gives an experimental opportunity to replace all ``getNodes()``
+invocations with ``getNodesLazily()`` calls. It handles a boolean system
+property named "``org.exoplatform.jcr.forceUserGetNodesLazily``" that
+internally replaces one call with another, without any code changes. But
+be sure using it only for development purposes. This feature can be used
+with the top level products using eXo JCR to perform a quick
+compatibility and performance tests without changing any code. This is
+not recommended to be used as a production solution.
+
+.. _JCR.APIExtensions.Configuration:
+
+Configuration
+``````````````
+
+In order to enable this feature, add the
+"``-Dorg.exoplatform.jcr.forceUserGetNodesLazily=true``" to the java
+system properties.
+
+The "lazy" iterator reads the child nodes "page" after "page" into the
+memory. In this context, a "page" is a set of nodes that is read at
+once. The size of the page is by default 100 nodes and can be configured
+though workspace container configuration using the
+"``lazy-node-iterator-page-size``" parameter. For example:
+
+.. code:: xml
+
+    <container class="org.exoplatform.services.jcr.impl.storage.jdbc.optimisation.CQJDBCWorkspaceDataContainer">
+       <properties>
+          <property name="source-name" value="jdbcjcr" />
+          <property name="multi-db" value="true" />
+          <property name="max-buffer-size" value="200k" />
+          <property name="swap-directory" value="target/temp/swap/ws" />
+          <property name="lazy-node-iterator-page-size" value="50" />
+          ...
+       </properties>
+
+.. note:: It is not recommended to configure a large number for the page size.
+
+
+.. |image2| image:: images/other/acl-ext.jpg
+   :width: 15.00000cm
+.. |image1| image:: images/other/acl.gif
+   :width: 15.00000cm
+.. |image0| image:: images/concepts/interceptor.jpg
+   :width: 12.00000cm
