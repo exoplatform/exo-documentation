@@ -598,6 +598,15 @@ application name.
 
  .. note::You cannot delete the Space Settings application because it is configured as a mandatory space application.
 
+Renaming an application
+-------------------------
+
+As manager of a space, you are allowed to rename its applications **except the Activity Stream**.
+To rename an application, simply double-click on its name:
+
+|image73|
+
+
 .. _Manage-space-navbar:
 
 Managing space navigation bar
@@ -861,3 +870,4 @@ deleted.
 .. |image70| image:: images/social/update_image_icon.png
 .. |image71| image:: images/social/update_image_icon.png
 .. |image72| image:: images/social/update_reset_space_icon.png
+.. |image73| image:: images/social/rename_space_app.png
