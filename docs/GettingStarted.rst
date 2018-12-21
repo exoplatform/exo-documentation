@@ -1388,7 +1388,8 @@ Editing an activity
           
               |image139|
               
-After saving the change you made on your activity, a text appears under your name indicating that an edit has been done:
+After saving the change you made on your activity, the activity creation timestamp will be updated by a new 
+label under your name indicating the time of the last edit:
 
 |image140|           
           
@@ -1692,6 +1693,11 @@ Click on the timestamp of the activity to get its permalink.
 This permalink will then take you to the activity with all comments
 expanded.
 
+If the activity is edited, when you mouse over its timestamp, a tooltip appears displaying the 
+original timestamp of the post.
+
+|image147|
+
 Getting permalinks of a comment
 ----------------------------------
 
@@ -1701,6 +1707,10 @@ Just like for activities, click on the timestamp of the comment to get its perma
 
 This permalink will then take you to the activity in which the comment is highlighted.
 
+Just like for edited activities, a tooltip appears when mousing over timestamp of edited comments
+to display the original timestamp of the comment.
+
+|image148|
 
 .. |image0| image:: images/platform/top_navigation_bar.png 
 .. |image1| image:: images/platform/Unlock-termsentskin.jpg
@@ -1850,5 +1860,7 @@ This permalink will then take you to the activity in which the comment is highli
 .. |image144| image:: images/platform/edit_comment_attachments.png
 .. |image145| image:: images/platform/Edited_comment.png
 .. |image146| image:: images/platform/button_edit_delete.png
+.. |image147| image:: images/platform/tooltip_edited-activity.png
+.. |image148| image:: images/platform/tooltip_edited-comment.png
 .. |viewmore| image:: images/platform/more_comments.png
 
