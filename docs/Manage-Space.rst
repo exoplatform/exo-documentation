@@ -736,8 +736,8 @@ Only the space managers have permission to delete their spaces.
 
 4. Click **OK** in the confirmation message to accept deleting the space.
 
-.. note:: When a space is deleted, all information, content (documents, tasks, events...) and navigations 
-          related to that space are also deleted.
+.. note:: When a space is deleted, all information, contents (documents, tasks, events...) and 
+          navigations related to that space are also deleted.
           
 If you click on ``Cancel`` button of the confirmation message, nothing happens.          
 
