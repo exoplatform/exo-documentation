@@ -878,4 +878,4 @@ deleted.
 .. |image71| image:: images/social/update_image_icon.png
 .. |image72| image:: images/social/update_reset_space_icon.png
 .. |image73| image:: images/social/rename_space_app.png
-.. |image74| image:: images/social/rename_space_app.png
+.. |image74| image:: images/social/Delete_space_confirmation.png
