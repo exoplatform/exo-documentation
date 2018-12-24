@@ -4817,7 +4817,7 @@ Advanced usage
 .. _JCR.DeveloperReference.Advanced.Extensions:
 
 Extensions
------------
+~~~~~~~~~~~
 
 eXo JCR fully covers the `JSR
 170 <http://jcp.org/en/jsr/detail?id=170>`__ specification, but also
@@ -4832,7 +4832,7 @@ and Groovy REST service.
 .. _PLF50/JCR.Extensions:
 
 JCR service
-^^^^^^^^^^^^
+------------
 
 eXo JCR supports **observation**, which enables applications to register
 interest in events that describe changes on a workspace, and then
@@ -4979,7 +4979,7 @@ unlock, checkin, checkout, read, moveNode.**.
     .. _PLF50/JCR.AccessControl:
 
 Access control
-^^^^^^^^^^^^^^^
+---------------
 
 eXo JCR is a complete implementation of the standard 
 `JSR 170 - ContentRepository for Java TM Technology API <http://jcp.org/en/jsr/detail?id=170>`__, 
@@ -5026,7 +5026,7 @@ For example:
 .. _JCR.AccessControl.eXoAccessControl:
 
 eXo access control
-```````````````````
+^^^^^^^^^^^^^^^^^^^
 
 The `JSR 170 <http://jcp.org/en/jsr/detail?id=170>`__ specification does
 not define how permissions are managed or checked. So eXo JCR has
@@ -5078,7 +5078,8 @@ There are 3 reserved identities that have special meanings in eXo JCR:
 
 .. _JCR.AccessControl.eXoAccessControl:
 
-***ACL***
+ACL
+````
 
 
 An access control list (ACL) is a list of permissions attached to an
@@ -5190,7 +5191,8 @@ applied to resolve privileges:
 
 .. _JCR.AccessControl.eXoAccessControl:
 
-***Example***
+Example
+````````
 
 
 **XML**
@@ -5328,7 +5330,7 @@ set\_property, remove, and read).
 .. _JCR.AccessControlExtension:
 
 Access control system
-``````````````````````
+^^^^^^^^^^^^^^^^^^^^^^^
 
 
 An extended Access Control system consists of:
@@ -5480,7 +5482,7 @@ mentioned in :ref:`Access Context Action <JCR.AccessControlExtension.AccessConte
 .. _JCR.APIExtensions:
 
 JCR API
-^^^^^^^^
+--------
 
 
 eXo JCR implementation offers a new extended feature beyond the JCR
@@ -5506,7 +5508,7 @@ usage.
 .. _JCR.APIExtensions.API_and_Usage:
 
 Usage
-``````
+^^^^^^^
 
 Lazy child nodes iteration feature is accessible via the
 ``org.exoplatform.services.jcr.core.ExtendedNode`` extended interface,
@@ -5549,7 +5551,7 @@ not recommended to be used as a production solution.
 .. _JCR.APIExtensions.Configuration:
 
 Configuration
-``````````````
+^^^^^^^^^^^^^^
 
 In order to enable this feature, add the
 "``-Dorg.exoplatform.jcr.forceUserGetNodesLazily=true``" to the java
@@ -5575,6 +5577,1012 @@ though workspace container configuration using the
 
 .. note:: It is not recommended to configure a large number for the page size.
 
+.. _JCR.RegistryService:
+
+Registry service
+------------------
+
+The Registry Service is one of the key parts of the infrastructure built
+around eXo JCR. Each JCR that is based on service, applications, and
+more may have its own configuration, settings data and other data that
+have to be stored persistently and used by the appropriate service or
+application (called "**Consumer**").
+
+The service acts as a centralized collector (Registry) for such data.
+Naturally, a registry storage is JCR based i.e. stored in some JCR
+workspaces (one per Repository) as an Item tree under ``/exo:registry``
+node.
+
+Despite the fact that the structure of the tree is well defined (see the
+scheme below), it is not recommended for other services to manipulate
+data using JCR API directly for better flexibility. So the Registry
+Service acts as a mediator between a Consumer and its settings.
+
+The proposed structure of the Registry Service storage is divided into 3
+logical groups: services, applications and users:
+
+::
+
+     exo:registry/          <-- registry "root" (exo:registry)
+       exo:services/        <-- service data storage (exo:registryGroup)
+         service1/
+           Consumer data    (exo:registryEntry)
+         ...
+       exo:applications/    <-- application data storage (exo:registryGroup)
+         app1/
+           Consumer data    (exo:registryEntry)
+         ...
+       exo:users/           <-- user personal data storage (exo:registryGroup)
+         user1/
+           Consumer data    (exo:registryEntry)
+         ...
+
+At each upper level, eXo Service may store its configuration in eXo
+Registry. At first, start from xml-config (in jar etc) and then from
+Registry. In configuration file, you can add the
+``force-xml-configuration`` parameter to the component to ignore reading
+parameters initialization from ``RegistryService`` and to use the file
+instead:
+
+.. code:: xml
+
+    <value-param>
+      <name>force-xml-configuration</name>
+      <value>true</value>
+    </value-param>
+
+.. _JCR.RegistryService.API:
+
+API
+^^^^
+
+The main functionality of the Registry Service is pretty simple and
+straightforward, it is described in the Registry abstract class as the
+following:
+
+.. code:: java
+
+    public abstract class Registry
+    {
+
+       /**
+        * Returns Registry node object which wraps Node of "exo:registry" type (the whole registry tree)
+        */
+       public abstract RegistryNode getRegistry(SessionProvider sessionProvider) throws RepositoryConfigurationException,
+          RepositoryException;
+
+       /**
+        * Returns existed RegistryEntry which wraps Node of "exo:registryEntry" type
+        */
+       public abstract RegistryEntry getEntry(SessionProvider sessionProvider, String entryPath)
+          throws PathNotFoundException, RepositoryException;
+
+       /**
+        * creates an entry in the group. In a case if the group does not exist it will be silently
+        * created as well
+        */
+       public abstract void createEntry(SessionProvider sessionProvider, String groupPath, RegistryEntry entry)
+          throws RepositoryException;
+
+       /**
+        * updates an entry in the group
+        */
+       public abstract void recreateEntry(SessionProvider sessionProvider, String groupPath, RegistryEntry entry)
+          throws RepositoryException;
+
+       /**
+        * removes entry located on entryPath (concatenation of group path / entry name)
+        */
+       public abstract void removeEntry(SessionProvider sessionProvider, String entryPath) throws RepositoryException;
+
+    }
+
+As you can see it looks like a simple CRUD interface for the
+``RegistryEntry`` object which wraps registry data for some Consumer as
+a Registry Entry. The Registry Service itself knows nothing about the
+wrapping data, it is Consumer's responsibility to manage and use its
+data in its own way.
+
+To create an Entity Consumer, you should know how to serialize the data
+to some XML structure and then create a RegistryEntry from these data at
+once or populate them in a RegistryEntry object (using the
+``RegistryEntry(String entryName)`` constructor and then obtain and fill
+a DOM document).
+
+Example of RegistryService using:
+
+.. code:: java
+
+        RegistryService regService = (RegistryService) container
+        .getComponentInstanceOfType(RegistryService.class);
+
+        RegistryEntry registryEntry = regService.getEntry(sessionProvider,
+                RegistryService.EXO_SERVICES + "/my-service");
+
+        Document doc = registryEntry.getDocument();
+        
+        String mySetting = getElementsByTagName("tagname").item(index).getTextContent();
+         .....
+
+.. _JCR.RegistryService.Configuration:
+
+Configuration
+^^^^^^^^^^^^^^
+
+``RegistryService`` has two optional parameters: the ``mixin-names`` and
+the ``locations``. The ``mixin-names`` is used for adding additional
+mixins to the ``exo:registry``, ``exo:applications``, ``exo:services``,
+``exo:users`` and ``exo:groups`` nodes of ``RegistryService``. This
+allows the top level applications to manage these nodes in a special
+way. Locations is used to mention where ``exo:registry`` is placed for
+each repository. The name of each property is interpreted as a
+repository name and its value as a workspace name (a system workspace by
+default).
+
+.. code:: xml
+
+    <component>
+       <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
+       <init-params>
+          <values-param>
+             <name>mixin-names</name>
+             <value>exo:hideable</value>      
+          </values-param>
+          <properties-param>         
+          <name>locations</name>
+             <property name="db1" value="ws2"/>
+          </properties-param>
+       </init-params>
+    </component>
+
+.. _JCR.RESTServicesOnGroovy:
+
+Groovy REST services
+----------------------
+
+JCR service supports REST services creation on `Groovy
+script <http://groovy.codehaus.org>`__.
+
+The feature is based on RESTful framework and uses the
+**ResourceContainer** concept.
+
+**Usage**
+
+Scripts should extend ResourceContainer and should be stored in JCR as a
+node of the ``exo:groovyResourceContainer`` type.
+
+The component configuration enables Groovy services loader:
+
+.. code:: xml
+
+    <component>
+      <type>org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader</type>
+      <init-params>
+        <object-param>
+          <name>observation.config</name>
+          <object type="org.exoplatform.services.jcr.ext.script.groovy.GroovyScript2RestLoader$ObservationListenerConfiguration">
+            <field name="repository">
+              <string>repository</string>
+            </field>
+            <field name="workspaces">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <string>collaboration</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component>
+
+
+.. _JCR.DeveloperReference.Advanced.WorkspaceDataContainer:
+
+Workspace data container
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before going through Workspace Data Container, you need to learn about
+the following concepts:
+
+**Container and connection**
+
+Workspace Data Container (container) serves Repository Workspace
+persistent storage. ``WorkspacePersistentDataManager`` (data manager)
+uses container to perform CRUD operation on the persistent storage.
+Accessing the storage in the data manager is implemented via the storage
+connection obtained from the container (``WorkspaceDataContainer``
+interface implementation). Each connection represents a transaction on
+the storage. Storage Connection (connection) should be an implementation
+of ``WorkspaceStorageConnection``.
+
+-  Container acts as a factory of a new storage connection. Usually,
+   this method is designed to be synchronized to avoid possible
+   concurrent issues.
+
+.. code:: java
+
+    WorkspaceStorageConnection openConnection() throws RepositoryException;
+
+-  Open read-only ``WorkspaceStorageConnection``. Read-only connections
+   can be potentially a bit faster in some cases.
+
+.. code:: java
+
+    WorkspaceStorageConnection openConnection(boolean readOnly) throws RepositoryException;
+
+    **Note**
+
+    Read-only ``WorkspaceStorageConnection`` is an experimental feature
+    and not currently handled in JCR. Actually, such connections did not
+    prove their performance, so JCR Core does not use them.
+
+-  Storage connection might also be reused. This means that the reuse of
+   physical resource (for example, JDBC Connection) is allocated by one
+   connection in another. This feature is used in a data manager for
+   saving ordinary and system changes on the system Workspace. But the
+   reuse is an optional feature and it can work, otherwise a new
+   connection will open.
+
+.. code:: java
+
+    WorkspaceStorageConnection reuseConnection(WorkspaceStorageConnection original) throws RepositoryException;
+
+-  When you check Same-Name Siblings (SNS) existence, JCR Core can use a
+   new connection or not. This is defined via Workspace Data Container
+   configuration and retrieved by using a special method.
+
+.. code:: java
+
+    boolean isCheckSNSNewConnection();
+
+Container initialization is only based on a configuration. After the
+container has been created, it is not possible to change parameters.
+Configuration consists of implementation class and set of properties and
+Value Storages configuration.
+
+**Value storages**
+
+Container provides an optional special mechanism for Value storing. It
+is possible to configure external Value Storages via container
+configuration (available only via configuration). Value Storage works as
+a fully independent pluggable storage. All required parameters of the
+storage obtains from its configuration. Some storages are possible for
+one container. Configuration describes such parameters as the
+``ValueStoragePluginimplementation`` class, set of implementation
+specific properties and filters. The filters declares criteria for Value
+matching to the storage. Only matched Property Values will be stored.
+So, in common case, the storage might contains only the part of the
+Workspace content. Value Storages are very useful for BLOB storing, for
+example, storing on the File System instead of a database.
+
+Container obtains Values Storages from the
+``ValueStoragePluginProvider`` component. Provider acts as a factory of
+Value channels (ValueIOChannel). Channel provides all CRUD operation for
+Value Storage respecting the transaction manner of work (how it can be
+possible due to implementation specifics of the storages).
+
+**Lifecycle**
+
+Container is used for read and write operations by data manager. Read
+operations (getters) use connection once and finally close it. The
+**write** operations perform in the commit method as a sequence of
+creating/ updating calls and the final commit (or rollback on error).
+**Write** uses one connection (or two - another for system workspace)
+per commit call. One connection guaranties transaction support for the
+**write** operations. Commit or rollback should free/clean all resources
+consumed by the container (connection).
+
+**Value storage lifecycle**
+
+Value storage is used from the container inside. Reads are related to a
+container reads. Writes are commit-related. Container (connection)
+implementation should use transaction capabilities of the storages in
+the same way as for other operations.
+
+.. _JCR.Datacontainer.Requirements:
+
+Requirements
+------------
+
+Connection creation and reuse should be a thread safe operation.
+Connection provides CRUD operations support on the storage.
+
+**Read operations**
+
+-  Read ``ItemData`` from the storage by item identifier.
+
+.. code:: java
+
+    ItemData getItemData(String identifier) throws RepositoryException, IllegalStateException;
+
+-  Find ``Item`` by parent (Id) and name (with the path index) of a
+   given type.
+
+.. code:: java
+
+    ItemData getItemData(NodeData parentData, QPathEntry name, ItemType itemType) throws RepositoryException, IllegalStateException;
+
+-  Get child Nodes of the parent node.
+
+.. code:: java
+
+    List<NodeData> getChildNodesData(NodeData parent) throws RepositoryException, IllegalStateException;
+
+-  Get child Nodes of the parent node. ``ItemDataFilter`` is used to
+   reduce count of returned items, but it does not guarantee that only
+   items matching filter will be returned.
+
+.. code:: java
+
+    List<NodeData> getChildNodesData(NodeData parent, ListList<QPathEntryFilter> pattern) throws RepositoryException, IllegalStateException;
+
+-  Read ``List`` of ``PropertyData`` from the storage by using the
+   parent location of the item.
+
+.. code:: java
+
+    List<PropertyData> getChildPropertiesData(NodeData parent) throws RepositoryException, IllegalStateException;
+
+-  Get child properties of the parent node. ``ItemDataFilter`` is used
+   to reduce count of returned items, but it does not guarantee that
+   only items matching filter will be returned.
+
+.. code:: java
+
+    List<PropertyData> getChildPropertiesData(NodeData parent, List<QPathEntryFilter> pattern) throws RepositoryException, IllegalStateException;
+
+-  Read ``List`` of ``PropertyData`` with the empty ``ValueData`` from
+   the storage by using the parent location of the item.
+
+This method is specially dedicated for non-content modification
+operations (for example, Items delete).
+
+.. code:: java
+
+    List<PropertyData> listChildPropertiesData(NodeData parent) throws RepositoryException, IllegalStateException;
+
+-  Read ``List`` of ``PropertyData`` from the storage by using the
+   parent location of the item.
+
+It is the REFERENCE type: Properties referencing Node with the given
+``nodeIdentifier``. See more in ``javax.jcr.Node.getReferences()``.
+
+.. code:: java
+
+    List<PropertyData> getReferencesData(String nodeIdentifier) throws RepositoryException, IllegalStateException, UnsupportedOperationException;
+
+-  Get child Nodes of the parent node whose value of order number is
+   between ``fromOrderNum`` and ``toOrderNum``. Return "true" if there
+   are data to retrieve for the next request and "false" in other case.
+
+.. code:: java
+
+    boolean getChildNodesDataByPage(NodeData parent, int fromOrderNum, int toOrderNum, List<NodeData> childs) throws RepositoryException;
+
+-  Get children nodes count of the parent node.
+
+.. code:: java
+
+    int getChildNodesCount(NodeData parent) throws RepositoryException;
+
+-  Get order number of parent's last child node.
+
+.. code:: java
+
+    int getLastOrderNumber(NodeData parent) throws RepositoryException;
+
+**Write operations**
+
+-  Add single ``NodeData``.
+
+.. code:: java
+
+    void add(NodeData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Add single ``PropertyData``.
+
+.. code:: java
+
+    void add(PropertyData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Update ``NodeData``.
+
+.. code:: java
+
+    void update(NodeData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Update ``PropertyData``.
+
+.. code:: java
+
+    void update(PropertyData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Rename ``NodeData`` by using a Node identifier, a new name and
+   indexing from the data.
+
+.. code:: java
+
+    void rename(NodeData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Delete ``NodeData``.
+
+.. code:: java
+
+    void delete(NodeData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Delete ``PropertyData``.
+
+.. code:: java
+
+    void delete(PropertyData data) throws RepositoryException,UnsupportedOperationException,InvalidItemStateException,IllegalStateException;
+
+-  Prepare the commit phase.
+
+.. code:: java
+
+    void prepare() throws IllegalStateException, RepositoryException;
+
+-  Persist changes and closes connection. It can be database transaction
+   commit for instance.
+
+.. code:: java
+
+    void commit() throws IllegalStateException, RepositoryException;
+
+-  Refuse persistent changes and closes connection. It can be database
+   transaction rollback for instance.
+
+.. code:: java
+
+    void rollback() throws IllegalStateException, RepositoryException;
+
+All methods throw ``IllegalStateException`` if connection is closed,
+``UnsupportedOperationException`` if the method is not supported (for
+example, JCR Level 1 implementation) and ``RepositoryException`` if some
+errors occur during preparation, validation or persistence.
+
+**State operations**
+
+-  Return true if connection can be used.
+
+.. code:: java
+
+    boolean isOpened();
+
+**Validation of write operations**
+
+Container has to care about storage consistency (JCR constraints) on
+write operations: (``InvalidItemStateException`` should be thrown
+according the specification). At least, the following checks should be
+performed:
+
+-  On ADD errors
+
+   -  Parent not found. Condition: Parent ID (Item with ID does not
+      exists).
+
+   -  Item already exists. Condition: ID (Item with ID already exists).
+
+   -  Item already exists. Condition: Parent ID, Name, Index (Item with
+      parent ID, name and index already exists).
+
+-  On DELETE errors
+
+   -  Item not found. Condition ID.
+
+   -  Cannot delete parent until its children exist.
+
+-  On UPDATE errors
+
+   -  Item not found. Condition ID.
+
+   -  Item already exists with the higher Version. Condition: ID,
+      Version (Some Session had updated Item with ID prior to this
+      update).
+
+**Consistency of save**
+
+The container (connection) should implement consistency of Commit
+(Rollback) in **transaction manner**. For example, if a set of
+operations was performed **before** the future **Commit** and another
+next operation **fails**. **It should be possible to** rollback applied
+changes using the **Rollback** command.
+
+.. _JCR.Datacontainer.ValueStoragesAPI:
+
+Value storages API
+--------------------
+
+**Storages provider**
+
+Container implementation obtains Values Storages option via the
+``ValueStoragePluginProvider`` component. Provider acts as a factory of
+Value channels (ValueIOChannel) and has two methods for this purpose:
+
+-  Return ``ValueIOChannel`` matched this property and
+   ``valueOrderNumer``. Null will be returned if no channel matches.
+
+.. code:: java
+
+    ValueIOChannel getApplicableChannel(PropertyData property, int valueOrderNumer) throws IOException;
+
+-  Return `` ValueIOChannel`` associated with given ``storageId``.
+
+.. code:: java
+
+    ValueIOChannel getChannel(String storageId) throws IOException, ValueStorageNotFoundException;
+
+There is also a method for consistency check, but this method is not
+used anywhere and storage implementations has it empty.
+
+**Value storage plugin**
+
+Provider implementation should use the ``ValueStoragePlugin`` abstract
+class as a base for all storage implementations. Plugin provides support
+for provider implementation methods. Plugin's methods should be
+implemented:
+
+-  Initialize this plugin. Used at start time in
+   ``ValueStoragePluginProvider``.
+
+.. code:: java
+
+    public abstract void init(Properties props, ValueDataResourceHolder resources) throws RepositoryConfigurationException, IOException;
+
+-  Open ``ValueIOChannel.Used`` in
+   `` ValueStoragePluginProvider.getApplicableChannel(PropertyData, int)``
+   and ``getChannel(String)``.
+
+.. code:: java
+
+    public abstract ValueIOChannel openIOChannel() throws IOException;
+
+-  Return true if this storage has the same ``storageId``.
+
+.. code:: java
+
+    public abstract boolean isSame(String valueDataDescriptor);
+
+**Value I/O channel**
+
+Channel should implement the ``ValueIOChannel`` interface. CRUD
+operation for Value Storage:
+
+-  Read Property value.
+
+.. code:: java
+
+    ValueData read(String propertyId, int orderNumber, int maxBufferSize) throws IOException;
+
+-  Add or update Property value.
+
+.. code:: java
+
+    void write(String propertyId, ValueData data) throws IOException;
+
+-  Delete Property all values.
+
+.. code:: java
+
+    void delete(String propertyId) throws IOException;
+
+**Transaction support via channel**
+
+Modification operations should be applied only when committing. Rollback
+is required for data created cleanup.
+
+-  Commit channel changes.
+
+.. code:: java
+
+    void commit() throws IOException;
+
+-  Rollback channel changes.
+
+.. code:: java
+
+    void rollback() throws IOException;
+
+-  Prepare Value content.
+
+.. code:: java
+
+    void prepare() throws IOException;
+
+-  Commit Value content (two phases).
+
+.. code:: java
+
+    void twoPhaseCommit() throws IOException;
+
+.. _JCR.HowToImplementWorkspaceDataContainer:
+
+How to implement workspace data container
+-------------------------------------------
+
+**Creating a dynamic workspace**
+
+Workspaces can be added dynamically during runtime.
+
+This can be performed in two steps:
+
+-  Firstly, ``ManageableRepository.configWorkspace(WorkspaceEntry
+               wsConfig)
+             `` - register a new configuration in RepositoryContainer
+   and create a WorkspaceContainer.
+
+-  Secondly, the main step,
+   ``ManageableRepository.createWorkspace(String
+               workspaceName)
+             `` - creation of a new workspace.
+
+**Implementing a workspace data container**
+
+To implement Workspace data container, you need to do the following:
+
+1.  Read a bit about the
+    `contract <#JCRref.Introduction.JCRArchitecture>`__.
+
+2.  Start a new implementation project ``pom.xml`` with
+    *org.exoplatform.jcr* parent. It is not required, but will ease the
+    development.
+
+3.  Update sources of JCR Core and read JavaDoc on
+    ``org.exoplatform.services.jcr.storage.WorkspaceDataContainer`` and
+    ``org.exoplatform.services.jcr.storage.WorkspaceStorageConnection``
+    interfaces. They are the main part for the implementation.
+
+4.  Look at
+    ``org.exoplatform.services.jcr.impl.dataflow.persistent.WorkspacePersistentDataManager``
+    sourcecode, check how data manager uses container and its
+    connections (see in the ``save()`` method)
+
+5.  Create ``WorkspaceStorageConnection`` dummy implementation class. It
+    is a freeform class, but to be close to the eXo JCR, check how to
+    implement JDBC
+    (``org.exoplatform.services.jcr.impl.storage.jdbc.JDBCStorageConnection``).
+    Take into account usage of ``ValueStoragePluginProvider`` in both
+    implementations. Value storage is a useful option for production
+    versions, but leave it to the end of the implementation work.
+
+6.  Create the connection implementation unit tests to play TTD. This
+    step is optional but brings many benefits for the process.
+
+7.  Implement CRUD starting from, for example, the read to write. Test
+    the methods by using the external implementation ways of data
+    read/write in your backend.
+
+8.  When all methods of the connection are done, start
+    **WorkspaceDataContainer**. Container class is very simple, it is
+    like a factory for the connections only.
+
+9.  Care about the ``reuseConnection(WorkspaceStorageConnection)`` logic
+    container method. For some backends, it can be same as
+    ``openConnection()``; but for some others, it is important to reuse
+    physical backend connection, for example, to be in the same
+    transaction - see JDBC container.
+
+10. It is almost ready to use in data manager. Start another test.
+
+When the container is ready to run as JCR persistence storage (for
+example, for this level testing), it should be configured in Repository
+configuration.
+
+Assuming that the new implementation class name is
+``org.project.jcr.impl.storage.MyWorkspaceDataContainer``.
+
+.. code:: xml
+
+      <repository-service default-repository="repository">
+      <repositories>
+        <repository name="repository" system-workspace="production" default-workspace="production">
+          .............
+          <workspaces>
+            <workspace name="production">
+              <container class="org.project.jcr.impl.storage.MyWorkspaceDataContainer">
+                <properties>
+                  <property name="propertyName1" value="propertyValue1" />
+                  <property name="propertyName2" value="propertyValue2" />
+                  .......
+                  <property name="propertyNameN" value="propertyValueN" />
+                </properties>
+                <value-storages>
+                  .......
+                </value-storages>
+              </container>
+
+Container can be configured by using set properties.
+
+**Value storage usage**
+
+Value storages are pluggable to the container but if they are used, the
+container implementation should respect set of interfaces and external
+storage usage principles.
+
+If the container has **ValueStoragePluginProvider** (for example, via
+constructor), it is just a method to manipulate external Values data.
+
+.. code:: java
+
+    // get channel for ValueData write (add or update)
+    ValueIOChannel channel = valueStorageProvider.getApplicableChannel(data,  i);
+    if (channel == null) {
+      // write
+      channel.write(data.getIdentifier(),  vd);
+      // obtain storage id,  id can be used for linkage of external ValueData and PropertyData in main backend
+      String storageId = channel.getStorageId();
+    }
+
+    ....
+
+    // delete all Property Values in external storage
+    ValueIOChannel channel = valueStorageProvider.getChannel(storageId);
+    channel.delete(propertyData.getIdentifier());
+
+    ....
+
+    // read ValueData from external storage
+    ValueIOChannel channel = valueStorageProvider.getChannel(storageId);
+    ValueData vdata = channel.read(propertyData.getIdentifier(),  orderNumber,  maxBufferSize);
+
+.. note:: After a sequence of write and/or delete operations on the storage
+          channel, the channel should be committed (or rolled back on an
+          error). See ``ValueIOChannel.commit()`` and
+          ``ValueIOChannel.rollback()`` and how those methods are used in the
+          JDBC container.
+
+.. _JCR.BinaryValuesProcessing:
+
+Binary values processing
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Processing binary large object (BLOB) is very important in eXo JCR, so
+this section focuses on explaining how to do it.
+
+**Configuration**
+
+Binary large object (BLOB) properties can be stored in two ways in eXo
+JCR: in the database with items information or in an external storage on
+host file system. These options can be configured at workspace in the
+``repository-configuration.xml`` repository configuration file. The
+database storage cannot be completely disabled.
+
+The first case is optimal for most of cases which you do not use very
+large values or/and do not have too many BLOBs. The configuration of the
+BLOBs size and BLOBs quantity in a repository depends on your database
+features and hardware.
+
+The second case is to use an external values storage. The storage can be
+located on a built-in hard disk or on an attached storage. But in any
+cases, you should access the storage as if it is a regular file. The
+external value storage is optional and can be enabled in a database
+configuration.
+
+.. note:: eXo JCR Repository service configuration basics is discussed in :ref:`JCR Configuration <JCR.eXoJCRconfiguration.JCRConfiguration>`.
+
+          Database and workspace persistence storage configuration is discussed in 
+          :ref:`JDBC Data Container configuration <JCR.JDBCDataContainerConfig>`.
+
+          See configuration details for :ref:`External Value Storages <JCR.ExternalValueStorages>`.
+
+.. _JCR.BinaryValuesProcessing.Usage:
+
+Usage
+-----
+
+In both of the cases, a developer can set/update the binary Property via
+``Node.setProperty(String, InputStream)``,
+``Property.setValue(InputStream)`` as described in the
+`JSR-170 <http://www.jcp.org/en/jsr/detail?id=170>`__ specification.
+Also, there is the setter with a ready Value object (obtaining from
+``ValueFactory.createValue(InputStream)``).
+
+An example of a specification usage.
+
+.. code:: java
+
+    // Set the property value with given stream content. 
+    Property binProp = node.setProperty("BinData", myDataStream);
+    // Get the property value stream. 
+    InputStream binStream = binProp.getStream();
+
+    // You may change the binary property value with a new Stream, all data will be replaced
+    // with the content from the new stream.
+    Property updatedBinProp = node.setProperty("BinData", newDataStream);
+    // Or update an obtained property
+    updatedBinProp.setValue(newDataStream);
+    // Or update using a Value object 
+    updatedBinProp.setValue(ValueFactory.createValue(newDataStream));
+    // Get the updated property value stream. 
+    InputStream newStream = updatedBinProp.getStream();
+
+But if you need to update the property sequentially and with partial
+content, you have no choice but to edit the whole data stream outside
+and get it back to the repository each time. In case of really
+large-sized data, the application will be stuck and the productivity
+will decrease a lot. JCR stream setters will also check constraints and
+perform common validation each time.
+
+There is a feature of the eXo JCR extension that can be used for binary
+values partial writing without frequent session level calls. The main
+idea is to use a value object obtained from the property as the storage
+of the property content while writing/reading during runtime.
+
+According to the `JSR-170 <http://www.jcp.org/en/jsr/detail?id=170>`__
+specification, Value interface provides the state of property that
+cannot be changed (edited). The eXo JCR core provides the
+``ReadableBinaryValue`` and ``EditableBinaryValue`` interfaces which
+themselves extend the JCR value. The interfaces allow the user to
+partially read and change a value content.
+
+The ``ReadableBinaryValue`` value can be casted from any values, such as
+String, Binary, Date, and more.
+
+.. code:: java
+
+    // get the property value of type PropertyType.STRING 
+    ReadableBinaryValue extValue = (ReadableBinaryValue) node.getProperty("LargeText").getValue();
+    // read 200 bytes to a destStream from the position 1024 in the value content
+    OutputStream destStream = new FileOutputStream("MyTextFile.txt");
+    extValue.read(destStream, 200, 1024);
+
+But ``EditableBinaryValue`` can be applied only to properties of the
+``PropertyType.BINARY`` type. In other cases, a cast to
+EditableBinaryValue will fail.
+
+After the value has been edited, the EditableBinaryValue value can be
+applied to the property using the standard setters (for example,
+``Property.setValue(Value)``, ``Property.setValues(Value)``,
+``Node.setProperty(String, Value)``). Only after the
+``EditableBinaryValue`` has been set to the property, it can be obtained
+in this session by getters (for example, ``Property.getValue()``,
+``Node.getProperty(String)``).
+
+The user can obtain an ``EditableBinaryValue`` instance and fill it with
+data in an interaction manner (or any other appropriated to the targets)
+and return (set) the value to the property after the content is done.
+
+.. code:: java
+
+    // get the property value for PropertyType.BINARY Property
+    EditableBinaryValue extValue = (EditableBinaryValue) node.getProperty("BinData").getValue();
+
+    // update length bytes from the stream starting from the position 1024 in existing Value data
+    extValue.update(dataInputStream, dataLength, 1024);
+
+    // apply the edited EditableBinaryValue to the Property
+    node.setProperty("BinData", extValue);
+
+    // save the Property to persistence
+    node.save();
+
+See a practical example of the iterative usage. In this example, the
+value is updated with data from the sequence of streams and after the
+update is done, the value will be applied to the property and be visible
+during the session.
+
+.. code:: java
+
+    // update length bytes from the stream starting from the particular 
+    // position in the existing Value data
+    int dpos = 1024;
+    while (source.dataAvailable()) {
+      extValue.update(source.getInputStream(), source.getLength(), dpos);
+      dpos = dpos + source.getLength();
+    }
+
+    // apply the edited EditableBinaryValue to the Property
+    node.setProperty("BinData", extValue);
+
+.. _JCR.BinaryValuesProcessing.Value_implementations:
+
+Value implementations
+---------------------
+
+|image3|
+
+-  ``ReadableBinaryValue`` has one method to read Value.
+
+   The value of read length bytes is counted from the binary value to
+   the given position into the stream.
+
+   .. code:: java
+
+       long read(OutputStream stream, long length, long position) throws IOException, RepositoryException ;
+
+-  ``EditableBinaryValue`` has two methods to edit value.
+
+   -  Update with length bytes from the specified stream to this value
+      data at a position. If the position is lower than 0, the
+      IOException exception will be thrown. If the position is higher
+      than the current Value length, the Value length will be increased
+      at first to the size of position and length bytes will be added
+      after the position.
+
+   -  Set the length of the Value in bytes to the specified size. If the
+      size is lower than 0, the IOException exception will be thrown.
+      This operation can be used to extend or truncat the Value size.
+      This method is used internally in the update operation in case of
+      extending the size to the given position.
+
+   .. code:: java
+
+       void setLength(long size) throws IOException;
+
+   An application can perform JCR binary operations more flexibly and
+   will have less I/O and CPU usage using these methods.
+
+.. _JCR.LinkProducerService:
+
+Link Producer service
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Link Producer service - a simple service, generates an ``.lnk`` file
+that is compatible with the Microsoft link file format. It is an
+extension of the REST Framework library and is included into the WebDav
+service. On dispatching a GET request, the service generates the content
+of an ``.lnk`` file, which points to a JCR resource via WebDav.
+
+Link Producer has a simple configuration as described below:
+
+.. code:: xml
+
+    <component>
+      <key>org.exoplatform.services.jcr.webdav.lnkproducer.LnkProducer</key>
+      <type>org.exoplatform.services.jcr.webdav.lnkproducer.LnkProducer</type>
+    </component>
+
+When JRS is used, the resource can be addressed by WebDav reference
+(href) like
+`http://host:port/rest/jcr/repository/workspace/somenode/somefile.extension. <http://host:port/rest/jcr/repository/workspace/somenode/somefile.extension.>`__
+The link servlet must be called for this resource by several hrefs, like
+http://localhost:8080/rest/lnkproducer/openit.lnk?path=/repository/workspace/somenode/somefile.extension.
+
+.. note:: In eXo Platform the REST servlet is available using a reference (href) like http://localhost:8080/portal/rest/...
+
+To have the best compatibility, the name of the ``.lnk`` file must be
+the same as that of the JCR resource.
+
+Here is a step-by-step sample of a usecase of the link producer. First,
+type the valid reference to the resource using the link producer in your
+browser's address field:
+
+|image4|
+
+Internet Explorer will give a dialog window requesting to **Open a
+file** or to **Save it**. Click the Open button.
+
+|image5|
+
+In Windows system an ``.lnk`` file will be downloaded and opened with
+the application which is registered to open the files, which are pointed
+to by the ``.lnk`` file. In case of a ``.doc`` file, Windows opens
+Microsoft Office Word which will try to open a remote file
+(``test0000.doc``). Maybe, it will be necessary to enter USERNAME and
+PASSWORD.
+
+|image6|
+
+Next, you will be able to edit the file in Microsoft Word.
+
+|image7|
+
+The Link Producer is necessary for opening/editing and then saving the
+remote files in Microsoft Office Word without any further updates.
+
+Also, the Link Producer can be referenced from an HTML page. If page
+contains a code snippet like:
+
+.. code:: html
+
+    <a href="http://localhost:8080/rest/lnkproducer/openit.lnk?path=/repository/workspace/somenode/somefile.extension">somefile.extention</a>
+
+The ``somefile.extension`` file will be opened directly.
+
+
+
+
 
 .. |image2| image:: images/other/acl-ext.jpg
    :width: 15.00000cm
@@ -5582,3 +6590,13 @@ though workspace container configuration using the
    :width: 15.00000cm
 .. |image0| image:: images/concepts/interceptor.jpg
    :width: 12.00000cm
+.. |image3| image:: images/other/binaryvalue.png
+   :width: 15.00000cm
+.. |image4| image:: images/other/lnkproducer1.JPG
+   :width: 15.00000cm
+.. |image5| image:: images/other/lnkproducer2.JPG
+   :width: 15.00000cm
+.. |image6| image:: images/other/lnkproducer3.JPG
+   :width: 15.00000cm
+.. |image7| image:: images/other/lnkproducer4.JPG
+   :width: 15.00000cm
