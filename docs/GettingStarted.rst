@@ -949,6 +949,9 @@ Using the Activity Stream
  * :ref:`Deleting activities/comments <Deleting-Activities-Comments>`
    Steps to remove activities or comments from **Activity Stream**.
    
+ * :ref:`Editing activities/comments <Editing-Activities-Comments>`
+   Steps to edit activities or comments in the **Activity Stream**.
+   
  * :ref:`Commenting on activities <Commenting-Activities>`
    Steps to comment on an activity that allows you to get ideas, answers, and any additional information.     
    
@@ -1331,16 +1334,105 @@ manager.
 
 1. Change the activity filter to **All Activities** or **My spaces** to view all of your activities.
 
-|image105|
+   |image105|
 
-2. Hover your cursor over the activity you want to delete, then click
-|image106| that appears.
+2. Click on the pulldown menu on the top right of your activity you want to delete.
+   Two entries appear: Edit and Delete.
+   
+   |image106|
 
-|image107|
+3. Click on ``Delete`` button --> A confirmation pop up appears.
 
-3. Click **OK** in the confirmation message to accept your deletion.
+   |image107|
 
-    .. note:: As an eXo Platform user, you can only delete your own activities. If you are manager of a space, you can delete any activities related to this space.
+
+4. Click ``Yes`` button in the confirmation message to accept your deletion.
+
+.. note:: As an eXo Platform user, you can only delete your own activities. If you are manager of a space, you can delete any activities related to this space.
+
+5. If you click ``Cancel`` button, nothing happens.
+
+.. _Editing-Activities-Comments:
+
+Editing activities/comments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Starting from eXo Platform 5.2, you can edit an activity you posted or a comment you wrote.
+ 
+.. _Edit_Activity:
+ 
+Editing an activity
+--------------------
+ 
+1. Click the pulldown menu on the top right of your activity : |image135|. Two entries appear: Edit and Delete.
+	
+	|image136|
+
+2. Click on ``Edit`` --> Your activity’s text appears in the editor area allowing you to make changes.
+
+    |image137|
+
+3. Make the needed changes and then click on ``Update`` button.
+
+.. note:: The ``Update`` button remains disabled until at least one change is done.
+
+4. If you click the ``Cancel`` button, your changes will be ignored.
+
+.. note:: Edition is only possible on written text. Attached images, files or link can’t be edited.
+
+              |image138|
+          
+          If the activity contains only attachments (link or files and/or images) the edit button opens the
+          editor allowing you to type a text message.
+          
+              |image139|
+              
+After saving the change you made on your activity, the activity creation timestamp will be updated by a new 
+label under your name indicating the time of the last edit:
+
+|image140|           
+          
+.. _Edit_Comment:
+ 
+Editing a comment
+------------------
+
+1. Click on the pulldown menu at the right of the comment box : |image141|. Just like for activities, two entries appear:
+   
+   |image142|
+
+2. Click on ``Edit``  --> Your comment’s text appears in the editor area allowing you to edit it.
+
+   |image143|
+   
+3. Edit your comment and then click on ``Update`` button.
+
+.. note:: The ``Update`` button remains disabled until you change the comment.
+
+4. If you click the ``Cancel`` button, your changes will be ignored.
+
+.. note:: Unlike activities, you can change an attached link/image to your comment.
+
+           |image144|
+           
+Like for activities, after saving the change you made to your comment, a text appears near your name indicating that 
+an edit has been done:
+
+|image145| 
+
+.. warning:: Activities and comments generated from other aplications such as:
+             
+				 - Adding a topic or replying to a forum discussion
+				 - Creating or joining a space
+				 - Updating your profile
+				 - Adding/Editing a wiki page
+             
+             are not editable, you just can delete them when you click on |image146| button.
+             
+             Only activities generated following a document upload in Documents application are editable, 
+             you can add a text message to that activity.
+
 
 .. _Commenting-Activities:
 
@@ -1587,35 +1679,38 @@ Default values are:
 Getting permalinks of activities/comments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can easily get the link of any activity or comment from the activity
-stream to share with others. With this feature, you can bring the
+You can easily get the link of any activity or comment (either edited or not) 
+from the activity stream to share with others. With this feature, you can bring the
 attention of other users to an activity/comment without the need to :ref:`mention them <Mentioning-People>`.
 
 Getting permalinks of an activity
 -----------------------------------
 
-Hover your cursor over the activity you want to get the permalink, then
-click on the link icon |image131| that appears.
+Click on the timestamp of the activity to get its permalink.
 
-|image132|
+|image131|
 
 This permalink will then take you to the activity with all comments
 expanded.
 
-Getting permalinks of a comment
--------------------------------------
+If the activity is edited, when you mouse over its timestamp, a tooltip appears displaying the 
+original timestamp of the post.
 
-Hover your cursor over the comment you want to get the permalink, then
-click on the link icon |image133| that appears.
+|image147|
+
+Getting permalinks of a comment
+----------------------------------
+
+Just like for activities, click on the timestamp of the comment to get its permalink.
 
 |image134|
 
-This permalink will then take you to the activity in which the comment
-is highlighted.
+This permalink will then take you to the activity in which the comment is highlighted.
 
+Just like for edited activities, a tooltip appears when mousing over timestamp of edited comments
+to display the original timestamp of the comment.
 
-
-
+|image148|
 
 .. |image0| image:: images/platform/top_navigation_bar.png 
 .. |image1| image:: images/platform/Unlock-termsentskin.jpg
@@ -1724,8 +1819,8 @@ is highlighted.
 .. |image103| image:: images/platform/mention_people.png
 .. |image104| image:: images/platform/click_mentioned_user.png
 .. |image105| image:: images/platform/change_activity_filter.png
-.. |image106| image:: images/platform/remove_attachment_icon.png
-.. |image107| image:: images/platform/delete_activity.png
+.. |image106| image:: images/platform/delete_edit.png
+.. |image107| image:: images/platform/delete_activity_confirmation.png
 .. |image108| image:: images/platform/comment_icon.png
 .. |image109| image:: images/platform/comment_activity.png
 .. |image110| image:: images/platform/like_icon.png
@@ -1749,9 +1844,23 @@ is highlighted.
 .. |image128| image:: images/platform/notification.png
 .. |image129| image:: images/platform/email_notif.png
 .. |image130| image:: images/platform/notification_line.png
-.. |image131| image:: images/platform/share_link_icon.png
+.. |image131| image:: images/platform/timestamp.png
 .. |image132| image:: images/platform/getting_permalink_activity.png
 .. |image133| image:: images/platform/share_link_icon.png
-.. |image134| image:: images/platform/getting_permalink_comment.png
+.. |image134| image:: images/platform/timestamp_comment.png
+.. |image135| image:: images/platform/button_edit_delete.png
+.. |image136| image:: images/platform/delete_edit.png
+.. |image137| image:: images/platform/edit_activity.png
+.. |image138| image:: images/platform/attached_images_edit_activity.png
+.. |image139| image:: images/platform/Activity_Without_text.png
+.. |image140| image:: images/platform/Edited_activity.png
+.. |image141| image:: images/platform/button_edit_delete.png
+.. |image142| image:: images/platform/Edit_comment_buttons.png
+.. |image143| image:: images/platform/Edit_comment.png
+.. |image144| image:: images/platform/edit_comment_attachments.png
+.. |image145| image:: images/platform/Edited_comment.png
+.. |image146| image:: images/platform/button_edit_delete.png
+.. |image147| image:: images/platform/tooltip_edited-activity.png
+.. |image148| image:: images/platform/tooltip_edited-comment.png
 .. |viewmore| image:: images/platform/more_comments.png
 
