@@ -61,7 +61,7 @@ The main guides in eXo Platform documentation:
    Management
    Clustering
    LDAP
-   OAuthIntegrationreference-JCR-docs
+   OAuthIntegration
    Backup
    Upgrade
    Security
@@ -118,6 +118,18 @@ The main guides in eXo Platform documentation:
    Introduction_eXo_JCR
    Configuration_eXo_JCR
    Developer_references_eXo_JCR
-   Administration_eXo_JCR
+   
+   
+   
+.. _reference-platform-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference Guide / Platform
+   
+   Introduction_eXo_Platform
+   Configuration_eXo_Platform
+   Platform_Development
+
 
    
