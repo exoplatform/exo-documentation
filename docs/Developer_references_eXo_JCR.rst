@@ -91,8 +91,7 @@ Basic usage
 Using JCR
 ~~~~~~~~~~~
 
-.. note:: -  Remember that ``javax.jcr.Session`` is not a thread safe object.
-             **Thus, never try to share it between threads**.
+.. note:: -  Remember that ``javax.jcr.Session`` is not a thread safe object. **Thus, never try to share it between threads**.
 
 		  -  Do not use **System session** from the **user** related code
 		     because a system session has **unlimited rights**. Call

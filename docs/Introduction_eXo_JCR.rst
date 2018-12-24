@@ -5,10 +5,9 @@ Introduction to eXo JCR
 #########################
 
 
-eXo JCR is an implementation of the `Java Specification Request
-    170 <http://jcp.org/en/jsr/detail?id=170>`__, also known as the
-    Content Repository for Java technology API. This chapter introduces
-    you to eXo JCR via 2 main topics:
+eXo JCR is an implementation of the `Java Specification Request 170 <http://jcp.org/en/jsr/detail?id=170>`__, 
+also known as the Content Repository for Java technology API. This chapter introduces
+you to eXo JCR via 2 main topics:
 
     -  :ref:`eXo JCR architecture <JCRref.Introduction.JCRArchitecture>`
 

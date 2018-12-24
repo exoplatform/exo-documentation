@@ -61,7 +61,7 @@ The main guides in eXo Platform documentation:
    Management
    Clustering
    LDAP
-   OAuthIntegrationreference-JCR-docs
+   OAuthIntegration
    Backup
    Upgrade
    Security

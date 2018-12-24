@@ -43,7 +43,7 @@ Basic configuration
    and more.
 
 The JCR service configuration (for example, Repository service) that can
-be found in `` jcr-configuration.xml`` looks like the following:
+be found in ``jcr-configuration.xml`` looks like the following:
 
 .. code:: xml
 
