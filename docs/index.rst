@@ -118,7 +118,7 @@ The main guides in eXo Platform documentation:
    Introduction_eXo_JCR
    Configuration_eXo_JCR
    Developer_references_eXo_JCR
-   
+   Administration_eXo_JCR
    
    
 .. _reference-platform-docs:
