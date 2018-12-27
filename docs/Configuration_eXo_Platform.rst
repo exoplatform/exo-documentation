@@ -2553,7 +2553,7 @@ In which:
 +----------------------+---------------------+-------------------------------------------------------------------------------------------+
 | **workspace-name**   | ``String``          | The repository workspace name that is associated with this lifecycle.                     |
 +----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| **entities**         | ``List<String> ``   | The list of chromattic entities that will be registered against the chromattic builder.   |
+| **entities**         | ``List<String>``    | The list of chromattic entities that will be registered against the chromattic builder.   |
 +----------------------+---------------------+-------------------------------------------------------------------------------------------+
 
 **Properties-param**: **option**

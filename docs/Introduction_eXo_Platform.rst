@@ -37,21 +37,21 @@ name, available preferences and sample configurations.
 
 The portlets are classified basing on each application:
 
--  :ref:Social <PLFRefGuide.Application.Portlets.Social>`
+-  :ref:`Social <PLFRefGuide.Application.Portlets.Social>`
 
--  :ref:Content <PLFRefGuide.Application.Portlets.Content>`
+-  :ref:`Content <PLFRefGuide.Application.Portlets.Content>`
 
--  :ref:Wiki <PLFRefGuide.Application.Portlets.Wiki>`
+-  :ref:`Wiki <PLFRefGuide.Application.Portlets.Wiki>`
 
--  :ref:Calendar <PLFRefGuide.Application.Portlets.Calendar>`
+-  :ref:`Calendar <PLFRefGuide.Application.Portlets.Calendar>`
 
--  :ref:Forum <PLFRefGuide.Application.Portlets.Forum>`
+-  :ref:`Forum <PLFRefGuide.Application.Portlets.Forum>`
 
--  :ref:Answers <PLFRefGuide.Application.Portlets.Answers>`
+-  :ref:`Answers <PLFRefGuide.Application.Portlets.Answers>`
 
--  :ref:Polls <PLFRefGuide.Application.Portlets.Polls>`
+-  :ref:`Polls <PLFRefGuide.Application.Portlets.Polls>`
 
--  :ref:Search <PLFRefGuide.Application.Portlets.Search>`
+-  :ref:`Search <PLFRefGuide.Application.Portlets.Search>`
 
 .. _PLFRefGuide.Application.Portlets.Social:
 
@@ -990,15 +990,15 @@ This portlet is packaged in the ``forum.war`` file.
 +-------------------------------------------------------------------------------------------+-------------------------------------------------+
 | Name                                                                                      | Description                                     |
 +===========================================================================================+=================================================+
-| **`ReLoadPortletEvent <#PLFRefGuide.Application.Portlets.Forum.ReLoadPortletEvent>`__**   | Reloads UIForumPortlet.                         |
+| :ref:`ReLoadPortletEvent <PLFRefGuide.Application.Portlets.Forum.ReLoadPortletEvent>`     | Reloads UIForumPortlet.                         |
 +-------------------------------------------------------------------------------------------+-------------------------------------------------+
-| **`ForumPollEvent <#PLFRefGuide.Application.Portlets.Forum.ForumPollEvent>`__**           | Sets the render for UIForumPollPortlet.         |
+| :ref:`ForumPollEvent <PLFRefGuide.Application.Portlets.Forum.ForumPollEvent>`             | Sets the render for UIForumPollPortlet.         |
 +-------------------------------------------------------------------------------------------+-------------------------------------------------+
-| **`ForumModerateEvent <#PLFRefGuide.Application.Portlets.Forum.ForumModerateEvent>`__**   | Sets the render for UIForumModeratorPortlet.    |
+| :ref:`ForumModerateEvent <PLFRefGuide.Application.Portlets.Forum.ForumModerateEvent>`     | Sets the render for UIForumModeratorPortlet.    |
 +-------------------------------------------------------------------------------------------+-------------------------------------------------+
-| **`ForumRuleEvent <#PLFRefGuide.Application.Portlets.Forum.ForumRuleEvent>`__**           | Sets the render for UIForumRulePortlet.         |
+| :ref:`ForumRuleEvent <PLFRefGuide.Application.Portlets.Forum.ForumRuleEvent>`             | Sets the render for UIForumRulePortlet.         |
 +-------------------------------------------------------------------------------------------+-------------------------------------------------+
-| **`QuickReplyEvent <#PLFRefGuide.Application.Portlets.Forum.QuickReplyEvent>`__**         | Sets the render for UIForumQuickReplyPortlet.   |
+| :ref:`QuickReplyEvent <PLFRefGuide.Application.Portlets.Forum.QuickReplyEvent>`           | Sets the render for UIForumQuickReplyPortlet.   |
 +-------------------------------------------------------------------------------------------+-------------------------------------------------+
 
 **ReLoadPortletEvent**: This event is fired through UIForumPortlet.
