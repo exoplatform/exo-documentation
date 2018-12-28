@@ -1348,7 +1348,8 @@ manager.
 
 4. Click ``Yes`` button in the confirmation message to accept your deletion.
 
-.. note:: As an eXo Platform user, you can only delete your own activities. If you are manager of a space, you can delete any activities related to this space.
+.. note:: As an eXo Platform user, you can only delete your own activities/comments. 
+          If you are manager of a space, you can delete any activities or comments related to this space.
 
 5. If you click ``Cancel`` button, nothing happens.
 
@@ -1379,7 +1380,9 @@ Editing an activity
 
 4. If you click the ``Cancel`` button, your changes will be ignored.
 
-.. note:: Edition is only possible on written text. Attached images, files or link can’t be edited.
+.. note:: Edition is only possible on written text or images added via the :ref:`CKEditor<Formatting-toolbar>` toolbar. 
+          :ref:`Attached images <files-in-AS>`, :ref:`files <files-in-AS>` or :ref:`link <Link-post-in-AS>` 
+          (added through the dedicated tab) can’t be edited.
 
               |image138|
           
@@ -1391,7 +1394,9 @@ Editing an activity
 After saving the change you made on your activity, the activity creation timestamp will be updated by a new 
 label under your name indicating the time of the last edit:
 
-|image140|           
+|image140|   
+
+.. note:: An administrator is allowed to edit and delete any activity or comment.        
           
 .. _Edit_Comment:
  
@@ -1427,6 +1432,12 @@ an edit has been done:
 				 - Creating or joining a space
 				 - Updating your profile
 				 - Adding/Editing a wiki page
+				 - Closing, opening or locking a topic in Forum application
+				 - Adding a poll to a topic 
+				 - Editing an event in Calendar
+				 - Moving a wiki page
+				 - Editing a space's description/avatar
+				 - Connecting with a new user
              
              are not editable, you just can delete them when you click on |image146| button.
              
