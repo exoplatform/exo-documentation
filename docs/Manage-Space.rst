@@ -598,6 +598,15 @@ application name.
 
  .. note::You cannot delete the Space Settings application because it is configured as a mandatory space application.
 
+Renaming an application
+-------------------------
+
+As manager of a space, you are allowed to rename its applications **except the Activity Stream**.
+To rename an application, simply double-click on its name:
+
+|image73|
+
+
 .. _Manage-space-navbar:
 
 Managing space navigation bar
@@ -721,9 +730,16 @@ Only the space managers have permission to delete their spaces.
 
 2. Click Delete under the space name which you want to delete.
 
-3. Click **OK** in the confirmation message to accept deleting the space.
+3. A confirmation message appears:
 
-.. note::When a space is deleted, all information and navigations related to that space are also deleted.
+|image74|
+
+4. Click **OK** in the confirmation message to accept deleting the space.
+
+.. note:: When a space is deleted, all information, contents (documents, tasks, events...) and 
+          navigations related to that space are also deleted.
+          
+If you click on ``Cancel`` button of the confirmation message, nothing happens.          
 
 .. _Accept-Ignore-Space-Invitation:
 
@@ -861,3 +877,5 @@ deleted.
 .. |image70| image:: images/social/update_image_icon.png
 .. |image71| image:: images/social/update_image_icon.png
 .. |image72| image:: images/social/update_reset_space_icon.png
+.. |image73| image:: images/social/rename_space_app.png
+.. |image74| image:: images/social/Delete_space_confirmation.png

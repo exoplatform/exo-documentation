@@ -98,3 +98,38 @@ The main guides in eXo Platform documentation:
    CMIS
    
 
+.. _mobile-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: eXo Mobile Guide 
+   
+   eXoMobileGuide.Getting_started
+   Features
+   Settings
+   
+   
+.. _reference-JCR-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference Guide / eXo JCR
+   
+   Introduction_eXo_JCR
+   Configuration_eXo_JCR
+   Developer_references_eXo_JCR
+   Administration_eXo_JCR
+   
+   
+.. _reference-platform-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference Guide / Platform
+   
+   Introduction_eXo_Platform
+   Configuration_eXo_Platform
+   Platform_Development
+
+
+   
