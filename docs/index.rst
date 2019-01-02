@@ -120,6 +120,18 @@ The main guides in eXo Platform documentation:
    Developer_references_eXo_JCR
    Administration_eXo_JCR
    
+
+.. _reference-eXo-foundations-docs:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Reference Guide / eXo Foundations
+   
+   eXo_Kernel
+   eXo_Core
+   eXo_Web_Services
+   
+      
    
 .. _reference-platform-docs:
 
