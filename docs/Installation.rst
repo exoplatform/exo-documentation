@@ -551,6 +551,8 @@ are several ways: using Task Manager (Windows), or running
 ``stop_eXo.sh -force`` (Linux/OS X), or using ``kill -9`` command
 (Linux/OS X).
 
+.. _PLFAdminGuide.InstallationAndStartup.Tomcat.DevAndDebugMode:
+
 Starting up eXo Platform in the Dev/Debug mode
 ------------------------------------------------
 
