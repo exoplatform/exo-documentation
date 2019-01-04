@@ -314,128 +314,150 @@ wildcards can be used, as in the following example:
 Enabling HTTPS
 ===============
 
+
 In order to enable HTTPS, you can either:
 
--  :ref:`Use a reverse proxy <Security.HTTPSConf.Proxy>`,
-   like Apache HTTPd or Nginx, to set up an HTTPS virtual host that runs
-   in front of eXo Platform. Or:
+-  :ref:`Use a reverse proxy <PLFAdminGuide.Security.HTTPSConf.Proxy>`,
+   such as Apache HTTPd or Nginx, to set up an HTTPS virtual host that
+   runs in front of eXo Platform. Or:
 
--  :ref:`Run eXo Platform itself in HTTPS <Security.HTTPSConf.eXo>`.
+-  :ref:`Run eXo Platform itself over HTTPS <PLFAdminGuide.Security.HTTPSConf.eXo>`.
 
-.. _Security.HTTPSConf.Proxy:
+In both cases, you must have a valid SSL certificate. For testing
+purpose, you can generate a :ref:`self-signed SSL certificate <PLFAdminGuide.Security.HTTPSConf.SSLCertificate>.
+For a production environment, a :ref:`verified SSL certificate <PLFAdminGuide.Security.HTTPSConf.VerifiedSSLCertificate>`
+should be used.
+
+.. _PLFAdminGuide.Security.HTTPSConf.SSLCertificate:
+
+Generating a self-signed certificate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Generating a self-signed certificate can be done with
+`OpenSSL <https://www.openssl.org/>`__. Once again, a self-signed
+certificate must be used only for testing purpose, never in production.
+Use the following command to generate the certificate:
+
+``openssl req -x509 -nodes -newkey rsa:2048 -keyout cert-key.pem -out cert.pem -subj '/O=MYORG/OU=MYUNIT/C=MY/ST=MYSTATE/L=MYCITY/CN=proxy1.com' -days 730``
+
+You will use cert-key.pem to certificate the Apache/Nginx server
+proxy1.com, so the part "*CN=proxy1.com*" is important.
+
+.. note:: When using a self-signed certificate, users will need to point their
+          browser to *https://proxy1.com* and accept the security exception.
+
+.. _PLFAdminGuide.Security.HTTPSConf.VerifiedSSLCertificate:
+
+Importing an SSL certificate in the JVM's trust store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For gadgets to work, the SSL certificate must be imported in the JVM
+trust store:
+
+1. Because Java keytool does not accept PEM file format, you will need to
+   convert ``cert-key.pem`` into DER format.
+
+``openssl x509 -outform der -in cert-key.pem -out cert-key.der``
+
+2. Import your certificate to the JVM trust store using the following command:
+
+``keytool -import -trustcacerts -file cert-key.der -keystore $JAVA_HOME/jre/lib/security/cacerts -alias proxy1.com``
+
+.. note:: The default password of the JVM's trust store is "*changeit*".
+
+.. _PLFAdminGuide.Security.HTTPSConf.Proxy:
 
 Using a reverse proxy for HTTPS in front of eXo Platform
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Apache or Nginx can be used as a reverse proxy in front of eXo Platform. 
-It catches https requests from the browser and proxies the requests to
-eXo Platform via either AJP or HTTP protocol. The following diagram 
-depicts the case described in this section:
+Apache or Nginx can both be used as a reverse proxy in front of eXo Platform.
+The role of the reverse proxy server is to catch HTTPS requests coming
+from the http clients (e.g web browsers) and to relay them to eXo Platform
+either via AJP or via HTTP protocol. The following diagram depicts the
+case described in this section:
 
 |image0|
 
-In this case, a user accesses the site via https, for example
-*https://proxy1.com*, all his requests and all reponses to him are
-encrypted by the proxy.
+.. note:: At this stage, we assume you already have an :ref:`SSL certificate <PLFAdminGuide.Security.HTTPSConf.SSLCertificate>`,
+          either issued by an official certification authority or self-signed
+          (for testing).
 
-.. note:: We are assuming you have a :ref:`standard ssl certificate <Import_SSL_certificate>` issued by 
-		  an official certification authority.
-		  The examples allow you to have a basic installation with ssl
-		  enabled. You should fine tune your installation before opening 
-		  it on the web. Mozilla provide a `great site <https://mozilla.github.io/server-side-tls/ssl-config-generator/>`__
+		  The examples below will let you setup a basic installation with ssl
+		  enabled. You should fine tune your installation before opening it on
+		  the web. Mozilla provide a `great site <https://mozilla.github.io/server-side-tls/ssl-config-generator/>`__
 		  to help you to find a configuration adapted to your needs.
 
-.. _Import_SSL_certificate:
-
-Importing your SSL certificate into Java truststore
-----------------------------------------------------
-
-You need an SSL certificate for enabling https access to your site. You
-will configure your certificate in your front-end server (proxy1.com).
-Besides, you need to add the certificate to JVM **truststore**. For
-testing purpose, you can generate and use a self-signed certificate, as
-follows:
-
-1. Create a certificate using openssl (if you are using Windows, replace
-   parentheses with quotation marks):
-	
-	::
-
-			openssl req -x509 -nodes -newkey rsa:2048 -keyout mykey.pem -out mycert.pem -subj '/O=MYORG/OU=MYUNIT/C=MY/ST=MYSTATE/L=MYCITY/CN=proxy1.com' -days 730
-			
-   You will use ``mycert.pem`` to certificate the Apache/Nginx server
-   proxy1.com, so the part "*CN=proxy1.com*" is important.
-
-2. Import the certificate to Java truststore. This step is necessary to
-   make gadgets work. Because Java keytool does not accept PEM file, you
-   need to convert ``mycert.pem`` into DER format.
-
-	::
-
-			openssl x509 -outform der -in mycert.pem -out mycert.der7
-	
-	::
-
-			keytool -import -trustcacerts -file mycert.der -keystore $JAVA_HOME/jre/lib/security/cacerts -alias proxy1.com
-			
-			
-.. note:: -  The default password of the Java keystore is "*changeit*".
-          -  Users will need to point their browser to *https://proxy1.com* and accept the certificate exception.
-
-.. _ApacheConfiguration:
-
 Configuring Apache
--------------------
+--------------------
 
-Before you start, note that details of Apache setup is not described
-here, and it depends on Apache version and your OS, so consult `Apache documentation <http://httpd.apache.org/docs/>`__ 
-if you need.
+Before you start, note that for clarity, not all details of the Apache
+server configuration are described here. The configuration may vary
+depending on Apache version and your OS, so consult `Apache
+documentation <http://httpd.apache.org/docs/>`__ if you need.
+
+.. note:: The supported version of Apache is 2.4 which should be used in a
+	   	  supported version of OS. You can learn more about supported
+		  environments
+		  `here <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__.
 
 **Required modules**
 
-You need mod\_ssl, mod\_proxy. They are all standard Apache 2 modules,
-so no installation is required. You just need to enable it with the
+You need mod\_ssl, mod\_proxy. They are all standard Apache2 modules, so
+no installation is required. You just need to enable them with the
 following command:
 
 ::
 
-    sudo a2enmod ssl proxy proxy_http
+    sudo a2enmod ssl proxy proxy_http headers
 
-**Configuring a virtual host for SSL port**
+**Configuring a virtual host for the SSL port**
 
-Add this to site configuration (you should override the default ssl site
-``/etc/apache2/sites-enabled/default-ssl.conf``):
+Add this to site configuration (you can override the default ssl site
+``/etc/apache2/sites-enabled/default-ssl.conf`` or create your own
+site):
 
 ::
 
-    <IfModule mod_ssl.c>
-        <VirtualHost *:443>
-            ServerName proxy1.com
-            ProxyPass / http://exo1.com:8080/
-            ProxyPassReverse / http://exo1.com:8080/
-            ProxyRequests Off
-            ProxyPreserveHost Off
+    <VirtualHost *:80>
+        ServerName proxy1.com
+        Redirect / https://proxy1.com/
+    </VirtualHost>
 
-            SSLEngine On
-            SSLCertificateFile /path/to/file/mycert.pem
-            SSLCertificateKeyFile /path/to/file/mykey.pem
-        </VirtualHost>
-    </IfModule>
-    
-.. _NginxConfiguration:    
+    <VirtualHost *:443>
+        ServerName proxy1.com
+        ProxyPass / http://exo1.com:8080/
+        ProxyPassReverse / http://exo1.com:8080/
+        ProxyRequests Off
+        ProxyPreserveHost On
+        RequestHeader set "X-Forwarded-Proto" expr=%{REQUEST_SCHEME}
+
+        ProxyPass /cometd ws://exo1.com:8080/cometd max=200 acquire=5000 retry=5 disablereuse=on flushpackets=on
+
+        SSLEngine On
+        SSLCertificateFile /path/to/folder/from/certificate/cert.pem
+        SSLCertificateKeyFile /path/to/folder/from/certificate/cert-key.pem
+    </VirtualHost>
 
 Configuring Nginx
-------------------
+-------------------
 
-Instruction for installing Nginx can be found
-`here <http://wiki.nginx.org/Install>`__. In Debian/Ubuntu you can
+Instructions for installing Nginx can be found
+`here <http://wiki.nginx.org/Install>`__. On Debian and Ubuntu you can
 install Nginx with the following command: ``apt-get install nginx``.
 
-Configure the server *proxy1.com* at port *443* as the following (you
-can put the configuration in a file like
+Configure the server *proxy1.com* at port *443* like this (you can put
+the configuration in a file like
 ``/etc/nginx/sites-enabled/proxy1.com``):
 
 ::
+
+    server {
+        listen 80;
+        server_name proxy1.com;
+
+        # Redirect all HTTP requests to HTTPS with a 301 Moved Permanently response.
+        return 301 https://$host$request_uri;
+    }
 
     server {
         listen 443;
@@ -447,26 +469,40 @@ can put the configuration in a file like
         location / {
             proxy_pass http://exo1.com:8080;
         }
+        location /cometd/cometd {
+            proxy_pass http://exo1.com:8080;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+        }
+
     }
 
-The configuration here is a simple one and it works. For an advanced
-sample, you may read `this blog post <http://blog.exoplatform.com/en/2014/04/17/apache-2-nginx-highly-secure-pfs-ssl-encrypting-reverse-proxy-exo-platform-4-0-web-application>`__.
+The configuration here is a simple one and it works. For a more advanced
+configuration, you may want to read `this blog
+post <http://blog.exoplatform.com/en/2014/04/17/apache-2-nginx-highly-secure-pfs-ssl-encrypting-reverse-proxy-exo-platform-4-0-web-application>`__.
 
-.. _HTTPConnectorConfiguration:
+Configuring the HTTP connector
+-------------------------------
 
-Configuring HTTP connector
----------------------------
+In both eXo Platform Tomcat and JBoss distributions, there is a default HTTP
+(8080) connector.
 
-In both eXo Platform Tomcat and JBoss, there is a default HTTP (8080)
-connector.
-
-In any case, you should configure the connector so that eXo Platform is aware
-of the proxy in front of it.
+In any case, you should configure that connector so that eXo Platform is
+aware of the proxy in front of it.
 
 -  **In Tomcat**
 
-It is configured in ``$PLATFORM_TOMCAT_HOME/conf/server.xml``. You will
-add proxy parameters then it will be:
+Set the following property in
+``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file:
+
+::
+
+    exo.base.url=https://proxy1.com
+
+The connector is configured in
+``$PLATFORM_TOMCAT_HOME/conf/server.xml``. Add proxy parameters like
+this:
 
 .. code:: xml
 
@@ -480,136 +516,98 @@ add proxy parameters then it will be:
 
 -  **In JBoss**
 
-It is configured in
-``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml`` (or
-``standalone-exo-cluster.xml`` in cluster mode). You need to modify the
-subsystem *urn:jboss:domain:web:1.5* like the following:
+1. Set the following property in
+   ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
+   file:
 
-.. code:: xml
+   ::
 
-    <subsystem xmlns="urn:jboss:domain:web:1.5" default-virtual-server="default-host" native="false">
-        <connector name="http" protocol="HTTP/1.1" socket-binding="http" scheme="https"  proxy-name="proxy1.com" proxy-port="443"/>
-        ...
-    </subsystem>
+		exo.base.url=https://proxy1.com
 
-The socket-binding ports are configured already, find these lines if you
-want to check:
+2. In ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``,
+   add the property proxy-address-forwarding="true" in the configuration of
+   http-listener:
 
-.. code:: xml
+   .. code:: xml
 
-    <socket-binding name="http" port="8080"/>
+			<http-listener name="default" redirect-socket="https" 
+						socket-binding="http" max-post-size="209715200" 
+						proxy-address-forwarding="true"/>
 
 After restarting the proxy and eXo Platform, you can test
 *https://proxy1.com*. If you are testing with dummy server names, make
-sure you created the hosts proxy1.com and exo1.com.
+sure you created the hosts "proxy1.com" and "exo1.com" in the file
+``/etc/hosts``.
 
-.. _Security.HTTPSConf.eXo:
+.. _PLFAdminGuide.Security.HTTPSConf.eXo:
 
-Running eXo Platform itself in HTTPS
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Running eXo Platform itself under HTTPS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the previous section you configure a reverse proxy in front of
-eXo Platform, and it is the proxy which encrypts the requests and responses.
-Alternatively you can configure eXo Platform to allow https access directly,
-so no proxy between browsers and eXo Platform. See the following diagram.
+In the previous section you learnt to configure a reverse proxy in front
+of eXo Platform, and it is the proxy which encrypts the requests and
+responses. Alternatively you can configure eXo Platform to allow HTTPS access
+directly, so no proxy between browsers and eXo Platform. See the following
+diagram :
 
 |image1|
 
-.. _GenerateServerKey:
+Configuring eXo Platform's Tomcat
+-----------------------------------
 
-Generating a server key
--------------------------
-
-Your server, exo1.com in the diagram, needs a server key to identify
-itself in the SSL handshake. If you do not have the server key, you can
-generate one using Java keytool (if you are using Windows, replace
-parentheses with quotation marks):
-
-::
-
-	keytool -genkey -keyalg RSA -keysize 2048 -keystore serverkey.jks -alias exo1.com -storepass 123456 -keypass 123456 -dname 'O=MYORG,OU=MYUNIT,L=MYCITY,ST=MYSTATE,C=MY,CN=exo1.com'
-
-.. note:: As of Java 8, you can use the option *-ext san=ip:<IP\_ADDRESS>* to specify an IP address that is acceptable in your certificate.
-
-Now you have the keystore file ``serverkey.jks`` with the password
-*123456* that you will use to configure eXo Platform Tomcat/JBoss later.
-
-.. _ImportCertificate:
-
-Importing your SSL certificate into Java truststore
------------------------------------------------------
-
-You need to add the certificate into Java **truststore**. It is
-necessary to make gadgets work.
-
-1. Export your certificate from your server key:
+1. Set the following property in
+   ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file:
 
    ::
 
-	   keytool -export -keystore serverkey.jks -alias exo1.com -file exo1.crt
+		exo.base.url=https://exo1.com:8443
 
-2. Import the certificate into Java truststore:
-   
-   ::
-
-	   keytool -import -keystore $JAVA_HOME/jre/lib/security/cacerts -file exo1.crt -alias exo1.com
-	   
-.. _ConfiguringPlatformJBoss:	   
-
-Configuring Platform JBoss
-----------------------------
-
-Edit the
-``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-file by adding **"https connector"** to the web subsystem configuration
-(change values of **certificate-key-file** and **password** to your
-value):
-
-.. code:: xml
-
-    <subsystem xmlns="urn:jboss:domain:web:1.5" default-virtual-server="default-host" native="false">
-        ...
-        <connector name="https" protocol="HTTP/1.1" socket-binding="https" scheme="https" secure="true">
-            <ssl name="https" key-alias="exo1.com" password="123456" certificate-key-file="/path/to/file/serverkey.jks"/>
-        </connector>
-        ...
-    </subsystem>
-
-After starting eXo Platform, you can connect to
-*https://exo1.com:8443/portal*. If you are testing with dummy server
-names, make sure you created the host exo1.com.
-
-.. _ConfiguringPlatformTomcat:
-
-Configuring Platform Tomcat
-----------------------------
-
-1. Edit the ``$PLATFORM_TOMCAT_HOME/conf/server.xml`` file by commenting
+2. Edit the ``$PLATFORM_TOMCAT_HOME/conf/server.xml`` file by commenting
    the following lines:
 
    .. code:: xml
 
-		<Connector address="0.0.0.0" port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol"
-		enableLookups="false" redirectPort="8443"
-		connectionTimeout="20000" disableUploadTimeout="true"
-		URIEncoding="UTF-8"
-		compression="off" compressionMinSize="2048"
-		noCompressionUserAgents=".*MSIE 6.*" compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript" />
+			<Connector address="0.0.0.0" port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol"
+			enableLookups="false" redirectPort="8443"
+			connectionTimeout="20000" disableUploadTimeout="true"
+			URIEncoding="UTF-8"
+			compression="off" compressionMinSize="2048"
+			noCompressionUserAgents=".*MSIE 6.*" compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript" />
 
-2. Uncomment the following lines and edit with your ``keystoreFile`` and
+3. Uncomment the following lines and edit with your ``keystoreFile`` and
    ``keystorePass`` values:
 
    .. code:: xml
 
-		<Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true"
-		maxThreads="150" scheme="https" secure="true"
-		clientAuth="false" sslProtocol="TLS"
-		keystoreFile="/path/to/file/serverkey.jks"
-		keystorePass="123456"/>
+			<Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true"
+			maxThreads="150" scheme="https" secure="true"
+			clientAuth="false" sslProtocol="TLS"
+			keystoreFile="/path/to/file/serverkey.jks"
+			keystorePass="123456"/>
 
 After starting eXo Platform, you can connect to
 *https://exo1.com:8443/portal*. If you are testing with dummy server
-names, make sure you created the host exo1.com.
+names, make sure you created the host "exo1.com" in the file
+``/etc/hosts``.
+
+Configuring eXo Platform's JBoss
+----------------------------------
+
+To configure JBoss to run under HTTPS, you just need to set the
+following property in
+``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
+file:
+
+::
+
+    exo.base.url=https://exo1.com:8443
+
+After starting JBoss, you can connect to eXo Platform at
+*https://exo1.com:8443/portal*. If you are testing with dummy server
+names, make sure you created the host "exo1.com" in the file
+``/etc/hosts``.
+
+
 
 .. _Security.KeyRemembermeToken:
 
