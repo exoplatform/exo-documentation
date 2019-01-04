@@ -1057,3 +1057,47 @@ To resolve this, add an ACL (Access Control List) rule in the ``slapd.conf`` fil
 .. |image0| image:: images/LDAP/ldap_integration.png   
 .. |image1| image:: images/LDAP/ldap_user.png    
 .. |image2| image:: images/LDAP/GroupsDNs.png   
+
+=================================================
+Organization externalStore jobs configuration
+=================================================
+
+Organization import and synchronization is performed by IDMExternalStoreImportService.
+Its default configuration is like following :
+
+.. code:: xml
+
+	<component>
+		<type>org.exoplatform.services.organization.externalstore.IDMExternalStoreImportService</type>
+		<init-params>
+			<value-param>
+				<name>exo.idm.externalStore.import.cronExpression</name>
+				<description>Cron expression used to schedule the job that will import periodically data from external store (Default value = every ten minutes)</description>
+				<value>${exo.idm.externalStore.import.cronExpression:0 */10 * ? * *}</value>
+			</value-param>
+			<value-param>
+				<name>exo.idm.externalStore.delete.cronExpression</name>
+				<description>Cron expression used to schedule the job that will delete periodically data from internal store that has been deleted from external store (Default value = every day at 23:59 PM)</description>
+				<value>${exo.idm.externalStore.delete.cronExpression:0 59 23 ? * *}</value>
+			</value-param>
+			<value-param>
+				<name>exo.idm.externalStore.queue.processing.cronExpression</name>
+				<description>Cron expression used to schedule the job that will process periodically data injected in queue (Default value = every minute)</description>
+				<value>${exo.idm.externalStore.queue.processing.cronExpression:0 */1 * ? * *}</value>
+			</value-param>
+		</init-params>
+	</component>
+
+
+**IDMExternalStoreImportService** customizable parameters are :
+
+**exo.idm.externalStore.import.cronExpression**
+Cron expression used to schedule the job that will import periodically data from external store (Default value = every ten minutes)
+
+**exo.idm.externalStore.delete.cronExpression**
+Cron expression used to schedule the job that will delete periodically data from internal store that has been deleted from external store (Default value = every day at 23:59 PM)
+
+**exo.idm.externalStore.queue.processing.cronExpression**
+Cron expression used to schedule the job that will process periodically data injected in queue (Default value = every minute)
+
+Those parameters can be set in exo.properties or setenv-customize.sh
