@@ -1349,7 +1349,7 @@ manager.
 4. Click ``Yes`` button in the confirmation message to accept your deletion.
 
 .. note:: As an eXo Platform user, you can only delete your own activities/comments. 
-          If you are manager of a space, you can delete any activities or comments related to this space.
+          If you are manager of a space, you can delete any activities or comments posted in this space.
 
 5. If you click ``Cancel`` button, nothing happens.
 
