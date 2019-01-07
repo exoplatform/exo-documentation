@@ -1396,7 +1396,7 @@ label under your name indicating the time of the last edit:
 
 |image140|   
 
-.. note:: An administrator is allowed to edit and delete any activity or comment.        
+.. note:: An administrator can edit and delete activities and comments posted by other users.        
           
 .. _Edit_Comment:
  
