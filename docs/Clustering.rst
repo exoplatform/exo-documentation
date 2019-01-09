@@ -75,9 +75,9 @@ Setting up eXo Platform cluster
 
 		  -  The different cluster nodes **must use the same RDBMS datasources**.
 
-4. eXo Platform comes with Elasticsearch :ref:`embedded <#PLFAdminGuide.Elasticsearch.ES_Embedded>`. 
+4. eXo Platform comes with Elasticsearch :ref:`embedded <Elasticsearch.ES_Embedded>`. 
    For clustering, you MUST use a seperate Elasticsearch process. Please 
-   follow the steps described :ref:`here <#PLFAdminGuide.Elasticsearch.ES_External>`.
+   follow the steps described :ref:`here <Elasticsearch.ES_External>`.
 
 3. eXo Platform uses databases and a disk folders to store its data:
 
@@ -159,7 +159,7 @@ Setting up eXo Platform cluster
 7. eXo Platform uses UDP protocol by default for JGroups. This protocol 
    is **not recommended for production environements**, you need to 
    configure TCP as transport protocol instead. For that purpose, please 
-   follow :ref:`this documentation <.Clustering.ActivatingTCP>`.
+   follow :ref:`this documentation <Clustering.ActivatingTCP>`.
 
 8. Configure CometD Oort URL. Replace *localhost* in the following 
    examples with the IP or host name of the node.
