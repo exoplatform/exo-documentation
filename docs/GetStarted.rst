@@ -415,7 +415,7 @@ In Java Content Repository, there are 2 main parts:
       Methods <http://www.day.com/specs/jcr/1.0/6.2.3_Node_Read_Methods.html>`__
       in the JCR Specification document.
 
-.. note:: See :ref:`JCR Reference Guide <../../../reference/html/JCRReferenceGuide.html>`__ for the full knowledge of JCR.
+.. note:: See :ref:`JCR Reference Guide <reference-JCR-docs>` for the full knowledge of JCR.
 
 
 .. _PLFDevGuide.GettingStarted.CustomizationCapabilities:
@@ -436,7 +436,7 @@ eXo Platform can be easily customized and extended by:
 
 Almost everything in eXo Platform can be customized through extensions. The
 main concept behind extensions is that resources of your extensions will
-override resources of eXo Platform. See :ref:`eXo Platform Extensions <#PLFDevGuide.eXoAdd-ons.PortalExtension>`
+override resources of eXo Platform. See :ref:`eXo Platform Extensions <PLFDevGuide.eXoAdd-ons.PortalExtension>`
 for more details.
 
 Here are some examples of what can be done with extensions:

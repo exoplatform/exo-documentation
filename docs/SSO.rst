@@ -229,7 +229,7 @@ In Tomcat
 
 Add the following to the
 ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file (see
-:ref: `Configuration overview <Configuration.ConfigurationOverview>` 
+:ref:`Configuration overview <Configuration.ConfigurationOverview>` 
 for this file):
 
 ::
