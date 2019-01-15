@@ -712,9 +712,17 @@ Only the space managers have permission to delete their spaces.
 
 2. Click Delete under the space name which you want to delete.
 
-3. Click **OK** in the confirmation message to accept deleting the space.
+3. A confirmation message appears:
 
-.. note::When a space is deleted, all information and navigations related to that space are also deleted.
+|image74|
+
+4. Click **OK** in the confirmation message to accept deleting the space.
+
+.. note:: When a space is deleted, all information, contents (documents, tasks, events...) and 
+          navigations related to that space are also deleted.
+          
+If you click on ``Cancel`` button of the confirmation message, nothing happens.          
+
 
 .. _Accept-Ignore-Space-Invitation:
 
@@ -847,3 +855,4 @@ deleted.
 .. |image65| image:: images/social/status_shared_space.png
 .. |image66| image:: images/social/space_popover.png
 .. |image67| image:: images/social/space_popover_member.png
+.. |image74| image:: images/social/Delete_space_confirmation.png
