@@ -1058,46 +1058,31 @@ To resolve this, add an ACL (Access Control List) rule in the ``slapd.conf`` fil
 .. |image1| image:: images/LDAP/ldap_user.png    
 .. |image2| image:: images/LDAP/GroupsDNs.png   
 
-=================================================
+===============================================
 Organization externalStore jobs configuration
-=================================================
-
-Organization import and synchronization is performed by IDMExternalStoreImportService.
-Its default configuration is like following :
-
-.. code:: xml
-
-	<component>
-		<type>org.exoplatform.services.organization.externalstore.IDMExternalStoreImportService</type>
-		<init-params>
-			<value-param>
-				<name>exo.idm.externalStore.import.cronExpression</name>
-				<description>Cron expression used to schedule the job that will import periodically data from external store (Default value = every ten minutes)</description>
-				<value>${exo.idm.externalStore.import.cronExpression:0 */10 * ? * *}</value>
-			</value-param>
-			<value-param>
-				<name>exo.idm.externalStore.delete.cronExpression</name>
-				<description>Cron expression used to schedule the job that will delete periodically data from internal store that has been deleted from external store (Default value = every day at 23:59 PM)</description>
-				<value>${exo.idm.externalStore.delete.cronExpression:0 59 23 ? * *}</value>
-			</value-param>
-			<value-param>
-				<name>exo.idm.externalStore.queue.processing.cronExpression</name>
-				<description>Cron expression used to schedule the job that will process periodically data injected in queue (Default value = every minute)</description>
-				<value>${exo.idm.externalStore.queue.processing.cronExpression:0 */1 * ? * *}</value>
-			</value-param>
-		</init-params>
-	</component>
+===============================================
+When you have integrated eXo Platform with a populated directory, or you manage users and groups via LDAP utilities, IDMExternalStoreImportService  takes care of the LDAP users and groups as if they were original Platform users and groups.
 
 
-**IDMExternalStoreImportService** customizable parameters are :
+Organization importsynchronization is performed by IDMExternalStoreImportService.
+To be clear, when a user is registered via Platform UI, a user creation event is known and handled by the user listener. This listener makes sure that the necessary data, like a folder for personal documents, will be created. In case an LDAP user is mapped into Platform, the event is not known by the listener so the folder will be missing until  IDMExternalStoreImportService invokes the user listener to check and create necessary data.
 
-**exo.idm.externalStore.import.cronExpression**
-Cron expression used to schedule the job that will import periodically data from external store (Default value = every ten minutes)
 
-**exo.idm.externalStore.delete.cronExpression**
-Cron expression used to schedule the job that will delete periodically data from internal store that has been deleted from external store (Default value = every day at 23:59 PM)
+The available configuration parameters are :
 
-**exo.idm.externalStore.queue.processing.cronExpression**
-Cron expression used to schedule the job that will process periodically data injected in queue (Default value = every minute)
+- **exo.idm.externalStore.import.cronExpression** :
 
-Those parameters can be set in exo.properties or setenv-customize.sh
+Cron expression used to schedule the job that will import periodically data from external store. Defaults to `0 */10 * ? * *` (every ten minutes).
+
+
+- **exo.idm.externalStore.delete.cronExpression** :
+
+Cron expression used to schedule the job that will delete periodically data from internal store that has been deleted from external store. Defaults to `0 59 23 ? * *` (every day at 23:59 PM).
+
+
+- **exo.idm.externalStore.queue.processing.cronExpression** :
+
+Cron expression used to schedule the job that will process periodically data injected in queue. Defaults to `0 */1 * ? * *` (every minute).
+
+
+Those parameters can be set in exo.properties or setenv-customize.share
