@@ -1051,21 +1051,17 @@ To resolve this, add an ACL (Access Control List) rule in the ``slapd.conf`` fil
 			by anonymous auth
 			by users none
 		access to * by * read
-
-			
-
-.. |image0| image:: images/LDAP/ldap_integration.png   
-.. |image1| image:: images/LDAP/ldap_user.png    
-.. |image2| image:: images/LDAP/GroupsDNs.png   
+ 
 
 ===============================================
 Organization externalStore jobs configuration
 ===============================================
-When you have integrated eXo Platform with a populated directory, or you manage users and groups via LDAP utilities, IDMExternalStoreImportService  takes care of the LDAP users and groups as if they were original Platform users and groups.
+
+When you have integrated eXo Platform with a populated directory, or you manage users and groups via LDAP utilities, ``IDMExternalStoreImportService`` takes care of the LDAP users and groups as if they were original Platform users and groups.
 
 
-Organization importsynchronization is performed by IDMExternalStoreImportService.
-To be clear, when a user is registered via Platform UI, a user creation event is known and handled by the user listener. This listener makes sure that the necessary data, like a folder for personal documents, will be created. In case an LDAP user is mapped into Platform, the event is not known by the listener so the folder will be missing until  IDMExternalStoreImportService invokes the user listener to check and create necessary data.
+Organization importsynchronization is performed by ``IDMExternalStoreImportService``.
+To be clear, when a user is registered via the Platform Interface, a user creation event is known and handled by the user listener. This listener makes sure that the necessary data, like a folder for personal documents, will be created. In case an LDAP user is mapped into Platform, the event is not known by the listener so the folder will be missing until  ``IDMExternalStoreImportService`` invokes the user listener to check and create necessary data.
 
 
 The available configuration parameters are :
@@ -1086,3 +1082,9 @@ Cron expression used to schedule the job that will process periodically data inj
 
 
 Those parameters can be set in exo.properties or setenv-customize.share
+
+
+
+.. |image0| image:: images/LDAP/ldap_integration.png   
+.. |image1| image:: images/LDAP/ldap_user.png    
+.. |image2| image:: images/LDAP/GroupsDNs.png  
