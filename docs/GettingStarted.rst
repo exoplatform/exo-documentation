@@ -1460,7 +1460,7 @@ those in your activity stream and in the space **where your are the manager**.
 
 .. _Getting-Permalink-activity:
 
-Getting permalinks of an activity
+Getting permalink of an activity
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can easily get the link of any activity (either edited or not) 
