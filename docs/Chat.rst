@@ -757,7 +757,7 @@ You can select a discussion category:
 Using search bar
 ~~~~~~~~~~~~~~~~
 
--  If you want to find one contact or one chat room, type some letters following in the
+-  If you want to find a contact discussion or a chat room discussion, type some letters following in the
    search bar. The discussions will be filtered accordingly.
 
    |image94|
