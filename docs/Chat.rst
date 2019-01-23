@@ -757,7 +757,7 @@ You can select a discussion category:
 Using search bar
 ~~~~~~~~~~~~~~~~
 
--  If you want to find one contact, type some letters following in the
+-  If you want to find a contact discussion or a chat room discussion, type some letters following in the
    search bar. The discussions will be filtered accordingly.
 
    |image94|
@@ -768,6 +768,10 @@ Using search bar
    the best match.
 
    |image96|
+
+.. tip:: A clear icon |image143| appears when you type at least one letter on the search bar.
+         This clear icon allows you to clear your filter by only one click.
+         You can also clear your filter by clicking on the ``escape`` button of your keyboard.
 
 .. _chatHistory:
 
@@ -1027,5 +1031,6 @@ discussions in accordance to it:
 .. |image140| image:: images/chat/scroll-list-chat.png
 .. |image141| image:: images/chat/Add_favorites.png
 .. |image142| image:: images/chat/Remove_favorites.png
+.. |image143| image:: images/chat/clear_icon.png
 
 
