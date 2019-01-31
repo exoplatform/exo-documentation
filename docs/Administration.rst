@@ -2445,7 +2445,7 @@ through an interface easy to use.
 |image305|
 
 .. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and only administrators (i.e.
-          the group ``*:/platform/administrators`` members are allowed to manage spaces.
+          the group ``*:/platform/administrators`` members) are allowed to manage spaces.
           
 The spaces administration interface is accessible via the menu Administration --> Spaces.
 
@@ -5055,6 +5055,3 @@ The following image shows the screen when an anonymous user accesses
 .. |image317| image:: images/platform/cancel_edition.png
 .. |image318| image:: images/platform/permissions_tab.png
 .. |image319| image:: images/platform/create_space_permission.png
-
-
-
