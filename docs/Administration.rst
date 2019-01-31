@@ -2549,7 +2549,7 @@ To define who can create spaces:
    the save icon |image316|.  
 
 To define the :ref:`group of spaces managers <AdministratingSpaces.ManageSpaces>`, simply follow the same 
-procedure as for the previous case.
+procedure.
 
 .. _ManagingSites:
 
