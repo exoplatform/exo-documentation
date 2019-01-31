@@ -2486,7 +2486,7 @@ by the propoerty :ref:`exo.social.spaces.administrators <SpacesAdministration>` 
 .. note:: If the variable is neither defined through the interface nor by configuration, only administrators are
           allowed to access the Manage spaces tab.
           
-The group of users allowed to manage spaces can edit or delete any space in the platform.
+Users allowed to manage spaces can edit or delete any space in the platform.
 
 Edit space
 -----------
