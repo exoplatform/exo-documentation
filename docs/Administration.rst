@@ -2499,7 +2499,7 @@ you are redirected to the configuration page of that space in an another browser
 You can edit the space's configuration by:
 
 -  Changing its description
--  Chaging its name 
+-  Changing its name 
 -  Adding/removing members 
 -  Changing the space's visibility and accessibilty 
 -  Adding/removing Applications 
