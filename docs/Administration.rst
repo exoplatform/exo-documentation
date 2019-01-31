@@ -2500,7 +2500,7 @@ You can edit the space's configuration by:
 
 -  Changing its description
 -  Changing its name 
--  Adding/removing members 
+-  Adding or removing members 
 -  Changing the space's visibility and accessibilty 
 -  Adding/removing Applications 
 -  Editing its navigation
