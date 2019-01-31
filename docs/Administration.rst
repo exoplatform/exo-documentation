@@ -2483,7 +2483,7 @@ by the propoerty :ref:`exo.social.spaces.administrators <SpacesAdministration>` 
 .. warning:: When the spaces managers group is defined by the two methods i.e. through the interface and 
              by configuration and that the values are different, the value in the interface takes precedence. 
 
-.. note:: If the variable is not defined neither through the interface nor by configuration, only administrators are
+.. note:: If the variable is neither defined through the interface nor by configuration, only administrators are
           able to acces to Manage spaces tab.
           
 The group of users allowed to manage spaces can edit or delete any space in the platform.
