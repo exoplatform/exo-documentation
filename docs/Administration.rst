@@ -2439,7 +2439,7 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-Starting from eXo Platform 5.2, it is possible to define a group of users able to create and/or manage spaces
+Starting from eXo Platform 5.2, it is possible to restrict which users can create and/or manage spaces
 through an interface easy to use.
 
 |image305|
