@@ -2507,22 +2507,27 @@ You can edit the space's configuration by:
 
 even if you are not a member on that space.
 
+.. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
+
 Delete space
 --------------
 
-Being a member of the spaces managers group allows you also to delete any space of the platform 
-even the spaces where you are neither a manager nor a member.
+Being a member of the spaces managers group allows you also to :ref:`delete <Delete-Space>` any space of 
+the platform even the spaces where you are neither a manager nor a member.
 
 You just need to click on the delete icon |image311| of the corresponding space in the interface of the tab 
 "Manage spaces".
 
 |image312|
 
-A confirmation popup appears allowing you either to confirm or cancel the space's deletion.
+A confirmation popup appears allowing you either to confirm or cancel 
+:ref:`the space's deletion <Delete-Space>`.
 
 |image313|
 
 If you click on Cancel button, nothing happens and if you click on the Delete button, the space is removed.
+
+.. note:: When you delete a space, all its date is also removed.
 
 .. _AdministratingSpaces.Permissions:
 
@@ -2536,9 +2541,9 @@ all the platform's spaces.
 
 To define who can create spaces:
 
-1. Click on edit icon |image314| in front of **Create spaces** ==> A field with the current values appears 
-   letting you remove them. The edit icon becomes a save icon |image315| and a new icon appears |image317| letting
-   you cancel your changes.
+1. Click on edit icon |image314| in the actions column of the line **Create spaces** ==> A field with the  
+   current values appears letting you remove them. The edit icon becomes a save icon |image315| and a new icon 
+   appears |image317| letting you cancel your changes.
    
    |image319|
    
