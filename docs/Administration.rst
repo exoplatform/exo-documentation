@@ -2454,7 +2454,7 @@ The spaces administration interface is accessible via the menu Administration --
 This interface contains two tabs:
 
 - "Manage spaces" tab displays the list of spaces and the corresponding actions: edit and delete.
-- The second "Permissions" allows you to grant permissions to a group of users to:
+- "Permissions" tab allows you to grant permissions to a group of users either to:
 
      -  :ref:`Create spaces <Create-Space>`
      -  :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>`
