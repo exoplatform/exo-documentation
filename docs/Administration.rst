@@ -2444,7 +2444,7 @@ through an interface easy to use.
 
 |image305|
 
-.. note:: By default, only the super user i.e. **root** is able to create spaces and only administrators i.e.
+.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and only administrators (i.e.
           the group ``*:/platform/administrators`` members are able to access the Spaces administration menu.
           
 The spaces administration interface is accessible via the menu Administration --> Spaces.
