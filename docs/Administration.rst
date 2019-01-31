@@ -2502,7 +2502,7 @@ You can edit the space's configuration by:
 -  Changing its name 
 -  Adding or removing members 
 -  Changing the space's visibility and accessibilty 
--  Adding/removing Applications 
+-  Adding or removing Applications 
 -  Editing its navigation
 
 even if you are not a member on that space.
