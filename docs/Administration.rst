@@ -2492,7 +2492,7 @@ Edit space
 -----------
 
 When you are a member of the group of spaces managers and you click on the edit icon |image309| of a specific space,
-you will be redirected to the configuration page of that space in an another browser tab.
+you are redirected to the configuration page of that space in an another browser tab.
 
 |image310|
 
