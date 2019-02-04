@@ -2495,8 +2495,8 @@ The Space Settings page of the target space is opened in another browser tab.
 |image310|
 
 From there, even without being a member on that space, one can edit the space settings, access, visibility, members, 
-applications and navigation.
-
+applications and navigation. See :ref:`Managing space settings <Manage-Space-Settings>`
+section for more details.
 
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
@@ -2504,22 +2504,20 @@ applications and navigation.
 Delete space
 --------------
 
-Being a member of the spaces managers group allows you also to :ref:`delete <Delete-Space>` any space of 
-the platform even the spaces where you are neither a manager nor a member.
+Users with the Manage Spaces permission, can also to :ref:`delete <Delete-Space>` any space of 
+the platform even the spaces where they are neither a manager nor a member.
 
-You just need to click on the delete icon |image311| of the corresponding space in the interface of the tab 
-"Manage spaces".
+To delete a space, a click on the delete icon |image311| of the corresponding space in the interface of the "Manage spaces" tab is needed.
 
 |image312|
 
-A confirmation popup appears allowing you either to confirm or cancel 
+A confirmation popup appears to confirm deletion of the space or cancel 
 :ref:`the space's deletion <Delete-Space>`.
 
 |image313|
 
-If you click on Cancel button, nothing happens and if you click on the Delete button, the space is removed.
 
-.. note:: When you delete a space, all its date is also removed.
+.. warning:: When you delete a space, all its data is also removed and can't be recovered.
 
 .. _AdministratingSpaces.Permissions:
 
@@ -2528,13 +2526,12 @@ Permissions tab
 
 |image318|
 
-Through this tab you can, as an admistrator of the platform, define who can create spaces and who can manage
-all the platform's spaces.
+This tab allows administrators of the platform, define permissions related to all spaces of the platform.
 
 To define who can create spaces:
 
 1. Click on edit icon |image314| in the actions column of the line **Create spaces** ==> A field with the  
-   current values appears letting you remove them. The edit icon becomes a save icon |image315| and a new icon 
+   current values appears to easily edit them. The edit icon turns into a save icon |image315| and a new 
    |image317| icon appears to cancel the changes.
    
    |image319|
