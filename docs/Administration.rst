@@ -2470,7 +2470,7 @@ Manage spaces tab
 |image308|
 
 The "Manage spaces" tab is viewable by the group of users defined in the 
-:ref:`Permissions tab <AdministratingSpaces.Permissions>` by the variable "Manage spaces". 
+:ref:`Permissions tab <AdministratingSpaces.Permissions>` by the "Manage spaces" permission. Users with this permission are allowed to edit or delete any space in the platform.
 
 |image307|
 
