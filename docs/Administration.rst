@@ -2549,7 +2549,7 @@ To define who can create spaces:
    of the groups.
    
 3. After entering or selecting the groups, a click on 
-   the save icon |image316|.  
+   the save icon |image316| will validate the new permission grants.  
 
 To define the :ref:`group of spaces managers <AdministratingSpaces.ManageSpaces>`, simply follow the same 
 procedure.
