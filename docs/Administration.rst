@@ -2496,7 +2496,6 @@ The Space Settings page of the target space is opened in another browser tab.
 
 One can edit the space settings by:
 
--  Changing its description
 -  Changing its name 
 -  Adding or removing members 
 -  Changing the space's visibility and accessibilty 
