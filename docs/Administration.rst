@@ -2519,7 +2519,6 @@ A confirmation popup appears to confirm deletion of the space or cancel
 
 |image313|
 
-If you click on Cancel button, nothing happens and if you click on the Delete button, the space is removed.
 
 .. warning:: When you delete a space, all its data is also removed and can't be recovered.
 
