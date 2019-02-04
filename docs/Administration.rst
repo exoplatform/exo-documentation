@@ -2532,7 +2532,6 @@ Permissions tab
 |image318|
 
 This tab allows administrators of the platform, define permissions related to all spaces of the platform.
-all the platform's spaces.
 
 To define who can create spaces:
 
