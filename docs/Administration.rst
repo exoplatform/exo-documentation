@@ -2548,7 +2548,7 @@ To define who can create spaces:
 2. Remove existing values and/or enter new ones. When typing in the field, type-ahead suggestions will appear below for easier selection
    of the groups.
    
-3. When you finish entering or selecting the groups you want to grant spaces creation permission to, click on 
+3. After entering or selecting the groups, a click on 
    the save icon |image316|.  
 
 To define the :ref:`group of spaces managers <AdministratingSpaces.ManageSpaces>`, simply follow the same 
