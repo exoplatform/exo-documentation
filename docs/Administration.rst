@@ -2481,7 +2481,7 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
 .. warning:: When the Manage spaces permission is defined both through the interface and 
              by configuration, the value in the interface takes precedence. 
 
-.. note:: If the variable is neither defined through the interface nor by configuration, only administrators are
+.. note:: If the permission is neither defined through the interface nor by configuration, only administrators are
           allowed to access the Manage spaces tab.
           
 Users allowed to manage spaces can edit or delete any space in the platform.
