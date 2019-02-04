@@ -2478,7 +2478,7 @@ If the permission has no value defined in the interface, the group of users defi
 by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` in
 :ref:`exo.properties file <Configuration.eXoConfiguration>` is allowed to manage spaces.
 
-.. warning:: When the spaces managers group is defined by the two methods i.e. through the interface and 
+.. warning:: When the Manage spaces permission is defined both through the interface and 
              by configuration and that the values are different, the value in the interface takes precedence. 
 
 .. note:: If the variable is neither defined through the interface nor by configuration, only administrators are
