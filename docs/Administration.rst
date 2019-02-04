@@ -2470,7 +2470,8 @@ Manage spaces tab
 |image308|
 
 The "Manage spaces" tab is viewable by the group of users defined in the 
-:ref:`Permissions tab <AdministratingSpaces.Permissions>` by the "Manage spaces" permission. Users with this permission are allowed to edit or delete any space in the platform.
+:ref:`Permissions tab <AdministratingSpaces.Permissions>` by the "Manage spaces" permission. 
+Users with this permission are allowed to edit or delete any space in the platform.
 
 |image307|
 
@@ -2484,7 +2485,6 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
 .. note:: If the permission is neither defined through the interface nor by configuration, only administrators are
           allowed to access the Manage spaces tab.
           
-Users allowed to manage spaces can edit or delete any space in the platform.
 
 Edit space
 -----------
@@ -2494,13 +2494,9 @@ The Space Settings page of the target space is opened in another browser tab.
 
 |image310|
 
-One can edit the space settings by:
+From there, even without being a member on that space, one can edit the space settings, access, visibility, members, 
+applications and navigation.
 
--  Changing its name 
--  Adding or removing members 
--  Changing the space's visibility and accessibilty 
--  Adding or removing Applications 
--  Editing the space's navigation
 
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
