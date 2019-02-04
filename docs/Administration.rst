@@ -2507,7 +2507,7 @@ One can edit the space settings by:
 Delete space
 --------------
 
-Being a member of the spaces managers group allows you also to :ref:`delete <Delete-Space>` any space of 
+Users with the Manage Spaces permission, can also to :ref:`delete <Delete-Space>` any space of 
 the platform even the spaces where you are neither a manager nor a member.
 
 You just need to click on the delete icon |image311| of the corresponding space in the interface of the tab 
