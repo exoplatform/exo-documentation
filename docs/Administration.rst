@@ -2523,7 +2523,7 @@ A confirmation popup appears allowing you either to confirm or cancel
 
 If you click on Cancel button, nothing happens and if you click on the Delete button, the space is removed.
 
-.. note:: When you delete a space, all its date is also removed.
+.. warning:: When you delete a space, all its data is also removed and can't be recovered.
 
 .. _AdministratingSpaces.Permissions:
 
