@@ -2537,7 +2537,7 @@ all the platform's spaces.
 To define who can create spaces:
 
 1. Click on edit icon |image314| in the actions column of the line **Create spaces** ==> A field with the  
-   current values appears letting you remove them. The edit icon becomes a save icon |image315| and a new icon 
+   current values appears to easily edit them. The edit icon turns into a save icon |image315| and a new 
    |image317| icon appears to cancel the changes.
    
    |image319|
