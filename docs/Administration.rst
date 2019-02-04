@@ -2490,7 +2490,7 @@ Edit space
 -----------
 
 Users with the "Manage Spaces" permission, can edit space settings by clicking the edit icon |image309| of a specific space.
-you are redirected to the configuration page of that space in an another browser tab.
+The Space Settings page of the target space is opened in another browser tab.
 
 |image310|
 
