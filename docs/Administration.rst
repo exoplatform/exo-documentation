@@ -2546,7 +2546,7 @@ To define who can create spaces:
    |image319|
    
 2. Remove existing values and/or enter new ones. When typing in the field, type-ahead suggestions will appear below for easier selection
-   of groups.
+   of the groups.
    
 3. When you finish entering or selecting the groups you want to grant spaces creation permission to, click on 
    the save icon |image316|.  
