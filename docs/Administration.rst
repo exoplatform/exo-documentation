@@ -2503,7 +2503,6 @@ One can edit the space settings by:
 -  Adding or removing Applications 
 -  Editing the space's navigation
 
-even if you are not a member on that space.
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
 
