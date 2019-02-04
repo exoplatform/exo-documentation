@@ -2494,7 +2494,7 @@ The Space Settings page of the target space is opened in another browser tab.
 
 |image310|
 
-You can edit the space's configuration by:
+One can edit the space settings by:
 
 -  Changing its description
 -  Changing its name 
