@@ -2514,7 +2514,7 @@ To delete a space, a click on the delete icon |image311| of the corresponding sp
 
 |image312|
 
-A confirmation popup appears allowing you either to confirm or cancel 
+A confirmation popup appears to confirm deletion of the space or cancel 
 :ref:`the space's deletion <Delete-Space>`.
 
 |image313|
