@@ -2479,7 +2479,7 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
 :ref:`exo.properties file <Configuration.eXoConfiguration>` is allowed to manage spaces.
 
 .. warning:: When the Manage spaces permission is defined both through the interface and 
-             by configuration and that the values are different, the value in the interface takes precedence. 
+             by configuration, the value in the interface takes precedence. 
 
 .. note:: If the variable is neither defined through the interface nor by configuration, only administrators are
           allowed to access the Manage spaces tab.
