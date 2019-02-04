@@ -2475,7 +2475,7 @@ The "Manage spaces" tab is viewable by the group of users defined in the
 |image307|
 
 If the permission has no value defined in the interface, the group of users defined
-by the propoerty :ref:`exo.social.spaces.administrators <SpacesAdministration>` in
+by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` in
 :ref:`exo.properties file <Configuration.eXoConfiguration>` is allowed to manage spaces.
 
 .. warning:: When the spaces managers group is defined by the two methods i.e. through the interface and 
