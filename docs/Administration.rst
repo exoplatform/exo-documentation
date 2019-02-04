@@ -2492,22 +2492,25 @@ Edit space
 Users with the "Manage Spaces" permission, can edit space settings by clicking the edit icon |image309| of a specific space.
 The Space Settings page of the target space is opened in another browser tab.
 
-|image310|
+|image320|
+
 
 From there, even without being a member on that space, one can edit the space settings, access, visibility, members, 
 applications and navigation. See :ref:`Managing space settings <Manage-Space-Settings>`
 section for more details.
 
+|image310|
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
 
 Delete space
 --------------
 
-Users with the Manage Spaces permission, can also to :ref:`delete <Delete-Space>` any space of 
+Users with the Manage Spaces permission, can also :ref:`delete <Delete-Space>` any space of 
 the platform even the spaces where they are neither a manager nor a member.
 
-To delete a space, a click on the delete icon |image311| of the corresponding space in the interface of the "Manage spaces" tab is needed.
+To delete a space, a click on the delete icon |image311| of the corresponding space in the interface of 
+the "Manage spaces" tab is needed.
 
 |image312|
 
@@ -5049,3 +5052,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image317| image:: images/platform/cancel_edition.png
 .. |image318| image:: images/platform/permissions_tab.png
 .. |image319| image:: images/platform/create_space_permission.png
+.. |image320| image:: images/platform/edit_space.png
