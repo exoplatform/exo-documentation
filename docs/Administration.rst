@@ -2489,7 +2489,7 @@ Users allowed to manage spaces can edit or delete any space in the platform.
 Edit space
 -----------
 
-When you are a member of the group of spaces managers and you click on the edit icon |image309| of a specific space,
+Users with the "Manage Spaces" permission, can edit space settings by clicking the edit icon |image309| of a specific space.
 you are redirected to the configuration page of that space in an another browser tab.
 
 |image310|
