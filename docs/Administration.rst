@@ -2457,7 +2457,7 @@ This interface contains two tabs:
 - "Permissions" tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
 
      
-In this section, you will learn how to use the Spaces administration interface to :     
+Spaces administration interface allows to :     
 
 -  :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>`
 -  :ref:`Change permissions <AdministratingSpaces.Permissions>`
