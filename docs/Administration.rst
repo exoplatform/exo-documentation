@@ -2489,7 +2489,7 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
 Edit space
 -----------
 
-Users with the "Manage Spaces" permission, can edit space settings by clicking the edit icon |image309| of a specific space.
+Users granted with the "Manage Spaces" permission, can edit any space settings by clicking the edit icon |image309| of a specific space.
 The Space Settings page of the target space is opened in another browser tab.
 
 |image320|
