@@ -2520,7 +2520,7 @@ A confirmation popup appears to confirm deletion of the space or cancel
 |image313|
 
 
-.. warning:: When you delete a space, all its data is also removed and can't be recovered.
+.. warning:: When deleting a space, all its data is also removed and can't be recovered.
 
 .. _AdministratingSpaces.Permissions:
 
