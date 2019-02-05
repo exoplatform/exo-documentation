@@ -2475,7 +2475,7 @@ Users with this permission are allowed to edit or delete any space in the platfo
 
 |image307|
 
-If the permission has no value defined in the interface, the group of users defined
+If the permission has no value defined in the interface, users in the groups defined
 by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` in
 :ref:`exo.properties file <Configuration.eXoConfiguration>` is allowed to manage spaces.
 
