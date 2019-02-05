@@ -2506,7 +2506,7 @@ section for more details.
 Delete space
 --------------
 
-Users with the Manage Spaces permission, can also :ref:`delete <Delete-Space>` any space of 
+Users granted with the Manage Spaces permission, can also :ref:`delete <Delete-Space>` any space of 
 the platform even the spaces where they are neither a manager nor a member.
 
 To delete a space, a click on the delete icon |image311| of the corresponding space in the interface of 
