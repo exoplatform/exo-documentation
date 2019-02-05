@@ -2477,7 +2477,7 @@ Users with this permission are allowed to edit or delete any space in the platfo
 
 If the permission has no value defined in the interface, users in the groups defined
 by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` in
-:ref:`exo.properties file <Configuration.eXoConfiguration>` is allowed to manage spaces.
+:ref:`exo.properties file <Configuration.eXoConfiguration>` are allowed to manage spaces.
 
 .. warning:: When the Manage spaces permission is defined both through the interface and 
              by configuration, the value in the interface takes precedence. 
