@@ -2514,7 +2514,7 @@ the "Manage spaces" tab is needed.
 
 |image312|
 
-A confirmation popup appears to confirm deletion of the space or cancel 
+A confirmation popup appears to confirm deletion of the space or to cancel 
 :ref:`the space's deletion <Delete-Space>`.
 
 |image313|
