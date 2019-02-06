@@ -130,9 +130,13 @@ When you click on the message, the mini chat window appears:
 
 -  |image19| The message content.
 
+.. tip:: When you scroll up into the mini chat discussion and that your 
+         interlocutor sends you new chat messages, a badge with the 
+         **number of unread messages** appears near to the username:
+         
+                   |image144|
 
-
- .. note:: * The mini chat window could also be opened by:
+.. note:: * The mini chat window could also be opened by:
  
 				- Clicking on chat button |image20| on the user profile.
 				
@@ -1032,5 +1036,6 @@ discussions in accordance to it:
 .. |image141| image:: images/chat/Add_favorites.png
 .. |image142| image:: images/chat/Remove_favorites.png
 .. |image143| image:: images/chat/clear_icon.png
+.. |image144| image:: images/chat/unread_chat_msg.png
 
 
