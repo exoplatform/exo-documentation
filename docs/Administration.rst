@@ -2495,7 +2495,7 @@ The Space Settings page of the target space is then opened in another browser ta
 |image320|
 
 
-From there, even without being a member on that space, one can edit the space settings, access, visibility, members, 
+From there, even without being a member of that space, one can edit the space settings, access, visibility, members, 
 applications and navigation. See :ref:`Managing space settings <Manage-Space-Settings>`
 section for more details.
 
