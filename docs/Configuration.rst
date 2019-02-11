@@ -2822,13 +2822,16 @@ property to
 -  ``exo.social.spaces.administrators``
 
 .. note:: -  You should specify the membership type (\*, member, manager...)
-              in the value of the property.
+             in the value of the property.
 
-			 -  It is possible to specify a list of groups separated by commas **,**.
+		  -  It is possible to specify a list of groups separated by commas **,**.
 
 In this example, all users of the two groups /platform/administrators
 and /developers are allowed to manage spaces:
-exo.social.spaces.administrators=\*:/platform/administrators,\*:/developers
+
+::
+
+	exo.social.spaces.administrators=\*:/platform/administrators,\*:/developers
 
 .. _Configuration.Logs:
 

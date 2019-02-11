@@ -946,29 +946,41 @@ Using the Activity Stream
  * :ref:`Mentioning someone <Mentioning-People>`
    Steps to refer to someone in your activity composer or comment box. 
    
- * :ref:`Deleting activities/comments <Deleting-Activities-Comments>`
-   Steps to remove activities or comments from **Activity Stream**.
-   
- * :ref:`Editing activities/comments <Editing-Activities-Comments>`
-   Steps to edit activities or comments in the **Activity Stream**.
-   
- * :ref:`Commenting on activities <Commenting-Activities>`
-   Steps to comment on an activity that allows you to get ideas, answers, and any additional information.     
+ * :ref:`Editing an activity <Editing-Activities>`
+   Steps to refer to someone in your activity composer or comment box. 
    
  * :ref:`Liking activities <Liking-Activities>`
-   Steps to show your reaction (like/unlike) towards an activity.    
+   Steps to show your reaction (like/unlike) towards an activity. 
+   
+ * :ref:`Deleting an activity <Deleting-Activities>`
+   Steps to remove activities from the **Activity Stream**.
+   
+ * :ref:`Getting permalink of an activity <Getting-Permalink-activity>`
+   Steps to get permanent link of an activity.     
+   
+ * :ref:`Commenting on activities <Commenting-Activities>`
+   Steps to comment on an activity that allows you to get ideas, answers, and any additional information.   
+   
+ * :ref:`Editing a comment <Edit_Comment>`
+   Steps to edit a comment in the **Activity Stream**.
       
  * :ref:`Liking comments <Liking-comments>`
    Steps to express emotion (like or remove like) on a comment to an activity. 
    
  * :ref:`Replying to comments <Replying-comments>`
    Steps to reply to a comment.    
-      
- * :ref:`Getting permalinks of activities/comments <Getting-Permalinks>`
-   Steps to get permanent links of activities/comments.      
    
+ * :ref:`Deleting a comment <Deleting-Comment>`
+   Steps to remove a comment from the **Activity Stream**.
+   
+ * :ref:`Getting permalink of a comment <Getting-Permalink-comment>`
+   Steps to get permanent link of a comment.    
+      
+
 After logging in, you will be directed to the Intranet homepage as
 below.
+
+|homepage|
 
 You can see activities of other users by clicking their display name to
 reach their profile page, then selecting Activity Stream. However, for
@@ -982,6 +994,8 @@ when there is a new post in a forum of a given space, it is displayed in
 **Activity Stream** of the space and of the Social Intranet homepage.
 
 You can filter what you want to see on the homepage:
+
+|filter|
 
 -  |image29| **All Activities**: shows all activities from spaces,
    connections and your activities. This stream is selected by default.
@@ -1323,14 +1337,105 @@ In the Activity Stream, the mention is displayed as a link to the mentioned user
 			  -  Document comments appears also in the Activity Stream.
 
 
-.. _Deleting-Activities-Comments:
+.. _Editing-Activities:
 
-Deleting activities/comments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Editing an activity
+~~~~~~~~~~~~~~~~~~~~
 
-You are allowed to delete your activities/comments that you created, and
-those in your activity stream and in the space where your are the
-manager.
+Starting from eXo Platform 5.2, you can edit an activity you posted.
+To edit an activity, proceed as follows:
+
+1. Click the pulldown menu on the top right of your activity : |image135|. Two entries appear: Edit and Delete.
+	
+	|image136|
+
+2. Click on ``Edit`` --> Your activity’s text appears in the editor area allowing you to make changes.
+
+    |image137|
+
+3. Make the needed changes and then click on ``Update`` button.
+
+.. note:: The ``Update`` button remains disabled until at least one change is done.
+
+4. If you click the ``Cancel`` button, your changes will be ignored.
+
+.. note:: Edition is only possible on written text or inserted images added via the :ref:`CKEditor<Formatting-toolbar>` toolbar. 
+          :ref:`Attached images <files-in-AS>`, :ref:`files <files-in-AS>` or :ref:`link <Link-post-in-AS>` 
+          (added through the dedicated tab) can’t be edited.
+
+              |image138|
+          
+          If the activity contains only attachments (link or files and/or images) the edit button opens the
+          editor allowing you to type a text message.
+          
+              |image139|
+              
+After saving the change you made on your activity, the activity creation timestamp will be updated by a new 
+label under your name indicating the time of the last edit:
+
+|image140|   
+
+If you mouseover the timestamp, a popover appears indicating the original time of activity post.
+
+|image149|    
+
+.. warning:: Activities automatically generated from other aplications such as:
+             
+				 - Adding a topic or replying to a forum discussion
+				 - Creating or joining a space
+				 - Updating your profile
+				 - Adding/Editing a wiki page
+				 - Closing, opening or locking a topic in Forum application
+				 - Adding a poll to a topic 
+				 - Editing an event in Calendar
+				 - Moving a wiki page
+				 - Editing a space's description/avatar
+				 - Connecting with a new user
+             
+             are not editable, you just can delete them when you click on |image146| button.
+             
+             Only activities generated following a document upload in Documents application are editable, 
+             you can add a text message to that activity.   
+          
+.. _Liking-Activities:
+
+Liking activities
+~~~~~~~~~~~~~~~~~~
+
+You can "Like" an activity to show your interest and support to that
+activity.
+
+.. _like-activity:
+
+Liking an activity
+-------------------
+
+Click |image110| under the activity you like, a tooltip appears |image111|.
+When you like an activity, the "Like" button will be highlighted to show
+that you already click "Like" on that activity. The activity displays
+the information of like numbers or people who also like the activity
+right below it. If many people have liked the activity, you can click
+|image112| to expand the view to see other "likers".
+
+|image115|
+
+.. _unlike-activity:
+
+Unliking an activity
+---------------------
+
+To unlike a "Liked" activity, simply click |image113|.
+
+When disliking, a tooltip dislike appears. |image114|
+
+
+.. _Deleting-Activities:
+
+Deleting an activity
+~~~~~~~~~~~~~~~~~~~~~
+
+You are allowed to delete your activities that you created, and
+those in your activity stream and in the space **where your are the manager**.
 
 1. Change the activity filter to **All Activities** or **My spaces** to view all of your activities.
 
@@ -1348,102 +1453,32 @@ manager.
 
 4. Click ``Yes`` button in the confirmation message to accept your deletion.
 
-.. note:: As an eXo Platform user, you can only delete your own activities/comments. 
-          If you are manager of a space, you can delete any activities or comments posted in this space.
+.. note:: As an eXo Platform user, you can only delete your own activities. 
+          If you are manager of a space, you can delete any activity posted in your space.
 
 5. If you click ``Cancel`` button, nothing happens.
 
-.. _Editing-Activities-Comments:
+.. _Getting-Permalink-activity:
 
-Editing activities/comments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Getting permalink of an activity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can easily get the link of any activity (either edited or not) 
+from the activity stream to share with others. With this feature, you can bring the
+attention of other users to an activity/comment without the need to :ref:`mention them <Mentioning-People>`.
 
 
-Starting from eXo Platform 5.2, you can edit an activity you posted or a comment you wrote.
- 
-.. _Edit_Activity:
- 
-Editing an activity
---------------------
- 
-1. Click the pulldown menu on the top right of your activity : |image135|. Two entries appear: Edit and Delete.
-	
-	|image136|
+To get the permalink to an activity, just click on its timestamp.
 
-2. Click on ``Edit`` --> Your activity’s text appears in the editor area allowing you to make changes.
+|image131|
 
-    |image137|
+This permalink will then take you to the activity with all comments
+expanded.
 
-3. Make the needed changes and then click on ``Update`` button.
+If the activity is edited, when you mouse over its timestamp, a tooltip appears displaying the 
+original timestamp of the post.
 
-.. note:: The ``Update`` button remains disabled until at least one change is done.
-
-4. If you click the ``Cancel`` button, your changes will be ignored.
-
-.. note:: Edition is only possible on written text or images added via the :ref:`CKEditor<Formatting-toolbar>` toolbar. 
-          :ref:`Attached images <files-in-AS>`, :ref:`files <files-in-AS>` or :ref:`link <Link-post-in-AS>` 
-          (added through the dedicated tab) can’t be edited.
-
-              |image138|
-          
-          If the activity contains only attachments (link or files and/or images) the edit button opens the
-          editor allowing you to type a text message.
-          
-              |image139|
-              
-After saving the change you made on your activity, the activity creation timestamp will be updated by a new 
-label under your name indicating the time of the last edit:
-
-|image140|   
-
-.. note:: An administrator can only delete activities and comments posted by other users.        
-          
-.. _Edit_Comment:
- 
-Editing a comment
-------------------
-
-1. Click on the pulldown menu at the right of the comment box : |image141|. Just like for activities, two entries appear:
-   
-   |image142|
-
-2. Click on ``Edit``  --> Your comment’s text appears in the editor area allowing you to edit it.
-
-   |image143|
-   
-3. Edit your comment and then click on ``Update`` button.
-
-.. note:: The ``Update`` button remains disabled until you change the comment.
-
-4. If you click the ``Cancel`` button, your changes will be ignored.
-
-.. note:: Unlike activities, you can change an attached link/image to your comment.
-
-           |image144|
-           
-Like for activities, after saving the change you made to your comment, a text appears near your name indicating that 
-an edit has been done:
-
-|image145| 
-
-.. warning:: Activities and comments generated from other aplications such as:
-             
-				 - Adding a topic or replying to a forum discussion
-				 - Creating or joining a space
-				 - Updating your profile
-				 - Adding/Editing a wiki page
-				 - Closing, opening or locking a topic in Forum application
-				 - Adding a poll to a topic 
-				 - Editing an event in Calendar
-				 - Moving a wiki page
-				 - Editing a space's description/avatar
-				 - Connecting with a new user
-             
-             are not editable, you just can delete them when you click on |image146| button.
-             
-             Only activities generated following a document upload in Documents application are editable, 
-             you can add a text message to that activity.
-
+|image147|
 
 .. _Commenting-Activities:
 
@@ -1476,36 +1511,56 @@ You can mention people in your comment by "@" symbol into your activity
 composer, then type the person name you want to mention. See :ref:`Mentioning
 someone <mentioning-people>` for more details.
 
-.. _Liking-Activities:
 
-Liking activities
+.. _Edit_Comment:
+ 
+Editing a comment
 ~~~~~~~~~~~~~~~~~~
 
-You can "Like" an activity to show your interest and support to that
-activity.
+Just like for activities, from eXo Platform 5.2, you can edit any comment you wrote.
 
-.. _like-activity:
+To edit one of your comments, proceed as follows:
 
-Liking an activity
----------------------
+1. Click on the pulldown menu at the right of the comment box : |image141|. Just like for activities, two entries appear:
+   
+   |image142|
 
-Click |image110| under the activity you like, a tooltip appears |image111|.
-When you like an activity, the "Like" button will be highlighted to show
-that you already click "Like" on that activity. The activity displays
-the information of like numbers or people who also like the activity
-right below it. If many people have liked the activity, you can click
-|image112| to expand the view to see other "likers".
+2. Click on ``Edit``  --> Your comment’s text appears in the editor area allowing you to edit it.
 
-|image115|
+   |image143|
+   
+3. Edit your comment and then click on ``Update`` button.
 
-.. _unlike-activity:
+.. note:: The ``Update`` button remains disabled until you change the comment.
 
-Unliking an activity
----------------------
+4. If you click the ``Cancel`` button, your changes will be ignored.
 
-To unlike a "Liked" activity, simply click |image113|.
+.. note:: You can change an inserted link/image to your comment.
 
-When disliking, a tooltip dislike appears. |image114|
+           |image144|
+           
+Like for activities, after saving the change you made to your comment, a text appears near your name indicating that 
+an edit has been done:
+
+|image145| 
+
+.. warning:: Comments generated from other aplications such as:
+             
+				 - Adding a topic or replying to a forum discussion
+				 - Creating or joining a space
+				 - Updating your profile
+				 - Adding/Editing a wiki page
+				 - Closing, opening or locking a topic in Forum application
+				 - Adding a poll to a topic 
+				 - Editing an event in Calendar
+				 - Moving a wiki page
+				 - Editing a space's description/avatar
+				 - Connecting with a new user
+             
+             are not editable, you just can delete them when you click on |image146| button.
+             
+             Only activities generated following a document upload in Documents application are editable, 
+             you can add a text message to that activity.
 
 .. _Liking-comments:
 
@@ -1575,6 +1630,7 @@ It behaves the same as in the activity stream:
    People who liked.
 
 |image120|
+
 
 .. _Replying-comments:
 
@@ -1685,32 +1741,35 @@ Default values are:
 -  See on site: checked.
 
 
-.. _Getting-Permalinks:
+.. _Deleting-Comment:
 
-Getting permalinks of activities/comments
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deleting a comment
+~~~~~~~~~~~~~~~~~~~
 
-You can easily get the link of any activity or comment (either edited or not) 
-from the activity stream to share with others. With this feature, you can bring the
-attention of other users to an activity/comment without the need to :ref:`mention them <Mentioning-People>`.
+You are allowed to delete your comments you wrote, and
+those in your activity stream and in the space **where your are the manager**.
 
-Getting permalinks of an activity
------------------------------------
+1. Click on the pulldown menu on the top right of your comment you want to delete.
+   Two entries appear: Edit and Delete.
+   
+   |image150|
 
-Click on the timestamp of the activity to get its permalink.
+2. Click on ``Delete`` button --> A confirmation pop up appears.
 
-|image131|
+   |image151|
 
-This permalink will then take you to the activity with all comments
-expanded.
 
-If the activity is edited, when you mouse over its timestamp, a tooltip appears displaying the 
-original timestamp of the post.
+3. Click ``Yes`` button in the confirmation message to accept your deletion.
 
-|image147|
+.. note:: As an eXo Platform user, you can only delete your own comments. 
+          If you are manager of a space, you can delete any comment posted in your space.
 
-Getting permalinks of a comment
-----------------------------------
+5. If you click ``Cancel`` button, nothing happens.
+
+.. _Getting-Permalink-comment:
+
+Getting permalink of a comment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Just like for activities, click on the timestamp of the comment to get its permalink.
 
@@ -1874,4 +1933,9 @@ to display the original timestamp of the comment.
 .. |image147| image:: images/platform/tooltip_edited-activity.png
 .. |image148| image:: images/platform/tooltip_edited-comment.png
 .. |viewmore| image:: images/platform/more_comments.png
+.. |image149| image:: images/platform/original_time.png
+.. |image150| image:: images/platform/delete_comment_in_my_space.png
+.. |image151| image:: images/platform/Delete_comment_confirmation.png
+.. |homepage| image:: images/platform/intranet_homepage.png
+.. |filter| image:: images/platform/activity_filter.png
 
