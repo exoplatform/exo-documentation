@@ -2542,6 +2542,8 @@ To define who can create spaces:
 2. Remove existing values and/or enter new ones. When typing in the field, type-ahead suggestions will appear below for easier selection
    of the groups.
    
+   |image321|
+   
 3. After entering or selecting the groups, a click on 
    the save icon |image316| validates the new permission grants.  
 
@@ -5053,3 +5055,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image318| image:: images/platform/permissions_tab.png
 .. |image319| image:: images/platform/create_space_permission.png
 .. |image320| image:: images/platform/edit_space.png
+.. |image321| image:: images/platform/type-ahead-suggestions.png
