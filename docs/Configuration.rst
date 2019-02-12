@@ -2239,36 +2239,36 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 
 .. code:: java
 
-		# JCR Webdav configuration
-		exo.webdav.def-folder-node-type=nt:folder
-		exo.webdav.def-file-node-type=nt:file
-		exo.webdav.def-file-mimetype=application/octet-stream
-		exo.webdav.update-policy=update
-		exo.webdav.folder-icon-path=/eXoWCMResources/skin/images/file/nt-folder.png
-		exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache
+    # JCR Webdav configuration
+        exo.webdav.def-folder-node-type=nt:folder
+	exo.webdav.def-file-node-type=nt:file
+	exo.webdav.def-file-mimetype=application/octet-stream
+	exo.webdav.update-policy=update
+	exo.webdav.folder-icon-path=/eXoWCMResources/skin/images/file/nt-folder.png
+	exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache
 
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.def-folder-node-type`` |Default (JCR) node type which is used |
-|									  |for the creation of collections.      |
+|				      |for the creation of collections.      |
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.def-file-node-type``   |Default (JCR) node type which is used |
-|									  |for the creation of files. 			 |
+|				      |for the creation of files. 	     |
 +-------------------------------------+--------------------------------------+
-| ``exo.webdav.def-file-mimetype``    |A mime-type is detected by file 		 |
-|									  |extension or HTTP request header. If  |
-|									  |those are not found, this parameter   |
-|									  |is used.								 |
+| ``exo.webdav.def-file-mimetype``    |A mime-type is detected by file 	     |
+|				      |extension or HTTP request header. If  |
+|				      |those are not found, this parameter   |
+|				      |is used.				     |
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.update-policy``        | This defines the behavior when a PUT |
-|									  |	command is executed against an       |
-|									  |	existing resource:                   |
-|									  |   - add: It tries to add new resource| 
-|									  |	    with the same name.				 |
-|									  |	  - create-version: It creates a new |
-|									  |		version of the resource.         |
-|									  |	  - Otherwise, the PUT command       |
-|									  |     updates the resource and its last| 
-|									  |     modification date.               |	 
+|				      |	command is executed against an       |
+|				      |	existing resource:                   |
+|				      |   - add: It tries to add new resource| 
+|				      |	    with the same name.		     |
+|				      |	  - create-version: It creates a new |
+|				      |	    version of the resource.         |
+|				      |	  - Otherwise, the PUT command       |
+|				      |     updates the resource and its last| 
+|				      |     modification date.               |	 
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.folder-icon-path``     |The default path is an icon in        |
 |                                     |eXoWCMResources webapp.               |
@@ -2289,11 +2289,12 @@ Secure access to WebDAV urls of JCR folders
 For security reasons, it is important to an administrator to secure the 
 access to WebDAV urls of JCR folders.
 
-A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is intoroduced 
+A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is introduced 
 in eXo Platform allowing to define the set of WebDAV urls to JCR folders 
 to be listed.
 
-This parameter defines a regular expression of the allowed WebDav urls of JCR folders:
+This parameter defines a regular expression of the allowed WebDav urls 
+of JCR folders:
 
 ::
 
@@ -2307,7 +2308,7 @@ groups folders, sites folders and gadgets folders.
           should have this form: **wokspace_Name:/regex**.
           
 The default value of ``exo.webdav.folder.listing.paths.allowed.regex`` is set to empty 
-which means that the access is allowed to all resources.
+which means that **the access is allowed to all resources**.
 
 
 .. _Configuration.OpenInOfficeConfiguration:
