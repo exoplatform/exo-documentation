@@ -132,7 +132,7 @@ When you click on the message, the mini chat window appears:
 
 .. tip:: When you scroll up into the mini chat discussion and that your 
          interlocutor sends you new chat messages, a badge with the 
-         **number of unread messages** appears near to the username:
+         **number of unread messages** appears near to the display name:
          
                    |image144|
 
