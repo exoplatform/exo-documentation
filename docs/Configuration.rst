@@ -66,7 +66,7 @@ Configuration
        Configuration of the WebDAV service.
        
     -  :ref:`Secure the listing of the contents of JCR folders through Webdav <Configuration.SecureAccessWebdavJCR>`
-       How to secure the access to WebDAV urls of JCR folders.
+       How to secure the listing of the contents of folders through Webdav URLs.
 
     -  :ref:`Open in Office configuration <Configuration.OpenInOfficeConfiguration>`
        How to configure the file types associated with the application
