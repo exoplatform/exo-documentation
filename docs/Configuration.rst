@@ -64,6 +64,9 @@ Configuration
 
     -  :ref:`WebDAV configuration <Configuration.WebDAV>`
        Configuration of the WebDAV service.
+       
+    -  :ref:`Secure access to WebDAV urls of JCR folders <Configuration.SecureAccessWebdavJCR>`
+       How to secure the access to WebDAV urls of JCR folders.
 
     -  :ref:`Open in Office configuration <Configuration.OpenInOfficeConfiguration>`
        How to configure the file types associated with the application
@@ -2236,13 +2239,13 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 
 .. code:: java
 
-    # JCR Webdav configuration
-    exo.webdav.def-folder-node-type=nt:folder
-	exo.webdav.def-file-node-type=nt:file
-	exo.webdav.def-file-mimetype=application/octet-stream
-	exo.webdav.update-policy=update
-	exo.webdav.folder-icon-path=/eXoWCMResources/skin/images/file/nt-folder.png
-	exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache
+		# JCR Webdav configuration
+		exo.webdav.def-folder-node-type=nt:folder
+		exo.webdav.def-file-node-type=nt:file
+		exo.webdav.def-file-mimetype=application/octet-stream
+		exo.webdav.update-policy=update
+		exo.webdav.folder-icon-path=/eXoWCMResources/skin/images/file/nt-folder.png
+		exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache
 
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.def-folder-node-type`` |Default (JCR) node type which is used |
@@ -2275,6 +2278,36 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 |                                     |no-cache if you want a type to be not |
 |                                     |cached.                               |
 +-------------------------------------+--------------------------------------+
+
+
+.. _Configuration.SecureAccessWebdavJCR:
+
+============================================
+Secure access to WebDAV urls of JCR folders
+============================================
+
+As described in the :ref:`security chapter <Security>`, you should as an administrator
+secure the access to important WebDAV urls to JCR folders.
+
+A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is intoroduced 
+in eXo Platform allowing to define the set of WebDAV urls to JCR folders 
+to be listed.
+
+This parameter defines a regular expression of the allowed WebDav urls of JCR folders:
+
+::
+    exo.webdav.folder.listing.paths.allowed.regex=(collaboration:/Users/(.*)/(.*)/(.*)/(.*))|(collaboration:/Groups/(.*))|(collaboration:/sites/(.*))|(portal-system:/production/app:gadgets/(.*))
+
+
+The above example allows the listing access to theses folders: users folders, 
+groups folders, sites folders and gadgets folders.
+
+.. note:: The value of the parameter ``exo.webdav.folder.listing.paths.allowed.regex``
+          should have this form: **wokspace_Name:/regex**.
+          
+The default value of ``exo.webdav.folder.listing.paths.allowed.regex`` is set to empty 
+which means that the access is allowed to all resources.
+
 
 .. _Configuration.OpenInOfficeConfiguration:
 
