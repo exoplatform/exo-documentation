@@ -2239,36 +2239,36 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 
 .. code:: java
 
-		# JCR Webdav configuration
-		exo.webdav.def-folder-node-type=nt:folder
-		exo.webdav.def-file-node-type=nt:file
-		exo.webdav.def-file-mimetype=application/octet-stream
-		exo.webdav.update-policy=update
-		exo.webdav.folder-icon-path=/eXoWCMResources/skin/images/file/nt-folder.png
-		exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache
+    # JCR Webdav configuration
+        exo.webdav.def-folder-node-type=nt:folder
+	exo.webdav.def-file-node-type=nt:file
+	exo.webdav.def-file-mimetype=application/octet-stream
+	exo.webdav.update-policy=update
+	exo.webdav.folder-icon-path=/eXoWCMResources/skin/images/file/nt-folder.png
+	exo.webdav.cache-control=text/*:max-age=3600;image/*:max-age=1800;application/*:max-age=1800;*/*:no-cache
 
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.def-folder-node-type`` |Default (JCR) node type which is used |
-|									  |for the creation of collections.      |
+|				      |for the creation of collections.      |
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.def-file-node-type``   |Default (JCR) node type which is used |
-|									  |for the creation of files. 			 |
+|				      |for the creation of files. 	     |
 +-------------------------------------+--------------------------------------+
-| ``exo.webdav.def-file-mimetype``    |A mime-type is detected by file 		 |
-|									  |extension or HTTP request header. If  |
-|									  |those are not found, this parameter   |
-|									  |is used.								 |
+| ``exo.webdav.def-file-mimetype``    |A mime-type is detected by file 	     |
+|				      |extension or HTTP request header. If  |
+|				      |those are not found, this parameter   |
+|				      |is used.				     |
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.update-policy``        | This defines the behavior when a PUT |
-|									  |	command is executed against an       |
-|									  |	existing resource:                   |
-|									  |   - add: It tries to add new resource| 
-|									  |	    with the same name.				 |
-|									  |	  - create-version: It creates a new |
-|									  |		version of the resource.         |
-|									  |	  - Otherwise, the PUT command       |
-|									  |     updates the resource and its last| 
-|									  |     modification date.               |	 
+|				      |	command is executed against an       |
+|				      |	existing resource:                   |
+|				      |   - add: It tries to add new resource| 
+|				      |	    with the same name.		     |
+|				      |	  - create-version: It creates a new |
+|				      |	    version of the resource.         |
+|				      |	  - Otherwise, the PUT command       |
+|				      |     updates the resource and its last| 
+|				      |     modification date.               |	 
 +-------------------------------------+--------------------------------------+
 | ``exo.webdav.folder-icon-path``     |The default path is an icon in        |
 |                                     |eXoWCMResources webapp.               |
