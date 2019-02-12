@@ -2286,8 +2286,8 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 Secure access to WebDAV urls of JCR folders
 ============================================
 
-As described in the :ref:`security chapter <Security>`, you should as an administrator
-secure the access to important WebDAV urls to JCR folders.
+For security reasons, it is important to an administrator to secure the 
+access to WebDAV urls of JCR folders.
 
 A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is intoroduced 
 in eXo Platform allowing to define the set of WebDAV urls to JCR folders 
@@ -2296,7 +2296,8 @@ to be listed.
 This parameter defines a regular expression of the allowed WebDav urls of JCR folders:
 
 ::
-    exo.webdav.folder.listing.paths.allowed.regex=(collaboration:/Users/(.*)/(.*)/(.*)/(.*))|(collaboration:/Groups/(.*))|(collaboration:/sites/(.*))|(portal-system:/production/app:gadgets/(.*))
+
+		exo.webdav.folder.listing.paths.allowed.regex=(collaboration:/Users/(.*)/(.*)/(.*)/(.*))|(collaboration:/Groups/(.*))|(collaboration:/sites/(.*))|(portal-system:/production/app:gadgets/(.*))
 
 
 The above example allows the listing access to theses folders: users folders, 
