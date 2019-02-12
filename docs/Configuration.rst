@@ -2289,11 +2289,12 @@ Secure access to WebDAV urls of JCR folders
 For security reasons, it is important to an administrator to secure the 
 access to WebDAV urls of JCR folders.
 
-A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is intoroduced 
+A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is introduced 
 in eXo Platform allowing to define the set of WebDAV urls to JCR folders 
 to be listed.
 
-This parameter defines a regular expression of the allowed WebDav urls of JCR folders:
+This parameter defines a regular expression of the allowed WebDav urls 
+of JCR folders:
 
 ::
 
@@ -2307,7 +2308,7 @@ groups folders, sites folders and gadgets folders.
           should have this form: **wokspace_Name:/regex**.
           
 The default value of ``exo.webdav.folder.listing.paths.allowed.regex`` is set to empty 
-which means that the access is allowed to all resources.
+which means that **the access is allowed to all resources**.
 
 
 .. _Configuration.OpenInOfficeConfiguration:
