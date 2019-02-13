@@ -2305,7 +2305,7 @@ The above example allows the listing access to theses folders: users folders,
 groups folders, sites folders and gadgets folders.
 
 .. note:: The value of the parameter ``exo.webdav.folder.listing.paths.allowed.regex``
-          should have this form: **wokspace_Name:/regex**.
+          should respect this pattern : **wokspace_Name:/regex**.
           
 The default value of ``exo.webdav.folder.listing.paths.allowed.regex`` is set to empty 
 which means that **the access is allowed to all resources**.
