@@ -2290,7 +2290,7 @@ For security reasons, it is important to an administrator to secure the
 access to WebDAV urls of JCR folders.
 
 A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is introduced 
-in eXo Platform allowing to define the set of WebDAV urls to JCR folders 
+in eXo Platform allowing listing the contents of JCR folders when they are accessed with Webdav 
 to be listed.
 
 This parameter defines a regular expression of the allowed WebDav urls 
