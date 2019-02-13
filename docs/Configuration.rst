@@ -64,6 +64,9 @@ Configuration
 
     -  :ref:`WebDAV configuration <Configuration.WebDAV>`
        Configuration of the WebDAV service.
+       
+    -  :ref:`Secure the listing of the contents of JCR folders through Webdav <Configuration.SecureAccessWebdavJCR>`
+       How to secure the listing of the contents of folders through Webdav URLs.
 
     -  :ref:`Open in Office configuration <Configuration.OpenInOfficeConfiguration>`
        How to configure the file types associated with the application
@@ -2275,6 +2278,35 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 |                                     |no-cache if you want a type to be not |
 |                                     |cached.                               |
 +-------------------------------------+--------------------------------------+
+
+
+.. _Configuration.SecureAccessWebdavJCR:
+
+==================================================================
+Secure the listing of the contents of JCR folders through Webdav
+==================================================================
+
+For security reasons, it is important to an administrator to secure the 
+access to WebDAV urls of JCR folders.
+
+You can define which JCR folders could be listed through Webdav by using
+the parameter ``exo.webdav.folder.listing.paths.allowed.regex`` in
+:ref:`exo.properties file <Configuration.eXoConfiguration>`:
+
+::
+
+		exo.webdav.folder.listing.paths.allowed.regex=(collaboration:/Users/(.*)/(.*)/(.*)/(.*))|(collaboration:/Groups/(.*))|(collaboration:/sites/(.*))|(portal-system:/production/app:gadgets/(.*))
+
+
+The above example allows the listing access to theses folders: users folders, 
+groups folders, sites folders and gadgets folders.
+
+.. note:: The value of the parameter ``exo.webdav.folder.listing.paths.allowed.regex``
+          should respect this pattern : **wokspace_Name:/regex**.
+          
+The default value of ``exo.webdav.folder.listing.paths.allowed.regex`` is set to empty 
+which means that **the contents of All JCR folders are listed**.
+
 
 .. _Configuration.OpenInOfficeConfiguration:
 
