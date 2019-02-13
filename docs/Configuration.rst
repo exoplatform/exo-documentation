@@ -2282,9 +2282,9 @@ The embedded WebDAV server lets you configure some parameter via :ref:`exo.prope
 
 .. _Configuration.SecureAccessWebdavJCR:
 
-============================================
-Secure access to WebDAV urls of JCR folders
-============================================
+==================================================================
+Secure the listing of the contents of JCR folders through Webdav
+==================================================================
 
 For security reasons, it is important to an administrator to secure the 
 access to WebDAV urls of JCR folders.
