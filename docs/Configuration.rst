@@ -2308,7 +2308,7 @@ groups folders, sites folders and gadgets folders.
           should respect this pattern : **wokspace_Name:/regex**.
           
 The default value of ``exo.webdav.folder.listing.paths.allowed.regex`` is set to empty 
-which means that **the access is allowed to all resources**.
+which means that **the contents of All JCR folders are listed**.
 
 
 .. _Configuration.OpenInOfficeConfiguration:
