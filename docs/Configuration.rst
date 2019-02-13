@@ -2289,12 +2289,9 @@ Secure the listing of the contents of JCR folders through Webdav
 For security reasons, it is important to an administrator to secure the 
 access to WebDAV urls of JCR folders.
 
-A parameter ``exo.webdav.folder.listing.paths.allowed.regex`` is introduced 
-in eXo Platform allowing listing the contents of JCR folders when they are accessed with Webdav 
-to be listed.
-
-This parameter defines a regular expression for the folders that could be listed  
-of JCR folders:
+You can define which JCR folders could be listed through Webdav by using
+the parameter ``exo.webdav.folder.listing.paths.allowed.regex`` in
+:ref:`exo.properties file <Configuration.eXoConfiguration>`:
 
 ::
 
