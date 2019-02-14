@@ -359,31 +359,30 @@ In Tomcat
 
    -  ``$PLATFORM_TOMCAT_HOME/lib/sso-integration-5.1.2.jar!:/conf/portal/configuration.xml``:
    
-.. code:: xml   
+			.. code:: xml   
 
-			<?xml version="1.0" encoding="ISO-8859-1"?>
-			<configuration
-				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
-				  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+						<?xml version="1.0" encoding="ISO-8859-1"?>
+						<configuration
+							  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+							  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
-			   <component>
-				  <key>org.gatein.sso.agent.cas.CASAgent</key>
-				  <type>org.gatein.sso.agent.cas.CASAgentImpl</type>
-			   </component>
+						   <component>
+							  <key>org.gatein.sso.agent.cas.CASAgent</key>
+							  <type>org.gatein.sso.agent.cas.CASAgentImpl</type>
+						   </component>
 
-			   <component>
-				  <key>org.gatein.sso.agent.josso.JOSSOAgent</key>
-				  <type>org.gatein.sso.agent.josso.JOSSOAgentImpl</type>
-			   </component>
+						   <component>
+							  <key>org.gatein.sso.agent.josso.JOSSOAgent</key>
+							  <type>org.gatein.sso.agent.josso.JOSSOAgentImpl</type>
+						   </component>
 
-			   <component>
-				  <key>org.gatein.sso.agent.opensso.OpenSSOAgent</key>
-				  <type>org.gatein.sso.agent.opensso.OpenSSOAgentImpl</type>
-			   </component>
+						   <component>
+							  <key>org.gatein.sso.agent.opensso.OpenSSOAgent</key>
+							  <type>org.gatein.sso.agent.opensso.OpenSSOAgentImpl</type>
+						   </component>
 
-
-			</configuration>
+						</configuration>
 
 In previous versions of eXo Platform, there were much more changes needed in
 various configuration files. But now, all JARS are available in
