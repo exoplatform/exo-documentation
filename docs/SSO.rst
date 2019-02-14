@@ -249,166 +249,140 @@ In Tomcat
    -  ``$PLATFORM_TOMCAT_HOME/lib/sso-agent-5.1.2.jar!:/conf/portal/configuration.xml``:
 
 
-.. code:: xml
+			.. code:: xml
 
-		<?xml version="1.0" encoding="ISO-8859-1"?>
-			<!--
-			  ~ JBoss, a division of Red Hat
-			  ~ Copyright 2012, Red Hat Middleware, LLC, and individual
-			  ~ contributors as indicated by the @authors tag. See the
-			  ~ copyright.txt in the distribution for a full listing of
-			  ~ individual contributors.
-			  ~
-			  ~ This is free software; you can redistribute it and/or modify it
-			  ~ under the terms of the GNU Lesser General Public License as
-			  ~ published by the Free Software Foundation; either version 2.1 of
-			  ~ the License, or (at your option) any later version.
-			  ~
-			  ~ This software is distributed in the hope that it will be useful,
-			  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-			  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-			  ~ Lesser General Public License for more details.
-			  ~
-			  ~ You should have received a copy of the GNU Lesser General Public
-			  ~ License along with this software; if not, write to the Free
-			  ~ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
-			  ~ 02110-1301 USA, or see the FSF site: http://www.fsf.org.
-			  -->
+					<?xml version="1.0" encoding="ISO-8859-1"?>
 
-			<configuration
-				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
-				xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
-			 
-			  <component>
-				<key>org.gatein.sso.integration.SSOFilterIntegrator</key>
-				<type>org.gatein.sso.integration.SSOFilterIntegratorImpl</type>
-			  </component>
+						<configuration
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+							xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+						 
+						  <component>
+							<key>org.gatein.sso.integration.SSOFilterIntegrator</key>
+							<type>org.gatein.sso.integration.SSOFilterIntegratorImpl</type>
+						  </component>
 
-			  <external-component-plugins>
-				<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
-				<component-plugin>
-				  <name>LoginRedirectFilter</name>
-				  <set-method>addPlugin</set-method>
-				  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
-				  <init-params>
-					<value-param>
-					  <name>filterClass</name>
-					  <value>org.gatein.sso.agent.filter.LoginRedirectFilter</value>
-					</value-param>
-					<value-param>
-					  <name>enabled</name>
-					  <value>${gatein.sso.filter.login.enabled:true}</value>
-					</value-param>
-					<value-param>
-					  <name>filterMapping</name>
-					  <value>/sso</value>
-					</value-param>
-					<value-param>
-					  <name>LOGIN_URL</name>
-					  <value>${gatein.sso.cas.server.url}/login?service=${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin</value>
-					</value-param>
-				  </init-params>
-				</component-plugin>
-			  </external-component-plugins>
+						  <external-component-plugins>
+							<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
+							<component-plugin>
+							  <name>LoginRedirectFilter</name>
+							  <set-method>addPlugin</set-method>
+							  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
+							  <init-params>
+								<value-param>
+								  <name>filterClass</name>
+								  <value>org.gatein.sso.agent.filter.LoginRedirectFilter</value>
+								</value-param>
+								<value-param>
+								  <name>enabled</name>
+								  <value>${gatein.sso.filter.login.enabled:true}</value>
+								</value-param>
+								<value-param>
+								  <name>filterMapping</name>
+								  <value>/sso</value>
+								</value-param>
+								<value-param>
+								  <name>LOGIN_URL</name>
+								  <value>${gatein.sso.cas.server.url}/login?service=${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin</value>
+								</value-param>
+							  </init-params>
+							</component-plugin>
+						  </external-component-plugins>
 
-			  <external-component-plugins>
-				<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
-				<component-plugin>
-				  <name>CASLogoutFilter</name>
-				  <set-method>addPlugin</set-method>
-				  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
-				  <init-params>
-					<value-param>
-					  <name>filterClass</name>
-					  <value>${gatein.sso.filter.logout.class}</value>
-					</value-param>
-					<value-param>
-					  <name>enabled</name>
-					  <value>${gatein.sso.filter.logout.enabled:true}</value>
-					</value-param>
-					<value-param>
-					  <name>filterMapping</name>
-					  <value>/*</value>
-					</value-param>
-					<value-param>
-					  <name>LOGOUT_URL</name>
-					  <value>${gatein.sso.filter.logout.url}</value>
-					</value-param>
-				  </init-params>
-				</component-plugin>
-			  </external-component-plugins>
+						  <external-component-plugins>
+							<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
+							<component-plugin>
+							  <name>CASLogoutFilter</name>
+							  <set-method>addPlugin</set-method>
+							  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
+							  <init-params>
+								<value-param>
+								  <name>filterClass</name>
+								  <value>${gatein.sso.filter.logout.class}</value>
+								</value-param>
+								<value-param>
+								  <name>enabled</name>
+								  <value>${gatein.sso.filter.logout.enabled:true}</value>
+								</value-param>
+								<value-param>
+								  <name>filterMapping</name>
+								  <value>/*</value>
+								</value-param>
+								<value-param>
+								  <name>LOGOUT_URL</name>
+								  <value>${gatein.sso.filter.logout.url}</value>
+								</value-param>
+							  </init-params>
+							</component-plugin>
+						  </external-component-plugins>
 
-			  <external-component-plugins>
-				<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
-				<component-plugin>
-				  <name>InitiateLoginFilter</name>
-				  <set-method>addPlugin</set-method>
-				  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
-				  <init-params>
-					<value-param>
-					  <name>filterClass</name>
-					  <value>org.gatein.sso.agent.filter.InitiateLoginFilter</value>
-					</value-param>
-					<value-param>
-					  <name>enabled</name>
-					  <value>${gatein.sso.filter.initiatelogin.enabled:true}</value>
-					</value-param>
-					<value-param>
-					  <name>filterMapping</name>
-					  <value>/initiatessologin</value>
-					</value-param>
-					<value-param>
-					  <name>ssoServerUrl</name>
-					  <value>${gatein.sso.cas.server.url}</value>
-					</value-param>
-					<value-param>
-					  <name>casRenewTicket</name>
-					  <value>${gatein.sso.cas.renew.ticket:false}</value>
-					</value-param>
-					<value-param>
-					  <name>casServiceUrl</name>
-					  <value>${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin</value>
-					</value-param>
-					<value-param>
-					  <name>loginUrl</name>
-					  <value>${gatein.sso.portal.url}/@@portal.container.name@@/dologin</value>
-					</value-param>
-				  </init-params>
-				</component-plugin>
-			  </external-component-plugins>
-			   
-			</configuration>
-
-
+						  <external-component-plugins>
+							<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
+							<component-plugin>
+							  <name>InitiateLoginFilter</name>
+							  <set-method>addPlugin</set-method>
+							  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
+							  <init-params>
+								<value-param>
+								  <name>filterClass</name>
+								  <value>org.gatein.sso.agent.filter.InitiateLoginFilter</value>
+								</value-param>
+								<value-param>
+								  <name>enabled</name>
+								  <value>${gatein.sso.filter.initiatelogin.enabled:true}</value>
+								</value-param>
+								<value-param>
+								  <name>filterMapping</name>
+								  <value>/initiatessologin</value>
+								</value-param>
+								<value-param>
+								  <name>ssoServerUrl</name>
+								  <value>${gatein.sso.cas.server.url}</value>
+								</value-param>
+								<value-param>
+								  <name>casRenewTicket</name>
+								  <value>${gatein.sso.cas.renew.ticket:false}</value>
+								</value-param>
+								<value-param>
+								  <name>casServiceUrl</name>
+								  <value>${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin</value>
+								</value-param>
+								<value-param>
+								  <name>loginUrl</name>
+								  <value>${gatein.sso.portal.url}/@@portal.container.name@@/dologin</value>
+								</value-param>
+							  </init-params>
+							</component-plugin>
+						  </external-component-plugins>		   
+						</configuration>
 
    -  ``$PLATFORM_TOMCAT_HOME/lib/sso-integration-5.1.2.jar!:/conf/portal/configuration.xml``:
    
-.. code:: xml   
+			.. code:: xml   
 
-			<?xml version="1.0" encoding="ISO-8859-1"?>
-			<configuration
-				  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-				  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
-				  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
+						<?xml version="1.0" encoding="ISO-8859-1"?>
+						<configuration
+							  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+							  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
+							  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
 
-			   <component>
-				  <key>org.gatein.sso.agent.cas.CASAgent</key>
-				  <type>org.gatein.sso.agent.cas.CASAgentImpl</type>
-			   </component>
+						   <component>
+							  <key>org.gatein.sso.agent.cas.CASAgent</key>
+							  <type>org.gatein.sso.agent.cas.CASAgentImpl</type>
+						   </component>
 
-			   <component>
-				  <key>org.gatein.sso.agent.josso.JOSSOAgent</key>
-				  <type>org.gatein.sso.agent.josso.JOSSOAgentImpl</type>
-			   </component>
+						   <component>
+							  <key>org.gatein.sso.agent.josso.JOSSOAgent</key>
+							  <type>org.gatein.sso.agent.josso.JOSSOAgentImpl</type>
+						   </component>
 
-			   <component>
-				  <key>org.gatein.sso.agent.opensso.OpenSSOAgent</key>
-				  <type>org.gatein.sso.agent.opensso.OpenSSOAgentImpl</type>
-			   </component>
+						   <component>
+							  <key>org.gatein.sso.agent.opensso.OpenSSOAgent</key>
+							  <type>org.gatein.sso.agent.opensso.OpenSSOAgentImpl</type>
+						   </component>
 
-
-			</configuration>
+						</configuration>
 
 In previous versions of eXo Platform, there were much more changes needed in
 various configuration files. But now, all JARS are available in
