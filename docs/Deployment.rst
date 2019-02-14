@@ -211,7 +211,7 @@ configuration :
 
 ::
 
-	LogFormat "%h %l %u %t \\"%r\\" %>s %O \\"%{Referer}i\\"\\"%{User-Agent}i\\" %T" log\_with\_durations
+	LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\" %T" log_with_durations
 
 .. note:: It is also recommanded to enable the apache status page to be able
 		  to monitor the apache behavior. More info are available
@@ -280,9 +280,9 @@ configuration by adding the following line in your ``host`` section :
 
 ::
 
-	log\_format combined\_duration '$remote\_addr - $remote\_user [$time\_local] ' 
-		'"$request" $status $body\_bytes\_sent '
-		'"$http\_referer" "$http\_user\_agent" $request\_time'; 
+	log_format combined_with_durations '$remote_addr - $remote_user [$time_local] '
+		'"$request" $status $body_bytes_sent '
+		'"$http_referer" "$http_user_agent" $request_time';
 
 
 
@@ -290,7 +290,7 @@ It's also good to add this option to limit the server exposition:
 
 ::
 
-	server\_tokens off;
+	server_tokens off;
 
 .. note:: It is also recommanded to enable the apache status page to be able
 		  to monitor the apache behavior. More info are available
