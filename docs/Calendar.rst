@@ -543,30 +543,29 @@ can also click View to preview it.
 Creating a new event
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. _Quick-add-events:
-
-Quick adding an event
----------------------
-
-1. Open the Quick Add Event form via either of 4 ways:
+1. Open the **Add Event** form via either of these 4 ways:
 
 **The first way**
 
 Click |image45| on the toolbar.
 
-|image46|
+|image99|
 
 **The second way**
 
 Right-click the **Calendar View pane**, then select Add New Event from
 the drop-down menu.
 
+|image46|
+
 **The third way**
 
-**i.** Hover your cursor over the calendar which you want to add new
-       events, then click |image47| that appears.
 
-**ii.** Click Add Event from the drop-down menu.
+i.  Hover your cursor over the calendar which you want to add new events, then click |image47| that appears.
+
+ii.  Click **Add Event** from the drop-down menu.
+
+|image100|
 
 **The forth way**
 
@@ -574,7 +573,7 @@ Click the appropriate time slot in the calendar view pane. Drag your
 cursor to alter the length of the event. For more details, see
 :ref:`here <DraggingDroppingEvent>`.
 
-The Quick Add Event form will appear.
+==> The **Add Event** form appears in the right of the screen.
 
 |image48|
 
@@ -585,7 +584,7 @@ The Quick Add Event form will appear.
 +=======================+====================================================+
 | Title                 | The event title which is required.                 |
 +-----------------------+----------------------------------------------------+
-| Description           | The detailed description of the event.             |
+| Event Category        | The category which contains the event.             |
 +-----------------------+----------------------------------------------------+
 | From                  | The start date and time of the event.              |
 +-----------------------+----------------------------------------------------+
@@ -598,43 +597,59 @@ The Quick Add Event form will appear.
 |                       | date/time and end date/time. By default, the start |
 |                       | date and end date is the current date.             |
 +-----------------------+----------------------------------------------------+
+| Location              | The Place where the event will occur.              |
++-----------------------+----------------------------------------------------+
+| Participants          | Persons to be invited to the event.                |
++-----------------------+----------------------------------------------------+
 | Calendar              | The calendar which contains the event.             |
 +-----------------------+----------------------------------------------------+
-| Event Category        | The category which contains the event.             |
+| Description           | The detailed description of the event.             |
++-----------------------+----------------------------------------------------+
+| Attachments           | Files to attach to the event.                      |
 +-----------------------+----------------------------------------------------+
 
-2. Give information for your event.
+.. _required_fields:
 
--  When you right-click to add an event, the start date and time are
-   where the click occurs and the default duration is 30 minutues. But,
-   when you click Event on the top left corner of Calendar or Add Event
-   by selecting |image49|, the start date is the current one with
-   duration of 1 hour.
+2. Give necessary information for your event: title, time slot i.e. *from*
+   and *to* fields
 
--  When you select a start date/time, an end date/time will be
-   suggested. You can select another values to your desires.
+.. note:: -  When you right-click to add an event, the start date and time are
+             where the click occurs and the default duration is one hour. When you 
+             click Event on the top left corner of Calendar or Add Event
+             by selecting |image49|, the start date is the current one with
+             duration of 1 hour.
 
-3. Click Save to finish creating your new event; or click |image50| 
-   to :ref:`add more details <AddingDetailedEvent>`.
+          -  When you select a start date/time, an end date/time will be
+             suggested. You can select another values to your desires.
 
-.. _AddingDetailedEvent:
+3. You can click "Save" to finish creating your new event in your persanal 
+   calendar or you can fill in :ref:`more fields <detailed_event>` for 
+   a detailed event.
 
-Adding a detailed event
--------------------------
+.. _detailed_event:
 
-With a detailed event, you can:
 
--  Save time by :ref:`creating a recurring event <CreatingRecurringEvent>`
-   rather than entering each instance separately.
+To create a detailed event you can, in addition to :ref:`required fields <required_fields>`,
+fill in these fields:
+
+-  Select the event's category: All, meeting, calls, clients, holiday or anniversary.
+   
+-  Add the event's location.
+
+-  :ref:`Add participants to the event <AddingParticipantsToEvent>` 
+   and check their :ref:`availability <ViewingTimeAvailability>`.
+
+-  Select the calendar where you wish to add your event.
 
 -  :ref:`Create a reminder for upcoming events <CreatingEventReminder>`
    with your own notification settings.
 
--  :ref:`Add participants to an event <AddingParticipantsToEvent>`.
+-  Save time by :ref:`creating a recurring event <CreatingRecurringEvent>`
+   rather than entering each instance separately.
 
--  :ref:`View the availability time of participants <ViewingTimeAvailability>`.
+-  :ref:`Add attachments to the event <attachement_event>`
 
-1. Open the :ref:`Quick Add Event <Quick-add-events>` form, then click
+1. Open the :ref:`Add Event <Quick-add-events>` form, then click
    |image51| to open the Add/Edit Event form.
    
 |image52|
@@ -1420,3 +1435,5 @@ Editing/Deleting a category
 .. |image96| image:: images/calendar/event_category_form.png
 .. |image97| image:: images/common/edit_icon.png
 .. |image98| image:: images/common/delete_icon.png
+.. |image99| image:: images/calendar/topbar_calendar.png
+.. |image100| image:: images/calendar/Add_event_settings_calendar.png
