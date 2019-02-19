@@ -608,6 +608,9 @@ cursor to alter the length of the event. For more details, see
 | Attachments           | Files to attach to the event.                      |
 +-----------------------+----------------------------------------------------+
 
+.. tip:: To create an event, you don't have to fill all the fields cited above. You can just fill 
+         :ref:`mandatory fields <required_fields>` to add an event in your **personal calendar**. 
+
 .. _required_fields:
 
 2. Give necessary information for your event: title, time slot i.e. *from*
@@ -622,102 +625,51 @@ cursor to alter the length of the event. For more details, see
           -  When you select a start date/time, an end date/time will be
              suggested. You can select another values to your desires.
 
-3. You can click "Save" to finish creating your new event in your persanal 
-   calendar or you can fill in :ref:`more fields <detailed_event>` for 
+3. You can click "Save" to finish creating your new event in your **persanal 
+   calendar** or you can fill in :ref:`more fields <detailed_event>` for 
    a detailed event.
 
 .. _detailed_event:
 
+|image101|
 
 To create a detailed event you can, in addition to :ref:`required fields <required_fields>`,
 fill in these fields:
 
--  Select the event's category: All, meeting, calls, clients, holiday or anniversary.
+-  |image102| Select the event's category.
    
--  Add the event's location.
+-  |image103| Add the event's location.
 
--  :ref:`Add participants to the event <AddingParticipantsToEvent>` 
-   and check their :ref:`availability <ViewingTimeAvailability>`.
+-  |image104| :ref:`Add participants to the event <AddingParticipantsToEvent>` 
+   and |image105| check their :ref:`availability <ViewingTimeAvailability>`.
 
--  Select the calendar where you wish to add your event.
+-  |image106| Select the calendar where you wish to add your event.
 
--  :ref:`Create a reminder for upcoming events <CreatingEventReminder>`
+-  |image107| :ref:`Create a reminder for upcoming events <CreatingEventReminder>`
    with your own notification settings.
 
--  Save time by :ref:`creating a recurring event <CreatingRecurringEvent>`
+-  |image108| Save time by :ref:`creating a recurring event <CreatingRecurringEvent>`
    rather than entering each instance separately.
-
--  :ref:`Add attachments to the event <attachement_event>`
-
-1. Open the :ref:`Add Event <Quick-add-events>` form, then click
-   |image51| to open the Add/Edit Event form.
    
-|image52|
+-  |image109| Add description of the event.   
 
-2. Give details of your event in fields of tabs.
-
-**i.** In the Details tab, you can:
-
--  Follow similar steps as stated in :ref:`Quick adding an event <Quick-add-events>`.
-
--  Also,
-
-   -  Enter the location name where the event will take place in the
-      Location field.
-
-   -  Select the priority level of this event, including None, Normal,
-      High and Low, in the Priority field.
-
-   -  Tick the Repeat checkbox if you want to create a recurring event.
-      For more details, see `here <CreatingRecurringEvent>`.
-
-   -  Click |image53| to attach any files, such as map, or invitation
-      card, with your event.
+-  |image110| :ref:`Add attachments to the event <attachement_event>`
 
 .. note:: You can attach a maximum of 10 files to an event. Also, the size of each file must be less than 10 MB.
 
-**ii.** In the Reminders tab, you can create a reminder for your event.
-        For more details, see the :ref:`Creating a reminder for upcoming events <CreatingEventReminder>` 
-        section.
-
-**iii.** In the Participants tab, you can add participants to your event
-         as stated in the :ref:`Adding participants to an event <AddingParticipantsToEvent>` 
-         section.
-
-**iv.** In the Schedule tab, you can view the availability time of
-	    users, or change date and time for your event and apply them 
-	    into the Details tab. For more details, see the 
-	    :ref:`Viewing the availability time of participants <ViewingTimeAvailability>` 
-	    section.
-
-3. Click Save to finish creating your detailed event.
-
-A confirmation message will appear that allows you to save and send the
-invitation, or only save.
-
-If you create an event in a space, you will see the event updated in the
-Activity Stream of your Space or Group Space.
-
-|image54|
-
-The event will be updated in your Activity Stream with its brief
-information, such as description, location, start time and end time. You
-can even deny or accept participating in this event directly in Activity
-Stream without going to the **Calendar** application.
 
 .. _CreatingRecurringEvent:
 
 Creating a recurring event
 ---------------------------
 
-In the Details tab, tick the Repeat checkbox to open the Recurring Event
-form.
+Tick the Repeat checkbox to open the Recurring Event form.
 
 |image55|
 
 Here, you can define the repeating time for your event as follows:
 
-1. Select the type for your repeating event from the Repeat option.
+1. Select the type of your repeating event from the ``Repeat`` option.
 
    -  Daily: The event will be repeated every day.
 
@@ -727,11 +679,11 @@ Here, you can define the repeating time for your event as follows:
 
    -  Yearly: The event will be repeated every year.
 
-2. Select frequency and date for repeating your event in the Repeat 
-   every and Repeat on fields respectively. The selected frequency will 
-   work on the Repeat value. For example, if you set Weekly in Repeat, 
-   **5** in Repeat every and **WE** in Repeat on, the event will be 
-   repeated every 5 weeks on Wednesday.
+2. Select the frequency and date for repeating your event in the ``Repeat every``
+   and ``Repeat on`` fields respectively. The selected frequency will 
+   work on the Repeat value. For example, if you set Weekly in ``Repeat``, 
+   **5** in ``Repeat every`` and **WE** in ``Repeat on``, the event will be 
+   repeated every 5 weeks on Wednesdays.
 
 3. Select the option for ending your repeating event by ticking the
    relevant checkbox.
@@ -739,11 +691,11 @@ Here, you can define the repeating time for your event as follows:
    -  Never: Your repeating event will never end.
 
    -  After [X] occurrences: Your repeating event will end after a defined
-   number of occurrences.
+      number of occurrences.
 
    -  By this date: Your repeating event will end before your specified
-   date. Point your cursor over the textbox and select the date from the
-   drop-down calendar.
+      date. Point your cursor over the textbox and select the date from the
+      drop-down calendar.
 
 The recurring event will be shown as below:
 
@@ -756,8 +708,8 @@ Creating a reminder for upcoming events
 
 The **Calendar** application provides 2 options for reminding users who
 will take part in events. A reminder includes the summary information of
-the event, such as title, time and location. To use this feature, go to
-the Reminders tab.
+the event, such as title, time and location. To use this feature, juts 
+activate the ``Reminder`` option.
 
 |image57|
 
@@ -773,111 +725,21 @@ the Reminders tab.
 | Remind by Email before | The interval time that the reminder will be       |
 | the event starts       | repeated before an event starts.                  |
 +------------------------+---------------------------------------------------+
-| Repeat                 | Tick the checkbox to set the frequency for        |
-|                        | sending the email reminder before the event takes |
-|                        | place.                                            |
-+------------------------+---------------------------------------------------+
-| Also send reminders to | The list of email addresses to which the reminder |
-|                        | will be sent. The default value is the email      |
-|                        | address of the event creator. Click |image59| to  |
-|                        | add more email addresses. To delete an email      |
-|                        | address, simply click |image60| corresponding to  |
-|                        | it.                                               |
-+------------------------+---------------------------------------------------+
 | **Display a            | Remind users of upcoming events via pop-up        |
 | notification pop-up**  | messages.                                         |
 +------------------------+---------------------------------------------------+
 
-.. _AddMoreEmails:
-
-Adding more emails
----------------------
-
-1. Click Add More to open the Select Users form. This form shows a list 
-   of users and their emails.
-
-2. Tick checkboxes corresponding to email addresses you want to select.
-
-   Or, use the **Search** function to search for your expected email
-   addresses.
-
-3. Click Add to add your selected emails.
-
--  A list of your selected email addresses is displayed right below the
-   Also send reminders to field of the Reminders tab.
-
--  Click |image58| to remove your selected email addresses from the list
-   of emails receiving the reminder.
 
 .. _AddingParticipantsToEvent:
 
 Adding participants to an event
 ---------------------------------
 
-If you want to invite people to attend at an event, go to the
-Participants tab. This tab contains options to add participants and to
-send invitation mails.
+If you want to invite people to attend at an event, fill in the
+``Participants`` field. When typing in the field, type-ahead suggestions 
+will appear below for easier selection of users.
 
-1. Select the Private or Public checkbox in the Privacy field.
-
-.. note:: This privacy information is designed for the only purpose of :ref:`searching in Social Intranet <Search-Social-Intranet>`, not for limiting access on users.
-
-See the following table to learn about which combinations create
-searchable results. The |image61| icon means that the events and tasks
-in the relevant combination will appear in the search results of Social
-Intranet:
-
-+---------------------------------------------+----------------+----------------+
-|                                             | **Public**     | **Private**    |
-+---------------------------------------------+----------------+----------------+
-| Shared calendars with the Edit right        |     |OK1|      |     |OK5|      |
-+---------------------------------------------+----------------+----------------+
-| Shared calendars without the Edit right     |     |OK2|      |                |
-+---------------------------------------------+----------------+----------------+
-| Group calendars with the Edit right         |     |OK3|      |     |OK6|      |
-+---------------------------------------------+----------------+----------------+
-| Group calendars without the Edit right      |     |OK4|      |                |
-+---------------------------------------------+----------------+----------------+
-
-2. Set the status of participants during the time when your event takes
-   place.
-
-   -  If Busy or Outside is ticked, the time when the participants take
-      part in the event will be in red when viewing the event schedule.
-
-   -  If Available is ticked, the time when the participants take part 
-      in the event will be in white.
-
-3. Select participants who will take part in the event by clicking
-   |image62| to open the Invitations form.
-
-Here, you can choose participants who have registered in the system to
-join the event:
-
-**i.** Click |image63| respectively.
-
-**ii.** Choose people you want to invite by ticking the respective
-        checkboxes, or use the **Search** function to find users 
-        quickly. Then, click Add to add selected users as participants.
-
-**iii.** Enter your invitation message into the Invitation Message pane.
-
-**iv.** Click Save to add your selected users to the Participants table.
-        To remove the selected participant from the Participants list, 
-        simply click |image64| in the Action bar.
-
-Tick one checkbox corresponding to your desired option of sending
-invitations to participants in the **Send Invitations** field. This
-option is loaded by default with the value defined in the Calendar
-Settings.
-
--  Never: Never send the invitation to any participants.
-
--  Always: Automatically send the invitation to the participants.
-
--  Ask: There will be a confirmation message for you to decide.
-
-   |image65|
+|image111|
 
 Participants will receive invitations via emails. Their statuses will be
 updated in the Status column after they have answered the invitations
@@ -899,19 +761,21 @@ emails.
 .. _ViewingTimeAvailability:
 
 Viewing the availability time of participants
-``````````````````````````````````````````````
+----------------------------------------------
 
 |image66|
 
-Go to the Schedule tab to select the correct event's start and end time,
-depending on participants' availabilities. By default, it is the start
-and end time of the event which you define in the Details tab. Busy
-periods are displayed in red so you can easily detect the schedule
+Click on ``Find a time`` link on **Add event** form to select the 
+correct event's start and end time, depending on participants' availabilities.
+By default, it is the start and end time of the event which you defined in 
+the **Add event** form.
+
+Busy periods are displayed in red so you can easily detect the schedule
 conflicts to manage the alternate meeting time that works best for all
 participants.
 
 You can schedule the event (its start/end time) by dragging and
-dropping, the selected period is displayed in green.
+dropping. The selected period is displayed in green.
 
 Adding participants
 ````````````````````
@@ -924,7 +788,7 @@ Deleting participants
 
 Tick the checkboxes corresponding to users in the **Participants** list,
 then click |image68|. The deleted users will be removed from the
-participants list of both Schedule and Participants tabs.
+participants list.
 
 Applying selected day
 ```````````````````````
@@ -940,7 +804,9 @@ Applying selected day
    the corresponding time will be automatically updated into the *From* 
    and *To* fields.
 
-.. note:: If you do not see any available time for your selected date in the time pane, you can switch to another dates by clicking |image69|/|image70| to check another time availability of users.
+.. note:: If you do not see any available time for your selected date in 
+          the time pane, you can switch to another dates by clicking 
+          |image69|/|image70| to check another time availability of users.
 
 2. Click the Apply Selected Day checkbox to accept applying your 
    selected date and time into the Details tab.
@@ -950,7 +816,7 @@ Applying selected day
 Editing an event
 ~~~~~~~~~~~~~~~~~
 
-1. Open the Add/Edit Event form by doing one of two following ways:
+1. Open the **Edit Event** form by doing one of two following ways:
 
 **The first way**
 
@@ -963,61 +829,36 @@ drop-down menu.
 
 |image71|
 
-The Add/Edit Event form is displayed with information that is similar
+The **Edit Event** form is displayed with information already filled 
 when adding your event.
 
-2. Edit information of the selected event to your desires, then click 
-   Save to complete.
+2. Edit information of your event, then click ``Save`` to complete.
 
-   -  When you are editing the start time, the end time will be selected
-       with the same duration as previously defined. For example, you 
-       create an event that starts at 10:00 and ends at 12:00 (duration 
-       of 2 hours). When you edit the start time to 11:00, the suggested
-       end time will be 13:00.
+-   When you are editing the start time, the end time will remain the 
+    same as previously selected.
 
-   -  If you have made changes on a recurring event, the Edit recurring
-      event pop-up will be displayed:
+-  If you make changes on a recurring event, the Edit recurring event pop-up will be displayed:
 
       |image72|
 
-   -  Select Only this event. The changes will be applied into the
+   -  *Only this event*: The changes will be applied into the
       selected event only. This event will be marked with the text:
       "Edited Recurring event".
 
       |image73|
 
-   -  Select Following events. The changes will be applied into the
-      selected event and following events of the series.
+   -  *Following events*: The changes will be applied into the
+      selected event and the following events of the series.
 
-   -  Select All events. The changes will be applied into all events of
+   -  *All events*: The changes will be applied into all events of
       the series.
 
 .. note:: -  For shared and group calendars, you can only edit their events if you have the edit permission.
-		  -  When editing an event, you can add/remove the attachment files or download them by directly clicking their titles.
-		  -  If you only want to change the start date and time of the event, you can also use the drag-and-drop feature to edit the time for the event directly on the **Calendar View pane**.
+		  -  When editing an event, you can add/remove the attachment files or download them by directly clicking 
+		     their titles.
+		  -  If you only want to change the start date and time of the event, you can also use the drag-and-drop 
+		     feature to edit the time for the event directly on the **Calendar View pane**.
 
-In a space calendar:
----------------------
-
-If you set a repetition to an event or modify the event repetition, a
-new comment will be added to the event activity.
-
-|image74|
-
-While editing a recurring event:
-
--  If you select Only this event or change the duration with the mouse,
-   a new activity will be created for this instance on the activity
-   stream.
-
--  If you select Following events, a new activity will be created for
-   the starting event of the new series. Also, a comment which informs
-   the date of repetition stop is added to the previous series.
-
-   |image75|
-
--  If you select **All Events**, the main event activity is updated and
-   a comment informing your changes is added to the activity.
 
 .. _DraggingDroppingEvent:
 
@@ -1378,7 +1219,7 @@ Editing/Deleting a category
 .. |image45| image:: images/calendar/event_button.png
 .. |image46| image:: images/calendar/add_new_event.png
 .. |image47| image:: images/calendar/calendar_setting_icon.png
-.. |image48| image:: images/calendar/quick_add_event.png
+.. |image48| image:: images/calendar/Add_event_drawer.png
 .. |image49| image:: images/calendar/calendar_setting_icon.png
 .. |image50| image:: images/calendar/more_details_button.png
 .. |image51| image:: images/calendar/more_details_button.png
@@ -1387,7 +1228,7 @@ Editing/Deleting a category
 .. |image54| image:: images/calendar/calendar_activity_stream_update.png
 .. |image55| image:: images/calendar/repeat_event_form.png
 .. |image56| image:: images/calendar/recurring_event_display.png
-.. |image57| image:: images/calendar/add_edit_event.png
+.. |image57| image:: images/calendar/reminder_event.png
 .. |image58| image:: images/common/delete_icon.png
 .. |image59| image:: images/common/plus_icon.png
 .. |image60| image:: images/common/delete_icon.png
@@ -1396,7 +1237,7 @@ Editing/Deleting a category
 .. |image63| image:: images/common/select_user_icon.png
 .. |image64| image:: images/common/delete_icon.png
 .. |image65| image:: images/calendar/confirmation_sending_participants.png
-.. |image66| image:: images/calendar/add_edit_event_schedule.png
+.. |image66| image:: images/calendar/availability.png
 .. |image67| image:: images/calendar/add_selector_icon.png
 .. |image68| image:: images/calendar/delete_selector_icon.png
 .. |image69| image:: images/calendar/left_arrow_icon.png
@@ -1437,3 +1278,14 @@ Editing/Deleting a category
 .. |image98| image:: images/common/delete_icon.png
 .. |image99| image:: images/calendar/topbar_calendar.png
 .. |image100| image:: images/calendar/Add_event_settings_calendar.png
+.. |image101| image:: images/calendar/detailed_event.png
+.. |image111| image:: images/calendar/type-ahead-suggestions-participants.png
+.. |image102| image:: images/1.png
+.. |image103| image:: images/3.png
+.. |image104| image:: images/4.png
+.. |image105| image:: images/2.png
+.. |image106| image:: images/5.png
+.. |image107| image:: images/6.png
+.. |image108| image:: images/7.png
+.. |image109| image:: images/8.png
+.. |image110| image:: images/9.png
