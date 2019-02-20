@@ -227,8 +227,10 @@ bundles.
 In Tomcat
 ----------
 
--  Add the following to the ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` 
-   file (see :ref:`Configuration overview <Configuration.ConfigurationOverview>`):
+Add the following to the
+``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file (see
+:ref:`Configuration overview <Configuration.ConfigurationOverview>` 
+for this file):
 
 ::
 
@@ -237,152 +239,11 @@ In Tomcat
     gatein.sso.callback.enabled=${gatein.sso.enabled}
     gatein.sso.login.module.enabled=${gatein.sso.enabled}
     gatein.sso.login.module.class=org.gatein.sso.agent.login.SSOLoginModule
-    gatein.sso.cas.server.url=http://localhost:8888/cas
+    gatein.sso.server.url=http://localhost:8888/cas
     gatein.sso.portal.url=http://localhost:8080
     gatein.sso.filter.logout.class=org.gatein.sso.agent.filter.CASLogoutFilter
     gatein.sso.filter.logout.url=${gatein.sso.server.url}/logout
     gatein.sso.filter.login.sso.url=${gatein.sso.server.url}/login?service=${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin
-
-
--  Uncomment the content of the two files: 
-   
-   -  ``$PLATFORM_TOMCAT_HOME/lib/sso-agent-5.1.2.jar!:/conf/portal/configuration.xml``:
-
-
-			.. code:: xml
-
-					<?xml version="1.0" encoding="ISO-8859-1"?>
-
-						<configuration
-							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-							xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
-							xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
-						 
-						  <component>
-							<key>org.gatein.sso.integration.SSOFilterIntegrator</key>
-							<type>org.gatein.sso.integration.SSOFilterIntegratorImpl</type>
-						  </component>
-
-						  <external-component-plugins>
-							<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
-							<component-plugin>
-							  <name>LoginRedirectFilter</name>
-							  <set-method>addPlugin</set-method>
-							  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
-							  <init-params>
-								<value-param>
-								  <name>filterClass</name>
-								  <value>org.gatein.sso.agent.filter.LoginRedirectFilter</value>
-								</value-param>
-								<value-param>
-								  <name>enabled</name>
-								  <value>${gatein.sso.filter.login.enabled:true}</value>
-								</value-param>
-								<value-param>
-								  <name>filterMapping</name>
-								  <value>/sso</value>
-								</value-param>
-								<value-param>
-								  <name>LOGIN_URL</name>
-								  <value>${gatein.sso.cas.server.url}/login?service=${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin</value>
-								</value-param>
-							  </init-params>
-							</component-plugin>
-						  </external-component-plugins>
-
-						  <external-component-plugins>
-							<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
-							<component-plugin>
-							  <name>CASLogoutFilter</name>
-							  <set-method>addPlugin</set-method>
-							  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
-							  <init-params>
-								<value-param>
-								  <name>filterClass</name>
-								  <value>${gatein.sso.filter.logout.class}</value>
-								</value-param>
-								<value-param>
-								  <name>enabled</name>
-								  <value>${gatein.sso.filter.logout.enabled:true}</value>
-								</value-param>
-								<value-param>
-								  <name>filterMapping</name>
-								  <value>/*</value>
-								</value-param>
-								<value-param>
-								  <name>LOGOUT_URL</name>
-								  <value>${gatein.sso.filter.logout.url}</value>
-								</value-param>
-							  </init-params>
-							</component-plugin>
-						  </external-component-plugins>
-
-						  <external-component-plugins>
-							<target-component>org.gatein.sso.integration.SSOFilterIntegrator</target-component>
-							<component-plugin>
-							  <name>InitiateLoginFilter</name>
-							  <set-method>addPlugin</set-method>
-							  <type>org.gatein.sso.integration.SSOFilterIntegratorPlugin</type>
-							  <init-params>
-								<value-param>
-								  <name>filterClass</name>
-								  <value>org.gatein.sso.agent.filter.InitiateLoginFilter</value>
-								</value-param>
-								<value-param>
-								  <name>enabled</name>
-								  <value>${gatein.sso.filter.initiatelogin.enabled:true}</value>
-								</value-param>
-								<value-param>
-								  <name>filterMapping</name>
-								  <value>/initiatessologin</value>
-								</value-param>
-								<value-param>
-								  <name>ssoServerUrl</name>
-								  <value>${gatein.sso.cas.server.url}</value>
-								</value-param>
-								<value-param>
-								  <name>casRenewTicket</name>
-								  <value>${gatein.sso.cas.renew.ticket:false}</value>
-								</value-param>
-								<value-param>
-								  <name>casServiceUrl</name>
-								  <value>${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin</value>
-								</value-param>
-								<value-param>
-								  <name>loginUrl</name>
-								  <value>${gatein.sso.portal.url}/@@portal.container.name@@/dologin</value>
-								</value-param>
-							  </init-params>
-							</component-plugin>
-						  </external-component-plugins>		   
-						</configuration>
-
-   -  ``$PLATFORM_TOMCAT_HOME/lib/sso-integration-5.1.2.jar!:/conf/portal/configuration.xml``:
-   
-			.. code:: xml   
-
-						<?xml version="1.0" encoding="ISO-8859-1"?>
-						<configuration
-							  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-							  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd http://www.exoplaform.org/xml/ns/kernel_1_2.xsd"
-							  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_2.xsd">
-
-						   <component>
-							  <key>org.gatein.sso.agent.cas.CASAgent</key>
-							  <type>org.gatein.sso.agent.cas.CASAgentImpl</type>
-						   </component>
-
-						   <component>
-							  <key>org.gatein.sso.agent.josso.JOSSOAgent</key>
-							  <type>org.gatein.sso.agent.josso.JOSSOAgentImpl</type>
-						   </component>
-
-						   <component>
-							  <key>org.gatein.sso.agent.opensso.OpenSSOAgent</key>
-							  <type>org.gatein.sso.agent.opensso.OpenSSOAgentImpl</type>
-						   </component>
-
-						</configuration>
 
 In previous versions of eXo Platform, there were much more changes needed in
 various configuration files. But now, all JARS are available in
@@ -1895,7 +1756,18 @@ inside folders including: ``idp-sig.war`` and ``idp-sig-module``. Notice
 these extracted folders will be used for the case 
 :ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`.
 
-2. 
+2. **For Tomcat**
+   After the installation of the SAML2 add-on on a tomcat server, its 
+   corresponding folder ``saml2`` should be found under the path 
+   ``$PLATFORM_SP/standalone/configuration/gatein/``.
+   So, you need to move them under the path ``$PLATFORM_SP/gatein/conf``
+   by executing this command under ``$PLATFORM_SP`` path:
+   
+   ::
+   
+		mv standalone/configuration/gatein/saml2/ gatein/conf/
+
+3. 
    **For Jboss**
 
    Open the ``$PLATFORM_SP/standalone/configuration/standalone-exo.xml``
@@ -1917,7 +1789,7 @@ these extracted folders will be used for the case
 			<module-option name="password-stacking" value="useFirstPass"/>
 		</login-module>
 
-3. 
+4. 
    **For both Jboss and Tomcat**
 
    Open the file
@@ -1926,7 +1798,8 @@ these extracted folders will be used for the case
 
 .. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
 
-   Edit the following properties (add them if they don't exist):
+
+Edit the following properties (add them if they don't exist):
 
    ::
 
@@ -1956,11 +1829,11 @@ these extracted folders will be used for the case
 		#gatein.sso.valve.enabled=true
 		#gatein.sso.valve.class=org.gatein.sso.saml.plugin.valve.ServiceProviderAuthenticator
 
-   You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url** and
-   **gatein.sso.sp.url** according to your environment setup. You also need
-   to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
+You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url** and
+**gatein.sso.sp.url** according to your environment setup. You also need
+to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
 
-4. Download and import your generated IDP certificate to your keystore
+5. Download and import your generated IDP certificate to your keystore
    using this command:
    
    ::
@@ -1969,7 +1842,7 @@ these extracted folders will be used for the case
 
 .. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
 
-5. Start up the platform using:
+6. Start up the platform using:
 
    **For Tomcat** Use the following command for linux Operating systems:
    
