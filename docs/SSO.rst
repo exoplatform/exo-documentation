@@ -1840,7 +1840,7 @@ eXo Platform as SAML2 SP
 
 		keytool -import -keystore jbid_test_keystore.jks -file idp-certificate.crt -alias Identity_Provider-idp
 
-.. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
+  .. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
 
 6. Start up the platform using:
 
