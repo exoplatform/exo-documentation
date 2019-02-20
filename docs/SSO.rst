@@ -1756,7 +1756,18 @@ inside folders including: ``idp-sig.war`` and ``idp-sig-module``. Notice
 these extracted folders will be used for the case 
 :ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`.
 
-2. 
+2. **For Tomcat**
+   After the installation of the SAML2 add-on on a tomcat server, its 
+   corresponding folder ``saml2`` should be found under the path 
+   ``$PLATFORM_SP/standalone/configuration/gatein/``.
+   So, you need to move them under the path ``$PLATFORM_SP/gatein/conf``
+   by executing this command under ``$PLATFORM_SP`` path:
+   
+   ::
+   
+		mv standalone/configuration/gatein/saml2/ gatein/conf/
+
+3. 
    **For Jboss**
 
    Open the ``$PLATFORM_SP/standalone/configuration/standalone-exo.xml``
@@ -1778,7 +1789,7 @@ these extracted folders will be used for the case
 			<module-option name="password-stacking" value="useFirstPass"/>
 		</login-module>
 
-3. 
+4. 
    **For both Jboss and Tomcat**
 
    Open the file
@@ -1787,7 +1798,8 @@ these extracted folders will be used for the case
 
 .. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
 
-   Edit the following properties (add them if they don't exist):
+
+Edit the following properties (add them if they don't exist):
 
    ::
 
@@ -1817,11 +1829,11 @@ these extracted folders will be used for the case
 		#gatein.sso.valve.enabled=true
 		#gatein.sso.valve.class=org.gatein.sso.saml.plugin.valve.ServiceProviderAuthenticator
 
-   You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url** and
-   **gatein.sso.sp.url** according to your environment setup. You also need
-   to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
+You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url** and
+**gatein.sso.sp.url** according to your environment setup. You also need
+to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
 
-4. Download and import your generated IDP certificate to your keystore
+5. Download and import your generated IDP certificate to your keystore
    using this command:
    
    ::
@@ -1830,7 +1842,7 @@ these extracted folders will be used for the case
 
 .. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
 
-5. Start up the platform using:
+6. Start up the platform using:
 
    **For Tomcat** Use the following command for linux Operating systems:
    
