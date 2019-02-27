@@ -1748,15 +1748,26 @@ eXo Platform as SAML2 SP
    
 	$PLATFORM_SP/addon install exo-saml`` (Windows, Linux / Mac OX)
 
-.. note:: Add the option **--no-compat** for tomcat application server.
+  .. note:: Add the option **--no-compat** for tomcat application server.
 
-Accordingly, the SAML2 package named ``saml-plugin-jboss.zip`` will be
-downloaded into ``$PLATFORM_SP`` folder. Unzip this package to see
-inside folders including: ``idp-sig.war`` and ``idp-sig-module``. Notice
-these extracted folders will be used for the case 
-:ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`.
+  Accordingly, the SAML2 package named ``saml-plugin-jboss.zip`` will be
+  downloaded into ``$PLATFORM_SP`` folder. Unzip this package to see
+  inside folders including: ``idp-sig.war`` and ``idp-sig-module``. Notice
+  these extracted folders will be used for the case 
+  :ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`.
 
-2. 
+2. **For Tomcat**
+   After the installation of the SAML2 add-on on a tomcat server, its 
+   corresponding folder ``saml2`` should be found under the path 
+   ``$PLATFORM_SP/standalone/configuration/gatein/``.
+   So, you need to move them under the path ``$PLATFORM_SP/gatein/conf``
+   by executing this command under ``$PLATFORM_SP`` path:
+   
+   ::
+   
+		mv standalone/configuration/gatein/saml2/ gatein/conf/
+
+3. 
    **For Jboss**
 
    Open the ``$PLATFORM_SP/standalone/configuration/standalone-exo.xml``
@@ -1778,59 +1789,60 @@ these extracted folders will be used for the case
 			<module-option name="password-stacking" value="useFirstPass"/>
 		</login-module>
 
-3. 
+4. 
    **For both Jboss and Tomcat**
 
    Open the file
    ``$PLATFORM_SP/standalone/configuration/gatein/exo.properties`` (for
    Jboss) or ``$PLATFORM_SP/gatein/conf/exo.properties`` (for Tomcat).
 
-.. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
+  .. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
 
-   Edit the following properties (add them if they don't exist):
 
-   ::
+  Edit the following properties (add them if they don't exist):
 
-		# SSO
-		gatein.sso.enabled=true
-		gatein.sso.saml.sp.enabled=true
-		gatein.sso.callback.enabled=${gatein.sso.enabled}
-		gatein.sso.login.module.enabled=${gatein.sso.enabled}
-		gatein.sso.filter.logout.enabled=false
-		gatein.sso.filter.login.sso.url=/@@portal.container.name@@/dologin
-		gatein.sso.filter.initiatelogin.enabled=false
-		gatein.sso.saml.config.file=${exo.conf.dir}/saml2/picketlink-sp.xml
-		gatein.sso.idp.host=www.idp.com
-		gatein.sso.idp.url=http://${gatein.sso.idp.host}:8087/portal/sso
-		gatein.sso.sp.url=http://www.sp.com:8080/portal/dologin
-		# WARNING: This bundled keystore is only for testing purposes. You should generate and use your own keystore!
-		gatein.sso.picketlink.keystore=${exo.conf.dir}/saml2/jbid_test_keystore.jks
+     ::
 
-		# Uncomment this when JBoss is used
+			# SSO
+			gatein.sso.enabled=true
+			gatein.sso.saml.sp.enabled=true
+			gatein.sso.callback.enabled=${gatein.sso.enabled}
+			gatein.sso.login.module.enabled=${gatein.sso.enabled}
+			gatein.sso.filter.logout.enabled=false
+			gatein.sso.filter.login.sso.url=/@@portal.container.name@@/dologin
+			gatein.sso.filter.initiatelogin.enabled=false
+			gatein.sso.saml.config.file=${exo.conf.dir}/saml2/picketlink-sp.xml
+			gatein.sso.idp.host=www.idp.com
+			gatein.sso.idp.url=http://${gatein.sso.idp.host}:8087/portal/sso
+			gatein.sso.sp.url=http://www.sp.com:8080/portal/dologin
+			# WARNING: This bundled keystore is only for testing purposes. You should generate and use your own keystore!
+			gatein.sso.picketlink.keystore=${exo.conf.dir}/saml2/jbid_test_keystore.jks
 
-		#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2WildflyIntegrationLoginModule
-		#gatein.sso.uri.suffix=dologin
+			# Uncomment this when JBoss is used
 
-		# Uncomment this when Tomcat is used
+			#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2WildflyIntegrationLoginModule
+			#gatein.sso.uri.suffix=dologin
 
-		#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2IntegrationLoginModule
-		#gatein.sso.valve.enabled=true
-		#gatein.sso.valve.class=org.gatein.sso.saml.plugin.valve.ServiceProviderAuthenticator
+			# Uncomment this when Tomcat is used
 
-   You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url** and
-   **gatein.sso.sp.url** according to your environment setup. You also need
-   to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
+			#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2IntegrationLoginModule
+			#gatein.sso.valve.enabled=true
+			#gatein.sso.valve.class=org.gatein.sso.saml.plugin.valve.ServiceProviderAuthenticator
 
-4. Download and import your generated IDP certificate to your keystore
+  You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url** and
+  **gatein.sso.sp.url** according to your environment setup. You also need
+  to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
+
+5. Download and import your generated IDP certificate to your keystore
    using this command:
    
    ::
 
 		keytool -import -keystore jbid_test_keystore.jks -file idp-certificate.crt -alias Identity_Provider-idp
 
-.. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
+  .. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
 
-5. Start up the platform using:
+6. Start up the platform using:
 
    **For Tomcat** Use the following command for linux Operating systems:
    
