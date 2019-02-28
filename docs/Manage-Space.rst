@@ -227,9 +227,14 @@ follows:
 
 1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
 
-2. In the Settings tab, enter a space name (required and from 3 to 30 characters) and description (from 0 to 255 characters).
+2. In the Settings tab, enter a space name (required and from 3 to 200 characters) 
+   and description (from 0 to 255 characters).
 
 |image23|
+
+.. note:: Special characters are not allowed on space names. Only the character **&** is allowed.
+           
+           |image75|
 
 .. _access-level-step:
 
@@ -879,3 +884,4 @@ deleted.
 .. |image72| image:: images/social/update_reset_space_icon.png
 .. |image73| image:: images/social/rename_space_app.png
 .. |image74| image:: images/social/Delete_space_confirmation.png
+.. |image75| image:: images/social/special_characters_space_name.png
