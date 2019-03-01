@@ -18,7 +18,7 @@ The main guides in eXo Platform documentation:
 * :ref:`reference-eXo-foundations-docs`
 * :ref:`reference-platform-docs`
 
-You can also check eXo UX Guidelines `here <http://exoplatform.github.io/ux-guidelines/>`__
+Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`__
 
 .. _whatsnew:
 
