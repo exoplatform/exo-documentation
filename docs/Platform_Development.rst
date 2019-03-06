@@ -20,9 +20,9 @@ Platform Development
        extending default implementations, and then reconfigure these new
        components in the ``configuration.xml`` file.
 
-    -  :ref:`JCR Structure <PLFRefGuide.PLFDevelopment.JCRStructure>`
+    -  :ref:`Data Structure <PLFRefGuide.PLFDevelopment.DataStructure>`
 
-       Introduction to JCR structure of eXo Platform components,
+       Introduction to Data structure of eXo Platform components,
        including Social, Calendar, Wiki, Forum, FAQ, and Poll.
 
     -  :ref:`Templates configuration <PLFRefGuide.PLFDevelopment.TemplatesConfiguration>`
@@ -1727,39 +1727,310 @@ See the following example:
    writes activities in the space activity stream when events or tasks
    are added/modified.
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure:
+.. _PLFRefGuide.PLFDevelopment.DataStructure:
 
-=============
-JCR Structure
-=============
+================
+Data Structure
+================
 
 This section consists of the following main topics:
 
--  :ref:`Calendar JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.Calendar>`
+-  :ref:`Social Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Social>`
+
+   A description of the Social Data Structure.
+
+-  :ref:`Calendar JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Calendar>`
 
    Introduction to the Calendar JCR structure, details of child nodes,
    node types and properties of the following nodes: calendars,
    eventCategories, categories, eXoCalendarFeed, YY%yyyy% and
    calendarSetting.
+   
+-  :ref:`Wiki Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Wiki>`
 
--  :ref:`Forum JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.Forum>`
+   Introduction to the whole Data structure of Wiki, and comprehensive 
+   knowledge of its main nodes: Wiki data and Wikimetadata.   
+   
+-  :ref:`Forum JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Forum>`
 
    Introduction to the whole JCR structure of Forum, and comprehensive
    knowledge of its main nodes: Forum System and Forum Data.
 
--  :ref:`FAQ JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.FAQ>`
+-  :ref:`FAQ JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.FAQ>`
 
    Introduction to the whole JCR structure of FAQ, and comprehensive
    knowledge of its main nodes: Category, FAQ setting, Template for FAQ.
 
--  :ref:`Poll JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.Poll>`
+-  :ref:`Poll JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Poll>`
 
    Introduction to the whole JCR structure of Poll, and properties of
    its node type (exo:polls).
 
 .. note:: To learn more about the JCR Structure, you should have the certain knowledge of `JCR <http://jcp.org/en/jsr/detail?id=170>`__.
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar:
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Social:
+
+Social Data structure
+~~~~~~~~~~~~~~~~~~~~~~
+
+Social data is stored in the :ref:`JPA data source <Database.ConfiguringPLF>`
+in a set of database tables as follows:
+
+|image13|
+
+Activities and comments
+-------------------------
+
+The table **SOC\_ACTIVITIES** stores all the activities and comments and has these fields:
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ACTIVITY_ID           | ID              | The unique ID of the activity or comment.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| APP_ID                | ID              | The ID of the sender application (if posted by an application).                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BODY                  | VARCHAR         | The body of the activity.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EXTERNAL_ID           | ID              |                                                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PROVIDER_ID           | VARCHAR         | The provider of the poster. Can be “organization” for users or “spaces” for spaces.|
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| HIDDEN                | BOOLEAN         | True if the activity is hidden.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The date of the last update of the activity.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LOCKED                | BOOLEAN         | True if the activity is locked.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| OWNER_ID              | VARCHAR         | The ID of the owner of the activity.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PERMALINK             | VARCHAR         | The permanent link of the activity.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| POSTED                | TIMESTAMP       | The posted date of the activity.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| POSTER_ID             | ID              | The ID of the poster of the activity.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE                 | VARCHAR         | The title of the activity.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE_ID              | ID              | The type of the title. For example “forum.add-topic” or “space_avatar_edited”.     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the activity. For example “ks-forum:spaces” or “exosocial:spaces”.     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IS_COMMENT            | BOOLEAN         | True if the activity is a comment.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARENT_ID             | ID              | The ID of the parent activity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_ACTIVITY\_LIKERS** stores the likers of an activity and the time of the like.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LIKER_ID              | ID              | The ID of the user who liked the activity.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The date of the like.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activity template.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TEMPLATE_PARAM_VALUE  | VARCHAR         | The value of the template parameter.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TEMPLATE_PARAM_KEY    | VARCHAR         | The name of the template parameter.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activoty stream.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| STREAM_ITEM_ID        | ID              | The unique ID of the stream item.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| OWNER_ID              | ID              | The ID of the owner of the stream.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STREAM_TYPE           | NUMBER          | The type of the stream. Can be :SPACE, POSTER, LIKER, COMMENTER, MENTIONER or      |
+|                       |                 | COMMENT_LIKER                                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The last updated date of the stream item.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The Table **SOC\_MENTIONS** store all the user mentions in the activity stream.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| MENTION_ID            | ID              | The unique ID of the mention.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ACTIVITY_ID           | ID              | The ID of the activity containing the mention.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| MENTIONER_ID          | VARCHAR         | The ID of the mentioner.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Spaces
+-------
+
+The table **SOC\_SPACES** stores the spaces.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SPACE_ID              | ID              | The unique ID of the space.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PRETTY_NAME           | VARCHAR         | The name of the space.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DISPLAY_NAME          | VARCHAR         | The display name of the space.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| REGISTRATION          | NUMBER          | The type of registration of the space. Can be :0 (open), 1 (validation), 2 (close) |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DESCRIPTION           | VARCHAR         | The description of the space.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AVATAR_LAST_UPDATED   | TIMESTAMP       | The date of the last update of the space avatar.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VISIBILITY            | NUMBER          | The type of visibility of the space. Can be :0 (public), 1 (private), 2 (hidden)   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PRIORITY              | NUMBER          | The type of priority of the space. Can be :0 (high), 1 (intermediate), 2 (low)     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| GROUP_ID              | ID              | The ID of the group linked to the space.                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| URL                   | VARCHAR         | The URL of the space.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the space.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the space.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BANNER_LAST_UPDATED   | TIMESTAMP       | The date of the last update of the space banner.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_SPACES\_MEMBERS** stores the list of users who are members of a given space. 
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SPACE_MEMBER_ID       | ID              | The unique ID of the space membership.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SPACE_ID              | ID              | The ID of the space.                                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| USER_ID               | ID              | The ID of the user.                                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STATUS                | NUMBER          | The status of the membership. Can be : 0 (member), 1 (manager), 2 (pending),       |
+|                       |                 | 3 (invited), 4 (ignored)	                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LAST_ACCESS           | TIMESTAMP       | The last access date of the user in the space.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VISITED               | BOOLEAN         | True if the user has already visited the space.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_APPS** stores the activated applications in each space.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SPACE_ID              | ID              | The ID of the space membership.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| APP_ID                | VARCHAR         | The ID of the application.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| APP_NAME              | VARCHAR         | The name of the application.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| REMOVABLE             | BOOLEAN         | True if the application can be removed from the space.                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STATUS                | NUMBER          | The status of the application in the space. Can be 0 (enabled) or 1 (disabled).    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Platform identities
+--------------------
+
+The table **SOC\_IDENTITIES** stores the identities of the platform. An identity 
+is a generic entity which is linked to a concrete entity like an user or a space.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PROVIDER_ID           | VARCHAR         | The provider of the poster. Can be “organization” for users or “spaces” for spaces.|
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| REMOTE_ID             | VARCHAR         | The ID of the entity linked to the identity (for example a user id or a space id). |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ENABLED               | BOOLEAN         | True if the identity is enabled.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DELETED               | BOOLEAN         | True if the identity is deleted.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AVATAR_FILE_ID        | ID              | The ID of the file of the identity avatar in the table FILES_FILES.                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the identity.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BANNER_FILE_ID        | ID              | The ID of the file of the identity banner in the table FILES_FILES.                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_IDENTITY\_PROPERTIES** stores the properties of an identity. 
+It allows to add any property to an identity.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the property of the identity.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VALUE                 | VARCHAR         | The value of the property of the identity.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_CONNECTIONS** stores the connections between identities (users, spaces, …).
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| CONNECTION_ID         | ID              | The unique ID of the connection.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER_ID             | ID              | The ID of the sender of the connection.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RECEIVER_ID           | VARCHAR         | The ID of the receiver of the connection.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STATUS                | NUMBER          | The status of the connection. Can be :                                             |
+|                       |                 | -  0 (pending - a connection request is sent by the sender, waiting for the        |
+|                       |                 |    receiver approval)                                                              |
+|                       |                 | -  1 (confirmed - the connection is setup)                                         |
+|                       |                 | -  2 (all)																		   |
+|                       |                 | -  3 (ignored)																	   |
+|                       |                 | -  4 (incoming)																	   |
+|                       |                 | -  5 (outgoing)																	   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | NUMBER          | The status of the application in the space. Can be :                               |
+|                       |                 | -  0 (enabled)																	   |
+|                       |                 | -  1 (disabled)                                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_IDENTITY\_EXPERIENCES** stores the job experiences of an identity.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| COMPANY               | VARCHAR         | The company of the experience.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| POSITION              | VARCHAR         | The position in the company for the experience.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| START_DATE            | TIMESTAMP       | The start date of the experience.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| END_DATE              | TIMESTAMP       | The end date of the experience.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SKILLS                | VARCHAR         | The skills of the experience.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DESCRIPTION           | VARCHAR         | The description of the experience.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar:
 
 Calendar JCR structure
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1775,7 +2046,7 @@ below:
 |image0|
 
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.Calendars:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.Calendars:
 
 Calendars
 -----------
@@ -1815,6 +2086,7 @@ node: **CalendarApplication/calendars/%calendar\_id%**. Its node type is
 +-----------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | exo:privateUrl        | String          | false      | The private ICAL link of the calendar.                                                                                                               |
 +-----------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 When a user shares his own calendar with other users, the Id of the
 calendar node is referred to the node under the **sharedCalendar** node:
@@ -1868,7 +2140,7 @@ The **exo:eventAttachment** node type has the following properties:
 | exo:fileName    | String          | false      | The name of the attached file.   |
 +-----------------+-----------------+------------+----------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.eventCategories:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.eventCategories:
 
 Event categories
 -----------------
@@ -1939,7 +2211,7 @@ This node type has the following properties:
 | exo:sendOption          | String          | false      | The option to notify users before sending the invitation via email: never (not sending all time), always (sending without asking) and ask (asking before sending).   |
 +-------------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.eXoCalendarFeed:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.eXoCalendarFeed:
 
 eXo Calendar feed
 -----------------
@@ -1984,7 +2256,7 @@ The **exo:caldavCalendarEvent** node type has the following properties:
 | exo:caldavEtag   | String          | false      | The tag of the remote calendar event.   |
 +------------------+-----------------+------------+-----------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.Year:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.Year:
 
 Calendar year
 --------------
@@ -2091,7 +2363,7 @@ that has the following properties:
 | exo:repeatFinishDate    | Date            | false      | The end date on which the event is repeated.                                                                                                           |
 +-------------------------+-----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.calendarSetting:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.calendarSetting:
 
 Calendar setting
 ------------------
@@ -2132,8 +2404,14 @@ stored in **CalendarApplication/calendarsetting**. The
 | exo:sendOption                | String          | false      | The option to notify users before sending an invitation via email: never (not sending all time), always (sending message without asking) and ask (asking before sending).   |
 +-------------------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Wiki:
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Forum:
+Wiki data structure
+~~~~~~~~~~~~~~~~~~~~
+
+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Forum:
 
 Forum JCR structure
 ~~~~~~~~~~~~~~~~~~~
@@ -2146,7 +2424,7 @@ can be visualized in the diagram below:
 |image1|
 
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Forum.ForumData:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Forum.ForumData:
 
 Forum data
 -----------
@@ -2521,7 +2799,7 @@ and its node type has the following properties:
 | exo:tagName       | String          | false      | The ``BBCode`` tag name.                                                                                                     |
 +-------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Forum.ForumSystem:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Forum.ForumSystem:
 
 Forum system
 -------------
@@ -2750,7 +3028,7 @@ properties:
 | exo:notifyEmailMoved      | String          | false      | Defines if the notification email will be sent when there are any moved topic/post.                   |
 +---------------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ:
 
 FAQ JCR structure
 ~~~~~~~~~~~~~~~~~~~
@@ -2761,7 +3039,7 @@ visualized in the following diagram:
 
 |image2|
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ.Category:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ.Category:
 
 Category
 ---------
@@ -2978,7 +3256,7 @@ stored under the Answer home and the Comment home node.
 | exo:fileName      | String          | false      | The name of the attachment file.   |
 +-------------------+-----------------+------------+------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ.FAQSetting:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ.FAQSetting:
 
 FAQ setting
 ------------
@@ -3003,7 +3281,8 @@ users has never changed and saved their setting.
 +--------------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------+
 | exo:sortQuestionByVote   | Boolean         | false      | All questions will be sorted by the popularity (based on the number of votes) if the value is set to "true".   |
 +--------------------------+-----------------+------------+-----------------------------------------------------------
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ.TemplateFAQ:
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ.TemplateFAQ:
 
 Template for FAQ
 ------------------
@@ -3014,7 +3293,7 @@ template online in FAQ to change the layout, skins, and more.
 -  The template is stored in an nt:file node type under the Template
    Home node: ``/exo:applications/faqApp/templateHome/nt:file``.
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Poll:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Poll:
 
 Poll JCR structure
 ~~~~~~~~~~~~~~~~~~~
@@ -5254,3 +5533,5 @@ following events when a poll is saved/closed/removed:
    :width: 1.00000cm
 .. |image12| image:: images/change_enter_mode.png
    :width: 13.00000cm
+.. |image13| image:: images/social-data-model.png
+   :width: 20.00000cm
