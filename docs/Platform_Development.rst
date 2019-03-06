@@ -1783,7 +1783,7 @@ in a set of database tables as the following:
 The table **SOC\_ACTIVITIES** stores all the activities and comments and has these fields:
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name         | Type   | Description                                                                        |
 +=======================+=================+====================================================================================+
 | ACTIVITY_ID           | ID              | The unique ID of the activity.                                                     |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
