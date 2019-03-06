@@ -1786,9 +1786,9 @@ Activities and comments
 The table **SOC\_ACTIVITIES** stores all the activities and comments and has these attributes:
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name         | Type   | Description                                                                        |
 +=======================+=================+====================================================================================+
-| ACTIVITY_ID           | ID              | The unique ID of the activity.                                                     |
+| ACTIVITY_ID           | ID              | The unique ID of the activity or comment.                                                     |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | APP_ID                | ID              | The ID of the sender application (if posted by an application).                    |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
