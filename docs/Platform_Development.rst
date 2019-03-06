@@ -1999,13 +1999,13 @@ The table **SOC\_CONNECTIONS** stores the connections between identities (users,
 |                       |                 | -  0 (pending - a connection request is sent by the sender, waiting for the        |
 |                       |                 |    receiver approval)                                                              |
 |                       |                 | -  1 (confirmed - the connection is setup)                                         |
-|                       |                 | -  2 (all)																		   |
-|                       |                 | -  3 (ignored)																	   |
-|                       |                 | -  4 (incoming)																	   |
-|                       |                 | -  5 (outgoing)																	   |
+|                       |                 | -  2 (all)									       |
+|                       |                 | -  3 (ignored)								       |
+|                       |                 | -  4 (incoming)								       |
+|                       |                 | -  5 (outgoing)								       |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | UPDATED_DATE          | NUMBER          | The status of the application in the space. Can be :                               |
-|                       |                 | -  0 (enabled)																	   |
+|                       |                 | -  0 (enabled)								       |
 |                       |                 | -  1 (disabled)                                                                    |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
