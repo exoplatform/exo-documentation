@@ -1780,7 +1780,7 @@ in a set of database tables as the following:
 
 |image13|
 
-The table **SOC\_ACTIVITIES** stores all the activities and comments and has these attributes:
+The table **SOC\_ACTIVITIES** stores all the activities and comments and has these fields:
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | Property name         | Required type   | Description                                                                        |
