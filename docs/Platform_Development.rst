@@ -1737,8 +1737,7 @@ This section consists of the following main topics:
 
 -  :ref:`Social Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Social>`
 
-   A comprehensive knowledge of the Social Data Structure that is organized to 
-   conform to the data storage for the individual purpose of Social.
+   A description of the Social Data Structure.
 
 -  :ref:`Calendar JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Calendar>`
 
@@ -1776,19 +1775,19 @@ Social Data structure
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Social data is stored in the :ref:`JPA data source <Database.ConfiguringPLF>`
-in a set of database tables as the following:
+in a set of database tables as follows:
 
 |image13|
 
 Activities and comments
 -------------------------
 
-The table **SOC\_ACTIVITIES** stores all the activities and comments and has these attributes:
+The table **SOC\_ACTIVITIES** stores all the activities and comments and has these fields:
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Name         | Type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
-| ACTIVITY_ID           | ID              | The unique ID of the activity or comment.                                                     |
+| ACTIVITY_ID           | ID              | The unique ID of the activity or comment.                                          |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | APP_ID                | ID              | The ID of the sender application (if posted by an application).                    |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1826,7 +1825,7 @@ The table **SOC\_ACTIVITIES** stores all the activities and comments and has the
 The table **SOC\_ACTIVITY\_LIKERS** stores the likers of an activity and the time of the like.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1838,7 +1837,7 @@ The table **SOC\_ACTIVITY\_LIKERS** stores the likers of an activity and the tim
 The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activity template.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1850,7 +1849,7 @@ The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activ
 The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activoty stream.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | STREAM_ITEM_ID        | ID              | The unique ID of the stream item.                                                  |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1867,7 +1866,7 @@ The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activot
 The Table **SOC\_MENTIONS** store all the user mentions in the activity stream.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | MENTION_ID            | ID              | The unique ID of the mention.                                                      |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1882,7 +1881,7 @@ Spaces
 The table **SOC\_SPACES** stores the spaces.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | SPACE_ID              | ID              | The unique ID of the space.                                                        |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1914,7 +1913,7 @@ The table **SOC\_SPACES** stores the spaces.
 The table **SOC\_SPACES\_MEMBERS** stores the list of users who are members of a given space. 
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | SPACE_MEMBER_ID       | ID              | The unique ID of the space membership.                                             |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1933,7 +1932,7 @@ The table **SOC\_SPACES\_MEMBERS** stores the list of users who are members of a
 The table **SOC\_APPS** stores the activated applications in each space.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | SPACE_ID              | ID              | The ID of the space membership.                                                    |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
@@ -1953,7 +1952,7 @@ The table **SOC\_IDENTITIES** stores the identities of the platform. An identity
 is a generic entity which is linked to a concrete entity like an user or a space.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| Property name         | Required type   | Description                                                                        |
+| Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
 | IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
