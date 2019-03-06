@@ -372,7 +372,7 @@ follows:
 
 	::
 
-			openssl x509 -outform der -in mycert.pem -out mycert.der7
+			openssl x509 -outform der -in mycert.pem -out mycert.der
 	
 	::
 
