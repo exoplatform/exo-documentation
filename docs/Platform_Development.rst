@@ -1759,6 +1759,10 @@ This section consists of the following main topics:
 
    A description of Notifications Data Structure.
 
+-  :ref:`Settings data structure <PLFRefGuide.PLFDevelopment.DataStructure.Settings>`
+
+   A description of Settings Data Structure.
+
 -  :ref:`FAQ JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.FAQ>`
 
    Introduction to the whole JCR structure of FAQ, and comprehensive
@@ -3398,6 +3402,57 @@ Table **NTF\_EMAIL\_NOTIFS\_DIGEST**
 | DIGEST_TYPE           | VARCHAR         | The type of the email notification digest. Can be “daily” or “weekly”.             |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Settings:
+
+Settings data structure
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The settings data stucture is defined by this databases diagram:
+
+|image16|
+
+Table **STG\_SCOPES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SCOPE_ID              | ID              | The unique ID of the settings scope.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the settings scope. Can be “WINDOWS”, “PAGE”, “SPACE”, “SITE”,         |
+|                       |                 | “PORTAL”, “APPLICATION” or “GLOBAL”.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | VARCHAR         | The name of the settings scope.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+
+Table **STG\_CONTEXTS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| CONTEXT_ID            | ID              | The unique ID of the settings context                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the settings context. Can be “GLOBAL” or “USER”.                       |                       
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the settings context.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **STG\_SETTINGS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SETTING_ID            | ID              | The unique ID of the settings.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the settings.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VALUE                 | VARCHAR         | The value of the setting.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CONTEXT_ID            | ID              | The ID of the context of the setting.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SCOPE_ID              | ID              | The ID of the scope of the setting.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
 
 .. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ:
 
@@ -5909,4 +5964,6 @@ following events when a poll is saved/closed/removed:
 .. |image14| image:: images/wiki-data-model.png
    :width: 20.00000cm
 .. |image15| image:: images/notifications-data-model.png
+   :width: 20.00000cm
+.. |image16| image:: images/settings-data-model.png
    :width: 20.00000cm
