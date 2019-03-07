@@ -6106,10 +6106,7 @@ following events when a poll is saved/closed/removed:
 .. |image15| image:: images/notifications-data-model.png
    :width: 15.00000cm
 .. |image16| image:: images/settings-data-model.png
-   :width: 15.00000cm
 .. |image17| image:: images/email-queue-data-model.png
-   :width: 10.00000cm
 .. |image18| image:: images/files-data-model.png
    :width: 15.00000cm
 .. |image19| image:: images/login-history-data-model.png
-   :width: 10.00000cm
