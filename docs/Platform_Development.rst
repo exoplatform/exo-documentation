@@ -6080,7 +6080,7 @@ following events when a poll is saved/closed/removed:
 .. |image2| image:: images/FAQ_JCR_Structure.png
    :width: 15.00000cm
 .. |image3| image:: images/Polls_JCR_structure.png
-   :width: 7.00000cm
+   :width: 15.00000cm
 .. |image4| image:: images/common/1.png
    :width: 0.40000cm
 .. |image5| image:: images/common/2.png
@@ -6108,8 +6108,8 @@ following events when a poll is saved/closed/removed:
 .. |image16| image:: images/settings-data-model.png
    :width: 20.00000cm
 .. |image17| image:: images/email-queue-data-model.png
-   :width: 20.00000cm
+   :width: 15.00000cm
 .. |image18| image:: images/files-data-model.png
    :width: 20.00000cm
 .. |image19| image:: images/login-history-data-model.png
-   :width: 20.00000cm
+   :width: 15.00000cm
