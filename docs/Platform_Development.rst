@@ -1748,13 +1748,16 @@ This section consists of the following main topics:
    
 -  :ref:`Wiki Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Wiki>`
 
-   Introduction to the whole Data structure of Wiki, and comprehensive 
-   knowledge of its main nodes: Wiki data and Wikimetadata.   
+   Introduction to the whole Data structure of Wiki. 
    
 -  :ref:`Forum JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Forum>`
 
    Introduction to the whole JCR structure of Forum, and comprehensive
    knowledge of its main nodes: Forum System and Forum Data.
+
+-  :ref:`Notifications data structure <PLFRefGuide.PLFDevelopment.DataStructure.Notifications>`
+
+   A description of Notifications Data Structure.
 
 -  :ref:`FAQ JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.FAQ>`
 
@@ -2557,7 +2560,7 @@ Table **WIKI\_DRAFT\_ATTACHMENTS**
 | ATTACHMENT_FILE_ID    | ID              | The unique ID of the file in the table FILES_FILES.                                |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
-Table **WIKI\_WATCHERS*
+Table **WIKI\_WATCHERS**
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | Name                  | Type            | Description                                                                        |
@@ -3284,6 +3287,117 @@ properties:
 +---------------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------+
 | exo:notifyEmailMoved      | String          | false      | Defines if the notification email will be sent when there are any moved topic/post.                   |
 +---------------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Notifications:
+
+Notifications data structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Same as for :ref:`Wiki <PLFRefGuide.PLFDevelopment.DataStructure.Wiki>` 
+and :ref:`Social <PLFRefGuide.PLFDevelopment.DataStructure.Social>` datas, 
+notifications data is also stored on :ref:`JPA data source <Database.ConfiguringPLF>`
+and it has this database structure:
+
+|image15|
+
+Web notifications
+------------------
+
+Table **NTF\_WEB\_NOTIFS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WEB_NOTIF_ID          | ID              | The unique ID of the web notification.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER                | VARCHAR         | The sender of the web notification.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the web notification.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATION_DATE         | TIMESTAMP       | The creation date of the web notification.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TEXT                  | VARCHAR         | The content of the web notification.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_WEB\_NOTIFS\_PARAMS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WEB_NOTIF_PARAMS_ID   | ID              | The unique ID of the web notification parameter.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WEB_NOTIF_ID          | ID              | The ID of the related web notification.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_NAME            | VARCHAR         | The name of the web notification parameter.                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_VALUE           | VARCHAR         | The value of the web notification parameter.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_WEB\_NOTIFS\_USERS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WEB_NOTIFS_USERS_ID   | ID              | The unique ID of the web notification user.                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WEB_NOTIF_ID          | ID              | The ID of web notification.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RECEIVER              | VARCHAR         | The receiver of the web notification.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATE_DATE           | TIMESTAMP       | The updated date of the web notification.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IS_READ               | BOOLEAN         | True if the web notification is read by the user.                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SHOW_POPOVER          | BOOLEAN         | True if the web notification must be shown is the notifications dropdown list.     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RESET_NUMBER_BADGE    | BOOLEAN         | True if the badge of the number of web notifications is reset.                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+E-mail notifications
+----------------------
+
+Table **NTF\_EMAIL\_NOTIFS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_NOTIF_ID        | ID              | The unique ID of the email notification.                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER                | VARCHAR         | The sender of the email notification.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the email notification.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATION_DATE         | TIMESTAMP       | The creation date of the email notification.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDING_ORDER         | NUMBER          | The sending order of the email notification.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_EMAIL\_NOTIFS\_PARAMS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_NOTIF_PARAMS_ID | ID              | The unique ID of the email notification parameter.                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EMAIL_NOTIF_ID        | ID              | The ID of the related email notification.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_NAME            | VARCHAR         | The name of the email notification parameter.                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_VALUE           | VARCHAR         | The value of the email notification parameter.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_EMAIL\_NOTIFS\_DIGEST**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_NOTIF_DIGEST_ID | ID              | The unique ID of the email notification digest.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EMAIL_NOTIF_ID        | ID              | The ID of the related email notification.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DIGEST_TYPE           | VARCHAR         | The type of the email notification digest. Can be “daily” or “weekly”.             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
 
 .. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ:
 
@@ -5793,4 +5907,6 @@ following events when a poll is saved/closed/removed:
 .. |image13| image:: images/social-data-model.png
    :width: 20.00000cm
 .. |image14| image:: images/wiki-data-model.png
+   :width: 20.00000cm
+.. |image15| image:: images/notifications-data-model.png
    :width: 20.00000cm
