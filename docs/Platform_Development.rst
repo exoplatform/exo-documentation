@@ -1759,6 +1759,10 @@ This section consists of the following main topics:
 
    A description of Notifications Data Structure.
 
+-  :ref:`Email queue data structure <PLFRefGuide.PLFDevelopment.DataStructure.EmailQueue>`
+
+   A description of Email queue Data Structure.
+
 -  :ref:`Settings data structure <PLFRefGuide.PLFDevelopment.DataStructure.Settings>`
 
    A description of Settings Data Structure.
@@ -3401,6 +3405,38 @@ Table **NTF\_EMAIL\_NOTIFS\_DIGEST**
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | DIGEST_TYPE           | VARCHAR         | The type of the email notification digest. Can be “daily” or “weekly”.             |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.EmailQueue:
+
+Email queue data structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image17|
+
+The database table **EMAIL\_QUEUE** stores information about emails sent via the platform.
+
+Table **EMAIL\_QUEUE**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_ID              | ID              | The unique ID of the email.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATION_DATE         | TIMESTAMP       | The creation date of the email.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the email.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER                | VARCHAR         | The sender of the email.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RECEIVER              | VARCHAR         | The receiver of the email.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SUBJECT               | VARCHAR         | The subject of the email.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BODY                  | VARCHAR         | The body of the email.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| FOOTER                | VARCHAR         | The footer of the email.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
 
 .. _PLFRefGuide.PLFDevelopment.DataStructure.Settings:
 
@@ -5966,4 +6002,6 @@ following events when a poll is saved/closed/removed:
 .. |image15| image:: images/notifications-data-model.png
    :width: 20.00000cm
 .. |image16| image:: images/settings-data-model.png
+   :width: 20.00000cm
+.. |image17| image:: images/email-queue-data-model.png
    :width: 20.00000cm
