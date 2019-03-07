@@ -1781,6 +1781,11 @@ This section consists of the following main topics:
    Introduction to the whole JCR structure of Poll, and properties of
    its node type (exo:polls).
 
+-  :ref:`Login History data structure <PLFRefGuide.PLFDevelopment.DataStructure.LoginHistory>`
+
+   A description of Login History Data Structure.
+   
+
 .. note:: To learn more about the JCR Structure, you should have the certain knowledge of `JCR <http://jcp.org/en/jsr/detail?id=170>`__.
 
 .. _PLFRefGuide.PLFDevelopment.DataStructure.Files:
@@ -3881,6 +3886,28 @@ type (exo:poll) has the following properties:
 +--------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | exo:activityId     | String          | false      | When a Poll is created, a new activity will be created. The activity Id is stored as preference between Poll and the activity. When there are any updates on the poll, the corresponding activities will be updated on the Activity Stream.   |
 +--------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.LoginHistory:
+
+Login History data structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The login history data is stored in this database table:
+
+|image19|
+
+Table **LOGIN\_HISTORY**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ID                    | ID              | The unique ID of the login history.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| USER_ID               | VARCHAR         | The ID of related user to the login history.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LOGIN_DATE            | TIMESTAMP       | The time of the last user's login date.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
 
 .. _PLFRefGuide.PLFDevelopment.TemplatesConfiguration:
 
@@ -6083,4 +6110,6 @@ following events when a poll is saved/closed/removed:
 .. |image17| image:: images/email-queue-data-model.png
    :width: 20.00000cm
 .. |image18| image:: images/files-data-model.png
+   :width: 20.00000cm
+.. |image19| image:: images/login-history-data-model.png
    :width: 20.00000cm
