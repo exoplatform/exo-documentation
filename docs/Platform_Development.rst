@@ -20,9 +20,9 @@ Platform Development
        extending default implementations, and then reconfigure these new
        components in the ``configuration.xml`` file.
 
-    -  :ref:`JCR Structure <PLFRefGuide.PLFDevelopment.JCRStructure>`
+    -  :ref:`Data Structure <PLFRefGuide.PLFDevelopment.DataStructure>`
 
-       Introduction to JCR structure of eXo Platform components,
+       Introduction to Data structure of eXo Platform components,
        including Social, Calendar, Wiki, Forum, FAQ, and Poll.
 
     -  :ref:`Templates configuration <PLFRefGuide.PLFDevelopment.TemplatesConfiguration>`
@@ -1727,39 +1727,403 @@ See the following example:
    writes activities in the space activity stream when events or tasks
    are added/modified.
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure:
+.. _PLFRefGuide.PLFDevelopment.DataStructure:
 
-=============
-JCR Structure
-=============
+================
+Data Structure
+================
 
 This section consists of the following main topics:
 
--  :ref:`Calendar JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.Calendar>`
+-  :ref:`Files Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Files>`
+
+   A description of the Files Data Structure.
+
+-  :ref:`Social Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Social>`
+
+   A description of the Social Data Structure.
+
+-  :ref:`Calendar JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Calendar>`
 
    Introduction to the Calendar JCR structure, details of child nodes,
    node types and properties of the following nodes: calendars,
    eventCategories, categories, eXoCalendarFeed, YY%yyyy% and
    calendarSetting.
+   
+-  :ref:`Wiki Data structure <PLFRefGuide.PLFDevelopment.DataStructure.Wiki>`
 
--  :ref:`Forum JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.Forum>`
+   Introduction to the whole Data structure of Wiki. 
+   
+-  :ref:`Forum JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Forum>`
 
    Introduction to the whole JCR structure of Forum, and comprehensive
    knowledge of its main nodes: Forum System and Forum Data.
 
--  :ref:`FAQ JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.FAQ>`
+-  :ref:`Notifications data structure <PLFRefGuide.PLFDevelopment.DataStructure.Notifications>`
+
+   A description of Notifications Data Structure.
+
+-  :ref:`Email queue data structure <PLFRefGuide.PLFDevelopment.DataStructure.EmailQueue>`
+
+   A description of Email queue Data Structure.
+
+-  :ref:`Settings data structure <PLFRefGuide.PLFDevelopment.DataStructure.Settings>`
+
+   A description of Settings Data Structure.
+
+-  :ref:`FAQ JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.FAQ>`
 
    Introduction to the whole JCR structure of FAQ, and comprehensive
    knowledge of its main nodes: Category, FAQ setting, Template for FAQ.
 
--  :ref:`Poll JCR structure <PLFRefGuide.PLFDevelopment.JCRStructure.Poll>`
+-  :ref:`Poll JCR structure <PLFRefGuide.PLFDevelopment.DataStructure.Poll>`
 
    Introduction to the whole JCR structure of Poll, and properties of
    its node type (exo:polls).
 
+-  :ref:`Login History data structure <PLFRefGuide.PLFDevelopment.DataStructure.LoginHistory>`
+
+   A description of Login History Data Structure.
+   
+
 .. note:: To learn more about the JCR Structure, you should have the certain knowledge of `JCR <http://jcp.org/en/jsr/detail?id=170>`__.
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Files:
+
+Files Data structure
+~~~~~~~~~~~~~~~~~~~~~
+
+Files in eXo Platform are stored in the database following this diagram:
+
+|image18|
+
+Table **FILES\_BINARY**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| BLOB_ID               | ID              | The unique ID of the binary.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the binary.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DATA                  | BLOB            | The data of the binary.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The updated date of the binary.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **FILES\_NAMESPACES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| NAMESPACE_ID          | ID              | The unique ID of the namespace.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the namespace.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DESCRIPTION           | VARCHAR         | The description of the namespace.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **FILES\_FILES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| FILE_ID               | ID              | The unique ID of the file.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAMESPACE_ID          | ID              | The ID of the namespace of the file.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the file.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| MIMETYPE              | VARCHAR         | The mimetype of the file.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| FILE_SIZE             | VARCHAR         | The size of the file.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | VARCHAR         | The updated date of the file.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATER               | VARCHAR         | The id of the user who did the last update of the file.                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+                       
+| CHECKSUM              | VARCHAR         | The checksum of the file.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DELETED               | BOOLEAN         | True if the file is deleted.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **FILES\_ORPHAN\_FILES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ID                    | ID              | The unique ID of the orphan file.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| FILE_ID               | ID              | The ID of the related file in table FILES_FILES.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DELETED_DATE          | TIMESTAMP       | The date of the deletion of the file.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CHECKSUM              | VARCHAR         | The checksum of the orphan file.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Social:
+
+Social Data structure
+~~~~~~~~~~~~~~~~~~~~~~
+
+Social data is stored in the :ref:`JPA data source <Database.ConfiguringPLF>`
+in a set of database tables as follows:
+
+|image13|
+
+Activities and comments
+-------------------------
+
+The table **SOC\_ACTIVITIES** stores all the activities and comments and has these fields:
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ACTIVITY_ID           | ID              | The unique ID of the activity or comment.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| APP_ID                | ID              | The ID of the sender application (if posted by an application).                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BODY                  | VARCHAR         | The body of the activity.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EXTERNAL_ID           | ID              |                                                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PROVIDER_ID           | VARCHAR         | The provider of the poster. Can be “organization” for users or “spaces” for spaces.|
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| HIDDEN                | BOOLEAN         | True if the activity is hidden.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The date of the last update of the activity.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LOCKED                | BOOLEAN         | True if the activity is locked.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| OWNER_ID              | VARCHAR         | The ID of the owner of the activity.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PERMALINK             | VARCHAR         | The permanent link of the activity.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| POSTED                | TIMESTAMP       | The posted date of the activity.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| POSTER_ID             | ID              | The ID of the poster of the activity.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE                 | VARCHAR         | The title of the activity.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE_ID              | ID              | The type of the title. For example “forum.add-topic” or “space_avatar_edited”.     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the activity. For example “ks-forum:spaces” or “exosocial:spaces”.     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IS_COMMENT            | BOOLEAN         | True if the activity is a comment.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARENT_ID             | ID              | The ID of the parent activity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_ACTIVITY\_LIKERS** stores the likers of an activity and the time of the like.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LIKER_ID              | ID              | The ID of the user who liked the activity.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The date of the like.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activity template.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TEMPLATE_PARAM_VALUE  | VARCHAR         | The value of the template parameter.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TEMPLATE_PARAM_KEY    | VARCHAR         | The name of the template parameter.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activoty stream.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| STREAM_ITEM_ID        | ID              | The unique ID of the stream item.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| OWNER_ID              | ID              | The ID of the owner of the stream.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STREAM_TYPE           | NUMBER          | The type of the stream. Can be :SPACE, POSTER, LIKER, COMMENTER, MENTIONER or      |
+|                       |                 | COMMENT_LIKER                                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ACTIVITY_ID           | ID              | The ID of the activity.                                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The last updated date of the stream item.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The Table **SOC\_MENTIONS** store all the user mentions in the activity stream.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| MENTION_ID            | ID              | The unique ID of the mention.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ACTIVITY_ID           | ID              | The ID of the activity containing the mention.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| MENTIONER_ID          | VARCHAR         | The ID of the mentioner.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Spaces
+-------
+
+The table **SOC\_SPACES** stores the spaces.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SPACE_ID              | ID              | The unique ID of the space.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PRETTY_NAME           | VARCHAR         | The name of the space.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DISPLAY_NAME          | VARCHAR         | The display name of the space.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| REGISTRATION          | NUMBER          | The type of registration of the space. Can be :0 (open), 1 (validation), 2 (close) |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DESCRIPTION           | VARCHAR         | The description of the space.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AVATAR_LAST_UPDATED   | TIMESTAMP       | The date of the last update of the space avatar.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VISIBILITY            | NUMBER          | The type of visibility of the space. Can be :0 (public), 1 (private), 2 (hidden)   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PRIORITY              | NUMBER          | The type of priority of the space. Can be :0 (high), 1 (intermediate), 2 (low)     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| GROUP_ID              | ID              | The ID of the group linked to the space.                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| URL                   | VARCHAR         | The URL of the space.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the space.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the space.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BANNER_LAST_UPDATED   | TIMESTAMP       | The date of the last update of the space banner.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_SPACES\_MEMBERS** stores the list of users who are members of a given space. 
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SPACE_MEMBER_ID       | ID              | The unique ID of the space membership.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SPACE_ID              | ID              | The ID of the space.                                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| USER_ID               | ID              | The ID of the user.                                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STATUS                | NUMBER          | The status of the membership. Can be : 0 (member), 1 (manager), 2 (pending),       |
+|                       |                 | 3 (invited), 4 (ignored)	                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LAST_ACCESS           | TIMESTAMP       | The last access date of the user in the space.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VISITED               | BOOLEAN         | True if the user has already visited the space.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_APPS** stores the activated applications in each space.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SPACE_ID              | ID              | The ID of the space membership.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| APP_ID                | VARCHAR         | The ID of the application.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| APP_NAME              | VARCHAR         | The name of the application.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| REMOVABLE             | BOOLEAN         | True if the application can be removed from the space.                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STATUS                | NUMBER          | The status of the application in the space. Can be 0 (enabled) or 1 (disabled).    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Platform identities
+--------------------
+
+The table **SOC\_IDENTITIES** stores the identities of the platform. An identity 
+is a generic entity which is linked to a concrete entity like an user or a space.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PROVIDER_ID           | VARCHAR         | The provider of the poster. Can be “organization” for users or “spaces” for spaces.|
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| REMOTE_ID             | VARCHAR         | The ID of the entity linked to the identity (for example a user id or a space id). |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ENABLED               | BOOLEAN         | True if the identity is enabled.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DELETED               | BOOLEAN         | True if the identity is deleted.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AVATAR_FILE_ID        | ID              | The ID of the file of the identity avatar in the table FILES_FILES.                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the identity.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BANNER_FILE_ID        | ID              | The ID of the file of the identity banner in the table FILES_FILES.                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_IDENTITY\_PROPERTIES** stores the properties of an identity. 
+It allows to add any property to an identity.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the property of the identity.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VALUE                 | VARCHAR         | The value of the property of the identity.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_CONNECTIONS** stores the connections between identities (users, spaces, …).
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| CONNECTION_ID         | ID              | The unique ID of the connection.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER_ID             | ID              | The ID of the sender of the connection.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RECEIVER_ID           | VARCHAR         | The ID of the receiver of the connection.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| STATUS                | NUMBER          | The status of the connection. Can be :                                             |
+|                       |                 | -  0 (pending - a connection request is sent by the sender, waiting for the        |
+|                       |                 |    receiver approval)                                                              |
+|                       |                 | -  1 (confirmed - the connection is setup)                                         |
+|                       |                 | -  2 (all)									       |
+|                       |                 | -  3 (ignored)								       |
+|                       |                 | -  4 (incoming)								       |
+|                       |                 | -  5 (outgoing)								       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | NUMBER          | The status of the application in the space. Can be :                               |
+|                       |                 | -  0 (enabled)								       |
+|                       |                 | -  1 (disabled)                                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+The table **SOC\_IDENTITY\_EXPERIENCES** stores the job experiences of an identity.
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| IDENTITY_ID           | ID              | The unique ID of the identity.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| COMPANY               | VARCHAR         | The company of the experience.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| POSITION              | VARCHAR         | The position in the company for the experience.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| START_DATE            | TIMESTAMP       | The start date of the experience.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| END_DATE              | TIMESTAMP       | The end date of the experience.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SKILLS                | VARCHAR         | The skills of the experience.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DESCRIPTION           | VARCHAR         | The description of the experience.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar:
 
 Calendar JCR structure
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -1775,7 +2139,7 @@ below:
 |image0|
 
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.Calendars:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.Calendars:
 
 Calendars
 -----------
@@ -1815,6 +2179,7 @@ node: **CalendarApplication/calendars/%calendar\_id%**. Its node type is
 +-----------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 | exo:privateUrl        | String          | false      | The private ICAL link of the calendar.                                                                                                               |
 +-----------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 
 When a user shares his own calendar with other users, the Id of the
 calendar node is referred to the node under the **sharedCalendar** node:
@@ -1868,7 +2233,7 @@ The **exo:eventAttachment** node type has the following properties:
 | exo:fileName    | String          | false      | The name of the attached file.   |
 +-----------------+-----------------+------------+----------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.eventCategories:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.eventCategories:
 
 Event categories
 -----------------
@@ -1939,7 +2304,7 @@ This node type has the following properties:
 | exo:sendOption          | String          | false      | The option to notify users before sending the invitation via email: never (not sending all time), always (sending without asking) and ask (asking before sending).   |
 +-------------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.eXoCalendarFeed:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.eXoCalendarFeed:
 
 eXo Calendar feed
 -----------------
@@ -1984,7 +2349,7 @@ The **exo:caldavCalendarEvent** node type has the following properties:
 | exo:caldavEtag   | String          | false      | The tag of the remote calendar event.   |
 +------------------+-----------------+------------+-----------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.Year:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.Year:
 
 Calendar year
 --------------
@@ -2091,7 +2456,7 @@ that has the following properties:
 | exo:repeatFinishDate    | Date            | false      | The end date on which the event is repeated.                                                                                                           |
 +-------------------------+-----------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Calendar.calendarSetting:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Calendar.calendarSetting:
 
 Calendar setting
 ------------------
@@ -2132,8 +2497,271 @@ stored in **CalendarApplication/calendarsetting**. The
 | exo:sendOption                | String          | false      | The option to notify users before sending an invitation via email: never (not sending all time), always (sending message without asking) and ask (asking before sending).   |
 +-------------------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Wiki:
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Forum:
+Wiki data structure
+~~~~~~~~~~~~~~~~~~~~
+
+Same as for :ref:`Social data <PLFRefGuide.PLFDevelopment.DataStructure.Social>`,
+Wiki data is stored in :ref:`JPA data source <Database.ConfiguringPLF>`
+in a set of database tables as follows:
+
+|image14|
+
+Table **WIKI\_WIKIS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WIKI_ID               | ID              | The unique ID of the wiki.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the wiki.                                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| OWNER                 | VARCHAR         | The owner of the wiki.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the wiki. Can be “PORTAL”, “GROUP” or “USER”.                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_HOME             | Fk              | The ID of the home page of the wiki.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SYNTAX                | VARCHAR         | The default Wiki syntax of the wiki.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ALLOW_MULTI_SYNTAX    | BOOLEAN       | Specifies whether multiple syntaxes are enabled or not.                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_PAGES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| PAGE_ID               | ID              | The unique ID of the wiki page.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_ID               | FK              | The ID of the wiki of the page.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARENT_PAGE_ID        | FK              | The ID of the parent page.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AUTHOR                | VARCHAR         |The last user who updated the page.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the wiki page.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| OWNER                 | VARCHAR         | The owner (creator) of the wiki page.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the page.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The last update date of the page.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CONTENT               | VARCHAR         | The content of the page.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SYNTAX                | VARCHAR         | The default Wiki syntax of the wiki page.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE                 | VARCHAR         | The title of the wiki page.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EDITION_COMMENT       | VARCHAR         | The default Wiki syntax of the wiki page.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| URL                   | VARCHAR         | The URL of the wiki page.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| MINOR_EDIT            | BOOLEAN         | True if the last version of the  page is a minor edition.                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ACTIVITY_ID           | VARCHAR         | The ID of the activity linked to the wiki page.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DELETED               | BOOLEAN         | True if the page is deleted.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_TEMPLATES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| TEMPLATE_ID           | ID              |The unique ID of the template.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_ID               | ID              | The unique ID of the wiki of the page.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AUTHOR                | VARCHAR         | The author of the template.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the template.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DESCRIPTION           | VARCHAR         | The description of the template.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CONTENT               | VARCHAR         | The content of the template.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SYNTAX                | VARCHAR         |The default Wiki syntax of the template.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE                 | VARCHAR         | The title of the template.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the template.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The last update date of the template.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_WIKI\_PERMISSIONS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WIKI_ID               | ID              | The unique ID of the wiki.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_IDENTITY         | VARCHAR         | The identity of the entity (can be an user, a group or “any”).                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IDENTITY_TYPE         | VARCHAR         | The identity type. Can be “USER” or “MEMBERSHIP”.                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PERMISSION            | VARCHAR         | The permission type. Can be “VIEWPAGE”, “EDITPAGE”, “ADMINPAGE” or “ADMINSPACE”.   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_DRAFT\_PAGES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| DRAFT_PAGE_ID         | ID              | The unique ID of the wiki draft page.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TARGET_PAGE_ID        | ID              | The ID of the target page.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TARGET_PAGE_VERSION   | VARCHAR         |The version of the target page.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NEW_PAGE              | BOOLEAN         | True if this is the draft of a new page.                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AUTHOR                | VARCHAR         | The author of the wiki draft page.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the wiki draft page.                                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE                 | VARCHAR         | The title of the wiki draft page.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CONTENT               | VARCHAR         | The content of the wiki draft page.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SYNTAX                | VARCHAR         | The default Wiki syntax of the wiki draft page.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the wiki draft page.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The last update date of the wiki draft page.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_DRAFT\_ATTACHMENTS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ATTACHMENT_ID         | ID              | The unique ID of the wiki draft page attachment.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DRAFT_PAGE_ID         | ID              | The unique ID of the wiki draft page attachment.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the wiki draft page attachment.                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| FULL_TITLE            | VARCHAR         | The title of the wiki draft page attachment.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ATTACHMENT_FILE_ID    | ID              | The unique ID of the file in the table FILES_FILES.                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_WATCHERS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| USERNAME              | VARCHAR         | The username of the watcher.                                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PAGE_ID               | VARCHAR         | The ID of the watched page.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_PAGE\_ATTACHMENTS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ATTACHMENT_ID         | ID              |The unique ID of the wiki page attachment.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_PAGE_ID          | ID              | The unique ID of the wiki page attachment.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the wiki page attachment.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| FULL_TITLE            | VARCHAR         | The title of the wiki page attachment.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| ATTACHMENT_FILE_ID    | ID              | The unique ID of the file in the table FILES_FILES.                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_PAGE\_VERSIONS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| PAGE_VERSION_ID       | ID              | The unique ID of the wiki page version.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VERSION_NUMBER        | NUMBER          | The number of the page version.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| AUTHOR                | VARCHAR         | The last user who updated the page version.                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the wiki page version.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TITLE                 | VARCHAR         | The title of the wiki page version.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The creation date of the page version.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATED_DATE          | TIMESTAMP       | The last update date of the page version.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CONTENT               | VARCHAR         | The content of the page version                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SYNTAX                | VARCHAR         | The default Wiki syntax of the wiki page version.                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EDITION_COMMENT       | VARCHAR         | The default Wiki syntax of the wiki page version.                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| MINOR_EDIT            | BOOLEAN         | True if this version of the page is a minor edition.                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PAGE_ID               | FK              | The unique ID of the wiki page of the version.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_PAGES\_RELATED\_PAGES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| PAGE_ID               | ID              | The unique ID of the wiki page.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RELATED_PAGE_ID       | ID              | The unique ID of the related wiki page.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_PAGE\_PERMISSIONS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| PAGE_ID               | ID              | The unique ID of the wiki page.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_IDENTITY         | VARCHAR         | The identity of the entity (can be an user, a group or “any”).                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IDENTITY_TYPE         | VARCHAR         | The identity type. Can be “USER” or “MEMBERSHIP”.                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PERMISSION            | VARCHAR         | The permission type. Can be “VIEWPAGE”, or “EDITPAGE”.                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_PAGE\_MOVES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| PAGE_MOVE_ID          | ID              | The unique ID of the page move.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_TYPE             | VARCHAR         | The type of the wiki of the page.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WIKI_OWNER            | VARCHAR         | The owner of the wiki of the page.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PAGE_NAME             | BOOLEAN         | The name of the wiki page.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATED_DATE          | TIMESTAMP       | The date of the page move.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PAGE_ID               | ID              | The unique ID of the wiki page.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **WIKI\_EMOTION\_ICONS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMOTION_ICON_ID       | ID              | The unique ID of the emotion icon.                                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the emotion icon.                                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IMAGE                 | BLOB            | The emotion icon binary.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Forum:
 
 Forum JCR structure
 ~~~~~~~~~~~~~~~~~~~
@@ -2146,7 +2774,7 @@ can be visualized in the diagram below:
 |image1|
 
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Forum.ForumData:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Forum.ForumData:
 
 Forum data
 -----------
@@ -2521,7 +3149,7 @@ and its node type has the following properties:
 | exo:tagName       | String          | false      | The ``BBCode`` tag name.                                                                                                     |
 +-------------------+-----------------+------------+------------------------------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Forum.ForumSystem:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Forum.ForumSystem:
 
 Forum system
 -------------
@@ -2750,7 +3378,201 @@ properties:
 | exo:notifyEmailMoved      | String          | false      | Defines if the notification email will be sent when there are any moved topic/post.                   |
 +---------------------------+-----------------+------------+-------------------------------------------------------------------------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Notifications:
+
+Notifications data structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Same as for :ref:`Wiki <PLFRefGuide.PLFDevelopment.DataStructure.Wiki>` 
+and :ref:`Social <PLFRefGuide.PLFDevelopment.DataStructure.Social>` datas, 
+notifications data is also stored on :ref:`JPA data source <Database.ConfiguringPLF>`
+and it has this database structure:
+
+|image15|
+
+Web notifications
+------------------
+
+Table **NTF\_WEB\_NOTIFS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WEB_NOTIF_ID          | ID              | The unique ID of the web notification.                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER                | VARCHAR         | The sender of the web notification.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the web notification.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATION_DATE         | TIMESTAMP       | The creation date of the web notification.                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TEXT                  | VARCHAR         | The content of the web notification.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_WEB\_NOTIFS\_PARAMS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WEB_NOTIF_PARAMS_ID   | ID              | The unique ID of the web notification parameter.                                   |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WEB_NOTIF_ID          | ID              | The ID of the related web notification.                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_NAME            | VARCHAR         | The name of the web notification parameter.                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_VALUE           | VARCHAR         | The value of the web notification parameter.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_WEB\_NOTIFS\_USERS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| WEB_NOTIFS_USERS_ID   | ID              | The unique ID of the web notification user.                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| WEB_NOTIF_ID          | ID              | The ID of web notification.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RECEIVER              | VARCHAR         | The receiver of the web notification.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| UPDATE_DATE           | TIMESTAMP       | The updated date of the web notification.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| IS_READ               | BOOLEAN         | True if the web notification is read by the user.                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SHOW_POPOVER          | BOOLEAN         | True if the web notification must be shown is the notifications dropdown list.     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RESET_NUMBER_BADGE    | BOOLEAN         | True if the badge of the number of web notifications is reset.                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+E-mail notifications
+----------------------
+
+Table **NTF\_EMAIL\_NOTIFS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_NOTIF_ID        | ID              | The unique ID of the email notification.                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER                | VARCHAR         | The sender of the email notification.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the email notification.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATION_DATE         | TIMESTAMP       | The creation date of the email notification.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDING_ORDER         | NUMBER          | The sending order of the email notification.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_EMAIL\_NOTIFS\_PARAMS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_NOTIF_PARAMS_ID | ID              | The unique ID of the email notification parameter.                                 |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EMAIL_NOTIF_ID        | ID              | The ID of the related email notification.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_NAME            | VARCHAR         | The name of the email notification parameter.                                      |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| PARAM_VALUE           | VARCHAR         | The value of the email notification parameter.                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **NTF\_EMAIL\_NOTIFS\_DIGEST**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_NOTIF_DIGEST_ID | ID              | The unique ID of the email notification digest.                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| EMAIL_NOTIF_ID        | ID              | The ID of the related email notification.                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| DIGEST_TYPE           | VARCHAR         | The type of the email notification digest. Can be “daily” or “weekly”.             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.EmailQueue:
+
+Email queue data structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image17|
+
+The database table **EMAIL\_QUEUE** stores information about emails sent via the platform.
+
+Table **EMAIL\_QUEUE**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| EMAIL_ID              | ID              | The unique ID of the email.                                                        |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CREATION_DATE         | TIMESTAMP       | The creation date of the email.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the email.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SENDER                | VARCHAR         | The sender of the email.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| RECEIVER              | VARCHAR         | The receiver of the email.                                                         |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SUBJECT               | VARCHAR         | The subject of the email.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| BODY                  | VARCHAR         | The body of the email.                                                             |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| FOOTER                | VARCHAR         | The footer of the email.                                                           |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Settings:
+
+Settings data structure
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+The settings data stucture is defined by this databases diagram:
+
+|image16|
+
+Table **STG\_SCOPES**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SCOPE_ID              | ID              | The unique ID of the settings scope.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the settings scope. Can be “WINDOWS”, “PAGE”, “SPACE”, “SITE”,         |
+|                       |                 | “PORTAL”, “APPLICATION” or “GLOBAL”.                                               |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | VARCHAR         | The name of the settings scope.                                                    |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+
+
+Table **STG\_CONTEXTS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| CONTEXT_ID            | ID              | The unique ID of the settings context                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| TYPE                  | VARCHAR         | The type of the settings context. Can be “GLOBAL” or “USER”.                       |                       
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the settings context.                                                  |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+Table **STG\_SETTINGS**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| SETTING_ID            | ID              | The unique ID of the settings.                                                     |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| NAME                  | VARCHAR         | The name of the settings.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| VALUE                 | VARCHAR         | The value of the setting.                                                          |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| CONTEXT_ID            | ID              | The ID of the context of the setting.                                              |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| SCOPE_ID              | ID              | The ID of the scope of the setting.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ:
 
 FAQ JCR structure
 ~~~~~~~~~~~~~~~~~~~
@@ -2761,7 +3583,7 @@ visualized in the following diagram:
 
 |image2|
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ.Category:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ.Category:
 
 Category
 ---------
@@ -2978,7 +3800,7 @@ stored under the Answer home and the Comment home node.
 | exo:fileName      | String          | false      | The name of the attachment file.   |
 +-------------------+-----------------+------------+------------------------------------+
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ.FAQSetting:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ.FAQSetting:
 
 FAQ setting
 ------------
@@ -3003,7 +3825,8 @@ users has never changed and saved their setting.
 +--------------------------+-----------------+------------+----------------------------------------------------------------------------------------------------------------+
 | exo:sortQuestionByVote   | Boolean         | false      | All questions will be sorted by the popularity (based on the number of votes) if the value is set to "true".   |
 +--------------------------+-----------------+------------+-----------------------------------------------------------
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.FAQ.TemplateFAQ:
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.FAQ.TemplateFAQ:
 
 Template for FAQ
 ------------------
@@ -3014,7 +3837,7 @@ template online in FAQ to change the layout, skins, and more.
 -  The template is stored in an nt:file node type under the Template
    Home node: ``/exo:applications/faqApp/templateHome/nt:file``.
 
-.. _PLFRefGuide.PLFDevelopment.JCRStructure.Poll:
+.. _PLFRefGuide.PLFDevelopment.DataStructure.Poll:
 
 Poll JCR structure
 ~~~~~~~~~~~~~~~~~~~
@@ -3063,6 +3886,28 @@ type (exo:poll) has the following properties:
 +--------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | exo:activityId     | String          | false      | When a Poll is created, a new activity will be created. The activity Id is stored as preference between Poll and the activity. When there are any updates on the poll, the corresponding activities will be updated on the Activity Stream.   |
 +--------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+.. _PLFRefGuide.PLFDevelopment.DataStructure.LoginHistory:
+
+Login History data structure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The login history data is stored in this database table:
+
+|image19|
+
+Table **LOGIN\_HISTORY**
+
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| Name                  | Type            | Description                                                                        |
++=======================+=================+====================================================================================+
+| ID                    | ID              | The unique ID of the login history entry.                                                |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| USER_ID               | VARCHAR         | The ID of related user to the login history entry.                                       |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+| LOGIN_DATE            | TIMESTAMP       | The date of the login history entry                                            |
++-----------------------+-----------------+------------------------------------------------------------------------------------+
+
 
 .. _PLFRefGuide.PLFDevelopment.TemplatesConfiguration:
 
@@ -5235,7 +6080,7 @@ following events when a poll is saved/closed/removed:
 .. |image2| image:: images/FAQ_JCR_Structure.png
    :width: 15.00000cm
 .. |image3| image:: images/Polls_JCR_structure.png
-   :width: 7.00000cm
+   :width: 10.00000cm
 .. |image4| image:: images/common/1.png
    :width: 0.40000cm
 .. |image5| image:: images/common/2.png
@@ -5254,3 +6099,14 @@ following events when a poll is saved/closed/removed:
    :width: 1.00000cm
 .. |image12| image:: images/change_enter_mode.png
    :width: 13.00000cm
+.. |image13| image:: images/social-data-model.png
+   :width: 20.00000cm
+.. |image14| image:: images/wiki-data-model.png
+   :width: 20.00000cm
+.. |image15| image:: images/notifications-data-model.png
+   :width: 15.00000cm
+.. |image16| image:: images/settings-data-model.png
+.. |image17| image:: images/email-queue-data-model.png
+.. |image18| image:: images/files-data-model.png
+   :width: 15.00000cm
+.. |image19| image:: images/login-history-data-model.png
