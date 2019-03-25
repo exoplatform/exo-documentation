@@ -200,9 +200,9 @@ Contact Information
 +----------------------+-----------------------------------------------------+
 
     .. note:: You can also change the above information in the Account Profiles
-				tab by clicking your display name, then select Settings from the
-				drop-down menu. These changes will be automatically synchronized
-				with details in the Contact information of your profile and vice versa.
+	      tab by clicking your display name, then select Settings from the
+	      drop-down menu. These changes will be automatically synchronized
+	      with details in the Contact information of your profile and vice versa.
 
 +----------------------+-----------------------------------------------------+
 | Avatar               | The representative picture of user. If it is not    |
@@ -210,7 +210,7 @@ Contact Information
 +----------------------+-----------------------------------------------------+
 | Job Title            | The job position. Note that the information entered |
 |                      | in the field will be retrieved when you             |
-|					   |  :ref:`search for contacts <SearchingForContact>    | 
+|		       |  :ref:`search for contacts <SearchingForContact>`   | 
 +----------------------+-----------------------------------------------------+
 | Gender               | The gender of user. Select your gender from the     |
 |                      | select box, either male or female.                  |
