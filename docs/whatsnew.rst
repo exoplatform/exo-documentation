@@ -15,77 +15,79 @@ Many great enhancements come up in eXo Platform 5.2. Thanks to eXo teams
 and Community members who participated by contributing ideas, discussing 
 and voting for the new features.
 
-**Chat UX and UI Improvement**
+Functional features
+~~~~~~~~~~~~~~~~~~~~
 
-eXo Chat application was redesigned in order to:
+**:ref:`Spaces Administration <UserGuide.AdministratingSpaces>`**
 
-- Make it easier to use 
+With the spaces administration new feature it is possible to define:
 
-- Facilitate the way to sort and filter discussions
+- Who can create new spaces
 
-A new Ux was also introduced for mobile users.
+- Who can manage spaces
+
 
 |image0|
 
-**Leave Chat Room**
+**:ref:`Edit activities and comments <Editing-Activities>`**
 
-
-In addition to improving the Chat UI and UX, a new feature is added to
-the 5.1 version: The possibility to the user to leave a chat room by 
-himself.
+With eXo Platform 5.2, you can now edit your activities and comments.
 
 |image1|
 
+**:ref:`Empty choice for gender field <About-me>`
+
+It is possible to choose to not reveal your gender by selecting the empty choice.
+
+**:ref:`Mark all as read in All Notifications page <On-site>`**
+
+You can mark your all on-site notifications as read only by one click.
+
 |image2|
 
-**Mobile push notifications**
+**:ref:`Number of unread messages in the browser tab <On-site>`**
 
-With the 5.1 version, you are instantly notified about news in your 
-community through the mobile push notifications for Android and iOS 
-mobile devives.
+When you are not on the platform webpage and that you receive chat messages,
+a number of the unread messages appears in the tab to grab your attention.
 
 |image3|
 
+**:ref:`Turn back the default avatar or banner <On-site>`**
+
+With eXo Platform 5.2, you can revert your chosen banner or avatar and back to the default one.
+It is also applicable for space banners and avatars.
+
 |image4|
 
-**Move "Connect" button to the profile banner**
+UX features
+~~~~~~~~~~~~
 
-The connect button has been moved in the profile banner same as for the 
-Chat and Call buttons.
-This move aims to facilitate user's connections from their profiles and 
-also to facilitate the accept or deny request.
+**:ref:`Search bar filter in chat <Use-search-bar>`**
+
+When you use the search bar to filter chat rooms, you can easily clear your filter
+by clickin on the cross icon.
 
 |image5|
 
+**:ref:`Create event drawer <CreatingNewEvent>`**
+
+The create event popup was redesigned for better usability and ergonomy.
+
 |image6|
+ 
+**:ref:`Badge of new received messages in the mini chat <miniChat>`**
 
-**Tasks permission**
-
-Managing tasks permission is, henceforth, assigned to some roles such as:
-The tasks project manager, the task's creator and the task's reporter.
-
-**Share file improvement suggestion**
-
-The "Add user" button is removed to make easier the file sharing. You 
-just need to select users, the right to attribute and then share the 
-file.
+When you scroll up into the mini chat discussion and that your interlocutor 
+sends you new chat messages, a badge with the number of unread messages appears 
+near to the display name.
 
 |image7|
 
-**Welcome to my Wiki**
+In addition to the above UX improvements, we also:
 
-In the wiki application, no more generic message, you will have a 
-welcome page having the location specification. For example, if you are 
-in a personal wiki application, you will got this messge "Welcome to 
-user's name wiki".
+-  Added more spacing at  the left and right of the activities for a better vision.
 
-|image8|
- 
-If you are in a space's wiki, you will see the message "Welcome to 
-space's name wiki".
-
-|image9|
-
+-  Unified the "Show more" button with the new UX style used in eXo Platform.
 
 .. _TechnicalNovelties:
 
@@ -139,13 +141,12 @@ storage:
 
 
 
-.. |image0| image:: images/Chat-UI-UX.png
-.. |image1| image:: images/Leave-room.png
-.. |image2| image:: images/Leave-room-2.png
-.. |image3| image:: images/mobile-push1.png
-.. |image4| image:: images/mobile-push2.png
-.. |image5| image:: images/Connect-button1.png
-.. |image6| image:: images/Connect-button2.png
-.. |image7| image:: images/Share-file.png
-.. |image8| image:: images/usersWiki.png
-.. |image9| image:: images/spaceWiki.png
+.. |image0| image:: images/platform/SpacesAdministration.png
+.. |image1| image:: images/platform/delete_edit.png
+.. |image2| image:: images/social/MArkAllRead.png
+.. |image3| image:: images/social/Notifications_Web_tab.png
+.. |image4| image:: images/social/update_reset_banner.png
+.. |image5| image:: images/chat/filter_3.png
+.. |image6| image:: images/calendar/Add_event_drawer.png
+.. |image7| image:: images/chat/unread_chat_msg.png
+
