@@ -95,49 +95,29 @@ In addition to the above UX improvements, we also:
 Technical novelties in eXo Platform 5.2
 ========================================
 
-**Upgrades**
+**Security**
 
-eXo Platform 5.1 now supports JBoss EAP 7.1. This new version comes with 
-some `improvements <https://www.redhat.com/en/blog/red-hat-releases-jboss-eap-71>`__ 
-and fixes some issues which impacted eXo Platform:
+In eXo Platform 5.2 we continued our effort on improving the security by 
+changing some permissions and avoiding the WebDAV browsing into JCR folders.
 
-  -  "Remember me" token not recognized in Jboss EAP 7.0 (`PLF-7787 <https://jira.exoplatform.org/browse/PLF-7787>`__)
-  
-  -  Instance id of a cluster node is not added on the JSESSIONID cookie (`PLF-7854 <https://jira.exoplatform.org/browse/PLF-7854>`__)
+**Platform RDBMS**
 
-**Performances and scalability**
+As we made in previos versions, we decreased the usage of JCR to store data 
+and we opted to the **data base** to store data related to :
 
-In eXo Platform 5.1 we continued our effort on improving the performance 
-and the scalability by changing some strategies, configurations and data 
-storage:
+-  Product information
+-  Login history
+-  Wiki
+-  Files
+-  Social
+-  Activities and comments
+-  Notifications
+-  Email queue
+-  Settings
 
--  Users/Groups/Roles import in database: a new job is implemented to 
-   import IDM data  in IDM database asynchronously and periodically.
-  
--  Smarter data user synchronization: only mandatory data are imported 
-   in database during synchronization, other user's data are imported on 
-   login or when it is required (lazy import).
-  
-**Migrations**
+You can learn more about our data structure through 
+:ref:`this tutorial <PLFRefGuide.PLFDevelopment.DataStructure>`.
 
--  As cited in the previous section, eXo Chat has a new design. 
-   Moreover, from a technical point of view, it has been implemented 
-   using a new frontend framework (Vue.js).
-
--  Chat favorites data has also been changed. An upgrade plugin runs on 
-   eXo Platform 5.1 startup to migrate existing data to the new format.
-
-**Some others Improvements**
-
--  Harmonize cache configuration in cluster and local modes.
-
--  Improve Mbean cache naming: All caches are now named with the 
-   following pattern: ``<project>.<cacheName>``
-
--  ``cluster.node.name`` parameter automatically generated when not set.
-
--  ``upgrade.properties file`` is not needed anymore, upgrade plugins 
-   are automatically triggered.
 
 
 
