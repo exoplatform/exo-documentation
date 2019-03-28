@@ -20,7 +20,7 @@ Functional features
 
 :ref:`Spaces Administration <UserGuide.AdministratingSpaces>`
 
-With the spaces administration feature, it is now possible centrally to define:
+With the spaces administration feature, it is now possible to define:
 
 - Who can create new spaces
 - Who can manage spaces
@@ -116,7 +116,6 @@ to store data. Now, the following components rely on the relational
 -  Wiki
 -  Files
 -  Social
--  Activities and comments
 -  Notifications
 -  Email queue
 -  Settings
