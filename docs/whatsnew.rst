@@ -107,7 +107,7 @@ change some default permissions to avoid folder listing cases through WebDAV.
 
 **Platform RDBMS**
 
-As in previous versions, we continued to decrease our dependency on JCR 
+We continued to decrease our dependency on JCR 
 to store data. Now, the following components rely on the relational 
 **database** storage for better speed and manageability :
 
