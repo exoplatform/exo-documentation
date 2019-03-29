@@ -20,7 +20,7 @@ Functional features
 
 :ref:`Spaces Administration <UserGuide.AdministratingSpaces>`
 
-With the spaces administration feature, it is now possible to define:
+With the spaces administration feature, administrators now have a way to define:
 
 - Who can create new spaces
 - Who can manage spaces
