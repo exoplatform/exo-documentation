@@ -58,7 +58,7 @@ you're working on other browser tabs.
 
 :ref:`Reset the default avatar or banner <On-site>`
 
-You can revert your banner or avatar by resetting to the default one.
+Users can now reset their banner or avatar by reverting to the default one.
 It is also applicable for spaces.
 
 |image4|
