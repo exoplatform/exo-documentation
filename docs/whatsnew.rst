@@ -89,7 +89,7 @@ next to the display name.
 
 |image7|
 
-In addition to the above UX improvements, we also:
+We also tweaked some UIs :
 
 -  Added more spacing at the left and right of the activities for a better readability.
 -  Unified the "Show more" button with the new UX style used accross eXo Platform.
