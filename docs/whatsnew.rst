@@ -42,7 +42,7 @@ User can now decide to not indicate their gender on their profile.
 
 :ref:`Mark all as read in All Notifications page <On-site>`
 
-You can mark your all on-site notifications as read with a single click.
+Users can mark their all on-site notifications as read with a single click.
 
 |image2|
 
