@@ -63,7 +63,7 @@ It is also applicable for spaces.
 
 |image4|
 
-UX features
+Other user experience improvements
 ~~~~~~~~~~~~
 
 :ref:`Search bar filter in chat <Use-search-bar>`
