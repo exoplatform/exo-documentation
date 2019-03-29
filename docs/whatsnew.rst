@@ -120,7 +120,7 @@ for data persistence. Now, the following components rely on the relational
 -  Email queue
 -  Settings
 
-You can learn more about our data structure through 
+You can learn more about all data structures in 
 :ref:`this tutorial <PLFRefGuide.PLFDevelopment.DataStructure>`.
 
 
