@@ -30,7 +30,7 @@ With the spaces administration feature, administrators now have a way to define:
 
 :ref:`Edit activities and comments <Editing-Activities>`
 
-With eXo Platform 5.2, you can now edit your own activities and comments in the activity stream.
+Users can now edit their own activities and comments in the activity stream.
 
 |image1|
 
