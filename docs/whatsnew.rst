@@ -102,7 +102,7 @@ Technical novelties in eXo Platform 5.2
 
 **Security**
 
-In eXo Platform 5.2 we continued our effort on improving the security by 
+Our continuous effort to improve security lead us to 
 changing some permissions and avoiding folder listing through WebDAV.
 
 **Platform RDBMS**
