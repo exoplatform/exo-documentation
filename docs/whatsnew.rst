@@ -37,7 +37,7 @@ Users can now edit their own activities and comments in the activity stream.
 
 :ref:`Empty choice for gender field <About-me>`
 
-It is possible to choose to not reveal your gender by selecting the empty choice.
+User can now decide to not indicate their gender on their profile.
 
 
 :ref:`Mark all as read in All Notifications page <On-site>`
