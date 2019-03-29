@@ -68,7 +68,7 @@ Other user experience improvements
 
 :ref:`Search bar filter in chat <Use-search-bar>`
 
-When you use the search filter in chat rooms, you can now easily clear your filter
+Clear more easily the search filter in chat rooms, simply
 by clicking on the cross icon.
 
 |image5|
