@@ -49,7 +49,7 @@ Users can mark their all on-site notifications as read with a single click.
 
 :ref:`Number of unread messages in the browser tab <On-site>`
 
-The number of the unread chat messages now appears dynamically in the tab 
+The number of the unread chat messages is now dynamically updated in the page title  
 title so you can know there is something requiring your attention even when 
 you're working on other browser tabs.
 
