@@ -37,7 +37,7 @@ Users can now edit their own activities and comments in the activity stream.
 
 :ref:`Empty choice for gender field <About-me>`
 
-User can now decide to not indicate their gender on their profile.
+Users can now decide to not indicate their gender on their profile.
 
 
 :ref:`Mark all as read in All Notifications page <On-site>`
@@ -50,8 +50,9 @@ Users can mark their all on-site notifications as read with a single click.
 :ref:`Number of unread messages in the browser tab <On-site>`
 
 The number of the unread chat messages is now dynamically updated in the page title  
-so that users can easily know when there is something requiring their attention just by
-you're working on other browser tabs.
+so that users can easily know when there is something requiring their attention just 
+by looking at the titles of the browser tabs
+
 
 |image3|
 
@@ -64,7 +65,7 @@ It is also applicable for spaces.
 |image4|
 
 Other user experience improvements
-~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 :ref:`Search bar filter in chat <Use-search-bar>`
 
@@ -83,9 +84,8 @@ Creating a new event has been redesigned as an elegant drawer panel for better u
  
 :ref:`Badge of new received messages in the mini chat <miniChat>`
 
-When you scroll down into the mini chat discussion and that your interlocutor 
-sends you new chat messages, a badge with the number of unread messages appears 
-next to the display name.
+Keep track of what you've not yet read in mini chat thanks to a badge showing 
+the number of unread messages.
 
 |image7|
 
