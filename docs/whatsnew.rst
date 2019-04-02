@@ -12,80 +12,86 @@ New features in eXo Platform 5.2?
 ==================================
 
 Many great enhancements come up in eXo Platform 5.2. Thanks to eXo teams 
-and Community members who participated by contributing ideas, discussing 
+and community members who participated by contributing ideas, discussing 
 and voting for the new features.
 
-**Chat UX and UI Improvement**
+Functional features
+~~~~~~~~~~~~~~~~~~~~
 
-eXo Chat application was redesigned in order to:
+:ref:`Spaces Administration <UserGuide.AdministratingSpaces>`
 
-- Make it easier to use 
+With the spaces administration feature, administrators now have a way to define:
 
-- Facilitate the way to sort and filter discussions
-
-A new Ux was also introduced for mobile users.
+- Who can create new spaces
+- Who can manage spaces
 
 |image0|
 
-**Leave Chat Room**
 
+:ref:`Edit activities and comments <Editing-Activities>`
 
-In addition to improving the Chat UI and UX, a new feature is added to
-the 5.1 version: The possibility to the user to leave a chat room by 
-himself.
+Users can now edit their own activities and comments in the activity stream.
 
 |image1|
 
+
+:ref:`Empty choice for gender field <About-me>`
+
+Users can now decide to not indicate their gender on their profile.
+
+
+:ref:`Mark all as read in All Notifications page <On-site>`
+
+Users can now mark all their on-site notifications as read with a single click.
+
 |image2|
 
-**Mobile push notifications**
 
-With the 5.1 version, you are instantly notified about news in your 
-community through the mobile push notifications for Android and iOS 
-mobile devives.
+:ref:`Number of unread messages in the browser tab <On-site>`
+
+The number of unread chat messages is now dynamically added to the page title  
+so that users can easily know when there is something requiring their attention just 
+by looking at their browser tab.
+
 
 |image3|
 
+
+:ref:`Reset the default avatar or banner <On-site>`
+
+Users can now reset their profile banner and picture by reverting to the default one.
+It is also applicable for spaces' banners and logos.
+
 |image4|
 
-**Move "Connect" button to the profile banner**
+Other user experience improvements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The connect button has been moved in the profile banner same as for the 
-Chat and Call buttons.
-This move aims to facilitate user's connections from their profiles and 
-also to facilitate the accept or deny request.
+:ref:`Search bar filter in chat <Use-search-bar>`
+
+Clear more easily the search filter in chat rooms, simply
+by clicking on the cross icon.
 
 |image5|
 
+
+:ref:`Create event drawer <CreatingNewEvent>`
+
+Creating a new event has been redesigned as an elegant drawer panel for better usability:
+
 |image6|
+ 
+ 
+:ref:`Unread messages badge in mini chat <miniChat>`
 
-**Tasks permission**
-
-Managing tasks permission is, henceforth, assigned to some roles such as:
-The tasks project manager, the task's creator and the task's reporter.
-
-**Share file improvement suggestion**
-
-The "Add user" button is removed to make easier the file sharing. You 
-just need to select users, the right to attribute and then share the 
-file.
+Keep track of unread messages that arrive while you've scrolled up.
 
 |image7|
 
-**Welcome to my Wiki**
+We also tweaked some UIs :
 
-In the wiki application, no more generic message, you will have a 
-welcome page having the location specification. For example, if you are 
-in a personal wiki application, you will got this messge "Welcome to 
-user's name wiki".
-
-|image8|
- 
-If you are in a space's wiki, you will see the message "Welcome to 
-space's name wiki".
-
-|image9|
-
+-  Added more spacing at the left and right of the activities for a better readability.
+-  Unified the "Show more" button with the new style used across eXo Platform.
 
 .. _TechnicalNovelties:
 
@@ -93,59 +99,36 @@ space's name wiki".
 Technical novelties in eXo Platform 5.2
 ========================================
 
-**Upgrades**
+**Security**
 
-eXo Platform 5.1 now supports JBoss EAP 7.1. This new version comes with 
-some `improvements <https://www.redhat.com/en/blog/red-hat-releases-jboss-eap-71>`__ 
-and fixes some issues which impacted eXo Platform:
+Our continuous effort to improve security lead us to 
+change some default permissions to avoid folder listing cases through WebDAV.
 
-  -  "Remember me" token not recognized in Jboss EAP 7.0 (`PLF-7787 <https://jira.exoplatform.org/browse/PLF-7787>`__)
-  
-  -  Instance id of a cluster node is not added on the JSESSIONID cookie (`PLF-7854 <https://jira.exoplatform.org/browse/PLF-7854>`__)
+**Platform RDBMS**
 
-**Performances and scalability**
+We continued to decrease our dependency on JCR 
+for data persistence. Now, the following components rely on the relational 
+**database** storage for better speed and manageability :
 
-In eXo Platform 5.1 we continued our effort on improving the performance 
-and the scalability by changing some strategies, configurations and data 
-storage:
+-  Product information
+-  Login history
+-  Wiki
+-  Files
+-  Social
+-  Notifications
+-  Email queue
+-  Settings
 
--  Users/Groups/Roles import in database: a new job is implemented to 
-   import IDM data  in IDM database asynchronously and periodically.
-  
--  Smarter data user synchronization: only mandatory data are imported 
-   in database during synchronization, other user's data are imported on 
-   login or when it is required (lazy import).
-  
-**Migrations**
-
--  As cited in the previous section, eXo Chat has a new design. 
-   Moreover, from a technical point of view, it has been implemented 
-   using a new frontend framework (Vue.js).
-
--  Chat favorites data has also been changed. An upgrade plugin runs on 
-   eXo Platform 5.1 startup to migrate existing data to the new format.
-
-**Some others Improvements**
-
--  Harmonize cache configuration in cluster and local modes.
-
--  Improve Mbean cache naming: All caches are now named with the 
-   following pattern: ``<project>.<cacheName>``
-
--  ``cluster.node.name`` parameter automatically generated when not set.
-
--  ``upgrade.properties file`` is not needed anymore, upgrade plugins 
-   are automatically triggered.
+You can learn more about all data structures in 
+:ref:`this tutorial <PLFRefGuide.PLFDevelopment.DataStructure>`.
 
 
+.. |image0| image:: images/platform/SpacesAdministration.png
+.. |image1| image:: images/platform/delete_edit.png
+.. |image2| image:: images/social/MArkAllRead.png
+.. |image3| image:: images/social/Notifications_Web_tab.png
+.. |image4| image:: images/social/update_reset_banner.png
+.. |image5| image:: images/chat/filter_3.png
+.. |image6| image:: images/calendar/Add_event_drawer.png
+.. |image7| image:: images/chat/unread_chat_msg.png
 
-.. |image0| image:: images/Chat-UI-UX.png
-.. |image1| image:: images/Leave-room.png
-.. |image2| image:: images/Leave-room-2.png
-.. |image3| image:: images/mobile-push1.png
-.. |image4| image:: images/mobile-push2.png
-.. |image5| image:: images/Connect-button1.png
-.. |image6| image:: images/Connect-button2.png
-.. |image7| image:: images/Share-file.png
-.. |image8| image:: images/usersWiki.png
-.. |image9| image:: images/spaceWiki.png
