@@ -84,7 +84,7 @@ Creating a new event has been redesigned as an elegant drawer panel for better u
  
 :ref:`Unread messages badge in mini chat <miniChat>`
 
-Keep track of what you've not yet read in mini chat thanks to a badge showing 
+Keep track of unread messages that arrive while you've scrolled up.
 the number of unread messages.
 
 |image7|
