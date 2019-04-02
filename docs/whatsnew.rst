@@ -82,7 +82,7 @@ Creating a new event has been redesigned as an elegant drawer panel for better u
 |image6|
  
  
-:ref:`Badge of new received messages in the mini chat <miniChat>`
+:ref:`Unread messages badge in mini chat <miniChat>`
 
 Keep track of what you've not yet read in mini chat thanks to a badge showing 
 the number of unread messages.
