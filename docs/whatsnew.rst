@@ -59,7 +59,7 @@ by looking at their browser tab
 
 :ref:`Reset the default avatar or banner <On-site>`
 
-Users can now reset their banner or avatar by reverting to the default one.
+Users can now reset their profile banner and picture by reverting to the default one.
 It is also applicable for spaces.
 
 |image4|
