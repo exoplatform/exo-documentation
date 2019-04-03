@@ -181,11 +181,11 @@ This section covers the following topics:
 Creating a global stylesheet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Click |image5| Content Sites Explorer on the top navigation bar.
+1. Click |image5| --> Content --> Site Explorer on the top navigation bar.
 
-2. Select the Sites Management drive in the drives list.
+2. Select the ``Site Management`` drive in the drives list.
 
-3. Select a site in the Sites Management panel, for example, ``agital``, 
+3. Select a site in the Sites Management panel, for example, ``intranet``, 
    then select the css folder.
 
 4. Click |image6| to open the CSS File form which allows creating a new
@@ -194,7 +194,7 @@ Creating a global stylesheet
 |image7|
 
 5. Enter the name of global stylesheet into the Name field, for example,
-   ``GlobalStylesheet\_Orange``.
+   ``GlobalStylesheet_Orange``.
 
 6. Set the value as "True" in the Active field to activate your global
    stylesheet for your site. "True" is set by default when a new global
