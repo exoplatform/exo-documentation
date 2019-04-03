@@ -1342,7 +1342,7 @@ In the Activity Stream, the mention is displayed as a link to the mentioned user
 Editing an activity
 ~~~~~~~~~~~~~~~~~~~~
 
-Starting from eXo Platform 5.2, you can edit an activity you posted.
+With eXo Platform you can edit an activity you posted.
 To edit an activity, proceed as follows:
 
 1. Click the pulldown menu on the top right of your activity : |image135|. Two entries appear: Edit and Delete.
@@ -1517,7 +1517,7 @@ someone <mentioning-people>` for more details.
 Editing a comment
 ~~~~~~~~~~~~~~~~~~
 
-Just like for activities, from eXo Platform 5.2, you can edit any comment you wrote.
+Just like for activities, you can edit any comment you wrote.
 
 To edit one of your comments, proceed as follows:
 

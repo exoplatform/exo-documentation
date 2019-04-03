@@ -1,17 +1,17 @@
 .. _whatsnew:
 
 #################################
-What's new in eXo Platform 5.2?
+What's new in eXo Platform 5.3?
 #################################
 
 
 .. _FunctionalNovelties:
 
 ==================================
-New features in eXo Platform 5.2?
+New features in eXo Platform 5.3?
 ==================================
 
-Many great enhancements come up in eXo Platform 5.2. Thanks to eXo teams 
+Many great enhancements come up in eXo Platform 5.3. Thanks to eXo teams 
 and community members who participated by contributing ideas, discussing 
 and voting for the new features.
 
@@ -96,7 +96,7 @@ We also tweaked some UIs :
 .. _TechnicalNovelties:
 
 ========================================
-Technical novelties in eXo Platform 5.2
+Technical novelties in eXo Platform 5.3
 ========================================
 
 **Security**
