@@ -215,6 +215,7 @@ Creating a global stylesheet
 		.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
 			background-color: orange;
 			background-repeat: repeat-x;
+			background-image: none;
 			border-bottom: 1px solid #2C3440;
 		}
 		
