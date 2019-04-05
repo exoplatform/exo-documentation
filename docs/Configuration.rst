@@ -5687,35 +5687,35 @@ These configuration files are located in:
 Database
 ~~~~~~~~~~
 
-+--------------------+--------------------+--------------------------------------+
-| Parameter          | Default            | Description                          |
-+====================+====================+======================================+
-| ``dbServerType``   | *mongo*            | You should always use the default    |
-|                    |                    | value. The other value, *embed*, is  |
-|                    |                    | used for unit testing.               |
-+--------------------+--------------------+--------------------------------------+
-| ``dbServerHost``   | *localhost*        | The host name or IP of MongoDB.      |
-+--------------------+--------------------+--------------------------------------+
-| ``dbServerPort``   | *27017*            | The port number to connect to        |
-|                    |                    | MongoDB host.                        |
-+--------------------+--------------------+--------------------------------------+
-| ``dbServerHosts``  |                    | The MongoDB nodes to connect to, as  |
-|                    |                    | a comma-separated list of            |
-|                    |                    | <host:port> values. For example      |
-|                    |                    | "host1:27017,host2:27017,host3:27017 |
-|                    |                    | ".                                   |
-+--------------------+--------------------+--------------------------------------+
-| ``dbName``         | *chat*             | Name of the Mongo database name.     |
-+--------------------+--------------------+--------------------------------------+
-| ``dbAuthentication | *false*            | Set it *true* if authentication is   |
-| ``                 |                    | required to access MongoDB.          |
-+--------------------+--------------------+--------------------------------------+
-| ``dbUser``         | *EMPTY*            | Provide the username to access the   |
-|                    |                    | database if authentication needed.   |
-+--------------------+--------------------+--------------------------------------+
-| ``dbPassword``     | *EMPTY*            | Provide the password to access the   |
-|                    |                    | database if authentication needed.   |
-+--------------------+--------------------+--------------------------------------+
++----------------------+--------------------+--------------------------------------+
+| Parameter            | Default            | Description                          |
++======================+====================+======================================+
+| ``dbServerType``     | *mongo*            | You should always use the default    |
+|                      |                    | value. The other value, *embed*, is  |
+|                      |                    | used for unit testing.               |
++----------------------+--------------------+--------------------------------------+
+| ``dbServerHost``     | *localhost*        | The host name or IP of MongoDB.      |
++----------------------+--------------------+--------------------------------------+
+| ``dbServerPort``     | *27017*            | The port number to connect to        |
+|                      |                    | MongoDB host.                        |
++----------------------+--------------------+--------------------------------------+
+| ``dbServerHosts``    |                    | The MongoDB nodes to connect to, as  |
+|                      |                    | a comma-separated list of            |
+|                      |                    | <host:port> values. For example      |
+|                      |                    | "host1:27017,host2:27017,host3:27017 |
+|                      |                    | ".                                   |
++----------------------+--------------------+--------------------------------------+
+| ``dbName``           | *chat*             | Name of the Mongo database name.     |
++----------------------+--------------------+--------------------------------------+
+| ``dbAuthentication`` | *false*            | Set it *true* if authentication is   |
+|                      |                    | required to access MongoDB.          |
++----------------------+--------------------+--------------------------------------+
+| ``dbUser``           | *EMPTY*            | Provide the username to access the   |
+|                      |                    | database if authentication needed.   |
++----------------------+--------------------+--------------------------------------+
+| ``dbPassword``       | *EMPTY*            | Provide the password to access the   |
+|                      |                    | database if authentication needed.   |
++----------------------+--------------------+--------------------------------------+
 
 .. warning:: It is highly recommended to define the parameter ``dbServerHosts``
 			 instead of defining the two parameters ``dbServerHost`` and
@@ -5743,66 +5743,66 @@ their name.
 Chat Server
 ~~~~~~~~~~~~
 
-+--------------------+--------------------+--------------------------------------+
-| Parameter          | Default            | Description                          |
-+====================+====================+======================================+
-| ````               | *false*            | The mode of the chat server:         |
-|                    |                    |                                      |
-|                    |                    | -  The parameter is set to true if   |
-|                    |                    |    the chat is in a standalone mode. |
-|                    |                    |                                      |
-|                    |                    | -  The parameter is set to false if  |
-|                    |                    |    the the chat is in embedded mode. |                              
-+--------------------+--------------------+--------------------------------------+
-| ``chatPassPhrase`` | *chat*             | The password to access REST service  |
-|                    |                    | on the eXo Chat server.              |
-+--------------------+--------------------+--------------------------------------+
-| ``chatCronNotifCle | *0 0/60 \* \* \*   | The notifications are cleaned up     |
-| anup``             | ?*                 | every one hour by default. To learn  |
-|                    |                    | the syntax of Cron expression, see   |
-|                    |                    | :ref:`Scheduled synchronization,     |
-|                    |                    | Administrator                        |
-|                    |                    | guide <ScheduledSynchronization>`    |
-+--------------------+--------------------+--------------------------------------+
-| ``teamAdminGroup`` | */platform/adminis | The eXo group who can create teams.  |
-|                    | trators*           |                                      |
-+--------------------+--------------------+--------------------------------------+
-| ``chatReadDays``   | *30* (days)        | When a user reads a chat, the        |
-|                    |                    | application displays messages of     |
-|                    |                    | some days in the past.               |
-+--------------------+--------------------+--------------------------------------+
-| ``chatReadTotalJso | *200*              | The number of messages that you can  |
-| n``                |                    | get in the Chat room.                |
-+--------------------+--------------------+--------------------------------------+
++-------------------------+--------------------+--------------------------------------+
+| Parameter               | Default            | Description                          |
++=========================+====================+======================================+
+| ``standaloneChatServer``| *false*            | The mode of the chat server:         |
+|                         |                    |                                      |
+|                         |                    | -  The parameter is set to true if   |
+|                         |                    |    the chat is in a standalone mode. |
+|                         |                    |                                      |
+|                         |                    | -  The parameter is set to false if  |
+|                         |                    |    the the chat is in embedded mode. |                              
++-------------------------+--------------------+--------------------------------------+
+| ``chatPassPhrase``      | *chat*             | The password to access REST service  |
+|                         |                    | on the eXo Chat server.              |
++-------------------------+--------------------+--------------------------------------+
+| ``chatCronNotifCleanup``| *0 0/60 \* \* \* ?*| The notifications are cleaned up     |
+|                         |                    | every one hour by default. To learn  |
+|                         |                    | the syntax of Cron expression, see   |
+|                         |                    | :ref:`Scheduled synchronization,     |
+|                         |                    | Administrator                        |
+|                         |                    | guide <ScheduledSynchronization>`    |
++-------------------------+--------------------+--------------------------------------+
+| ``teamAdminGroup``      | */platform/adminis | The eXo group who can create teams.  |
+|                         | trators*           |                                      |
++-------------------------+--------------------+--------------------------------------+
+| ``chatReadDays``        | *30* (days)        | When a user reads a chat, the        |
+|                         |                    | application displays messages of     |
+|                         |                    | some days in the past.               |
++-------------------------+--------------------+--------------------------------------+
+| ``chatReadTotalJson``   | *200*              | The number of messages that you can  |
+|                         |                    | get in the Chat room.                |
++-------------------------+--------------------+--------------------------------------+
 
 .. _ChatClientUpdates:
 
 Chat Client updates
 ~~~~~~~~~~~~~~~~~~~~
 
-+--------------------+--------------------+--------------------------------------+
-| Parameter          | Default            | Description                          |
-+====================+====================+======================================+
-| ``chatIntervalChat | *5000*             | Time interval to refresh messages in |
-| ``                 | (milliseconds)     | a chat.                              |
-+--------------------+--------------------+--------------------------------------+
-| ``chatIntervalSess | *60000*            | Time interval to keep a chat session |
-| ion``              | (milliseconds)     | alive in milliseconds.               |
-+--------------------+--------------------+--------------------------------------+
-| ``chatIntervalStat | *60000*            | Time interval to refresh user status |
-| us``               | (milliseconds)     | in milliseconds.                     |
-+--------------------+--------------------+--------------------------------------+
-| ``chatIntervalNoti | *5000*             | Time interval to refresh             |
-| f``                | (milliseconds)     | Notifications in the main menu in    |
-|                    |                    | milliseconds.                        |
-+--------------------+--------------------+--------------------------------------+
-| ``chatIntervalUser | *60000*            | Time interval to refresh Users list  |
-| s``                | (milliseconds)     | in milliseconds.                     |
-+--------------------+--------------------+--------------------------------------+
-| ``chatTokenValidit | *60000*            | Time after which a token will be     |
-| y``                | (milliseconds)     | invalid. The use will then be        |
-|                    |                    | considered *offline*.                |
-+--------------------+--------------------+--------------------------------------+
++------------------------+--------------------+--------------------------------------+
+| Parameter              | Default            | Description                          |
++========================+====================+======================================+
+| ``chatIntervalChat``   | *5000*             | Time interval to refresh messages in |
+|                        | (milliseconds)     | a chat.                              |
++------------------------+--------------------+--------------------------------------+
+| ``chatIntervalSession``| *60000*            | Time interval to keep a chat session |
+|                        | (milliseconds)     | alive in milliseconds.               |
++------------------------+--------------------+--------------------------------------+
+| ``chatIntervalStatus`` | *60000*            | Time interval to refresh user status |
+|                        | (milliseconds)     | in milliseconds.                     |
++------------------------+--------------------+--------------------------------------+
+| ``chatIntervalNotif``  | *5000*             | Time interval to refresh             |
+|                        | (milliseconds)     | Notifications in the main menu in    |
+|                        |                    | milliseconds.                        |
++------------------------+--------------------+--------------------------------------+
+| ``chatIntervalUsers``  | *60000*            | Time interval to refresh Users list  |
+|                        | (milliseconds)     | in milliseconds.                     |
++------------------------+--------------------+--------------------------------------+
+| ``chatTokenValidity``  | *60000*            | Time after which a token will be     |
+|                        | (milliseconds)     | invalid. The use will then be        |
+|                        |                    | considered *offline*.                |
++------------------------+--------------------+--------------------------------------+
 
 .. _Configuration.WebConferencing:
 
