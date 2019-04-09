@@ -176,6 +176,9 @@ Configuration
        Parameter for enabling/disabling the update of user's last login
        time.
 
+    -  :ref:`Enabling/Disabling login history <Configuration.loginHistory>`
+       Parameter for enabling/disabling the login history.
+       
 .. _Configuration.ConfigurationOverview:
 
 ======================
@@ -5883,6 +5886,28 @@ Setting ``exo.idm.user.updateLastLoginTime`` to false disables the
 update of the user's last login time and if the platform is connected to
 an external system for users storage (such as LDAP or AD), the last
 login time will be updated in this external system.
+
+.. _Configuration.loginHistory:
+
+==================================
+Enabling/Disabling login history
+==================================
+
+Starting from 5.3 version, eXo Platform allows you to enable/disable the 
+login history data storage  by adding the parameter ``exo.audit.login.enabled`` 
+to :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code::
+
+          # Enable/disable login history storage
+          exo.audit.login.enabled=true
+       
+       
+By default, the parameter is set to ``true``, it means that the login history 
+is stored in the database.
+
+To disable the login history data storage in the database, simply set the parameter 
+``exo.audit.login.enabled``to ``false``.
 
 
 
