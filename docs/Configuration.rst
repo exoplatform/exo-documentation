@@ -5904,10 +5904,10 @@ to :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
        
        
 By default, the parameter is set to ``true``, it means that the login history 
-is stored in the database.
+data is stored in the database.
 
 To disable the login history data storage in the database, simply set the parameter 
-``exo.audit.login.enabled``to ``false``.
+``exo.audit.login.enabled`` to ``false``.
 
 
 
