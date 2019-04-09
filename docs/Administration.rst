@@ -214,23 +214,9 @@ Creating a global stylesheet
    
 		.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
 			background-color: orange;
+            background-image: none;
 			background-repeat: repeat-x;
-			background-image: none;
 			border-bottom: 1px solid #2C3440;
-		}
-		
-		.UIToolbarContainerDark .uiDropdownWithIcon > a {
-			color: black;
-		}
-		
-		.UIWCMNavigationPortlet .UINavogationBar {
-			background: none repeat scroll 0 0 blue;
-			height: 32px;
-			padding: 0 8px 0 20px;
-		}
-		
-		.UIWCMNavigationPortlet .UINavogationBar .ControlButton a {
-			color: black;
 		}
 
 
