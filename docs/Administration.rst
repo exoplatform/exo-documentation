@@ -214,7 +214,7 @@ Creating a global stylesheet
    
 		.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
 			background-color: orange;
-            background-image: none;
+                        background-image: none;
 			background-repeat: repeat-x;
 			border-bottom: 1px solid #2C3440;
 		}
@@ -226,15 +226,23 @@ You will see your global stylesheet in the Sites Management panel.
 
 |image9|
 
-.. note::  -  The values in both of the Active and Priority fields decide if your newly created global stylesheet is applied into your site successfully or not. 
-			  If the Active field is set to "True" in many global stylesheets, the system will automatically merge all the global stylesheets into the ``${site-name}/Default/Stylesheet-min-lt.css`` file of the css folder in the ascending order and get the stylesheet with the highest priority. 
-			  Thus, after selecting "True", to make sure that your stylesheet is applied, you need to pay attention to the priority level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the css folder.
+.. note::  
+           -  The values in both of the Active and Priority fields decide if your newly created global stylesheet is applied into 
+              your site successfully or not.
 
-		   -  The default global stylesheet will be automatically created in the css folder when you create a new site. 
-		      However, this global stylesheet can be overwritten by either setting "False" for its Active field or setting the higher priority for other global stylesheet than that of the default global stylesheet.
+	   -  If the Active field is set to "True" in many global stylesheets, the system will automatically merge all the global 
+	      stylesheets into the ``${site-name}/Default/Stylesheet-min-lt.css`` file of the css folder in the ascending order 
+	      and get the stylesheet with the highest priority. 
+	      Thus, after selecting "True", to make sure that your stylesheet is applied, you need to pay attention to the priority 
+	      level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the css folder.
 
-		   -  When you want to create a common stylesheet to share for all sites in the portal, you should create one in the 
-		      Sites Management/shared/css folder. This stylesheet will be rendered and applied into your desired site when you switch to it.
+	   -  The default global stylesheet will be automatically created in the css folder when you create a new site. 
+	      However, this global stylesheet can be overwritten by either setting "False" for its Active field or setting the higher 
+	      priority for other global stylesheet than that of the default global stylesheet.
+              
+            -  When you want to create a common stylesheet to share for all sites in the portal, you should create one in the 
+	      Sites Management/shared/css folder. This stylesheet will be rendered and applied into your desired site when you 
+	      switch to it.
 
 .. _EditGlobalStylesheet:
 
