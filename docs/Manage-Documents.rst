@@ -469,6 +469,11 @@ Windows
 
 3. Exit **Registry Editor**, and restart your client.
 
+.. tip:: Starting from MS Office 2013 and if you are using the **https** mode either using a 
+         :ref:`reverse proxy <PLFAdminGuide.Security.HTTPSConf.Proxy>` or 
+         :ref:`running your Platform itself under HTTPS <PLFAdminGuide.Security.HTTPSConf.eXo>`,
+         you don't need to proceed by the configurations steps cited above.
+
 **Note 2. On Chrome browser**
 
 If you install both Microsoft Office and OpenOffice, you need to choose
@@ -508,6 +513,7 @@ these steps:
 
 
    $ trust_server_cert /etc/davfs2/certs/myserver.pem
+     
 
 .. _MAC:
 
