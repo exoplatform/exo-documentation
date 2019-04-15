@@ -68,7 +68,7 @@ specifications or higher:
 
 -  Free disk space: 10GB minimum
 
--  Java 9+: JDK 9 is required for eXo Platform 5.1 version. Set the
+-  Java 8+: JDK 8 is required for eXo Platform 5.1 version. Set the
    **JAVA\_HOME** environment variable to point to your JDK
    installation.
 
