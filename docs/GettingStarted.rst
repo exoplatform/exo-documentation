@@ -9,7 +9,7 @@ This chapter covers the following topics:
 :ref:`Glossary <Glossary>`
 
        Terms which are commonly used in eXo Platform applications.
-
+e
 :ref:`Welcome to eXo Platform <Welcome-screens>`
 
        Introduction to what you need to do for the first startup of
@@ -1055,6 +1055,12 @@ Click on |image68| button to share the message in the activity stream.
 
 |image69|
 
+.. note:: **2000** characters are allowed in the message activity post. If you exceed this limit, a warning message 
+          appears under the text composer:
+          
+          |image152|
+
+
 .. _files-in-AS:
 
 Posting files in the activity stream
@@ -1359,7 +1365,10 @@ Besides, you can comment by yourself about any activities as follows:
 Your comment will be displayed right after the activity.
 
 
-    .. note:: A formatting toolbar appears once you click in the comment composer. It allows you to change the formatting of your message, attaching images and links and preview how it will look once posted. (like what we have for :ref:`the activity stream composer <share-as>`)
+    .. note:: -  A formatting toolbar appears once you click in the comment composer. It allows you to change the formatting of your message, attaching images and links and preview how it will look once posted. (like what we have for :ref:`the activity stream composer <share-as>`)
+              -  2000 characters are allowed in the comment message. If you exceed them, the comment button turns to inactive status.
+                  
+                  |image153|
 
 When there are more than two comments on activity, 2 latest comments
 will be displayed below the activity. You can click "View all XX
@@ -1754,4 +1763,6 @@ is highlighted.
 .. |image133| image:: images/platform/share_link_icon.png
 .. |image134| image:: images/platform/getting_permalink_comment.png
 .. |viewmore| image:: images/platform/more_comments.png
+.. |image152| image:: images/platform/limit_activityMessage.png
+.. |image153| image:: images/platform/limit_comment.png
 
