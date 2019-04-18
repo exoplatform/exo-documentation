@@ -5056,7 +5056,7 @@ corresponding property to *false* in the
 :ref:`exo.properties <Configuration.ConfigurationOverview>` file, as 
 referring the following table:
 
-+-----------------------------------+-----------------------------------------+
++----------------------------------+-----------------------------------------+
 | Property                         | Description                             |
 +==================================+=========================================+
 | ``exo.unified-search.connector.f | Turn on/off Unified Search connector    |
