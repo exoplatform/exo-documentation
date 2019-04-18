@@ -5056,51 +5056,51 @@ corresponding property to *false* in the
 :ref:`exo.properties <Configuration.ConfigurationOverview>` file, as 
 referring the following table:
 
-+----------------------------------+-----------------------------------------+
++-----------------------------------+-----------------------------------------+
 | Property                         | Description                             |
 +==================================+=========================================+
 | ``exo.unified-search.connector.f | Turn on/off Unified Search connector    |
-| ile.enable``                     | for all files. The default is *true*,   |
+|ile.enable``                      | for all files. The default is *true*,   |
 |                                  | that is, all files are included in the  |
 |                                  | search scope.                           |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.w | Turn on/off Unified Search connector    |
-| iki.enable``                     | for all Wiki pages. The default is      |
+|iki.enable``                      | for all Wiki pages. The default is      |
 |                                  | *true*, that is, all Wiki pages are     |
 |                                  | included in the search scope.           |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.p | Turn on/off Unified Search connector    |
-| age.enable``                     | for all portal pages. The default is    |
+|age.enable``                      | for all portal pages. The default is    |
 |                                  | *true*, that is, all portal pages are   |
 |                                  | included in the search scope.           |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.p | Turn on/off Unified Search connector    |
-| ost.enable``                     | for all Forum posts. The default is     |
+|ost.enable``                      | for all Forum posts. The default is     |
 |                                  | *true*, that is, all Forum posts are    |
 |                                  | included in the search scope.           |
 +----------------------------------+-----------------------------------------+
-| ``exo.unified-search.connector.t | Turn on/off Unified Search connector    |
-| ask.enable``                     | for all Calendar tasks. The default is  |
+| ``exo.unified-search.connector.ta| Turn on/off Unified Search connector    |
+|sksInTasks.enable``               | for all Calendar tasks. The default is  |
 |                                  | *true*, that is, all Calendar tasks are |
 |                                  | included in the search scope.           |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.s | Turn on/off Unified Search connector    |
-| pace.enable``                    | for all spaces. The default is *true*,  |
+|pace.enable``                    | for all spaces. The default is *true*,  |
 |                                  | that is, all spaces are included in the |
 |                                  | search scope.                           |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.e | Turn on/off Unified Search connector    |
-| vent.enable``                    | for all Calendar events. The default is |
+|vent.enable``                    | for all Calendar events. The default is |
 |                                  | *true*, that is, all Calendar events    |
 |                                  | are included in the search scope.       |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.p | Turn on/off Unified Search connector    |
-| eople.enable``                   | for all users. The default is *true*,   |
+|eople.enable``                   | for all users. The default is *true*,   |
 |                                  | that is, all users are included in the  |
 |                                  | search scope.                           |
 +----------------------------------+-----------------------------------------+
 | ``exo.unified-search.connector.d | Turn on/off Unified Search connector    |
-| ocument.enable``                 | for all documents. The default is       |
+|ocument.enable``                 | for all documents. The default is       |
 |                                  | *true*, that is, all documents are      |
 |                                  | included in the search scope.           |
 +----------------------------------+-----------------------------------------+
