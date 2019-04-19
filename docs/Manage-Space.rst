@@ -77,7 +77,8 @@ spaces under MY SPACES on the left pane of the page.
 
  .. note::   You can also see all your spaces by directly clicking the |image4| link or clicking Join a space to open the Spaces page, then selecting the My Spaces tab.
 
-|image5|
+                 |image5|
+                 
 
 The Space navigation includes the following tabs:
 
@@ -98,7 +99,7 @@ The Space navigation includes the following tabs:
 To access a specific space, just click the space name.
 
   .. tip::  You can quickly find out your desired space from the list of your spaces by typing its name/description into the Search Spaces box on the left pane or using the **Search** feature in the Space application. 
-			See the :ref:`Searching for spaces <Search-Space` section for more details.
+			See the :ref:`Searching for spaces <Search-Space>` section for more details.
 
 **Accessing via URL**
 
@@ -142,12 +143,12 @@ Space banner
 ~~~~~~~~~~~~~~
 
 To change the banner just mouse over in the top right corner of the
-space banner, an icon |image10| and a tooltip will appear.
+space banner, an icon |image10| will appear.
 
 When you click on the icon |image68|, an ``Update`` button |image69| appears  
 allowing you to pick up an image from your computer.
 
-The tooltip indicates you the banner size which should be 130 pixels height minimum.
+.. tip:: The banner size should be 130 pixels height minimum.
 
    |image11|
 
@@ -227,6 +228,8 @@ follows:
 
 1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
 
+.. _second_step:
+
 2. In the Settings tab, enter a space name (required and from 3 to 200 characters) 
    and description (from 0 to 255 characters).
 
@@ -260,6 +263,8 @@ follows:
 
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
+      
+.. _Users_invitation:      
 
 4. In the **Invite users from group** tab, select all members of a specific
 group for your space where you are already 'manager'.
@@ -293,28 +298,64 @@ One of the two following cases occurs when you select this tab.
 
 |image27|
 
+.. _SpaceHomePortlets:
+
+**Space home portlets**
+
+Three portlets are available for space homepage:
+
+-  Description: should display the space's description and the list of the space's managers.
+-  :ref:`Calendar <CalendarApp>`: displays the today's events that are added to the space's calendar.
+-  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the on line members of the space.
+
+.. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
+          as for `intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
+
+By default, only two portlets appear in the newly created space: **Description** and **Calendar**.
+
+-  Description portlet displays the space's description inputted during :ref:`the space creation <second_step>` 
+   and the space's creator full name with his avatar.
+   
+   |image76|
+
+-  Calandar portlet is empty by default as there are no events.
+    
+   |image77|
+
+If you :ref:`invited users during the space's creation <Users_invitation>` and that they accept the invitation, 
+:ref:`Who is on line? <WhoIsOnlineApp> portlet appears to display their avatars if they are not choosing the
+:ref:`invisible chat status <SettingStatus>`.
+
+|image78|
+
+
+When you add new events to your space's calendar, those of the current day will appears in the 
+:ref:`Calendar <CalendarApp>` Portlet.
+
+|image79|
+
+You can view other events of the previous and the following days simply by clicking on arrows |image80|.
+
 .. _Space-banner-avatar:
 
 **Sapce banner and avatar**
 
 
-   By default, the space banner is grey (it is empty) and the space
-   avatar contains the general space image:
+By default, the space banner is grey (it is empty) and the space avatar contains the general space image:
 
    |image28|
 
-   You can redefine the space banner and the space avatar by mousing
-   over and then clicking on |image29| allowing you to pick an image from
-   your computer.
+You can redefine the space banner and the space avatar by mousingover and then clicking on 
+|image29| allowing you to pick an image from your computer.
 
-   More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
+More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
 
 *Space applications*
 
 
-   By default, the space is featured with some default applications
-   pages on the space navigation bar. Simply click each application to
-   use its functions. See :ref:`Managing space navigation bar <Manage-space-navbar>` for more details.
+By default, the space is featured with some default applications pages on the space navigation bar. 
+Simply click each application to use its functions. 
+See :ref:`Managing space navigation bar <Manage-space-navbar>` for more details.
 
    -  **Activity Stream**: Displays changes on the space information and all
       the activities of space members. See :ref:`Using the Activity Stream <Managing-Activities>` for more details.
@@ -346,7 +387,7 @@ One of the two following cases occurs when you select this tab.
 
 **Others**
 
-   When a new space is created:
+When a new space is created:
 
    -  A forum with the same name as this space is also created in the
       **Forums** application of the portal. In case this forum is
@@ -878,10 +919,14 @@ deleted.
 .. |image66| image:: images/social/space_popover.png
 .. |image67| image:: images/social/space_popover_member.png
 .. |image68| image:: images/social/update_image_icon.png
-.. |image69| image:: images/social/update_space_banner
+.. |image69| image:: images/social/update_space_banner.png
 .. |image70| image:: images/social/update_image_icon.png
 .. |image71| image:: images/social/update_image_icon.png
 .. |image72| image:: images/social/update_reset_space_icon.png
 .. |image73| image:: images/social/rename_space_app.png
 .. |image74| image:: images/social/Delete_space_confirmation.png
 .. |image75| image:: images/social/special_characters_space_name.png
+.. |image76| image:: images/social/Description_portlet.png
+.. |image77| image:: images/social/CalendarPortlet.png
+.. |image79| image:: images/social/CalendarPortletPopulated.png
+.. |image79| image:: images/social/arrowsCalendar.png
