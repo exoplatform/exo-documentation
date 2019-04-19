@@ -309,7 +309,7 @@ Three portlets are available for space homepage:
 -  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the on line members of the space.
 
 .. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
-          as for `intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
+          as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
 
 By default, only two portlets appear in the newly created space: **Description** and **Calendar**.
 
@@ -928,5 +928,7 @@ deleted.
 .. |image75| image:: images/social/special_characters_space_name.png
 .. |image76| image:: images/social/Description_portlet.png
 .. |image77| image:: images/social/CalendarPortlet.png
+.. |image78| image:: images/social/WhoIsOnLinePortlet.png
 .. |image79| image:: images/social/CalendarPortletPopulated.png
-.. |image79| image:: images/social/arrowsCalendar.png
+.. |image80| image:: images/social/arrowsCalendar.png
+
