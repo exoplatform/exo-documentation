@@ -306,7 +306,7 @@ The default space home page contains the following content:
 
 -  Activity stream: displays the space's activities
 -  Description: displays the space's description and the list of the space's managers
--  :ref:`Calendar <CalendarApp>`: displays the today's events that are added to the space's calendar.
+-  :ref:`Calendar <CalendarApp>`: displays the events of the space's calendar by day (today's events by default)
 -  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the on line members of the space.
 
 .. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
