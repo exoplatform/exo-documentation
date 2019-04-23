@@ -302,7 +302,7 @@ One of the two following cases occurs when you select this tab.
 
 **Space home**
 
-Three portlets are available for space homepage:
+The default space home page contains the following content:
 
 -  Description: should display the space's description and the list of the space's managers.
 -  :ref:`Calendar <CalendarApp>`: displays the today's events that are added to the space's calendar.
