@@ -319,7 +319,7 @@ By default, only two portlets appear in the newly created space: **Description**
    
    |image76|
 
--  Calandar portlet is empty by default as there are no events.
+-  Calendar portlet is empty by default as there are no events.
     
    |image77|
 
