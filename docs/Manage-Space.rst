@@ -304,7 +304,8 @@ One of the two following cases occurs when you select this tab.
 
 The default space home page contains the following content:
 
--  Description: should display the space's description and the list of the space's managers.
+-  Activity stream: displays the space's activities
+-  Description: displays the space's description and the list of the space's managers
 -  :ref:`Calendar <CalendarApp>`: displays the today's events that are added to the space's calendar.
 -  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the on line members of the space.
 
