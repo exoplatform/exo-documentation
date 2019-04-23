@@ -307,7 +307,7 @@ The default space home page contains the following content:
 -  Activity stream: displays the space's activities
 -  Description: displays the space's description and the list of the space's managers
 -  :ref:`Calendar <CalendarApp>`: displays the events of the space's calendar by day (today's events by default)
--  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the on line members of the space.
+-  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the online members of the space.
 
 .. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
           as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
