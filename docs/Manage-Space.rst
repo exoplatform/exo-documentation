@@ -300,7 +300,7 @@ One of the two following cases occurs when you select this tab.
 
 .. _SpaceHome:
 
-**Space home portlets**
+**Space home**
 
 Three portlets are available for space homepage:
 
