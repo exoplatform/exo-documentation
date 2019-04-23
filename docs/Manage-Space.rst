@@ -330,7 +330,7 @@ If you :ref:`invited users during the space's creation <Users_invitation>` and t
 |image78|
 
 
-When you add new events to your space's calendar, those of the current day will appears in the 
+When you add new events to your space's calendar, those of the current day appear in the 
 :ref:`Calendar <CalendarApp>` Portlet.
 
 |image79|
