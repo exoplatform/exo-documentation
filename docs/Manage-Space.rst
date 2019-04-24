@@ -324,7 +324,7 @@ By default, only two portlets appear in the newly created space: **Description**
    |image77|
 
 If you :ref:`invited users during the space's creation <Users_invitation>` and that they accept the invitation, 
-:ref:`Who is on line? <WhoIsOnlineApp> portlet appears to display their avatars with their :ref:`chat status <SettingStatus>`.
+:ref:`Who is on line? <WhoIsOnlineApp>` portlet appears to display their avatars.
 
 |image78|
 
