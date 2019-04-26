@@ -306,40 +306,30 @@ The default space home page contains the following content:
 
 -  Activity stream: displays the space's activities
 -  Description: displays the space's description and the list of the space's managers
+
+   |image76|
+   
 -  :ref:`Calendar <CalendarApp>`: displays the events of the space's calendar by day (today's events by default)
--  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the online members of the space.
+
+   |image77|
+   
+   |image79|
+   
+.. tip:: You can view other events of the previous and the following days simply by clicking on arrows |image80|.
+   
+-  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the online members of the space. 
+   It appears while at least one member is online.
+   
+   |image78|
 
 .. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
           as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
-
-Just after the space's creation, only two portlets appear in the newly created space:
-
--  Description portlet displays the space's description inputted during :ref:`the space creation <second_step>` 
-   and the space's creator full name with his avatar.
-   
-   |image76|
-
--  Calendar portlet is empty by default as there are no events.
-    
-   |image77|
-
-If you :ref:`invited users during the space's creation <Users_invitation>` and that they accept the invitation, 
-:ref:`Who is on line? <WhoIsOnlineApp>` portlet appears to display their avatars.
-
-|image78|
-
-
-When you add new events to your space's calendar, those of the current day appear in the 
-:ref:`Calendar <CalendarApp>` Portlet.
-
-|image79|
-
-You can view other events of the previous and the following days simply by clicking on arrows |image80|.
 
 .. note:: When you are a  platform administrator and member of a space, you are able to add more portlets 
           just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.
           
               |image81|
+
 
 .. _Space-banner-avatar:
 
