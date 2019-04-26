@@ -312,7 +312,7 @@ The default space home page contains the following content:
 .. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
           as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
 
-By default, only two portlets appear in the newly created space: **Description** and **Calendar**.
+Just after the space's creation, only two portlets appear in the newly created space:
 
 -  Description portlet displays the space's description inputted during :ref:`the space creation <second_step>` 
    and the space's creator full name with his avatar.
@@ -335,6 +335,11 @@ When you add new events to your space's calendar, those of the current day appea
 |image79|
 
 You can view other events of the previous and the following days simply by clicking on arrows |image80|.
+
+.. note:: When you are a  platform administrator and member of a space, you are able to add more portlets 
+          just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.
+          
+              |image81|
 
 .. _Space-banner-avatar:
 
@@ -931,4 +936,5 @@ deleted.
 .. |image78| image:: images/social/WhoIsOnLinePortlet.png
 .. |image79| image:: images/social/CalendarPortletPopulated.png
 .. |image80| image:: images/social/arrowsCalendar.png
+.. |image81| image:: images/social/editPage.png
 
