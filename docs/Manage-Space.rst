@@ -310,8 +310,6 @@ The default space home page contains the following content:
    |image76|
    
 -  :ref:`Calendar <CalendarApp>`: displays the events of the space's calendar by day (today's events by default)
-
-   |image77|
    
    |image79|
    
