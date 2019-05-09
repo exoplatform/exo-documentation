@@ -96,6 +96,9 @@ Configuration
        Instructions on how to enable/disable an activity type from
        posting on streams.
 
+    -  :ref:`Enabling/Disabling Activity link preview <Configuration.ActivityLinkPreview>`
+       Instructions on how to enable/disable link preview in activity.
+
     -  :ref:`Configure spaces administration group <SpacesAdministration>`
        How to define spaces administrators groups.
 
@@ -2828,7 +2831,26 @@ To disable the activity type, simply set the parameter to ``false``.
 			   a content is shared in a space.  
 			-  **exosocial\\:relationship**: Activity post when two user are
 			   connected together.
+		
+.. _Configuration.ActivityLinkPreview:		
+		
 			    
+==========================================
+Enabling/Disabling activity link preview
+==========================================
+
+eXo Platform allows you to enable or disable the link preview in an activity 
+by defining the parameter ``exo.activity.link.preview.enabled`` 
+in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code::
+
+     #Enable/Disable Activity link preview
+     exo.activity.link.preview.enabled=true
+     
+By default, the parameter is set to true i.e. the activities link preview
+is enabled.
+
 
 .. _SpacesAdministration:
 
