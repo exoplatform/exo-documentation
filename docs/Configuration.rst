@@ -97,7 +97,7 @@ Configuration
        posting on streams.
 
     -  :ref:`Enabling/Disabling Activity link preview <Configuration.ActivityLinkPreview>`
-       Instructions on how to enable/disable link preview in activity.
+       How to enable/disable link preview in activity.
 
     -  :ref:`Configure spaces administration group <SpacesAdministration>`
        How to define spaces administrators groups.
@@ -2850,6 +2850,11 @@ in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
      
 By default, the parameter is set to true i.e. the activities link preview
 is enabled.
+
+If you disable activities link preview i.e. set the variable 
+``exo.activity.link.preview.enabled`` to false, links will appears like that on the platform:
+
+|image6|
 
 
 .. _SpacesAdministration:
@@ -5939,3 +5944,4 @@ To disable the login history data storage in the database, simply set the parame
 .. |image3| image:: images/openinoffice/openinwriter.png
 .. |image4| image:: images/docviewer/docviewer_maxsize.png
 .. |image5| image:: images/docviewer/docviewer_maxpages.png
+.. |image6| image:: images/disable_link_preview.png
