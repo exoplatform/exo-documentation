@@ -2839,13 +2839,17 @@ To disable the activity type, simply set the parameter to ``false``.
 Enabling/Disabling activity link preview
 ==========================================
 
-eXo Platform allows you to enable or disable the link preview in an activity 
-by defining the parameter ``exo.activity.link.preview.enabled`` 
-in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+In eXo Platform, when :ref:`posting a link in activity stream <Link-post-in-AS>`, 
+the activity displays a preview for this link by fetching the title, an excerpt and 
+a thumbnail of the linked resource.
+
+|image7|
+
+You can enable or disable the link preview by defining the parameter 
+``exo.activity.link.preview.enabled`` in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
 
 .. code::
 
-     #Enable/Disable Activity link preview
      exo.activity.link.preview.enabled=true
      
 By default, the parameter is set to true i.e. the activities link preview
@@ -5945,3 +5949,4 @@ To disable the login history data storage in the database, simply set the parame
 .. |image4| image:: images/docviewer/docviewer_maxsize.png
 .. |image5| image:: images/docviewer/docviewer_maxpages.png
 .. |image6| image:: images/disable_link_preview.png
+.. |image7| image:: images/link_preview_AS.png
