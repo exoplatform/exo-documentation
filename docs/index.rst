@@ -85,6 +85,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    JavaScript
    Developing_Rest_Service
    Authentication_And_Identity
+   SpaceTemplates
    API
    Cookbook
    
