@@ -2852,7 +2852,7 @@ By default, the parameter is set to true i.e. the activities link preview
 is enabled.
 
 If you disable activities link preview i.e. set the variable 
-``exo.activity.link.preview.enabled`` to false, links will appears like that on the platform:
+``exo.activity.link.preview.enabled`` to false, activities with links are rendered with the link URL only:
 
 |image6|
 
