@@ -277,9 +277,76 @@ All users to add in the space are displayed by a suggestor to facilitate their a
 
 |image27|
 
+.. _Space-templates:
+
+**Space Templates**
+
+Space templates concept is not directly exposed to users. From their perspective, they simply pick a type when creating a space.
+
+If the space creator choose a template from the templates pulldown, a description of the selected template will be displayed below the pulldown:
+   -  Community: A general purpose area for collaboration and communication of a digital community.
+   -  Projects: A project space where members coordinate on tasks toward a predefined outcome.
+   -  Communication : Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
+   -  Team: A central destination for members of a team.
+
+   .. note:: By default, in the create space popup we will have the Community template as default value.
+  
+*Predefined Space templates*
+
+**Community**
+
+Community is the default space template. General purpose, digital collaboration and discussion area.
+
+Default Settings for the Community template are :
+   -  Title: Community 
+   -  Description: a general purpose area for collaboration and communication of a digital community.
+   -  Hidden: No 
+   -  Registration : Open
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Space Settings
+
+
+**Project**
+
+Projects is ideal to coordinate actors toward a shared outcome.
+
+ Default Settings for the Project template are :
+   -  Title: Project
+   -  Description: A project space where members coordinate on tasks toward a predefined outcome.
+   -  Hidden: No 
+   -  Registration : Validation
+   -  Predefined Apps : Home, Tasks, Documents, Calendar, Wiki, Forum, Members, Space Settings
+   
+**Team**
+
+For organizational teams or work groups.
+
+  Default Settings for the Project template are :
+   -  Title: Team
+   -  Description: A central destination for members of a team.
+   -  Hidden: Yes
+   -  Registration : Validation
+   -  Predefined Apps : Home, Calendar, Documents, Wiki, Tasks, Members, Space Settings
+   
+**Communication**
+
+Communication is the perfect choice to exchange knowledges and skills.
+
+   -  Title: Communication 
+   -  Description: Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
+   -  Hidden: No 
+   -  Registration : Validation
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Space Settings
+   
+   You can redefine the space banner and the space avatar by mousing
+   over and then clicking on |image29| allowing you to pick an image from
+   your computer.
+
+   More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
+
+
 .. _Space-banner-avatar:
 
-**Sapce banner and avatar**
+**Space banner and avatar**
 
 
    By default, the space banner is grey (it is empty) and the space
