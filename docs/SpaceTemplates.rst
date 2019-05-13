@@ -12,7 +12,7 @@ Managing Space Templates
        Steps to create a new space template.
 
     -  :ref:`Extending existing templates <PLFDevGuide.SpaceTemplates.Extend>`
-        Steps for extending existing space templates. Only applications list can be extended.
+       Steps for extending existing space templates. Only applications list can be extended.
 
     -  :ref:`Defining an application handler for template <PLFDevGuide.SpaceTemplates.handler.CreateNew>`
        Steps to define an application handler for a space template.
@@ -29,7 +29,7 @@ In this chapter we will consider that you have already an extension.
 Creating a new template
 ============================
 
-You can define a new space template by configuration using "registerSpaceTemplatePlugin" method of the "SpaceTemplateService".
+You can define a new space template by configuration using ``registerSpaceTemplatePlugin`` method of the ``org.exoplatform.social.core.space.spi.SpaceTemplateService``.
 A space template consists of *name*, *visibility*, *registration*, *banner*, *home application* and *applications list*.
 To do so, you have to add the following configuration to your portal configuration:
 
@@ -131,11 +131,11 @@ In which:
 | **uri**           | ``string``       | The URI of the application in the page node.                            |
 +-------------------+------------------+-------------------------------------------------------------------------+
 
-In this example, you can define the banner image "banner.png" to the path */conf/social-extension/social/space-template/custom/* of your extension.
+In this example, you can define the banner image "banner.png" to the path ``custom-form.war!/WEB-INF/conf/social-extension/social/space-template/custom/`` of your extension.
 
 .. tip:: You can add translations for both space template name and description:
-- for space template name, add the property *space.template.$TEMPLATE_NAME* (for this example *space.template.custom*)
-- for space template description, add the property *space.template.description.$TEMPLATE_NAME* (for this example *space.template.description.custom*)
+- for space template name, add the property ``space.template.$TEMPLATE_NAME`` (for this example *space.template.custom*)
+- for space template description, add the property ``space.template.description.$TEMPLATE_NAME`` (for this example *space.template.description.custom*)
 
 
 .. _PLFDevGuide.SpaceTemplates.Extend:
@@ -145,7 +145,7 @@ Extending existing templates
 ============================
 
 Sapce templates can be extended in order to add applications. Only applications can be added to space templates via extension.
-In order to add some applications to an existing template, "extendSpaceTemplatePlugin" method of the "SpaceTemplateService" will be used in a component plugin.
+In order to add some applications to an existing template, ``extendSpaceTemplatePlugin`` method of the ``org.exoplatform.social.core.space.spi.SpaceTemplateService`` will be used in a component plugin.
 In your portal configuration of your extension, add the following configuration:
 
     .. code:: xml
