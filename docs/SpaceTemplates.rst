@@ -20,8 +20,7 @@ Managing Space Templates
 .. tip:: In order to extend existing space templates or create a new one, you have to create your own :ref:`extension <PLFDevGuide.eXoAdd-ons.PortalExtension>`.
 In this chapter we will consider that you have already an extension.
 
-.. tip:: All the configurations samples given in this chapter have to be added to the portal configuration file of the extension war:
-*custom-form.war!/WEB-INF/conf/configuration.xml*.
+.. tip:: All the configurations samples given in this chapter have to be added to the portal configuration file of the extension war: *custom-form.war!/WEB-INF/conf/configuration.xml*.
 
 
 .. _PLFDevGuide.SpaceTemplates.Extend:
@@ -142,11 +141,62 @@ To do so, you have to add the following configuration to your portal configurati
             </component-plugin>
         </external-component-plugins>
 
+In which:
+
+-  **Name**: ``Space Template Configuration``
+
+-  **Set-method**: ``registerSpaceTemplatePlugin``
+
+-  **Type**:
+   ``org.exoplatform.social.core.space.SpaceTemplateConfigPlugin``
+
+-  **Init-params**:
+
++----------------------+-------------------------------------------------------+
+| Object-param         | Description                                           |
++======================+=======================================================+
+| **template**         | Sets the **SpaceTemplate** to ve defined.             |
++----------------------+-------------------------------------------------------+
+
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+| Field name              | Possible value               | Description                                                                |
++=========================+==============================+============================================================================+
+| **name**                | ``string``                   | The name of the space template.                                            |
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+| **visibility**          | ``string``                   | The visibility of the space.                                               |
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+| **registration**        | ``string``                   | The registration of the space.                                             |
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+| **bannerPath**          | ``string``                   | The path of the space banner.                                              |
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+| **homePageApplication** | ``SpaceApplication``         | Sets the **Application** portlet to be the home page of a space.           |
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+| **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space. |
++-------------------------+------------------------------+----------------------------------------------------------------------------+
+
+-  **SpaceApplication**:
+
++-------------------+------------------+-------------------------------------------------------------------------+
+| Field name        | Possible value   | Description                                                             |
++===================+==================+=========================================================================+
+| **portletAp**     | ``string``       | The ``.war`` name file which has the portlet.                           |
++-------------------+------------------+-------------------------------------------------------------------------+
+| **portletName**   | ``string``       | The name of portlet which is registered in the system.                  |
++-------------------+------------------+-------------------------------------------------------------------------+
+| **appTitle**      | ``string``       | The display name of the application.                                    |
++-------------------+------------------+-------------------------------------------------------------------------+
+| **removable**     | ``boolean``      | Specifies if the application is removed from the space or not.          |
++-------------------+------------------+-------------------------------------------------------------------------+
+| **order**         | ``integer``      | The order of the application in the space navigation.                   |
++-------------------+------------------+-------------------------------------------------------------------------+
+| **uri**           | ``string``       | The URI of the application in the page node.                            |
++-------------------+------------------+-------------------------------------------------------------------------+
+
 In this example, you can define the banner image "banner.png" to the path */conf/social-extension/social/space-template/custom/* of your extension.
 
 .. tip:: You can add translations for both space template name and description:
-- space template name: add the property *space.template.$TEMPLATE_NAME* (for this example *space.template.custom*)
-- space template description: add the property *space.template.description.$TEMPLATE_NAME* (for this example *space.template.description.custom*)
+- for space template name, add the property *space.template.$TEMPLATE_NAME* (for this example *space.template.custom*)
+- for space template description, add the property *space.template.description.$TEMPLATE_NAME* (for this example *space.template.description.custom*)
 
 
 .. _PLFDevGuide.SpaceTemplates.handler.CreateNew:

@@ -74,8 +74,12 @@ functionality for UI components. These services are:
 
 -  :ref:`Space Service <PLFRefGuide.Configurations.Components.Social.SpaceService>`
 
-   This service is used for spaces management, including creating
-   spaces, and installing applications.
+   This service is used for spaces management, including creating spaces.
+
+-  :ref:`Space Template Service <PLFRefGuide.Configurations.Components.Social.SpaceTemplateService>`
+
+   This service is used for spaces templates management, including creating
+   space templates, extending space templates, and installing applications.
 
 -  :ref:`LifeCycle Completion Service <PLFRefGuide.Configurations.Components.Social.LifeCycleCompletionService>`
 
@@ -119,10 +123,7 @@ Space Service
 --------------
 
 
-The service is used for spaces management, including creating spaces,
-and installing applications. See 
-:ref:`Space Application Config <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceApplicationConfigPlugin>`
-for the list of applications installed in a space.
+The service is used for spaces management, including creating spaces.
 
 **Sample configuration**:
 
@@ -132,6 +133,32 @@ for the list of applications installed in a space.
       <key>org.exoplatform.social.core.space.spi.SpaceService</key>
       <type>org.exoplatform.social.core.space.impl.SpaceServiceImpl</type>
     </component>
+
+.. _PLFRefGuide.Configurations.Components.Social.SpaceTemplateService:
+
+Space Template Service
+--------------
+
+
+The service is used for space templates management, including creating space templates, extending space templates
+and installing applications. See
+:ref:`Managing Space Templates <PLFDevGuide.SpaceTemplates>`
+
+**Sample configuration**:
+
+.. code:: xml
+
+    <component>
+    <key>org.exoplatform.social.core.space.spi.SpaceTemplateService</key>
+    <type>org.exoplatform.social.core.space.impl.SpaceTemplateServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>defaultSpaceTemplate</name>
+        <value>community</value>
+      </value-param>
+    </init-params>
+
+*defaultSpaceTemplate* parameter defines the default space template name.
 
 
 .. _PLFRefGuide.Configurations.Components.Social.LifeCycleCompletionService:
@@ -2110,8 +2137,6 @@ plugins.
 
 -  :ref:`Space Activity Publisher <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceActivityPublisher>`
 
--  :ref:`Space Application Config <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceApplicationConfigPlugin>`
-
 -  :ref:`Template Params Processor <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.TemplateParamsProcessor>`
 
 -  :ref:`URL Converter Filter <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.URLConverterFilterPlugin>`
@@ -2585,130 +2610,6 @@ spaces.
       <set-method>addSpaceListener</set-method>
       <type>org.exoplatform.social.core.application.SpaceActivityPublisher</type>
     </component-plugin>
-
-.. _PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceApplicationConfigPlugin:
-
-Space Application Config
--------------------------
-
-This plugin is used to configure the default applications when creating
-a new space.
-
-**Sample configuration**:
-
-.. code:: xml
-
-    <external-component-plugins>
-      <target-component>org.exoplatform.social.core.space.spi.SpaceService</target-component>
-      <component-plugin>
-        <name>Space Application Configuration</name>
-        <set-method>setSpaceApplicationConfigPlugin</set-method>
-        <type>org.exoplatform.social.core.space.SpaceApplicationConfigPlugin</type>
-        <init-params>
-          <object-param>
-            <name>spaceHomeApplication</name>
-            <description>Space Home Application</description>
-            <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
-              <field name="portletApp">
-                <string>social-portlet</string>
-              </field>
-              <field name="portletName">
-                <string>SpaceActivityStreamPortlet</string>
-              </field>
-              <field name="appTitle">
-                <string>Home</string>
-              </field>
-            </object>
-          </object-param>
-          <object-param>
-            <name>spaceApplicationListConfig</name>
-            <description>space application list configuration</description>
-            <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin">
-              <field name="spaceApplicationList">
-                <collection type="java.util.ArrayList">
-                  <value>
-                    <object type="org.exoplatform.social.core.space.SpaceApplicationConfigPlugin$SpaceApplication">
-                      <field name="portletApp">
-                        <string/>
-                      </field>
-                      <field name="portletName">
-                        <string>ForumPortlet</string>
-                      </field>
-                      <field name="appTitle">
-                        <string>Forums</string>
-                      </field>
-                      <field name="removable">
-                        <boolean>true</boolean>
-                      </field>
-                      <field name="order">
-                        <int>2</int>
-                      </field>
-                      <field name="uri">
-                        <string>forum</string>
-                      </field>
-                      <field name="preferences">
-                        <map type="java.util.HashMap">
-                          <entry>
-                            <key>
-                              <string>useAjax</string>
-                            </key>
-                            <value>
-                              <string>false</string>
-                            </value>
-                          </entry>
-                        </map>
-                      </field>
-                    </object>
-                  </value>
-                  <!-- // Maybe put more the same configuration for your customization apps.
-                  value>
-                    ...
-                  </value
-                  -->
-                </collection>
-              </field>
-            </object>
-          </object-param>
-        </init-params>
-      </component-plugin>
-    </external-component-plugins>
-
-In which:
-
--  **Name**: ``Space Application Configuration``
-
--  **Set-method**: ``setSpaceApplicationConfigPlugin``
-
--  **Type**:
-   ``org.exoplatform.social.core.space.SpaceApplicationConfigPlugin``
-
--  **Init-params**:
-
-+----------------------------------+------------------------------------------------------------------------------+
-| Object-param                     | Description                                                                  |
-+==================================+==============================================================================+
-| **spaceHomeApplication**         | Sets the **Application** portlet to be the home page of a space.             |
-+----------------------------------+------------------------------------------------------------------------------+
-| **spaceApplicationListConfig**   | The list of the applications that are installed by default to a new space.   |
-+----------------------------------+------------------------------------------------------------------------------+
-
-+-------------------+------------------+-------------------------------------------------------------------------+
-| Field name        | Possible value   | Description                                                             |
-+===================+==================+=========================================================================+
-| **portletAp**     | ``string``       | The ``.war`` name file which has the portlet.                           |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **portletName**   | ``string``       | The name of portlet which is registered in the system.                  |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **appTitle**      | ``string``       | The display name of the application.                                    |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **removable**     | ``boolean``      | Specifies if the application is removed from the space or not.          |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **order**         | ``integer``      | The order of the application in the space navigation.                   |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **uri**           | ``string``       | The URI of the application in the page node.                            |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **preferences**   | ````             | Configures the default values or the init-parameters for the portlet.   |
-+-------------------+------------------+-------------------------------------------------------------------------+
 
 .. _PLFRefGuide.Configurations.ExternalComponentPlugins.Social.TemplateParamsProcessor:
 
