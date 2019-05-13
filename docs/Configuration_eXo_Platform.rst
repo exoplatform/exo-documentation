@@ -142,7 +142,7 @@ Space Template Service
 
 The service is used for space templates management, including creating space templates, extending space templates
 and installing applications. See
-:ref:`Managing Space Templates <PLFDevGuide.SpaceTemplates>`
+:ref:`Managing Space Templates <SpaceTemplates>`
 
 **Sample configuration**:
 

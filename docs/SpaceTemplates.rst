@@ -8,11 +8,11 @@ Managing Space Templates
     defines the space visbility, registration and the list of applications.
     This chapter will show steps for
 
-    -  :ref:`Extending existing templates <PLFDevGuide.SpaceTemplates.Extend>`
-        Steps for extending existing space templates. Only applications list can be extended.
-
     -  :ref:`Creating a new template <PLFDevGuide.SpaceTemplates.CreateNew>`
        Steps to create a new space template.
+
+    -  :ref:`Extending existing templates <PLFDevGuide.SpaceTemplates.Extend>`
+        Steps for extending existing space templates. Only applications list can be extended.
 
     -  :ref:`Defining an application handler for template <PLFDevGuide.SpaceTemplates.handler.CreateNew>`
        Steps to define an application handler for a space template.
@@ -21,67 +21,6 @@ Managing Space Templates
 In this chapter we will consider that you have already an extension.
 
 .. tip:: All the configurations samples given in this chapter have to be added to the portal configuration file of the extension war: *custom-form.war!/WEB-INF/conf/configuration.xml*.
-
-
-.. _PLFDevGuide.SpaceTemplates.Extend:
-
-============================
-Extending existing templates
-============================
-
-Sapce templates can be extended in order to add applications. Only applications can be added to space templates via extension.
-In order to add some applications to an existing template, "extendSpaceTemplatePlugin" method of the "SpaceTemplateService" will be used in a component plugin.
-In your portal configuration of your extension, add the following configuration:
-
-    .. code:: xml
-
-        <external-component-plugins>
-            <target-component>org.exoplatform.social.core.space.spi.SpaceTemplateService</target-component>
-            <!-- Community space template -->
-            <component-plugin>
-              <name>Space Template Extension</name>
-              <set-method>extendSpaceTemplatePlugin</set-method>
-              <type>org.exoplatform.social.core.space.SpaceTemplateConfigPlugin</type>
-              <init-params>
-                <object-param>
-                  <name>template</name>
-                  <description>Space Template</description>
-                  <object type="org.exoplatform.social.core.space.SpaceTemplate">
-                    <field name="name"><string>community</string></field>
-                    <field name="applications">
-                      <collection type="java.util.ArrayList">
-                        <value>
-                          <object type="org.exoplatform.social.core.space.SpaceApplication">
-                            <field name="portletApp">
-                              <string>task-management</string>
-                            </field>
-                            <field name="portletName">
-                              <string>TaskManagementApplication</string>
-                            </field>
-                            <field name="appTitle">
-                              <string>abcd</string>
-                            </field>
-                            <field name="removable">
-                              <boolean>true</boolean>
-                            </field>
-                            <field name="order">
-                              <int>3</int>
-                            </field>
-                            <field name="uri">
-                              <string>tasks</string>
-                            </field>
-                          </object>
-                        </value>
-                      </collection>
-                    </field>
-                  </object>
-                </object-param>
-              </init-params>
-            </component-plugin>
-            ...
-        </external-component-plugins>
-
-This will add "tasks" application to the "community" space template. The "tasks" application will the third application on "community" template according to the "order" field.
 
 
 .. _PLFDevGuide.SpaceTemplates.CreateNew:
@@ -197,6 +136,67 @@ In this example, you can define the banner image "banner.png" to the path */conf
 .. tip:: You can add translations for both space template name and description:
 - for space template name, add the property *space.template.$TEMPLATE_NAME* (for this example *space.template.custom*)
 - for space template description, add the property *space.template.description.$TEMPLATE_NAME* (for this example *space.template.description.custom*)
+
+
+.. _PLFDevGuide.SpaceTemplates.Extend:
+
+============================
+Extending existing templates
+============================
+
+Sapce templates can be extended in order to add applications. Only applications can be added to space templates via extension.
+In order to add some applications to an existing template, "extendSpaceTemplatePlugin" method of the "SpaceTemplateService" will be used in a component plugin.
+In your portal configuration of your extension, add the following configuration:
+
+    .. code:: xml
+
+        <external-component-plugins>
+            <target-component>org.exoplatform.social.core.space.spi.SpaceTemplateService</target-component>
+            <!-- Community space template -->
+            <component-plugin>
+              <name>Space Template Extension</name>
+              <set-method>extendSpaceTemplatePlugin</set-method>
+              <type>org.exoplatform.social.core.space.SpaceTemplateConfigPlugin</type>
+              <init-params>
+                <object-param>
+                  <name>template</name>
+                  <description>Space Template</description>
+                  <object type="org.exoplatform.social.core.space.SpaceTemplate">
+                    <field name="name"><string>community</string></field>
+                    <field name="applications">
+                      <collection type="java.util.ArrayList">
+                        <value>
+                          <object type="org.exoplatform.social.core.space.SpaceApplication">
+                            <field name="portletApp">
+                              <string>task-management</string>
+                            </field>
+                            <field name="portletName">
+                              <string>TaskManagementApplication</string>
+                            </field>
+                            <field name="appTitle">
+                              <string>abcd</string>
+                            </field>
+                            <field name="removable">
+                              <boolean>true</boolean>
+                            </field>
+                            <field name="order">
+                              <int>3</int>
+                            </field>
+                            <field name="uri">
+                              <string>tasks</string>
+                            </field>
+                          </object>
+                        </value>
+                      </collection>
+                    </field>
+                  </object>
+                </object-param>
+              </init-params>
+            </component-plugin>
+            ...
+        </external-component-plugins>
+
+This will add "tasks" application to the "community" space template. The "tasks" application will the third application on "community" template according to the "order" field.
 
 
 .. _PLFDevGuide.SpaceTemplates.handler.CreateNew:
