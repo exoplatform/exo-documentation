@@ -271,7 +271,7 @@ A description of each template is displayed below the selectors.
 
 All users to add in the space are displayed by a suggestor to facilitate their add.
 
-.. note:: The space creator can display only spaces that he is a member on them.
+.. note:: Only spaces that the creator is member of can be selected.
 
 6. Click Create Space button to finish adding your new space. The new space appears.
 
