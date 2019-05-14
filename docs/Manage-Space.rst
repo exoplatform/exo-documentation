@@ -289,7 +289,7 @@ If the space creator choose a template from the templates pulldown, a descriptio
    -  Communication : Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
    -  Team: A central destination for members of a team.
 
-   .. note:: By default, in the create space popup we will have the Community template as default value.
+   .. note:: The default template for new spaces is:  Community
   
 *Predefined Space templates*
 
