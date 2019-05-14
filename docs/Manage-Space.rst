@@ -257,7 +257,7 @@ A description of each template is displayed below the selectors.
 
 	-  Hidden: The space is not visible in the public spaces list.
 
--  **Registration**: By default, the Registration value is set to the one related to the template.
+-  **Registration**: By default, the Registration value is set to the one predefined in the template.
 
    -  Open: The users sending their requests can join the space without
       any validation.
