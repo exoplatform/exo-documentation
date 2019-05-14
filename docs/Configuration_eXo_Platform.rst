@@ -78,7 +78,7 @@ functionality for UI components. These services are:
 
 -  :ref:`Space Template Service <PLFRefGuide.Configurations.Components.Social.SpaceTemplateService>`
 
-   This service is used for spaces templates management, including creating
+   This service is used for space templates management, including creating
    space templates, extending space templates, and installing applications.
 
 -  :ref:`LifeCycle Completion Service <PLFRefGuide.Configurations.Components.Social.LifeCycleCompletionService>`

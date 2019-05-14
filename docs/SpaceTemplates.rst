@@ -4,9 +4,9 @@
 Managing Space Templates
 ######################
 
-    eXo Platform spaces are associated with templates. Each template
+    eXo Platform spaces are associated with templates at creation time. Each template
     defines the space visbility, registration and the list of applications.
-    This chapter will show steps for
+    This chapter will cover configuration for
 
     -  :ref:`Creating a new template <PLFDevGuide.SpaceTemplates.CreateNew>`
        Steps to create a new space template.
@@ -17,10 +17,10 @@ Managing Space Templates
     -  :ref:`Defining an application handler for template <PLFDevGuide.SpaceTemplates.handler.CreateNew>`
        Steps to define an application handler for a space template.
 
-.. tip:: In order to extend existing space templates or create a new one, you have to create your own :ref:`extension <PLFDevGuide.eXoAdd-ons.PortalExtension>`.
-In this chapter we will consider that you have already an extension.
+.. tip:: In order to extend existing space templates or create a new one, you must have your own :ref:`extension <PLFDevGuide.eXoAdd-ons.PortalExtension>`.
+This section assumes that you have already a working extension where you can plug the configuration.
 
-.. tip:: All the configurations samples given in this chapter have to be added to the portal configuration file of the extension war: *custom-form.war!/WEB-INF/conf/configuration.xml*.
+.. tip:: All the configuration samples given in this chapter MUST be added to the portal configuration file of the extension war: *custom-extension.war!/WEB-INF/conf/configuration.xml*.
 
 
 .. _PLFDevGuide.SpaceTemplates.CreateNew:
@@ -30,14 +30,13 @@ Creating a new template
 ============================
 
 You can define a new space template by configuration using ``registerSpaceTemplatePlugin`` method of the ``org.exoplatform.social.core.space.spi.SpaceTemplateService``.
-A space template consists of *name*, *visibility*, *registration*, *banner*, *home application* and *applications list*.
-To do so, you have to add the following configuration to your portal configuration:
+A space template consists of *name*, *visibility*, *registration*, *banner*, *home application* and *applications list* fields.
+To add a space template, add the following configuration :
 
     .. code:: xml
 
         <external-component-plugins>
             <target-component>org.exoplatform.social.core.space.spi.SpaceTemplateService</target-component>
-            <!-- Default applications to be installed when creating a new space -->
             <component-plugin>
               <name>Space Template Configuration</name>
               <set-method>registerSpaceTemplatePlugin</set-method>
@@ -58,6 +57,7 @@ To do so, you have to add the following configuration to your portal configurati
                         <field name="appTitle"><string>Home</string></field>
                       </object>
                     </field>
+                    <!-- Default applications to be installed when creating a new space -->
                     <field name="applications">
                       <collection type="java.util.ArrayList">
                         <value>
@@ -102,40 +102,40 @@ In which:
 +=========================+==============================+============================================================================+
 | **name**                | ``string``                   | The name of the space template.                                            |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **visibility**          | ``string``                   | The visibility of the space.                                               |
+| **visibility**          | ``string``                   | The visibility setting of the space.                                       |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **registration**        | ``string``                   | The registration of the space.                                             |
+| **registration**        | ``string``                   | The registration setting for the space.                                    |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **bannerPath**          | ``string``                   | The path of the space banner.                                              |
+| **bannerPath**          | ``string``                   | The path of the space banner file inside your extension war.               |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **homePageApplication** | ``SpaceApplication``         | Sets the **Application** portlet to be the home page of a space.           |
+| **homePageApplication** | ``SpaceApplication``         | The **Application** to use in the home page of a space.                    |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
 | **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space. |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
 
 -  **SpaceApplication**:
 
-+-------------------+------------------+-------------------------------------------------------------------------+
-| Field name        | Possible value   | Description                                                             |
-+===================+==================+=========================================================================+
-| **portletAp**     | ``string``       | The ``.war`` name file which has the portlet.                           |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **portletName**   | ``string``       | The name of portlet which is registered in the system.                  |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **appTitle**      | ``string``       | The display name of the application.                                    |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **removable**     | ``boolean``      | Specifies if the application is removed from the space or not.          |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **order**         | ``integer``      | The order of the application in the space navigation.                   |
-+-------------------+------------------+-------------------------------------------------------------------------+
-| **uri**           | ``string``       | The URI of the application in the page node.                            |
-+-------------------+------------------+-------------------------------------------------------------------------+
++-------------------+------------------+---------------------------------------------------------------------------+
+| Field name        | Possible value   | Description                                                               |
++===================+==================+===========================================================================+
+| **portletAp**     | ``string``       | The ``.war`` name file which has the portlet.                             |
++-------------------+------------------+---------------------------------------------------------------------------+
+| **portletName**   | ``string``       | The name of portlet which is registered in the system in its portlet.xml. |
++-------------------+------------------+---------------------------------------------------------------------------+
+| **appTitle**      | ``string``       | The display name of the application.                                      |
++-------------------+------------------+---------------------------------------------------------------------------+
+| **removable**     | ``boolean``      | Specifies if the application can be removed from the space or not.        |
++-------------------+------------------+---------------------------------------------------------------------------+
+| **order**         | ``integer``      | The order of the application in the space navigation.                     |
++-------------------+------------------+---------------------------------------------------------------------------+
+| **uri**           | ``string``       | The URI of the application in the page node.                              |
++-------------------+------------------+---------------------------------------------------------------------------+
 
-In this example, you can define the banner image "banner.png" to the path ``custom-form.war!/WEB-INF/conf/social-extension/social/space-template/custom/`` of your extension.
+In this example, you can place the banner image file "banner.png" inside the war of your extension at ``custom-extension.war!/WEB-INF/conf/social-extension/social/space-template/custom/``.
 
 .. tip:: You can add translations for both space template name and description:
-- for space template name, add the property ``space.template.$TEMPLATE_NAME`` (for this example *space.template.custom*)
-- for space template description, add the property ``space.template.description.$TEMPLATE_NAME`` (for this example *space.template.description.custom*)
+- for space template name, add the property in a resource bundle : ``space.template.$TEMPLATE_NAME`` (for this example *space.template.custom*)
+- for space template description, add the property in a resource bundle : ``space.template.description.$TEMPLATE_NAME`` (for this example *space.template.description.custom*)
 
 
 .. _PLFDevGuide.SpaceTemplates.Extend:
@@ -146,7 +146,7 @@ Extending existing templates
 
 Sapce templates can be extended in order to add applications. Only applications can be added to space templates via extension.
 In order to add some applications to an existing template, ``extendSpaceTemplatePlugin`` method of the ``org.exoplatform.social.core.space.spi.SpaceTemplateService`` will be used in a component plugin.
-In your portal configuration of your extension, add the following configuration:
+Add this to the configuration of your extension :
 
     .. code:: xml
 
@@ -207,7 +207,7 @@ Defining an application handler
 
 Each space template can have its own application handler. The application handler manipulates space applications: install, activate, deactivate, uninstall.
 All applications handlers must implement the interface `SpaceApplicationHandler <https://github.com/exoplatform/social/blob/develop/component/core/src/main/java/org/exoplatform/social/core/space/spi/SpaceApplicationHandler.java>`__.
-In order to define an application handler, you have to add the following component plugin configuration to your portal configuration:
+In order to define an application handler, add the following configuration :
 
     .. code:: xml
 
