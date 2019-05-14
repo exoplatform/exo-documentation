@@ -231,8 +231,8 @@ follows:
 
 |image23|
 
-3. The space creator have to enter a space name (required and from 3 to 200 characters) 
-   and description (from 0 to 255 characters).
+3. The space creator must enter a space name (3 to 200 characters) 
+   and may enter an optional description (max 255 characters).
 
 .. note:: Special characters are not allowed on space names. Only the character **&** is allowed.
            
@@ -240,10 +240,10 @@ follows:
 
 .. _space-templates:
 
-4. Space templates pulldown will presents all predefined templates that the space creator can use. 
-A description of every template in the pulldown is ensured and displayed just below the templates selector so that the space creator can differentiate between all templates.
+4. A pulldown lists all predefined templates that the space creator can use. 
+A description of each template is displayed below the selectors.
 
-.. note:: Every template have its specific visibility, regitration criteria and applications.
+.. note:: Each template defines its default visibility, registration criteria and list of applications.
 
 .. _access-level-step:
 
@@ -283,13 +283,13 @@ All users to add in the space are displayed by a suggestor to facilitate their a
 
 Space templates concept is not directly exposed to users. From their perspective, they simply pick a type when creating a space.
 
-If the space creator choose a template from the templates pulldown, a description of the selected template will be displayed below the pulldown:
+If the space creator choose a template from the pulldown, a description of the selected template is displayed below the pulldown:
    -  Community: A general purpose area for collaboration and communication of a digital community.
    -  Projects: A project space where members coordinate on tasks toward a predefined outcome.
    -  Communication : Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
    -  Team: A central destination for members of a team.
 
-   .. note:: By default, in the create space popup we will have the Community template as default value.
+   .. note:: The default template for new spaces is:  Community
   
 *Predefined Space templates*
 
@@ -395,9 +395,11 @@ Communication is the perfect choice to exchange knowledges and skills.
           Show More bar will appear at the page bottom. Click Show More
           to see more members.
 
+
 .. note:: In the space seeting, you can have an idea about the space template 
           for your space, the Space template pulldown will display the selected template and 
 		  the pulldown will be disabled and you can't change it.
+
 		  
 		  
 **Others**
