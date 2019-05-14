@@ -269,7 +269,7 @@ A description of each template is displayed below the selectors.
 
 5. In the **Users ** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
 
-All users to add in the space are displayed by a suggestor to facilitate their add.
+Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 .. note:: Only spaces that the creator is member of can be selected.
 
