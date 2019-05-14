@@ -395,7 +395,7 @@ Communication is the perfect choice to exchange knowledges and skills.
           Show More bar will appear at the page bottom. Click Show More
           to see more members.
 
-.. note:: In the space seeting, you can have an idea about the space template 
+.. note:: In the space settings, you can get an idea of the original space template used to create
          your space, by looking at the Template field 
 		  the pulldown will be disabled.
 		  
