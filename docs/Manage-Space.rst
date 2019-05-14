@@ -240,7 +240,7 @@ follows:
 
 .. _space-templates:
 
-4. Space templates pulldown will presents all predefined templates that the space creator can use. 
+4. A pulldown lists all predefined templates that the space creator can use. 
 A description of each template is displayed below the selectors.
 
 .. note:: Each template defines its default visibility, registration criteria and list of applications.
