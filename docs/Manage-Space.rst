@@ -243,7 +243,7 @@ follows:
 4. Space templates pulldown will presents all predefined templates that the space creator can use. 
 A description of every template in the pulldown is ensured and displayed just below the templates selector so that the space creator can differentiate between all templates.
 
-.. note:: Every template have its specific visibility, regitration criteria and applications.
+.. note:: Each template defines its default visibility, registration criteria and list of applications.
 
 .. _access-level-step:
 
