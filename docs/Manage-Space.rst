@@ -400,7 +400,6 @@ Communication is the perfect choice to exchange knowledges and skills.
 		  the pulldown will be disabled.
 		  
 		  
-
 **Others**
 
    When a new space is created:
