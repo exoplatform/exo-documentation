@@ -396,7 +396,7 @@ Communication is the perfect choice to exchange knowledges and skills.
           to see more members.
 
 .. note:: In the space seeting, you can have an idea about the space template 
-          for your space, the Space template pulldown will display the selected template and 
+         your space, by looking at the Template field 
 		  the pulldown will be disabled.
 		  
 		  
