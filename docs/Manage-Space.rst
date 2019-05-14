@@ -231,7 +231,7 @@ follows:
 
 |image23|
 
-3. The space creator have to enter a space name (required and from 3 to 200 characters) 
+3. The space creator must enter a space name (3 to 200 characters) 
    and may enter an optional description (max 255 characters).
 
 .. note:: Special characters are not allowed on space names. Only the character **&** is allowed.
