@@ -158,7 +158,11 @@ and installing applications. See
       </value-param>
     </init-params>
 
-*defaultSpaceTemplate* parameter defines the default space template name.
++--------------------------+-------------------------------------------------------+
+| Value-param              | Description                                           |
++==========================+=======================================================+
+| **defaultSpaceTemplate** | Defines the default space template name.              |
++--------------------------+-------------------------------------------------------+
 
 
 .. _PLFRefGuide.Configurations.Components.Social.LifeCycleCompletionService:

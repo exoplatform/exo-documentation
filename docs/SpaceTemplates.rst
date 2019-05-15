@@ -57,7 +57,6 @@ To add a space template, add the following configuration :
                         <field name="appTitle"><string>Home</string></field>
                       </object>
                     </field>
-                    <!-- Default applications to be installed when creating a new space -->
                     <field name="applications">
                       <collection type="java.util.ArrayList">
                         <value>
@@ -68,7 +67,6 @@ To add a space template, add the following configuration :
                             <field name="removable"><boolean>false</boolean></field>
                             <field name="order"><int>2</int></field>
                             <field name="uri"><string>settings</string></field>
-                            <!--<field name="icon"><string>SpaceSettingsIcon</string></field>-->
                           </object>
                         </value>
                         ...
@@ -94,7 +92,7 @@ In which:
 +----------------------+-------------------------------------------------------+
 | Object-param         | Description                                           |
 +======================+=======================================================+
-| **template**         | Sets the **SpaceTemplate** to ve defined.             |
+| **template**         | Sets the **SpaceTemplate** to be defined.             |
 +----------------------+-------------------------------------------------------+
 
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
