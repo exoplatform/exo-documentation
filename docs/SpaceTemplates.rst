@@ -22,6 +22,8 @@ This section assumes that you have already a working extension where you can plu
 
 .. tip:: All the configuration samples given in this chapter MUST be added to the portal configuration file of the extension war: *custom-extension.war!/WEB-INF/conf/configuration.xml*.
 
+.. tip:: The definition of standard eXo templates can be found `here <https://github.com/exoplatform/platform/blob/develop/samples/acme-intranet/webapp/src/main/webapp/WEB-INF/conf/office-extension/social/spaces-configuration.xml>`__.
+
 
 .. _PLFDevGuide.SpaceTemplates.CreateNew:
 
