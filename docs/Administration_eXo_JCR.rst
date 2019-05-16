@@ -76,10 +76,10 @@ Now WebDAV is an extension of the REST service. To get the WebDAV server
 ready, you must deploy the REST application. Then, you can access any
 workspaces of your repository by using the following URL:
 
--  `http://host:port/portal/rest/private/jcr/{RepositoryName}/{WorkspaceName}/{Path} <http://host:port/portal/rest/private/jcr/{RepositoryName}/{WorkspaceName}/{Path}>`__
+-  `http://host:port/rest/private/jcr/{RepositoryName}/{WorkspaceName}/{Path} <http://host:port/rest/private/jcr/{RepositoryName}/{WorkspaceName}/{Path}>`__
 
 For example, when accessing the WebDAV server with the URL
-http://localhost:8080/portal/rest/jcr/repository/collaboration, you will
+http://localhost:8080/rest/private/jcr/repository/collaboration, you will
 be asked to enter your login and password. Those will then be checked by
 using the organization service that can be implemented thanks to an
 InMemory (dummy) module or a DB module or an LDAP one and the JCR user
