@@ -267,7 +267,7 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-5. In the **Users ** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
+6. In the **Users** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
 
 Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
