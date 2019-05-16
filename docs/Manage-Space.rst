@@ -247,7 +247,7 @@ A description of each template is displayed below the selectors.
 
 .. _access-level-step:
 
-4. The space creator may override the predefined visibility and registration options of the space.
+5. The space creator may override the predefined visibility and registration options of the space.
 
 .. _About-space-visibility:
 
