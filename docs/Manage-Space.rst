@@ -283,7 +283,7 @@ Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 Space templates concept is not directly exposed to users. From their perspective, they simply pick a type when creating a space.
 
-If the space creator choose a template from the pulldown, a description of the selected template is displayed below the pulldown:
+If the space creator chooses a template from the pulldown, a description of the selected template is displayed below the pulldown:
    -  Community: A general purpose area for collaboration and communication of a digital community.
    -  Projects: A project space where members coordinate on tasks toward a predefined outcome.
    -  Communication : Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
