@@ -85,6 +85,9 @@ using the organization service that can be implemented thanks to an
 InMemory (dummy) module or a DB module or an LDAP one and the JCR user
 session will be created with the correct JCR Credentials.
 
+.. note:: When you use an external WebDav client, you can acces any workspace of your repository through this link:
+          `http://host:port/rest/private/jcr/{RepositoryName}/{WorkspaceName}/{Path} <http://host:port/rest/private/jcr/{RepositoryName}/{WorkspaceName}/{Path}>`
+
 .. note:: If you try the "in ECM" option, add "@ecm" to the user's password.
           Alternatively, you may modify jaas.conf by adding the **domain=ecm**
           option as follows:
