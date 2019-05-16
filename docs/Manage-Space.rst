@@ -273,7 +273,7 @@ Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 .. note:: Only spaces that the creator is member of can be selected.
 
-6. Click Create Space button to finish adding your new space. The new space appears.
+7. Click Create Space button to finish adding your new space. The new space appears.
 
 |image27|
 
