@@ -149,14 +149,15 @@ and installing applications. See
 .. code:: xml
 
     <component>
-    <key>org.exoplatform.social.core.space.spi.SpaceTemplateService</key>
-    <type>org.exoplatform.social.core.space.impl.SpaceTemplateServiceImpl</type>
-    <init-params>
-      <value-param>
-        <name>defaultSpaceTemplate</name>
-        <value>community</value>
-      </value-param>
-    </init-params>
+        <key>org.exoplatform.social.core.space.spi.SpaceTemplateService</key>
+        <type>org.exoplatform.social.core.space.impl.SpaceTemplateServiceImpl</type>
+        <init-params>
+          <value-param>
+            <name>defaultSpaceTemplate</name>
+            <value>${exo.social.template.default:community}</value>
+          </value-param>
+        </init-params>
+    </component>
 
 +--------------------------+-------------------------------------------------------+
 | Value-param              | Description                                           |

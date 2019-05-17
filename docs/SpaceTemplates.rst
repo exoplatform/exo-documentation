@@ -108,7 +108,7 @@ In which:
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
 | **bannerPath**          | ``string``                   | The path of the space banner file inside your extension war.               |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **homePageApplication** | ``SpaceApplication``         | The **Application** to use in the home page of a space.                    |
+| **homePageApplication** | ``SpaceApplication``         | The application to use in the home page of a space.                    |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
 | **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space. |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
