@@ -99,6 +99,9 @@ Configuration
        Instructions on how to enable/disable an activity type from
        posting on streams.
 
+    -  :ref:`Enabling/Disabling Activity link preview <Configuration.ActivityLinkPreview>`
+       How to enable/disable link preview in activity.
+
     -  :ref:`Configure spaces administration group <SpacesAdministration>`
        How to define spaces administrators groups.
 
@@ -2866,7 +2869,35 @@ To disable the activity type, simply set the parameter to ``false``.
 			   a content is shared in a space.  
 			-  **exosocial\\:relationship**: Activity post when two user are
 			   connected together.
+		
+.. _Configuration.ActivityLinkPreview:		
+		
 			    
+==========================================
+Enabling/Disabling activity link preview
+==========================================
+
+In eXo Platform, when :ref:`posting a link in activity stream <Link-post-in-AS>`, 
+the activity displays a preview for this link by fetching the title, an excerpt and 
+a thumbnail of the linked resource.
+
+|image7|
+
+You can enable or disable the link preview by defining the parameter 
+``exo.activity.link.preview.enabled`` in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code::
+
+     exo.activity.link.preview.enabled=true
+     
+By default, the parameter is set to true i.e. the activities link preview
+is enabled.
+
+If you disable activities link preview i.e. set the variable 
+``exo.activity.link.preview.enabled`` to false, activities with links are rendered with the link URL only:
+
+|image6|
+
 
 .. _SpacesAdministration:
 
@@ -5933,3 +5964,5 @@ login time will be updated in this external system.
 .. |image3| image:: images/openinoffice/openinwriter.png
 .. |image4| image:: images/docviewer/docviewer_maxsize.png
 .. |image5| image:: images/docviewer/docviewer_maxpages.png
+.. |image6| image:: images/disable_link_preview.png
+.. |image7| image:: images/link_preview_AS.png
