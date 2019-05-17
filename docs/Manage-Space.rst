@@ -247,7 +247,7 @@ A description of each template is displayed below the selectors.
 
 .. _access-level-step:
 
-4. The space creator may override the predefined visibility and registration options of the space.
+5. The space creator may override the predefined visibility and registration options of the space.
 
 .. _About-space-visibility:
 
@@ -267,7 +267,9 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-5. In the Invite users from group chackbox, select all members of a specific group for your space where you are already ‘manager’.
+
+6. In the Invite users from group chackbox, select all members of a specific group for your space where you are already ‘manager’.
+=======
 
 One of the two following cases occurs when you select this chechbox.
 
@@ -288,7 +290,7 @@ You will see your selected group as below.
 
 |image26|
 
-6. Click Create Space button to finish adding your new space. The new space appears.
+7. Click Create Space button to finish adding your new space. The new space appears.
 
 |image27|
 
@@ -298,7 +300,7 @@ You will see your selected group as below.
 
 Space templates concept is not directly exposed to users. From their perspective, they simply pick a type when creating a space.
 
-If the space creator choose a template from the pulldown, a description of the selected template is displayed below the pulldown:
+If the space creator chooses a template from the pulldown, a description of the selected template is displayed below the pulldown:
    -  Community: A general purpose area for collaboration and communication of a digital community.
    -  Projects: A project space where members coordinate on tasks toward a predefined outcome.
    -  Communication : Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
