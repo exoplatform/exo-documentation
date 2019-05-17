@@ -267,11 +267,26 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-5. In the **Users ** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
+5. In the Invite users from group chackbox, select all members of a specific group for your space where you are already ‘manager’.
 
-Type-ahead suggestions allow to facilitate selection users and groups to invite.
+One of the two following cases occurs when you select this chechbox.
 
-.. note:: Only spaces that the creator is member of can be selected.
+-  **The first instance:** You have been already the manager of a group. It means that you have created at least a space.
+
+|image32|
+
+-  i. Tick the Select a group of people to invite in your space checkbox to open the form below.
+
+-  ii. Select the group in the left pane, then its child group in the right pane.
+You will see your selected group as below.
+
+|image25|
+
+.. note:: To remove the selected groups, untick the **Select a group of people to invite in your space** checkbox. After you have selected one existing group, all users in that group will be invited to join your newly created space.
+
+-  **The second instance:** You have not been a manager of any group yet. It means that this is the first time you create a space, so you cannot select a target group.
+
+|image26|
 
 6. Click Create Space button to finish adding your new space. The new space appears.
 
