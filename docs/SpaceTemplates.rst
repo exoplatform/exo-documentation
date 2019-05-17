@@ -5,7 +5,7 @@ Managing Space Templates
 ######################
 
     eXo Platform spaces are associated with templates at creation time. Each template
-    defines the space visbility, registration and the list of applications.
+    defines the space visibility, registration and the list of applications.
     This chapter will cover configuration for
 
     -  :ref:`Creating a new template <PLFDevGuide.SpaceTemplates.CreateNew>`
@@ -144,7 +144,7 @@ In this example, you can place the banner image file "banner.png" inside the war
 Extending existing templates
 ============================
 
-Sapce templates can be extended in order to add applications. Only applications can be added to space templates via extension.
+Space templates can be extended in order to add applications. Only applications can be added to space templates via extension.
 In order to add some applications to an existing template, ``extendSpaceTemplatePlugin`` method of the ``org.exoplatform.social.core.space.spi.SpaceTemplateService`` will be used in a component plugin.
 Add this to the configuration of your extension :
 
@@ -196,7 +196,7 @@ Add this to the configuration of your extension :
             ...
         </external-component-plugins>
 
-This will add "tasks" application to the "community" space template. The "tasks" application will the third application on "community" template according to the "order" field.
+This will add "tasks" application to the "community" space template. The "tasks" application will be the third application in the "community" space created according to the "order" field.
 
 
 .. _PLFDevGuide.SpaceTemplates.handler.CreateNew:
@@ -205,7 +205,7 @@ This will add "tasks" application to the "community" space template. The "tasks"
 Defining an application handler
 ============================
 
-Each space template can have its own application handler. The application handler manipulates space applications: install, activate, deactivate, uninstall.
+Application handlers manipulate space applications: install, activate, deactivate, uninstall. Each space template can have its own application handler.
 All applications handlers must implement the interface `SpaceApplicationHandler <https://github.com/exoplatform/social/blob/develop/component/core/src/main/java/org/exoplatform/social/core/space/spi/SpaceApplicationHandler.java>`__.
 In order to define an application handler, add the following configuration :
 
