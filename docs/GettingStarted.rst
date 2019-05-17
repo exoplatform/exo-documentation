@@ -1036,7 +1036,7 @@ other space members (in the space's activity stream):
 .. tip:: When you already started to type a text message, add attachement or link to an activity post 
          and that the page will be refreshed, a confirmation popup appears to warn you about the unsaved changes.
          
-         -  In chrome browser: 
+         -  In Chrome browser: 
          
                 |image154|
          
