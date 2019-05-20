@@ -227,7 +227,7 @@ follows:
 
 1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
 
-2. A popup is displayed containing all informations related to the space creation.
+2. A popup is displayed containing all information related to the space creation.
 
 |image23|
 
