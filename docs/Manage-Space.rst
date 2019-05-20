@@ -499,6 +499,8 @@ This function allows you to edit the basic information of a space.
 
 3. Click Save to accept your changes.
 
+.. note:: The space template combo will be disabled, so that i can't edit my template.
+
 Changing visibility
 --------------------
 
