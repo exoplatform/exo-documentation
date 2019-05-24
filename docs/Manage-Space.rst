@@ -277,7 +277,7 @@ Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 .. _Space-banner-avatar:
 
-**Sapce banner and avatar**
+**Space banner and avatar**
 
 
    By default, the space banner is set to be the one predefined in the template and the space
