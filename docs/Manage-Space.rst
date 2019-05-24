@@ -281,7 +281,7 @@ Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 
    By default, the space banner is predefined by the template and the space
-   avatar contains the general space image:
+   avatar contains the generic space image:
 
    |image28|
 
