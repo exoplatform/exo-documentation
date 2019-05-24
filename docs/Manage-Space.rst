@@ -248,7 +248,7 @@ A pulldown lists all predefined templates that the space creator can use. A desc
 
 4. The space creator may override the predefined visibility and registration options of the space.
 
--  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
+-  **Hidden**: The visibility of the space is predefined by the template and can be overridden at creation time.
 
 	-  No: The space is not hidden and always visible in the public spaces list.
 
