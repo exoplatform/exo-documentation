@@ -227,8 +227,9 @@ follows:
 
 1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
 
-2. In the Settings tab, enter a space name (required and from 3 to 200 characters) 
-   and description (from 0 to 255 characters).
+2. A popup is displayed containing all information related to the space creation.
+
+3. The space creator must enter a space name (3 to 200 characters) and may enter an optional description (max 255 characters).
 
 |image23|
 
@@ -238,20 +239,22 @@ follows:
 
 .. _access-level-step:
 
-3. In the Access & Edit tab, select an access level.
+A pulldown lists all predefined templates that the space creator can use. A description of each template is displayed below the selectors.
 
-|image31|
+.. note:: Each template defines its default visibility, registration criteria and list of applications.
+
 
 .. _About-space-visibility:
 
--  **Visibility**: By default, the Visibility value is set to be Visible.
+4. The space creator may override the predefined visibility and registration options of the space.
 
-	-  Visible: The space is always visible in the public spaces list.
+-  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
 
-	-  Hidden: The space is not visible in the public spaces list.
+	-  No: The space is not hidden and always visible in the public spaces list.
 
--  **Registration**: By default, the Registration value is set as
-   Validation.
+	-  Yes: The space is not visible in the public spaces list.
+
+-  **Registration**: By default, the Registration value is set to be the one predefined in the template.
 
    -  Open: The users sending their requests can join the space without
       any validation.
@@ -261,35 +264,14 @@ follows:
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-4. In the **Invite users from group** tab, select all members of a specific
-group for your space where you are already 'manager'.
+5. In the **Users ** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
 
-One of the two following cases occurs when you select this tab.
+Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
--  **The first instance**: You have been already the manager of a group. It means that you have created at least a space.
+.. note:: Only spaces that the creator is member of can be selected.
 
-   |image24|
 
-   -  **i.** Tick the **Select a group of people** to invite in your space checkbox to open the form below.
-   
-   |image32|
-
-   -  **ii.** Select the group in the left pane, then its child group in
-      the right pane.
-
-      You will see your selected group as below.
-
-      |image25|
-
-.. note:: To remove the selected groups, untick the **Select a group of people to invite in your space** checkbox.
-
-   After you have selected one existing group, all users in that group will be invited to join your newly created space.
-
--  **The second instance**: You have not been a manager of any group yet. It means that this is the first time you create a space, so you cannot select a target group.
-
-   |image26|
-
-5. Click Create Space button to finish adding your new space. The new space appears.
+6. Click Create Space button to finish adding your new space. The new space appears.
 
 |image27|
 
@@ -298,7 +280,7 @@ One of the two following cases occurs when you select this tab.
 **Sapce banner and avatar**
 
 
-   By default, the space banner is grey (it is empty) and the space
+   By default, the space banner is set to be the one predefined in the template and the space
    avatar contains the general space image:
 
    |image28|
