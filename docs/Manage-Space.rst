@@ -239,7 +239,7 @@ follows:
 
 .. _access-level-step:
 
-A pulldown lists all predefined templates that the space creator can use. A description of each template is displayed below the selectors.
+A pulldown lists all predefined templates that the space creator can use. A description of each template is displayed below.
 
 .. note:: Each template defines its default visibility, registration criteria and list of applications.
 
