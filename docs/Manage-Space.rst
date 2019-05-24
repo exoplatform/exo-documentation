@@ -268,7 +268,7 @@ A pulldown lists all predefined templates that the space creator can use. A desc
 
 Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
-.. note:: Only spaces that the creator is member of can be selected.
+.. note:: Only spaces where the creator is member could be selected.
 
 
 6. Click Create Space button to finish adding your new space. The new space appears.
