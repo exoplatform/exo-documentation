@@ -227,7 +227,7 @@ follows:
 
 1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
 
-2. A popup is displayed containing all informations needed to create the space.
+2. A popup is displayed containing all information needed to create the space.
 
 3. The space creator must enter a space name (3 to 200 characters) and may enter an optional description (max 255 characters).
 
