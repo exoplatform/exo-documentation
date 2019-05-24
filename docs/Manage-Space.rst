@@ -252,7 +252,7 @@ A pulldown lists all predefined templates that the space creator can use. A desc
 
 	-  No: The space is not hidden and always visible in the public spaces list.
 
-	-  Yes: The space is not visible in the public spaces list.
+	-  Yes: The space is hidden, hence it won't appear in the public spaces directory.
 
 -  **Registration**: By default, the Registration value is set to be the one predefined in the template.
 
