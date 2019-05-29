@@ -116,7 +116,7 @@ In which:
 | **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space. |
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
 
-.. tip:: The ``permissions`` parameter is a list of groups separated by ";" character.
+.. tip:: The ``permissions`` parameter is a list of membership expressions separated by ";" character.
          Example: ``exo.social.space.template.community.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``community`` template and use it.
 
 -  **SpaceApplication**:
