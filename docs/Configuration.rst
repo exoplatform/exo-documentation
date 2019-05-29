@@ -1664,7 +1664,7 @@ Sort field configuration
 
 In :ref:`people application <People_Directory>`, users are sorted to facilitate 
 the search in the directory.
-It is possible to choose the field on which to make the sort by defining this 
+It is possible to choose the field on which to sort by defining this 
 parameter in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
 
 ::
