@@ -1681,7 +1681,7 @@ in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
 	exo.social.identity.sort.direction=asc
 	
 By default, users are sorted in the :ref:`people directory <People_Directory>`
-by their fullnames with ascending order.
+by their full names in ascending order.
 
 
 
