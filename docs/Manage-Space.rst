@@ -250,7 +250,7 @@ A pulldown lists all predefined templates that the space creator can use. A desc
 
 -  **Hidden**: The visibility of the space is predefined by the template and can be overridden at creation time.
 
-	-  No: The space is not hidden and always visible in the public spaces list.
+	-  No: The space is visible in the public spaces directory
 
 	-  Yes: The space is hidden, hence it won't appear in the public spaces directory.
 
