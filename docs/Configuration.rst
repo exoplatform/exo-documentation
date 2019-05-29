@@ -1673,7 +1673,7 @@ parameter in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
 	
 .. note:: The following values are accepted: fullname, lastname or firstname.
 
-You can also define the sort direction; ASC or DESC by defining this parameter 
+You can also define the sort direction (ASC for ascending or DESC for descending) with this parameter 
 in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
 
 :: 
