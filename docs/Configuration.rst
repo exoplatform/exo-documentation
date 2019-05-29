@@ -23,7 +23,7 @@ Configuration
        How to define the user inactivity delay.
 
     -  :ref:`Sort field configuration <Configuration.sortField>`
-       How to define the on which make the sort in :ref:`People directory <People_Directory>`.
+       How to define sort order in :ref:`People directory <People_Directory>`.
 
     -  :ref:`Data directory configuration <Configuration.DataDirectory>`
        Explanations of several paths in the local file system.
