@@ -1662,7 +1662,7 @@ The parameter is expressed in millisecond and the value default is
 Sort field configuration 
 =========================
 
-In :ref:`people application <People_Directory>` users are sorted to facilitate 
+In :ref:`people application <People_Directory>`, users are sorted to facilitate 
 the search in the directory.
 It is possible to choose the field on which to make the sort by defining this 
 parameter in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
