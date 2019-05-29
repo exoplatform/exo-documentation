@@ -227,34 +227,39 @@ follows:
 
 1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
 
-2. A popup is displayed containing all information needed to create the space.
+2. A popup is displayed containing all information related to the space creation.
 
 3. The space creator must enter a space name (3 to 200 characters) and may enter an optional description (max 255 characters).
 
 |image23|
 
+3. The space creator must enter a space name (3 to 200 characters) 
+   and may enter an optional description (max 255 characters).
+
 .. note:: Special characters are not allowed on space names. Only the character **&** is allowed.
            
            |image75|
 
-.. _access-level-step:
+.. _space-templates:
 
-A pulldown lists all predefined templates that the space creator can use. A description of each template is displayed below.
+4. A pulldown lists all predefined templates that the space creator can use. 
+A description of each template is displayed below the selectors.
 
 .. note:: Each template defines its default visibility, registration criteria and list of applications.
 
+.. _access-level-step:
+
+5. The space creator may override the predefined visibility and registration options of the space.
 
 .. _About-space-visibility:
 
-4. The space creator may override the predefined visibility and registration options of the space.
-
--  **Hidden**: The visibility of the space is predefined by the template and can be overridden at creation time.
+-  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
 
 	-  No: The space is visible in the public spaces directory
 
 	-  Yes: The space is hidden, hence it won't appear in the public spaces directory.
 
--  **Registration**: The Registration policy is predefined by the template and can be overridden at creation time
+-  **Registration**: By default, the Registration value is set to the one predefined in the template.
 
    -  Open: The users sending their requests can join the space without
       any validation.
@@ -264,16 +269,98 @@ A pulldown lists all predefined templates that the space creator can use. A desc
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-5. In the **Users ** field, the space creator can invite users or space members to the space just by picking them with the selector.
-
-Type-ahead suggestions allow to facilitate selection users and groups to invite.
-
-.. note:: Only spaces where the creator is member could be selected.
+6. In the Invite users from group chackbox, select all members of a specific group for your space where you are already ‘manager’.
 
 
-6. Click ``Create Space`` button to finish adding your new space. The new space appears.
+One of the two following cases occurs when you select this chechbox.
+
+-  **The first instance:** You have been already the manager of a group. It means that you have created at least a space.
+
+|image32|
+
+-  i. Tick the Select a group of people to invite in your space checkbox to open the form below.
+
+-  ii. Select the group in the left pane, then its child group in the right pane.
+You will see your selected group as below.
+
+|image25|
+
+.. note:: To remove the selected groups, untick the **Select a group of people to invite in your space** checkbox. After you have selected one existing group, all users in that group will be invited to join your newly created space.
+
+-  **The second instance:** You have not been a manager of any group yet. It means that this is the first time you create a space, so you cannot select a target group.
+
+|image26|
+
+7. Click Create Space button to finish adding your new space. The new space appears.
 
 |image27|
+
+.. _Space-templates:
+
+**Space Templates**
+
+Space templates concept is not directly exposed to users. From their perspective, they simply pick a type when creating a space.
+
+If the space creator chooses a template from the pulldown, a description of the selected template is displayed below the pulldown:
+   -  Community: A general purpose area for collaboration and communication of a digital community.
+   -  Projects: A project space where members coordinate on tasks toward a predefined outcome.
+   -  Communication : Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
+   -  Team: A central destination for members of a team.
+
+   .. note:: The default template for new spaces is:  Community
+  
+*Predefined Space templates*
+
+**Community**
+
+Community is the default space template. General purpose, digital collaboration and discussion area.
+
+Default Settings for the Community template are :
+   -  Title: Community 
+   -  Description: a general purpose area for collaboration and communication of a digital community.
+   -  Hidden: No 
+   -  Registration : Open
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Space Settings
+
+
+**Project**
+
+Projects is ideal to coordinate actors toward a shared outcome.
+
+ Default Settings for the Project template are :
+   -  Title: Project
+   -  Description: A project space where members coordinate on tasks toward a predefined outcome.
+   -  Hidden: No 
+   -  Registration : Validation
+   -  Predefined Apps : Home, Tasks, Documents, Calendar, Wiki, Forum, Members, Space Settings
+   
+**Team**
+
+For organizational teams or work groups.
+
+  Default Settings for the Project template are :
+   -  Title: Team
+   -  Description: A central destination for members of a team.
+   -  Hidden: Yes
+   -  Registration : Validation
+   -  Predefined Apps : Home, Calendar, Documents, Wiki, Tasks, Members, Space Settings
+   
+**Communication**
+
+Communication is the perfect choice to exchange knowledges and skills.
+
+   -  Title: Communication 
+   -  Description: Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
+   -  Hidden: No 
+   -  Registration : Validation
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Space Settings
+   
+   You can redefine the space banner and the space avatar by mousing
+   over and then clicking on |image29| allowing you to pick an image from
+   your computer.
+
+   More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
+
 
 .. _Space-banner-avatar:
 
@@ -294,7 +381,7 @@ Type-ahead suggestions allow to facilitate selection users and groups to invite.
 *Space applications*
 
 
-   By default, the space is featured with some default applications
+   The space is featured with some default applications
    pages on the space navigation bar. Simply click each application to
    use its functions. See :ref:`Managing space navigation bar <Manage-space-navbar>` for more details.
 
@@ -326,6 +413,12 @@ Type-ahead suggestions allow to facilitate selection users and groups to invite.
           Show More bar will appear at the page bottom. Click Show More
           to see more members.
 
+
+.. note:: In the space seeting, you can have an idea about the space template 
+          for your space, the Space template pulldown will display the selected template but you can't change it.
+
+		  
+		  
 **Others**
 
    When a new space is created:
@@ -406,6 +499,8 @@ This function allows you to edit the basic information of a space.
    open the Upload an Image form. See :ref:`Uploading your avatar <Change-your-avatar>` for more details.
 
 3. Click Save to accept your changes.
+
+.. note:: The space template combo will be disabled, so that you can't edit its template.
 
 Changing visibility
 --------------------

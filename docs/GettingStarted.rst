@@ -1033,6 +1033,18 @@ other space members (in the space's activity stream):
 
 |image57|
 
+.. tip:: When you already started to type a text message, add attachement or link to an activity post 
+         and that the page will be refreshed, a confirmation popup appears to warn you about the unsaved changes.
+         
+         -  In Chrome browser: 
+         
+                |image154|
+         
+         - In Firefox browser:
+         
+                |image155|
+         
+
 .. _text-message:
 
 Posting a text message in the activity stream
@@ -1949,4 +1961,6 @@ to display the original timestamp of the comment.
 .. |filter| image:: images/platform/activity_filter.png
 .. |image152| image:: images/platform/limit_activityMessage.png
 .. |image153| image:: images/platform/limit_comment.png
+.. |image154| image:: images/platform/confirmation_popup_Chrome.png
+.. |image155| image:: images/platform/Confirmation_popup_FF.png
 

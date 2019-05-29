@@ -22,6 +22,10 @@ essential to your work.
 
 |image0|
 
+You can react to posted activities by commenting or liking.
+
+|image6|
+
 Left menu
 ~~~~~~~~~~
 
@@ -92,6 +96,7 @@ with your social intranet in a familiar environment.
    :width: 10.00000cm
 .. |image4| image:: images/mobile/documents_share.png
 .. |image5| image:: images/mobile/mobile_upload_files.png
+.. |image6| image:: images/mobile/commentAS_mobile.png
 
 
 
