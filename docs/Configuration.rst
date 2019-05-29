@@ -1671,7 +1671,7 @@ parameter in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
 
 	exo.social.identity.sort.field=fullname
 	
-.. note:: The sort is feasible on these fields: fullname, lastname or firstname.
+.. note:: The following values are accepted: fullname, lastname or firstname.
 
 You can also define the sort direction; ASC or DESC by defining this parameter 
 in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
