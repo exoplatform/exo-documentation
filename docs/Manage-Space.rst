@@ -229,6 +229,8 @@ follows:
 
 2. A popup is displayed containing all information related to the space creation.
 
+3. The space creator must enter a space name (3 to 200 characters) and may enter an optional description (max 255 characters).
+
 |image23|
 
 3. The space creator must enter a space name (3 to 200 characters) 
@@ -253,9 +255,9 @@ A description of each template is displayed below the selectors.
 
 -  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
 
-	-  Visible: The space is always visible in the public spaces list.
+	-  No: The space is visible in the public spaces directory
 
-	-  Hidden: The space is not visible in the public spaces list.
+	-  Yes: The space is hidden, hence it won't appear in the public spaces directory.
 
 -  **Registration**: By default, the Registration value is set to the one predefined in the template.
 
@@ -267,9 +269,8 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-
 6. In the Invite users from group chackbox, select all members of a specific group for your space where you are already ‘manager’.
-=======
+
 
 One of the two following cases occurs when you select this chechbox.
 
@@ -366,8 +367,8 @@ Communication is the perfect choice to exchange knowledges and skills.
 **Space banner and avatar**
 
 
-   By default, the space banner is grey (it is empty) and the space
-   avatar contains the general space image:
+   By default, the space banner is predefined by the template and the space
+   avatar contains the generic space image:
 
    |image28|
 
