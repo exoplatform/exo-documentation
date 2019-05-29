@@ -52,7 +52,7 @@ To add a space template, add the following configuration :
                     <field name="visibility"><string>private</string></field>
                     <field name="registration"><string>open</string></field>
                     <field name="bannerPath"><string>war:/conf/social-extension/social/space-template/custom/banner.png</string></field>
-                    <field name="permissions"><string>${space.template.community.permissions:*:/platform/users}</string></field>
+                    <field name="permissions"><string>${exo.social.space.template.community.permissions:*:/platform/users}</string></field>
                     <field name="homePageApplication">
                       <object type="org.exoplatform.social.core.space.SpaceApplication">
                         <field name="portletApp"><string>social-portlet</string></field>
@@ -117,7 +117,7 @@ In which:
 +-------------------------+------------------------------+----------------------------------------------------------------------------+
 
 .. tip:: The ``permissions`` parameter is a list of groups separated by ";" character.
-         Example: ``space.template.community.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``community`` template and use it.
+         Example: ``exo.social.space.template.community.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``community`` template and use it.
 
 -  **SpaceApplication**:
 
