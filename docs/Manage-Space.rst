@@ -254,7 +254,7 @@ A pulldown lists all predefined templates that the space creator can use. A desc
 
 	-  Yes: The space is hidden, hence it won't appear in the public spaces directory.
 
--  **Registration**: By default, the Registration value is set to be the one predefined in the template.
+-  **Registration**: The Registration policy is predefined by the template and can be overridden at creation time
 
    -  Open: The users sending their requests can join the space without
       any validation.
