@@ -22,6 +22,9 @@ Configuration
     -  :ref:`User inactivity delay configuration <UserInactivityDelay>`
        How to define the user inactivity delay.
 
+    -  :ref:`Sort field configuration <Configuration.sortField>`
+       How to define the on which make the sort in :ref:`People directory <People_Directory>`.
+
     -  :ref:`Data directory configuration <Configuration.DataDirectory>`
        Explanations of several paths in the local file system.
 
@@ -1652,6 +1655,36 @@ The parameter is expressed in millisecond and the value default is
 
      # The delay when we consider a user as offline. Default value is 240000 milliseconds
     exo.user.status.offline.delay=240000
+    
+.. _Configuration.sortField:    
+    
+=========================    
+Sort field configuration 
+=========================
+
+In :ref:`people application <People_Directory>` users are sorted to facilitate 
+the search in the directory.
+It is possible to choose the field on which to make the sort by defining this 
+parameter in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
+
+::
+
+	exo.social.identity.sort.field=fullname
+	
+.. note:: The sort is feasible on these fields: fullname, lastname or firstname.
+
+You can also define the sort direction; ASC or DESC by defining this parameter 
+in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
+
+:: 
+
+	exo.social.identity.sort.direction=asc
+	
+By default, users are sorted in the :ref:`people directory <People_Directory>`
+by their fullnames with ascending order.
+
+
+
     
 .. _Configuration.DataDirectory:
 
