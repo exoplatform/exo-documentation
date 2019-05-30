@@ -381,6 +381,8 @@ There are 3 main divisions in the **Social Intranet** homepage:
       -  Home: To come back to your social intranet homepage from any
          page.
 
+.. _People_Directory:         
+
       -  People: To display the whole list of the platform users. You
          can manage your connections, search for users using different
          filters...
