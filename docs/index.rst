@@ -87,6 +87,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    Authentication_And_Identity
    SpaceTemplates
    API
+   Gamification
    Cookbook
    
 .. _addons-docs:
