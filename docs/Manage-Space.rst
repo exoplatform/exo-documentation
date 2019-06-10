@@ -233,8 +233,6 @@ follows:
 
 |image23|
 
-3. The space creator must enter a space name (3 to 200 characters) 
-   and may enter an optional description (max 255 characters).
 
 .. note:: Special characters are not allowed on space names. Only the character **&** is allowed.
            
@@ -242,24 +240,25 @@ follows:
 
 .. _space-templates:
 
-4. A pulldown lists all predefined templates that the space creator can use. 
+A pulldown lists all predefined templates that the space creator can use. 
 A description of each template is displayed below the selectors.
 
 .. note:: Each template defines its default visibility, registration criteria and list of applications.
 
 .. _access-level-step:
 
-5. The space creator may override the predefined visibility and registration options of the space.
+4. The space creator may override the predefined visibility and registration options of the space.
 
 .. _About-space-visibility:
 
--  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
+ -  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
 
-	-  No: The space is visible in the public spaces directory
 
-	-  Yes: The space is hidden, hence it won't appear in the public spaces directory.
+-  -  No: The space is not hidden and always visible in the public spaces list.
 
--  **Registration**: By default, the Registration value is set to the one predefined in the template.
+-  -  Yes: The space is not visible in the public spaces list.
+
+-  **Registration**: By default, the Registration value is set to be the one predefined in the template.
 
    -  Open: The users sending their requests can join the space without
       any validation.
@@ -269,29 +268,13 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-6. In the Invite users from group chackbox, select all members of a specific group for your space where you are already ‘manager’.
+5. In the **Users ** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
 
+Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
-One of the two following cases occurs when you select this chechbox.
+.. note:: Only spaces that the creator is member of can be selected.
 
--  **The first instance:** You have been already the manager of a group. It means that you have created at least a space.
-
-|image32|
-
--  i. Tick the Select a group of people to invite in your space checkbox to open the form below.
-
--  ii. Select the group in the left pane, then its child group in the right pane.
-You will see your selected group as below.
-
-|image25|
-
-.. note:: To remove the selected groups, untick the **Select a group of people to invite in your space** checkbox. After you have selected one existing group, all users in that group will be invited to join your newly created space.
-
--  **The second instance:** You have not been a manager of any group yet. It means that this is the first time you create a space, so you cannot select a target group.
-
-|image26|
-
-7. Click Create Space button to finish adding your new space. The new space appears.
+6. Click Create Space button to finish adding your new space. The new space appears.
 
 |image27|
 
@@ -367,8 +350,7 @@ Communication is the perfect choice to exchange knowledges and skills.
 **Space banner and avatar**
 
 
-   By default, the space banner is predefined by the template and the space
-   avatar contains the generic space image:
+  By default, the space banner is set to be the one predefined in the template and the space.
 
    |image28|
 
