@@ -253,10 +253,9 @@ A description of each template is displayed below the selectors.
 
  -  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
 
+   -  No: The space is not hidden and always visible in the public spaces list.
 
--  -  No: The space is not hidden and always visible in the public spaces list.
-
--  -  Yes: The space is not visible in the public spaces list.
+   -  Yes: The space is not visible in the public spaces list.
 
 -  **Registration**: By default, the Registration value is set to be the one predefined in the template.
 
@@ -268,7 +267,7 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
-5. In the **Users ** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
+5. In the **Users** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
 
 Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
