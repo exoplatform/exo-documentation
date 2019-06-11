@@ -2481,7 +2481,7 @@ Manage Templates
 ~~~~~~~~~~~~~~~~~~
 |image322|
 
-The "Manage Templates" interface will display all templates that can be chosen by all space creators.
+The "Manage Templates" interface displays all templates that can be chosen by all space creators.
 
 All templates will be presented in a table with: 
 - Template Name
