@@ -2490,7 +2490,7 @@ All templates will be presented in a table with:
 - Registration
 - Applications
 - Banner link (specific banner for the space template)
-- Permissions (permission to view the template in the templates list in the space creation popup)
+- Permissions (permission to create a space from this template)
 
 .. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually.
 
