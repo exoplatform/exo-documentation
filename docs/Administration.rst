@@ -38,7 +38,7 @@ Administering eXo Platform
        eXo Platform.
 
     -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
-       Instructions on how to manage spaces, its permissions and templates in
+       Instructions on how to manage spaces, thier permissions and templates in
        eXo Platform.
 
     -  :ref:`Managing sites <ManagingSites>`
@@ -2460,13 +2460,13 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-It is possible to restrict which users can create and/or manage spaces and its templates
+It is possible to restrict which users can create and/or manage spaces and templates
 through an easy to use interface .
 
 |image305|
 
 .. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
-          the members of the group ``*:/platform/administrators``) are allowed to manage spaces and its templates.
+          the members of the group ``*:/platform/administrators``) are allowed to manage spaces and templates.
           
 The spaces administration interface is accessible via the menu Administration --> Spaces.
 
@@ -2474,23 +2474,23 @@ The spaces administration interface is accessible via the menu Administration --
 
 This Spaces menu contains two choices:
 
-- "Manage Templates" : The administrator will have the ability to create, update, delete or even change permissions of some space templates.
+- "Manage Templates" : The administrator can create, update, delete or even change permissions of some space templates.
 - "Manage Spaces" : The administrator tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
 
 Manage Templates
 ~~~~~~~~~~~~~~~~~~
 |image322|
 
-The "Manage Templates" interface will display all templates that can be chosen by all space creators.
+The "Manage Templates" interface displays all templates that can be chosen by all space creators.
 
-All templates will be presented in a table with: 
+All templates are presented in a table with: 
 - Template Name
 - Template Description
-- Hidden status (Read Only switch button)
+- Visibility status 
 - Registration
 - Applications
 - Banner link (specific banner for the space template)
-- Permissions (permission to view the template in the templates list in the space creation popup)
+- Permissions (permission to create a space from this template)
 
 .. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually.
 
