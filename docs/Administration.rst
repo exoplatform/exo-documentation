@@ -2482,14 +2482,15 @@ Manage Templates
 |image322|
 
 The "Manage Templates" interface will display all templates that can be chosen by all space creators.
+
 All templates will be presented in a table with: 
 - Template Name
 - Template Description
-- Hidden status
+- Hidden status (Read Only switch button)
 - Registration
 - Applications
-- Banner link 
-- Permissions
+- Banner link (specific banner for the space template)
+- Permissions (permission to view the template in the templates list in the space creation popup)
 
 .. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually.
 
