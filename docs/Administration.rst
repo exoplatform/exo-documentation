@@ -38,7 +38,7 @@ Administering eXo Platform
        eXo Platform.
 
     -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
-       Instructions on how to manage spaces, its permissions and templates in
+       Instructions on how to manage spaces, thier permissions and templates in
        eXo Platform.
 
     -  :ref:`Managing sites <ManagingSites>`
