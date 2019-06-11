@@ -2486,7 +2486,7 @@ The "Manage Templates" interface displays all templates that can be chosen by al
 All templates will be presented in a table with: 
 - Template Name
 - Template Description
-- Hidden status (Read Only switch button)
+- Visibility status 
 - Registration
 - Applications
 - Banner link (specific banner for the space template)
