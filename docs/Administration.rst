@@ -37,6 +37,10 @@ Administering eXo Platform
        Instructions on how to manage users, groups and memberships in
        eXo Platform.
 
+    -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
+       Instructions on how to manage spaces, its permissions and templates in
+       eXo Platform.
+
     -  :ref:`Managing sites <ManagingSites>`
        In-depth instructions on how to create, edit and delete sites.
 
@@ -2456,17 +2460,43 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-It is possible to restrict which users can create and/or manage spaces
+It is possible to restrict which users can create and/or manage spaces and its templates
 through an easy to use interface .
 
 |image305|
 
-.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and only administrators (i.e.
-          the members of the group ``*:/platform/administrators``) are allowed to manage spaces.
+.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
+          the members of the group ``*:/platform/administrators``) are allowed to manage spaces and its templates.
           
 The spaces administration interface is accessible via the menu Administration --> Spaces.
 
 |image306|
+
+This Spaces menu contains two choices:
+
+- "Manage Templates" : The administrator will have the ability to create, update, delete or even change permissions of some space templates.
+- "Manage Spaces" : The administrator tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
+
+Manage Templates
+~~~~~~~~~~~~~~~~~~
+|image322|
+
+The "Manage Templates" interface will display all templates that can be chosen by all space creators.
+All templates will be presented in a table with: 
+- Template Name
+- Template Description
+- Hidden status
+- Registration
+- Applications
+- Banner link 
+- Permissions
+
+.. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually.
+
+.. note:: To display the banner, you can simply click on **Link** so that the banner will be displayed in a new tab.
+
+Manage Spaces
+~~~~~~~~~~~~~~~~~~
 
 This interface contains two tabs:
 
@@ -5073,3 +5103,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image319| image:: images/platform/create_space_permission.png
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
+.. |image322| image:: images/platform/SpaceTemplatesTable.png
