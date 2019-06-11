@@ -2460,7 +2460,7 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-It is possible to restrict which users can create and/or manage spaces and its templates
+It is possible to restrict which users can create and/or manage spaces and templates
 through an easy to use interface .
 
 |image305|
