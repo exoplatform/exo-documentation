@@ -2466,7 +2466,7 @@ through an easy to use interface .
 |image305|
 
 .. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
-          the members of the group ``*:/platform/administrators``) are allowed to manage spaces and its templates.
+          the members of the group ``*:/platform/administrators``) are allowed to manage spaces and templates.
           
 The spaces administration interface is accessible via the menu Administration --> Spaces.
 
