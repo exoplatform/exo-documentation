@@ -99,7 +99,6 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    SSO
    WCM
    CMIS
-   Gamification
    
 
 .. _mobile-docs:
