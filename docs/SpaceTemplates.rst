@@ -98,23 +98,23 @@ In which:
 | **template**         | Sets the **SpaceTemplate** to be defined.             |
 +----------------------+-------------------------------------------------------+
 
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| Field name              | Possible value               | Description                                                                |
-+=========================+==============================+============================================================================+
-| **name**                | ``string``                   | The name of the space template.                                            |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **visibility**          | ``string``                   | The visibility setting of the space.                                       |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **registration**        | ``string``                   | The registration setting for the space.                                    |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **bannerPath**          | ``string``                   | The path of the space banner file inside your extension war.               |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **permissions**         | ``string``                   | The groups that have permissions to view and use this space template.      |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **homePageApplication** | ``SpaceApplication``         | The application to use in the home page of a space.                        |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
-| **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space. |
-+-------------------------+------------------------------+----------------------------------------------------------------------------+
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| Field name              | Possible value               | Description                                                                                  |
++=========================+==============================+==============================================================================================+
+| **name**                | ``string``                   | The name of the space template.                                                              |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **visibility**          | ``string``                   | The visibility setting of the space. Possible values: "private" or "hidden"                  |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **registration**        | ``string``                   | The registration setting for the space. Possible values are: "open", "validation" or "close" |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **bannerPath**          | ``string``                   | The path of the space banner file inside your extension war.                                 |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **permissions**         | ``string``                   | The groups that have permissions to view and use this space template.                        |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **homePageApplication** | ``SpaceApplication``         | The application to use in the home page of a space.                                          |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space.                   |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
 
 .. tip:: The ``permissions`` parameter is a list of membership expressions separated by ";" character.
          Example: ``exo.social.space.template.community.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``community`` template and use it.
