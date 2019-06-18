@@ -380,8 +380,8 @@ There are 3 main divisions in the **Social Intranet** homepage:
 
       -  Home: To come back to your social intranet homepage from any
          page.
-
-.. _People_Directory:         
+         
+.. _People_Directory:          
 
       -  People: To display the whole list of the platform users. You
          can manage your connections, search for users using different
@@ -941,6 +941,9 @@ Using the Activity Stream
 
  * :ref:`Sharing in the activity stream <Share-AS>`
    Steps to post status updates through the **Activity Stream**. 
+
+ * :ref:`Sharing a news in the activity stream <Sharing-news>`
+   Steps to post a news in the **Activity Stream**.
    
  * :ref:`The formatting toolbar in activity messages and comments <Formatting-toolbar>`
    This sections describes possible actions with the microblog toolbar.     
@@ -1038,7 +1041,7 @@ other space members (in the space's activity stream):
 .. tip:: When you already started to type a text message, add attachement or link to an activity post 
          and that the page will be refreshed, a confirmation popup appears to warn you about the unsaved changes.
          
-         -  In Chrome browser: 
+         -  In chrome browser: 
          
                 |image154|
          
@@ -1145,6 +1148,47 @@ the link.
 
     .. note:: If the activity composer is empty, the |image78| button still grey and unclickable until adding something (a text message, a link or a file) in the activity composer area.
 
+.. _Sharing-news:
+
+	
+Sharing a news in the activity stream
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	
+From a space's acivity stream, you are able to share a news with the space’s members. 
+Publishing a news allows you to easily write, broadcast, pin and share communication content.
+
+
+Sharing a simple news from short form
+--------------------------------------
+
+To share an article with other space’s members, click on News tab from the activity composer, the tab contains :
+
+
+- A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write.
+
+- A **Content** field : Allows you to enter the content of the News. No limitation for the number of characters.
+
+- A **Pin article** Check box.
+
+- A **More icon** with a tooltip “more options”: Permits to open the creation full form.
+
+- A **Post** button : Disabled by default until the two fields “Title” and “Content” are filled.
+
+|image156|
+
+
+Then type your News Title and content in the appropriate fields and click on Post button
+
+The article is shared into the space's activity stream.
+
+|image158|
+
+
+.. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
+         
+		  
+
+		
 .. _Formatting-toolbar:
 
 The formatting toolbar in activity messages and comments
@@ -1965,4 +2009,6 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-
+.. |image156| image:: images/news/composer_news.png
+.. |image157| image:: images/news/post.png
+.. |image158| image:: images/news/shared_news.png
