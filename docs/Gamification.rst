@@ -8,7 +8,7 @@ Engaging your collaborators is one of the key challenges for organizations nowad
 
 **eXo Gamification** will help your organization to engage your employees.
 
-**eXo Gamification** is layering game-like features upon the use of applications –such as those used within a digital workplace– in order to boost employee engagement to enhance the use of your digital workplace solution by encouraging collaborators to participate.
+**eXo Gamification** is layering game-like features upon the use of applications, such as those used within a digital workplace, in order to boost employee engagement and enhance the use of your digital workplace solution by encouraging collaborators to participate.
 
 When employees are engaged, they more participate on your platform by posting, commenting, sharing documents, rating, downloading and much more. 
 
