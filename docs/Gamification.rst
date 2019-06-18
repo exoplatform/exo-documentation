@@ -24,7 +24,7 @@ Domains
 .. _Badges:
 
 =======================
-Domains
+Badges
 =======================
 
 .. _Leaserboard:
