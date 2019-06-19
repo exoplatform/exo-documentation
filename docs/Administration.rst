@@ -2489,7 +2489,7 @@ Manage Templates
 The "Manage Templates" interface displays all templates that can be chosen by all space creators.
 
 All templates are presented in a table with: 
-- Template Name
+- Name : Name of the template as shown to end users
 - Description : description of the template to hint users about the intended use of the space
 - Visibility status : default visibility option (visible, secret) for the space
 - Registration : default registration policy for the space (open, closed, validation)
