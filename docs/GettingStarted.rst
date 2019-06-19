@@ -2008,6 +2008,6 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_news.png
-.. |image157| image:: images/sharenews/post.png
+.. |image156| image:: images/sharenews/composer_news.PNG
+.. |image157| image:: images/sharenews/post.PNG
 .. |image158| image:: images/sharenews/shared_news.png
