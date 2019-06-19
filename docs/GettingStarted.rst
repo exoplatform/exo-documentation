@@ -1176,8 +1176,7 @@ To share an article with other space’s members, click on News tab from the act
 
 |image156|
 
-
-Then type your News Title and content in the appropriate fields and click on Post button
+Once all fields are filled, click on the Post button to post the News in the space's activity stream.
 
 The article is shared into the space's activity stream.
 
@@ -2009,6 +2008,6 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/news/composer_news.png
-.. |image157| image:: images/news/post.png
-.. |image158| image:: images/news/shared_news.png
+.. |image156| image:: images/sharenews/composer_news.png
+.. |image157| image:: images/sharenews/post.png
+.. |image158| image:: images/sharenews/shared_news.png
