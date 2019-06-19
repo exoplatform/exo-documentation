@@ -2497,9 +2497,8 @@ All templates are presented in a table with:
 - Banner link : the image that will be use by default as the space banner (click to see it)
 - Permissions : list of groups/roles that are authorized to create a space from this template
 
-.. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually.
-
-.. note:: To display the banner, you can simply click on **Link** so that the banner will be displayed in a new tab.
+.. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually. 
+To display the banner, you can simply click on **Link** so that the banner will be displayed in a new tab.
 
 Manage Spaces
 ~~~~~~~~~~~~~~~~~~
