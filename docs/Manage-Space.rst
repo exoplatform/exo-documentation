@@ -272,7 +272,8 @@ A description of each template is displayed below the selectors.
 Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 .. note:: Only spaces that the creator is member of can be selected. 
-Users field can be pre-filled by default users or spaces defined in space template.
+          Users field can be pre-filled by default users or spaces defined in space template
+
 
 6. Click Create Space button to finish adding your new space. The new space appears.
 
