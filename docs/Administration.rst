@@ -2494,7 +2494,7 @@ All templates are presented in a table with:
 - Visibility status 
 - Registration
 - Applications
-- Banner link (specific banner for the space template)
+- Banner link : the image that will be use by default as the space banner (click to see it)
 - Permissions (permission to create a space from this template)
 
 .. note:: The Manage Template table is only for displaying all templates informations, to edit the template propreties, you have to do it manually.
