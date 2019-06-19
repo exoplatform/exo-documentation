@@ -2490,7 +2490,7 @@ The "Manage Templates" interface displays all templates that can be chosen by al
 
 All templates are presented in a table with: 
 - Template Name
-- Template Description
+- Description : description of the template to hint users about the intended use of the space
 - Visibility status : default visibility option (visible, secret) for the space
 - Registration
 - Applications
