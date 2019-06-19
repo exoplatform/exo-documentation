@@ -2479,7 +2479,7 @@ This Spaces menu contains two choices:
 
 
 
-.. note:: the Templates table is in Read Only, to edit a template, you can simply modify your template in the config file.
+.. note:: the list of templates is read-only. Changing a template's details requires to edit the config file as explained here.
 
 
 Manage Templates
