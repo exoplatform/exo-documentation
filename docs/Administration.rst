@@ -2491,7 +2491,7 @@ The "Manage Templates" interface displays all templates that can be chosen by al
 All templates are presented in a table with: 
 - Template Name
 - Template Description
-- Visibility status 
+- Visibility status : default visibility option (visible, secret) for the space
 - Registration
 - Applications
 - Banner link : the image that will be use by default as the space banner (click to see it)
