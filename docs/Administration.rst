@@ -2479,7 +2479,7 @@ This Spaces menu contains two choices:
 
 
 
-.. note:: the list of templates is read-only. Changing a template's details requires to edit the config file as explained here.
+.. note:: the list of templates is read-only. Changing a template details requires to edit the config file as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` .
 
 
 Manage Templates
