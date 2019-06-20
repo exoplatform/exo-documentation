@@ -52,7 +52,8 @@ To add a space template, add the following configuration :
                     <field name="visibility"><string>private</string></field>
                     <field name="registration"><string>open</string></field>
                     <field name="bannerPath"><string>war:/conf/social-extension/social/space-template/custom/banner.png</string></field>
-                    <field name="permissions"><string>${exo.social.space.template.community.permissions:*:/platform/users}</string></field>
+                    <field name="permissions"><string>${exo.social.space.template.custom.permissions:*:/platform/users}</string></field>
+                    <field name="invitees"><string>${exo.social.space.template.custom.invitees:}</string></field>
                     <field name="homePageApplication">
                       <object type="org.exoplatform.social.core.space.SpaceApplication">
                         <field name="portletApp"><string>social-portlet</string></field>
@@ -111,13 +112,18 @@ In which:
 +-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
 | **permissions**         | ``string``                   | The groups that have permissions to view and use this space template.                        |
 +-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
+| **invitees**            | ``string``                   | The users and/or spaces that will be invited during space creation.                          |
++-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
 | **homePageApplication** | ``SpaceApplication``         | The application to use in the home page of a space.                                          |
 +-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
 | **applications**        | list of ``SpaceApplication`` | The list of the applications that are installed by default to a new space.                   |
 +-------------------------+------------------------------+----------------------------------------------------------------------------------------------+
 
 .. tip:: The ``permissions`` parameter is a list of membership expressions separated by ";" character.
-         Example: ``exo.social.space.template.community.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``community`` template and use it.
+         Example: ``exo.social.space.template.custom.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``custom`` template and use it.
+.. tip:: The ``invitees`` parameter is a list of user and space names separated by "," character.
+         Example: ``exo.social.space.template.custom.invitees=userA,space A,userB`` , the users userA, userB and all space A members will be added to the invitees for space having ``custom`` template.
+         The invitees will be added to the users input of the space creation popup. The user can remove any entry using the "x" icon.
 
 -  **SpaceApplication**:
 
@@ -168,7 +174,7 @@ Add this to the configuration of your extension :
                   <name>template</name>
                   <description>Space Template</description>
                   <object type="org.exoplatform.social.core.space.SpaceTemplate">
-                    <field name="name"><string>community</string></field>
+                    <field name="name"><string>custom</string></field>
                     <field name="applications">
                       <collection type="java.util.ArrayList">
                         <value>
@@ -202,7 +208,7 @@ Add this to the configuration of your extension :
             ...
         </external-component-plugins>
 
-This will add "tasks" application to the "community" space template. The "tasks" application will be the third application in the "community" space created according to the "order" field.
+This will add "tasks" application to the "custom" space template. The "tasks" application will be the third application in the "custom" space created according to the "order" field.
 
 
 .. _PLFDevGuide.SpaceTemplates.handler.CreateNew:
