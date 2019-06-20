@@ -2493,7 +2493,7 @@ All templates are presented in a table with:
 - Description : description of the template to hint users about the intended use of the space
 - Visibility status : default visibility option (visible, secret) for the space
 - Registration : default registration policy for the space (open, closed, validation)
-- Applications
+- Applications : list of applications populated by default in the space
 - Banner link : the image that will be used by default as banner for the space (click to display)
 - Permissions : list of groups/roles that are authorized to create a space from this template
 
