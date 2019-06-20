@@ -2475,7 +2475,7 @@ The spaces administration interface is accessible via the menu Administration --
 This Spaces menu contains two choices:
 
 - "Manage Templates" : Lets an administrator display all space templates available 
-- "Manage Spaces" : The administrator tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
+- "Manage Spaces" : Lets an administrator configure permissions for who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
 
 
 
