@@ -2497,7 +2497,7 @@ All templates are presented in a table with:
 - Banner link : the image that will be used by default as banner for the space (click to display)
 - Permissions : list of groups/roles that are authorized to create a space from this template
 
-.. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files.
+.. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
           To display the banner, you can simply click on **Link** so that the banner will be displayed in a new tab.
 
 Manage Spaces
