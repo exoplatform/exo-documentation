@@ -271,7 +271,9 @@ A description of each template is displayed below the selectors.
 
 Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
-.. note:: Only spaces that the creator is member of can be selected.
+.. note:: Only spaces that the creator is member of can be selected. 
+          Space template can predefine the individual users or spaces members to invite in the space. It will be displayed in Users field.
+
 
 6. Click Create Space button to finish adding your new space. The new space appears.
 
