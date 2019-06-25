@@ -37,6 +37,10 @@ Administering eXo Platform
        Instructions on how to manage users, groups and memberships in
        eXo Platform.
 
+    -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
+       Instructions on how to manage spaces, their permissions and templates in
+       eXo Platform.
+
     -  :ref:`Managing sites <ManagingSites>`
        In-depth instructions on how to create, edit and delete sites.
 
@@ -2456,17 +2460,47 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-It is possible to restrict which users can create and/or manage spaces
+It is possible to restrict which users can create and/or manage spaces or use templates
 through an easy to use interface .
 
 |image305|
 
-.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and only administrators (i.e.
-          the members of the group ``*:/platform/administrators``) are allowed to manage spaces.
+.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
+          ``*:/platform/administrators``) are allowed to manage spaces and templates.
           
 The spaces administration interface is accessible via the menu Administration --> Spaces.
 
 |image306|
+
+This Spaces menu contains two choices:
+
+- "Manage Templates" : Lets an administrator display all space templates available 
+- "Manage Spaces" : Lets an administrator configure permissions for who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
+
+
+
+
+
+Manage Templates
+~~~~~~~~~~~~~~~~~~
+|image322|
+
+The "Manage Templates" interface displays all templates that can be chosen by all space creators.
+
+All templates are presented in a table with: 
+- Name : Name of the template as shown to end users
+- Description : description of the template to hint users about the intended use of the space
+- Visibility status : default visibility option (visible, secret) for the space
+- Registration : default registration policy for the space (open, closed, validation)
+- Applications : list of applications populated by default in the space
+- Banner link : the image that will be used by default as banner for the space (click to display)
+- Permissions : list of groups/roles that are authorized to create a space from this template
+
+.. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
+          To display the banner, you can simply click on **Link** so that the banner will be displayed in a new tab.
+
+Manage Spaces
+~~~~~~~~~~~~~~~~~~
 
 This interface contains two tabs:
 
@@ -5073,3 +5107,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image319| image:: images/platform/create_space_permission.png
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
+.. |image322| image:: images/platform/SpaceTemplatesTable.png
