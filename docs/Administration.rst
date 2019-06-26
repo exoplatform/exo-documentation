@@ -61,6 +61,10 @@ Administering eXo Platform
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
 
+    -  :ref:`Managing gamification <ManagingGamification>`
+       How to manage domains, rules and badges, and introduction
+       to management and monitoring gamification in eXo Platform.
+
     -  :ref:`Building an online community <BuildingOnlineCommunity>`
        How to enable users to register themselves, publish some
        resources for anonymous access
@@ -4556,6 +4560,29 @@ The Service Management page is displayed.
    to it. After invoking it successfully, you will see the result
    returned if any.
 
+
+.. _ManagingGamification:
+
+=====================
+Managing Gamification
+=====================
+
+
+To manage Domains, Rules and Badges in eXo Platform, you first need
+to go to the **Gamification** page by clicking on the
+top navigation bar, and select Gamification. The **Gamification**
+page will appear.
+
+
+.. _ManageRules:
+
+Manage Rules
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _ManageBadges:
+
+Manage Badges
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _BuildingOnlineCommunity:
 
