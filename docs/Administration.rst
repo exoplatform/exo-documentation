@@ -2497,7 +2497,7 @@ All templates are presented in a table with:
 - Banner View : the image that will be used by default as banner for the space (click to display)
 
 .. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
-          To display the banner, you can simply click on the eye icon so that the banner will be displayed, and you can click outside the banner or on ESC to close it.
+          To display the banner, simply click on the eye icon. To close it, click outside the banner or on ESC button of the keyboard.
           |image323|
 
 Manage Spaces
