@@ -121,9 +121,9 @@ In which:
 
 .. tip:: The ``permissions`` parameter is a list of membership expressions separated by ";" character.
          Example: ``exo.social.space.template.custom.permissions=*:/platform/administrators;*:/platform/web-contributors`` , only members of /platform/administrators and /platform/web-contributors can view ``custom`` template and use it.
-.. tip:: The ``invitees`` parameter is a list of user and space names separated by "," character.
+.. tip:: The ``invitees`` parameter is a  comma-separated list of user and space names.
+         For users, the username is used (as displayed in users management table). For spaces you should use the pretty name (as displayed in spaces list)
          Example: ``exo.social.space.template.custom.invitees=userA,space A,userB`` , the users userA, userB and all space A members will be added to the invitees for space having ``custom`` template.
-         The invitees will be added to the users input of the space creation popup. The user can remove any entry using the "x" icon.
 
 -  **SpaceApplication**:
 
@@ -208,7 +208,7 @@ Add this to the configuration of your extension :
             ...
         </external-component-plugins>
 
-This will add "tasks" application to the "custom" space template. The "tasks" application will be the third application in the "custom" space created according to the "order" field.
+This will add "tasks" application to the "custom" space template. The "tasks" application will be the third application in the space created from this template according to the "order" field.
 
 
 .. _PLFDevGuide.SpaceTemplates.handler.CreateNew:
