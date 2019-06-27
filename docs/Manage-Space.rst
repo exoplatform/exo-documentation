@@ -251,7 +251,7 @@ A description of each template is displayed below the selectors.
 
 .. _About-space-visibility:
 
- -  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
+ -  **Visibility**: By default, the Visibility (**Hidden** field) value is set to be the one predefined in the template.
 
    -  No: The space is not hidden and always visible in the public spaces list.
 
@@ -267,12 +267,16 @@ A description of each template is displayed below the selectors.
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
 
+
+.. note:: Template, Visibility and registration fields have a description of the choice selected to help you choosing the best template for your needs when creating a new space.
+
 5. In the **Users** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
 
 Type-ahead suggestions allow to facilitate selection users and groups to invite.
 
 .. note:: Only spaces that the creator is member of can be selected. 
-          Space template can predefine the individual users or spaces members to invite in the space. It will be displayed in Users field.
+
+Users field can be pre-filled by default users or spaces defined in space template.
 
 
 6. Click Create Space button to finish adding your new space. The new space appears.
