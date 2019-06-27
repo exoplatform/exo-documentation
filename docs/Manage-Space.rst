@@ -251,7 +251,7 @@ A description of each template is displayed below the selectors.
 
 .. _About-space-visibility:
 
- -  **Visibility**: By default, the Visibility value is set to be the one predefined in the template.
+ -  **Visibility**: By default, the Visibility (**Hidden** field) value is set to be the one predefined in the template.
 
    -  No: The space is not hidden and always visible in the public spaces list.
 
