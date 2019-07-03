@@ -4571,13 +4571,62 @@ Managing Gamification
 To manage Domains, Rules and Badges in eXo Platform, you first need
 to go to the **Gamification** page by clicking on the
 top navigation bar, and select Gamification. The **Gamification**
-page will appear.
+choices pages will by displayed.
+
+You can manage your rules or Badges by choosing **Manage Rules** or **Manage Badges**.
+
+|image323|
 
 
 .. _ManageRules:
 
 Manage Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the Manage Rules page, you will find a table of all rules in the platform.
+Every rule have: 
+
+- Title: A descriptive title of the rule
+
+- Description: A detailed description of the rule, so that you can understand the rule goal.
+
+- Score: Score will display how much points you obtain from this rule
+
+- Domain: Every related is related to a specific domain, the related domain is displayed on this column
+
+- Enabled: You can enable or disabled any rule, and its status is displayed in the table
+
+- Action: A delete action for rules is displayed for every line of Rules table. 
+
+|image324|
+
+Add Rule
+---------
+
+You can add a new rule just by clicking on **Add rule** button above the Rules table.
+
+A popup will be displayed containing a form to add a new rule.
+
+Fields are the same displayed in the Rules table: 
+
+- Title
+- Description
+- Score
+- Domain (a pulldown to choose easily the rule domain)
+- Enabled status (switch button to choose between Yes or No status)
+
+.. note:: Once your rule is added successfully to your Rules base, a success message is displayed : *Rule added successfully*
+          An error message will display if you add a rule with wrong, missing or even similar informations of existing rules: *An error happen when adding a rule*
+
+
+Edit Rule
+----------
+You can edit a rule just by a double click on the rule you want to update. 
+
+All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
+
+- Save: To save changes that you made in the rule
+- Cancel: To cancel changes and conserve the already existing rule.
+
 
 .. _ManageBadges:
 
@@ -5135,3 +5184,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
 .. |image322| image:: images/platform/SpaceTemplatesTable.png
+.. |image323| image:: images/platform/manage_rules_badges.png
+.. |image324| image:: images/platform/addruletable.png
