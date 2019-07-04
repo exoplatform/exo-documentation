@@ -4594,7 +4594,7 @@ Every rule have:
 
 - Domain: Every related is related to a specific domain, the related domain is displayed on this column
 
-- Enabled: You can enable or disabled any rule, and its status is displayed in the table
+- Enabled: The status of the rule. It could be **True** for enabled status or **false** for disabled.
 
 - Action: A delete action for rules is displayed for every line of Rules table. 
 
