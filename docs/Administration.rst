@@ -4588,7 +4588,7 @@ Every rule have:
 
 - Title: A significant title of the rule.
 
-- Description: A detailed description of the rule, so that you can understand the rule goal.
+- Description: A description of the rule to explain its goal.
 
 - Score: Score will display how much points you obtain from this rule
 
