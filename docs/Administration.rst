@@ -4615,7 +4615,7 @@ Fields are the same displayed in the Rules table:
 - Domain (a pulldown to choose easily the rule domain)
 - Enabled status (switch button to choose between Yes or No status)
 
-.. note:: Once your rule is added successfully to your Rules base, a success message is displayed : *Rule added successfully*
+.. note:: Once your rule is successfully added to the Rules base, a success message is displayed : *Rule added successfully*
           An error message will display if you add a rule with wrong, missing or even similar informations of existing rules: *An error happen when adding a rule*
 
 
