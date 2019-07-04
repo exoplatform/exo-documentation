@@ -4590,7 +4590,7 @@ Every rule have:
 
 - Description: A description of the rule to explain its goal.
 
-- Score: Score will display how much points you obtain from this rule
+- Score: The number of points obtained by the rule.
 
 - Domain: Every related is related to a specific domain, the related domain is displayed on this column
 
