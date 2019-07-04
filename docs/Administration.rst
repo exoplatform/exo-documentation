@@ -4592,7 +4592,7 @@ Every rule have:
 
 - Score: The number of points obtained by the rule.
 
-- Domain: Every related is related to a specific domain, the related domain is displayed on this column
+- Domain: The domain of the rule. It could be **social**, **Teamwork**, **Knowledge**...
 
 - Enabled: The status of the rule. It could be **True** for enabled status or **false** for disabled.
 
