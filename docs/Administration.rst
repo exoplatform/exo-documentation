@@ -4586,7 +4586,7 @@ Manage Rules
 In the Manage Rules page, you will find a table of all rules in the platform.
 Every rule have: 
 
-- Title: A descriptive title of the rule
+- Title: A significant title of the rule.
 
 - Description: A detailed description of the rule, so that you can understand the rule goal.
 
