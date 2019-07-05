@@ -61,6 +61,10 @@ Administering eXo Platform
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
 
+    -  :ref:`Managing gamification <ManagingGamification>`
+       How to manage domains, rules and badges, and introduction
+       to management and monitoring gamification in eXo Platform.
+
     -  :ref:`Building an online community <BuildingOnlineCommunity>`
        How to enable users to register themselves, publish some
        resources for anonymous access
@@ -4558,6 +4562,78 @@ The Service Management page is displayed.
    returned if any.
 
 
+.. _ManagingGamification:
+
+=====================
+Managing Gamification
+=====================
+
+
+To manage Domains, Rules and Badges in eXo Platform, you first need
+to go to the **Gamification** page by clicking on the
+top navigation bar, and select Gamification. The **Gamification**
+choices pages will by displayed.
+
+You can manage your rules or Badges by choosing **Manage Rules** or **Manage Badges**.
+
+|image323|
+
+
+.. _ManageRules:
+
+Manage Rules
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the Manage Rules page, you will find a table of all rules in the platform.
+Every rule have: 
+
+- Title: A significant title of the rule.
+
+- Description: A description of the rule to explain its goal.
+
+- Score: The number of points obtained by the rule.
+
+- Domain: The domain of the rule. It could be **social**, **Teamwork**, **Knowledge**...
+
+- Enabled: The status of the rule. It could be **True** for enabled status or **false** for disabled.
+
+- Action: A delete action for rules is displayed for every line of Rules table. 
+
+|image324|
+
+Add Rule
+---------
+
+You can add a new rule just by clicking on **Add rule** button above the Rules table.
+
+A popup will be displayed containing a form to add a new rule.
+
+Fields are the same displayed in the Rules table: 
+
+- Title
+- Description
+- Score
+- Domain (a pulldown to choose easily the rule domain)
+- Enabled status (switch button to choose between Yes or No status)
+
+.. note:: Once your rule is successfully added to the Rules base, a success message is displayed : *Rule added successfully*
+          An error message will display if you add a rule with wrong, missing or even similar informations of existing rules: *An error happen when adding a rule*
+
+
+Edit Rule
+----------
+You can edit a rule just by a double click on the rule you want to update. 
+
+All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
+
+- Save: To save changes that you made in the rule
+- Cancel: To cancel changes and conserve the already existing rule.
+
+
+.. _ManageBadges:
+
+Manage Badges
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. _BuildingOnlineCommunity:
 
 ============================
@@ -5109,4 +5185,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
 .. |image322| image:: images/platform/SpaceTemplatesTable.png
-.. |image323| image:: images/platform/Banner-SpaceTemplatesTable.png
+.. |image323| image:: images/platform/manage_rules_badges.png
+.. |image324| image:: images/platform/addruletable.png
