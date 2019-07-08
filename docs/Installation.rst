@@ -1048,8 +1048,6 @@ Rewards packages installation
 .. note:: Only the administrator has the right to install and uninstall this application.
 
 The Rewards add-ons is supported for both Enterprise and Community editions.
-
-The Rewards add-ons are by default installed in both editions.
 You can uninstall it using this command:
 
 ::
@@ -1065,87 +1063,6 @@ If you want to re-install it again, you should just run this command:
     ./addon install exo-wallet
     ./addon install exo-kudos
     ./addon install exo-perk-store
-
-eXo Wallet addon
-~~~~~~~~~~~~~~~~
-
-The wallet addon is used to add an ethereum blockchain wallet for each user.
-
-**Blockchain network settings**
-
-To install this addon, it's required to give access to eXo Platform Server the access permissions to communicate
-with blockchain using websocket.
-
-The addon is configured by default to communicate with Ethereum Mainnet throught Infura using websocket protocol:
-
-::
-
-    exo.wallet.blockchain.networkId=1
-    exo.wallet.blockchain.network.websocket=wss://mainnet.infura.io/ws/v3/a1ac85aea9ce4be88e9e87dad7c01d40
-    exo.wallet.blockchain.network.http=https://mainnet.infura.io/v3/a1ac85aea9ce4be88e9e87dad7c01d40
-
-The Websocket endpoint is used to:
-
-   -  Scan new mined blocks on blockchain to verify if there is a new mined transaction that involves a wallet of a recognized user.
-      The periodicity can be configured using the following property (Default value: every hour):
-
-      ::
-
-          exo.wallet.ContractTransactionVerifierJob.expression=0 0 * ? * * *
-
-   -  Checks all pending transactions sent using wallet application to update its state internally in internal store and to send notifications for receiver and sender.
-      The check is made periodically and can be configured using the following property (Default value: every 10 seconds):
-
-      ::
-
-          exo.wallet.PendingTransactionVerifierJob.expression=0/10 * * * * ?
-
-   -  Send transactions on blockchain for a special wallet that is used to administrate all other wallets.
-      In fact this wallet is used to initialize other wallets with initial funds and to send reward amounts.
-
-The HTTP endpoint is used to communicate with blockchain on Wallet UI.
-In fact, the users communicates directly with the blockchain to send transactions and don't use eXo Platform Server when sending transactions, unlike the * Admin wallet *.
-
-// TODO ajouter un schéma avec la blockchain, la UI d'eXo Wallet et le server eXo derrière qui communiquent ensemble (A DEMANDER AU DESIGNER de t'aider !!!!)
-
-
-**Admin wallet**
-
-The * Admin wallet * is created automatically on first eXo Platform server startup.
-In order to be able to send transactions on blockchain, the private key of the * Admin wallet * is stored in internal database.
-The private key is encrypted using two passwords:
-
-     -  One password that is coming from a keystore file (see :ref:`Updating password encryption key <Security.UpdatePasswordEncryptionKey>`))
-     -  And another password that can be configured in properties:
-
-      ::
-
-          exo.wallet.admin.key=changeThisKey
-
-So, the * Admin wallet * can be used by multiple administrators of the platform to initialize other wallets.
-The private key of the admin wallet cannot be accessed by any user to avoid sharing its funds with a person.
-To be an administrator of the platform that can manage wallets, a special group has been added to Rewards addon
-which is:
-
-      ::
-
-          /platform/rewarding
-
-** Cauri contract  **
-
-The used Cauri contract address can be configured using the following variable:
-
-      ::
-
-          exo.wallet.blockchain.token.address=0xc76987d43b77c45d51653b6eb110b9174acce8fb
-
-This address will never change through eXo Platform versions on Ethereum Mainnet blockchain and is shared by all eXo Community.
-
-The * Cauris * contract is an `ERC-20 <https://eips.ethereum.org/EIPS/eip-20>`__ Token contract that is deployed on Ethereum Mainnet.
-
-To be able to receive some * Cauris *, a wallet has to be initialized by a * Cauri contract * administrator on blockchain (not on eXo Platform Server bundle that you own).
-
-// TODO ajouter un schéma avec PLUSIEURS exo déployés et au centre la blockchain où on trouve le CONTRAT CAURI (A DEMANDER AU DESIGNER de t'aider !!!!)
 
 
 =================================
@@ -1767,3 +1684,4 @@ already.
 .. |image13| image:: images/left_navigation.png
 .. |image14| image:: images/chat/chat_icon.png
 .. |image15| image:: images/chat/standalone_mode.png
+

@@ -185,6 +185,9 @@ Configuration
     -  :ref:`Enabling/Disabling login history <Configuration.loginHistory>`
        Parameter for enabling/disabling the login history.
        
+    -  :ref:`Configuring eXo Wallet <Configuration.Wallet>`
+       eXo Wallet configuration.
+       
 .. _Configuration.ConfigurationOverview:
 
 ======================
@@ -4837,7 +4840,59 @@ database.
 -  The **EventCategoriesCache** size is approximately 24 bytes, so the
    maximum heap size equals to the cache size multiplied by 24 bytes.
    
-   
+
+Wallet caches
+~~~~~~~~~~~~~
+
+eXo Platform provides 2 wallet caches:
+
+-  :ref:`Wallet account cache <Wallet.accountCache>`
+
+-  :ref:`Wallet transaction cache <Wallet.transactionCache>`
+
+You can add new values of these caches in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code-block:: jproperties
+
+    exo.cache.wallet.account.MaxNodes=2000
+    exo.cache.wallet.account.TimeToLive=-1
+    exo.cache.wallet.transactions.MaxNodes=2000
+    exo.cache.wallet.transactions.TimeToLive=-1
+
+
+The specific configuration of wallet caches can be found in:
+
+-  ``$PLATFORM_TOMCAT_HOME/webapps/wallet-common.war!/WEB-INF/wallet/cache-configuration.xml``.
+
+.. _Wallet.transactionCache:   
+
+Wallet account cache
+-------------------------
+
+The **Wallet account cache** caches the Wallet objects.
+This object contains metadata information of a wallet, such as identity id, username, space pretty name, wallet enablement...
+When any user get access to his wallet or a space wallet, the cached wallet object will be retrieved from cache rather than the database.
+
+-  The cached **Wallet account** is invalidated when the user updates its metadata such as reimporting its private key.
+
+-  The **Wallet account cache** size should equals to the number of wallets used in eXo Platform.
+
+-  Each Wallet object is approximately 400 bytes, so the maximum heap size equals to the cache size multiplied by 400 bytes.
+
+.. _Wallet.transactionCache:   
+
+Wallet Transactions cache
+-------------------------
+
+The **Wallet Transactions cache** caches the blockchain transaction metadata sent by a wallet. This object contains information such as transaction hash, username, space pretty name, transaction status...
+When any user get access to the list of his transactions or a space wallet transactions, the cached wallet transactions object will be retrieved from cache rather than the database.
+
+-  The cached **Wallet transaction** is invalidated when the user updates its metadata such as changing transaction status from *pending* to *success* or *failed*.
+
+-  The **Wallet transaction cache** size should equals to the number of wallet account multiplied by the the first transactions list page size (10 elements per page).
+
+-  Each Wallet transaction object is approximately 700 bytes, so the maximum heap size equals to the cache size multiplied by 700 bytes.
+
 .. _Configuration.EndDateSuggestion:
 
 ===================
@@ -5981,6 +6036,163 @@ data is stored in the database.
 To disable the login history data storage in the database, simply set the parameter 
 ``exo.audit.login.enabled`` to ``false``.
 
+.. _Configuration.Wallet:
+
+================
+eXo Wallet addon
+================
+
+The eXo Wallet addon use `Ethereum Blockchain <https://www.ethereum.org/>`__ to reward users based on a crypto-currency (*Cauri*) created inside this blockchain.
+
+Blockchain network settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The addon is configured by default to communicate with Ethereum Mainnet throught `Infura <https://infura.io/>`__ using websocket and http protocols:
+
+.. code-block:: jproperties
+
+    exo.wallet.blockchain.networkId=1
+    exo.wallet.blockchain.network.websocket=wss://mainnet.infura.io/ws/v3/a1ac85aea9ce4be88e9e87dad7c01d40
+    exo.wallet.blockchain.network.http=https://mainnet.infura.io/v3/a1ac85aea9ce4be88e9e87dad7c01d40
+
+- The Websocket endpoint is used to:
+
+   -  Scan new mined blocks on blockchain to verify if there is a new mined transaction that involves a wallet of a recognized user.
+      The periodicity can be configured using the following property (Default value: every hour):
+
+    .. code-block:: jproperties
+
+          exo.wallet.ContractTransactionVerifierJob.expression=0 0 * ? * * *
+
+   -  Checks all pending transactions sent using wallet application to update its state internally in internal store and to send notifications for receiver and sender.
+      The check is made periodically and can be configured using the following property (Default value: every 10 seconds):
+
+    .. code-block:: jproperties
+
+          exo.wallet.PendingTransactionVerifierJob.expression=0/10 * * * * ?
+
+   -  Send transactions on blockchain using *Admin wallet* that is used to administrate all other wallets.
+      In fact this wallet is used to initialize and send rewards to users and spaces wallets.
+
+- The HTTP endpoint is used by *users and spaces wallets* using `Web3.js <https://web3js.readthedocs.io/>`__ (Browser side) to communicate with the blockchain to send transactions, unlike the *Admin wallet* which uses `Web3j <https://web3j.io/>`__ (Server side) to send transactions.
+
+// TODO ajouter un schéma avec la blockchain, la UI d'eXo Wallet et le server eXo derrière qui communiquent ensemble (A DEMANDER AU DESIGNER de l'aide !!!!)
+
+Blockchain transaction settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- When sending a transaction to Ethereum blockchain, some generic properties are required, especially *gas limit* and *gas price*.
+
+  - **Gas limit**
+
+    The *gas limit* is the maximum gas that can take a transaction using *Cauri* contract. It can be modified using the following property:
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.limit=150000
+
+  - **Gas price**
+
+    The *gas price* parameters will determine transaction fee of operations made using eXo Wallet addon. In the UI, the user has three choices:
+
+      -  Cheap transaction: this option will use the gas price configured by the following property (in WEI):
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.cheapPrice=4000000000
+
+      -  Normal transaction: this option will use the gas price configured by the following property (in WEI):
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.normalPrice=8000000000
+
+      -  Fast transaction: this option will use the gas price configured by the following property (in WEI):
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.fastPrice=15000000000
+
+
+* When a transaction is sent and wasn't mined for several days, it will be marked as failed in eXo Wallet internal database.
+  To configure the number of days waiting for transaction to get mined, please use the following property:
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxDays=3
+
+
+Wallet types
+~~~~~~~~~~~~
+
+* **Admin wallet**
+
+  The *Admin wallet* is created automatically during first startup of eXo Platform server.
+
+  In order to be able to send transactions on blockchain using `Web3j<https://web3j.io/>` in server side, the private key of the *Admin wallet* is stored in internal database.
+  The private key is encrypted using two passwords:
+
+     -  One password that is coming from a keystore file ( see :ref:`Updating password encryption key <UpdatePasswordEncryptionKey>` )
+
+     .. warning:: The generated keystore file under `gatein/conf/codec` has to be backed up as a data folder, because it have a key file that is used to decrypt stored wallets private keys. If it's lost, all wallets private keys will be lost and consequently, all funds would be lost as well.
+
+     -  And another password that can be configured in properties:
+
+    .. code-block:: jproperties
+
+          exo.wallet.admin.key=changeThisKey
+
+
+    .. warning:: The password couldn't be changed once the platform is started for the first time. In fact, this password will be used to encrypt *Admin wallet* private key that will be stored in database.
+        If its value is modified after server startup, the private key of admin wallet couldn't be decrypted anymore.
+
+
+  The *Admin wallet* can be used by */platform/rewarding* group members to initialize other wallets.
+  The private key of the admin wallet cannot be accessed by any user to avoid sharing its funds with a person.
+
+
+* **User wallet**
+
+  By default, any user of the platform can create his own wallet. A property is added to restrict access to wallet application to a group of users:
+
+    .. code-block:: jproperties
+
+          # Example of expressions
+          
+          # Any user
+          exo.wallet.accessPermission=
+          # All connected users of the platform
+          exo.wallet.accessPermission=/platform/users
+          # All administrators of the platform
+          exo.wallet.accessPermission=*:/platform/administrators
+          # All members of space associated to group internal_space
+          exo.wallet.accessPermission=member:/spaces/internal_space
+
+* **Space wallet**
+
+  Space managers can add wallet application and associate a wallet for a space using :ref:`Managing space applications <ManagingSpaceApplication>` UI:
+
+  |SpaceAddWallet|
+
+  Space wallets can be managed by one or multiple space manager. In fact, the space wallet is similar to user wallet, to be able to activate it, the *Admin wallet* has to initialize it.
+  By default, any space member can access to the space wallet in *readonly* mode.
+
+Cauri contract
+~~~~~~~~~~~~~~
+
+The used Cauri contract address can be configured using the following variable:
+
+    .. code-block:: jproperties
+
+          exo.wallet.blockchain.token.address=0xc76987d43b77c45d51653b6eb110b9174acce8fb
+
+This address will never change through eXo Platform versions on Ethereum Mainnet blockchain and is shared with all eXo Community.
+
+The *Cauri* contract is an `ERC-20 <https://eips.ethereum.org/EIPS/eip-20>`__ Token contract that is deployed on Ethereum Mainnet.
+
+To be able to receive some *Cauri*, a wallet has to be initialized by a *Cauri* contract administrator on blockchain (not on eXo Platform Server bundle that you own).
+
+// TODO ajouter un schéma avec PLUSIEURS exo déployés et au centre la blockchain où on trouve le CONTRAT CAURI (A DEMANDER AU DESIGNER de t'aider !!!!)
 
 
 .. |image0| image:: images/gmail_settings_1.png
@@ -5991,3 +6203,4 @@ To disable the login history data storage in the database, simply set the parame
 .. |image5| image:: images/docviewer/docviewer_maxpages.png
 .. |image6| image:: images/disable_link_preview.png
 .. |image7| image:: images/link_preview_AS.png
+.. |SpaceAddWallet| image:: images/rewards/wallet/SpaceAddWallet.png  

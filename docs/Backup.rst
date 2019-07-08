@@ -108,6 +108,8 @@ The data folder contains these directories:
           should stop eXo Platform, backup both before restarting. All 
           nodes should be stopped if you are running the cluster mode.
 
+.. warning:: If you use eXo Wallet addon, the folder ``$PLATFORM_TOMCAT_HOME/gatein/conf/codec`` has to be backed up as well.
+
 .. _FSData:
 
 File System Data
