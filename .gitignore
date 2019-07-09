@@ -105,3 +105,16 @@ _build
 _static
 _templates
 /bin/
+
+
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# eclipse project file
+.settings/
+.classpath
+.project
+*.log
