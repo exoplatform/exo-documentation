@@ -1047,8 +1047,8 @@ Rewards packages installation
 
 .. note:: Only the administrator has the right to install and uninstall this application.
 
-The Rewards add-ons is supported for both Enterprise and Community editions.
-You can uninstall it using this command:
+Starting with version 5.3, Rewards add-ons are pre-installed by default in Enterprise and Community editions.
+You can uninstall them using these commands :
 
 ::
 
@@ -1056,7 +1056,7 @@ You can uninstall it using this command:
     ./addon uninstall exo-kudos
     ./addon uninstall exo-perk-store
 
-If you want to re-install it again, you should just run this command:
+If you want to re-install them again, you should just run these commands:
 
 ::
 
