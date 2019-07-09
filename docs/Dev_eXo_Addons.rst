@@ -42,6 +42,9 @@ eXo Add-ons
     -  :ref:`eXo Web Conferencing connector <PLFDevGuide.eXoAdd-ons.WebconferencingConnector>`
        a How-to develop your own Web Conferencing connector.
 
+    -  :ref:`eXo Reward plugin <PLFDevGuide.eXoAdd-ons.RewardPlugin>`
+       a How-to develop your own reward plugin.
+
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension:
 
@@ -1139,7 +1142,81 @@ following:
         </component-plugin>
       </external-component-plugins>  
       
-     
+
+
+.. _PLFDevGuide.eXoAdd-ons.RewardPlugin:
+
+==============================
+eXo Reward plugin
+==============================
+
+eXo Reward package is a set of addons used to reward employees of an enterprise of their professional effort.
+The list of addons included are:
+
+* `eXo Wallet <https://github.com/exoplatform/wallet>`__
+
+* `eXo Kudos <https://github.com/exoplatform/kudos>`__
+
+* `eXo Perk Store <https://github.com/exoplatform/perk-store>`__
+
+Built-in reward plugins are:
+
+* `Kudos reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/KudosRewardPlugin.java>`__
+
+* `Gamification reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/GamificationRewardPlugin.java>`__
+
+A reward plugin consist of collecting earned `points` for each user during a period of time.
+When the Rewards package administrator will pay rewards to users for a period of time (each month for example),
+the rewards plugins will be used to retrieve earned points for each user having a wallet.
+The retrieved earned points will be used to compute amount of tokens to send to each user.
+
+By example, the `Kudos reward plugin` is used to return the number of Kudos received by a user during a selected period of time.
+
+In order to define a new Reward plugin, we will need:
+
+* A java Class that extends `RewardPlugin <https://github.com/exoplatform/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
+
+   .. code:: java
+   
+      public class CustomRewardPlugin extends RewardPlugin {
+        /**
+         * Retrieves earned points for identities in a selected period of time
+         * 
+         * @param identityIds identity ids of wallets to consider in computation
+         * @param startDateInSeconds start timestamp in seconds of reward period
+         * @param endDateInSeconds end timestamp in seconds of reward period
+         * @return a {@link Map} of identity ID with the sum of tokens to send as
+         *         reward
+         */
+        public Map<Long, Double> gtEarnedPoints(Set<Long> identityIds, long startDateInSeconds, long endDateInSeconds) {
+          // compute here earned points per identityId.
+          // Hint: The user social profile can be retrieved using
+          // org.exoplatform.social.core.manager.IdentityManager.getIdentity(String.valueOf(identityId), true)
+          Map<Long, Double> result = ...
+          return result;
+        }
+      }
+
+* A :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.addon.wallet.reward.service.RewardSettingsService</target-component>
+        <component-plugin>
+          <!-- Reward plugin name: must be unique  -->
+          <name>custom</name>
+          <set-method>registerPlugin</set-method>
+          <!-- FQN of plugin class  -->
+          <type>org.example.CustomRewardPlugin</type>
+          <description>Custom reward plugin</description>
+        </component-plugin>
+      </external-component-plugins>
+
+One you deployed your plugin, you will see it added in Reward administration UI:
+
+|CustomRewardPlugin|
+
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png
 .. |image2| image:: images/login_page_portal.png
@@ -1147,3 +1224,5 @@ following:
 .. |image4| image:: images/install_my_own_addon.png
 .. |image5| image:: images/addon_register_form.png
 .. |image6| image:: images/webConferencing/architecture.png
+.. |image6| image:: images/webConferencing/architecture.png
+.. |CustomRewardPlugin| image:: images/rewards/wallet/CustomRewardPlugin.png  
