@@ -6115,11 +6115,15 @@ Blockchain transaction settings
 
 
 * When a transaction is sent and wasn't mined for several days, it will be marked as failed in eXo Wallet internal database.
-  To configure the number of days waiting for transaction to get mined, please use the following property:
+  The maximum number of days waiting for transaction mining can be configured using the following property:
 
     .. code-block:: jproperties
 
           exo.wallet.transaction.pending.maxDays=3
+
+
+    .. note:: If the transaction still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as failed transaction in internal eXo database.
+              When it gets mined, the Job ``ContractTransactionVerifierJob`` will detect it and will store again the real transaction status coming from blockchain and send notifications.
 
 
 Wallet types
