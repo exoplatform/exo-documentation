@@ -86,8 +86,10 @@ The Branding page will be displayed:
 
 **Details**:
 
+-  The Company Name pane: Uploads your company name to be displayed in the topbar.
+
 -  The Select Logo pane: Uploads your company logo that must be in the
-   ``.png`` format.
+   ``.png`` format, and with Recommended size **300x34** and a transparent background.
 
 -  The Select Navigation Bar Style pane: Selects the navigation bar
    style suitable to your logo. There are two styles available on the
@@ -96,16 +98,19 @@ The Branding page will be displayed:
 -  The Preview pane: Displays the preview of the top navigation bar with
    the currently defined logo and navigation bar style.
 
-2. Click Upload to browse and upload the logo from your local device;
+.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined in the platform.
 
-Or, drag the logo from your local device and drag it into the current
-logo preview in the Select Logo pane. This way is just done if your
+
+2. Click *Drop your image here or Upload from your computer* to browse and upload the logo from your local device;
+
+Or, drag the logo from your local device and drag it into the
+Select Logo pane. This way is just done if your
 browser supports the HTML 5 and the Drag and Drop function.
 
-|image2|
+.. note::  Even if you delete your company logo, the default logo will be displayed..
 
 3. Click the box in the Select Navigation Bar Style pane and select one
-   style from the drop-down.
+   style from the two choices displayed in radio buttons.
 
 Your style selection will also make the color of fonts on the top
 navigation bar change.
