@@ -1183,13 +1183,14 @@ A reward plugin computes amounts of so-called ``points`` earned by each user ove
 
 When the Rewards package administrator will pay rewards to users for a period of time (each month for example),
 the rewards plugins will be used to retrieve earned points for each user having a wallet.
-The retrieved earned points will be used to compute amount of tokens to send to each user.
+The earned points will be used converted into an amount of tokens to send to each user.
 
-By example, the `Kudos reward plugin` is used to return the number of Kudos received by a user during a selected period of time.
+For example, the `Kudos reward plugin` is used to return the number of Kudos received by a user during a selected period of time.
+Administrators can configure the token value for each earned Kudos (or a total budget), so the rewarding engine can compute individual amounts of tokens for each user.
 
-In order to define a new Reward plugin, we will need:
+Developing a custom Reward plugin, requires:
 
-* A java Class that extends `RewardPlugin <https://github.com/exoplatform/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
+* to write a java Class that extends `RewardPlugin <https://github.com/exoplatform/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
 
    .. code:: java
    
@@ -1203,7 +1204,7 @@ In order to define a new Reward plugin, we will need:
          * @return a {@link Map} of identity ID with the sum of tokens to send as
          *         reward
          */
-        public Map<Long, Double> gtEarnedPoints(Set<Long> identityIds, long startDateInSeconds, long endDateInSeconds) {
+        public Map<Long, Double> getEarnedPoints(Set<Long> identityIds, long startDateInSeconds, long endDateInSeconds) {
           // compute earned points per identityId. This example will return
           the same number of points per user.
           // Hint: The user social profile can be retrieved using
@@ -1213,7 +1214,7 @@ In order to define a new Reward plugin, we will need:
         }
       }
 
-* A :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+* to declare the component plugin in a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
    .. code:: xml
 
