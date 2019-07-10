@@ -184,10 +184,10 @@ Configuration
 
     -  :ref:`Enabling/Disabling login history <Configuration.loginHistory>`
        Parameter for enabling/disabling the login history.
-       
+
     -  :ref:`Configuring eXo Wallet <Configuration.Wallet>`
        eXo Wallet configuration.
-       
+
 .. _Configuration.ConfigurationOverview:
 
 ======================
@@ -6038,9 +6038,9 @@ To disable the login history data storage in the database, simply set the parame
 
 .. _Configuration.Wallet:
 
-================
-eXo Wallet addon
-================
+======================
+Configuring eXo Wallet
+======================
 
 The eXo Wallet addon uses the `Ethereum Blockchain <https://www.ethereum.org/>`__ to reward users based on a crypto-currency managed inside this blockchain.
 
@@ -6076,7 +6076,7 @@ The addon is configured by default to communicate with Ethereum Mainnet throught
 
 - Unlike the *Admin wallet* which uses `Web3j <https://web3j.io/>`__ (Server side) to issue transactions, the HTTP endpoint is used by *users and spaces wallets* using `Web3.js <https://web3js.readthedocs.io/>`__ (Browser side) to communicate with the blockchain to issue transactions.
 
-// TODO add blockchain chart, wallet UI and eXo server behind that communicates together (ASK DESIGNER)
+  |WalletBlockchainCommunication|
 
 Blockchain transaction settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -6197,7 +6197,6 @@ To be able to receive some tokens, a wallet address must be initialized by a *to
 
 // TODO add a diagram with MANY eXo instances deployed and the blockchain in the center where the token contract lies (ASK DESIGNER HELP)
 
-
 .. |image0| image:: images/gmail_settings_1.png
 .. |image1| image:: images/openinoffice/openinmsoffice.png
 .. |image2| image:: images/openinoffice/openinlibreoffice.png
@@ -6207,3 +6206,4 @@ To be able to receive some tokens, a wallet address must be initialized by a *to
 .. |image6| image:: images/disable_link_preview.png
 .. |image7| image:: images/link_preview_AS.png
 .. |SpaceAddWallet| image:: images/rewards/wallet/SpaceAddWallet.png  
+.. |WalletBlockchainCommunication| image:: images/rewards/wallet/WalletBlockchainCommunication.png  
