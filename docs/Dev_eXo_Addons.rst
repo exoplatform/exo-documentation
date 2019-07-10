@@ -45,6 +45,14 @@ eXo Add-ons
     -  :ref:`eXo Reward plugin <PLFDevGuide.eXoAdd-ons.RewardPlugin>`
        a How-to develop your own reward plugin.
 
+    -  :ref:`eXo Wallet listeners <PLFDevGuide.eXoAdd-ons.WalletListeners>`
+       a How-to listen to eXo Wallet add-on events.
+
+    -  :ref:`eXo Kudos listeners <PLFDevGuide.eXoAdd-ons.KudosListeners>`
+       a How-to listen to eXo Kudos add-on events.
+
+    -  :ref:`eXo Perk store listeners <PLFDevGuide.eXoAdd-ons.PerkStoreListeners>`
+       a How-to listen to eXo Perk Store add-on events.
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension:
 
@@ -923,7 +931,7 @@ To implement your own connector follow this procedure:
 1. **Create the connector project** respecting the developement 
    environment described :ref:`here <PLFDevGuide.GettingStarted.SettingDevelopmentEnvironment>`.
 
-   We recommend you to clone our `template project <https://github.com/exo-addons/web-conferencing/tree/develop/template>`__
+   We recommend you to clone our `template project <https://github.com/exoplatform/web-conferencing/tree/develop/template>`__
    as it contains maven modules with eXo Web Conferencing dependencies 
    and packaging. You should make your customizations on it: rename 
    package, classes and variables and if needed include third-party 
@@ -1216,6 +1224,92 @@ In order to define a new Reward plugin, we will need:
 One you deployed your plugin, you will see it added in Reward administration UI:
 
 |CustomRewardPlugin|
+
+.. _PLFDevGuide.eXoAdd-ons.WalletListeners:
+
+==============================
+eXo Wallet listeners
+==============================
+
+eXo Wallet uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about wallets and transactions lifecycle.
+
+Broadcasted events are:
+
+- ``exo.addon.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
+- ``exo.addon.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
+- ``exo.addon.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
+
+To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+          <!-- One of the listed event names -->
+          <name>EVENT_NAME</name>
+          <set-method>addListener</set-method>
+          <!-- FQN of the event listener -->
+          <type>org.example.CustomEventListener</type>
+        </component-plugin>
+      </external-component-plugins>
+
+.. _PLFDevGuide.eXoAdd-ons.KudosListeners:
+
+==============================
+eXo Kudos listeners
+==============================
+
+eXo Kudos uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about kudos lifecycle.
+
+Broadcasted events are:
+
+- ``exo.addons.kudos.sent`` : a new Kudos is sent. (Example: `NewKudosSentActivityGeneratorListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/NewKudosSentActivityGeneratorListener.java>`__)
+- ``exo.addons.kudos.activity`` : a Kudos activity or activity comment is created. (Example: `GamificationIntegrationListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/GamificationIntegrationListener.java>`__)
+
+To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+          <!-- One of the listed event names -->
+          <name>EVENT_NAME</name>
+          <set-method>addListener</set-method>
+          <!-- FQN of the event listener -->
+          <type>org.example.CustomEventListener</type>
+        </component-plugin>
+      </external-component-plugins>
+
+.. _PLFDevGuide.eXoAdd-ons.PerkStoreListeners:
+
+==============================
+eXo Perk Store listeners
+==============================
+
+eXo Perk Store uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about products and orders lifecycle.
+
+Broadcasted events are:
+
+- ``exo.perkstore.settings.modified`` : Perk Store settings gets modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
+- ``exo.addons.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
+- ``exo.addons.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
+
+To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+          <!-- One of the listed event names -->
+          <name>EVENT_NAME</name>
+          <set-method>addListener</set-method>
+          <!-- FQN of the event listener -->
+          <type>org.example.CustomEventListener</type>
+        </component-plugin>
+      </external-component-plugins>
 
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png
