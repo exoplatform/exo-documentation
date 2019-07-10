@@ -1158,7 +1158,7 @@ following:
 eXo Reward plugin
 ==============================
 
-eXo Reward package is a set of addons used to reward employees of an enterprise of their professional effort.
+eXo Rewards package is a set of addons used to reward employees of an enterprise of their professional effort.
 The list of addons included are:
 
 * `eXo Wallet <https://github.com/exoplatform/wallet>`__
@@ -1167,13 +1167,20 @@ The list of addons included are:
 
 * `eXo Perk Store <https://github.com/exoplatform/perk-store>`__
 
-Built-in reward plugins are:
+You can build custom rewarding programs thanks to the extensibility provided by `eXo Reward Plugin`. Bult-in plugins are:
 
-* `Kudos reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/KudosRewardPlugin.java>`__
+* `Kudos reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/KudosRewardPlugin.java>`__ : allows to reward users with tokens when they receive Kudos
 
-* `Gamification reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/GamificationRewardPlugin.java>`__
+* `Gamification reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/GamificationRewardPlugin.java>`__ : allows to reward users based on the number of points they earn from the gamification engine
 
-A reward plugin consist of collecting earned `points` for each user during a period of time.
+A reward plugin computes amounts of so-called ``points`` earned by each user over a period of time.
+
+.. note:: The term ``point`` here is abstract and can represent anything meanfingful for the rewarding program.
+          Giving existing examples :
+            - In gamification, point is a gamification point
+            - In Kudos, point is a kudos
+          You can, for example, add a custom reward program ``training`` where ``point`` is the average score obtained in exams.
+
 When the Rewards package administrator will pay rewards to users for a period of time (each month for example),
 the rewards plugins will be used to retrieve earned points for each user having a wallet.
 The retrieved earned points will be used to compute amount of tokens to send to each user.
@@ -1197,11 +1204,12 @@ In order to define a new Reward plugin, we will need:
          *         reward
          */
         public Map<Long, Double> gtEarnedPoints(Set<Long> identityIds, long startDateInSeconds, long endDateInSeconds) {
-          // compute here earned points per identityId.
+          // compute earned points per identityId. This example will return
+          the same number of points per user.
           // Hint: The user social profile can be retrieved using
           // org.exoplatform.social.core.manager.IdentityManager.getIdentity(String.valueOf(identityId), true)
-          Map<Long, Double> result = ...
-          return result;
+          double earnedPoints = 2d; // constant for all identities (dummy value)
+          return identityIds.stream().collect(Collectors.toMap(Function.identity(), id -> earnedPoints));
         }
       }
 
@@ -1221,7 +1229,7 @@ In order to define a new Reward plugin, we will need:
         </component-plugin>
       </external-component-plugins>
 
-One you deployed your plugin, you will see it added in Reward administration UI:
+Once you deployed your plugin, you will see it added in Reward administration UI:
 
 |CustomRewardPlugin|
 
@@ -1232,6 +1240,8 @@ eXo Wallet listeners
 ==============================
 
 eXo Wallet uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about wallets and transactions lifecycle.
+Developers can leverage these events to build custom features or alter external systems.
+Internally, these events are used for a variety of uses such as notifications or maintaining wallet and transactions statuses.
 
 Broadcasted events are:
 
@@ -1261,6 +1271,8 @@ eXo Kudos listeners
 ==============================
 
 eXo Kudos uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about kudos lifecycle.
+Developers can leverage these events to build custom features or alter external systems.
+Internally, these events are used for a variety of uses such as creating an activity or comment or attribute gamification points for kudos receiver and sender.
 
 Broadcasted events are:
 
@@ -1289,6 +1301,8 @@ eXo Perk Store listeners
 ==============================
 
 eXo Perk Store uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about products and orders lifecycle.
+Developers can leverage these events to build custom features or alter external systems.
+Internally, these events are used for a variety of uses such as notifications or updating UI in realtime using Websocket.
 
 Broadcasted events are:
 
