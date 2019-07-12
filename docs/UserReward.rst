@@ -23,7 +23,6 @@ For example, using Bitcoin or any other cryptocurrency, you need to have a digit
 How to access to Wallet interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(old : To access to wallet's interface, you have to go to:)
 
 You can access your personal eXo wallet in one of the three following ways :
 
