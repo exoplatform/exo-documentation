@@ -45,7 +45,7 @@ You can access your personal eXo wallet in one of the three following ways :
 How to create your wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first thing to do is to create your wallet by setting a password. The password must contain at least 8 caracters. 
+The first thing to do is to create your wallet by setting a password. The password must contain at least 8 characters. 
 
 |image3|
 
