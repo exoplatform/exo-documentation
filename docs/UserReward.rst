@@ -78,7 +78,7 @@ If the following code is hacked by someone, he will be able to own all your fund
 
 |image8|
 
-- Your private key is displayed in the same popup. You can save it in a piece of paper or a private and secured folder. Make sure that nobody else can access to this information.
+- Your private key is displayed in the same popup. You can save it in a piece of paper or a private and secured folder. Make sure that nobody else can access this information or you will be putting your funds at risk with absolutely no way to recover them.
 
 |image9|
 
