@@ -25,7 +25,7 @@ How to access to Wallet interface
 
 (old : To access to wallet's interface, you have to go to:)
 
-Before creating your wallet you have to access to dedicated interface. There is three ways to display wallet's interface :
+You can access your personal eXo wallet in one of the three following ways :
 
 
 1- From your display name on the top navigation bar then "My wallet" from the drop-down menu.
