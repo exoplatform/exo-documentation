@@ -82,7 +82,7 @@ If the following code is hacked by someone, he will be able to own all your fund
 
 |image9|
 
-.. warning:: Remember that losing your private keys will lead you to lose your money. You must take precautions and be very careful!
+.. Warning:: Remember that losing your private keys means loosing all your crypto-money. You must take precautions and be very careful! Even an administrator won't be able to help you if it gets compromised or lost.
 
 
 
