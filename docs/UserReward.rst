@@ -15,7 +15,7 @@ General information
 Cryto-currency
 A cryptocurrency (or crypto currency) is a digital asset designed to work as a medium of exchange that uses strong cryptography to secure financial transactions, control the creation of additional units, and verify the transfer of assets.
 
-A cryptocurrency wallet is a software program that stores private and public keys and interacts with various blockchain to enable users to send and receive digital currency and monitor their balance. 
+A cryptocurrency wallet is a software program that uses digital encryption keys to interact with a blockchain network to enable users to send and receive digital currency and monitor their balance. 
 If you want to use Bitcoin or any other cryptocurrency, you will need to have a digital wallet.
 
 
