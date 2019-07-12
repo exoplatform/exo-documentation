@@ -1184,8 +1184,39 @@ The article is shared into the space's activity stream.
 
 
 .. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
+
          
-		  
+Sharing a news from complete form
+----------------------------------
+
+To share an article from the complete form, you have to display the short form as explained in the previous paragraph and click on "More options" button.
+
+|image159|
+
+The displayed complete form page contains :
+
+- A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write. This field is mandatory.
+
+- A **Summary** field : Allows you to enter the news summary. The summary if inserted will be displayed in the news preview. This field is optional.
+
+- An "Upload image" area: Allows you to upload optionally an image as a illustrative vignette of the article.
+
+- A **Content** field : Allows you to enter the content of the News. No limitation for the number of characters. This field is mandatory.
+
+- A **Pin article** Check box.
+
+- A **Less icon** with a tooltip “return to original post”: Permits to open the creation short form without losing the changes made in the complete form.
+
+- A **Post** button : Disabled by default until the two fields “Title” and “Content” are filled.
+
+
+|image160|
+
+Once all fields are filled, click on the Post button to post the News in the space's activity stream.
+
+The article is shared into the space's activity stream.
+
+|image161|
 
 		
 .. _Formatting-toolbar:
@@ -2008,6 +2039,9 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_news.PNG
-.. |image157| image:: images/sharenews/post.PNG
+.. |image156| image:: images/sharenews/composer_news.png
+.. |image157| image:: images/sharenews/post.png
 .. |image158| image:: images/sharenews/shared_news.png
+.. |image159| image:: images/sharenews/More_options.png
+.. |image160| image:: images/sharenews/complete_form.png
+.. |image161| image:: images/sharenews/shared_news_cf.png
