@@ -63,7 +63,7 @@ A warning message appears behind the label "My wallet"
 Wallet security
 ~~~~~~~~~~~~~~~~
 
-Each wallet has a private key. It's important to save the private key of your wallet and keep it to your self following these steps :
+Each wallet uses a pair of public and private keys. The public key is used ad the address on the blockchain network. The private key must be secured as it allows to do any operation in the blockchain account (such as stilling your funds!). Without the private key, access to the funds is impossible. Thus, it's important to secure the private key and save in case of loss  :
 
 - Click on security icon to display security popup
 
