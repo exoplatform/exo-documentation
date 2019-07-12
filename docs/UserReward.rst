@@ -65,7 +65,7 @@ Wallet security
 
 Each wallet has a private key. It's important to save the private key of your wallet and keep it to your self following these steps :
 
-- Click on secutity icon to display security popup
+- Click on security icon to display security popup
 
 |image6|
 
