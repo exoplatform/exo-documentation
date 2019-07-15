@@ -1193,7 +1193,7 @@ To share an article from the full form, you have to display the small form as ex
 
 |image159|
 
-The displayed complete form page contains :
+The full form contains :
 
 - A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write. This field is mandatory.
 
