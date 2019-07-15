@@ -1189,7 +1189,7 @@ The article is shared into the space's activity stream.
 Sharing a news from full form
 ----------------------------------
 
-To share an article from the complete form, you have to display the short form as explained in the previous paragraph and click on "More options" button.
+To share an article from the full form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
 
 |image159|
 
