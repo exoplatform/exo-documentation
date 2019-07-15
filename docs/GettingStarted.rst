@@ -1197,7 +1197,7 @@ The displayed complete form page contains :
 
 - A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write. This field is mandatory.
 
-- A **Summary** field : Allows you to enter the news summary. The summary if inserted will be displayed in the news preview. This field is optional.
+- A **Summary** field : Allows you to enter the news summary. It is optional and will be inserted after the title in the news preview. 
 
 - An "Upload image" area: Allows you to upload optionally an image as a illustrative vignette of the article.
 
