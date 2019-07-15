@@ -1186,7 +1186,7 @@ The article is shared into the space's activity stream.
 .. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
 
          
-Sharing a news from complete form
+Sharing a news from full form
 ----------------------------------
 
 To share an article from the complete form, you have to display the short form as explained in the previous paragraph and click on "More options" button.
