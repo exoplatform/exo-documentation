@@ -81,37 +81,48 @@ If the following code is hacked by someone, he will be able to own all your fund
 
 |image9|
 
-.. Warning:: Remember that losing your private keys means loosing all your crypto-money. You must take precautions and be very careful! Even an administrator won't be able to help you if it gets compromised or lost.
-
-
+.. Warning:: Remember that losing your private keys means losing all your crypto-money. You must take precautions and be very careful! Even an administrator won't be able to help you if it gets compromised or lost.
 
 
 How to send funds from wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+To send funds from your wallet, you have to click on "Send" button then, in the "send funds" popup, select a recipient, your wallet password and the amount of cauris to send. You can optionally type a label and a message that will be stores in the transaction history.
+You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast"
 
-
-
-
+|image10|
 
 How to request funds from wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+To request funds, you have to click on "request" button then, in the "Request funds" popup, select a recipient and the requested amount of cauris. You can optionally type a request message to the recipient.
 
-
+|image11|
 
 
 Total rewarded Cauri
 ~~~~~~~~~~~~~~~~~~~~~
 
+The displayed information total rewarded cauris give you the information about the accrued amount of cauris that you earned thanks to your different activities in the platform.
+You have to note that this information is different than your current balance that displays the current amount of cauris that you have in your wallet.
+
+|image12|
 
 
 Tansactions details
 ~~~~~~~~~~~~~~~~~~~~
 
+The amount of the last transaction is displayed in wallet interface 
 
+|image13|
 
+When you click on the plus icon next to the last transaction information, a drawer with all transactions is displayed 
 
+|image14|
+
+To see a transaction details, you only have to click on the pull down arrow from the transaction list.
+
+|image14|
 
 
 
@@ -125,6 +136,14 @@ Tansactions details
 .. |image7| image:: images/reward/manage_keys.png
 .. |image8| image:: images/reward/backup_password.png
 .. |image9| image:: images/reward/private_key_blur.jpg
+.. |image10| image:: images/reward/send_funds.png
+.. |image11| image:: images/reward/request_funds.png
+.. |image12| image:: images/reward/rewarded_cauris.png
+.. |image13| image:: images/reward/transactions_details.png
+.. |image14| image:: images/reward/transactions_list.png
+.. |image15| image:: images/reward/transaction_information.png
+
+
 
 
 

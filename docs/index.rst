@@ -37,7 +37,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    introduction
    GettingStarted
    PersonalApplications
-   UserReward
+   UserWallet
    ManageTasks
    Chat
    webconferencing
