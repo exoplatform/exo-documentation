@@ -219,11 +219,11 @@ many libraries that support modularity. Next, you are introduced to `AMD
 and RequireJS <#PLFDevGuide.JavaScript.AMD_and_RequireJS>`__. But you
 may break to read some other references:
 
--  `JavaScript Function Closures, W3 Schools <#http://www.w3schools.com/js/js_function_closures.asp>`__
+-  `JavaScript Function Closures, W3 Schools <http://www.w3schools.com/js/js_function_closures.asp>`__
 
--  `Module Patterns In-Depth, Ben Cherry <#http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html>`__
+-  `Module Patterns In-Depth, Ben Cherry <http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html>`__
 
--  `Mastering the Module Pattern, Todd Motto <#http://toddmotto.com/mastering-the-module-pattern/>`__
+-  `Mastering the Module Pattern, Todd Motto <http://toddmotto.com/mastering-the-module-pattern/>`__
 
 
 .. _PLFDevGuide.JavaScript.AMD_and_RequireJS:
@@ -398,9 +398,9 @@ yourself. Go ahead and read other references.
 
 At this point you should read:
 
--  `AMD Specification <#https://github.com/amdjs/amdjs-api/wiki/AMD>`__
+-  `AMD Specification <https://github.com/amdjs/amdjs-api/wiki/AMD>`__
 
--  `RequireJS Usage <#http://requirejs.org/docs/api.html#usage>`__
+-  `RequireJS Usage <http://requirejs.org/docs/api.html#usage>`__
 
 .. _PLFDevGuide.JavaScript.Shim_and_NonAMD:
 
@@ -465,7 +465,7 @@ local (in require scope) reference to the global ``count`` variable.
         }
     }
 
-To see it in action, let's modify `the previous example <https://github.com/exo-samples/docs-samples/tree/4.3.x/js>`__
+To see it in action, let's modify `the previous example <https://github.com/exo-samples/docs-samples/tree/master/js>`__
 to make "util" a non-AMD module.
 
 1. Edit ``util.js`` to be a closure which declares a global variable:
