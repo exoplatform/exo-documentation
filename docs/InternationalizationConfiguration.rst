@@ -30,7 +30,7 @@ This chapter covers:
           Internationalization in Java products before attempting these 
           configurations.
 		  Oracle Java hosts a comprehensive guide to internationalize 
-		  Java products `here <http://docs.oracle.com/javase/tutorial/i18n/TOC.html>http://docs.oracle.com/javase/tutorial/i18n/TOC.html>`__.
+		  Java products `here <http://docs.oracle.com/javase/tutorial/i18n/TOC.html>`__.
 
 All eXo Platform applications contain property files for various 
 languages.
