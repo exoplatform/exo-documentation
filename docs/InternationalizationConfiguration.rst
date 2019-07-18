@@ -317,7 +317,7 @@ easier to discover the correct key for a given label in the portal page.
 		[USER@HOST jboss-jpp-6.0]$ ./bin/standalone.sh -
 		Dexo.product.developing=true
 
-2. Open http://localhost:8080/portal/classic to display eXo Platform
+2. Open http://localhost:8080/portal/intranet to display eXo Platform
    landing page.
 
 3. Click Change Language.
