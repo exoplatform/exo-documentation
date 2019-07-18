@@ -6042,12 +6042,12 @@ To disable the login history data storage in the database, simply set the parame
 Configuring eXo Wallet
 ======================
 
-The eXo Wallet addon uses the `Ethereum Blockchain <https://www.ethereum.org/>`__ to reward users based on a crypto-currency managed inside this blockchain.
+The eXo Wallet addon uses the `Ethereum Blockchain <https://www.ethereum.org/>`__ to let eXo users hold and exchange crypto-currency (aka tokens) managed inside this blockchain.
 
 Blockchain network settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The addon is configured by default to communicate with Ethereum Mainnet throught `Infura <https://infura.io/>`__ using websocket and http protocols:
+The addon is configured by default to communicate with Ethereum's public network (called the "Mainnet") throught `Infura <https://infura.io/>`__ using websocket and http protocols:
 
 .. code-block:: jproperties
 
@@ -6055,24 +6055,28 @@ The addon is configured by default to communicate with Ethereum Mainnet throught
     exo.wallet.blockchain.network.websocket=wss://mainnet.infura.io/ws/v3/a1ac85aea9ce4be88e9e87dad7c01d40
     exo.wallet.blockchain.network.http=https://mainnet.infura.io/v3/a1ac85aea9ce4be88e9e87dad7c01d40
 
+.. note:: 
+
+    The default configuration points to an eXo-owner infura project ID that serves as proxy to the mainnet.
+    To learn more about infura infrastructure and projects, please visit `Infura documentation <https://infura.io/docs/>`__
+
 - The Websocket endpoint is used to:
 
-   -  Scan new mined blocks on blockchain to verify if there is a new mined transaction that involves a wallet of a recognized user.
+   -  Scan newly mined blocks on the blockchain to check if any validated transaction involves a wallet owned by a user of your eXo Platform instance.
       The periodicity can be configured using the following property (Default value: every hour):
 
     .. code-block:: jproperties
 
           exo.wallet.ContractTransactionVerifierJob.expression=0 0 * ? * * *
 
-   -  Checks all pending transactions sent using wallet application to update its state internally in internal store and to send notifications for receiver and sender.
+   -  Checks all pending transactions sent using the eXo Wallet application to update its internal state (cache and persistent storage) and send notifications to receiver and sender of the transactions.
       The check is made periodically and can be configured using the following property (Default value: every 10 seconds):
 
     .. code-block:: jproperties
 
           exo.wallet.PendingTransactionVerifierJob.expression=0/10 * * * * ?
 
-   -  Send transactions on blockchain using *Admin wallet* that is used to administrate all other wallets.
-      In fact this wallet is used to initialize and send rewards to users and spaces wallets.
+   -  Send transactions from the so-called *Admin wallet* which is a dedicated blockchain account with special privileges than is used to administrate (initialize and reward)  all user wallets.
 
 - Unlike the *Admin wallet* which uses `Web3j <https://web3j.io/>`__ (Server side) to issue transactions, the HTTP endpoint is used by *users and spaces wallets* using `Web3.js <https://web3js.readthedocs.io/>`__ (Browser side) to communicate with the blockchain to issue transactions.
 
@@ -6081,14 +6085,15 @@ The addon is configured by default to communicate with Ethereum Mainnet throught
 Blockchain transaction settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- When sending a transaction to the Ethereum blockchain, some generic properties are required, especially *gas limit* and *gas price*.
+- When submitting a transaction to the Ethereum blockchain, some special properties are required by the blockchain protocols, namely *gas limit* and *gas price*.
 
   - **Gas limit**
 
-    The *gas limit* is the maximum gas that can take a transaction using the token contract. It can be modified using the following property:
+    The *gas limit* is the maximum gas that a transaction can consume to execute any operation using the token contract. It can be modified using the following property:
 
       .. code-block:: jproperties
 
+            # Value in GAS
             exo.wallet.transaction.gas.limit=150000
 
   - **Gas price**
@@ -6114,7 +6119,7 @@ Blockchain transaction settings
             exo.wallet.transaction.gas.fastPrice=15000000000
 
 
-* When a transaction is sent and wasn't mined for several days, it will be marked as failed in eXo Wallet internal database.
+* When a transaction is submitted but isn't mined for several days, it will be marked as failed in eXo Wallet's internal database.
   The maximum number of days waiting for transaction mining can be configured using the following property:
 
     .. code-block:: jproperties
@@ -6122,8 +6127,8 @@ Blockchain transaction settings
           exo.wallet.transaction.pending.maxDays=3
 
 
-    .. note:: If the transaction still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as failed transaction in internal eXo database.
-              When it gets mined, the Job ``ContractTransactionVerifierJob`` will detect it and will store again the real transaction status coming from blockchain and send notifications.
+    .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
+              if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
 
 
 Wallet types
@@ -6133,14 +6138,14 @@ Wallet types
 
   The *Admin wallet* is created automatically during first startup of the eXo Platform server.
 
-  In order to be able to issue transactions on the blockchain using `Web3j<https://web3j.io/>`__ server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
+  In order to be able to submit transactions to the blockchain using `Web3j<https://web3j.io/>`__ server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
   The private key is encrypted by combining two passwords:
 
      -  A first password is read from a keystore file ( see :ref:`Updating password encryption key <UpdatePasswordEncryptionKey>` )
 
      .. warning:: The generated keystore file under `gatein/conf/codec` MUST be backed up as a data folder, because it contains a key file that is used to decrypt stored wallets private keys. If it's lost, all wallets private keys will be lost and consequently, all funds would be lost and unrecoverable.
 
-     -  A second password that can be configured in properties:
+     -  A second password that must be configured in properties:
 
     .. code-block:: jproperties
 
@@ -6156,7 +6161,7 @@ Wallet types
 
 * **User wallet**
 
-  By default, any user of the platform can create his own wallet. A property is added to restrict access to wallet application to a group of users:
+  By default, any user of the platform can create their own wallet. A property is added to restrict access to wallet application to a group of users:
 
     .. code-block:: jproperties
 
@@ -6173,7 +6178,7 @@ Wallet types
 
 * **Space wallet**
 
-  Space managers can add the wallet application in their space a wallet for a space using :ref:`Managing space applications <ManagingSpaceApplication>` UI:
+  Space managers can add the wallet application in their space using :ref:`Managing space applications <ManagingSpaceApplication>` UI:
 
   |SpaceAddWallet|
 
@@ -6189,7 +6194,7 @@ The contract address used for the main token currency can be configured using th
 
           exo.wallet.blockchain.token.address=0xc76987d43b77c45d51653b6eb110b9174acce8fb
 
-This address is the official contract address for the official rewarding token. It shouldn't change through eXo Platform versions on the Ethereum Mainnet blockchain. This crypto-currency token, is shared by all eXo Community users.
+This address is the official contract address for the official rewarding token promoted by eXo. It shouldn't change through eXo Platform versions on the Ethereum Mainnet blockchain. This crypto-currency token, is shared by all eXo Community users.
 
 It is an `ERC-20 <https://eips.ethereum.org/EIPS/eip-20>`__ Token contract that is deployed on Ethereum Mainnet.
 
