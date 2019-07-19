@@ -178,7 +178,7 @@ Next, declare a new virtual host to access you eXo Platform instance :
 		ProxyVia                On
 
 		# Notifications via web socket, must be declared before the general ProxyPass definition
-		<IfModule proxy_wstunnel_module>
+		<IfModule proxy_wstunnel>
 			ProxyPass           /cometd    ws://127.0.0.1:8080/cometd max=100 acquire=5000 retry=5 disablereuse=on flushpackets=on # <--- change here and adapt the options to your load
 		</IfModule>
 
