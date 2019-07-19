@@ -30,7 +30,7 @@ This chapter covers:
           Internationalization in Java products before attempting these 
           configurations.
 		  Oracle Java hosts a comprehensive guide to internationalize 
-		  Java products `here <http://docs.oracle.com/javase/tutorial/i18n/TOC.html>http://docs.oracle.com/javase/tutorial/i18n/TOC.html>`__.
+		  Java products `here <http://docs.oracle.com/javase/tutorial/i18n/TOC.html>`__.
 
 All eXo Platform applications contain property files for various 
 languages.
@@ -317,7 +317,7 @@ easier to discover the correct key for a given label in the portal page.
 		[USER@HOST jboss-jpp-6.0]$ ./bin/standalone.sh -
 		Dexo.product.developing=true
 
-2. Open http://localhost:8080/portal/classic to display eXo Platform
+2. Open http://localhost:8080/portal/intranet to display eXo Platform
    landing page.
 
 3. Click Change Language.
