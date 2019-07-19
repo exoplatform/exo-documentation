@@ -138,7 +138,7 @@ the following code:
     </locales-config>
 
 -  *locale*: This has to be defined, such as
-   ` https://iso639-3.sil.org/code_tables/639/data`__. In
+   `https://iso639-3.sil.org/code_tables/639/data`__. In
    this example, "*ar*\ " is Arabic.
 
 -  *output-encoding*: This deals with the character encoding. It is
