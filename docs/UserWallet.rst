@@ -104,7 +104,7 @@ Total rewarded Cauri
 ~~~~~~~~~~~~~~~~~~~~~
 
 The displayed information total rewarded cauris give you the information about the accrued amount of cauris that you earned thanks to your different activities in the platform.
-You have to note that this information is different than your current balance that displays the current amount of cauris that you have in your wallet.
+Please note that this information is different than your current balance that displays the current amount in your wallet.
 
 |image12|
 
