@@ -107,8 +107,13 @@ To request funds, you have to click on "request" button then, in the "Request fu
 Total rewarded funds
 ~~~~~~~~~~~~~~~~~~~~~
 
+<<<<<<< HEAD
 The displayed information total rewarded cauris give you the information about the accrued amount of crypto-money that you earned thanks to your different activities in the platform.
 Please note that this information is different than your current balance that displays the current amount of funds that you have in your wallet.
+=======
+The displayed information total rewarded cauris give you the information about the accrued amount of cauris that you earned thanks to your different activities in the platform.
+Please note that this information is different than your current balance that displays the current amount in your wallet.
+>>>>>>> a08d779065e29e677a845d4663651fbaf8209795
 
 |image12|
 
