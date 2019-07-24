@@ -1,7 +1,7 @@
-.. _UserReward:
+.. _UserWallet:
 
 #####################
-Managing your reward
+Managing your wallet
 #####################
 
 =======
@@ -87,24 +87,28 @@ If the following code is hacked by someone, he will be able to own all your fund
 How to send funds from wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To send funds from your wallet, you have to click on "Send" button then, in the "send funds" popup, select a recipient, your wallet password and the amount of cauris to send. You can optionally type a label and a message that will be stores in the transaction history.
-You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast"
+To send funds from your wallet, you have to click on "Send" button then, in the "send funds" popup, select a recipient, your wallet password and the amount to send. You can optionally type a label and a message that will be stores in the transaction history.
+You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast". 
+The difference between those types of transaction is the price and the rapidity of transaction: 
+- The cheap transactions are not expensive but may take up to one day to be executed.
+- The normal transactions are slightly more expensive and could take few hours
+- The fast transaction are the most expensive take only one minute to be executed.
 
 |image10|
 
 How to request funds from wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To request funds, you have to click on "request" button then, in the "Request funds" popup, select a recipient and the requested amount of cauris. You can optionally type a request message to the recipient.
+To request funds, you have to click on "request" button then, in the "Request funds" popup, select a recipient and the requested amount of fundq. You can optionally type a request message to the recipient.
 
 |image11|
 
 
-Total rewarded Cauri
+Total rewarded funds
 ~~~~~~~~~~~~~~~~~~~~~
 
-The displayed information total rewarded cauris give you the information about the accrued amount of cauris that you earned thanks to your different activities in the platform.
-You have to note that this information is different than your current balance that displays the current amount of cauris that you have in your wallet.
+The displayed information total rewarded cauris give you the information about the accrued amount of crypto-money that you earned thanks to your different activities in the platform.
+Please note that this information is different than your current balance that displays the current amount of funds that you have in your wallet.
 
 |image12|
 
@@ -120,9 +124,9 @@ When you click on the plus icon next to the last transaction information, a draw
 
 |image14|
 
-To see a transaction details, you only have to click on the pull down arrow from the transaction list.
+To see a transaction details (its status, label, message, amount, the sender and recipient adresses, the contact name and address, the transaction fee and hash) you only have to click on the pull down arrow from the transaction list. 
 
-|image14|
+|image15|
 
 
 
