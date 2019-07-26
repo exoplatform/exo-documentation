@@ -4612,6 +4612,8 @@ You can add a new rule just by clicking on **Add rule** button above the Rules t
 
 A popup will be displayed containing a form to add a new rule.
 
+|image325|
+
 Fields are the same displayed in the Rules table: 
 
 - Title
@@ -4626,13 +4628,14 @@ Fields are the same displayed in the Rules table:
 
 Edit Rule
 ----------
-You can edit a rule just by a double click on the rule you want to update. 
+You can edit a rule just by clicking on the edit icon of the rule you want to update. 
 
 All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
 
 - Save: To save changes that you made in the rule
 - Cancel: To cancel changes and conserve the already existing rule.
 
+|image326|
 
 .. _ManageBadges:
 
@@ -5192,3 +5195,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image322| image:: images/platform/SpaceTemplatesTable.png
 .. |image323| image:: images/platform/manage_rules_badges.png
 .. |image324| image:: images/platform/addruletable.png
+.. |image325| image:: images/platform/addrulepopup.png
+.. |image326| image:: images/platform/editrule.png
