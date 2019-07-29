@@ -20,14 +20,14 @@ For example, using Bitcoin or any other cryptocurrency, you need to have a digit
 
 
 
-How to access to Wallet interface
+How to access to your Wallet interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 You can access your personal eXo wallet in one of the three following ways :
 
 
-1- From your display name on the top navigation bar then "My wallet" from the drop-down menu.
+1- From your display name in the top navigation bar then "My wallet" from the drop-down menu.
 
 |image0|
 
@@ -62,7 +62,7 @@ A warning message appears behind the label "My wallet"
 Wallet security
 ~~~~~~~~~~~~~~~~
 
-Each wallet uses a pair of public and private keys. The public key is used ad the address on the blockchain network. The private key must be secured as it allows to do any operation in the blockchain account (such as stilling your funds!). Without the private key, access to the funds is impossible. Thus, it's important to secure the private key and save in case of loss  :
+Each wallet uses a pair of public and private keys. The public key is used ad the address on the blockchain network. The private key must be secured as it allows to do any operation in the blockchain account (such as stealing your funds!). Without the private key, access to the funds is impossible. Thus, it's important to secure the private key and save in case of loss  :
 
 - Click on security icon to display security popup
 
@@ -72,8 +72,7 @@ Each wallet uses a pair of public and private keys. The public key is used ad th
 
 |image7|
 
-- A new popup "Backup wallet" is available with the following warnig message : *"Please make sure to keep this private key in a safe place where nobody else can get it (Write it in a piece of paper and hide it for example). 
-If the following code is hacked by someone, he will be able to own all your funds."*. type your wallet password in the appropriate field then click on "Display private key"
+- A new popup "Backup wallet" is available with a warnig message. type your wallet password in the appropriate field then click on "Display private key"
 
 |image8|
 
@@ -89,10 +88,11 @@ How to send funds from wallet
 
 To send funds from your wallet, you have to click on "Send" button then, in the "send funds" popup, select a recipient, your wallet password and the amount to send. You can optionally type a label and a message that will be stores in the transaction history.
 You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast". 
-The difference between those types of transaction is the price and the rapidity of transaction: 
-- The cheap transactions are not expensive but may take up to one day to be executed.
-- The normal transactions are slightly more expensive and could take few hours
-- The fast transaction are the most expensive take only one minute to be executed.
+The difference between those types of transaction is the price and the rapidity of transaction:
+ 
+- The cheap type is not expensive but may take up to one day to be executed.
+- The normal type is slightly more expensive and could take few hours.
+- The fast type is the most expensive and take only one minute to be executed.
 
 |image10|
 
@@ -107,13 +107,8 @@ To request funds, you have to click on "request" button then, in the "Request fu
 Total rewarded funds
 ~~~~~~~~~~~~~~~~~~~~~
 
-<<<<<<< HEAD
-The displayed information total rewarded cauris give you the information about the accrued amount of crypto-money that you earned thanks to your different activities in the platform.
+The total rewarded number is the cumulated amount of crypto-money that you have earned as reward thanks to your different activities in the platform.
 Please note that this information is different than your current balance that displays the current amount of funds that you have in your wallet.
-=======
-The displayed information total rewarded cauris give you the information about the accrued amount of cauris that you earned thanks to your different activities in the platform.
-Please note that this information is different than your current balance that displays the current amount in your wallet.
->>>>>>> a08d779065e29e677a845d4663651fbaf8209795
 
 |image12|
 
@@ -121,7 +116,7 @@ Please note that this information is different than your current balance that di
 Tansactions details
 ~~~~~~~~~~~~~~~~~~~~
 
-The amount of the last transaction is displayed in wallet interface 
+The amount of the last transaction is displayed in the wallet interface 
 
 |image13|
 
@@ -129,7 +124,7 @@ When you click on the plus icon next to the last transaction information, a draw
 
 |image14|
 
-To see a transaction details (its status, label, message, amount, the sender and recipient adresses, the contact name and address, the transaction fee and hash) you only have to click on the pull down arrow from the transaction list. 
+To see a transaction details (its status, label, message, amount, the sender and recipient adresses, the contact name and address, the transaction fee and hash) just click on the pull down arrow from the transaction list. 
 
 |image15|
 
@@ -147,7 +142,7 @@ To see a transaction details (its status, label, message, amount, the sender and
 .. |image9| image:: images/reward/private_key_blur.jpg
 .. |image10| image:: images/reward/send_funds.png
 .. |image11| image:: images/reward/request_funds.png
-.. |image12| image:: images/reward/rewarded_cauris.png
+.. |image12| image:: images/reward/rewarded_funds.png
 .. |image13| image:: images/reward/transactions_details.png
 .. |image14| image:: images/reward/transactions_list.png
 .. |image15| image:: images/reward/transaction_information.png
