@@ -72,7 +72,7 @@ Each wallet uses a pair of public and private keys. The public key is used ad th
 
 |image7|
 
-- A new popup "Backup wallet" is available with a warnig message. type your wallet password in the appropriate field then click on "Display private key"
+- A new popup "Backup wallet" is available with a warning message. type your wallet password in the appropriate field then click on "Display private key"
 
 |image8|
 
