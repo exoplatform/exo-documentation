@@ -1187,33 +1187,20 @@ The article is shared into the space's activity stream.
 
          
 Sharing a news from full form
-----------------------------------
+------------------------------
 
-To share an article from the full form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
+The creation of a news since the composer is minimalist. More options are available from the full form. In order to access to this form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
 
 |image159|
 
-The full form contains :
+The full form allows you in addition to the fields available in the simple form to add a summary to your article. This field is optional and will be displayed in the news preview if filled. If not it is the first three lines of article's content that will be displayed in the news preview. The summary is limited to 1000 characters.
+It is also possible to upload optionally an image as an illustrative vignette of the article from the dedicated area. The image size must not exceed 10 Mo and the supported extensions are ".jpg",".jpeg",".png" and ".gif".
 
-- A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write. This field is mandatory.
-
-- A **Summary** field : Allows you to enter the news summary. It is optional and will be inserted after the title in the news preview. 
-
-- An "Upload image" area: Allows you to upload optionally an image as a illustrative vignette of the article.
-
-- A **Content** field : Allows you to enter the content of the News. No limitation for the number of characters. This field is mandatory.
-
-- A **Pin article** Check box.
-
-- A **Less icon** with a tooltip “return to original post”: Permits to open the creation short form without losing the changes made in the complete form.
-
-- A **Post** button : Disabled by default until the two fields “Title” and “Content” are filled.
-
+The plus icon of the simple form is replaced by a less icon with a tooltip “return to original post”. This icon allows you to return to the creation simple form without losing the changes made in the full form.
 
 |image160|
 
-Once all fields are filled, click on the Post button to post the News in the space's activity stream.
-
+As for the simple form, once all fields are filled, click on the Post button to post the News in the space's activity stream.
 The article is shared into the space's activity stream.
 
 |image161|
