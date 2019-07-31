@@ -1939,7 +1939,19 @@ The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activ
 | TEMPLATE_PARAM_KEY    | VARCHAR         | The name of the template parameter.                                                |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
-The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activoty stream.
+The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activity stream.
+For each activity created, an entry is added to the **SOC\_STREAM\_ITEMS** table and 
+identified by **ACTIVITY\_ID** field.
+However, some activities may present exceptions such as:
+
+-  **Activity in a space** i.e. an activity with a **STREAM\_TYPE* equals to *Poster*, 
+   two similar entries are added to the table with a difference in the **OWNER\_ID** field: 
+   
+   -  An entry having an **OWNER\_ID** equals to the space in which the post has been done
+   -  An entry having an **OWNER\_ID** equals to the user who posted the activity
+   
+-  **Comments to activities in spaces**, no entry is added to **SOC\_STREAM\_ITEMS** table 
+  but the **UPDATED\_DATE** field is updated for the two entries described above.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | Name                  | Type            | Description                                                                        |
