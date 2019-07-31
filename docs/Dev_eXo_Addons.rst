@@ -1183,7 +1183,7 @@ A reward plugin computes amounts of so-called ``points`` earned by each user ove
 
 When the Rewards package administrator will pay rewards to users for a period of time (each month for example),
 the rewards plugins will be used to retrieve earned points for each user having a wallet.
-The earned points will be used converted into an amount of tokens to send to each user.
+The earned points will be converted into an amount of tokens to send to each user.
 
 For example, the `Kudos reward plugin` is used to return the number of Kudos received by a user during a selected period of time.
 Administrators can configure the token value for each earned Kudos (or a total budget), so the rewarding engine can compute individual amounts of tokens for each user.
