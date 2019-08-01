@@ -6198,9 +6198,9 @@ This address is the official contract address for the official rewarding token p
 
 It is an `ERC-20 <https://eips.ethereum.org/EIPS/eip-20>`__ Token contract that is deployed on Ethereum Mainnet.
 
-To be able to receive some tokens, a wallet address must be initialized by a *token contract* administrator on the blockchain (this cannot be done on your eXo Platform server).
+  |WalletTokenCommunication|
 
-// TODO add a diagram with MANY eXo instances deployed and the blockchain in the center where the token contract lies (ASK DESIGNER HELP)
+To be able to receive some tokens, a wallet address must be initialized by a *token contract* administrator on the blockchain (this cannot be done on your eXo Platform server).
 
 .. |image0| image:: images/gmail_settings_1.png
 .. |image1| image:: images/openinoffice/openinmsoffice.png
@@ -6212,3 +6212,4 @@ To be able to receive some tokens, a wallet address must be initialized by a *to
 .. |image7| image:: images/link_preview_AS.png
 .. |SpaceAddWallet| image:: images/rewards/wallet/SpaceAddWallet.png  
 .. |WalletBlockchainCommunication| image:: images/rewards/wallet/WalletBlockchainCommunication.png  
+.. |WalletTokenCommunication| image:: images/rewards/wallet/WalletTokenCommunication.png  
