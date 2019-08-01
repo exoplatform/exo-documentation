@@ -931,7 +931,7 @@ To implement your own connector follow this procedure:
 1. **Create the connector project** respecting the developement 
    environment described :ref:`here <PLFDevGuide.GettingStarted.SettingDevelopmentEnvironment>`.
 
-   We recommend you to clone our `template project <https://github.com/exoplatform/web-conferencing/tree/develop/template>`__
+   We recommend you to clone our `template project <https://github.com/exo-addons/web-conferencing/tree/develop/template>`__
    as it contains maven modules with eXo Web Conferencing dependencies 
    and packaging. You should make your customizations on it: rename 
    package, classes and variables and if needed include third-party 
@@ -1175,7 +1175,7 @@ You can build custom rewarding programs thanks to the extensibility provided by 
 
 A reward plugin computes amounts of so-called ``points`` earned by each user over a period of time.
 
-.. note:: The term ``point`` here is abstract and can represent anything meanfingful for the rewarding program.
+.. note:: The term ``point`` here is abstract and can represent anything meaningful for the rewarding program.
           Giving existing examples :
             - In gamification, point is a gamification point
             - In Kudos, point is a kudos
@@ -1186,13 +1186,14 @@ the rewards plugins will be used to retrieve earned points for each user having 
 The earned points will be converted into an amount of tokens to send to each user.
 
 For example, the `Kudos reward plugin` is used to return the number of Kudos received by a user during a selected period of time.
-Administrators can configure the token value for each earned Kudos (or a total budget), so the rewarding engine can compute individual amounts of tokens for each user.
+Administrators can configure the token value for each earned Kudos (or a total budget), so the rewarding engine can compute individual amount of tokens for each user.
 
-Developing a custom Reward plugin, requires:
+Developing a custom Reward plugin requires:
 
 * to write a java Class that extends `RewardPlugin <https://github.com/exoplatform/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
 
    .. code:: java
+      package org.example;
    
       public class CustomRewardPlugin extends RewardPlugin {
         /**
@@ -1250,7 +1251,7 @@ Broadcasted events are:
 - ``exo.addon.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
 - ``exo.addon.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
 
-To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+To add an event listener using one listed events above, you can add the following configuration inside a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
    .. code:: xml
 
@@ -1307,11 +1308,11 @@ Internally, these events are used for a variety of uses such as notifications or
 
 Broadcasted events are:
 
-- ``exo.perkstore.settings.modified`` : Perk Store settings gets modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
+- ``exo.perkstore.settings.modified`` : Perk Store settings is modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
 - ``exo.addons.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
 - ``exo.addons.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
 
-To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+To add an event listener using one of listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
    .. code:: xml
 
