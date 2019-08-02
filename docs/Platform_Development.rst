@@ -1944,7 +1944,7 @@ For each activity created, an entry is added to the **SOC\_STREAM\_ITEMS** table
 identified by **ACTIVITY\_ID** field.
 However, some activities may present exceptions such as:
 
--  **Activity in a space** i.e. an activity with a **STREAM\_TYPE* equals to *Poster*, 
+-  **Activity in a space** i.e. an activity with a **STREAM\_TYPE** equals to *Poster*, 
    two similar entries are added to the table with a difference in the **OWNER\_ID** field: 
    
    -  An entry having an **OWNER\_ID** equals to the space in which the post has been done
