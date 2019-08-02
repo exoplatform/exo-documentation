@@ -4875,9 +4875,9 @@ When any user get access to their wallet or a space wallet, the cached wallet ob
 
 -  The cached **Wallet account** is invalidated when the user updates its metadata such as reimporting its private key.
 
--  The **Wallet account cache** size should equals the number of wallets used in eXo Platform.
+-  The **Wallet account cache** size should be equal to the number of wallets used in eXo Platform.
 
--  Each Wallet object is approximately 400 bytes, so the maximum heap size equals to the cache size multiplied by 400 bytes.
+-  Each Wallet object take about 400 bytes in memory. So the maximum heap size occupied by the wallet cache would be its size multiplied by 400 bytes.
 
 .. _Wallet.transactionCache:   
 
@@ -4885,13 +4885,13 @@ Wallet Transactions cache
 -------------------------
 
 The **Wallet Transactions cache** caches the blockchain transaction metadata sent by a wallet. This object contains information such as transaction hash, username, space pretty name, transaction status...
-When any user get access to the list of their transactions or a space wallet transactions, the cached wallet transactions object will be retrieved from cache rather than the database.
+When any user get access to the list of their transactions or a space wallet transactions, the cached wallet transactions objects will be retrieved from cache rather than the database.
 
 -  The cached **Wallet transaction** is invalidated when the users updates their metadata such as changing transaction status from *pending* to *success* or *failed*.
 
 -  The **Wallet transaction cache** size should equals the number of wallet accounts multiplied by the first transactions list page size (10 elements per page).
 
--  Each Wallet transaction object is approximately 700 bytes, so the maximum heap size equals to the cache size multiplied by 700 bytes.
+-  Each Wallet transaction object take about 700 bytes in memory. So the maximum heap size occupied by the wallet transaction cache would be its size multiplied by 700 bytes.
 
 .. _Configuration.EndDateSuggestion:
 
@@ -6062,7 +6062,7 @@ The addon is configured by default to communicate with Ethereum's public network
 
 - The Websocket endpoint is used to:
 
-   -  Scan newly mined blocks on the blockchain to check if any validated transaction involves a wallet owned by a user of your eXo Platform instance.
+   -  Scan newly mined blocks on the blockchain to check if any validated transaction involves a wallet owned by an available user in your eXo Platform instance.
       The periodicity can be configured using the following property (Default value: every hour):
 
     .. code-block:: jproperties
@@ -6182,7 +6182,7 @@ Wallet types
 
   |SpaceAddWallet|
 
-  Space wallets can be managed by one or multiple space manager. In fact, the space wallet is similar to user wallet. To use it, it must be activated by an admin. The operation is carried out by the *Admin Wallet* account.
+  Space wallets can be managed by one or multiple space managers. In fact, the space wallet is similar to user wallet. To use it, it must be activated by an admin. The operation is carried out by the *Admin Wallet* account.
   By default, any space member can access to the space wallet in *readonly* mode.
 
 Token contract
