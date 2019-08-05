@@ -4660,7 +4660,7 @@ Fields are the same as in the Add Badge popup:
 - Enabled status (switch button to choose between Yes or No status)
 
 .. note:: Once your badge is successfully added to the Rules base, a success message is displayed : *Badge added successfully*
-          An error message will display if you add a badge with wrong, missing or even similar informations of existing badges: *An error happen when adding a badge*
+If the added badge has erroneous or missing details or even similar information to an existing badge, an error message is displayed: *An error happens when adding a badge*.
 
 
 Edit Badge
