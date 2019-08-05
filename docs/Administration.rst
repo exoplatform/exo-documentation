@@ -4656,7 +4656,7 @@ Fields are the same as in the Add Badge popup:
 - Description
 - Score
 - Icon
-- Domain (a pulldown to choose easily the Badge domain)
+- Domain (a pulldown to easily choose the Badge domain)
 - Enabled status (switch button to choose between Yes or No status)
 
 .. note:: Once your badge is successfully added to the Rules base, a success message is displayed : *Badge added successfully*
