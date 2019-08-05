@@ -4667,7 +4667,7 @@ Edit Badge
 -----------
 You can edit a badge just by clicking on the edit icon of the badge you want to update. 
 
-A popup, Edit Badge, containing all badges informations will display with 2 buttons : 
+A popup *Edit Badge* containing all badges information will display with 2 buttons : 
 
 - Save: To save changes that you made in the badge
 - Cancel: To cancel changes and conserve the already existing badge.
