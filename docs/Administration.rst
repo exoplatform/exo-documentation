@@ -4614,7 +4614,7 @@ A popup will be displayed containing a form to add a new rule.
 
 |image325|
 
-Fields are the same displayed in the Rules table: 
+Fields are the same as in the Add Rule popup: 
 
 - Title
 - Description
@@ -4641,6 +4641,37 @@ All fields will be in an edit mode and 2 new buttons will replace the Delete but
 
 Manage Badges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add Badge
+----------
+
+You can add a new Badge just by clicking on **Add Badge** button above the Badges table.
+
+A popup will be displayed containing a form to add a new Badge.
+
+|image327|
+
+Fields are the same as in the Add Badge popup: 
+
+- Title
+- Description
+- Score
+- Icon
+- Domain (a pulldown to easily choose the Badge domain)
+- Enabled status (switch button to choose between Yes or No status)
+
+.. note:: Once your badge is successfully added to the Rules base, a success message is displayed : *Badge added successfully*
+If the added badge has erroneous or missing details or even similar information to an existing badge, an error message is displayed: *An error happens when adding a badge*.
+
+
+Edit Badge
+-----------
+You can edit a badge just by clicking on the edit icon of the badge you want to update. 
+
+A popup *Edit Badge* containing all badges information will display with 2 buttons : 
+
+- Save: To save changes that you made in the badge
+- Cancel: To cancel changes and conserve the already existing badge.
+
 
 .. _BuildingOnlineCommunity:
 
@@ -5197,3 +5228,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image324| image:: images/platform/addruletable.png
 .. |image325| image:: images/platform/addrulepopup.png
 .. |image326| image:: images/platform/editrule.png
+.. |image327| image:: images/platform/addbadge.png
