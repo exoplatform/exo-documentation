@@ -60,6 +60,9 @@ Administering eXo Platform
     -  :ref:`Managing applications <ManagingApplications>`
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
+	  
+    -  :ref:`Managing wallets <ManagingWallets>`
+       How to manage users and spaces wallets.
 
     -  :ref:`Managing gamification <ManagingGamification>`
        How to manage domains, rules and badges, and introduction
@@ -4566,6 +4569,37 @@ The Service Management page is displayed.
    to it. After invoking it successfully, you will see the result
    returned if any.
 
+.. _ManagingWallets:
+
+=================
+Managing Wallets
+=================
+
+
+How to access to wallets administration interface
+-------------------------------------------------
+
+Wallets administration interface allows you to manage users and spaces wallets
+To access wallets administration interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Wallet" from the drop-down menu.
+
+|image328|
+
+"Wallets administration" interface is displayed containing the list of different users wallets. You can apply filters to display or hide wallets. 
+The available filters are by default the type of owner of the wallet and the wallet's status: Disabled wallets are not displayed by default. You can also search for a wallet by owner's name.
+
+|image329|
+
+The wallets administration interface allows you to manage different wallets according to the wallet's status:
+
+- In case of a new wallet, you have the possibility to initialize it in order to activate it and send the initial funds to the user or space.
+- 
+
+
+
+.. note:: No action except "Refresh" is allowed for "admin" wallet.
+
+
+
 
 .. _ManagingGamification:
 
@@ -5229,3 +5263,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image325| image:: images/platform/addrulepopup.png
 .. |image326| image:: images/platform/editrule.png
 .. |image327| image:: images/platform/addbadge.png
+.. |image328| image:: images/walletadmin/administration_menu.png
+.. |image329| image:: images/walletadmin/wallets_administration.png
