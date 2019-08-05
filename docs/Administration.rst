@@ -4644,7 +4644,7 @@ Manage Badges
 Add Badge
 ----------
 
-You can add a new Badge just by clicking on **Add Badge** button above the Badgess table.
+You can add a new Badge just by clicking on **Add Badge** button above the Badges table.
 
 A popup will be displayed containing a form to add a new Badge.
 
