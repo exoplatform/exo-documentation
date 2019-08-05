@@ -4650,7 +4650,7 @@ A popup will be displayed containing a form to add a new Badge.
 
 |image327|
 
-Fields are the same displayed in the Add Badge popup: 
+Fields are the same as in the Add Badge popup: 
 
 - Title
 - Description
