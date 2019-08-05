@@ -4614,7 +4614,7 @@ A popup will be displayed containing a form to add a new rule.
 
 |image325|
 
-Fields are the same displayed in the Add Rule popup: 
+Fields are the same as in the Add Rule popup: 
 
 - Title
 - Description
