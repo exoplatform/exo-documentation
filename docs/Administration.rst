@@ -4591,9 +4591,26 @@ The available filters are by default the type of owner of the wallet and the wal
 
 The wallets administration interface allows you to manage different wallets according to the wallet's status:
 
-- In case of a new wallet, you have the possibility to initialize it in order to activate it and send the initial funds to the user or space.
-- 
+- For initialized wallets: The possible actions which are also common actions for all wallets are: 
 
+Refresh: Allows you to refresh the information about the selected wallet. The action will display the uptodate information for the status and different balances of the concerned wallet.
+Send Cauri: Allows you to send funds to this wallet from the admin wallet.
+Disable wallet: Allows you to disable the wallet. This action is not irreversible, you can enable the wallet if needed.
+
+|image330|
+
+- For new wallets, you can make the following actions:
+
+*Initialize wallet*: Allows you to activate the wallet and send the initial funds with a optionnaly a message to the wallet's owner.
+*Reject wallet*: The action requires your confirmation. The wallet's owner will display a message informing that his wallet creation has been rejected and will have the possibility to request the initialization once again.
+
+|image331|
+
+Some warnings appear in the interface when:
+
+The user or space is deleted
+The wallet does not contain any funds
+The wallet does not contain enough ether to make transactions:  For these wallets a "Send ether" action is available
 
 
 .. note:: No action except "Refresh" is allowed for "admin" wallet.
@@ -5265,3 +5282,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image327| image:: images/platform/addbadge.png
 .. |image328| image:: images/walletadmin/administration_menu.png
 .. |image329| image:: images/walletadmin/wallets_administration.png
+.. |image330| image:: images/walletadmin/new_wallet.png
+.. |image331| image:: images/walletadmin/common_actions.png
+.. |image332| image:: images/walletadmin/initialize_reject.png
