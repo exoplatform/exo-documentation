@@ -4601,7 +4601,7 @@ Disable wallet: Allows you to disable the wallet. This action is not irreversibl
 
 - For new wallets, you can make the following actions:
 
-*Initialize wallet*: Allows you to activate the wallet and send the initial funds with a optionnaly a message to the wallet's owner.
+*Initialize wallet*: Allows you to activate the wallet and send the initial funds with a optionally a message to the wallet's owner.
 *Reject wallet*: The action requires your confirmation. The wallet's owner will display a message informing that his wallet creation has been rejected and will have the possibility to request the initialization once again.
 
 |image331|
