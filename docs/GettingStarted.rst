@@ -1206,7 +1206,7 @@ The article is shared into the space's activity stream.
 |image161|
 
 You can access the content of the article either by clicking on its title or by clicking on "read more".
-The details of the article are available on the current page and display all the information that has been entered as well as publication date and user.
+The details of the article are available on the current page and display all the information, including the publication date and the author.
 
 |image162|
 
