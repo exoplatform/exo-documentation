@@ -1211,7 +1211,7 @@ The details of the article are available on the current page and display all the
 |image162|
 
 You can change the content of the article using the edit icon. 
-The possible actions from the edit mode interface are "update", update and post" and "cancel". The buttons update and update and post are disabled until changes are made.
+The possible actions from the edit mode interface are `Update`, `Update and post` and `Cancel`. The buttons `Update` and `Update and post` are disabled until changes are made.
 The update action allows you to make changes in the article without reposting it unlike the "update and post" action that allows to apply the changes in the article details and permits to rise up the article's preview in the activity stream.
 
 |image163|
