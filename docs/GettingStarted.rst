@@ -1217,7 +1217,7 @@ The `Update` action allows you to make changes in the article without reposting 
 |image163|
 
 
-After updating the article, the information update user, update date and hour are available in the details as well as the different changes.
+When an article has been edited, the details view display the updated date and author besides initial information.
 
 |image164|
 
