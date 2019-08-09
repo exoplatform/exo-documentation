@@ -1205,6 +1205,22 @@ The article is shared into the space's activity stream.
 
 |image161|
 
+You can access the content of the article either by clicking on its title or by clicking on "read more".
+The details of the article are available on the current page and display all the information, including the publication date and the author.
+
+|image162|
+
+You can change the content of the article using the edit icon. 
+The possible actions from the edit mode interface are `Update`, `Update and post` and `Cancel`. The buttons `Update` and `Update and post` are disabled until changes are made.
+The `Update` action allows you to make changes in the article without reposting it unlike the `Update and post` action that allows to apply the changes in the article details and rise up the article's preview in the activity stream.
+
+|image163|
+
+
+When an article has been edited, the details view display the updated date and author besides initial information.
+
+|image164|
+
 		
 .. _Formatting-toolbar:
 
@@ -2032,3 +2048,6 @@ to display the original timestamp of the comment.
 .. |image159| image:: images/sharenews/More_options.png
 .. |image160| image:: images/sharenews/complete_form.png
 .. |image161| image:: images/sharenews/shared_news_cf.png
+.. |image162| image:: images/sharenews/news_details2.png
+.. |image163| image:: images/sharenews/edit_news.png
+.. |image164| image:: images/sharenews/modified_news.png
