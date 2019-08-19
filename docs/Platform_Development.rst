@@ -1939,7 +1939,15 @@ The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activ
 | TEMPLATE_PARAM_KEY    | VARCHAR         | The name of the template parameter.                                                |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
-The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activity stream.
+The table **SOC\_STREAM\_ITEMS** stores the items of the activity stream. Its purpose is to improve performances by precalculating the items that must be displayed in activity streams and to avoid to always recalculate them from the others tables.
+Each item references an activity, in the field **ACTIVITY\_ID**, with a specific type, stored in the field **STREAM\_TYPE**.
+When an activity is created, one or more items are created in the table **SOC\_STREAM\_ITEMS** (so an activity can be referenced by one or more items):
+- activity posted in the user stream: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **POSTER** and the owner id set to the user who has created the activity.
+- activity posted in a space: 2 entries are inserted in the table **SOC\_STREAM\_ITEMS**:
+  - an entry of type **POSTER** and with an **OWNER\_ID** equal to the space in which the post has been done
+  - an entry of type **POSTER** and with an **OWNER\_ID** equal to the user who posted the activity
+- comment on a space activity: no entry is added to table **SOC\_STREAM\_ITEMS** 
+  but the **UPDATED\_DATE** field is updated for the two entries described above
 For each activity created, an entry is added to the **SOC\_STREAM\_ITEMS** table and 
 identified by **ACTIVITY\_ID** field.
 However, some activities may present exceptions such as:
