@@ -1232,7 +1232,7 @@ When you click on the share icon, a popup appears containing a reminder of the t
 
 |image165|
 
- ... note:: Sharing articles is only possible to spaces for the moment, you will be able to select only the spaces in which you are a member.
+ ... note:: Sharing articles is only possible to spaces for the moment. You will be able to select only the spaces in which you are a member.
  
 Once the article is shared, a message confirming that the action has been completed is displayed with the list of the destination space(s).
 
