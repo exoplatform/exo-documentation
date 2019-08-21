@@ -1239,7 +1239,7 @@ Once the article is shared, a message confirming that the action has been comple
 |image166|
 
 
-You can check that the action has been done succesfully by connecting to the concerned spaces. The article preview will be available in the activity stream with the description if this field has been filled in.
+You can check that the action has been done successfully by connecting to the destination spaces. The article preview will be available in the activity stream with the description if this field has been filled in.
 
 |image167|
 
