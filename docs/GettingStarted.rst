@@ -1228,7 +1228,7 @@ Sharing a News
 ---------------
 
 Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page (and from the article's preview in the activity stream). 
-When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the distribution space(s), add a description to be displayed in the activity that will be generated and validate the sharing action.
+When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the destination space(s). You can also add a optional description which will be displayed in the sharing activity.
 
 |image165|
 
