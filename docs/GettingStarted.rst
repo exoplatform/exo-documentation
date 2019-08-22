@@ -942,7 +942,7 @@ Using the Activity Stream
  * :ref:`Sharing in the activity stream <Share-AS>`
    Steps to post status updates through the **Activity Stream**. 
 
- * :ref:`Sharing a news in the activity stream <Sharing-news>`
+ * :ref:`Sharing a news in the activity stream <News>`
    Steps to post a news in the **Activity Stream**.
    
  * :ref:`The formatting toolbar in activity messages and comments <Formatting-toolbar>`
@@ -1148,20 +1148,20 @@ the link.
 
     .. note:: If the activity composer is empty, the |image78| button still grey and unclickable until adding something (a text message, a link or a file) in the activity composer area.
 
-.. _Sharing-news:
+.. _News:
 
 	
-Sharing a news in the activity stream
+Posting a news in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 From a space's acivity stream, you are able to share a news with the space’s members. 
 Publishing a news allows you to easily write, broadcast, pin and share communication content.
 
 
-Sharing a simple news from short form
+Posting a simple news from short form
 --------------------------------------
 
-To share an article with other space’s members, click on News tab from the activity composer, the tab contains :
+To post an article with other space’s members, click on News tab from the activity composer, the tab contains :
 
 
 - A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write.
@@ -1186,7 +1186,7 @@ The article is shared into the space's activity stream.
 .. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
 
          
-Sharing a news from full form
+Posting a news from full form
 ------------------------------
 
 The creation of a news since the composer is minimalist. More options are available from the full form. In order to access to this form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
@@ -1210,16 +1210,39 @@ The details of the article are available on the current page and display all the
 
 |image162|
 
+Editing a News
+---------------
+
 You can change the content of the article using the edit icon. 
 The possible actions from the edit mode interface are `Update`, `Update and post` and `Cancel`. The buttons `Update` and `Update and post` are disabled until changes are made.
 The `Update` action allows you to make changes in the article without reposting it unlike the `Update and post` action that allows to apply the changes in the article details and rise up the article's preview in the activity stream.
 
 |image163|
 
-
 When an article has been edited, the details view display the updated date and author besides initial information.
 
 |image164|
+
+
+Sharing a News
+---------------
+
+Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page (and from the article's preview in the activity stream). 
+When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the destination space(s). You can also add a optional description which will be displayed in the sharing activity.
+
+|image165|
+
+ ... note:: Sharing articles is only possible to spaces for the moment. You will be able to select only the spaces in which you are a member.
+ 
+Once the article is shared, a message confirming that the action has been completed is displayed with the list of the destination space(s).
+
+|image166|
+
+
+You can check that the action has been done successfully by connecting to the destination spaces. The article preview will be available in the activity stream with the description if this field has been filled in.
+
+|image167|
+
 
 		
 .. _Formatting-toolbar:
@@ -2051,3 +2074,7 @@ to display the original timestamp of the comment.
 .. |image162| image:: images/sharenews/news_details2.png
 .. |image163| image:: images/sharenews/edit_news.png
 .. |image164| image:: images/sharenews/modified_news.png
+.. |image165| image:: images/sharenews/popup_share.png
+.. |image166| image:: images/sharenews/shared_message2.png
+.. |image167| image:: images/sharenews/shared_news2.png
+
