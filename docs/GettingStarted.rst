@@ -942,7 +942,7 @@ Using the Activity Stream
  * :ref:`Sharing in the activity stream <Share-AS>`
    Steps to post status updates through the **Activity Stream**. 
 
- * :ref:`Sharing a news in the activity stream <Sharing-news>`
+ * :ref:`Sharing a news in the activity stream <News>`
    Steps to post a news in the **Activity Stream**.
    
  * :ref:`The formatting toolbar in activity messages and comments <Formatting-toolbar>`
@@ -1148,7 +1148,7 @@ the link.
 
     .. note:: If the activity composer is empty, the |image78| button still grey and unclickable until adding something (a text message, a link or a file) in the activity composer area.
 
-.. _Sharing-news:
+.. _News:
 
 	
 Posting a news in the activity stream
