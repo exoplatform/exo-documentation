@@ -4716,13 +4716,12 @@ If the added badge has erroneous or missing details or even similar information 
 
 Edit Badge
 -----------
-You can edit a badge just by clicking on the edit icon of the badge you want to update. 
+You can edit a badge just by clicking on the edit icon of the rule you want to update. 
 
-A popup *Edit Badge* containing all badges information will display with 2 buttons : 
+All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
 
 - Save: To save changes that you made in the badge
 - Cancel: To cancel changes and conserve the already existing badge.
-
 
 .. _BuildingOnlineCommunity:
 
