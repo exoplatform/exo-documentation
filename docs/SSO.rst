@@ -1714,11 +1714,9 @@ In this document, two addresses, www.sp.com and www.idp.com, and folders
 with name ``$PLATFORM_*`` are used to respectively represent URLs and
 home folders of SP and IDP.
 
-eXo Platform can perform both roles SP and IDP; thus, it can integrate 
-with services like Salesforce and Google Apps.
-
-.. note::  -  SAML2 SP integration works for eXo Platform Tomcat.
-           -  SAML2 IDP integration is more supported.
+eXo Platform SAML integration supports the SP role thus can be 
+integrated with various `IdP providers <https://en.wikipedia.org/wiki/SAML-based_products_and_services>`__
+such as Salesforce or Shibboleth.
 
 This chapter covers the following subjects:
 
@@ -1743,22 +1741,16 @@ eXo Platform as SAML2 SP
 
   .. note:: Add the option **--no-compat** for tomcat application server.
 
-  Accordingly, the SAML2 package named ``saml-plugin-jboss.zip`` will be
-  downloaded into ``$PLATFORM_SP`` folder. Unzip this package to see
-  inside folders including: ``idp-sig.war`` and ``idp-sig-module``. Notice
-  these extracted folders will be used for the case 
-  :ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`.
 
-2. **For Tomcat**
-   After the installation of the SAML2 add-on on a tomcat server, its 
-   corresponding folder ``saml2`` should be found under the path 
-   ``$PLATFORM_SP/standalone/configuration/gatein/``.
-   So, you need to move them under the path ``$PLATFORM_SP/gatein/conf``
-   by executing this command under ``$PLATFORM_SP`` path:
+2.  After the installation of the SAML2 add-on, its 
+    corresponding folder ``saml2`` should be found under the path 
+    ``$PLATFORM_SP/standalone/configuration/gatein/``.
+    So, you need to move them under the path ``$PLATFORM_SP/gatein/conf``
+    by executing this command under ``$PLATFORM_SP`` path:
    
-   ::
+    ::
    
-		mv standalone/configuration/gatein/saml2/ gatein/conf/
+		 mv standalone/configuration/gatein/saml2/ gatein/conf/
 
 
 3. Open the file ``$PLATFORM_SP/gatein/conf/exo.properties``.
@@ -1784,8 +1776,6 @@ eXo Platform as SAML2 SP
 			gatein.sso.sp.url=http://www.sp.com:8080/portal/dologin
 			# WARNING: This bundled keystore is only for testing purposes. You should generate and use your own keystore!
 			gatein.sso.picketlink.keystore=${exo.conf.dir}/saml2/jbid_test_keystore.jks
-
-			# Uncomment this when Tomcat is used
 
 			#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2IntegrationLoginModule
 			#gatein.sso.valve.enabled=true
