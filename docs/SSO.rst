@@ -1806,7 +1806,7 @@ eXo Platform as SAML2 SP
 
 5. Start up the platform:
 
-   Use the following command for linux Operating systems:
+   Use the following command on Linux operating systems:
    
    ::
 
