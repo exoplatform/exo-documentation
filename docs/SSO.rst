@@ -1717,21 +1717,16 @@ home folders of SP and IDP.
 eXo Platform can perform both roles SP and IDP; thus, it can integrate 
 with services like Salesforce and Google Apps.
 
-.. note:: -  SAML2 IDP integration only works for eXo Platform on Jboss.
-
-          -  SAML2 SP integration works for eXo Platform Jboss and Tomcat.
+.. note::  -  SAML2 SP integration works for eXo Platform Tomcat.
+           -  SAML2 IDP integration is more supported.
 
 This chapter covers the following subjects:
 
 -  :ref:`eXo Platform as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF-SP>`
 
--  :ref:`eXo Platform as SAML2 IDP <eXoAddonsGuide.SSO.SAML2.PLF-IDP>`
-
 -  :ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`
 
 -  :ref:`SAML2 scenario with eXo Platform and Salesforce <eXoAddonsGuide.SSO.SAML2.PLF-Salesforce>`
-
--  :ref:`SAML2 scenario with eXo Platform and Google Apps <eXoAddonsGuide.SSO.SAML2.PLF-GoogleApps>`
 
 -  :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`
 
@@ -1767,39 +1762,13 @@ eXo Platform as SAML2 SP
    
 		mv standalone/configuration/gatein/saml2/ gatein/conf/
 
-3. 
-   **For Jboss**
 
-   Open the ``$PLATFORM_SP/standalone/configuration/standalone-exo.xml``
-   file, and uncomment the configuration of ``SSODelegateLoginModule``
-   (under security domain ``gatein-domain``). Then, replace
-   ``${gatein.sso.login.module.enabled}`` with
-   ``#{gatein.sso.login.module.enabled}`` and
-   ``${gatein.sso.login.module.class}`` with
-   ``#{gatein.sso.login.module.class}``. Now, the
-   ``SSODelegateLoginModule`` will look like:
-
-   .. code:: xml
-
-		<login-module code="org.gatein.sso.integration.SSODelegateLoginModule" flag="required">
-			<module-option name="enabled" value="#{gatein.sso.login.module.enabled}"/>
-			<module-option name="delegateClassName" value="#{gatein.sso.login.module.class}"/>
-			<module-option name="portalContainerName" value="portal"/>
-			<module-option name="realmName" value="gatein-domain"/>
-			<module-option name="password-stacking" value="useFirstPass"/>
-		</login-module>
-
-4. 
-   **For both Jboss and Tomcat**
-
-   Open the file
-   ``$PLATFORM_SP/standalone/configuration/gatein/exo.properties`` (for
-   Jboss) or ``$PLATFORM_SP/gatein/conf/exo.properties`` (for Tomcat).
+3. Open the file ``$PLATFORM_SP/gatein/conf/exo.properties``.
 
   .. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
 
 
-  Edit the following properties (add them if they don't exist):
+   Edit the following properties (add them if they don't exist):
 
      ::
 
@@ -1818,11 +1787,6 @@ eXo Platform as SAML2 SP
 			# WARNING: This bundled keystore is only for testing purposes. You should generate and use your own keystore!
 			gatein.sso.picketlink.keystore=${exo.conf.dir}/saml2/jbid_test_keystore.jks
 
-			# Uncomment this when JBoss is used
-
-			#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2WildflyIntegrationLoginModule
-			#gatein.sso.uri.suffix=dologin
-
 			# Uncomment this when Tomcat is used
 
 			#gatein.sso.login.module.class=org.gatein.sso.agent.login.SAML2IntegrationLoginModule
@@ -1833,18 +1797,18 @@ eXo Platform as SAML2 SP
   **gatein.sso.sp.url** according to your environment setup. You also need
   to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
 
-5. Download and import your generated IDP certificate to your keystore
+4. Download and import your generated IDP certificate to your keystore
    using this command:
    
    ::
 
 		keytool -import -keystore jbid_test_keystore.jks -file idp-certificate.crt -alias Identity_Provider-idp
 
-  .. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
+.. note:: The Default password of the keystore jbid\_test\_keystore.jks is **store123**.
 
-6. Start up the platform using:
+5. Start up the platform:
 
-   **For Tomcat** Use the following command for linux Operating systems:
+   Use the following command for linux Operating systems:
    
    ::
 
@@ -1856,63 +1820,6 @@ eXo Platform as SAML2 SP
    
 		start_eXo.bat
 
-   **For Jboss** use these commands:
-   
-   ::
-
-		cd $PLATFORM_SP/bin
-		./standalone.sh -b www.sp.com
-
-.. _eXoAddonsGuide.SSO.SAML2.PLF-IDP:
-
-eXo Platform as SAML2 IDP
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**In JBoss only**
-
-1. Install the SAML2 add-on in the eXo Platform package named ``$PLATFORM_IDP``,
-   as in :ref:`Step 1 <Command_Install_SAML2>` of eXo Platform as SAML2 SP:
-   
-   ::
-
-		./addon install exo-saml
-
-2. Open the file
-   ``$PLATFORM_IDP/standalone/configuration/gatein/exo.properties`` If you
-   find the file ``exo-samples.properties``, rename it to
-   ``exo.properties``.
-
-   Update these configurations or add them if they do not exist:
-
-   ::
-
-		# SSO
-		gatein.sso.enabled=true
-		gatein.sso.filter.login.enabled=false
-		gatein.sso.filter.logout.enabled=false
-		gatein.sso.filter.initiatelogin.enabled=false
-		gatein.sso.filter.saml.idp.enabled=true
-		gatein.sso.skip.jsp.redirection=false
-		gatein.sso.saml.signature.ignore=true
-		gatein.sso.saml.config.file=${exo.conf.dir}/saml2/picketlink-idp.xml
-		gatein.sso.idp.url=http://www.idp.com:8087/portal/sso
-		gatein.sso.sp.domains=sp.com
-		gatein.sso.sp.host=www.sp.com
-		# WARNING: This bundled keystore is only for testing purposes. You should generate and use your own keystore in eXo Platformion!
-		gatein.sso.picketlink.keystore=${exo.conf.dir}/saml2/jbid_test_keystore.jks
-
-In which, gatein.sso.sp.domains is a comma-separated list of domains
-that will be trusted by this IDP. gatein.sso.sp.host accepts only one
-value here. If you want more SP applications, you need to manually edit
-the file
-``$PLATFORM_IDP/standalone/configuration/gatein/saml2/picketlink-idp.xml``.
-
-3. Start up the platform IDP with this command:
-   
-   ::
-   
-		cd $PLATFORM_IDP/bin
-		./standalone.sh -b www.idp.com
 
 .. _eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback:
 
@@ -1952,10 +1859,8 @@ configurations:
 
 **External IDP configuration**
 
-.. note:: In this part, we will use another platform package to deploy
-          ``idp-sig.war``. Please do not confuse it with eXo Platform IDP
-          described in :ref:`previous section <eXoAddonsGuide.SSO.SAML2.PLF-IDP>`.
-          This package is used to run ``idp-sig.war``.
+.. note:: In this part, we will use another platform package to deploy and run
+          ``idp-sig.war``.
 
 1. Copy ``$PLATFORM_SP/saml-plugin/idp-sig.war`` to
    ``$PLATFORM_IDP/standalone/deployments``.
@@ -2008,10 +1913,8 @@ Now you can test the scenario as follows:
 SAML2 scenario with eXo Platform and Salesforce
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, you will set up two SAML2 scenarios with eXo Platform 
+In this section, you will set up this SAML2 scenario with eXo Platform 
 and Salesforce:
-
--  :ref:`eXo Platform as IDP and Salesforce as SP <eXoAddonsGuide.SSO.SAML2.PLF_IDP-Salesforce_SP>`
 
 -  :ref:`eXo Platform as SP and Salesforce as IDP <eXoAddonsGuide.SSO.SAML2.PLF_SP-Salesforce_IDP>`
 
@@ -2031,169 +1934,11 @@ register a free Salesforce developer account to test, as follows:
    
    |image20|
 
-.. _eXoAddonsGuide.SSO.SAML2.PLF_IDP-Salesforce_SP:
-
-eXo Platform as IDP and Salesforce as SP
------------------------------------------
-
-Configuring Salesforce as SAML2 SP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Set up SSO by clicking ``Setup`` --> ``Security Controls`` --> 
-   ``Single Sign-On Settings``, then select ``Edit`` and check ``SAML Enabled``.
-
-2. Create a new SAML Single Sign-On Setting and complete the screen as
-   below:
-   
-   |image21|
-
--  **Issuer**: The eXo Platform IDP URL, like
-   *http://www.idp.com:8080/portal/dologin*.
-
--  **SAML Identity Type**: Select *Assertion contains the Federation ID
-   from the User object*.
-
--  **SAML Identity Location**: Select *Identity is in the NameIdentifier
-   element of the Subject statement*.
-
--  **Identity Provider Login(/Logout) URL**:
-   *http://www.idp.com:8080/portal/dologin*.
-
--  **Entity ID**: Now, it should be *https://saml.salesforce.com*.
-
--  **Certificate**: Export a ``.crt`` file from :ref:`your keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>` 
-   to be uploaded here. The command to export:
-   
-   ::
-
-		keytool -export -keystore secure-keystore.jks -alias secure-key -file test-certificate.crt
-
-.. note:: If you are using default ``jbid_test_keystore.jks`` (for testing
-          only), the keystore password is *store123* and the security alias
-          is *servercert*.
-
-3. Back to the ``My Domain`` screen and edit the ``Login Page Branding`` 
-   section. Check your SSO Setting item(s) in the ``Authentication Service``.
-   
-   |image22|
-
-The default "Login Page" allows you to log in Salesforce in case the IDP
-is not available, so it is safe in testing. Depending on Salesforce, you
-may have the ability to enable/disable SSO for individual users (via
-User Profile and Permission Set). For now, do not uncheck Login Page.
-
-Configure eXo Platform as IDP
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-1. Configure eXo Platform IDP as described in :ref:`eXo Platform as SAML2 IDP <eXoAddonsGuide.SSO.SAML2.PLF-IDP>`. 
-   Then update ``gatein.sso.sp.domains`` and ``gatein.sso.sp.host`` as below:
-
-   ::
-
-		gatein.sso.sp.domains=saml.salesforce.com
-		gatein.sso.sp.host=saml.salesforce.com
-
-2. Edit the file ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/picketlink-idp.xml``
-   by making this step:
-
-   -  Add domain ``saml.salesforce.com`` as a ``ValidatingAlias``:
-
-		   .. code:: xml
-
-			   <KeyProvider ...>
-				   <ValidatingAlias Key="${gatein.sso.sp.host}" Value="secure-key"/>
-				   <ValidatingAlias Key="saml.salesforce.com" Value="salesforce-cert"/>
-			   </KeyProvider>
-
-   Where ``salesforce-cert`` is the alias that you will import to your
-   keyfile in later step.
-
-3. Download SP Metadata file from your Salesforce SSO Setting page, by
-   clicking Download Metadata, then save this file with name
-   ``sp-metadata.xml``.
-
-   |image23|
-
-4. Edit the downloaded ``sp-metadata.xml`` file then add 
-   ``EntitiesDescriptor`` as root tag of this xml file. This file will 
-   look like:
-
-   .. code:: xml
-
-		<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://saml.salesforce.com" validUntil="2025-01-09T02:22:00.551Z">
-			<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://saml.salesforce.com" validUntil="2025-01-09T02:22:00.551Z">
-			....
-			</md:EntityDescriptor>
-		</md:EntitiesDescriptor>
-
-5. In the file ``sp-metadata.xml``, update the value of ``AuthnRequestsSigned``
-   from true to false.
-
-6. Copy this ``sp-metadata.xml`` file into
-   ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/``
-
-7. Edit the file ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war!/WEB-INF/conf/sso/saml/picketlink-idp.xml``
-   to add MetaDataProvider element as follows:
-
-   .. code:: xml
-
-		<PicketLinkIDP ...>
-			...
-			<MetaDataProvider ClassName="org.picketlink.identity.federation.core.saml.md.providers.FileBasedEntitiesMetadataProvider">
-				<Option Key="FileName" Value="/WEB-INF/conf/sso/saml/sp-metadata.xml"/>
-			</MetaDataProvider>
-		</PicketLinkIDP>
-
-8. Download and import Salesforce client certificate:
-
-   -  Download a new certificate from `this link <https://developer.salesforce.com/page/Client_Certificate>`__. 
-      It will downloads a zip file.
-
-   -  Unzip the downloaded file.
-
-   -  Import the certificate into your keystore:
-
-      For your secure keystore:
-      
-      ::
-
-		keytool -import -keystore secure-keystore.jks -file proxy-salesforce-com.123 -alias salesforce-cert
-      
-      For default jbid\_test\_keystore.jks keystore:
-      
-      ::
-
-		keytool -import -keystore jbid_test_keystore.jks -file proxy-salesforce-com.123 -alias salesforce-cert
-
-Testing the scenario
-^^^^^^^^^^^^^^^^^^^^^
-
-1. Create some users in Salesforce and eXo Platform IDP for testing. The 
-   users mapping uses Federation ID, that means the username "john" in 
-   eXo Platform must be the same as the Federation ID "john" in 
-   Salesforce.
-
-2. Log out Salesforce, then re-login using your domain
-   (https://exodoc-dev-ed.my.salesforce.com/ for example).
-
-Now, you will see a link to IDP Login page in the login screen, like
-"**eXo Doc SSO**" (Name of your Salesforce SSO Setting above) in the
-screenshot:
-
-|image24|
-
-3. Click the link. You will be redirected to the eXo Platform login 
-   screen.
-
-4. Log in as one of testing users. You will get access to your 
-   Salesforce domain.
   
 .. _eXoAddonsGuide.SSO.SAML2.PLF_SP-Salesforce_IDP:  
    
 eXo Platform as SP and Salesforce as IDP
 ------------------------------------------
-
-.. note:: Remember to disable SSO if you have enabled as described in :ref:`Configuring Salesforce as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF_IDP-Salesforce_SP>`.
 
 Configuring Salesforce as SAML2 IDP
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2279,7 +2024,7 @@ Configurations at eXo Platform
 
    where: ``SelfSignedCert_17Oct2013_070921.crt`` is the downloaded file.
 
-4. Modify ``$PLATFORM_SP/standalone/deployments/platform.ear/exo.portal.web.portal.war/WEB-INF/conf/sso/saml/picketlink-sp.xml``
+4. Modify ``$PLATFORM_SP/gatein/conf/saml2/picketlink-sp.xml``
    and update the value of ValidatingAlias key ${gatein.sso.idp.host} to
    salesforce-idp.
 
@@ -2301,147 +2046,6 @@ profile (to have access to the Connected App, as explained before).
 Now, access eXo Platform. You will be redirected to the Salesforce login
 page. After getting authenticated with Salesforce username (like
 john@example.com), you get access to eXo Platform.
-
-.. _eXoAddonsGuide.SSO.SAML2.PLF-GoogleApps:
-
-SAML2 scenario with eXo Platform and Google Apps
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this section, you will set up a SAML2 scenario with eXo Platform as IDP
-and Google Apps as SP.
-
-The integration between eXo Platform and Google Apps requires user
-synchronization. The premise is username in eXo Platform that matches nick in
-Google. For example, if your domain is *example.com* and your Google
-Apps account is *john@example.com*, your eXo Platform username should be
-*john*.
-
-Configurations at Google Apps
-------------------------------
-
-1. Export a certificate file using your own keystore, as described in
-   :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`. 
-   The command to export:
-   
-   ::
-
-		keytool -export -keystore secure-keystore.jks -alias secure-key -file test-certificate.crt
-
-   Note that if you are using default ``jbid_test_keystore.jks`` (for
-   testing only), the keystore password is *store123*.
-
-   As the result, a file named ``test-certificate.crt`` will be created.
-   You will use it in next step.
-
-2. Go to *Google Apps Single Sign-On settings* page by accessing your 
-   ``Admin console``, then clicking ``More controls`` --> ``Security``
-    --> ``Advanced settings`` (UI may be changed by Google). Complete 
-    this page as follows:
-
-   -  Upload the ``test-certificate.crt`` file that is exported previously.
-
-   -  Enter *http://www.idp.com:8080/portal/dologin* to Sign-in, Sign-out
-      and Change password URLs.
-
-   -  Check the box ``Setup SSO with third party identity provider``.
-
-   -  The checkbox Use a domain specific issuer is optional. If it is
-      checked, the SP host is signed as *google.com/a/${your\_domain}*
-      (google.com/a/test.com for example), otherwise it is simply
-      *google.com*. Configurations at IDP side will change according to
-      this, as you will see later.
-      
-      |image30|
-
-.. warning:: Be careful when you are setting up Single Sign-On in your Google
-             Apps. Make sure your settings are correct before you save.
-
-Configurations at eXo Platform
---------------------------------
-
-1. Configure eXo Platform as described in :ref:`eXo Platform as SAML2 IDP <eXoAddonsGuide.SSO.SAML2.PLF-IDP>`. 
-   Notice some values in ``$PLATFORM_IDP/standalone/configuration/gatein/exo.properties`` 
-   as follows:
-
-	.. code:: xml
-
-		gatein.sso.sp.domains=google.com
-		gatein.sso.sp.host=www.google.com
-
-2. Modify the
-   ``$PLATFORM_IDP/standalone/configuration/gatein/saml2/picketlink-idp.xml``
-   to add the following configurations:
-
-   For SP domains:
-
-	.. code:: xml
-
-		<Trust>
-			<Domains>${gatein.sso.sp.domains},google.com</Domains>
-		</Trust>
-
-   For SP hosts, the host is *google.com* or
-   *google.com/a/${your\_domain}*, depending on your Google Apps settings,
-   as explained before:
-
-	.. code:: xml
-
-		<KeyProvider ...>
-			<ValidatingAlias Key="${gatein.sso.sp.host}" Value="secure-key"/>
-			<ValidatingAlias Key="google.com" Value="secure-key"/>
-			<!--<ValidatingAlias Key="google.com/a/test.com" Value="secure-key"/>-->
-		</KeyProvider>
-
-   -  "``secure-key``" is the alias in your command to create the keystore
-      file, or use "``servercert``" if you use the default keystore.
-
-   Continue to add MetaDataProvider element as follows:
-
-	.. code:: xml
-
-		<PicketLinkIDP ...>
-			...
-			<MetaDataProvider ClassName="org.picketlink.identity.federation.core.saml.md.providers.FileBasedEntitiesMetadataProvider">
-				<Option Key="FileName" Value="/WEB-INF/conf/sso/saml/sp-metadata.xml"/>
-			</MetaDataProvider>
-		</PicketLinkIDP>
-
-3. Create a file named ``WEB-INF/conf/sso/saml/sp-metadata.xml`` inside
-   ``$PLATFORM_IDP/standalone/deployments/platform.ear/exo.portal.web.portal.war``
-   with the following content:
-
-	.. code:: xml
-
-		<?xml version="1.0" encoding="UTF-8"?>
-		<md:EntitiesDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
-			<md:EntityDescriptor entityID="google.com" validUntil="2022-06-13T21:46:02.496Z">
-				<md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol" />
-			</md:EntityDescriptor>
-		</md:EntitiesDescriptor>
-
-in which ``entityID`` is either "google.com" or
-"google.com/a/${your\_domain}" ("google.com/a/test.com" for example),
-depending on your Google Apps settings as explained before. You can add
-many md:EntityDescriptor for many SP.
-
-Testing the scenario
----------------------
-
-Be sure you have synchronized accounts. If not yet, create a username in
-eXo Platform that matches nick in Google Apps.
-
-Logout eXo Platform and Google Apps, then access one of services of your
-Google Apps, for example: *http://mail.google.com/a/${your\_domain}*.
-You will be redirected to the eXo Platform login page. Login using your
-synchronized username, after that you have your access to the Google
-service.
-
-.. note:: Note that said by Google, in SSO-enabled domains without network
-          masks, the super administrator account will not be redirected to the
-          SSO page (so that you can access Admin console in case there is
-          something wrong with SSO settings). Refer to
-          https://support.google.com/a/answer/60224?hl=en for more Google's
-          instructions.
 
 .. _eXoAddonsGuide.SSO.SAML2.GeneratingKeystore:
 
