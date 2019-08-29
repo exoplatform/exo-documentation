@@ -1724,8 +1724,6 @@ This chapter covers the following subjects:
 
 -  :ref:`eXo Platform as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF-SP>`
 
--  :ref:`SAML2 scenario with REST callback <eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback>`
-
 -  :ref:`SAML2 scenario with eXo Platform and Salesforce <eXoAddonsGuide.SSO.SAML2.PLF-Salesforce>`
 
 -  :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`
@@ -1820,93 +1818,6 @@ eXo Platform as SAML2 SP
    
 		start_eXo.bat
 
-
-.. _eXoAddonsGuide.SSO.SAML2.PLF-IDP-RESTcallback:
-
-SAML2 scenario with REST callback
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-In this section, you set up a SAML2 scenario with eXo Platform performing SP
-role and Identity Store as well. IDP receives authentication request and
-callback to eXo Platform (as Identity Store) so eXo Platform users will be
-authenticated. This callback is carried out by **idp-sig.war** which can
-be deployed in plain JBoss AS. However, it requires some additional
-modules which are packed inside eXo Platform package, so you will deploy
-``idp-sig.war`` against an eXo Platform package.
-
-Before you start steps below, let's see the interconnecting
-configurations:
-
--  At SP:
-   *gatein.sso.idp.url=http://${gatein.sso.idp.host}:8080/idp-sig/* so
-   SP knows that IDP serves at /idp-sig.
-
--  At IDP: *-Dsp.host=www.sp.com -Dsp.domains=sp.com*, this will be
-   declared in start command.
-
-**Platform SP configuration**
-
-1. Configure eXo Platform SP as described in :ref:`eXo Platform as SAML2 SP <eXoAddonsGuide.SSO.SAML2.PLF-SP>`.
-
-   You should change one configuration:
-
-   ::
-
-		gatein.sso.idp.url=http://${gatein.sso.idp.host}:8080/idp-sig/
-
-2. Start $Platform\_SP
-
-**External IDP configuration**
-
-.. note:: In this part, we will use another platform package to deploy and run
-          ``idp-sig.war``.
-
-1. Copy ``$PLATFORM_SP/saml-plugin/idp-sig.war`` to
-   ``$PLATFORM_IDP/standalone/deployments``.
-
-2. Create an empty file named ``idp-sig.war.dodeploy`` under
-   ``$PLATFORM_IDP/standalone/deployments``.
-
-3. Remove ``$PLATFORM_IDP/standalone/deployments/platform.ear.dodeploy``,
-   so that platform.ear will not be deployed.
-
-4. Copy folder ``$PLATFORM_SP/saml-plugin/idp-sig-module/module`` into
-   ``$PLATFORM_IDP``.
-
-5. Add the following security domain to the
-   ``$PLATFORM_IDP/standalone/configuration/standalone.xml`` file:
-
-   .. code:: xml
-
-		<security-domain name="idp" cache-type="default">
-		   <authentication>
-			  <login-module code="org.gatein.sso.saml.plugin.SAML2IdpLoginModule" flag="required">
-				 <module-option name="gateInURL" value="http://www.sp.com:8080/portal"/>
-			  </login-module>
-		   </authentication>
-		</security-domain>
-
-6. Start the IDP with options as follows:
-
-   ::
-
-		./standalone.sh -b www.idp.com -c standalone.xml -Dsp.host=www.sp.com -Dsp.domains=sp.com -Dpicketlink.keystore=/jbid_test_keystore.jks
-
-**Test case**
-
-Now you can test the scenario as follows:
-
--  In web browser, access *http://www.sp.com:8080/portal*, then complete
-   setup screens if asked.
-
--  You will be redirected to *http://www.idp:8080/idp-sig*. The screen
-   looks like as below:
-
--  Complete the screen with your eXo Platform identity. At this step, IDP
-   sends RESTcallback to SP to authenticate your identity.
-
--  When authentication is done, you are logged in at SP.
 
 .. _eXoAddonsGuide.SSO.SAML2.PLF-Salesforce:
 
