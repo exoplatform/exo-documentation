@@ -55,7 +55,7 @@ In this view, you can see these elements:
 -  your total points
 -  a table listing the events which allowed you to earn points. This table is composed by these fields:
 
-   -  The user avatar with whom you or he reacted
+   -  The user involved in the interaction
    -  The event you or another user made and which allowed you to gain points
    -  The date of the event
    -  The set of points you earned following the previously cited event
