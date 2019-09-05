@@ -75,6 +75,14 @@ In the ``MyBadges`` view, you can see all the available badges in each domain wi
    
 |image7|
 
+When you mouse over a badge, its information appear in a pop up:
+
+-  Level
+-  Name
+-  Description
+-  The badge's points area
+
+|image8|
 
 .. _HowCanIEarnPoints:
 
@@ -111,3 +119,4 @@ You can filter rules by clicking on the desired domain to display.
 .. |image5| image:: images/gamification/app_navbar_achievements.png
 .. |image6| image:: images/gamification/points.png
 .. |image7| image:: images/gamification/badges.png
+.. |image8| image:: images/gamification/popoverBadge.png
