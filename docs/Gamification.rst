@@ -70,7 +70,7 @@ In the ``MyBadges`` screen, you can see all the badges available in each domain 
 -  *Acquired*: when the badge is fully colorized it means that you already earned this badge
 -  *Not acquired*: when the badge is fully greyed, it means that you did not earn the badge yet
 -  *in progress*: When the badge is partially colorized it means that you started earning points in the 
-   domain of that badge are between the  minimum and the maximum points of that badge. 
+   domain of that badge, but you've not yet reached the required threshold. 
    For example when the score of a badge is comprised between 500 and 1200 and that your score in the domain is 700.
    
 |image7|
