@@ -58,7 +58,7 @@ In this view, you can see these elements:
    -  The user involved in the interaction
    -  The event you or another user made and which allowed you to earn points
    -  The date of the event
-   -  The set of points you earned following the previously cited event
+   -  The amount of points you earned following the previously cited event
    -  The domain of the event
 
 |image6|
