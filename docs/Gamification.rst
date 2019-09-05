@@ -53,7 +53,7 @@ In this interface, you have two tabs: ``MyPoints`` and ``MyBadges``.
 In this view, you can see these elements:
 
 -  your total points
--  a table listing the events which allowed you to gain points. This table is composed by these fields:
+-  a table listing the events which allowed you to earn points. This table is composed by these fields:
 
    -  The user avatar with whom you or he reacted
    -  The event you or another user made and which allowed you to gain points
