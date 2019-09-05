@@ -56,7 +56,7 @@ In this view, you can see these elements:
 -  a table listing the events which allowed you to earn points. This table is composed by these fields:
 
    -  The user involved in the interaction
-   -  The event you or another user made and which allowed you to gain points
+   -  The event you or another user made and which allowed you to earn points
    -  The date of the event
    -  The set of points you earned following the previously cited event
    -  The domain of the event
