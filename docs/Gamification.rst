@@ -68,7 +68,7 @@ In this view, you can see these elements:
 In the ``MyBadges`` screen, you can see all the badges available in each domain with statuses:
 
 -  *Acquired*: when the badge is fully colorized it means that you already earned this badge
--  *Disabled status*: when the badge is fully greyed which means that you did not yet earned the badge
+-  *Not acquired*: when the badge is fully greyed, it means that you did not earn the badge yet
 -  *Half enabled status*: When the badge is partially colored which means that your earned points in the 
    domain of that badge are between the  minimum and the maximum points of that badge. 
    For example when the score of a badge is comprised between 500 and 1200 and that your score in the domain is 700.
