@@ -65,7 +65,7 @@ In this view, you can see these elements:
 
 .. _MyBadges: 
 
-In the ``MyBadges`` view, you can see all the available badges in each domain with statuses:
+In the ``MyBadges`` screen, you can see all the badges available in each domain with statuses:
 
 -  *Enabled status*: when the badge is fully colored which means that you already earned this badge
 -  *Disabled status*: when the badge is fully greyed which means that you did not yet earned the badge
