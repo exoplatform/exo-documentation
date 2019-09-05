@@ -80,7 +80,7 @@ When you mouse over a badge, its information appear in a pop up:
 -  Level
 -  Name
 -  Description
--  The badge's points area
+-  The badge's domain
 
 |image8|
 
