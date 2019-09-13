@@ -4630,9 +4630,64 @@ to go to the **Gamification** page by clicking on the
 top navigation bar, and select Gamification. The **Gamification**
 choices pages will by displayed.
 
-You can manage your rules or Badges by choosing **Manage Rules** or **Manage Badges**.
+You can manage your domains, rules or Badges by choosing **Manage Domains**, **Manage Rules** or **Manage Badges**.
 
-|image323|
+
+
+.. _ManageDomains:
+
+Manage Domains
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the Manage Domains page, you will find a table of all Ddomains in the platform.
+Every domain have: 
+
+- Title: A significant title of the domain.
+
+- Description: A description of the domain to explain its goal.
+
+- Enabled: The status of the domain. It could be **True** for enabled status or **false** for disabled.
+
+- Action: A delete and Edit actions for domains is displayed for every line of Domains table. 
+
+
+
+Add Domain
+---------
+
+You can add a new domain just by clicking on **Add domain** button above the Domains table.
+
+A popup will be displayed containing a form to add a new domain.
+
+
+Fields are the same as in the Add Domain popup: 
+
+- Title
+- Description
+- Enabled status (switch button to choose between Yes or No status)
+
+.. note:: Once your domain is successfully added to the Domains base, a success message is displayed : *Domain added successfully*
+          An error message will display if you add a domain with wrong, missing or even similar informations of existing domains: *An error happen when adding a domain*
+
+.. note:: By default, you will have 3 domains: **social**, **Teamwork** and **Knowledge** .
+
+Edit Domain
+----------
+You can edit a domain just by clicking on the edit icon of the domain you want to update. 
+
+A popup containing existing informations of the selected domain to edit will display with 2 buttons : 
+
+- Save: To save changes that you made in the domain
+- Cancel: To cancel changes and conserve the already existing domain.
+
+.. note:: By disabling a domain, all related rules and badges will be disabled too.
+
+Delete Domain
+----------
+You can delete a domain just by clicking on the delete icon of the domain you want to delete. 
+
+A confirmation popup will be displayed and you can confirm the domain's delete or cancel it.
+
+Once the domain is deleted, all related badges and rules will be disabled and have empty fields in the Domain column in the Manage Rules and Manage Badges tables.
 
 
 .. _ManageRules:
