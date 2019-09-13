@@ -10,7 +10,7 @@ Engaging your collaborators is one of the key challenges for organizations nowad
 
 **eXo Gamification** is layering game-like features upon the use of applications, such as those used within a digital workplace, in order to boost employee engagement and enhance the use of your digital workplace solution by encouraging collaborators to participate.
 
-When employees are engaged, they more participate on your platform by posting, commenting, sharing documents, rating, downloading and much more.  
+When employees are engaged, they participate more on your platform by posting, commenting, sharing documents, rating, downloading and much more.  
 
 
 **eXo Gamification** is organized into “domains” that include a set of "badges" and actions to earn points. 
@@ -28,11 +28,61 @@ Domains
 Badges
 =======================
 
-.. _Leaserboard:
+.. _Leaderboard:
 
-=======================
-Leaderboards & Achievements
-=======================
+=============
+Leaderboard 
+=============
+
+.. _MyAchievements:
+
+=================
+My achievements
+=================
+
+You can follow your earned points and badges through an inteface called "My achievements".
+To visit this interface, simply :ref:`access your profile <Access-profile>` and then 
+click on *My achievements* application from the applications navigation bar.
+
+|image5|
+
+In this interface, you have two tabs: ``MyPoints`` and ``MyBadges``.
+
+.. _MyPoints:
+
+In this view, you can see these elements:
+
+-  your total points
+-  a table listing the events which allowed you to earn points. This table is composed by these fields:
+
+   -  The user involved in the interaction
+   -  The event you or another user made and which allowed you to earn points
+   -  The date of the event
+   -  The amount of points you earned following the previously cited event
+   -  The domain of the event
+
+|image6|
+
+.. _MyBadges: 
+
+In the ``MyBadges`` screen, you can see all the badges available in each domain with statuses:
+
+-  *Acquired*: when the badge is fully colorized it means that you already earned this badge
+-  *Not acquired*: when the badge is fully greyed, it means that you did not earn the badge yet
+-  *in progress*: When the badge is partially colorized it means that you started earning points in the 
+   domain of that badge, but you've not yet reached the required threshold. 
+   For example, when the required score of a badge is between 500 and 1200 and that your score in the domain is 700.
+   
+|image7|
+
+When you mouse over a badge, its information appear in a pop up:
+
+-  Level
+-  Name
+-  Description
+-  The badge's domain
+
+|image8|
 
 .. _HowCanIEarnPoints:
 
@@ -65,4 +115,8 @@ You can filter rules by clicking on the desired domain to display.
 .. |image1| image:: images/gamification/Howcaniearnpointsaccess.png
 .. |image2| image:: images/gamification/How can i earn points.png
 .. |image3| image:: images/gamification/Grouping-rules.png
-.. |image4| image:: iimages/gamification/Filter-by-domain.png
+.. |image4| image:: images/gamification/Filter-by-domain.png
+.. |image5| image:: images/gamification/app_navbar_achievements.png
+.. |image6| image:: images/gamification/points.png
+.. |image7| image:: images/gamification/badges.png
+.. |image8| image:: images/gamification/popoverBadge.png
