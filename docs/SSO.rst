@@ -1737,9 +1737,9 @@ eXo Platform as SAML2 SP
    
    ::
    
-	$PLATFORM_SP/addon install exo-saml`` (Windows, Linux / Mac OX)
+	$PLATFORM_SP/addon install exo-saml
 
-  .. note:: Add the option **--no-compat** for tomcat application server.
+.. note:: Add the option **--no-compat** for tomcat application server.
 
 
 2.  After the installation of the SAML2 add-on, its 
@@ -1755,7 +1755,7 @@ eXo Platform as SAML2 SP
 
 3. Open the file ``$PLATFORM_SP/gatein/conf/exo.properties``.
 
-  .. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
+.. note:: Rename the file ``exo-samples.properties`` to ``exo.properties``.
 
 
    Edit the following properties (add them if they don't exist):
