@@ -1244,6 +1244,45 @@ You can check that the action has been done successfully by connecting to the de
 |image167|
 
 
+Pinning a News in the home page
+-------------------------------
+
+If you have the membership "publisher" in the platform users group, you are allowed to pin articles in home page. This action is allowed from three locations.
+
+
+1- Pinning a News from creation form : 
+
+From simple and complete creation forms, a checkbox "Pin article" is available. 
+
+|image168|
+
+When you type in fields with the article details, tick "Pin article" checkbox than click on "post" button a confirmation message appears.
+
+|image169|
+
+By confirming the action the article is posted to space's activity stream and automatically pinned to home page News bloc. 
+
+
+2- Pinning a News from activity stream : the "pin article" option is available from the three dots of the posted article activity.
+
+|image170|
+
+When you choose this option, a confirmation popup appears.
+
+|image169|
+
+A success message appears after confirming the action:
+
+|image171|
+
+
+*3- Pinning a News from News details*
+
+
+You may display the home page to verify that the news is available in the appropriate bloc.
+
+|image172|
+
 		
 .. _Formatting-toolbar:
 
@@ -2077,4 +2116,13 @@ to display the original timestamp of the comment.
 .. |image165| image:: images/sharenews/popup_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
+.. |image168| image:: images/sharenews/pin_checkbox.png
+.. |image169| image:: images/sharenews/confirm_pin.png
+.. |image170| image:: images/sharenews/pin_activity.png
+.. |image171| image:: images/sharenews/success_pin.png
+.. |image172| image:: images/sharenews/bloc_news.png
+
+
+
+
 
