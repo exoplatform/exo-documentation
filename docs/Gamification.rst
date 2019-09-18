@@ -34,6 +34,22 @@ Badges
 Leaderboard 
 =============
 
+Leaderboards will give you a snapshot of your gained points progress, and of other collaborators in your platform to encourage them to gain more points. 
+
+|image9|
+
+Place in Leaderboard is determined by number of points earned by period : Week, Month or All times and filtered by selected domain.
+
+In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
+
+An information of your rank is displayed just below the top 10, if you are not on it. 
+
+You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
+
+|image10|
+When you mouse over an employee in the leaderboard, a detailed pie chart is displayed next to him displaying all pourcentages of gained points based on the domain.
+
+
 .. _MyAchievements:
 
 =================
@@ -120,3 +136,5 @@ You can filter rules by clicking on the desired domain to display.
 .. |image6| image:: images/gamification/points.png
 .. |image7| image:: images/gamification/badges.png
 .. |image8| image:: images/gamification/popoverBadge.png
+.. |image9| image:: images/gamification/Leaderboard.png
+.. |image10| image:: images/gamification/Leaderboardpirchart.png
