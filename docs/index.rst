@@ -97,6 +97,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    :caption: eXo Add-on Guide 
    
    LeckoAnalytics
+   OnlyOffice
    SSO
    WCM
    CMIS
