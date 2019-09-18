@@ -1737,9 +1737,9 @@ eXo Platform as SAML2 SP
    
    ::
    
-	$PLATFORM_SP/addon install exo-saml
+	$PLATFORM_SP/addon install exo-saml --no-compat
 
-.. note:: Add the option **--no-compat** for tomcat application server.
+.. note:: The **--no-compat** is mandatory due to a packaging glitch. Yet the add-on actually IS compatible with eXo Platform 5.2
 
 
 2.  After the installation of the SAML2 add-on, its 
