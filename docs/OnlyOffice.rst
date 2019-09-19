@@ -12,7 +12,7 @@ documents.
 
 |image0|
 
-.. note:: The supported documents types are: docx, pptx and xlsx.
+.. note:: OnlyOffice is 100% compatible with the following Microsoft Office document formats : docx, pptx and xlsx.
 
 eXo OnlyOffice connector add-on is available only with the **commercial 
 editions of eXo Platform**. In addition, it requires the purchase of a dedicated
