@@ -18,7 +18,7 @@ eXo OnlyOffice connector add-on is available only with the **commercial
 editions of eXo Platform**. Thus, eXo customers are required to purchase a
 dedicated subscription to run the OnlyOffice connector add-on on their eXo Platform instance.
 
-Having the above buisiness conditions satisfied, you can install the add-on using this command:
+However, a 30-day trial is prepackaged. You can test-drive the connector by installing the add-on using this command:
 
 ::
 
