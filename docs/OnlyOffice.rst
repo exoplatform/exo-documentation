@@ -1,7 +1,7 @@
 .. _OnlyOffice:
 
 #############################
-OnlyOffice Connector by eXo
+OnlyOffice Connector for eXo
 #############################
 
 **What is OnlyOffice**
