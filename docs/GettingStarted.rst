@@ -1247,7 +1247,7 @@ You can check that the action has been done successfully by connecting to the de
 Pinning a News in the home page
 -------------------------------
 
-If you have the membership "publisher" in the platform users group, you are allowed to pin articles in home page. This action is allowed from three locations.
+As a platform-wide publisher (publisher:/platform/users role required) If you have the membership "publisher", you are allowed to pin any articles to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
 
 
 1- Pinning a News from creation form : 
