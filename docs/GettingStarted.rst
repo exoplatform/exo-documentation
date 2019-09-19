@@ -1244,6 +1244,45 @@ You can check that the action has been done successfully by connecting to the de
 |image167|
 
 
+Pinning a News in the home page
+-------------------------------
+
+As a platform-wide publisher (publisher:/platform/users role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+
+
+1- Pinning a News from creation form : 
+
+From simple and full creation forms, a  "Pin article" checkbox is available. 
+
+|image168|
+
+After filling in the article details, tick "Pin article" checkbox then click on "post" button. A confirmation message appears.
+
+|image169|
+
+After confirmation, the article is posted to the space's activity stream and automatically published to the home page's News block. 
+
+
+2- Pinning a News from the activity stream : the "pin article" function is also available from the three-dots menu of the article’s activity.
+
+|image170|
+
+When you choose this option, a confirmation popup appears:
+
+|image169|
+
+After confirmation, a success message appears:
+
+|image171|
+
+
+*3- Pinning a News from News details*
+
+
+You may display the home page to verify that the news is available in the appropriate block.
+
+|image172|
+
 		
 .. _Formatting-toolbar:
 
@@ -2077,4 +2116,13 @@ to display the original timestamp of the comment.
 .. |image165| image:: images/sharenews/popup_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
+.. |image168| image:: images/sharenews/pin_checkbox.png
+.. |image169| image:: images/sharenews/confirm_pin.png
+.. |image170| image:: images/sharenews/pin_activity.png
+.. |image171| image:: images/sharenews/success_pin.png
+.. |image172| image:: images/sharenews/bloc_news.png
+
+
+
+
 
