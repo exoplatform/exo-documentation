@@ -6,7 +6,7 @@ OnlyOffice Connector for eXo
 
 **What is OnlyOffice**
 
-`OnlyOffice <https://www.onlyoffice.com/>`__ is a *partner editor service* 
+`OnlyOffice Online Editors <https://www.onlyoffice.com/office-suite.aspx>`__ is a great open source solution 
 that allows you to create, edit  and collaborate online on your office 
 documents.
 
