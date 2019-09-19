@@ -1267,7 +1267,7 @@ After confirmation,  the article is posted to space's activity stream and automa
 
 |image170|
 
-When you choose this option, a confirmation popup appears.
+When you choose this option, a confirmation popup appears:
 
 |image169|
 
