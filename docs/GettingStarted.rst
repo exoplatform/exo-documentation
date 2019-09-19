@@ -1260,7 +1260,7 @@ When you type in fields with the article details, tick "Pin article" checkbox th
 
 |image169|
 
-After confirmation,  the article is posted to space's activity stream and automatically published to home page News bloc. 
+After confirmation, the article is posted to the space's activity stream and automatically published to the home page's News block. 
 
 
 2- Pinning a News from activity stream : the "pin article" option is available from the three-dots menu of the article’s activity.
