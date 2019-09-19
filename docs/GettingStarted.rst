@@ -1279,7 +1279,7 @@ After confirmation, a success message appears:
 *3- Pinning a News from News details*
 
 
-You may display the home page to verify that the news is available in the appropriate bloc.
+You may display the home page to verify that the news is available in the appropriate block.
 
 |image172|
 
