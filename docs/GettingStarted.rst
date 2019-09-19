@@ -1252,7 +1252,7 @@ If you have the membership "publisher" in the platform users group, you are allo
 
 1- Pinning a News from creation form : 
 
-From simple and complete creation forms, a checkbox "Pin article" is available. 
+From simple and full creation forms, a  "Pin article" checkbox is available. 
 
 |image168|
 
