@@ -1271,7 +1271,7 @@ When you choose this option, a confirmation popup appears:
 
 |image169|
 
-A success message appears after confirming the action:
+After confirmation, a success message appears:
 
 |image171|
 
