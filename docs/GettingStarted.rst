@@ -1256,7 +1256,7 @@ From simple and full creation forms, a  "Pin article" checkbox is available.
 
 |image168|
 
-When you type in fields with the article details, tick "Pin article" checkbox then click on "post" button. A confirmation message appears.
+After filling in the article details, tick "Pin article" checkbox then click on "post" button. A confirmation message appears.
 
 |image169|
 
