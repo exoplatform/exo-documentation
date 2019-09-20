@@ -12,7 +12,6 @@ documents.
 
 |image0|
 
-.. note:: OnlyOffice is 100% compatible with the following Microsoft Office document formats : docx, pptx and xlsx.
 
 eXo partnered with OnlyOffice to offer the enterprise-ready version of OnlyOffice editors to its customers along with the **commercial
 editions of eXo Platform**. Thus, eXo customers are required to purchase a
