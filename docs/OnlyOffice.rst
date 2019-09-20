@@ -8,7 +8,7 @@ OnlyOffice Connector for eXo
 
 `OnlyOffice Online Editors <https://www.onlyoffice.com/office-suite.aspx>`__ is a great open source solution 
 that lets you to create, edit  and collaborate online on your office 
-documents.
+documents. OnlyOffice editors are 100% compatible with the following Microsoft Office document formats : docx, pptx and xlsx.
 
 |image0|
 
