@@ -4638,7 +4638,7 @@ You can manage your domains, rules or Badges by choosing **Manage Domains**, **M
 
 Manage Domains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the Manage Domains page, you will find a table of all Ddomains in the platform.
+In the Manage Domains page, you will find a table of all Domains in the platform, a search field to search domains and filter button for enabled Domains status. 
 Every domain have: 
 
 - Title: A significant title of the domain.
@@ -4689,25 +4689,38 @@ A confirmation popup will be displayed and you can confirm the domain's delete o
 
 Once the domain is deleted, all related badges and rules will be disabled and have empty fields in the Domain column in the Manage Rules and Manage Badges tables.
 
+Search Domain
+----------
+You can search a domain just by typing some characters on the search field just next to the Add Domain button. 
+
+Fields that will be take into account in the search are:
+
+- title
+- description
+
+The table will display only domains containing characters typed. 
+
+.. note:: If no results found, the *Empty Table* information will display.
+
 
 .. _ManageRules:
 
 Manage Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the Manage Rules page, you will find a table of all rules in the platform.
+In the Manage Rules page, you will find a table of all rules in the platform, a search field to search rules and filter button for enabled Rules status. 
 Every rule have: 
 
-- Title: A significant title of the rule.
+- Rule: A pulldown displaying all predefined rules.
 
 - Description: A description of the rule to explain its goal.
 
-- Score: The number of points obtained by the rule.
+- Points: The number of points obtained by the rule.
 
 - Domain: The domain of the rule. It could be **social**, **Teamwork**, **Knowledge**...
 
 - Enabled: The status of the rule. It could be **True** for enabled status or **false** for disabled.
 
-- Action: A delete action for rules is displayed for every line of Rules table. 
+- Actions: A delete action for rules is displayed for every line of Rules table. 
 
 |image324|
 
@@ -4722,9 +4735,9 @@ A popup will be displayed containing a form to add a new rule.
 
 Fields are the same as in the Add Rule popup: 
 
-- Title
+- Rule
 - Description
-- Score
+- Points
 - Domain (a pulldown to choose easily the rule domain)
 - Enabled status (switch button to choose between Yes or No status)
 
@@ -4736,12 +4749,34 @@ Edit Rule
 ----------
 You can edit a rule just by clicking on the edit icon of the rule you want to update. 
 
-All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
+A popup containing existing informations of the selected rule to edit will display with 2 buttons: 
 
-- Save: To save changes that you made in the rule
+- Confirm: To save changes that you made in the rule
 - Cancel: To cancel changes and conserve the already existing rule.
 
 |image326|
+
+Delete Rule
+----------
+You can delete a rule just by clicking on the delete icon of the rule you want to delete. 
+
+A confirmation popup will be displayed and you can confirm the rule's delete or cancel it.
+
+.. note:: Once the rule is deleted, it will be not used anymore on the points score.
+
+Search Rule
+----------
+You can search a rule just by typing some characters on the search field just next to the Add Rule button. 
+
+Fields that will be take into account in the search are:
+
+- Rule 
+- Description
+- Points
+
+The table will display only rules containing characters typed. 
+
+.. note:: If no results found, the *Empty Table* information will display.
 
 .. _ManageBadges:
 
@@ -4751,6 +4786,8 @@ Add Badge
 ----------
 
 You can add a new Badge just by clicking on **Add Badge** button above the Badges table.
+
+You will have a search field to search Badges and filter button for enabled badges status. 
 
 A popup will be displayed containing a form to add a new Badge.
 
@@ -4771,12 +4808,35 @@ If the added badge has erroneous or missing details or even similar information 
 
 Edit Badge
 -----------
-You can edit a badge just by clicking on the edit icon of the rule you want to update. 
+You can edit a badge just by clicking on the edit icon of the badge you want to update. 
 
-All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
+A popup containing existing informations of the selected badge to edit will display with 2 buttons: 
 
-- Save: To save changes that you made in the badge
+- Confirm: To save changes that you made in the Badge
 - Cancel: To cancel changes and conserve the already existing badge.
+
+Delete Badge
+----------
+You can delete a badge just by clicking on the delete icon of the badge you want to delete. 
+
+A confirmation popup will be displayed and you can confirm the badge's delete or cancel it.
+
+.. note:: Once the badge is deleted, it will be not used anymore on the points score.
+
+Search Badge
+----------
+You can search a badge just by typing some characters on the search field just next to the Add Badge button. 
+
+Fields that will be take into account in the search are:
+
+- Badge
+- Description
+- Score
+- Domain
+
+The table will display only badges containing characters typed. 
+
+.. note:: If no results found, the *Empty Table* information will display.
 
 .. _BuildingOnlineCommunity:
 
