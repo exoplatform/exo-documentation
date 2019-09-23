@@ -80,43 +80,40 @@ specifications or higher:
    | Operating  | Recommended     | Supported       | Compatible      | Incompatible    |
    | system     | browser         | browser         | browser         | browser         |
    +============+=================+=================+=================+=================+
-   | Windows    | -  Firefox ESR  | -  Internet     |                 | -  Internet     |
-   |            |    52.4         |    Explorer 11  |                 |    Explorer 10  |
-   |            |                 |                 |                 |    and below    |
-   |            | -  Edge 15      | -  Edge,        |                 |                 |
-   |            |                 |    Chrome,      |                 |                 |
-   |            | -  Chrome 62    |    Firefox -    |                 |                 |
-   |            |                 |    Latest       |                 |                 |
-   |            |                 |    stable       |                 |                 |
-   |            |                 |                 |                 |                 |                                                                                       
+   | Windows    | -  Firefox ESR  |  -  Edge,       |                 | -  Internet     |
+   |            |    60           |     Chrome,     |                 |    Explorer 11  |
+   |            |                 |     Firefox -   |                 |    and below    |
+   |            | -  Edge 44      |     Latest      |                 |                 |
+   |            |                 |     stable      |                 |                 |
+   |            | -  Chrome 71    |                 |                 |                 |                                                                                       
    +------------+-----------------+-----------------+-----------------+-----------------+
-   | Linux      | -  Firefox ESR  | -  Firefox -    | -  Chrome - the |                 |
-   |            |    52.4         |    the last     |    latest       |                 |
-   |            |                 |    stable       |    stable       |                 |
+   | Linux      | -  Firefox ESR  | -  Firefox -    |                 |                 |
+   |            |    60           |    the last     |                 |                 |
+   |            |                 |    stable       |                 |                 |
    |            |                 |                 |                 |                 |                                                                                      
    +------------+-----------------+-----------------+-----------------+-----------------+
    | Mac OS     | -  Firefox ESR  | -  Firefox -    | -  Safari 11,10 | -  Safari 8 and |
-   |            |    52.4         |    the last     |                 |    below        |
+   |            |    60           |    the last     |                 |    below        |
    |            |                 |    stable       |                 |                 |
-   |            | -  Chrome 62    |                 |                 |                 |
+   |            | -  Chrome 71    |                 |                 |                 |
    |            |                 | -  Chrome - the |                 |                 |
    |            |                 |    last stable  |                 |                 |
    |            |                 |                 |                 |                 |                                                                                       
    +------------+-----------------+-----------------+-----------------+-----------------+
-   | Android    |                 | -  Chrome 55    | -  Chrome - the |                 |
-   |            |                 |                 |    latest       |                 |
-   |            |                 |                 |    stable       |                 |
+   | Android    |                 | -  Chrome 71    |                 |                 |
    |            |                 |                 |                 |                 |
-   |            |                 |                 | -  Firefox -    |                 |
-   |            |                 |                 |    the latest   |                 |
-   |            |                 |                 |    stable       |                 |
+   |            |                 |                 |                 |                 |
+   |            |                 |                 |                 |                 |
+   |            |                 |                 |                 |                 |
+   |            |                 |                 |                 |                 |
+   |            |                 |                 |                 |                 |
    |            |                 |                 |                 |                 |                                                                                      
    +------------+-----------------+-----------------+-----------------+-----------------+
-   | iOS        |                 | -  Chrome 55    | -  Chrome - the |                 |
-   |            |                 |                 |    latest       |                 |
-   |            |                 | -  Safari 9     |    stable       |                 |
+   | iOS        |                 | -  Chrome 71    |                 |                 |
    |            |                 |                 |                 |                 |
-   |            |                 |                 | -  Safari 8     |                 |
+   |            |                 | -  Safari 12    |                 |                 |
+   |            |                 |                 |                 |                 |
+   |            |                 |                 |                 |                 |
    |            |                 |                 |                 |                 |                                                                                      
    +------------+-----------------+-----------------+-----------------+-----------------+
 
