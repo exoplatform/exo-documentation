@@ -4691,7 +4691,7 @@ Once the domain is deleted, all related badges and rules will be disabled and ha
 
 Search Domain
 ----------
-You can search a domain just by typing some characters on the search field just next to the Add Domain button. 
+You can search a domain just by typing some characters on the search field near to the ``Add Domain`` button. 
 
 Fields that will be take into account in the search are:
 
