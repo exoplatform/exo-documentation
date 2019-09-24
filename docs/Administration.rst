@@ -4827,7 +4827,7 @@ Search Badge
 ----------
 You can search a badge just by typing some characters on the search field just next to the Add Badge button. 
 
-Fields that will be take into account in the search are:
+Fields taken into account in the search are:
 
 - Badge
 - Description
