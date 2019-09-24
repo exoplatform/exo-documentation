@@ -4758,7 +4758,7 @@ A popup containing the existing information of the selected rule to edit is disp
 
 Delete Rule
 ----------
-You can delete a rule just by clicking on the delete icon of the rule you want to delete. 
+You can delete a rule just by clicking on the delete icon. 
 
 A confirmation popup is displayed allowing you to confirm or cancel the changes done.
 
