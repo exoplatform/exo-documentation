@@ -4768,7 +4768,7 @@ Search Rule
 ----------
 You can search for a rule just by typing some characters in the search field near the Add Rule button. 
 
-Fields that will be take into account in the search are:
+Fields taken into account in the search are:
 
 - Rule 
 - Description
