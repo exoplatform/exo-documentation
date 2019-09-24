@@ -4834,7 +4834,7 @@ Fields taken into account in the search are:
 - Score
 - Domain
 
-The table will display only badges containing characters typed. 
+The table will display only badges containing the typed characters in one of the above cited fields. 
 
 .. note:: If no results found, the *Empty Table* information will display.
 
