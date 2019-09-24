@@ -4720,7 +4720,7 @@ Every rule have:
 
 - Enabled: The status of the rule. It could be **True** for enabled status or **false** for disabled.
 
-- Actions: A delete action for rules is displayed for every line of Rules table. 
+- Actions: A delete action for each Rule in the table.
 
 |image324|
 
