@@ -4766,7 +4766,7 @@ A confirmation popup is displayed allowing you to confirm or cancel the changes 
 
 Search Rule
 ----------
-You can search a rule just by typing some characters on the search field just next to the Add Rule button. 
+You can search for a rule just by typing some characters in the search field near the Add Rule button. 
 
 Fields that will be take into account in the search are:
 
