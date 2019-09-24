@@ -4638,7 +4638,7 @@ You can manage your domains, rules or Badges by choosing **Manage Domains**, **M
 
 Manage Domains
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the Manage Domains page, you will find a table of all Domains in the platform, a search field to search domains and filter button for enabled Domains status. 
+In the Manage Domains page, a table containing all the Domains in the platform is displayed. To ease the domain's management, a search field is available to allow you searching domains and a filter button to allow you filtering domains by status. 
 Every domain have: 
 
 - Title: A significant title of the domain.
