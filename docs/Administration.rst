@@ -4751,7 +4751,7 @@ You can edit a rule just by clicking on the edit icon of the rule you want to up
 
 A popup containing the existing information of the selected rule to edit is displayed with 2 buttons: 
 
-- Confirm: To save changes that you made in the rule
+- Confirm: To save the made changes on the rule
 - Cancel: To cancel changes and conserve the already existing rule.
 
 |image326|
