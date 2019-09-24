@@ -4698,7 +4698,7 @@ Fields that will be take into account in the search are:
 - title
 - description
 
-The table will display only domains containing characters typed. 
+Search results contain only the domains having in their title or description the typed characters.
 
 .. note:: If no results found, the *Empty Table* information will display.
 
