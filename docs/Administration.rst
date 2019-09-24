@@ -4714,7 +4714,7 @@ Every rule have:
 
 - Description: A description of the rule to explain its goal.
 
-- Points: The number of points obtained by the rule.
+- Points: The number of points gained by the rule.
 
 - Domain: The domain of the rule. It could be **social**, **Teamwork**, **Knowledge**...
 
