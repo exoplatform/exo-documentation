@@ -4776,7 +4776,7 @@ Fields taken into account in the search are:
 
 Search results contain only rules having in their Rule, description or Points fields the typed characters. 
 
-.. note:: If no results found, the *Empty Table* information will display.
+.. note:: If no results found, an *Empty Table* information is displayed.
 
 .. _ManageBadges:
 
