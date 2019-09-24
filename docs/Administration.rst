@@ -4787,7 +4787,7 @@ Add Badge
 
 You can add a new Badge just by clicking on **Add Badge** button above the Badges table.
 
-You will have a search field to search Badges and filter button for enabled badges status. 
+A search field is available allowing you to search for Badges and a filter button allowing you to filter them by status. 
 
 A popup will be displayed containing a form to add a new Badge.
 
