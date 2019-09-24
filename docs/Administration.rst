@@ -4825,7 +4825,7 @@ A confirmation popup is displayed allowing you to confirm the badge's deletion o
 
 Search Badge
 ----------
-You can search a badge just by typing some characters on the search field just next to the Add Badge button. 
+You can search for a badge just by typing some characters on the search field near the Add Badge button. 
 
 Fields taken into account in the search are:
 
