@@ -4819,7 +4819,7 @@ Delete Badge
 ----------
 You can delete a badge just by clicking on the delete icon of the badge you want to delete. 
 
-A confirmation popup will be displayed and you can confirm the badge's delete or cancel it.
+A confirmation popup is displayed allowing you to confirm the badge's deletion or cancel it.
 
 .. note:: Once the badge is deleted, it will be not used anymore on the points score.
 
