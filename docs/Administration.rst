@@ -4774,7 +4774,7 @@ Fields taken into account in the search are:
 - Description
 - Points
 
-The table will display only rules containing characters typed. 
+Search results contain only rules having in their Rule, description or Points fields the typed characters. 
 
 .. note:: If no results found, the *Empty Table* information will display.
 
