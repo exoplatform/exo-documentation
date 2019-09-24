@@ -4808,7 +4808,7 @@ If the added badge has erroneous or missing details or even similar information 
 
 Edit Badge
 -----------
-You can edit a badge just by clicking on the edit icon of the badge you want to update. 
+You can edit a badge just by clicking on the edit icon of the corresponding badge. 
 
 A popup containing existing informations of the selected badge to edit will display with 2 buttons: 
 
