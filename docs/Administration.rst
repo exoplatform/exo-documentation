@@ -4760,7 +4760,7 @@ Delete Rule
 ----------
 You can delete a rule just by clicking on the delete icon of the rule you want to delete. 
 
-A confirmation popup will be displayed and you can confirm the rule's delete or cancel it.
+A confirmation popup is displayed allowing you to confirm or cancel the changes done.
 
 .. note:: Once the rule is deleted, it will be not used anymore on the points score.
 
