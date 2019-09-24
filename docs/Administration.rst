@@ -4707,7 +4707,7 @@ Search results contain only the domains having in their title or description the
 
 Manage Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the Manage Rules page, you will find a table of all rules in the platform, a search field to search rules and filter button for enabled Rules status. 
+In the Manage Rules page, a table containing all the rules in the platform is displayed. To ease the rules' management,  a search field is available to allow you searching rules and a filter button to allow you filtering rules by status.  
 Every rule have: 
 
 - Rule: A pulldown displaying all predefined rules.
