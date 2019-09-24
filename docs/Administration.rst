@@ -4810,7 +4810,7 @@ Edit Badge
 -----------
 You can edit a badge just by clicking on the edit icon of the corresponding badge. 
 
-A popup containing existing informations of the selected badge to edit will display with 2 buttons: 
+A popup containing the existing information of the selected badge to edit is displayed with 2 buttons: 
 
 - Confirm: To save changes that you made in the Badge
 - Cancel: To cancel changes and conserve the already existing badge.
