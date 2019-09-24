@@ -4817,7 +4817,7 @@ A popup containing the existing information of the selected badge to edit is dis
 
 Delete Badge
 ----------
-You can delete a badge just by clicking on the delete icon of the badge you want to delete. 
+You can delete a badge just by clicking on the delete icon of the target badge to delete. 
 
 A confirmation popup is displayed allowing you to confirm the badge's deletion or cancel it.
 
