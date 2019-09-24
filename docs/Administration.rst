@@ -4700,7 +4700,7 @@ Fields that will be take into account in the search are:
 
 Search results contain only the domains having in their title or description the typed characters.
 
-.. note:: If no results found, the *Empty Table* information will display.
+.. note:: If no results found, an *Empty Table* information is displayed.
 
 
 .. _ManageRules:
