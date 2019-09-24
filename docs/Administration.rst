@@ -4836,7 +4836,7 @@ Fields taken into account in the search are:
 
 The table will display only badges containing the typed characters in one of the above cited fields. 
 
-.. note:: If no results found, the *Empty Table* information will display.
+.. note:: If no results found, an *Empty Table* information is displayed.
 
 .. _BuildingOnlineCommunity:
 
