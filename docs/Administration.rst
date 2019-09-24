@@ -4693,7 +4693,7 @@ Search Domain
 ----------
 You can search a domain just by typing some characters on the search field near to the ``Add Domain`` button. 
 
-Fields that will be take into account in the search are:
+Fields taken into account during the search are:
 
 - title
 - description
