@@ -1111,7 +1111,7 @@ file appears:
 Select the desired file or files either from your hard disk or from existing uploads in the documents application. 
 
 .. note:: Uploaded files could be classified in different folders. 
-          More details in :ref:`Share multiple documents in activity stream <MultiUpload>` section.
+          More details in :ref:`Activity stream file's classification <AS_Files_Classification>` section.
 
 You can add a text message or not and then click on |image71| button to
 share the file(s) in the activity stream.
