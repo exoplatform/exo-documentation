@@ -1908,6 +1908,9 @@ eXo Platform.
 
    When droping the file, the area dedicated to the files upload is
    greyed.
+   While the file is being attached, you can click on the |folder| icon
+   to choose a destination folder where to store the file. More details in 
+   the :ref:`Activity stream file's classification section <_AS_Files_Classification>`.
 
 -  upload manually: Allows you to select documents from your hard disc.
 
@@ -1916,6 +1919,12 @@ eXo Platform.
    Cliking on upload manually opens a window showing a drive from your
    hard disk (it opens files drive for mobile devices) and allows you to
    select one or many files.
+   Same as for dropped files, you can select a destination folder for each file
+   by clicking on |folder2| icon:
+   
+   |destination|
+   
+   More details in the :ref:`Activity stream file's classification <_AS_Files_Classification>` section.
 
 -  select from existing uploads: Allows you to select documents from
    your eXo Platform drives.
@@ -2082,6 +2091,50 @@ Multiple file sharing conditions
    file is already attached.
 
    |image167|
+   
+.. _AS_Files_Classification:   
+
+Activity stream file's classification
+````````````````````````````````````````
+
+When sharing multiple files in the activity stream by uploading them from your hard disk
+either by dragging and dropping or uploading them manually, you can classify them and choose
+a destination folder of your choice to store them.
+
+For that purpose, you just need to click on ``Select destination folder`` link.
+
+|dest_folder|
+
+A popup of the documents drives appears allowing you to select a destination folder.
+
+.. note:: If you are uploading files in your activity stream, the select folder popup opens in 
+          **Personal Documents** drive.
+          If you are uploading files in a space's activity stream, the select folder popup opens in 
+          space's drive.
+                    
+After selecting the files to upload from your hard disk, you can define a destination folder for each of them
+by clicking on |folder_icon| in the file's line.
+
+ 
+|destination_file|
+
+After choosing a destination folder, the select folder button switch to display the drive selected with a cancale icon
+allowing to restore the default choices.
+
+|destination_selected|
+
+-  If the user cancels a destination folder for a file, the default destination will be the choice done for all files
+-  If the user cancels the selected destination folder for all files, files will be stored in the default folder i.e. 
+   ``Activity Stream Documents`` if no selected destination for them.
+
+.. note:: If you don't select a destination folder for each of the attached files, the destination chosen
+          in the first step will be the destination of all files.
+          If you also did not select a destination neither for all files neither for each file, attached files
+          will be stored in the default destination i.e.:
+            
+            -  ``Space drive/Activity Stream Documents`` if the post is in a space's activity stream
+            -  ``Personal Documents/Public/Activity Stream Documents`` if the post is in your activity stream.
+               
 
 .. _ActivityForDocChanges:
 
@@ -2885,3 +2938,10 @@ information.
 .. |edit| image:: images/ecms/edit.png
 .. |edit1| image:: images/ecms/edit.png
 .. |warning| image:: images/ecms/warning.png
+.. |folder| image:: images/ecms/folder_icon.png
+.. |folder2| image:: images/ecms/folder_icon.png
+.. |folder_icon| image:: images/ecms/folder_icon.png
+.. |destination| image:: images/ecms/destination_folder.png
+.. |dest_folder| image:: images/ecms/dest_folder_link.png
+.. |destination_file| image:: images/ecms/file_dest.png
+.. |destination_selected| image:: images/ecms/destination_selected.png
