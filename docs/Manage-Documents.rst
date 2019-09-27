@@ -2122,7 +2122,7 @@ allowing to restore the default destination.
 
 -  If you cancel a destination folder for a file, the default destination will be applied to all files
 -  If you cancel the selected destination folder for all files, they will be stored in the default folder i.e. 
-   ``Activity Stream Documents`` if no selected destination for them.
+   ``Activity Stream Documents``.
 
 .. note:: If you don't select a destination folder for each of the attached files, the destination chosen
           in the first step will be the destination of all files.
