@@ -2108,7 +2108,6 @@ For that purpose, you just need to click on ``Select destination folder`` link.
 A popup of the documents drives appears allowing you to select a destination folder.
 
 .. note:: When uploading files from a space, the popup list folders of the space's drive, otherwise, it's your **Personal Documents**.
-          space's drive.
                     
 After selecting the files to upload from your hard disk, you can define a destination folder for each of them
 by clicking on |folder_icon| in the file's line.
