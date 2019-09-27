@@ -21,6 +21,41 @@ To install the add-on, use the following command:
 
 		./addon install exo-onlyoffice
 		
+
+.. _HowToUse:
+
+================================
+How to use OnlyOffice for eXo?
+================================	
+
+.. _EditOnline_BTN:
+
+Edit Online button
+~~~~~~~~~~~~~~~~~~~~
+		
+Having satisified the above conditons and installed the add-on, you can easily edit online your Microsoft Office documents.
+You just need to click on the ``edit Online`` button |image1|.
+
+The ``edit Online`` button is available in these locations:
+
+-  In the activity stream among the possible actions to do on the document
+
+   |image2|
+   
+-  In the document's preview
+
+   |image3|
+
+-  In the ``Documents`` application in the actions bar
+
+   |image4|
+   
+Clicking on that button opens the document in an another browser tab allowing you to make your changes.   
+
 		
 
 .. |image0| image:: images/OnlyOffice/onlyofficeInterface.png
+.. |image1| image:: images/OnlyOffice/editOnline_btn.png
+.. |image2| image:: images/OnlyOffice/editOnline_btn_act.png
+.. |image3| image:: images/OnlyOffice/editOnline_btn_preview.png
+.. |image4| image:: images/OnlyOffice/editOnline_btn_documents.png
