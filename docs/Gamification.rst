@@ -22,32 +22,18 @@ When employees are engaged, they participate more on your platform by posting, c
 Domains
 =======================
 
-.. _Badges:
+Domains are the categorization of all behaviors of the platform users. 
+Each domain had a different context and specific applications to organize all rules and badges.
 
-=======================
-Badges
-=======================
+The following are the default domains that made sense in the context of the platform environment: 
 
-.. _Leaderboard:
+- Social: living together in organized communities, typically with different opinion shared on activities, by comments, likes; in your profile or created spaces. 
 
-=============
-Leaderboard 
-=============
+- Team work : The combined action of a group, especially when effective and efficient, and it's ensured using Tasks management.
 
-Leaderboards will give you a snapshot of your gained points progress, and of other collaborators in your platform to encourage them to gain more points. 
+- Knowledge : Facts, informations, and skills acquired through experiences using Forum, Wiki and Documents applications.
 
-|image9|
-
-Place in Leaderboard is determined by number of points earned by period : Week, Month or All times and filtered by selected domain.
-
-In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
-
-An information of your rank is displayed just below the top 10, if you are not on it. 
-
-You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
-
-|image10|
-When you mouse over an employee in the leaderboard, a detailed pie chart is displayed next to him displaying all pourcentages of gained points based on the domain.
+.. note:: You can add, edit or remove domain using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
 
 
 .. _MyAchievements:
@@ -99,6 +85,29 @@ When you mouse over a badge, its information appear in a pop up:
 -  The badge's domain
 
 |image8|
+
+
+.. _Leaderboard:
+
+=============
+Leaderboard 
+=============
+
+Leaderboards will give you a snapshot of your gained points progress, and of other collaborators in your platform to encourage them to gain more points. 
+
+|image9|
+
+Place in Leaderboard is determined by number of points earned by period : Week, Month or All times and filtered by selected domain.
+
+In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
+
+An information of your rank is displayed just below the top 10, if you are not on it. 
+
+You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
+
+|image10|
+When you mouse over an employee in the leaderboard, a detailed pie chart is displayed next to him displaying all pourcentages of gained points based on the domain.
+
 
 .. _HowCanIEarnPoints:
 
