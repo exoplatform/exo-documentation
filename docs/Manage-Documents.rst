@@ -2107,7 +2107,7 @@ For that purpose, you just need to click on ``Select destination folder`` link.
 
 A popup of the documents drives appears allowing you to select a destination folder.
 
-.. note:: If you are uploading files in your activity stream, the select folder popup opens in 
+.. note:: When uploading files from a space, the popup list folders of the space's drive, otherwise, it's your **Personal Documents**.
           **Personal Documents** drive.
           If you are uploading files in a space's activity stream, the select folder popup opens in 
           space's drive.
