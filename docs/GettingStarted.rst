@@ -1108,7 +1108,7 @@ file appears:
 
 |image70|
 
-Select the desired file or files either from your hard disk or from existing uploads in the documents application. 
+Select the desired files either from your hard disk or from existing uploads in the Documents application. 
 
 .. note:: Uploaded files could be classified in different folders. 
           More details in :ref:`Activity stream file's classification <AS_Files_Classification>` section.
