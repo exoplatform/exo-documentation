@@ -2116,7 +2116,7 @@ by clicking on |folder_icon| at the end of the file's row.
 |destination_file|
 
 After choosing a destination folder, the Select Folder button switches to display the destination folder with a cancel icon
-allowing to restore the default choices.
+allowing to restore the default destination.
 
 |destination_selected|
 
