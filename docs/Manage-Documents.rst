@@ -2110,7 +2110,7 @@ A popup of the documents drives appears allowing you to select a destination fol
 .. note:: When uploading files from a space, the popup list folders of the space's drive, otherwise, it's your **Personal Documents**.
                     
 After selecting the files to upload from your hard disk, you can define a destination folder for each of them
-by clicking on |folder_icon| in the file's line.
+by clicking on |folder_icon| at the end of the file's row.
 
  
 |destination_file|
