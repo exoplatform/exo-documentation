@@ -2099,7 +2099,7 @@ Activity stream file's classification
 
 When sharing multiple files in the activity stream by uploading them from your hard disk
 either by dragging and dropping or uploading them manually, you can classify them and choose
-a destination folder of your choice to store them.
+a destination folder in eXo Documents to store them.
 
 For that purpose, you just need to click on ``Select destination folder`` link.
 
