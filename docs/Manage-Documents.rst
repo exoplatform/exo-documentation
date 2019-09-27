@@ -2120,7 +2120,7 @@ allowing to restore the default destination.
 
 |destination_selected|
 
--  If the user cancels a destination folder for a file, the default destination will be the choice done for all files
+-  If you cancel a destination folder for a file, the default destination will be applied to all files
 -  If the user cancels the selected destination folder for all files, files will be stored in the default folder i.e. 
    ``Activity Stream Documents`` if no selected destination for them.
 
