@@ -25,7 +25,7 @@ Domains
 Domains are the categorization of all behaviors of the platform users. 
 Each domain represents a different context and specific applications to organize all rules and badges.
 
-The following are the default domains that made sense in the context of the platform environment: 
+The following are the default domains that come with eXo Platform: 
 
 - Social: living together in organized communities, typically with different opinion shared on activities, by comments, likes; in your profile or created spaces. 
 
