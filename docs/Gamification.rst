@@ -101,7 +101,7 @@ The position in the leaderboard is determined by the number of points earned ove
 
 In the Leaderboard, the top 10 of users having earned most points, and every user is presented with their full name, profile picture and earned points.
 
-An information of your rank is displayed just below the top 10, if you are not on it. 
+Your rank is displayed just below the top 10, if you are not in it. 
 
 You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
 
