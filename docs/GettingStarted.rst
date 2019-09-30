@@ -1293,7 +1293,7 @@ The information about the saving status is displayed in the simple and the compl
 |image173| |image174|
 |image175| |image176|
 
-You can access to your drafts from the creation complete form. 
+You can access to your drafts from the complete creation form. 
 A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
 
 |image177|
