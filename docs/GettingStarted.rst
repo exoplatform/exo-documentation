@@ -1283,6 +1283,34 @@ You may display the home page to verify that the news is available in the approp
 
 |image172|
 
+
+Drafts management
+-----------------
+
+When you start writing an article, a draft is automatically saved every second. 
+The information about the saving status is displayed in the simple and the complete form :
+
+|image173| |image174|
+|image175| |image176|
+
+You can access to your drafts from the creation complete form. 
+A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
+
+|image177|
+
+To view all the drafts, click on the button. A drawer is displayed with the different drafts and allows either to resume or delete each draft using the appropriate icons.
+
+|image178|
+
+To delete a draft, you have to confirm this action.
+
+|image179|
+
+To continue writing in a draft, you have to click on the draft title or the resume icon. 
+The content of the related draft will be displayed in the form and you can update the different information and post the article.
+
+|image180|
+
 		
 .. _Formatting-toolbar:
 
@@ -2121,8 +2149,12 @@ to display the original timestamp of the comment.
 .. |image170| image:: images/sharenews/pin_activity.png
 .. |image171| image:: images/sharenews/success_pin.png
 .. |image172| image:: images/sharenews/bloc_news.png
-
-
-
-
+.. |image173| image:: images/sharenews/saving_shortform.png
+.. |image174| image:: images/sharenews/saved_shortform.png
+.. |image175| image:: images/sharenews/saving_draft.png
+.. |image176| image:: images/sharenews/saved_fullform.png
+.. |image177| image:: images/sharenews/draft_button.png
+.. |image178| image:: images/sharenews/drafts_drawer.png
+.. |image179| image:: images/sharenews/confirm_delete.png
+.. |image180| image:: images/sharenews/resume_article.png
 
