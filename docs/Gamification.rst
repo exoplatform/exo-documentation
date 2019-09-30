@@ -93,7 +93,7 @@ When you mouse over a badge, its information appear in a pop up:
 Leaderboard 
 =============
 
-Leaderboards will give you a snapshot of your gained points progress, and of other collaborators in your platform to encourage them to gain more points. 
+Leaderboards display a snapshot of how your earned points compare to other users. It's a friendly competition designed to encourage everyone to earn more points. 
 
 |image9|
 
