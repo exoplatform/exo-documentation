@@ -1298,7 +1298,7 @@ A draft button is displayed indicating the number of drafts available for the sp
 
 |image177|
 
-To view all the drafts, click on the button. A drawer is displayed with the different drafts and allows either to resume or delete each draft using the appropriate icons.
+To view all the drafts, click on the button. A drawer is displayed with the list of drafts and allows either to resume or delete each draft using the appropriate button.
 
 |image178|
 
