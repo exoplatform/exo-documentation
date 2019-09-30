@@ -97,7 +97,7 @@ Leaderboards will give you a snapshot of your gained points progress, and of oth
 
 |image9|
 
-Place in Leaderboard is determined by number of points earned by period : Week, Month or All times and filtered by selected domain.
+The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and filtered by selected domain.
 
 In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
 
