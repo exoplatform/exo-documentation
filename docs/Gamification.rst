@@ -23,7 +23,7 @@ Domains
 =======================
 
 Domains are the categorization of all behaviors of the platform users. 
-Each domain had a different context and specific applications to organize all rules and badges.
+Each domain represents a different context and specific applications to organize all rules and badges.
 
 The following are the default domains that made sense in the context of the platform environment: 
 
