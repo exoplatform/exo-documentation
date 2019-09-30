@@ -99,7 +99,7 @@ Leaderboards will give you a snapshot of your gained points progress, and of oth
 
 The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and filtered by selected domain.
 
-In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
+In the Leaderboard, the top 10 of users having earned most points, and every user is presented with their full name, profile picture and earned points.
 
 An information of your rank is displayed just below the top 10, if you are not on it. 
 
