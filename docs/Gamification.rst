@@ -33,7 +33,7 @@ The following are the default domains that made sense in the context of the plat
 
 - Knowledge : Facts, informations, and skills acquired through experiences using Forum, Wiki and Documents applications.
 
-.. note:: You can add, edit or remove domain using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
+.. note:: You can add, edit or remove domains using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
 
 
 .. _MyAchievements:
