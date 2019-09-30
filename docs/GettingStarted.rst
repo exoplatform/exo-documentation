@@ -1287,11 +1287,17 @@ You may display the home page to verify that the news is available in the approp
 Drafts management
 -----------------
 
-When you start writing an article, a draft is automatically saved every second. 
+When you start writing an article, a draft is automatically saved as long as you write or modify the information in the form. 
 The information about the saving status is displayed in the simple and the complete form :
 
-|image173| |image174|
-|image175| |image176|
+|image173| 
+
+|image174|
+
+
+|image175| 
+
+|image176|
 
 You can access to your drafts from the complete creation form. 
 A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
@@ -1302,7 +1308,7 @@ To view all the drafts, click on the button. A drawer is displayed with the list
 
 |image178|
 
-To delete a draft, you have to confirm this action.
+To delete a draft, you have to confirm this action:
 
 |image179|
 
