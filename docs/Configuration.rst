@@ -6076,7 +6076,7 @@ The addon is configured by default to communicate with Ethereum's public network
 
           exo.wallet.PendingTransactionVerifierJob.expression=0/10 * * * * ?
 
-   -  Send raw transactions of all wallets. When a user sends a transaction, the transaction gets signed by private key in browser side and the resulted raw transaction is sent to eXo Platform server instead of sending it directly to blockchain.
+   -  Send raw transactions of all wallets. When a user sends a transaction, it gets signed by a private key in the browser side. The resulted raw transaction is sent to eXo Platform server instead of sending it directly to blockchain.
       This will avoid bad UX of user when network is interrupted or a problem happens on browser side.
       eXo Platform server will send raw transactions of users into blockchain periodically.
       The periodicity can be configured using the following property (Default value: every 30 seconds):
