@@ -6076,7 +6076,28 @@ The addon is configured by default to communicate with Ethereum's public network
 
           exo.wallet.PendingTransactionVerifierJob.expression=0/10 * * * * ?
 
-   -  Send transactions from the so-called *Admin wallet* which is a dedicated blockchain account with special privileges than is used to administrate (initialize and reward)  all user wallets.
+   -  Send raw transactions of all wallets. When a user sends a transaction, the transaction gets signed by private key in browser side and the resulted raw transaction is sent to eXo Platform server instead of sending it directly to blockchain.
+      This will avoid bad UX of user when network is interrupted or a problem happens on browser side.
+      eXo Platform server will send raw transactions of users into blockchain periodically.
+      The periodicity can be configured using the following property (Default value: every 30 seconds):
+
+    .. code-block:: jproperties
+
+          exo.wallet.TransactionSenderJob.expression=0/30 * * * * ?
+
+      The maximum number of pending transactions to send (per wallet) is determined by the following property (Default: 3 pending transactions per wallet):
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxToSend=3
+
+   -  Retrieve periodically the gas price suggested on blockchain. This gas price will be used in wallets, when dynamic gas price choice is used. 
+      The periodicity can be configured using the following property (Default value: every 2 minutes):
+
+    .. code-block:: jproperties
+
+          exo.wallet.GasPriceUpdaterJob.expression=0 0/2 * * * ?
+
 
 - Unlike the *Admin wallet* which uses `Web3j <https://web3j.io/>`__ (Server side) to issue transactions, the HTTP endpoint is used by *users and spaces wallets* using `Web3.js <https://web3js.readthedocs.io/>`__ (Browser side) to communicate with the blockchain to issue transactions.
 
@@ -6106,7 +6127,19 @@ Blockchain transaction settings
 
             exo.wallet.transaction.gas.cheapPrice=4000000000
 
-      -  Normal transaction: this option will use the gas price configured by the following property (in `WEI <http://ethdocs.org/en/latest/ether.html>`__):
+      -  Dynamic or Normal transaction:
+         This is the default choice used for perkstore and wallet.
+         In fact, the default option is to use dynamic gas price that will be computed and determined from blockchain periodically.
+         This will avoid to use a static gas price that can lead to a very slow transaction mining time.
+         On the other hand, using a dynamic gas price, can lead to have expensive transactions. (This will depends on proposed gas price by blockchain)   
+         The dynamic gas price is bounded by minimal ``Cheap gas price`` configuration and ``Fast gas price`` configuration.
+         To make this gas price static, you can modify the following parameter (Default value: true):
+
+      .. code-block:: jproperties
+
+            exo.wallet.blockchain.useDynamicGasPrice=false
+
+         Once the dynamic gas price is turned off, you can set a static ``normal gas price`` configured by the following property (in `WEI <http://ethdocs.org/en/latest/ether.html>`__):
 
       .. code-block:: jproperties
 
@@ -6118,13 +6151,28 @@ Blockchain transaction settings
 
             exo.wallet.transaction.gas.fastPrice=15000000000
 
-
 * When a transaction is submitted but isn't mined for several days, it will be marked as failed in eXo Wallet's internal database.
   The maximum number of days waiting for transaction mining can be configured using the following property:
 
     .. code-block:: jproperties
 
           exo.wallet.transaction.pending.maxDays=3
+
+
+    .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
+              if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
+
+* The parellel number of transactions to send:
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxToSend=3
+
+* The number of sending transaction attempts is configured by:
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxSendingAttempts=3
 
 
     .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
