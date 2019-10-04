@@ -1250,6 +1250,7 @@ Broadcasted events are:
 - ``exo.addon.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
 - ``exo.addon.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
 - ``exo.addon.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
+- ``exo.wallet.reward.report.success`` : a period reward has been sent to all wallets and its transactions has completely succeeded. (Example: `RewardSucceedNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/listener/RewardSucceedNotificationListener.java>`__)
 
 To add an event listener using one listed events above, you can add the following configuration inside a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
