@@ -6131,7 +6131,7 @@ Blockchain transaction settings
          This is the default choice used for perkstore and wallet.
          In fact, the default option is to use dynamic gas price that will be computed and determined from blockchain periodically.
          This will avoid to use a static gas price that can lead to a very slow transaction mining time.
-         On the other hand, using a dynamic gas price, can lead to have expensive transactions. (This will depends on proposed gas price by blockchain)   
+         On the other hand, using a dynamic gas price can lead to having expensive transactions. (This will depend on the proposed gas price by blockchain)   
          The dynamic gas price is bounded by minimal ``Cheap gas price`` configuration and ``Fast gas price`` configuration.
          To make this gas price static, you can modify the following parameter (Default value: true):
 
