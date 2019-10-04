@@ -6175,7 +6175,7 @@ Blockchain transaction settings
           exo.wallet.transaction.pending.maxSendingAttempts=3
 
 
-    .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
+    .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed in eXo's internal database.
               if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
 
 
