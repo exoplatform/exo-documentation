@@ -38,6 +38,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    GettingStarted
    PersonalApplications
    UserWallet
+   UsingPerkStore
    ManageTasks
    Chat
    webconferencing
