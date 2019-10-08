@@ -50,7 +50,29 @@ The ``edit Online`` button is available in these locations:
 
    |image4|
    
-Clicking on that button opens the document in an another browser tab allowing you to make your changes.   
+Clicking on that button opens the document in an another browser tab allowing you to make your changes.
+
+
+.. _EditorInterface:
+
+Editor Interface
+~~~~~~~~~~~~~~~~~~
+
+Clicking on |image5| button opens the document you want to edit in an another tab.
+The interface contains:
+
+-  The document opened in OnlyOfficeeditor
+-  A top bar containing these details:
+
+   -  the document's breadcrumb: to inform about the document's location in the platform
+   -  message about the last edit: Last edited by $editor's full name date hh:mm "summary"
+   -  text area for the summary: allowing you to input a summary of your changes
+   -  force save button: to save your changes with the added summary
+   -  close icon: to close the editor tab
+
+
+|image6|
+
 
 		
 
@@ -59,3 +81,5 @@ Clicking on that button opens the document in an another browser tab allowing yo
 .. |image2| image:: images/OnlyOffice/editOnline_btn_act.png
 .. |image3| image:: images/OnlyOffice/editOnline_btn_preview.png
 .. |image4| image:: images/OnlyOffice/editOnline_btn_documents.png
+.. |image5| image:: images/OnlyOffice/editOnline_btn.png
+.. |image6| image:: images/OnlyOffice/top_bar.png
