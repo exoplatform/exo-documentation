@@ -1908,7 +1908,7 @@ eXo Platform.
 
    When droping the file, the area dedicated to the files upload is
    greyed.
-   While the file is being attached, you can click on the |folder| icon
+   Having the file attached, you can click on the |folder| icon
    to choose a destination folder where to store the file. More details in 
    the :ref:`Activity stream file's classification section <_AS_Files_Classification>`.
 
@@ -1919,8 +1919,7 @@ eXo Platform.
    Cliking on upload manually opens a window showing a drive from your
    hard disk (it opens files drive for mobile devices) and allows you to
    select one or many files.
-   Same as for dropped files, you can select a destination folder for each file
-   by clicking on |folder2| icon:
+   You can select a destination folder for each uploaded file by clicking on |folder2| icon:
    
    |destination|
    
@@ -2107,10 +2106,11 @@ For that purpose, you just need to click on ``Select destination folder`` link.
 
 A popup of the documents drives appears allowing you to select a destination folder.
 
-.. note:: If you are uploading files in your activity stream, the select folder popup opens in 
-          **Personal Documents** drive.
-          If you are uploading files in a space's activity stream, the select folder popup opens in 
-          space's drive.
+.. note::  The default destination folder changes according to displayed activity stream:
+           
+             -  Space activity stream: the space home folder is displayed
+             -  Home activity stream: the user personal folder is displayed.
+           
                     
 After selecting the files to upload from your hard disk, you can define a destination folder for each of them
 by clicking on |folder_icon| in the file's line.
@@ -2123,9 +2123,8 @@ allowing to restore the default choices.
 
 |destination_selected|
 
--  If the user cancels a destination folder for a file, the default destination will be the choice done for all files
--  If the user cancels the selected destination folder for all files, files will be stored in the default folder i.e. 
-   ``Activity Stream Documents`` if no selected destination for them.
+-  If the user deletes the selected destination folder for a file (using cross button), the default one will be used
+-  If the user deletes the selected default destination folder for all files, the folder ``Activity Stream Documents`` will be used. 
 
 .. note:: If you don't select a destination folder for each of the attached files, the destination chosen
           in the first step will be the destination of all files.
