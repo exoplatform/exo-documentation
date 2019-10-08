@@ -2098,7 +2098,7 @@ Activity stream file's classification
 
 When sharing multiple files in the activity stream by uploading them from your hard disk
 either by dragging and dropping or uploading them manually, you can classify them and choose
-a destination folder of your choice to store them.
+a destination folder in eXo Documents to store them.
 
 For that purpose, you just need to click on ``Select destination folder`` link.
 
@@ -2106,20 +2106,17 @@ For that purpose, you just need to click on ``Select destination folder`` link.
 
 A popup of the documents drives appears allowing you to select a destination folder.
 
-.. note::  The default destination folder changes according to displayed activity stream:
-           
-             -  Space activity stream: the space home folder is displayed
-             -  Home activity stream: the user personal folder is displayed.
-           
+.. note:: When uploading files from a space, the popup list folders of the space's drive, otherwise, it's your **Personal Documents**.
+
                     
 After selecting the files to upload from your hard disk, you can define a destination folder for each of them
-by clicking on |folder_icon| in the file's line.
+by clicking on |folder_icon| at the end of the file's row.
 
  
 |destination_file|
 
-After choosing a destination folder, the select folder button switch to display the drive selected with a cancale icon
-allowing to restore the default choices.
+After choosing a destination folder, the Select Folder button switches to display the destination folder with a cancel icon
+allowing to restore the default destination.
 
 |destination_selected|
 
