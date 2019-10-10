@@ -94,7 +94,7 @@ Each wallet uses a pair of public and private keys. The public key is used as th
 Wallet password
 ----------------
 
-You can change your wallet password by clicking on "Change password" button from security popup. You just have to type your current password and the new password and confirm the action.
+You can change your wallet password by clicking on "Change password" button from security popup. You just need to enter your current password and the new password then confirm.
 
 |image20|
 
