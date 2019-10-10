@@ -37,7 +37,7 @@ After buying the product, a notification will tell you when your order is totall
 
 |image4|
 
-In the perkstore view a new mention "1 pending" is available for you in the purchased product's card 
+In the Perk Store screen a new mention "1 pending" is available for you in the purchased product's card 
 
 |image5|
 
