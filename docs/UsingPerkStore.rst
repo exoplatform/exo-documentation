@@ -18,7 +18,7 @@ You can see your wallet balance in the toolbar as well as a search bar and a fil
 You can filter products by:
 - Disabled products : some products may be temporarily disabled by their seller
 - Soldout products
-- Created by me
+- Created by me : the products you offered for sale yourself
 
 
 You can see more details about a product by clicking on its title. You can buy the product from this view as well as the perkstore view.
