@@ -59,7 +59,7 @@ If you are allowed to create products , you will see the “Plus” card as the 
 
 |image9|
 
-By clicking on it, the creation form is displayed.
+By clicking on it, the Product creation form is displayed.
 
 |image10|
 
