@@ -102,7 +102,7 @@ The option "Remember my password on this browser" allow you to save the wallet's
 
 |image21|
 
-You have to type your actual password to activate this option.
+You must enter your current password to activate this option.
 
 |image22|
 
