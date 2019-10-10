@@ -45,7 +45,7 @@ You can see your order details for this product by clicking on this button.
 
 |image6|
 
-To see all orders you can click on "My orders" button from the toolbar of perkstore.
+To see all orders you can click on "My orders" button from the toolbar of the Perk Store.
 
 |image7|
 
