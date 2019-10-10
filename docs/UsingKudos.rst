@@ -24,7 +24,7 @@ How to send kudos
 
 You can send kudos from the following locations:
 
-- The user's profile
+- The user profile
 
 |image0|
 
