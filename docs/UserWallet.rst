@@ -98,7 +98,7 @@ You can change your wallet password by clicking on "Change password" button from
 
 |image20|
 
-The option "Remember my password on this browser" stores your password in the browser’s local storage to be automatically used for every transaction (including purchases in the Perk Store)without requiring your input each time. 
+The option "Remember my password on this browser" stores your password in the browser’s local storage to be automatically used for every transaction (including purchases in the Perk Store) without requiring your input each time. 
 
 |image21|
 
