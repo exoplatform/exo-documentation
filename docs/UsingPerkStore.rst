@@ -55,7 +55,7 @@ To see all orders you can click on "My orders" button from the toolbar of the Pe
 How to create a product
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-If you are allowed to create products from perkstore, you will see the creation card as the first card displayed in the interface. 
+If you are allowed to create products , you will see the “Plus” card as the first card displayed in the interface. 
 
 |image9|
 
