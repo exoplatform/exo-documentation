@@ -63,7 +63,7 @@ By clicking on it, the Product creation form is displayed.
 
 |image10|
 
-You have to fill in the mandatory fields which are:
+Mandatory fields which are:
 - The name of the product, 
 - The sell price: The product's price in token currency value
 - The merchant wallet: The user's or space's wallet that will receive the funds when the product is purchased, and
