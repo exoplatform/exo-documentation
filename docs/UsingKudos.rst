@@ -22,7 +22,7 @@ The receiver may be rewarded for the kudos he received if the administrator has 
 How to send kudos
 ~~~~~~~~~~~~~~~~~~
 
-You can send kudos from the following emplacements of the platform:
+You can send kudos from the following locations:
 
 - The user's profile
 
