@@ -17,7 +17,7 @@ You can see your wallet balance in the toolbar as well as a search bar and a fil
 
 You can filter products by:
 - Disabled products : some products may be temporarily disabled by their seller
-- Soldout products
+- Sold out products : products that are no longer in store
 - Created by me : the products you offered for sale yourself
 
 
@@ -67,7 +67,7 @@ Mandatory fields which are:
 - The name of the product, 
 - The sell price: The product's price in token currency value
 - The merchant wallet: The user's or space's wallet that will receive the funds when the product is purchased, and
-- The product editor: This field is automatically pre-loaded with the current user account and you have the possibilityto change this.
+- The product editor: This field is automatically pre-loaded with your user account but you can change it if you want another user to have the possibility to update the product.
 
 You can also optionnaly upload images, add a description of the product and select authorized buyers (users or spaces members).
 You may also specify a stock limit and to restrict the number of purchased items by user and per periodicity.
