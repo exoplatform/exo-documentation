@@ -5,7 +5,7 @@ Using the Perk Store
 ####################
 
 The perkstore is an online store available in the platform. 
-You are able to buy the available products or sell goods or services using the cauris as a currency.
+It’s a full-featured marketplace where users can buy (and even sell) products with the tokens stored in their wallet as the digital currency.
 
 How to access to Perk Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
