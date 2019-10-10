@@ -1,7 +1,7 @@
 .. _UsingPerkStore:
 
 ####################
-Using the Perkstore
+Using the Perk Store
 ####################
 
 The perkstore is an online store available in the platform. 
