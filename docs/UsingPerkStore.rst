@@ -11,7 +11,7 @@ How to access to Perk Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can access to Perk Store from the main navigation. By clicking on the shopping cart icon, you will see all the products available for you in the store.
-You can see your wallet balance in the toolbar as well as a search bar and a filter button that allow you to look for a specific product.
+You can see your wallet balance in the toolbar as well as a search bar and a filter button to help you find a specific product.
 
 |image0|
 
