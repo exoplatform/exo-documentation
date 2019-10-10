@@ -66,7 +66,7 @@ By clicking on it, the creation form is displayed.
 You have to fill in the mandatory fields which are:
 - The name of the product, 
 - The selling price: The product's price in Cauris
-- The merchant wallet: The user's or space's wallet that will ecieve the funds when the product is purchased, and
+- The merchant wallet: The user's or space's wallet that will receive the funds when the product is purchased, and
 - The product editor: This field is automatically pre-loaded with the current user account and you have the possibilityto change this.
 
 You can also optionnaly upload images, add a description of the product and select authorized buyers (users or spaces members).
