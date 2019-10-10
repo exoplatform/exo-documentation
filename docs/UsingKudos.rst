@@ -16,7 +16,7 @@ If you don't use the kudos during the current period, you will not be able to us
 Both the number of kudos and periodicity are determined by the administrator of the platform.
 
 When you send a kudos you earn gamification points as well as the reciever. 
-The reciever may beneit of an amount of cauris thank to the recieved kudos if the administrator has configured the reward sending at the reception of the kudos. 
+The receiver may be rewarded for the kudos he received if the administrator has enabled and configured the Kudos rewarding program. 
 
 
 How to send kudos
