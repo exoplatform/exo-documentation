@@ -70,7 +70,7 @@ You have to fill in the mandatory fields which are:
 - The product editor: This field is automatically pre-loaded with the current user account and you have the possibilityto change this.
 
 You can also optionnaly upload images, add a description of the product and select authorized buyers (users or spaces members).
-You may also specify the stock limit and to restrict the number of purchased items by user and per periodicity.
+You may also specify a stock limit and to restrict the number of purchased items by user and per periodicity.
 
 |image11|
 
