@@ -16,7 +16,7 @@ You can see your wallet balance in the toolbar as well as a search bar and a fil
 |image0|
 
 You can filter products by:
-- Disable products
+- Disabled products : some products may be temporarily disabled by their seller
 - Soldout products
 - Created by me
 
