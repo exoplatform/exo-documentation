@@ -33,7 +33,7 @@ To purchase a product, click on the Buy button button |image2| then specify the 
 
 |image3|
 
-After buying the product, You recieve a notification when your order is totally or partially delivered.
+After buying the product, a notification will tell you when your order is totally or partially delivered.
 
 |image4|
 
