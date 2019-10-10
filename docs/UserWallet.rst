@@ -159,7 +159,7 @@ To see a transaction details (its status, label, message, amount, the sender and
 
 |image15|
 
-In the case of a failed transaction, a warning is displayed in the transaction list and the transaction details. The arrow and transaction amount are displayed in red color so that you can distingish them.
+In case of a failed transaction, a warning is displayed in the transaction list and the transaction details. The arrow and transaction amount are displayed in red color so that you can distingish them.
 
 |image16|
 
