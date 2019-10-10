@@ -41,7 +41,7 @@ In the Perk Store screen a new mention "1 pending" is available for you in the p
 
 |image5|
 
-You can see your order details for this product by clicking in this button.
+You can see your order details for this product by clicking on this button.
 
 |image6|
 
