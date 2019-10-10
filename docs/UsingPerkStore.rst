@@ -10,7 +10,7 @@ You are able to buy the available products or sell goods or services using the c
 How to access to Perk Store
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can access to perkstore from the left navigation. By clicking on the appropriate icon, you will display all the available products in the store.
+You can access to Perk Store from the main navigation. By clicking on the shopping cart icon, you will see all the products available for you in the store.
 You can see your wallet balance in the toolbar as well as a search bar and a filter button that allow you to look for a specific product.
 
 |image0|
