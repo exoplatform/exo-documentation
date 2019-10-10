@@ -29,7 +29,7 @@ You can see more details about a product by clicking on its title. You can buy t
 How to buy a product and display your orders
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To buy a product you are interested in, you have to click on the appropriate button |image2| then specify the number of the items to purchase as well as your wallet password if it is not saved in the browser you are using.
+To purchase a product, click on the Buy button button |image2| then specify the number of the items to purchase. Your password may be required unless you checked the “Remember my password” option in your wallet’s preferences.
 
 |image3|
 
