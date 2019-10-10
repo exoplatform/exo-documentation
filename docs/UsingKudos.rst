@@ -45,7 +45,7 @@ When sending a kudos, you must leave a message so you can tell the reason for th
 
 |image4|
 
-If you have no more kudos left for the current period, a warning message will be displayed in the popover as well as the information about the kudos you already sent.
+If you have no  kudos left for the current period, a warning message will be displayed in the popover as well as the information about the kudos you already sent.
 
 |image5|
 
