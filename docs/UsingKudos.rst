@@ -36,7 +36,7 @@ You can send kudos from the following locations:
 
 |image2|
 
-- A comment written by the user 
+- A comment posted by the user 
 
 |image3|
 
