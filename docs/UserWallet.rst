@@ -57,7 +57,7 @@ Once your wallet is approved by an administrator, you recieve a notification inf
 
 |image|
 
-All actions become available and you are allowed to send and recieve funds as well as consulting the transactions hoistory, rewarding details and see the transactions statistics.
+All actions become available and you can send and receive funds as well as view transaction history or statistics and reward details.
 
 It is possible to filter ...
 
