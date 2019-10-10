@@ -4,7 +4,7 @@
 Using the Perk Store
 ####################
 
-The perkstore is an online store available in the platform. 
+The Perk Store is a digital store available in the platform where users can purchase perks (or whatever goods your organization wants to offer to its users) with their earned funds. 
 It’s a full-featured marketplace where users can buy (and even sell) products with the tokens stored in their wallet as the digital currency.
 
 How to access to Perk Store
