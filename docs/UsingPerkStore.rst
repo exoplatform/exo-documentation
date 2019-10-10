@@ -21,7 +21,7 @@ You can filter products by:
 - Created by me : the products you offered for sale yourself
 
 
-You can see more details about a product by clicking on its title. You can buy the product from this view as well as the perkstore view.
+You can see more details about a product by clicking on its title. You can buy the product from this screen as well as the Perk Store screen.
 
 |image1|
 
