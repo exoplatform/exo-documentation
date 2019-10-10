@@ -140,7 +140,7 @@ When you click on the plus icon next to the total rewarded, a drawer with all re
 
 |image18|
 
-You can see more information about a reward transaction by clicking in the corresponding line. The information about the number of gamification points earned and kudos recieved during the period of reward.
+You can see more information about a reward transaction by clicking in the corresponding line. The information about the number of gamification points earned and kudos received during the period of reward.
 
 |image19|
 
