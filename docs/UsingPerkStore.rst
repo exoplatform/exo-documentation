@@ -80,7 +80,7 @@ Once your product is sold, you will recieve a notification.
 
 |image13|
 
-You can see the client's order by clicking on the notification or clicking on the following icon |image14| from the perkstore interface.
+You can inspect your clients orders by clicking on the notification or by clicking on the following icon |image14| from the Perk Store interface.
 The order is displayed and contains information about the sold article(s) as well as a delivery and a refund buttons.
 
 |image15|
