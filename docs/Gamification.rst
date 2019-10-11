@@ -33,7 +33,7 @@ The following are the default domains that come with eXo Platform:
 
 - Knowledge: Facts, information, and skills acquired through experiences using Forum, Wiki and Documents applications.
 
-.. note:: You can add, edit or remove domains using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
+.. note:: You can add, edit or remove your own domains using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
 
 
 .. _MyAchievements:
