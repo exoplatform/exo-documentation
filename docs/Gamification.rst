@@ -103,7 +103,7 @@ In the Leaderboard, the top 10 of users having earned most points, and every use
 
 Your rank is displayed just below the top 10, if you are not in it. 
 
-You can also load more 10 users by clicking on Load more button just below the Leaderboard.
+You can also load 10 more users by clicking on Load more button just below the Leaderboard.
 
 |image10|
 When you mouse over a user in the leaderboard, a pie chart is displayed next to him to detail all proportions of points they earned in each domain.
