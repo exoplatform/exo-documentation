@@ -1278,8 +1278,11 @@ After confirmation, a success message appears:
 |image171|
 
 
-*3- Pinning a News from News details*
+*3- Pinning a News from News details : To pin a News from details, you only need to click on the available pin icon.
 
+|image181|
+
+The action is successfully done after confirming it as for the two options above. 
 
 You may display the home page to verify that the news is available in the appropriate block.
 
@@ -2165,4 +2168,5 @@ to display the original timestamp of the comment.
 .. |image178| image:: images/sharenews/drafts_drawer.png
 .. |image179| image:: images/sharenews/confirm_delete.png
 .. |image180| image:: images/sharenews/resume_article.png
+.. |image181| image:: images/sharenews/pin_details.png
 
