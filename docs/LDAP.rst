@@ -595,11 +595,11 @@ The list of properties that you can use in ``exo.properties`` are:
     # (Default value = every minute)
     exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
 
-By default, the user data are updated when the user login. This can be disabled by modifying this property:
+By default, user data are updated when the user login. This can be disabled by modifying this property:
 
 .. code-block:: jproperties
 
-    # if true, update user data on login time and only when the information changes
+    # if true, update user data on login time and only when information change
     # on external store (Default: true)
     exo.idm.externalStore.update.onlogin=true
 
