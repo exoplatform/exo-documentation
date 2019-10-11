@@ -106,7 +106,7 @@ Your rank is displayed just below the top 10, if you are not in it.
 You can also load 10 more users by clicking on Load more button just below the Leaderboard.
 
 |image10|
-When you mouse over a user in the leaderboard, a pie chart is displayed next to him to detail all proportions of points they earned in each domain.
+When you mouse over a user in the leaderboard, a pie chart is displayed beside with details of the distribution of points across domains. Hence you can discover what are their sweet spot domains and learn from their behaviours.
 
 
 .. _HowCanIEarnPoints:
