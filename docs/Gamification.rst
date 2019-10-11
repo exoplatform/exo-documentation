@@ -31,7 +31,7 @@ The following are the default domains that come with eXo Platform:
 
 - Team work : The combined action of a group, especially when effective and efficient, and it's ensured using Tasks management.
 
-- Knowledge : Facts, informations, and skills acquired through experiences using Forum, Wiki and Documents applications.
+- Knowledge: Facts, information, and skills acquired through experiences using Forum, Wiki and Documents applications.
 
 .. note:: You can add, edit or remove domains using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
 
