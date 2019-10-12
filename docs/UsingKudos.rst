@@ -9,7 +9,7 @@ Using Kudos
 General information about kudos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can express your recognition to your colleagues by sending them kudos in order to thank them for their help, contributions or good work.
+You can express your recognition to your colleagues by sending them kudos when you want to thank them for their help, contributions or good work.
 You have a limited number of kudos to send per period of time. 
 
 If you don't use the kudos during the current period, you will not be able to use them in the next one. They are not cumulated with the number of kudos you are allowed to use in the new period.
