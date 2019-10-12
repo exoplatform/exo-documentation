@@ -13,7 +13,7 @@ You can express your recognition to your colleagues by sending them kudos when y
 You have a limited number of kudos to send per period of time (week, month or quarter). 
 
 Kudos to send expire at the end of the period if you didn’t send them. Also, they can’t be cumulated with kudos you received. Thus, you can’t keep kudos for yourself they are give-only tokens of recognition.
-Both the number of kudos and periodicity are determined by the administrator of the platform.
+Both the number of kudos and periodicity of reset are defined by the administrator of the platform.
 
 When kudos are combined with their rewarding program, kudos received can be automatically converted into tokens of the eXo Wallet. 
 
