@@ -116,7 +116,7 @@ The difference between those types of transaction is the price and the speed of 
  
 - The cheap mode is not expensive but may take up to one day to be executed.
 - The recommended mode is slightly more expensive and could take few hours.
-- The fast type is the most expensive and take only one minute to be executed.
+- The fast most is the most expensive and usually takes only one minute to be executed.
 
 |image10|
 
