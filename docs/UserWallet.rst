@@ -53,7 +53,7 @@ A warning message appears behind the label "My wallet"
 
 |image5|
 
-Once your wallet is approved by an administrator, you recieve a notification informing you that your wallet is activated.
+Once your wallet is approved by an administrator, you’ll receive a notification informing you that your wallet is activated.
 
 |image|
 
