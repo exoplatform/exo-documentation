@@ -43,7 +43,7 @@ The first thing to do is to create your wallet by setting a password. The passwo
 
 |image3|
 
-Once your password is set, your wallet is created but you will not be allowed to execute transactions (such as purchases in the store or sending tokens fro. the wallet) until an administrator approves it.  Nevertheless, the The wallet interface remains available.
+Once your password is set, your wallet is created but you will not be allowed to execute transactions (such as purchases in the store or sending tokens from the wallet) until an administrator approves it.  Nevertheless, the The wallet interface remains available.
 
 |image1|
 
@@ -58,8 +58,6 @@ Once your wallet is approved by an administrator, you’ll receive a notificatio
 |image|
 
 All actions become available and you can send and receive funds as well as view transaction history or statistics and reward details.
-
-It is possible to filter ...
 
 |image|
 
