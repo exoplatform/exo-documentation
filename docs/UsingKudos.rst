@@ -39,7 +39,7 @@ You can send kudos from the following locations:
 
 |image3|
 
-When you click on the icon to send a kudos, a popover is displayed containing the details of the kudos you already sent during the current period and the number of remaining kudos.
+When you click on the icon to send a kudos, a popover is displayed containing the details of the kudos you already sent and the number of remaining kudos for the current period.
 When sending a kudos, you must leave a message so you can tell the reason for this kudos:
 
 |image4|
