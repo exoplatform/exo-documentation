@@ -10,7 +10,7 @@ General information about kudos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can express your recognition to your colleagues by sending them kudos when you want to thank them for their help, contributions or good work.
-You have a limited number of kudos to send per period of time (week, month or quarter). 
+You have a limited number of kudos to send per period of time (week, month, quarter or year). 
 
 Kudos to send expire at the end of the period if you didn’t send them. Also, they can’t be cumulated with kudos you received. Thus, you can’t keep kudos for yourself they are give-only tokens of recognition.
 Both the number of kudos and periodicity of reset are defined by the administrator of the platform.
