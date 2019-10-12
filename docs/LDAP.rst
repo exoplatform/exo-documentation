@@ -577,8 +577,8 @@ It lists the options of both eXo configuration and PicketLink configuration.
 Properties configuration
 ------------------
 
-The LDAP integration uses jobs to synchronize periodically modified data on LDAP into eXo internal database.
-The list of properties that you can use in ``exo.properties`` are:
+The LDAP integration uses jobs to synchronize periodically the eXo internal database with the data modified in the LDAP.
+The list of properties related to LDAP integration that you can use in ``exo.properties`` are:
 
 .. code-block:: jproperties
 
@@ -595,7 +595,7 @@ The list of properties that you can use in ``exo.properties`` are:
     # (Default value = every minute)
     exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
 
-By default, user data are updated when the user login. This can be disabled by modifying this property:
+By default, user data are updated when the user signs in. This can be disabled by modifying this property:
 
 .. code-block:: jproperties
 
