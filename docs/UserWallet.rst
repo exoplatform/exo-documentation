@@ -114,7 +114,7 @@ To send funds from your wallet, you have to click on "Send" button then, in the 
 You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast". 
 The difference between those types of transaction is the price and the speed of processing transaction in the blockchain network. There is no guaranteed delays for transaction processing because it depends on how much the blockchain network is busy, but basically, the more you pay, the faster. Below are some indicative delays to expect :
  
-- The cheap type is not expensive but may take up to one day to be executed.
+- The cheap mode is not expensive but may take up to one day to be executed.
 - The recommended type is slightly more expensive and could take few hours.
 - The fast type is the most expensive and take only one minute to be executed.
 
