@@ -97,7 +97,7 @@ Leaderboards display a snapshot of users with most points. You always see your o
 
 |image9|
 
-The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and filtered by selected domain.
+The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and is filtered by selected domain.
 
 In the Leaderboard, the top 10 of users having earned most points, and every user is presented with their full name, profile picture and earned points.
 
