@@ -106,7 +106,7 @@ Your rank is displayed just below the top 10, if you are not in it.
 You can also navigate in the ranks by clicking on Load more button to load 10 more entries.
 
 |image10|
-When you mouse over a user in the leaderboard, a pie chart is displayed beside with details of the distribution of points across domains. Hence you can discover what are their sweet spot domains and learn from their behaviours.
+When you mouse over a user in the leaderboard, a pie chart is displayed to illustrate the distribution of points across domains. Hence you can discover what are their sweet spot domains and learn from their behaviors.
 
 
 .. _HowCanIEarnPoints:
