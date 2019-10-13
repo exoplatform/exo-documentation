@@ -68,7 +68,7 @@ Wallet security
 Backup your wallet
 ------------------
 
-Each wallet uses a pair of cryptographic keys (strings of characters) : the public key and the private key. The public key represents the address of your wallet on the blockchain network. The private allows works with the public key but must be secured as it allows to do any operation in the blockchain account (such as stealing your funds!). Without the private key, access to the funds is impossible. Thus, it's critical to keep your private key in a safe place (such as multiple paper copies if different physical locations) to protect it from loss or theft :
+Each wallet uses a pair of cryptographic keys (strings of characters) : the public key and the private key. The public key represents the address of your wallet on the blockchain network. The private works with the public key to encrypt/decrypt data securely.   ut it must be secured as it allows to perform any operation with the blockchain account (such as stealing your funds!). Without the private key, access to the funds is impossible. Thus, it's critical to keep your private key in a safe place (such as multiple paper copies if different physical locations) to protect it from loss or theft :
 
 - Click on the security icon to display the security popup
 
