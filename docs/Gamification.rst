@@ -93,7 +93,7 @@ When you mouse over a badge, its information appear in a pop up:
 Leaderboard 
 =============
 
-Leaderboards display a snapshot of users with most points. You always see your own rank so you can compare to others in various domains. It's a friendly competition designed to encourage everyone to engage in various activities by earning points. 
+Leaderboards display a snapshot of users with most points. You always see your own rank so you can compare yourself to others in various domains. It's a friendly competition designed to encourage everyone to engage in various activities by earning points. 
 
 |image9|
 
