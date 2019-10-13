@@ -146,4 +146,4 @@ You can filter rules by clicking on the desired domain to display.
 .. |image7| image:: images/gamification/badges.png
 .. |image8| image:: images/gamification/popoverBadge.png
 .. |image9| image:: images/gamification/Leaderboard.png
-.. |image10| image:: images/gamification/Leaderboardpirchart.png
+.. |image10| image:: images/gamification/Leaderboardpiechart.png
