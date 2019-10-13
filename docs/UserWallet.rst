@@ -110,7 +110,7 @@ How to send funds from wallet
 
 To send funds from your wallet, you have to click on "Send" button then, in the "send funds" popup, select a recipient, your wallet password and the amount to send. You can optionally type a label and a message that will be stores in the transaction history.
 You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast". 
-The difference between those types of transaction is the price and the speed of processing transaction in the blockchain network. There is no guaranteed delays for transaction processing because it depends on how much the blockchain network is busy, but basically, the more you pay, the faster. Below are some indicative delays to expect :
+The difference between these transaction modes is the fees and the speed of processing transaction in the blockchain network. There is no guaranteed delay for transaction processing because it depends on how much the blockchain network is busy. But basically, the more you pay, the faster. Below are some indicative delays to expect :
  
 - The cheap mode is not expensive but may take up to one day to be executed.
 - The recommended mode is slightly more expensive and could take few hours.
