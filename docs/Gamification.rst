@@ -106,6 +106,7 @@ An information of your rank is displayed just below the top 10, if you are not o
 You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
 
 |image10|
+
 When you mouse over an employee in the leaderboard, a detailed pie chart is displayed next to him displaying all pourcentages of gained points based on the domain.
 
 
