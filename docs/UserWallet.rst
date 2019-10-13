@@ -114,7 +114,7 @@ The difference between these transaction modes is the fees and the speed of proc
  
 - The cheap mode is not expensive but may take up to one day to be executed.
 - The recommended mode is slightly more expensive and may take a few hours.
-- The fast most is the most expensive and usually takes only one minute to be executed.
+- The fast mode is the most expensive but transactions are usually processed in less than a minute.
 
 |image10|
 
