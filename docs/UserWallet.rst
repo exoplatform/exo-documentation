@@ -113,7 +113,7 @@ You also have to choose the type of transaction between three options: "Cheap", 
 The difference between these transaction modes is the fees and the speed of processing transaction in the blockchain network. There is no guaranteed delay for transaction processing because it depends on how much the blockchain network is busy. But basically, the more you pay, the faster. Below are some indicative delays to expect :
  
 - The cheap mode is not expensive but may take up to one day to be executed.
-- The recommended mode is slightly more expensive and could take few hours.
+- The recommended mode is slightly more expensive and may take a few hours.
 - The fast most is the most expensive and usually takes only one minute to be executed.
 
 |image10|
