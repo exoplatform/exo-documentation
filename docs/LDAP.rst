@@ -595,7 +595,7 @@ The list of properties related to LDAP integration that you can use in ``exo.pro
     # (Default value = every minute)
     exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
 
-By default, user data are updated when the user signs in. This can be disabled by modifying this property:
+By default, user data are synced with the LDAP when the user signs in. This can be disabled by modifying this property:
 
 .. code-block:: jproperties
 
