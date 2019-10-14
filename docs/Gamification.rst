@@ -23,17 +23,17 @@ Domains
 =======================
 
 Domains are the categorization of all behaviors of the platform users. 
-Each domain had a different context and specific applications to organize all rules and badges.
+Each domain contains rules and badges related to a different context and usage of specific applications.
 
-The following are the default domains that made sense in the context of the platform environment: 
+The following are the default domains that come with eXo Platform: 
 
 - Social: living together in organized communities, typically with different opinion shared on activities, by comments, likes; in your profile or created spaces. 
 
 - Team work : The combined action of a group, especially when effective and efficient, and it's ensured using Tasks management.
 
-- Knowledge : Facts, informations, and skills acquired through experiences using Forum, Wiki and Documents applications.
+- Knowledge: Facts, information, and skills acquired through experiences using Forum, Wiki and Documents applications.
 
-.. note:: You can add, edit or remove domain using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
+.. note:: You can add, edit or remove your own domains using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
 
 
 .. _MyAchievements:
@@ -93,21 +93,22 @@ When you mouse over a badge, its information appear in a pop up:
 Leaderboard 
 =============
 
-Leaderboards will give you a snapshot of your gained points progress, and of other collaborators in your platform to encourage them to gain more points. 
+Leaderboards display a snapshot of users with most points. You always see your own rank so you can compare yourself to others in various domains. It's a friendly competition designed to encourage everyone to engage in various activities by earning points. 
 
 |image9|
 
-Place in Leaderboard is determined by number of points earned by period : Week, Month or All times and filtered by selected domain.
+The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and is filtered by selected domain.
 
-In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
+In the Leaderboard, the top 10 users with higher scores over the period are with their full name, profile picture and point scores.
 
-An information of your rank is displayed just below the top 10, if you are not on it. 
+Your rank is displayed just below the top 10, if you are not in it. 
 
-You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
+You can also navigate in the ranks by clicking on Load more button to load 10 more entries.
 
 |image10|
 
-When you mouse over an employee in the leaderboard, a detailed pie chart is displayed next to him displaying all pourcentages of gained points based on the domain.
+When you mouse over a user in the leaderboard, a pie chart is displayed to illustrate the distribution of points across domains. Hence you can discover what are their sweet spot domains and learn from their behaviors.
+
 
 
 .. _HowCanIEarnPoints:
