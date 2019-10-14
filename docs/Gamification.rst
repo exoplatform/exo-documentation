@@ -99,7 +99,7 @@ Leaderboards display a snapshot of users with most points. You always see your o
 
 The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and is filtered by selected domain.
 
-In the Leaderboard, the top 10 users with higher scores over the period are with their full name, profile picture and point scores.
+In the Leaderboard, the top 10 users with the highest scores over the period are displayed with their full name, profile picture and score (points gathered).
 
 Your rank is displayed just below the top 10, if you are not in it. 
 
