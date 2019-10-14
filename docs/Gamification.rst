@@ -22,7 +22,7 @@ When employees are engaged, they participate more on your platform by posting, c
 Domains
 =======================
 
-Domains are the categorization of all behaviors of the platform users. 
+Domains are used to categorize all behaviors of the platform users. 
 Each domain contains rules and badges related to a different context and usage of specific applications.
 
 The following are the default domains that come with eXo Platform: 
