@@ -23,7 +23,7 @@ Domains
 =======================
 
 Domains are the categorization of all behaviors of the platform users. 
-Each domain represents a different context and specific applications to organize all rules and badges.
+Each domain contains rules and badges related to a different context and usage of specific applications.
 
 The following are the default domains that come with eXo Platform: 
 
