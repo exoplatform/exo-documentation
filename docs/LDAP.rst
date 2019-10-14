@@ -603,7 +603,7 @@ By default, user data are synced with the LDAP when the user signs in. This can 
     # on external store (Default: true)
     exo.idm.externalStore.update.onlogin=true
 
-The user data import tasks are made asynchronously, thus a queue is used to process those tasks and a maximum number of synchronization operation retries can be configured by changing the following property:
+The user data sync tasks (one per user) are executed asynchronously via a queue. If a sync task fails, it can be retried. The maximum number of sync retries before the task is abandoned in error can be configured by changing the following property:
 
 .. code-block:: jproperties
 
