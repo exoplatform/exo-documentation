@@ -34,23 +34,23 @@ Edit Online button
 ~~~~~~~~~~~~~~~~~~~~
 		
 Having satisfied the above conditons and installed the add-on, you can easily edit your Microsoft Office documents online.
-Just hit the ``edit Online`` button |image1|.
+Just hit the ``Edit Online`` button |image1|.
 
-The ``edit Online`` button is available in these locations:
+The ``Edit Online`` button is available in these locations:
 
 -  In the activity stream among the possible actions available on the document
 
    |image2|
    
--  In the document's preview interface
+-  In the document preview interface
 
    |image3|
 
--  In the ``Documents`` application, in the actions bar
+-  In the ``Documents`` application, in the action bar
 
    |image4|
    
-Clicking on that button opens the document in an another browser tab allowing you to make your changes.
+Clicking on this button loads the dcument in the corresponding OnlyOffice editor in new tab for maximum comfort.
 
 
 .. _EditorInterface:
@@ -61,14 +61,14 @@ Editor Interface
 Clicking on |image5| button opens the document you want to edit in an another tab.
 The interface contains:
 
--  The document opened in OnlyOfficeeditor
+-  The content of the document loaded in the OnlyOffice editor
 -  A top bar containing these details:
 
-   -  the document's breadcrumb: to inform about the document's location in the platform
-   -  message about the last edit: Last edited by $editor's full name date hh:mm "summary"
-   -  text area for the summary: allowing you to input a summary of your changes
-   -  force save button: to save your changes with the added summary
-   -  close icon: to close the editor tab
+   -  a breadcrumb: to inform about the location of the document in the platform
+   -  an information about latesy edit done on the document: Last edited by $editor's full name date hh:mm "summary"
+   -  a text field for the summary: allowing you to input a summary of your changes
+   -  a ``force save`` button: to save your changes in a new version and post the summary in activity stream and version history
+   -  a close icon: to close the editor tab. All changes are savec when you close a tab
 
 
 |image6|
