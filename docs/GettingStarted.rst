@@ -1379,7 +1379,7 @@ The page displays the list of "All News".
 
 |image188|
 
-For each article you will see the title, the illustrative image if inserted, the begining of the news content or the summary, the creation user and its avatar, the publication date and the information about the origin space.
+For each article you can see the title, the illustrative image if inserted, the beginning of the news content or the summary, the creation user and its avatar, the publication date and the information about the origin space.
 
 
 		
