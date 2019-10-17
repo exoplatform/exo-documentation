@@ -4630,7 +4630,7 @@ To access to this interface, click on "Administration" menu from the top navigat
 
 |image333|
 
-You can set the number of the allocated kudos for users to use per period of time (week, month, quarter or year). 
+You can define how many kudos users can send  per period of time (week, month, quarter or year). 
 You can also restrict the use of Kudos to the members of a single space. They will be allowed to send and recieve Kudos even from other space's activities. In this case, both sender and reciever must be in the specified space.
 
 |image334|
