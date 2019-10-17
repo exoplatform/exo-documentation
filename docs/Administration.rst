@@ -64,6 +64,9 @@ Administering eXo Platform
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
+	-  :ref:`Managing kudos <ManagingKudos>`
+       How to manage the use of kudos by users.
+	   
     -  :ref:`Managing gamification <ManagingGamification>`
        How to manage domains, rules and badges, and introduction
        to management and monitoring gamification in eXo Platform.
@@ -4616,6 +4619,31 @@ The wallet does not contain enough ether to make transactions:  For these wallet
 .. note:: No action except "Refresh" is allowed for "admin" wallet.
 
 
+.. _ManagingKudos:
+
+===============
+Managing Kudos
+===============
+
+You can manage the use of kudos in the platform from "Kudos settings" page. 
+To access to this interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Kudos" from the drop-down menu.
+
+|image333|
+
+You can set the number of the allocated kudos for users to use per period of time (week, month, quarter or year). 
+You can also restrict the use of Kudos to the members of a single space. They will be allowed to send and recieve Kudos even from other space's activities. In this case, both sender and reciever must be in the specified space.
+
+|image334|
+
+You can access to the list of the sent kudos from the tab "Kudos List" of the same interface. The information of the sender and reciever are available.
+
+|image336|
+
+
+You can filter per period type and select the period in which you want to see all sent (and recieved) kudos.
+
+|image335|
+
 
 
 .. _ManagingGamification:
@@ -5399,3 +5427,8 @@ The following image shows the screen when an anonymous user accesses
 .. |image330| image:: images/walletadmin/new_wallet.png
 .. |image331| image:: images/walletadmin/common_actions.png
 .. |image332| image:: images/walletadmin/initialize_reject.png
+.. |image333| image:: images/managekudos/manage_kudos.png
+.. |image334| image:: images/managekudos/select_space.png
+.. |image335| image:: images/managekudos/filter_kudos.png
+.. |image336| image:: images/managekudos/
+

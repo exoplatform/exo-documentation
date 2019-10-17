@@ -1,0 +1,86 @@
+.. _ManagingKudos:
+
+===============
+Managing Kudos
+===============
+
+You can manage the use of kudos in the platform from "Kudos settings" page. 
+To access to this interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Kudos" from the drop-down menu.
+
+|image|
+
+You can set the number of the allocated kudos for users to use per period of time (week, month, quarter or year). 
+You can also restrict the use of Kudos to the members of a single space. They will be allowed to send and recieve Kudos even from other space's activities. In this case, both sender and reciever must be in the specified space.
+
+|image|
+
+You can access to the list of the sent kudos from the tab "Kudos List" of the same interface. The information of the sender and reciever are available.
+
+|image|
+
+
+You can filter per period type and select the period in which you want to see all sent (and recieved) kudos.
+
+|image|
+
+
+
+.. _ManagingRewards:
+
+================
+Managing Rewards
+================
+
+You can manage the rewards sending from "Reward administration" page. 
+To access to this interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Reward" from the drop-down menu.
+The first thing to do is to setup how rewards will be calculated from the configuration tab. 
+Then, from "Pools" tab you can create pools and assign users to them according to their domains. 
+Since the use of the platform may not be the same from one team to another, and in order to ensure a fair distribution of rewards, you can divide users by pools according to their teams. 
+This will put the members of the same team in competition together but not with all the users of the platform.
+Finally, when everything is setup correctly in both configuration and pools tabs, you can send rewards from the first tab.
+
+
+Configuration
+~~~~~~~~~~~~~
+
+Configuration is the third tab of Reward interface. 
+This tab allows you to manage the reward's sending, the periodicity and how rewards will be calculated for users at the end of each period.
+
+|image|
+
+You have to choose the periodicity of sending rewards. The possible values are : week, month, quarter, semester or year.
+The interface is divided into two blocs : a bloc to setup the rewards for recieved kudos and a bloc to setup the rewards for gamification points.
+For each bloc you will have to specify if there is a minimal threshold to reward users. The default value is "0", which means that the users are rewarded automatically if they recieve kudos or earn any gamification points.
+
+You have to select the checkbox "Use pools" if you want to use the pools in the rewards calculation and this for kudos and gamification.
+
+You have three choices to set the reward budget for each both blocs :
+
+- **By a fixed budget:** This option allows you to set a total amount of token for all users rewards. This amount will be divided between the different users. The calculation will be done according to the chosen mode (use or not of pools). 
+- **By a fixed budget per eligible member:** This option alows you to fix a budget to be divided between the eligible members.  The calculation will be done according to the chosen mode (use or not of pools).
+- **By a fixed budget per point:** This option alows you to fix a budget per point (for each recieved kudos or earned gamification points).
+
+Finally you have to save the changes using the appropriate button. You can edit this tab if you want to update the configuration using the edit button.
+
+
+Pools
+~~~~~
+
+
+
+
+
+Send Rewards
+~~~~~~~~~~~~~
+
+Once everything is setup correctly, you can send the rewards from the appropriate tab. The button "Send rewards" is disabled when the current period is selected.
+
+
+
+
+
+.. |image332| image:: images/walletadmin/configuration_reward.png
+
+
+
+
