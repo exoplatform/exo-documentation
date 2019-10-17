@@ -4626,7 +4626,7 @@ Managing Kudos
 ===============
 
 You can manage the use of kudos in the platform from "Kudos settings" page. 
-To access to this interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Kudos" from the drop-down menu.
+To access to this interface, click on "Administration" menu from the top navigation, then "Reward" > "Kudos" from the drop-down menu.
 
 |image333|
 
