@@ -1289,6 +1289,51 @@ You may display the home page to verify that the news is available in the approp
 |image172|
 
 
+Unpinning a News in the home page
+----------------------------------
+
+As a platform-wide publisher (publisher:/platform/users role required), you are allowed to unpin any pinned article from the home page. 
+The option unpin allows you to undo the pin action for an article and remove it from the home page block.
+
+As for pin, the unpin function is available at three locations described below:
+
+
+1- Unpinning a News from edit form : 
+
+To unpin an article from the edit form, you have to display the article's details then click on edit icon.
+The edit form is displayed, you only have to untick the checkbox "Pin article"
+
+|image186|
+
+A confirmation message appears.
+
+|image183|
+
+After confirmation, the article is no longer available in the home page's News block. 
+
+
+2- Unpinning a News from the activity stream : the "unpin article" function is also available from the three-dots menu of the article’s activity.
+
+|image182|
+
+When you choose this option, a confirmation popup appears:
+
+|image183|
+
+After confirmation, a success message appears:
+
+|image184|
+
+
+*3- Unpinning a News from News details : To unpin a News from details, you only need to click on the available unpin icon.
+
+|image185|
+
+The action is successfully done after confirming it as for the two options above. 
+
+You may display the home page to verify that the article is no longer available in the News block.
+
+
 Drafts management
 -----------------
 
@@ -1321,6 +1366,21 @@ To continue writing in a draft, you have to click on the draft title or the resu
 The content of the related draft will be displayed in the form and you can update the different information and post the article.
 
 |image180|
+
+News application
+-----------------
+
+The News application allows you to display all the articles posted in the spaces that you have access to as well as the pinned to home page articles. 
+To acces to the interface, you have to click on "News" from the left navigation.
+
+|image187|
+
+The page displays the list of "All News". 
+
+|image188|
+
+For each article you will see the title, the illustrative image if inserted, the begining of the news content or the summary, the creation user and its avatar, the publication date and the information about the origin space.
+
 
 		
 .. _Formatting-toolbar:
@@ -2169,4 +2229,11 @@ to display the original timestamp of the comment.
 .. |image179| image:: images/sharenews/confirm_delete.png
 .. |image180| image:: images/sharenews/resume_article.png
 .. |image181| image:: images/sharenews/pin_details.png
+.. |image182| image:: images/sharenews/unpin_activity.png
+.. |image183| image:: images/sharenews/unpin_popup.png
+.. |image184| image:: images/sharenews/unpin_success.png
+.. |image185| image:: images/sharenews/unpin_icon.png
+.. |image186| image:: images/sharenews/unpin_edit.png
+.. |image187| image:: images/sharenews/news_leftnav.png
+.. |image188| image:: images/sharenews/news_app.png
 
