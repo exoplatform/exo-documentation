@@ -4635,7 +4635,7 @@ You can also restrict the use of Kudos to the members of a single space. They wi
 
 |image334|
 
-You can access to the list of the sent kudos from the tab "Kudos List" of the same interface. The information of the sender and reciever are available.
+You can review the list of kudos received and sent from the tab "Kudos List" of the same interface. The information of the sender and receiver are available.
 
 |image336|
 
