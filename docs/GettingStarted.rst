@@ -1249,7 +1249,7 @@ You can check that the action has been done successfully by connecting to the de
 Pinning a News in the home page
 -------------------------------
 
-As a platform-wide publisher (publisher:/platform/users role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
 
 
 1- Pinning a News from creation form : 
@@ -1292,7 +1292,7 @@ You may display the home page to verify that the news is available in the approp
 Unpinning a News from the home page
 ----------------------------------
 
-As a platform-wide publisher (publisher:/platform/users role required), you are allowed to unpin any pinned article from the home page. 
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you are allowed to unpin any pinned article from the home page. 
 The option unpin allows you to undo the pin action for an article and remove it from the home page block.
 
 As for pin, the unpin function is available at three locations described below:
