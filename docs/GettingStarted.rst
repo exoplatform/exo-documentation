@@ -1289,7 +1289,7 @@ You may display the home page to verify that the news is available in the approp
 |image172|
 
 
-Unpinning a News in the home page
+Unpinning a News from the home page
 ----------------------------------
 
 As a platform-wide publisher (publisher:/platform/users role required), you are allowed to unpin any pinned article from the home page. 
