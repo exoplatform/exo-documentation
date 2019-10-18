@@ -1331,7 +1331,7 @@ After confirmation, a success message appears:
 
 The action is successfully done after confirming it as for the two options above. 
 
-You may display the home page to verify that the article is no longer available in the News block.
+You may display the home page to verify that the article is no longer available in the news block.
 
 
 Drafts management
