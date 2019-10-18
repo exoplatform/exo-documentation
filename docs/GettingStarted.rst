@@ -1309,7 +1309,7 @@ A confirmation message appears :
 
 |image183|
 
-After confirmation, the article is no longer available in the home page's News block. 
+After confirmation, the article is no longer available in the home page. 
 
 
 2- Unpinning a News from the activity stream : the "unpin article" function is also available from the three-dots menu of the article’s activity.
