@@ -1371,7 +1371,7 @@ News application
 -----------------
 
 The News application displays all the articles posted in the spaces that you have access to, as well as the articles pinned to home page. 
-This application is accessible through the link "News" in the left navigation.
+This application is accessible through the ``News`` link  in the left navigation.
 
 |image187|
 
