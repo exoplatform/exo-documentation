@@ -1249,7 +1249,7 @@ You can check that the action has been done successfully by connecting to the de
 Pinning a News in the home page
 -------------------------------
 
-As a platform-wide publisher (publisher:/platform/users role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
 
 
 1- Pinning a News from creation form : 
@@ -1289,10 +1289,10 @@ You may display the home page to verify that the news is available in the approp
 |image172|
 
 
-Unpinning a News in the home page
+Unpinning a News from the home page
 ----------------------------------
 
-As a platform-wide publisher (publisher:/platform/users role required), you are allowed to unpin any pinned article from the home page. 
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you are allowed to unpin any pinned article from the home page. 
 The option unpin allows you to undo the pin action for an article and remove it from the home page block.
 
 As for pin, the unpin function is available at three locations described below:
@@ -1301,7 +1301,7 @@ As for pin, the unpin function is available at three locations described below:
 1- Unpinning a News from edit form : 
 
 To unpin an article from the edit form, you have to display the article's details then click on edit icon.
-The edit form is displayed, you only have to untick the checkbox "Pin article"
+Once the edit form is displayed, you only have to untick the checkbox "Pin article" and validate.
 
 |image186|
 
@@ -1325,7 +1325,7 @@ After confirmation, a success message appears:
 |image184|
 
 
-*3- Unpinning a News from News details : To unpin a News from details, you only need to click on the available unpin icon.
+3- Unpinning a News from News details : to unpin a News from details, you need to click on the unpin icon.
 
 |image185|
 
@@ -1370,8 +1370,8 @@ The content of the related draft will be displayed in the form and you can updat
 News application
 -----------------
 
-The News application allows you to display all the articles posted in the spaces that you have access to as well as the pinned to home page articles. 
-To acces to the interface, you have to click on "News" from the left navigation.
+The News application allows you to display all the articles posted in the spaces that you have access to, as well as the articles pinned to home page. 
+This application is accessible through the link "News" in the left navigation.
 
 |image187|
 
@@ -1379,7 +1379,7 @@ The page displays the list of "All News".
 
 |image188|
 
-For each article you will see the title, the illustrative image if inserted, the begining of the news content or the summary, the creation user and its avatar, the publication date and the information about the origin space.
+For each article you can see the title, the illustrative image if inserted, the beginning of the news content or the summary, the creation user and its avatar, the publication date and the information about the origin space.
 
 
 		
