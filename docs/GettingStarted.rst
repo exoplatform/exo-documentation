@@ -1305,7 +1305,7 @@ Once the edit form is displayed, just untick the checkbox "Pin article" and vali
 
 |image186|
 
-A confirmation message appears.
+A confirmation message appears : 
 
 |image183|
 
