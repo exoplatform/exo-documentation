@@ -1325,7 +1325,7 @@ After confirmation, a success message appears:
 |image184|
 
 
-3- Unpinning a News from News details : to unpin a News from details, you need to click on the unpin icon.
+3- Unpinning an article from news details : to unpin a an article from details, just click on the ``unpin`` icon.
 
 |image185|
 
