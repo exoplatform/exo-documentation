@@ -54,7 +54,7 @@ For each bloc you will have to specify if there is a minimal threshold to reward
 
 Select the checkbox "Use pools" if you want to use the pools in the rewards calculation and this for kudos and gamification.
 
-You have three choices to set the reward budget for each both blocs :
+For each case, you have three ways for controlling your rewarding budget :
 
 - **By a fixed budget:** This option allows you to set a total amount of token for all users rewards. This amount will be divided between the different users. The calculation will be done according to the chosen mode (use or not of pools). 
 - **By a fixed budget per eligible member:** This option alows you to fix a budget to be divided between the eligible members.  The calculation will be done according to the chosen mode (use or not of pools).
