@@ -4631,7 +4631,7 @@ To access to this interface, click on "Administration" menu from the top navigat
 |image333|
 
 You can define how many kudos users can send  per period of time (week, month, quarter or year). 
-You can also restrict the use of Kudos to the members of a single space. They will be allowed to send and recieve Kudos even from other space's activities. In this case, both sender and reciever must be in the specified space.
+You can also restrict the use of Kudos to the members of a single space. Here space membership is simply used to indicate a group permission. Authorized users will be able to send and receive kudos from any other space.
 
 |image334|
 
