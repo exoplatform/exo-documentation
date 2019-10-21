@@ -1295,7 +1295,7 @@ Unpinning a News from the home page
 As a platform-wide publisher (publisher:/platform/web-contributors role required), you can unpin any pinned article from the home page. 
 The unpin option lets you undo the pin action for an article by removing it from the home page news block.
 
-As for pin, the unpin function is available at three locations described below:
+As for pin, the unpin function is available from three locations :
 
 
 1- Unpinning a news from edit form : 
