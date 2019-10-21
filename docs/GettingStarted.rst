@@ -1249,7 +1249,7 @@ You can check that the action has been done successfully by connecting to the de
 Pinning a News in the home page
 -------------------------------
 
-As a platform-wide publisher (publisher:/platform/web-contributors role required), you get permissions to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you get permissions to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available from three locations :
 
 
 1- Pinning a News from creation form : 
