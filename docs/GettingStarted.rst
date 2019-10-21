@@ -1249,7 +1249,7 @@ You can check that the action has been done successfully by connecting to the de
 Pinning a News in the home page
 -------------------------------
 
-As a platform-wide publisher (publisher:/platform/users role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you get permissions to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available from three locations :
 
 
 1- Pinning a News from creation form : 
@@ -1289,6 +1289,51 @@ You may display the home page to verify that the news is available in the approp
 |image172|
 
 
+Unpinning a News from the home page
+----------------------------------
+
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you can unpin any pinned article from the home page. 
+The unpin option lets you undo the pin action for an article by removing it from the home page news block.
+
+As for pin, the unpin function is available from three locations :
+
+
+1- Unpinning a news from edit form : 
+
+To unpin an article from the edit form, display the article's details then click on the ``Edit`` icon.
+Once the edit form is displayed, just untick the checkbox "Pin article" and validate.
+
+|image186|
+
+A confirmation message appears : 
+
+|image183|
+
+After confirmation, the article is no longer available on the home page. 
+
+
+2- Unpinning an article from the activity stream : the ``unpin article`` entry is also available from the three-dots menu of the news activity.
+
+|image182|
+
+When you choose this option, a confirmation popup appears:
+
+|image183|
+
+After confirmation, a success message appears:
+
+|image184|
+
+
+3- Unpinning an article from news details : to unpin a an article from details, just click on the ``unpin`` icon.
+
+|image185|
+
+The action is successfully done after confirming it as for the two options above. 
+
+You may display the home page to verify that the article is no longer available in the news block.
+
+
 Drafts management
 -----------------
 
@@ -1321,6 +1366,21 @@ To continue writing in a draft, you have to click on the draft title or the resu
 The content of the related draft will be displayed in the form and you can update the different information and post the article.
 
 |image180|
+
+News application
+-----------------
+
+The News application displays all the articles posted in the spaces that you have access to, as well as the articles pinned on the home page. 
+This application is accessible through the ``News`` link  in the left navigation.
+
+|image187|
+
+The page displays the list of "All News". 
+
+|image188|
+
+For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date and the information about the source (space).
+
 
 		
 .. _Formatting-toolbar:
@@ -2169,4 +2229,11 @@ to display the original timestamp of the comment.
 .. |image179| image:: images/sharenews/confirm_delete.png
 .. |image180| image:: images/sharenews/resume_article.png
 .. |image181| image:: images/sharenews/pin_details.png
+.. |image182| image:: images/sharenews/unpin_activity.png
+.. |image183| image:: images/sharenews/unpin_popup.png
+.. |image184| image:: images/sharenews/unpin_success.png
+.. |image185| image:: images/sharenews/unpin_icon.png
+.. |image186| image:: images/sharenews/unpin_edit.png
+.. |image187| image:: images/sharenews/news_leftnav.png
+.. |image188| image:: images/sharenews/news_app.png
 
