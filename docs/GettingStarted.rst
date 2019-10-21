@@ -1249,7 +1249,7 @@ You can check that the action has been done successfully by connecting to the de
 Pinning a News in the home page
 -------------------------------
 
-As a platform-wide publisher (publisher:/platform/web-contributors role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you get permissions to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
 
 
 1- Pinning a News from creation form : 
@@ -1292,27 +1292,27 @@ You may display the home page to verify that the news is available in the approp
 Unpinning a News from the home page
 ----------------------------------
 
-As a platform-wide publisher (publisher:/platform/web-contributors role required), you are allowed to unpin any pinned article from the home page. 
-The option unpin allows you to undo the pin action for an article and remove it from the home page block.
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you can unpin any pinned article from the home page. 
+The unpin option lets you undo the pin action for an article by removing it from the home page news block.
 
 As for pin, the unpin function is available at three locations described below:
 
 
 1- Unpinning a News from edit form : 
 
-To unpin an article from the edit form, you have to display the article's details then click on edit icon.
-Once the edit form is displayed, you only have to untick the checkbox "Pin article" and validate.
+To unpin an article from the edit form, display the article's details then click on the ``Edit`` icon.
+Once the edit form is displayed, just untick the checkbox "Pin article" and validate.
 
 |image186|
 
-A confirmation message appears.
+A confirmation message appears : 
 
 |image183|
 
-After confirmation, the article is no longer available in the home page's News block. 
+After confirmation, the article is no longer available in the home page. 
 
 
-2- Unpinning a News from the activity stream : the "unpin article" function is also available from the three-dots menu of the article’s activity.
+2- Unpinning an article from the activity stream : the ``unpin article`` entry is also available from the three-dots menu of the news activity.
 
 |image182|
 
@@ -1325,13 +1325,13 @@ After confirmation, a success message appears:
 |image184|
 
 
-3- Unpinning a News from News details : to unpin a News from details, you need to click on the unpin icon.
+3- Unpinning an article from news details : to unpin a an article from details, just click on the ``unpin`` icon.
 
 |image185|
 
 The action is successfully done after confirming it as for the two options above. 
 
-You may display the home page to verify that the article is no longer available in the News block.
+You may display the home page to verify that the article is no longer available in the news block.
 
 
 Drafts management
@@ -1370,8 +1370,8 @@ The content of the related draft will be displayed in the form and you can updat
 News application
 -----------------
 
-The News application allows you to display all the articles posted in the spaces that you have access to, as well as the articles pinned to home page. 
-This application is accessible through the link "News" in the left navigation.
+The News application displays all the articles posted in the spaces that you have access to, as well as the articles pinned to home page. 
+This application is accessible through the ``News`` link  in the left navigation.
 
 |image187|
 
@@ -1379,7 +1379,7 @@ The page displays the list of "All News".
 
 |image188|
 
-For each article you can see the title, the illustrative image if inserted, the beginning of the news content or the summary, the creation user and its avatar, the publication date and the information about the origin space.
+For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date and the information about the source (space).
 
 
 		
