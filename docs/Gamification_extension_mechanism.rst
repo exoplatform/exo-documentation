@@ -5,7 +5,7 @@ Gamification extension mechanism
 ##################################
 
     The Gamification feature provide a simple extension mechanism that can be used to extend the gamification configuration by adding  Rules, Domains and Badges.
-    This mechanism also allow developers to easily add new events without having to make any changes on the Gamification code.
+    This mechanism allows also developers to easily add new events without having to make any changes to the Gamification code.
 
 ==============
 Add new rules
