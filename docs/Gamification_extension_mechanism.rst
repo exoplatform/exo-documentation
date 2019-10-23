@@ -19,7 +19,7 @@ Rule configuration
 -  ``rule-description``: The description of the new rule.
 -  ``rule-score``: The score of the new rule (number of gamification point that will be awarded when the event related to the rule will be executed).
 -  ``rule-zone``: The Domain name.
--  ``rule-enable``: Define is the rule is enabled or not
+-  ``rule-enable``: Define if the rule is enabled or not
 
 .. code:: xml
 
