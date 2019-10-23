@@ -106,7 +106,7 @@ Badge configuration
 -  ``badge-domain``: The domain of the new badge.
 -  ``badge-icon``: The icon of the badge.
 -  ``badge-neededScore``: The needed score that the user should have to get the badge.
--  ``badge-enable``: Define is the rule is enabled or not
+-  ``badge-enable``: Define if the rule is enabled or not
 
 
 
