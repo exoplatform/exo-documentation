@@ -168,7 +168,7 @@ This can be done by adding the following code:
 
 with:
 
--  ``ruleTitle``: The name gamification event.
+-  ``ruleTitle``: The name of the gamification event.
 -  ``senderId``: The userName of the user who excuted the action.
 -  ``receiverId``: The userName of the user who will get the gamification points.
 -  ``object``: Should be a link to the object related to the action executed.
