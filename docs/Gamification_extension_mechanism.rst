@@ -5,7 +5,7 @@ Gamification extension mechanism
 ##################################
 
     The Gamification feature provides a simple extension mechanism that could be used to extend the gamification configuration by adding Rules, Domains and Badges.
-    This mechanism allows also developers to easily add new events without having to make any changes to the Gamification code.
+    This mechanism also lets developers easily add declare new events (to be used in gamification rules when triggered) without having to make any change to the Gamification code.
 
 ==============
 Add new rules
@@ -15,11 +15,11 @@ To add new rules to the gamification configuration a simple external component p
 
 Rule configuration
 ~~~~~~~~~~~~~~~~~~
--  ``rule-title``: The event name of the new rule.
+-  ``rule-title``: The  name of the event associated to the rule.
 -  ``rule-description``: The description of the new rule.
--  ``rule-score``: The score of the new rule (number of gamification points awarded when the event related to the rule is executed).
+-  ``rule-score``: The number of gamification points awarded when the event related to the rule is triggered.
 -  ``rule-zone``: The Domain name.
--  ``rule-enable``: Define if the rule is enabled or not
+-  ``rule-enable``: Define if the rule is enabled or not (true/false)
 
 .. code:: xml
 
@@ -59,7 +59,7 @@ Rule configuration
 Add new domains
 ===============
 
-To add new domain to the gamification configuration a simple external component plugin should be added to your addon configuration, this plugin should define the following information:
+To add a new domain to the gamification configuration, a simple external component plugin should be added to your  configuration. This plugin should define the following information:
 
 Domain configuration
 ~~~~~~~~~~~~~~~~~~~~
@@ -97,7 +97,7 @@ Domain configuration
 Add new badges
 ===============
 
-To add new badge to the gamification configuration a simple external component plugin should be added to your addon configuration, this plugin should define the following information:
+To add new badges to the gamification configuration, a simple external component plugin should be added to your addon configuration. This plugin should define the following information:
 
 Badge configuration
 ~~~~~~~~~~~~~~~~~~~
@@ -105,8 +105,8 @@ Badge configuration
 -  ``badge-description``: The description of the new badge.
 -  ``badge-domain``: The domain of the new badge.
 -  ``badge-icon``: The icon of the badge.
--  ``badge-neededScore``: The needed score that the user should have to get the badge.
--  ``badge-enable``: Define if the rule is enabled or not
+-  ``badge-neededScore``: The score required in the domain to earn this badge.
+-  ``badge-enable``: Define if the badge is enabled or not (true/false)
 
 
 
@@ -152,7 +152,7 @@ Badge configuration
 Add new event
 ===============
 
-To be able to fire events that will increase the number of points on gamification system all you have to do is to broadcast a specific gamification event from your addon code using the eXo ListenerService.
+Gamification uses eXo Event/Listener mechanism to grant points when configured events match a rule. To trigger a rule in the gamification system all you have to do is to broadcast a specific gamification event from your addon code using the eXo ListenerService.
 This can be done by adding the following code:
 
 
