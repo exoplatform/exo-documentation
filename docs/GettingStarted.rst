@@ -1225,6 +1225,7 @@ When an article has been edited, the details view display the updated date and a
 
 |image164|
 
+.. _Sharing a News:
 
 Sharing a News
 ---------------
@@ -1380,9 +1381,9 @@ The page displays the list of "All News".
 |image188|
 
 For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date and the information about the source (space).
+You can also share the displayed articles as explained in the `Sharing a News`_ chapter.
 
-
-		
+	
 .. _Formatting-toolbar:
 
 The formatting toolbar in activity messages and comments
