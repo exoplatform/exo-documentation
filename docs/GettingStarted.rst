@@ -1380,9 +1380,12 @@ The page displays the list of "All News".
 |image188|
 
 For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date and the information about the source (space).
+You can also share the displayed articles. When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the destination space(s). 
+You can also add a optional description which will be displayed in the sharing activity.
 
+|image165|
 
-		
+	
 .. _Formatting-toolbar:
 
 The formatting toolbar in activity messages and comments
