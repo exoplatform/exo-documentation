@@ -104,7 +104,7 @@ Badge configuration
 -  ``badge-title``: The name of the new badge.
 -  ``badge-description``: The description of the new badge.
 -  ``badge-domain``: The domain of the new badge.
--  ``badge-icon``: The icon of the badge.
+-  ``badge-icon``: The icon of the badge (ex: icon_name.png), This icon file should be added under the folder '\resources\medias\images' of your addon jar
 -  ``badge-neededScore``: The score required in the domain to earn this badge.
 -  ``badge-enable``: Define if the badge is enabled or not (true/false)
 
