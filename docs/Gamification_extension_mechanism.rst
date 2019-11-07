@@ -5,13 +5,13 @@ Gamification extension mechanism
 ##################################
 
     The Gamification feature provides a simple extension mechanism that could be used to extend the gamification configuration by adding Rules, Domains and Badges.
-    This mechanism also lets developers easily add declare new events (to be used in gamification rules when triggered) without having to make any change to the Gamification code.
+    This mechanism also lets developers easily declare new events (to be used in gamification rules when triggered) without having to make any change to the Gamification add-on code itself.
 
 ==============
 Add new rules
 ==============
 
-To add new rules to the gamification configuration a simple external component plugin should be added to your addon configuration, this plugin should define the following information:
+To add new rules to the gamification configuration, a simple external component plugin should be added to your addon configuration, this plugin should define the following information :
 
 Rule configuration
 ~~~~~~~~~~~~~~~~~~
@@ -36,7 +36,7 @@ Rule configuration
                 </value-param>
                 <value-param>
                     <name>rule-description</name>
-                    <value>You pushed a code</value>
+                    <value>You pushed some code</value>
                 </value-param>
                 <value-param>
                     <name>rule-score</name>
@@ -65,7 +65,7 @@ Domain configuration
 ~~~~~~~~~~~~~~~~~~~~
 -  ``zone-name``: The name of the new domain.
 -  ``zone-description``: The description of the new domain.
--  ``zone-priority``: The domain priority.
+-  ``zone-priority``: The domain priority (reserved for future use)
 
 
 .. code:: xml
@@ -104,7 +104,7 @@ Badge configuration
 -  ``badge-title``: The name of the new badge.
 -  ``badge-description``: The description of the new badge.
 -  ``badge-domain``: The domain of the new badge.
--  ``badge-icon``: The icon of the badge (ex: icon_name.png), This icon file should be added under the folder '\resources\medias\images' of your addon jar
+-  ``badge-icon``: The icon of the badge (ex: icon_name.png), This icon file should be added under the folder '\resources\medias\images' of your addon’s jar.
 -  ``badge-neededScore``: The score required in the domain to earn this badge.
 -  ``badge-enable``: Define if the badge is enabled or not (true/false)
 
