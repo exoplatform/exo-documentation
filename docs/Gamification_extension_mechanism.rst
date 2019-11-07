@@ -171,5 +171,5 @@ with:
 -  ``ruleTitle``: The name of the gamification event.
 -  ``senderId``: The userName of the user who excuted the action.
 -  ``receiverId``: The userName of the user who will get the gamification points.
--  ``object``: Should be a link to the object related to the action executed.
+-  ``object``: Should be a link to the object related to the action executed, for example in the case of adding a new activity rule the object is the link to the new activity.
 
