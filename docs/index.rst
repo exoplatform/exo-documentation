@@ -90,6 +90,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    SpaceTemplates
    API
    Cookbook
+   Gamification_extension_mechanism
    
 .. _addons-docs:
 
