@@ -1159,7 +1159,7 @@ Posting a news in the activity stream
 It is possible to write an article directly from a space composer. This feature is intended to improve and simplify the way information is shared. Users can contribute content intuitively without any former training to the content management system. News offers an inclusive and collaborative way to manage communication.
 Publishing a news lets you easily write, broadcast  and share communication content into other spaces. You can also make it visible to all platform users by pinning articles on the home page.
 
-To post an article, click "write an article" located at the buttom of the space's composer. 
+To post a news article, click "write an article" located at the bottom of the space's composer. 
 
 |image156|
 
