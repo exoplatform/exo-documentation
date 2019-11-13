@@ -116,7 +116,7 @@ Setting up eXo Platform cluster
          It is possible to modify it through
          :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
 
-	.. tip:: Choosing file system or RDBMS storage depens on your needs and your system environment.(See more details in :ref:`Comparing file system and RDBMS storage <Database.FileStorage>`.
+	.. tip:: Choosing file system or RDBMS storage depends on your needs and your system environment.(See more details in :ref:`Comparing file system and RDBMS storage <Database.FileStorage>`.
 
       -  **JCR indexes**: Stored under *a local file system folder in each
          cluster node*. More details :ref:`here <Clustering.JCRIndexing>`.
@@ -125,7 +125,7 @@ Setting up eXo Platform cluster
          recommended mode for clustering. In fact read and write operations
          take less time in local mode than in shared mode.
 
-   -  *Other systems*: Such as MongoDB if :ref:`eXo Chat addon <ChatInstallation>`
+   -  *Other systems*: Such as MongoDB if :Add 'ref' to dictionary:`eXo Chat Add 'Add 'addon' to dictionary' to dictionary <ChatInstallation>`
       is installed.
  
 6. Configure ``exo.cluster.node.name`` property. Use a different name 
@@ -412,8 +412,8 @@ properties in ``exo.properties``:
     exo.jcr.cluster.jgroups.tcp.bind_addr=192.168.1.100
     exo.jcr.cluster.jgroups.tcpping.initial_hosts=192.168.1.100[7800],192.168.1.101[7800]
 
-    exo.idm.cluster.jgroups.tcp.bind_addr=192.168.1.100
-    exo.idm.cluster.jgroups.tcpping.initial_hosts=192.168.1.100[7900],192.168.1.101[7900]
+    exo.service.cluster.jgroups.tcp.bind_addr=192.168.1.100
+    exo.service.cluster.jgroups.tcpping.initial_hosts=192.168.1.100[7900],192.168.1.101[7900]
 
 
 .. _Clustering.JGroups:
@@ -422,7 +422,7 @@ properties in ``exo.properties``:
 Configuring JGroups via exo.properties
 ======================================
 
-JGroups configuration is externalized for both JCR and IDM. In this
+JGroups configuration can be externalized for both JCR and Service. In this
 section you find a list of default values and externalized variables
 that you can configure via ``exo.properties``. See :ref:`Configuration overview <Configuration.ConfigurationOverview>`
 for the ``exo.properties`` file.
@@ -460,22 +460,17 @@ UDP configuration for JCR
 +-----------------------+--------------+---------------------------------------+
 | tos                   | 8            | exo.jcr.cluster.jgroups.udp.tos       |
 +-----------------------+--------------+---------------------------------------+
-| ucast\_recv\_buf\_siz | 20000000     | exo.jcr.cluster.jgroups.udp.ucast\_re |
+| ucast\_recv\_buf\_siz | 20M          | exo.jcr.cluster.jgroups.udp.ucast\_re |
 | e                     |              | cv\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| ucast\_send\_buf\_siz | 640000       | exo.jcr.cluster.jgroups.udp.ucast\_se |
+| ucast\_send\_buf\_siz | 640K         | exo.jcr.cluster.jgroups.udp.ucast\_se |
 | e                     |              | nd\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| mcast\_recv\_buf\_siz | 25000000     | exo.jcr.cluster.jgroups.udp.mcast\_re |
+| mcast\_recv\_buf\_siz | 25M          | exo.jcr.cluster.jgroups.udp.mcast\_re |
 | e                     |              | cv\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| mcast\_send\_buf\_siz | 640000       | exo.jcr.cluster.jgroups.udp.mcast\_se |
+| mcast\_send\_buf\_siz | 640K         | exo.jcr.cluster.jgroups.udp.mcast\_se |
 | e                     |              | nd\_buf\_size                         |
-+-----------------------+--------------+---------------------------------------+
-| loopback              | false        | exo.jcr.cluster.jgroups.udp.loopback  |
-+-----------------------+--------------+---------------------------------------+
-| discard\_incompatible | true         | exo.jcr.cluster.jgroups.udp.discard\_ |
-| \_packets             |              | incompatible\_packets                 |
 +-----------------------+--------------+---------------------------------------+
 | max\_bundle\_size     | 64000        | exo.jcr.cluster.jgroups.udp.max\_bund |
 |                       |              | le\_size                              |
@@ -483,13 +478,7 @@ UDP configuration for JCR
 | max\_bundle\_timeout  | 30           | exo.jcr.cluster.jgroups.udp.max\_bund |
 |                       |              | le\_timeout                           |
 +-----------------------+--------------+---------------------------------------+
-| use\_incoming\_packet | true         | exo.jcr.cluster.jgroups.udp.use\_inco |
-| \_handler             |              | ming\_packet\_handler                 |
-+-----------------------+--------------+---------------------------------------+
 | ip\_ttl               | 2            | exo.jcr.cluster.jgroups.udp.ip\_ttl   |
-+-----------------------+--------------+---------------------------------------+
-| enable\_bundling      | false        | exo.jcr.cluster.jgroups.udp.enable\_b |
-|                       |              | undling                               |
 +-----------------------+--------------+---------------------------------------+
 | enable\_diagnostics   | true         | exo.jcr.cluster.jgroups.udp.enable\_d |
 |                       |              | iagnostics                            |
@@ -842,10 +831,10 @@ See how to activate TCP default configuration in :ref:`Activating TCP default co
 |                       |              | ize                                   |
 +-----------------------+--------------+---------------------------------------+
 
-.. _Clustering.JGroups.IDM.UDP:
+.. _Clustering.JGroups.SERVICE.UDP:
 
-UDP configuration for IDM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+UDP configuration for Service layer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------+--------------+---------------------------------------+
 | JGroups name          | Default      | eXo variable                          |
@@ -853,210 +842,202 @@ UDP configuration for IDM
 +=======================+==============+=======================================+
 | **UDP**               |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| singleton\_name       | idm-transpor | exo.idm.cluster.jgroups.udp.singleton |
-|                       | t-udp        | \_name                                |
+| singleton\_name       | service-tran | exo.service.cluster.jgroups.udp.singleton |
+|                       | sport-udp    | \_name                                |
 +-----------------------+--------------+---------------------------------------+
-| bind\_addr            | 127.0.0.1    | exo.idm.cluster.jgroups.udp.bind\_add |
+| bind\_addr            | 127.0.0.1    | exo.service.cluster.jgroups.udp.bind\_add |
 |                       |              | r                                     |
 +-----------------------+--------------+---------------------------------------+
-| bind\_port            | 26600        | exo.idm.cluster.jgroups.udp.bind\_por |
+| bind\_port            | 26600        | exo.service.cluster.jgroups.udp.bind\_por |
 |                       |              | t                                     |
 +-----------------------+--------------+---------------------------------------+
-| mcast\_addr           | 228.10.10.10 | exo.idm.cluster.jgroups.udp.mcast\_ad |
+| mcast\_addr           | 228.10.10.10 | exo.service.cluster.jgroups.udp.mcast\_ad |
 |                       |              | dr                                    |
 +-----------------------+--------------+---------------------------------------+
-| mcast\_port           | 27600        | exo.idm.cluster.jgroups.udp.mcast\_po |
+| mcast\_port           | 27600        | exo.service.cluster.jgroups.udp.mcast\_po |
 |                       |              | rt                                    |
 +-----------------------+--------------+---------------------------------------+
-| tos                   | 8            | exo.idm.cluster.jgroups.udp.tos       |
+| tos                   | 8            | exo.service.cluster.jgroups.udp.tos       |
 +-----------------------+--------------+---------------------------------------+
-| ucast\_recv\_buf\_siz | 20m          | exo.idm.cluster.jgroups.udp.ucast\_re |
+| ucast\_recv\_buf\_siz | 20m          | exo.service.cluster.jgroups.udp.ucast\_re |
 | e                     |              | cv\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| ucast\_send\_buf\_siz | 640k         | exo.idm.cluster.jgroups.udp.ucast\_se |
+| ucast\_send\_buf\_siz | 640k         | exo.service.cluster.jgroups.udp.ucast\_se |
 | e                     |              | nd\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| mcast\_recv\_buf\_siz | 25m          | exo.idm.cluster.jgroups.udp.mcast\_re |
+| mcast\_recv\_buf\_siz | 25m          | exo.service.cluster.jgroups.udp.mcast\_re |
 | e                     |              | cv\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| mcast\_send\_buf\_siz | 640k         | exo.idm.cluster.jgroups.udp.mcast\_se |
+| mcast\_send\_buf\_siz | 640k         | exo.service.cluster.jgroups.udp.mcast\_se |
 | e                     |              | nd\_buf\_size                         |
 +-----------------------+--------------+---------------------------------------+
-| loopback              | true         | exo.idm.cluster.jgroups.udp.loopback  |
-+-----------------------+--------------+---------------------------------------+
-| discard\_incompatible | true         | exo.idm.cluster.jgroups.udp.discard\_ |
-| \_packets             |              | incompatible\_packets                 |
-+-----------------------+--------------+---------------------------------------+
-| max\_bundle\_size     | 64000        | exo.idm.cluster.jgroups.udp.max\_bund |
+| max\_bundle\_size     | 64000        | exo.service.cluster.jgroups.udp.max\_bund |
 |                       |              | le\_size                              |
 +-----------------------+--------------+---------------------------------------+
-| max\_bundle\_timeout  | 30           | exo.idm.cluster.jgroups.udp.max\_bund |
+| max\_bundle\_timeout  | 30           | exo.service.cluster.jgroups.udp.max\_bund |
 |                       |              | le\_timeout                           |
 +-----------------------+--------------+---------------------------------------+
-| ip\_ttl               | 2            | exo.idm.cluster.jgroups.udp.ip\_ttl   |
+| ip\_ttl               | 2            | exo.service.cluster.jgroups.udp.ip\_ttl   |
 +-----------------------+--------------+---------------------------------------+
-| enable\_bundling      | true         | exo.idm.cluster.jgroups.udp.enable\_b |
-|                       |              | undling                               |
-+-----------------------+--------------+---------------------------------------+
-| enable\_diagnostics   | true         | exo.idm.cluster.jgroups.udp.enable\_d |
+| enable\_diagnostics   | true         | exo.service.cluster.jgroups.udp.enable\_d |
 |                       |              | iagnostics                            |
 +-----------------------+--------------+---------------------------------------+
-| diagnostics\_addr     | 224.0.75.75  | exo.idm.cluster.jgroups.udp.diagnosti |
+| diagnostics\_addr     | 224.0.75.75  | exo.service.cluster.jgroups.udp.diagnosti |
 |                       |              | cs\_addr                              |
 +-----------------------+--------------+---------------------------------------+
-| diagnostics\_port     | 7500         | exo.idm.cluster.jgroups.udp.diagnosti |
+| diagnostics\_port     | 7500         | exo.service.cluster.jgroups.udp.diagnosti |
 |                       |              | cs\_port                              |
 +-----------------------+--------------+---------------------------------------+
-| thread\_naming\_patte | pl           | exo.idm.cluster.jgroups.udp.thread\_n |
+| thread\_naming\_patte | pl           | exo.service.cluster.jgroups.udp.thread\_n |
 | rn                    |              | aming\_pattern                        |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.enabled  | true         | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.enabled  | true         | exo.service.cluster.jgroups.udp.thread\_p |
 |                       |              | ool.enabled                           |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.min\_thr | 20           | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.min\_thr | 20           | exo.service.cluster.jgroups.udp.thread\_p |
 | eads                  |              | ool.min\_threads                      |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.max\_thr | 300          | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.max\_thr | 300          | exo.service.cluster.jgroups.udp.thread\_p |
 | eads                  |              | ool.max\_threads                      |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.keep\_al | 5000         | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.keep\_al | 5000         | exo.service.cluster.jgroups.udp.thread\_p |
 | ive\_time             |              | ool.keep\_alive\_time                 |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.queue\_e | true         | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.queue\_e | true         | exo.service.cluster.jgroups.udp.thread\_p |
 | nabled                |              | ool.queue\_enabled                    |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.queue\_m | 1000         | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.queue\_m | 1000         | exo.service.cluster.jgroups.udp.thread\_p |
 | ax\_size              |              | ool.queue\_max\_size                  |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.rejectio | Discard      | exo.idm.cluster.jgroups.udp.thread\_p |
+| thread\_pool.rejectio | Discard      | exo.service.cluster.jgroups.udp.thread\_p |
 | n\_policy             |              | ool.rejection\_policy                 |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.ena | true         | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.ena | true         | exo.service.cluster.jgroups.udp.oob\_thre |
 | bled                  |              | ad\_pool.enabled                      |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.min | 20           | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.min | 20           | exo.service.cluster.jgroups.udp.oob\_thre |
 | \_threads             |              | ad\_pool.min\_threads                 |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.max | 300          | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.max | 300          | exo.service.cluster.jgroups.udp.oob\_thre |
 | \_threads             |              | ad\_pool.max\_threads                 |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.kee | 1000         | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.kee | 1000         | exo.service.cluster.jgroups.udp.oob\_thre |
 | p\_alive\_time        |              | ad\_pool.keep\_alive\_time            |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.que | false        | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.que | false        | exo.service.cluster.jgroups.udp.oob\_thre |
 | ue\_enabled           |              | ad\_pool.queue\_enabled               |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.que | 100          | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.que | 100          | exo.service.cluster.jgroups.udp.oob\_thre |
 | ue\_max\_size         |              | ad\_pool.queue\_max\_size             |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.rej | Discard      | exo.idm.cluster.jgroups.udp.oob\_thre |
+| oob\_thread\_pool.rej | Discard      | exo.service.cluster.jgroups.udp.oob\_thre |
 | ection\_policy        |              | ad\_pool.rejection\_policy            |
 +-----------------------+--------------+---------------------------------------+
 | **PING**              |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 2000         | exo.idm.cluster.jgroups.ping.timeout  |
+| timeout               | 2000         | exo.service.cluster.jgroups.ping.timeout  |
 +-----------------------+--------------+---------------------------------------+
-| num\_initial\_members | 1            | exo.idm.cluster.jgroups.ping.num\_ini |
+| num\_initial\_members | 1            | exo.service.cluster.jgroups.ping.num\_ini |
 |                       |              | tial\_members                         |
 +-----------------------+--------------+---------------------------------------+
 | **MERGE2**            |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| max\_interval         | 100000       | exo.idm.cluster.jgroups.merge2.max\_i |
+| max\_interval         | 100000       | exo.service.cluster.jgroups.merge2.max\_i |
 |                       |              | nterval                               |
 +-----------------------+--------------+---------------------------------------+
-| min\_interval         | 20000        | exo.idm.cluster.jgroups.merge2.min\_i |
+| min\_interval         | 20000        | exo.service.cluster.jgroups.merge2.min\_i |
 |                       |              | nterval                               |
 +-----------------------+--------------+---------------------------------------+
 | **FD**                |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 6000         | exo.idm.cluster.jgroups.fd.timeout    |
+| timeout               | 6000         | exo.service.cluster.jgroups.fd.timeout    |
 +-----------------------+--------------+---------------------------------------+
-| max\_tries            | 5            | exo.idm.cluster.jgroups.fd.max\_tries |
+| max\_tries            | 5            | exo.service.cluster.jgroups.fd.max\_tries |
 +-----------------------+--------------+---------------------------------------+
 | **VERIFY\_SUSPECT**   |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 1500         | exo.idm.cluster.jgroups.verify\_suspe |
+| timeout               | 1500         | exo.service.cluster.jgroups.verify\_suspe |
 |                       |              | ct.timeout                            |
 +-----------------------+--------------+---------------------------------------+
 | **pbcast.NAKACK**     |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| use\_mcast\_xmit      | true         | exo.idm.cluster.jgroups.pbcast.nakack |
+| use\_mcast\_xmit      | true         | exo.service.cluster.jgroups.pbcast.nakack |
 |                       |              | .use\_mcast\_xmit                     |
 +-----------------------+--------------+---------------------------------------+
-| retransmit\_timeout   | 300,600,1200 | exo.idm.cluster.jgroups.pbcast.nakack |
+| retransmit\_timeout   | 300,600,1200 | exo.service.cluster.jgroups.pbcast.nakack |
 |                       | ,2400,4800   | .retransmit\_timeout                  |
 +-----------------------+--------------+---------------------------------------+
-| discard\_delivered\_m | true         | exo.idm.cluster.jgroups.pbcast.nakack |
+| discard\_delivered\_m | true         | exo.service.cluster.jgroups.pbcast.nakack |
 | sgs                   |              | .discard\_delivered\_msgs             |
 +-----------------------+--------------+---------------------------------------+
 | **UNICAST2**          |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 300,600,1200 | exo.idm.cluster.jgroups.unicast2.time |
+| timeout               | 300,600,1200 | exo.service.cluster.jgroups.unicast2.time |
 |                       | ,2400,3600   | out                                   |
 +-----------------------+--------------+---------------------------------------+
-| stable\_interval      | 5000         | exo.idm.cluster.jgroups.unicast2.stab |
+| stable\_interval      | 5000         | exo.service.cluster.jgroups.unicast2.stab |
 |                       |              | le\_interval                          |
 +-----------------------+--------------+---------------------------------------+
-| max\_bytes            | 1m           | exo.idm.cluster.jgroups.unicast2.max\ |
+| max\_bytes            | 1m           | exo.service.cluster.jgroups.unicast2.max\ |
 |                       |              | _bytes                                |
 +-----------------------+--------------+---------------------------------------+
 | **pbcast.STABLE**     |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| stability\_delay      | 1000         | exo.idm.cluster.jgroups.pbcast.stable |
+| stability\_delay      | 1000         | exo.service.cluster.jgroups.pbcast.stable |
 |                       |              | .stability\_delay                     |
 +-----------------------+--------------+---------------------------------------+
-| desired\_avg\_gossip  | 50000        | exo.idm.cluster.jgroups.pbcast.stable |
+| desired\_avg\_gossip  | 50000        | exo.service.cluster.jgroups.pbcast.stable |
 |                       |              | .desired\_avg\_gossip                 |
 +-----------------------+--------------+---------------------------------------+
-| max\_bytes            | 400000       | exo.idm.cluster.jgroups.pbcast.stable |
+| max\_bytes            | 400000       | exo.service.cluster.jgroups.pbcast.stable |
 |                       |              | .max\_bytes                           |
 +-----------------------+--------------+---------------------------------------+
 | **pbcast.GMS**        |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| print\_local\_addr    | true         | exo.idm.cluster.jgroups.pbcast.gms.pr |
+| print\_local\_addr    | true         | exo.service.cluster.jgroups.pbcast.gms.pr |
 |                       |              | int\_local\_addr                      |
 +-----------------------+--------------+---------------------------------------+
-| join\_timeout         | 3000         | exo.idm.cluster.jgroups.pbcast.gms.jo |
+| join\_timeout         | 3000         | exo.service.cluster.jgroups.pbcast.gms.jo |
 |                       |              | in\_timeout                           |
 +-----------------------+--------------+---------------------------------------+
-| view\_bundling        | true         | exo.idm.cluster.jgroups.pbcast.gms.vi |
+| view\_bundling        | true         | exo.service.cluster.jgroups.pbcast.gms.vi |
 |                       |              | ew\_bundling                          |
 +-----------------------+--------------+---------------------------------------+
-| view\_ack\_collection | 5000         | exo.idm.cluster.jgroups.pbcast.gms.vi |
+| view\_ack\_collection | 5000         | exo.service.cluster.jgroups.pbcast.gms.vi |
 | \_timeout             |              | ew\_ack\_collection\_timeout          |
 +-----------------------+--------------+---------------------------------------+
-| resume\_task\_timeout | 7500         | exo.idm.cluster.jgroups.pbcast.gms.re |
+| resume\_task\_timeout | 7500         | exo.service.cluster.jgroups.pbcast.gms.re |
 |                       |              | sume\_task\_timeout                   |
 +-----------------------+--------------+---------------------------------------+
 | **UFC**               |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| max\_credits          | 2000000      | exo.idm.cluster.jgroups.ufc.max\_cred |
+| max\_credits          | 2000000      | exo.service.cluster.jgroups.ufc.max\_cred |
 |                       |              | its                                   |
 +-----------------------+--------------+---------------------------------------+
-| ignore\_synchronous\_ | true         | exo.idm.cluster.jgroups.ufc.ignore\_s |
+| ignore\_synchronous\_ | true         | exo.service.cluster.jgroups.ufc.ignore\_s |
 | response              |              | ynchronous\_response                  |
 +-----------------------+--------------+---------------------------------------+
 | **MFC**               |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| max\_credits          | 2000000      | exo.idm.cluster.jgroups.mfc.max\_cred |
+| max\_credits          | 2000000      | exo.service.cluster.jgroups.mfc.max\_cred |
 |                       |              | its                                   |
 +-----------------------+--------------+---------------------------------------+
-| ignore\_synchronous\_ | true         | exo.idm.cluster.jgroups.mfc.ignore\_s |
+| ignore\_synchronous\_ | true         | exo.service.cluster.jgroups.mfc.ignore\_s |
 | response              |              | ynchronous\_response                  |
 +-----------------------+--------------+---------------------------------------+
 | **FRAG2**             |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| frag\_size            | 60000        | exo.idm.cluster.jgroups.frag2.frag\_s |
+| frag\_size            | 60000        | exo.service.cluster.jgroups.frag2.frag\_s |
 |                       |              | ize                                   |
 +-----------------------+--------------+---------------------------------------+
 | **RSVP**              |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 60000        | exo.idm.cluster.jgroups.rsvp.timeout  |
+| timeout               | 60000        | exo.service.cluster.jgroups.rsvp.timeout  |
 +-----------------------+--------------+---------------------------------------+
-| resend\_interval      | 500          | exo.idm.cluster.jgroups.rsvp.resend\_ |
+| resend\_interval      | 500          | exo.service.cluster.jgroups.rsvp.resend\_ |
 |                       |              | interval                              |
 +-----------------------+--------------+---------------------------------------+
-| ack\_on\_delivery     | false        | exo.idm.cluster.jgroups.rsvp.ack\_on\ |
+| ack\_on\_delivery     | false        | exo.service.cluster.jgroups.rsvp.ack\_on\ |
 |                       |              | _delivery                             |
 +-----------------------+--------------+---------------------------------------+
 | timeout               | 60000        | exo.jcr.cluster.jgroups.rsvp.timeout  |
@@ -1068,11 +1049,11 @@ UDP configuration for IDM
 |                       |              | _delivery                             |
 +-----------------------+--------------+---------------------------------------+
 
-.. _Clustering.JGroups.IDM.TCP:
+.. _Clustering.JGroups.SERVICE.TCP:
 
 
-TCP configuration for IDM
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TCP configuration for Service layer caches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 See how to activate TCP default configuration in :ref:`Activating TCP default configuration files <Clustering.ActivatingTCP>`.
 
@@ -1082,201 +1063,201 @@ See how to activate TCP default configuration in :ref:`Activating TCP default co
 +=======================+==============+=======================================+
 | **TCP**               |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| singleton\_name       | idm-transpor | exo.idm.cluster.jgroups.tcp.singleton |
+| singleton\_name       | service-transpor | exo.service.cluster.jgroups.tcp.singleton |
 |                       | t-tcp        | \_name                                |
 +-----------------------+--------------+---------------------------------------+
-| bind\_addr            | 127.0.0.1    | exo.idm.cluster.jgroups.tcp.bind\_add |
+| bind\_addr            | 127.0.0.1    | exo.service.cluster.jgroups.tcp.bind\_add |
 |                       |              | r                                     |
 +-----------------------+--------------+---------------------------------------+
-| bind\_port            | 7900         | exo.idm.cluster.jgroups.tcp.bind\_por |
+| bind\_port            | 7900         | exo.service.cluster.jgroups.tcp.bind\_por |
 |                       |              | t                                     |
 +-----------------------+--------------+---------------------------------------+
-| port\_range           | 30           | exo.idm.cluster.jgroups.tcp.port\_ran |
+| port\_range           | 30           | exo.service.cluster.jgroups.tcp.port\_ran |
 |                       |              | ge                                    |
 +-----------------------+--------------+---------------------------------------+
-| loopback              | true         | exo.idm.cluster.jgroups.tcp.loopback  |
+| loopback              | true         | exo.service.cluster.jgroups.tcp.loopback  |
 +-----------------------+--------------+---------------------------------------+
-| recv\_buf\_size       | 20m          | exo.idm.cluster.jgroups.tcp.recv\_buf |
+| recv\_buf\_size       | 20m          | exo.service.cluster.jgroups.tcp.recv\_buf |
 |                       |              | \_size                                |
 +-----------------------+--------------+---------------------------------------+
-| send\_buf\_size       | 640k         | exo.idm.cluster.jgroups.tcp.send\_buf |
+| send\_buf\_size       | 640k         | exo.service.cluster.jgroups.tcp.send\_buf |
 |                       |              | \_size                                |
 +-----------------------+--------------+---------------------------------------+
-| discard\_incompatible | true         | exo.idm.cluster.jgroups.tcp.discard\_ |
+| discard\_incompatible | true         | exo.service.cluster.jgroups.tcp.discard\_ |
 | \_packets             |              | incompatible\_packets                 |
 +-----------------------+--------------+---------------------------------------+
-| max\_bundle\_size     | 64000        | exo.idm.cluster.jgroups.tcp.max\_bund |
+| max\_bundle\_size     | 64000        | exo.service.cluster.jgroups.tcp.max\_bund |
 |                       |              | le\_size                              |
 +-----------------------+--------------+---------------------------------------+
-| max\_bundle\_timeout  | 30           | exo.idm.cluster.jgroups.tcp.max\_bund |
+| max\_bundle\_timeout  | 30           | exo.service.cluster.jgroups.tcp.max\_bund |
 |                       |              | le\_timeout                           |
 +-----------------------+--------------+---------------------------------------+
-| enable\_bundling      | true         | exo.idm.cluster.jgroups.tcp.enable\_b |
+| enable\_bundling      | true         | exo.service.cluster.jgroups.tcp.enable\_b |
 |                       |              | undling                               |
 +-----------------------+--------------+---------------------------------------+
-| use\_send\_queues     | true         | exo.idm.cluster.jgroups.tcp.use\_send |
+| use\_send\_queues     | true         | exo.service.cluster.jgroups.tcp.use\_send |
 |                       |              | \_queues                              |
 +-----------------------+--------------+---------------------------------------+
-| enable\_diagnostics   | false        | exo.idm.cluster.jgroups.tcp.enable\_d |
+| enable\_diagnostics   | false        | exo.service.cluster.jgroups.tcp.enable\_d |
 |                       |              | iagnostics                            |
 +-----------------------+--------------+---------------------------------------+
-| bundler\_type         | old          | exo.idm.cluster.jgroups.tcp.bundler\_ |
+| bundler\_type         | old          | exo.service.cluster.jgroups.tcp.bundler\_ |
 |                       |              | type                                  |
 +-----------------------+--------------+---------------------------------------+
-| thread\_naming\_patte | pl           | exo.idm.cluster.jgroups.tcp.thread\_n |
+| thread\_naming\_patte | pl           | exo.service.cluster.jgroups.tcp.thread\_n |
 | rn                    |              | aming\_pattern                        |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.enabled  | true         | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.enabled  | true         | exo.service.cluster.jgroups.tcp.thread\_p |
 |                       |              | ool.enabled                           |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.min\_thr | 5            | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.min\_thr | 5            | exo.service.cluster.jgroups.tcp.thread\_p |
 | eads                  |              | ool.min\_threads                      |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.max\_thr | 100          | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.max\_thr | 100          | exo.service.cluster.jgroups.tcp.thread\_p |
 | eads                  |              | ool.max\_threads                      |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.keep\_al | 60000        | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.keep\_al | 60000        | exo.service.cluster.jgroups.tcp.thread\_p |
 | ive\_time             |              | ool.keep\_alive\_time                 |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.queue\_e | true         | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.queue\_e | true         | exo.service.cluster.jgroups.tcp.thread\_p |
 | nabled                |              | ool.queue\_enabled                    |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.queue\_m | 100          | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.queue\_m | 100          | exo.service.cluster.jgroups.tcp.thread\_p |
 | ax\_size              |              | ool.queue\_max\_size                  |
 +-----------------------+--------------+---------------------------------------+
-| thread\_pool.rejectio | Discard      | exo.idm.cluster.jgroups.tcp.thread\_p |
+| thread\_pool.rejectio | Discard      | exo.service.cluster.jgroups.tcp.thread\_p |
 | n\_policy             |              | ool.rejection\_policy                 |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.ena | true         | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.ena | true         | exo.service.cluster.jgroups.tcp.oob\_thre |
 | bled                  |              | ad\_pool.enabled                      |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.min | 5            | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.min | 5            | exo.service.cluster.jgroups.tcp.oob\_thre |
 | \_threads             |              | ad\_pool.min\_threads                 |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.max | 100          | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.max | 100          | exo.service.cluster.jgroups.tcp.oob\_thre |
 | \_threads             |              | ad\_pool.max\_threads                 |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.kee | 60000        | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.kee | 60000        | exo.service.cluster.jgroups.tcp.oob\_thre |
 | p\_alive\_time        |              | ad\_pool.keep\_alive\_time            |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.que | false        | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.que | false        | exo.service.cluster.jgroups.tcp.oob\_thre |
 | ue\_enabled           |              | ad\_pool.queue\_enabled               |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.que | 100          | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.que | 100          | exo.service.cluster.jgroups.tcp.oob\_thre |
 | ue\_max\_size         |              | ad\_pool.queue\_max\_size             |
 +-----------------------+--------------+---------------------------------------+
-| oob\_thread\_pool.rej | Discard      | exo.idm.cluster.jgroups.tcp.oob\_thre |
+| oob\_thread\_pool.rej | Discard      | exo.service.cluster.jgroups.tcp.oob\_thre |
 | ection\_policy        |              | ad\_pool.rejection\_policy            |
 +-----------------------+--------------+---------------------------------------+
 | **TCPPING**           |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 3000         | exo.idm.cluster.jgroups.tcpping.timeo |
+| timeout               | 3000         | exo.service.cluster.jgroups.tcpping.timeo |
 |                       |              | ut                                    |
 +-----------------------+--------------+---------------------------------------+
-| initial\_hosts        | localhost[79 | exo.idm.cluster.jgroups.tcpping.initi |
+| initial\_hosts        | localhost[79 | exo.service.cluster.jgroups.tcpping.initi |
 |                       | 00]          | al\_hosts                             |
 +-----------------------+--------------+---------------------------------------+
-| port\_range           | 0            | exo.idm.cluster.jgroups.tcpping.port\ |
+| port\_range           | 0            | exo.service.cluster.jgroups.tcpping.port\ |
 |                       |              | _range                                |
 +-----------------------+--------------+---------------------------------------+
-| num\_initial\_members | 1            | exo.idm.cluster.jgroups.tcpping.num\_ |
+| num\_initial\_members | 1            | exo.service.cluster.jgroups.tcpping.num\_ |
 |                       |              | initial\_members                      |
 +-----------------------+--------------+---------------------------------------+
-| ergonomics            | false        | exo.idm.cluster.jgroups.tcpping.ergon |
+| ergonomics            | false        | exo.service.cluster.jgroups.tcpping.ergon |
 |                       |              | omics                                 |
 +-----------------------+--------------+---------------------------------------+
 | **MERGE2**            |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| max\_interval         | 30000        | exo.idm.cluster.jgroups.merge2.max\_i |
+| max\_interval         | 30000        | exo.service.cluster.jgroups.merge2.max\_i |
 |                       |              | nterval                               |
 +-----------------------+--------------+---------------------------------------+
-| min\_interval         | 10000        | exo.idm.cluster.jgroups.merge2.min\_i |
+| min\_interval         | 10000        | exo.service.cluster.jgroups.merge2.min\_i |
 |                       |              | nterval                               |
 +-----------------------+--------------+---------------------------------------+
 | **FD**                |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 3000         | exo.idm.cluster.jgroups.fd.timeout    |
+| timeout               | 3000         | exo.service.cluster.jgroups.fd.timeout    |
 +-----------------------+--------------+---------------------------------------+
-| max\_tries            | 3            | exo.idm.cluster.jgroups.fd.max\_tries |
+| max\_tries            | 3            | exo.service.cluster.jgroups.fd.max\_tries |
 +-----------------------+--------------+---------------------------------------+
 | **VERIFY\_SUSPECT**   |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 1500         | exo.idm.cluster.jgroups.verify\_suspe |
+| timeout               | 1500         | exo.service.cluster.jgroups.verify\_suspe |
 |                       |              | ct.timeout                            |
 +-----------------------+--------------+---------------------------------------+
 | **pbcast.NAKACK**     |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| use\_mcast\_xmit      | false        | exo.idm.cluster.jgroups.pbcast.nakack |
+| use\_mcast\_xmit      | false        | exo.service.cluster.jgroups.pbcast.nakack |
 |                       |              | .use\_mcast\_xmit                     |
 +-----------------------+--------------+---------------------------------------+
-| retransmit\_timeout   | 300,600,1200 | exo.idm.cluster.jgroups.pbcast.nakack |
+| retransmit\_timeout   | 300,600,1200 | exo.service.cluster.jgroups.pbcast.nakack |
 |                       | ,2400,4800   | .retransmit\_timeout                  |
 +-----------------------+--------------+---------------------------------------+
-| discard\_delivered\_m | false        | exo.idm.cluster.jgroups.pbcast.nakack |
+| discard\_delivered\_m | false        | exo.service.cluster.jgroups.pbcast.nakack |
 | sgs                   |              | .discard\_delivered\_msgs             |
 +-----------------------+--------------+---------------------------------------+
 | **UNICAST2**          |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 300,600,1200 | exo.idm.cluster.jgroups.unicast2.time |
+| timeout               | 300,600,1200 | exo.service.cluster.jgroups.unicast2.time |
 |                       |              | out                                   |
 +-----------------------+--------------+---------------------------------------+
-| stable\_interval      | 5000         | exo.idm.cluster.jgroups.unicast2.stab |
+| stable\_interval      | 5000         | exo.service.cluster.jgroups.unicast2.stab |
 |                       |              | le\_interval                          |
 +-----------------------+--------------+---------------------------------------+
-| max\_bytes            | 1m           | exo.idm.cluster.jgroups.unicast2.max\ |
+| max\_bytes            | 1m           | exo.service.cluster.jgroups.unicast2.max\ |
 |                       |              | _bytes                                |
 +-----------------------+--------------+---------------------------------------+
 | **pbcast.STABLE**     |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| stability\_delay      | 500          | exo.idm.cluster.jgroups.pbcast.stable |
+| stability\_delay      | 500          | exo.service.cluster.jgroups.pbcast.stable |
 |                       |              | .stability\_delay                     |
 +-----------------------+--------------+---------------------------------------+
-| desired\_avg\_gossip  | 5000         | exo.idm.cluster.jgroups.pbcast.stable |
+| desired\_avg\_gossip  | 5000         | exo.service.cluster.jgroups.pbcast.stable |
 |                       |              | .desired\_avg\_gossip                 |
 +-----------------------+--------------+---------------------------------------+
-| max\_bytes            | 1m           | exo.idm.cluster.jgroups.pbcast.stable |
+| max\_bytes            | 1m           | exo.service.cluster.jgroups.pbcast.stable |
 |                       |              | .max\_bytes                           |
 +-----------------------+--------------+---------------------------------------+
 | **pbcast.GMS**        |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| print\_local\_addr    | true         | exo.idm.cluster.jgroups.pbcast.gms.pr |
+| print\_local\_addr    | true         | exo.service.cluster.jgroups.pbcast.gms.pr |
 |                       |              | int\_local\_addr                      |
 +-----------------------+--------------+---------------------------------------+
-| join\_timeout         | 3000         | exo.idm.cluster.jgroups.pbcast.gms.jo |
+| join\_timeout         | 3000         | exo.service.cluster.jgroups.pbcast.gms.jo |
 |                       |              | in\_timeout                           |
 +-----------------------+--------------+---------------------------------------+
-| view\_bundling        | true         | exo.idm.cluster.jgroups.pbcast.gms.vi |
+| view\_bundling        | true         | exo.service.cluster.jgroups.pbcast.gms.vi |
 |                       |              | ew\_bundling                          |
 +-----------------------+--------------+---------------------------------------+
 | **UFC**               |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| max\_credits          | 200k         | exo.idm.cluster.jgroups.ufc.max\_cred |
+| max\_credits          | 200k         | exo.service.cluster.jgroups.ufc.max\_cred |
 |                       |              | its                                   |
 +-----------------------+--------------+---------------------------------------+
-| min\_threshold        | 0.20         | exo.idm.cluster.jgroups.ufc.min\_thre |
+| min\_threshold        | 0.20         | exo.service.cluster.jgroups.ufc.min\_thre |
 |                       |              | shold                                 |
 +-----------------------+--------------+---------------------------------------+
 | **MFC**               |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| max\_credits          | 200k         | exo.idm.cluster.jgroups.mfc.max\_cred |
+| max\_credits          | 200k         | exo.service.cluster.jgroups.mfc.max\_cred |
 |                       |              | its                                   |
 +-----------------------+--------------+---------------------------------------+
-| min\_threshold        | 0.20         | exo.idm.cluster.jgroups.mfc.min\_thre |
+| min\_threshold        | 0.20         | exo.service.cluster.jgroups.mfc.min\_thre |
 |                       |              | shold                                 |
 +-----------------------+--------------+---------------------------------------+
 | **FRAG2**             |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| frag\_size            | 60000        | exo.idm.cluster.jgroups.frag2.frag\_s |
+| frag\_size            | 60000        | exo.service.cluster.jgroups.frag2.frag\_s |
 |                       |              | ize                                   |
 +-----------------------+--------------+---------------------------------------+
 | **RSVP**              |              |                                       |
 +-----------------------+--------------+---------------------------------------+
-| timeout               | 60000        | exo.idm.cluster.jgroups.rsvp.timeout  |
+| timeout               | 60000        | exo.service.cluster.jgroups.rsvp.timeout  |
 +-----------------------+--------------+---------------------------------------+
-| resend\_interval      | 500          | exo.idm.cluster.jgroups.rsvp.resend\_ |
+| resend\_interval      | 500          | exo.service.cluster.jgroups.rsvp.resend\_ |
 |                       |              | interval                              |
 +-----------------------+--------------+---------------------------------------+
-| ack\_on\_delivery     | false        | exo.idm.cluster.jgroups.rsvp.ack\_on\ |
+| ack\_on\_delivery     | false        | exo.service.cluster.jgroups.rsvp.ack\_on\ |
 |                       |              | _delivery                             |
 +-----------------------+--------------+---------------------------------------+
 
@@ -1286,7 +1267,7 @@ See how to activate TCP default configuration in :ref:`Activating TCP default co
 Using customized JGroups xml files
 ==================================
 
-JGroups configuration, for both JCR and IDM, is externalized via
+JGroups configuration, for both JCR and Service layer, is externalized via
 ``exo.properties`` (see :ref:`Configuration overview <Configuration.ConfigurationOverview>` for
 this file). It is recommended you use this file. See :ref:`previous section <Clustering.JGroups>`
 for list of default values and externalized variables.
@@ -1305,7 +1286,7 @@ follow this section to activate your xml files.
 
        exo.jcr.cluster.jgroups.config=${exo.conf.dir}/jgroups/jgroups-jcr.xml
        exo.jcr.cluster.jgroups.config-url=file:${exo.jcr.cluster.jgroups.config}
-       exo.idm.cluster.jgroups.config=${exo.conf.dir}/jgroups/jgroups-idm.xml
+       exo.service.cluster.jgroups.config=${exo.conf.dir}/jgroups/jgroups-service.xml
 
 In which ``exo.conf.dir`` is ``standalone/configuration/gatein`` in
 JBoss and ``gatein/conf`` in Tomcat by default.
@@ -1317,7 +1298,7 @@ absolute path after "file:".
 
     exo.jcr.cluster.jgroups.config=/path/to/your/jgroups-jcr-file
     exo.jcr.cluster.jgroups.config-url=file:/path/to/your/jgroups-jcr-file
-    exo.idm.cluster.jgroups.config=/path/to/your/jgroups-idm-file
+    exo.service.cluster.jgroups.config=/path/to/your/jgroups-service-file
 
 .. _Clustering.LoadBalancing:
 
