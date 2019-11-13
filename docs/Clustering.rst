@@ -125,7 +125,7 @@ Setting up eXo Platform cluster
          recommended mode for clustering. In fact read and write operations
          take less time in local mode than in shared mode.
 
-   -  *Other systems*: Such as MongoDB if :Add 'ref' to dictionary:`eXo Chat Add 'Add 'addon' to dictionary' to dictionary <ChatInstallation>`
+   -  *Other systems*: Such as MongoDB if :ref:`eXo Chat addon <ChatInstallation>`
       is installed.
  
 6. Configure ``exo.cluster.node.name`` property. Use a different name 
