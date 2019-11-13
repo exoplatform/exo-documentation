@@ -1167,7 +1167,7 @@ The creation form is opened in a new tab.
 
 |image159|
 
-Write or paste in your article. Add a title, summary, image, and content as desired, then press the "Post" button in the top-right corner of the screen. 
+Write or paste your article content in. Choose a title, a summary and an illustrative image as desired, then press the "Post" button in the top-right corner of the screen. 
 
 |image160|
 
