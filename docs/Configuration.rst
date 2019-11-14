@@ -6156,7 +6156,7 @@ Blockchain transaction settings
 
     .. code-block:: jproperties
 
-          exo.wallet.transaction.pending.maxDays=3
+          exo.wallet.transaction.pending.maxDays=1
 
 
     .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
@@ -6166,7 +6166,7 @@ Blockchain transaction settings
 
     .. code-block:: jproperties
 
-          exo.wallet.transaction.pending.maxToSend=3
+          exo.wallet.transaction.pending.maxToSend=5
 
 * The number of sending transaction attempts is configured by:
 
