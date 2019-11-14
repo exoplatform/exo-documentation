@@ -1155,32 +1155,27 @@ the link.
 	
 Posting a news in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	
-From a space's acivity stream, you are able to share a news with the space’s members. 
-Publishing a news allows you to easily write, broadcast, pin and share communication content.
 
+It is possible to write an article directly from a space composer. This feature is intended to improve and simplify the way information is shared. Users can contribute content intuitively without any former training to the content management system. News offers an inclusive and collaborative way to manage communication.
+Publishing a news lets you easily write, broadcast  and share communication content into other spaces. You can also make it visible to all platform users by pinning articles on the home page.
 
-Posting a simple news from short form
---------------------------------------
-
-To post an article with other space’s members, click on News tab from the activity composer, the tab contains :
-
-
-- A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write.
-
-- A **Content** field : Allows you to enter the content of the News. No limitation for the number of characters.
-
-- A **Pin article** Check box.
-
-- A **More icon** with a tooltip “more options”: Permits to open the creation full form.
-
-- A **Post** button : Disabled by default until the two fields “Title” and “Content” are filled.
+To post a news article, click "write an article" located at the bottom of the space's composer. 
 
 |image156|
 
-Once all fields are filled, click on the Post button to post the News in the space's activity stream.
+The creation form is opened in a new tab.
 
-The article is shared into the space's activity stream.
+|image159|
+
+Write or paste your article content in. Choose a title, a summary and an illustrative image as desired, then press the "Post" button in the top-right corner of the screen. 
+
+|image160|
+
+Once you post an article, you are automatically redirected to it in read mode. 
+
+|image161|
+
+The article will be posted into the space's activity stream 
 
 |image158|
 
@@ -1188,25 +1183,6 @@ The article is shared into the space's activity stream.
 .. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
 
          
-Posting a news from full form
-------------------------------
-
-The creation of a news since the composer is minimalist. More options are available from the full form. In order to access to this form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
-
-|image159|
-
-The full form allows you in addition to the fields available in the simple form to add a summary to your article. This field is optional and will be displayed in the news preview if filled. If not it is the first three lines of article's content that will be displayed in the news preview. The summary is limited to 1000 characters.
-It is also possible to upload optionally an image as an illustrative vignette of the article from the dedicated area. The image size must not exceed 10 Mo and the supported extensions are ".jpg",".jpeg",".png" and ".gif".
-
-The plus icon of the simple form is replaced by a less icon with a tooltip “return to original post”. This icon allows you to return to the creation simple form without losing the changes made in the full form.
-
-|image160|
-
-As for the simple form, once all fields are filled, click on the Post button to post the News in the space's activity stream.
-The article is shared into the space's activity stream.
-
-|image161|
-
 You can access the content of the article either by clicking on its title or by clicking on "read more".
 The details of the article are available on the current page and display all the information, including the publication date and the author.
 
@@ -1339,18 +1315,13 @@ Drafts management
 -----------------
 
 When you start writing an article, a draft is automatically saved as long as you write or modify the information in the form. 
-The information about the saving status is displayed in the simple and the complete form :
-
-|image173| 
-
-|image174|
-
+The information about the saving status is displayed in the creation form :
 
 |image175| 
 
 |image176|
 
-You can access to your drafts from the complete creation form. 
+You can access to your drafts from the creation form. 
 A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
 
 |image177|
@@ -2204,12 +2175,12 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_news.png
+.. |image156| image:: images/sharenews/composer_space.png
 .. |image157| image:: images/sharenews/post.png
-.. |image158| image:: images/sharenews/shared_news.png
-.. |image159| image:: images/sharenews/More_options.png
-.. |image160| image:: images/sharenews/complete_form.png
-.. |image161| image:: images/sharenews/shared_news_cf.png
+.. |image158| image:: images/sharenews/posted_news.png
+.. |image159| image:: images/sharenews/creation_form.png
+.. |image160| image:: images/sharenews/filled_form.png
+.. |image161| image:: images/sharenews/news_details.png
 .. |image162| image:: images/sharenews/news_details2.png
 .. |image163| image:: images/sharenews/edit_news.png
 .. |image164| image:: images/sharenews/modified_news.png
@@ -2221,8 +2192,6 @@ to display the original timestamp of the comment.
 .. |image170| image:: images/sharenews/pin_activity.png
 .. |image171| image:: images/sharenews/success_pin.png
 .. |image172| image:: images/sharenews/bloc_news.png
-.. |image173| image:: images/sharenews/saving_shortform.png
-.. |image174| image:: images/sharenews/saved_shortform.png
 .. |image175| image:: images/sharenews/saving_draft.png
 .. |image176| image:: images/sharenews/saved_fullform.png
 .. |image177| image:: images/sharenews/draft_button.png
