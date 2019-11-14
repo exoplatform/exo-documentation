@@ -247,7 +247,7 @@ for detailed instructions.
 
 			-  ``exo.jcr.cluster.jgroups.config``
 
-			-  ``exo.idm.cluster.jgroups.config``
+			-  ``exo.service.cluster.jgroups.config``
 
 			-  ``exo.jcr.cache.config``
 
@@ -258,8 +258,6 @@ for detailed instructions.
 			-  ``exo.jcr.index.cache.config``
 
 			-  ``exo.cache.config.template``
-
-			-  ``exo.idm.api.store.config``
 
 .. _Configuration.eXoConfiguration:
 
@@ -874,14 +872,14 @@ Clustering
 | <Clustering.JGroups.JCR.UDP>`| for JCR using    |                             |
 |                              | UDP.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| JGroups          |                             |
+| :ref:`exo.service.cluster.jgroups| JGroups          |                             |
 | .tcp\*                       | configuration    |                             |
-| <Clustering.JGroups.IDM.TCP>`| for IDM using    |                             |
+| <Clustering.JGroups.SERVICE.TCP>`| for Service layer caches clustering using    |                             |
 |                              | TCP.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| JGroups          |                             |
+| :ref:`exo.service.cluster.jgroups| JGroups          |                             |
 | .udp.\*                      | configuration    |                             |
-| <Clustering.JGroups.IDM.TCP>`| for IDM using    |                             |
+| <Clustering.JGroups.SERVICE.UDP>`| for Service layer caches clustering using    |                             |
 |                              | UDP.             |                             |
 +------------------------------+------------------+-----------------------------+
 | :ref:`exo.jcr.cluster.jgroups| Path to your     |                             |
@@ -898,12 +896,12 @@ Clustering
 |                              | file, applied to |                             |
 |                              | JCR.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| Path to your     |                             |
+| :ref:`exo.service.cluster.jgroups| Path to your     |                             |
 | .config                      | customized       |                             |
 | <Clustering.JGroupsXml>`     | JGroups          |                             |
 |                              | configuration    |                             |
 |                              | file, applied to |                             |
-|                              | IDM.             |                             |
+|                              | Service layer caches.             |                             |
 +------------------------------+------------------+-----------------------------+                           
 
 .. _QuartzSchedulerProperties:
