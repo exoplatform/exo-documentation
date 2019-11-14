@@ -1267,7 +1267,7 @@ See how to activate TCP default configuration in :ref:`Activating TCP default co
 Using customized JGroups xml files
 ==================================
 
-JGroups configuration, for both JCR and Service layer, is externalized via
+JGroups configuration, for both JCR and Service layers, is externalized via
 ``exo.properties`` (see :ref:`Configuration overview <Configuration.ConfigurationOverview>` for
 this file). It is recommended you use this file. See :ref:`previous section <Clustering.JGroups>`
 for list of default values and externalized variables.
