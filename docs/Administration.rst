@@ -67,6 +67,9 @@ Administering eXo Platform
 	-  :ref:`Managing kudos <ManagingKudos>`
        How to manage the use of kudos by users.
 	   
+	-  :ref:`Managing rewards <ManagingRewards>`
+       How to manage the use of kudos by users.
+	   
     -  :ref:`Managing gamification <ManagingGamification>`
        How to manage domains, rules and badges, and introduction
        to management and monitoring gamification in eXo Platform.
@@ -4639,12 +4642,127 @@ You can review the list of kudos received and sent from the tab "Kudos List" of 
 
 |image336|
 
-
 You can filter per period type and select the period in which you want to see all sent (and recieved) kudos.
 
 |image335|
 
 
+
+.. _ManagingRewards:
+
+================
+Managing Rewards
+================
+
+You can manage the rewards sending from "Reward administration" page. 
+To access to this interface, click on "Administration" menu from the top navigation, then "Reward" > "Reward" from the drop-down menu.
+The first thing to do is to setup how rewards will be calculated from the configuration tab. 
+Then, from "Pools" tab you can create pools and assign users to them according to their domains. 
+Since the use of the platform may not be the same from one team to another, and in order to ensure a fair distribution of rewards, you can divide users by pools according to their teams. 
+This will put the members of the same team in competition together but not with all the users of the platform.
+Finally, when everything is setup correctly in both configuration and pools tabs, you can send rewards from the first tab.
+
+
+Configuration
+~~~~~~~~~~~~~
+
+Configuration is the third tab of Reward interface. 
+This tab lets you manage the rewards sending, the periodicity and how rewards will be calculated for users at the end of each period.
+
+|image337|
+
+Choose the periodicity for sending rewards. The possible values are : week, month, quarter, semester or year.
+The interface is divided into two blocks : a block to setup the rewards for kudos and a block to setup the rewards for gamification points.
+For each bloc you can specify a minimal threshold to reward users. The default value is "0", which means that the users are rewarded automatically if they receive kudos or earn any gamification points.
+
+Select the checkbox "Use pools" if you want to use the pools in the rewards calculation and this for kudos and gamification.
+
+For each case, you have three ways for controlling your rewarding budget :
+
+- **By a fixed budget:** This option allows you to set a total amount of tokens for all users rewards. This amount will be divided between the different users. The calculation will be done according to the chosen mode (use pools or not). 
+- **By a fixed budget per eligible member:** This mode lets you set a dynamic budget sized according to the number of active (eligible) users.  The calculation will be done according to the chosen mode (use of pools or not).
+- **By a fixed budget per point:** This mode lets you define a budget per so-called "point" (for each kudos or gamification received).
+
+Finally you have to save the changes using the appropriate button. You can edit this tab if you want to update the configuration using the edit button.
+
+
+Pools
+~~~~~
+
+Pools is the second tab of Reward interface. 
+As described above, this tab permits you to create pools and affect users to these pools according to their teams, roles or any other criteria you choose in order to ensure a fair distribution of rewards. 
+When no user have created a wallet yet you will have this interface.
+
+|image338|
+
+When users create their wallets, you will have a default pool containing the users that don't belong to a pool yet.
+
+|image340|
+
+To create a pool, click on the '+' button. You only need to enter the pool's name to be able to create it. 
+
+|image339|
+
+You can also optionally  add a descripton, choose a space in order to add all its members to the pool and/or select a pool manager.
+
+There is three ways to calculate rewards for each pool members:
+
+- **By computing pool reward from total budget: ** When you choose this option the reward is calculated based on total reward budget.
+- **By a total fixed budget: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made for all pools members even those who aren't eligible for the concerned period.
+- **By a fixed budget per eligible member: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made only for eligible members.
+
+Finally you will have to add the appropriate users to each pool and save the action.
+
+It is possible to enable or disable a pool using the available option from the pool's card. If a pool is disabled at the moment of sending rewards, its members will not recieve tokens.
+
+|image341|
+
+|image342|
+
+
+Send Rewards
+~~~~~~~~~~~~~
+
+Once everything is setup correctly, you can send the rewards from the first tab of reward interface.
+
+|image343|
+
+Reward sending is allowed once the selected period of reward is passed. we can not send rewards before the end of the period conforming to the periodicity set in the configuration tab.
+The button "Send rewards" is disabled when the current period is selected.
+
+|image344|
+
+From this interface, you have the following information:
+
+- **Eligible users:** Displays the number of eligible users for the selected period.
+- **Total budget:** Displays the total budget that will be distributed for the selected period.
+- **Sent Cauri:** Displays the amount of token sent if the transaction has been proceeded.
+- **Reserve fund:** Displays the amount of token in the reserve.
+- **Total kudos:** Displays the total number of sent and recieved kudos during the selected period.
+- **Total gamification:** Displays the total number of gamification points earned during the selected period.
+
+You have the possibility to search for a user by his name, pool or wallet address. 
+
+|image347|
+
+You can also display the disabled users using the appropriate radio button. 
+
+|image346|
+
+The available information for each user are the following:
+
+- Fisrt and last name
+- Actual pool
+- Transaction
+- Status
+- Amount of reward
+- Information icon
+
+When you click on the information icon you see the reward details of the associated user.
+
+|image345|
+
+To send rewards, you must select the reward period then click on the "send reward" button.
 
 .. _ManagingGamification:
 
@@ -5430,5 +5548,17 @@ The following image shows the screen when an anonymous user accesses
 .. |image333| image:: images/managekudos/manage_kudos.png
 .. |image334| image:: images/managekudos/select_space.png
 .. |image335| image:: images/managekudos/filter_kudos.png
-.. |image336| image:: images/managekudos/
+.. |image336| image:: images/managekudos/kudos_list.png
+.. |image337| image:: images/managerewards/reward_configuration.png
+.. |image338| image:: images/managerewards/pool_no_user.png
+.. |image339| image:: images/managerewards/create_pool.png
+.. |image340| image:: images/managerewards/pools_tab.png
+.. |image341| image:: images/managerewards/enabled_pool.png
+.. |image342| image:: images/managerewards/disabled_pool.png
+.. |image343| image:: images/managerewards/send_rewards.png
+.. |image344| image:: images/managerewards/send_rewards_button.png
+.. |image345| image:: images/managerewards/reward_details.png
+.. |image346| image:: images/managerewards/display_disabled_users.png
+.. |image347| image:: images/managerewards/search_bar.png
+
 
