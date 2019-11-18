@@ -4679,7 +4679,7 @@ Select the checkbox "Use pools" if you want to use the pools in the rewards calc
 
 To control the rewards budget, pick one of the 3 policies:
 
-- **By a fixed budget:** This option allows you to set a total amount of tokens for all users rewards. This amount will be divided between the different users. The calculation will be done according to the chosen mode (use pools or not). 
+- **By a fixed budget:** Set a fixed total amount of tokens to spend in rewards. This amount of tokens will be spread between the different users in proportion of their points compared to others. If pools are used, the tokens received by each user are calculated relatively to other members of the pool rather than all users. 
 - **By a fixed budget per eligible member:** This mode lets you set a dynamic budget sized according to the number of active (eligible) users.  The calculation will be done according to the chosen mode (use of pools or not).
 - **By a fixed budget per point:** This mode lets you define a budget per so-called "point" (for each kudos or gamification received).
 
