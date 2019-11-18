@@ -4735,7 +4735,7 @@ The button "Send rewards" is disabled when the current period is selected.
 From this interface, you have the following information:
 
 - **Eligible users:** Displays the number of eligible users for the selected period.
-- **Total budget:** Displays the total budget that will be distributed for the selected period.
+- **Total budget:** Displays the total amount of tokens (to be) distributed for the selected period.
 - **Sent Cauri:** Displays the amount of token sent if the transaction has been proceeded.
 - **Reserve fund:** Displays the amount of token in the reserve.
 - **Total kudos:** Displays the total number of sent and recieved kudos during the selected period.
