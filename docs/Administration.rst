@@ -4738,7 +4738,7 @@ From this interface, you have the following information:
 - **Total budget:** Displays the total amount of tokens (to be) distributed for the selected period.
 - **Sent Cauri:** Displays the amount of token sent if the transaction has been proceeded.
 - **Reserve fund:** Displays the amount of token available  in the reserve. Tokens are sent from the reserve to users. Make sure you have enough funds in the reserve before sending rewards or some users may not receive anything.
-- **Total kudos:** Displays the total number of sent and recieved kudos during the selected period.
+- **Total kudos:** Displays the total number of kudos received during the selected period.
 - **Total gamification:** Displays the total number of gamification points earned during the selected period.
 
 You have the possibility to search for a user by his name, pool or wallet address. 
