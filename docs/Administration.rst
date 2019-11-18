@@ -68,7 +68,7 @@ Administering eXo Platform
        How to manage the use of kudos by users.
 	   
 	-  :ref:`Managing rewards <ManagingRewards>`
-       How to manage the use of kudos by users.
+       How to manage the rewarding programs.
 	   
     -  :ref:`Managing gamification <ManagingGamification>`
        How to manage domains, rules and badges, and introduction
