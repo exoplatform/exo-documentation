@@ -4695,7 +4695,7 @@ When no pool has been defined and no user have created a wallet yet, the interfa
 
 |image338|
 
-When users create their wallets, you will have a default pool containing the users that don't belong to a pool yet.
+When users create their wallets, they will be automatically assigned to the default pool until you assign them to an appropriate one.
 
 |image340|
 
