@@ -4705,7 +4705,7 @@ To create a pool, click on the '+' button. You only need to enter the pool's nam
 
 You can also optionally  add a descripton, choose a space in order to add all its members to the pool and/or select a pool manager.
 
-There is three ways to calculate rewards for each pool members:
+You can fine tune budget per pool :
 
 - **By computing pool reward from total budget: ** When you choose this option the reward is calculated based on total reward budget.
 - **By a total fixed budget: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made for all pools members even those who aren't eligible for the concerned period.
