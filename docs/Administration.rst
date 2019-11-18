@@ -4677,7 +4677,7 @@ For each program, you can specify a minimal threshold to reward users. The defau
 
 Select the checkbox "Use pools" if you want to use the pools in the rewards calculation and this for kudos and gamification.
 
-For each case, you have three ways for controlling your rewarding budget :
+To control the rewards budget, pick one of the 3 policies:
 
 - **By a fixed budget:** This option allows you to set a total amount of tokens for all users rewards. This amount will be divided between the different users. The calculation will be done according to the chosen mode (use pools or not). 
 - **By a fixed budget per eligible member:** This mode lets you set a dynamic budget sized according to the number of active (eligible) users.  The calculation will be done according to the chosen mode (use of pools or not).
