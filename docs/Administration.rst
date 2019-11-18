@@ -4673,7 +4673,7 @@ This tab lets you manage the rewards sending, the periodicity and how rewards wi
 
 Choose the periodicity for sending rewards  : week, month, quarter, semester or year.
 The interface currently offers two built-in rewarding programs : one  for kudos and  one for gamification points.
-For each bloc you can specify a minimal threshold to reward users. The default value is "0", which means that the users are rewarded automatically if they receive kudos or earn any gamification points.
+For each program, you can specify a minimal threshold to reward users. The default value is "0", which means that the users are rewarded automatically if they receive kudos or earn any gamification points.
 
 Select the checkbox "Use pools" if you want to use the pools in the rewards calculation and this for kudos and gamification.
 
