@@ -4659,7 +4659,7 @@ To access to this interface, click on "Administration" menu from the top navigat
 The first thing to do is to setup how rewards will be calculated from the configuration tab. 
 Then, from "Pools" tab you can create pools and assign users to them according to their domains. 
 Since the use of the platform may not be the same from one team to another, and in order to ensure a fair distribution of rewards, regroup users in pools corresponding to their teams. 
-This will put the members of the same team in competition together but not with all the users of the platform.
+Rewards will be distributed comparatively to members within the same pool. Hence, members of the same pool will compete together for rewards rather than with all the users of the platform.
 Finally, when everything is setup correctly in both configuration and pools tabs, you can send rewards from the first tab.
 
 
