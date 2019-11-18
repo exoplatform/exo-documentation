@@ -4690,7 +4690,7 @@ Pools
 ~~~~~
 
 Pools is the second tab of Reward interface. 
-As described above, this tab permits you to create pools and affect users to these pools according to their teams, roles or any other criteria you choose in order to ensure a fair distribution of rewards. 
+As described above, this tab let you create pools and assign users to them according to their teams, roles, job title or any other criteria you choose in order to ensure a fair distribution of rewards. For fair distribution, all pool members should have equal chances to compete with others. Thus, they should have access to same or similar gamified areas in the workplace.
 When no user have created a wallet yet you will have this interface.
 
 |image338|
