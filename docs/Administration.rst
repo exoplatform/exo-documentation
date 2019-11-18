@@ -4741,7 +4741,7 @@ From this interface, you have the following information:
 - **Total kudos:** Displays the total number of kudos received during the selected period.
 - **Total gamification:** Displays the total number of gamification points earned during the selected period.
 
-You have the possibility to search for a user by his name, pool or wallet address. 
+For convenience, you can search for a user by his name, pool or wallet address. 
 
 |image347|
 
