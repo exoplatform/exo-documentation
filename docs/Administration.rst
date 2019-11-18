@@ -4683,7 +4683,7 @@ To control the rewards budget, pick one of the 3 policies:
 - **By a fixed budget per eligible member:** This mode lets you set a dynamic budget sized according to the number of active (eligible) users.  The calculation will be done according to the chosen mode (use of pools or not).
 - **By a fixed budget per point:** This mode lets you define a budget per so-called "point" (for each kudos or gamification received).
 
-Finally you have to save the changes using the appropriate button. You can edit this tab if you want to update the configuration using the edit button.
+Click Save to validate and apply your rewarding programs configuration.
 
 
 Pools
