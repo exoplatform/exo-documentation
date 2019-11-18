@@ -4711,7 +4711,7 @@ You can fine tune budget per pool :
 - **By a total fixed budget: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made for all pools members even those who aren't eligible for the concerned period.
 - **By a fixed budget per eligible member: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made only for eligible members.
 
-Finally you will have to add the appropriate users to each pool and save the action.
+Then you can add users to the pool and save.
 
 It is possible to enable or disable a pool using the available option from the pool's card. If a pool is disabled at the moment of sending rewards, its members will not recieve tokens.
 
