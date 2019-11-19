@@ -4681,7 +4681,7 @@ To control the rewards budget, pick one of the 3 policies:
 
 - **By a fixed budget:** Set a fixed total amount of tokens to spend in rewards. This amount of tokens will be spread between the different users in proportion of their points compared to others. If pools are used, the tokens received by each user are calculated relatively to other members of the pool rather than all users. 
 - **By a fixed budget per eligible member:**  This is a more dynamic way where the budget is sized dynamically according to the number of eligible (having earned more than the minimal threshold) users.  Here too, actual rewards are calculated taking in account pools if the option is checked.
-- **By a fixed budget per point:** This mode lets you define a budget per so-called "point" (for each kudos or gamification received).
+- **By a fixed budget per point:** This is a very dynamic mode where each points earns a fixed amount of rewards. It is recommended for programs where the number of "points" is capped (like Kudos, but unlike gamification).
 
 Click Save to validate and apply your rewarding programs configuration.
 
