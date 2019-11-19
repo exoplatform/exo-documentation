@@ -4708,7 +4708,7 @@ You can also optionally  add a descripton, choose a space in order to add all it
 You can fine tune budget per pool :
 
 - **By computing pool reward from total budget: ** It's the default option. The budget attributed to this pool will be computed automatically according to the budget set in the Rewarding programs configuration
-- **By a total fixed budget: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made for all pools members even those who aren't eligible for the concerned period.
+- **By a total fixed budget: ** With this option, this pool's budget will not be taken from the global budget. Instead the pool will have its own fixed budget.
 - **By a fixed budget per eligible member: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made only for eligible members.
 
 Then you can add users to the pool and save.
