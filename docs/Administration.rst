@@ -4709,7 +4709,7 @@ You can fine tune budget per pool :
 
 - **By computing pool reward from total budget: ** It's the default option. The budget attributed to this pool will be computed automatically according to the budget set in the Rewarding programs configuration
 - **By a total fixed budget: ** With this option, this pool's budget will not be taken from the global budget. Instead the pool will have its own fixed budget.
-- **By a fixed budget per eligible member: ** When you choose this option the reward is calculated based on a pool budget that you will have to enter. The calulation is made only for eligible members.
+- **By a fixed budget per eligible member: ** With this option, the pool has its own dynamic budget based on the number of eligible users in the pool.
 
 Then you can add users to the pool and save.
 
