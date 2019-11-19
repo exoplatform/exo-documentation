@@ -4727,7 +4727,7 @@ Once everything is setup correctly, you can send the rewards from the first tab 
 
 |image343|
 
-Reward sending is allowed once the selected period of reward is passed. we can not send rewards before the end of the period conforming to the periodicity set in the configuration tab.
+Reward sending is allowed after the selected period of reward is past. You can't send rewards before the end of the period set to the periodicity set in the Configuration tab.
 The button "Send rewards" is disabled when the current period is selected.
 
 |image344|
