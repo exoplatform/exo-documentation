@@ -106,7 +106,10 @@ A list of the latest three versions appears in the drawer. Each version contains
    -  The text message "File has been updated" if the document's editor did not input a summary while saving the versions
    -  The text message "File has been renamed to newname.extension" if the document's editor has renamed the file
    
-Clicking on the ``See more`` button redirects you to the whole versions list in Documents application.
+Clicking on the ``See more`` button redirects you to the Documents application. YOu can then open Versions list by clicking 
+on Versions button on the toolbar.
+
+|image9|
 
 Yellow bar
 ~~~~~~~~~~~~
@@ -131,3 +134,4 @@ The yellow bar contains also a ``Reload`` link allowing you to load the changes 
 .. |image6| image:: images/OnlyOffice/drawer.png
 .. |image7| image:: images/OnlyOffice/YellowBar_AS.png
 .. |image8| image:: images/OnlyOffice/YellowBAr_Documents.png
+.. |image9| image:: images/OnlyOffice/Versions_button.png
