@@ -62,21 +62,51 @@ Editor Interface
 ~~~~~~~~~~~~~~~~~~
 
 Clicking on |image5| button opens the document you want to edit in an another tab.
-The interface contains:
+The interface contains the content of the document loaded in the OnlyOffice editor with a floating button.
 
--  The content of the document loaded in the OnlyOffice editor
--  A top bar containing these details:
+Clicking on that button opens a drawer "Save version" with these fields:
 
-   -  a breadcrumb: to inform about the location of the document in the platform
-   -  an information about latest edit done on the document: Last edited by $editor's full name date hh:mm "summary"
-   -  a text field for the summary: allowing you to input a summary of your changes
-   -  a ``force save`` button: to save your changes in a new version and post the summary in activity stream. 
-      It also creates a new version of the document in ``Documents`` application.
-   -  a close icon: to close the editor tab. All changes are saved when you close a tab
-
+-  The file's breadcrumb
+-  An edit icon allowing to edit the file's name
+-  The summary text field
+-  Save button allow to add a version of the document in Documents application.
+-  List of the last previous 3 versions
+-  See more button
+-  A close button at the top right of the drawer
 
 |image6|
 
+File's breadcrumb
+------------------
+
+The file's breadcrumb contains:
+
+-  The space's avatar if the file is on a space or the user's avatar if the file is on Personal documents 
+-  The file's path
+-  The file's name which is editable
+
+Summary field
+--------------
+
+The summary text field allows you to add a description of the changes you made on the document.
+
+.. note:: The summary field is not mandatory, if you input it it will be also added as summary for the document's versions 
+          list in Documents application.
+          
+Versions list
+--------------
+
+A list of the latest three versions appears in the drawer. Each version contains these information:
+
+-  The editor's avatar
+-  The changes timestamp, when hovering it a tooltip appears with the real edit date
+-  The edit summary which could be:
+
+   -  The summary inputted when saving the version
+   -  The text message "File has been updated" if the document's editor did not input a summary while saving the versions
+   -  The text message "File has been renamed to newname.extension" if the document's editor has renamed the file
+   
+Clicking on the ``See more`` button redirects you to the whole versions list in Documents application.
 
 Yellow bar
 ~~~~~~~~~~~~
@@ -98,6 +128,6 @@ The yellow bar contains also a ``Reload`` link allowing you to load the changes 
 .. |image3| image:: images/OnlyOffice/editOnline_btn_preview.png
 .. |image4| image:: images/OnlyOffice/editOnline_btn_documents.png
 .. |image5| image:: images/OnlyOffice/editOnline_btn.png
-.. |image6| image:: images/OnlyOffice/top_bar.png
+.. |image6| image:: images/OnlyOffice/drawer.png
 .. |image7| image:: images/OnlyOffice/YellowBar_AS.png
 .. |image8| image:: images/OnlyOffice/YellowBAr_Documents.png
