@@ -115,7 +115,7 @@ on ``Versions`` button on the toolbar.
 Yellow bar
 ~~~~~~~~~~~~
 
-When a document is opened in your stream, either in ``Documents`` application or in the activity stream, has been edited by
+When a document visible in your stream, either in ``Documents`` application or in the activity stream, has been edited by
 an another user, a yellow bar appears in the top of the document informing you that the document has been edited.
 The yellow bar contains also a ``Reload`` link allowing you to load the changes done by another user.
 
