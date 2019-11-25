@@ -82,7 +82,7 @@ File's breadcrumb
 
 The file's breadcrumb contains:
 
--  The space's avatar if the file is on a space or the user's avatar if the file is on Personal documents 
+-  The space's avatar if the file is in a space or the user's avatar if the file is in Personal documents 
 -  The file's path
 -  The file's name which is editable
 
