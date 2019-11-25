@@ -71,7 +71,7 @@ Clicking on that button opens a drawer "Save version" with these fields:
 -  An edit icon allowing to edit the file's name
 -  The summary text field
 -  A ``Save`` button allowing to create a new version of the document .
--  List of the last previous 3 versions
+-  The list of the 3 latest versions
 -  See more button
 -  A close button at the top right of the drawer
 
