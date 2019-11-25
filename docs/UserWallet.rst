@@ -24,7 +24,7 @@ How to access to your Wallet interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-You can access your personal eXo wallet in one of the three following ways :
+You can access your personal eXo wallet in one of the two following ways :
 
 
 1- From your display name in the top navigation bar then "My wallet" from the drop-down menu.
@@ -36,11 +36,6 @@ You can access your personal eXo wallet in one of the three following ways :
 |image1|
 
 
-3- From "My application" of the left navigation then "My wallet".
-
-|image2|
-
-
 How to create your wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -48,7 +43,7 @@ The first thing to do is to create your wallet by setting a password. The passwo
 
 |image3|
 
-Once your password is set, your wallet is created but you will not be allowed to make transactions until an administrator approves it. The wallet's interface is nevertheless available and you may request funds from other users.
+Once your password is set, your wallet is created but you will not be allowed to execute transactions (such as purchases in the store or sending tokens from the wallet) until an administrator approves it.  Nevertheless, the wallet interface remains available.
 
 |image1|
 
@@ -58,17 +53,28 @@ A warning message appears behind the label "My wallet"
 
 |image5|
 
+Once your wallet is approved by an administrator, you’ll receive a notification informing you that your wallet is activated.
+
+|image|
+
+All actions become available and you can send and receive funds as well as view transaction history or statistics and reward details.
+
+|image|
+
 
 Wallet security
 ~~~~~~~~~~~~~~~~
 
-Each wallet uses a pair of public and private keys. The public key is used ad the address on the blockchain network. The private key must be secured as it allows to do any operation in the blockchain account (such as stealing your funds!). Without the private key, access to the funds is impossible. Thus, it's important to secure the private key and save in case of loss  :
+Backup your wallet
+------------------
 
-- Click on security icon to display security popup
+Each wallet uses a pair of cryptographic keys (strings of characters) : the public key and the private key. The public key represents the address of your wallet on the blockchain network. The private works with the public key to encrypt/decrypt data securely. But it must be secured as it allows to perform any operation with the blockchain account (such as stealing your funds!). Without the private key, access to the funds is impossible. Thus, it's critical to keep your private key in a safe place (such as multiple paper copies if different physical locations) to protect it from loss or theft :
+
+- Click on the security icon to display the security popup
 
 |image6|
 
-- From security popup, click on "Manage keys". A new tab "Manage keys" is displayed in the popup. Click on "Back up your wallet".
+- From the security popup, click on "Manage keys". A new tab "Manage keys" is displayed in the popup. Click on "Back up your wallet".
 
 |image7|
 
@@ -83,16 +89,32 @@ Each wallet uses a pair of public and private keys. The public key is used ad th
 .. Warning:: Remember that losing your private keys means losing all your crypto-money. You must take precautions and be very careful! Even an administrator won't be able to help you if it gets compromised or lost.
 
 
+Wallet password
+----------------
+
+You can change your wallet password by clicking on "Change password" button from security popup. You just need to enter your current password and the new password then confirm.
+
+|image20|
+
+The option "Remember my password on this browser" stores your password in the browser’s local storage to be automatically used for every transaction (including purchases in the Perk Store) without requiring your input each time. 
+
+|image21|
+
+You must enter your current password to activate this option.
+
+|image22|
+
+
 How to send funds from wallet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To send funds from your wallet, you have to click on "Send" button then, in the "send funds" popup, select a recipient, your wallet password and the amount to send. You can optionally type a label and a message that will be stores in the transaction history.
 You also have to choose the type of transaction between three options: "Cheap", "Normal" or "Fast". 
-The difference between those types of transaction is the price and the rapidity of transaction:
+The difference between these transaction modes is the fees and the speed of processing transaction in the blockchain network. There is no guaranteed delay for transaction processing because it depends on how much the blockchain network is busy. But basically, the more you pay, the faster. Below are some indicative delays to expect :
  
-- The cheap type is not expensive but may take up to one day to be executed.
-- The normal type is slightly more expensive and could take few hours.
-- The fast type is the most expensive and take only one minute to be executed.
+- The cheap mode is not expensive but may take up to one day to be executed.
+- The recommended mode is slightly more expensive and may take a few hours.
+- The fast mode is the most expensive but transactions are usually processed in less than a minute.
 
 |image10|
 
@@ -112,15 +134,22 @@ Please note that this information is different than your current balance that di
 
 |image12|
 
+When you click on the plus icon next to the total rewarded, a drawer with all rewards details is displayed.
+
+|image18|
+
+You can see more information about a reward transaction by clicking in the corresponding line. The information about the number of gamification points earned and kudos received during the period of reward.
+
+|image19|
 
 Tansactions details
 ~~~~~~~~~~~~~~~~~~~~
 
-The amount of the last transaction is displayed in the wallet interface 
+The amount of the last transaction is displayed in the wallet interface.
 
 |image13|
 
-When you click on the plus icon next to the last transaction information, a drawer with all transactions is displayed 
+When you click on the plus icon next to the last transaction information, a drawer with all transactions is displayed.
 
 |image14|
 
@@ -128,7 +157,11 @@ To see a transaction details (its status, label, message, amount, the sender and
 
 |image15|
 
+In case of a failed transaction, a warning is displayed in the transaction list and the transaction details. The arrow and transaction amount are displayed in red color so that you can distingish them.
 
+|image16|
+
+|image17|
 
 .. |image0| image:: images/reward/profile_mywallet1.png
 .. |image1| image:: images/reward/profile_mywallet2.png
@@ -146,6 +179,13 @@ To see a transaction details (its status, label, message, amount, the sender and
 .. |image13| image:: images/reward/transactions_details.png
 .. |image14| image:: images/reward/transactions_list.png
 .. |image15| image:: images/reward/transaction_information.png
+.. |image16| image:: images/reward/transaction_failed.png
+.. |image17| image:: images/reward/failed_details.png
+.. |image18| image:: images/reward/
+.. |image19| image:: images/reward/
+.. |image20| image:: images/reward/change_password.png
+.. |image21| image:: images/reward/remember_password.png
+.. |image22| image:: images/reward/type_password.png
 
 
 

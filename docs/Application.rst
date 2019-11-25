@@ -70,6 +70,12 @@ In this part, you learn some portlet development techniques, including:
 -  :ref:`Spring MVC portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Spring.Intro>`
    it is officially supported as of Platform 4.2.
 
+-  :ref:`Vue.js portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vue>`
+   Complete sample for how to develop a Vue.js Portlet in eXo Platform.
+
+-  :ref:`Vuetify and Vue.js portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`
+   Complete sample for how to develop a Vue.js and Vuetify Portlet in eXo Platform.
+
 You should also read:
 
 -  `JSR-286, Portlet Specification <http://www.jcp.org/en/jsr/detail?id=286>`__
@@ -3012,6 +3018,363 @@ the portlet in eXo Platform and test:
 .. note::`Here <https://github.com/exo-addons/sample-springmvc-portlet/tree/master/portlet>`__
 		  is a more intensive example that uses a lot of Spring annotations
          (so less xml configuration) and has several action methods.
+
+.. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vue:
+
+Vue.js Portlet
+~~~~~~~~~~~~~~
+
+eXo Platform 5.3 uses Vue.js version 2.6 in multiple Portlet applications.
+This guide describes how to build a Vue.js application.
+
+1. Download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vue-portlet-webpack>`__.
+
+2. Change project artifacts defined in ``pom.xml``
+
+.. code-block:: xml
+   :caption: pom.xml
+   :name: pom.xml
+
+      <groupId>com.acme.samples</groupId>
+      <artifactId>vue-webpack-sample</artifactId>
+
+2. Change WAR name ``vue-webpack-sample`` defined in ``pom.xml``, ``src/main/webapp/META-INF/exo-conf/configuration.xml``, ``src/main/webapp/WEB-INF/web.xml``, ``webpack.dev.js``, ``webpack.prod.js`` and ``src/main/webapp/WEB-INF/conf/custom-extension/portal/portal/intranet/pages.xml``
+
+.. code-block:: xml
+   :caption: pom.xml
+   :name: pom.xml
+
+      <finalName>vue-webpack-sample</finalName>
+
+.. code-block:: xml
+   :caption: configuration.xml
+   :name: configuration.xml
+   :emphasize-lines: 5
+
+      <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
+        <field name="dependencies">
+          <collection type="java.util.ArrayList">
+            <value>
+              <string>vue-webpack-sample</string>
+            </value>
+          </collection>
+        </field>
+      </object>
+
+.. code-block:: xml
+   :caption: web.xml
+   :name: web.xml
+
+      <display-name>vue-webpack-sample</display-name>
+
+.. code-block:: javascript
+   :caption: webpack.dev.js
+   :name: webpack.dev.js
+
+      const app = 'vue-webpack-sample';
+
+.. code-block:: javascript
+   :caption: webpack.dev.js
+   :name: webpack.prod.js
+
+      const app = 'vue-webpack-sample';
+
+.. code-block:: xml
+   :caption: pages.xml
+   :name: pages.xml
+   :emphasize-lines: 3
+
+      <portlet-application>
+        <portlet>
+          <application-ref>vue-webpack-sample</application-ref>
+          <portlet-ref>vueWebpackSample</portlet-ref>
+        </portlet>
+        <title>Vue Webpack Sample</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+
+3. Change id of application ``vue_webpack_sample`` defined in ``src/main/webapp/index.html``, ``src/main/webapp/css/main.less``, ``src/main/webapp/vue-app/components/app.vue`` and ``src/main/webapp/vue-app/main.js``:
+
+.. code-block:: html
+   :caption: index.html
+   :name: index.html
+
+      <div id="vue_webpack_sample"></div>
+
+.. code-block:: html
+   :caption: index.xml
+   :name: index.xml
+   :emphasize-lines: 2
+
+    <template>
+      <div id="vue_webpack_sample">
+        <span>{{ $t('sample.i18n.label') }}</span>
+      </div>
+    </template>
+
+.. code-block:: javascript
+   :caption: main.js
+   :name: main.js
+
+        $mount('#vue_webpack_sample')
+
+.. code-block:: stylesheet
+   :caption: main.less
+   :name: main.less
+   :emphasize-lines: 1
+
+    #vue_webpack_sample {
+      display: flex;
+      background: white;
+
+      span {
+        color: red;
+        margin: auto;
+      }
+    }
+
+4. Change portlet application name defined in ``src/main/webapp/portlet.xml``, ``src/main/webapp/gatein-resources.xml`` and ``src/main/webapp/WEB-INF/conf/custom-extension/portal/portal/intranet/pages.xml``
+
+.. code-block:: xml
+   :caption: portlet.xml
+   :name: portlet.xml
+   :emphasize-lines: 2,12
+
+    <portlet>
+      <portlet-name>vueWebpackSample</portlet-name>
+      <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+      <init-param>
+        <name>portlet-view-dispatched-file-path</name>
+        <value>/index.html</value>
+       </init-param>
+      <supports>
+        <mime-type>text/html</mime-type>
+      </supports>
+      <portlet-info>
+        <title>Vue Webpack Sample</title>
+      </portlet-info>
+    </portlet>
+
+.. code-block:: xml
+   :caption: gatein-resources.xml
+   :name: gatein-resources.xml
+   :emphasize-lines: 2
+
+    <portlet>
+      <name>vueWebpackSample</name>
+      <module>
+        <script>
+          <minify>false</minify>
+          <path>/js/sample.bundle.js</path>
+        </script>
+        <depends>
+          <module>vue</module>
+        </depends>
+        <depends>
+          <module>eXoVueI18n</module>
+        </depends>
+      </module>
+    </portlet>
+
+.. code-block:: xml
+   :caption: pages.xml
+   :name: pages.xml
+   :emphasize-lines: 4,6
+
+      <portlet-application>
+        <portlet>
+          <application-ref>vue-webpack-sample</application-ref>
+          <portlet-ref>vueWebpackSample</portlet-ref>
+        </portlet>
+        <title>Vue Webpack Sample</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+
+5. Modify npm module name ``sample`` to use your custom project module name, defined in ``package.json``, ``webpack.common.js`` and ``src/main/webapp/gatein-resources.xml``:
+
+.. code-block:: json
+   :caption: package.json
+   :name: package.json
+
+      "name": "sample"
+
+.. code-block:: javascript
+   :caption: webpack.common.js
+   :name: webpack.common.js
+   :emphasize-lines: 2
+
+    entry: {
+      sample: './src/main/webapp/vue-app/main.js'
+    },
+
+.. code-block:: xml
+   :caption: gatein-resources.xml
+   :name: gatein-resources.xml
+   :emphasize-lines: 3,4,10,11,20
+
+    <portal-skin>
+      <skin-name>Default</skin-name>
+      <skin-module>customModuleSampleVuePortlet</skin-module>
+      <css-path>/css/sample.css</css-path>
+      <css-priority>11</css-priority>
+    </portal-skin>
+  
+    <portal-skin>
+      <skin-name>Enterprise</skin-name>
+      <skin-module>customModuleSampleVuePortlet</skin-module>
+      <css-path>/css/sample.css</css-path>
+      <css-priority>11</css-priority>
+    </portal-skin>
+  
+    <portlet>
+      <name>vueWebpackSample</name>
+      <module>
+        <script>
+          <minify>false</minify>
+          <path>/js/sample.bundle.js</path>
+        </script>
+        <depends>
+          <module>vue</module>
+        </depends>
+        <depends>
+          <module>eXoVueI18n</module>
+        </depends>
+      </module>
+    </portlet>
+
+6. Rename Resource bundle file ``src/main/resources/locale/addon/Sample_en.properties`` and change its configuration in ``src/main/webapp/WEB-INF/conf/custom-extension/bundle-configuration.xml``
+
+.. code-block:: xml
+   :caption: bundle-configuration.xml
+   :name: bundle-configuration.xml
+   :emphasize-lines: 10,14
+
+    <external-component-plugins>
+        <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+        <component-plugin>
+        <name>Vue Sample Portlet Resource Bundle</name>
+        <set-method>addResourceBundle</set-method>
+        <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+        <init-params>
+          <values-param>
+            <name>classpath.resources</name>
+            <value>locale.addon.Sample</value>
+          </values-param>
+          <values-param>
+            <name>portal.resource.names</name>
+            <value>locale.addon.Sample</value>
+          </values-param>
+        </init-params>
+        </component-plugin>
+    </external-component-plugins>
+
+7. Change name of page where you want to put your application in ``src/main/webapp/WEB-INF/conf/custom-extension/portal/portal/intranet/navigation.xml`` and ``src/main/webapp/WEB-INF/conf/custom-extension/portal/portal/intranet/pages.xml``
+
+.. code-block:: xml
+   :caption: pages.xml
+   :name: pages.xml
+   :emphasize-lines: 2,3
+
+    <page>
+      <name>vueSampleAppPage</name>
+      <title>Sample App</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+
+.. code-block:: xml
+   :caption: navigation.xml
+   :name: navigation.xml
+   :emphasize-lines: 3,4,5
+
+    <page-nodes>
+        <node>
+            <name>vueSampleApp</name>
+            <label>Sample App</label>
+            <page-reference>portal::intranet::vueSampleAppPage</page-reference>
+        </node>
+    </page-nodes>
+
+8. Run ``mvn clean install``
+
+9. Stop server and copy WAR file from ``target/`` folder into ``webapps`` folder inside eXo Platform installation.
+
+10. Run server
+
+11. Open page ``http://localhost:8080/portal/intranet/PAGE_NAME``
+
+.. note:: ``PAGE_NAME`` = ``vueSampleApp`` by default. The page name is renamed in step ``7.`` inside ``navigation.xml`` file.
+
+.. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify:
+
+Vuetify and Vue.js Portlet
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+eXo Platform 5.3 uses Vuetify version 2.0 in multiple Portlet applications.
+This guide describes how to build an application based on Vuetify 2.0 and Vue.js 2.6.
+
+You can download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vuetify-portlet-webpack>`__ and apply the same steps described in :ref:`Develop Vue.js Portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vue>`.
+
+In addition to requirements of Vue.js application, inside a Vuetify application some additional configurations are added:
+
+1. Definition of Vuetify CSS that has to be imported globaly as defined in ``src/main/webapp/WEB-INF/gatein-resources.xml``
+
+.. code-block:: xml
+   :caption: gatein-resources.xml
+   :name: gatein-resources.xml
+
+    <portal-skin>
+      <skin-name>Default</skin-name>
+      <skin-module>customModuleVuetify</skin-module>
+      <css-path>/../eXoSkin/skin/css/vuetify/vuetify-all.css</css-path>
+      <css-priority>10</css-priority>
+    </portal-skin>
+  
+    <portal-skin>
+      <skin-name>Enterprise</skin-name>
+      <skin-module>customModuleVuetify</skin-module>
+      <css-path>/../EnterpriseSkin/skin/css/vuetify/vuetify-all.css</css-path>
+      <css-priority>10</css-priority>
+    </portal-skin>
+
+2. Definition of Vuetify javascript module as dependency in ``src/main/webapp/WEB-INF/gatein-resources.xml``:
+
+.. code-block:: xml
+   :caption: gatein-resources.xml
+   :name: gatein-resources.xml
+   :emphasize-lines: 12
+
+    <portlet>
+      <name>vuetifyWebpackSample</name>
+      <module>
+        <script>
+          <minify>false</minify>
+          <path>/js/sample.bundle.js</path>
+        </script>
+        <depends>
+          <module>vue</module>
+        </depends>
+        <depends>
+          <module>vuetify</module>
+        </depends>
+        <depends>
+          <module>eXoVueI18n</module>
+        </depends>
+      </module>
+    </portlet>
+
+3. Add a parent DOM element with class ``VuetifyApp`` to define ``src/main/webapp/index.html``:
+
+.. code-block:: html
+   :caption: index.html
+   :name: index.html
+   :emphasize-lines: 1
+
+    <div class="VuetifyApp">
+      <div id="vuetify_webpack_sample"></div>
+    </div>
 
 .. _PLFDevGuide.DevelopingApplications.DevelopingGadget:
 

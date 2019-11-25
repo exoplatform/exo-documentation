@@ -1108,8 +1108,10 @@ file appears:
 
 |image70|
 
-Select the desired file or files. More details in :ref:`Share multiple documents in activity stream <MultiUpload>` 
-section.
+Select the desired files either from your hard disk or from existing uploads in the Documents application. 
+
+.. note:: Uploaded files may be classified in different folders. 
+          More details in :ref:`Activity stream file's classification <AS_Files_Classification>` section.
 
 You can add a text message or not and then click on |image71| button to
 share the file(s) in the activity stream.
@@ -1153,32 +1155,27 @@ the link.
 	
 Posting a news in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	
-From a space's acivity stream, you are able to share a news with the space’s members. 
-Publishing a news allows you to easily write, broadcast, pin and share communication content.
 
+It is possible to write an article directly from a space composer. This feature is intended to improve and simplify the way information is shared. Users can contribute content intuitively without any former training to the content management system. News offers an inclusive and collaborative way to manage communication.
+Publishing a news lets you easily write, broadcast  and share communication content into other spaces. You can also make it visible to all platform users by pinning articles on the home page.
 
-Posting a simple news from short form
---------------------------------------
-
-To post an article with other space’s members, click on News tab from the activity composer, the tab contains :
-
-
-- A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write.
-
-- A **Content** field : Allows you to enter the content of the News. No limitation for the number of characters.
-
-- A **Pin article** Check box.
-
-- A **More icon** with a tooltip “more options”: Permits to open the creation full form.
-
-- A **Post** button : Disabled by default until the two fields “Title” and “Content” are filled.
+To post a news article, click "write an article" located at the bottom of the space's composer. 
 
 |image156|
 
-Once all fields are filled, click on the Post button to post the News in the space's activity stream.
+The creation form is opened in a new tab.
 
-The article is shared into the space's activity stream.
+|image159|
+
+Write or paste your article content in. Choose a title, a summary and an illustrative image as desired, then press the "Post" button in the top-right corner of the screen. 
+
+|image160|
+
+Once you post an article, you are automatically redirected to it in read mode. 
+
+|image161|
+
+The article will be posted into the space's activity stream 
 
 |image158|
 
@@ -1186,25 +1183,6 @@ The article is shared into the space's activity stream.
 .. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
 
          
-Posting a news from full form
-------------------------------
-
-The creation of a news since the composer is minimalist. More options are available from the full form. In order to access to this form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
-
-|image159|
-
-The full form allows you in addition to the fields available in the simple form to add a summary to your article. This field is optional and will be displayed in the news preview if filled. If not it is the first three lines of article's content that will be displayed in the news preview. The summary is limited to 1000 characters.
-It is also possible to upload optionally an image as an illustrative vignette of the article from the dedicated area. The image size must not exceed 10 Mo and the supported extensions are ".jpg",".jpeg",".png" and ".gif".
-
-The plus icon of the simple form is replaced by a less icon with a tooltip “return to original post”. This icon allows you to return to the creation simple form without losing the changes made in the full form.
-
-|image160|
-
-As for the simple form, once all fields are filled, click on the Post button to post the News in the space's activity stream.
-The article is shared into the space's activity stream.
-
-|image161|
-
 You can access the content of the article either by clicking on its title or by clicking on "read more".
 The details of the article are available on the current page and display all the information, including the publication date and the author.
 
@@ -1223,6 +1201,7 @@ When an article has been edited, the details view display the updated date and a
 
 |image164|
 
+.. _Sharing a News:
 
 Sharing a News
 ---------------
@@ -1244,7 +1223,138 @@ You can check that the action has been done successfully by connecting to the de
 |image167|
 
 
-		
+Pinning a News in the home page
+-------------------------------
+
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you get permissions to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available from three locations :
+
+
+1- Pinning a News from creation form : 
+
+From simple and full creation forms, a  "Pin article" checkbox is available. 
+
+|image168|
+
+After filling in the article details, tick "Pin article" checkbox then click on "post" button. A confirmation message appears.
+
+|image169|
+
+After confirmation, the article is posted to the space's activity stream and automatically published to the home page's News block. 
+
+
+2- Pinning a News from the activity stream : the "pin article" function is also available from the three-dots menu of the article’s activity.
+
+|image170|
+
+When you choose this option, a confirmation popup appears:
+
+|image169|
+
+After confirmation, a success message appears:
+
+|image171|
+
+
+*3- Pinning a News from News details : To pin a News from details, you only need to click on the available pin icon.
+
+|image181|
+
+The action is successfully done after confirming it as for the two options above. 
+
+You may display the home page to verify that the news is available in the appropriate block.
+
+|image172|
+
+
+Unpinning a News from the home page
+----------------------------------
+
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you can unpin any pinned article from the home page. 
+The unpin option lets you undo the pin action for an article by removing it from the home page news block.
+
+As for pin, the unpin function is available from three locations :
+
+
+1- Unpinning a news from edit form : 
+
+To unpin an article from the edit form, display the article's details then click on the ``Edit`` icon.
+Once the edit form is displayed, just untick the checkbox "Pin article" and validate.
+
+|image186|
+
+A confirmation message appears : 
+
+|image183|
+
+After confirmation, the article is no longer available on the home page. 
+
+
+2- Unpinning an article from the activity stream : the ``unpin article`` entry is also available from the three-dots menu of the news activity.
+
+|image182|
+
+When you choose this option, a confirmation popup appears:
+
+|image183|
+
+After confirmation, a success message appears:
+
+|image184|
+
+
+3- Unpinning an article from news details : to unpin a an article from details, just click on the ``unpin`` icon.
+
+|image185|
+
+The action is successfully done after confirming it as for the two options above. 
+
+You may display the home page to verify that the article is no longer available in the news block.
+
+
+Drafts management
+-----------------
+
+When you start writing an article, a draft is automatically saved as long as you write or modify the information in the form. 
+The information about the saving status is displayed in the creation form :
+
+|image175| 
+
+|image176|
+
+You can access to your drafts from the creation form. 
+A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
+
+|image177|
+
+To view all the drafts, click on the button. A drawer is displayed with the list of drafts and allows either to resume or delete each draft using the appropriate button.
+
+|image178|
+
+To delete a draft, you have to confirm this action:
+
+|image179|
+
+To continue writing in a draft, you have to click on the draft title or the resume icon. 
+The content of the related draft will be displayed in the form and you can update the different information and post the article.
+
+|image180|
+
+News application
+-----------------
+
+The News application displays all the articles posted in the spaces that you have access to, as well as the articles pinned on the home page. 
+This application is accessible through the ``News`` link  in the left navigation.
+
+|image187|
+
+The page displays the list of "All News". 
+
+|image188|
+
+For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source (space).
+You can also share the displayed articles as explained in the `Sharing a News`_ chapter.
+
+	
 .. _Formatting-toolbar:
 
 The formatting toolbar in activity messages and comments
@@ -2065,16 +2175,35 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_news.png
+.. |image156| image:: images/sharenews/composer_space.png
 .. |image157| image:: images/sharenews/post.png
-.. |image158| image:: images/sharenews/shared_news.png
-.. |image159| image:: images/sharenews/More_options.png
-.. |image160| image:: images/sharenews/complete_form.png
-.. |image161| image:: images/sharenews/shared_news_cf.png
+.. |image158| image:: images/sharenews/posted_news.png
+.. |image159| image:: images/sharenews/creation_form.png
+.. |image160| image:: images/sharenews/filled_form.png
+.. |image161| image:: images/sharenews/news_details.png
 .. |image162| image:: images/sharenews/news_details2.png
 .. |image163| image:: images/sharenews/edit_news.png
 .. |image164| image:: images/sharenews/modified_news.png
 .. |image165| image:: images/sharenews/popup_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
+.. |image168| image:: images/sharenews/pin_checkbox.png
+.. |image169| image:: images/sharenews/confirm_pin.png
+.. |image170| image:: images/sharenews/pin_activity.png
+.. |image171| image:: images/sharenews/success_pin.png
+.. |image172| image:: images/sharenews/bloc_news.png
+.. |image175| image:: images/sharenews/saving_draft.png
+.. |image176| image:: images/sharenews/saved_fullform.png
+.. |image177| image:: images/sharenews/draft_button.png
+.. |image178| image:: images/sharenews/drafts_drawer.png
+.. |image179| image:: images/sharenews/confirm_delete.png
+.. |image180| image:: images/sharenews/resume_article.png
+.. |image181| image:: images/sharenews/pin_details.png
+.. |image182| image:: images/sharenews/unpin_activity.png
+.. |image183| image:: images/sharenews/unpin_popup.png
+.. |image184| image:: images/sharenews/unpin_success.png
+.. |image185| image:: images/sharenews/unpin_icon.png
+.. |image186| image:: images/sharenews/unpin_edit.png
+.. |image187| image:: images/sharenews/news_leftnav.png
+.. |image188| image:: images/sharenews/news_app.png
 

@@ -64,6 +64,12 @@ Administering eXo Platform
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
+	-  :ref:`Managing kudos <ManagingKudos>`
+       How to manage the use of kudos by users.
+	   
+	-  :ref:`Managing rewards <ManagingRewards>`
+       How to manage the rewarding programs.
+	   
     -  :ref:`Managing gamification <ManagingGamification>`
        How to manage domains, rules and badges, and introduction
        to management and monitoring gamification in eXo Platform.
@@ -4616,7 +4622,147 @@ The wallet does not contain enough ether to make transactions:  For these wallet
 .. note:: No action except "Refresh" is allowed for "admin" wallet.
 
 
+.. _ManagingKudos:
 
+===============
+Managing Kudos
+===============
+
+You can manage the use of kudos in the platform from "Kudos settings" page. 
+To access this interface, click on "Administration" menu from the top navigation, then "Reward" > "Kudos" from the drop-down menu.
+
+|image333|
+
+You can define how many kudos users can send  per period of time (week, month, quarter or year). 
+You can also restrict the use of kudos to the members of a single space. Here, the space membership is simply used as a group permission. Authorized users will be able to send and receive kudos from any other space.
+
+|image334|
+
+You can review the list of kudos received and sent from the tab "Kudos List" of the same interface. The information of the sender and receiver are available.
+
+|image336|
+
+You can filter per period type and select the period in which you want to see all sent (and recieved) kudos.
+
+|image335|
+
+
+
+.. _ManagingRewards:
+
+================
+Managing Rewards
+================
+
+You can manage the rewards sending from "Reward administration" page. 
+To access to this interface, click on "Administration" menu from the top navigation, then "Reward" > "Reward" from the drop-down menu.
+The first thing to do is to setup how rewards will be calculated from the configuration tab. 
+Then, from "Pools" tab you can create pools and assign users to them according to their domains. 
+Since the use of the platform may not be the same from one team to another, and in order to ensure a fair distribution of rewards, regroup users in pools corresponding to their teams. 
+Rewards will be distributed comparatively to members within the same pool. Hence, members of the same pool will compete together for rewards rather than with all the users of the platform.
+Finally, when everything is setup correctly in both configuration and pools tabs, you can send rewards from the first tab.
+
+
+Configuration
+~~~~~~~~~~~~~
+
+Configuration is the third tab of Reward interface. 
+This tab lets you manage the rewards sending, the periodicity and how rewards will be calculated for users at the end of each period.
+
+|image337|
+
+Choose the periodicity for sending rewards  : week, month, quarter, semester or year.
+The interface currently offers two built-in rewarding programs : one  for kudos and  one for gamification points.
+For each program, you can specify a minimal threshold to reward users. The default value is "0", which means that the users are rewarded automatically if they receive kudos or earn any gamification points.
+
+Select the checkbox "Use pools" if you want to use the pools in the rewards calculation and this for kudos and gamification.
+
+To control the rewards budget, pick one of the 3 policies:
+
+- **By a fixed budget:** Set a fixed total amount of tokens to spend in rewards. This amount of tokens will be spread between the different users in proportion of their points compared to others. If pools are used, the tokens received by each user are calculated relatively to other members of the pool rather than all users. 
+- **By a fixed budget per eligible member:**  This is a more dynamic way where the budget is sized dynamically according to the number of eligible (having earned more than the minimal threshold) users.  Here too, actual rewards are calculated taking in account pools if the option is checked.
+- **By a fixed budget per point:** This is a very dynamic mode where each points earns a fixed amount of rewards. It is recommended for programs where the number of "points" is capped (like Kudos, but unlike gamification).
+
+Click Save to validate and apply your rewarding programs configuration.
+
+
+Pools
+~~~~~
+
+Pools is the second tab of Reward interface. 
+As described above, this tab let you create pools and assign users to them according to their teams, roles, job title or any other criteria you choose in order to ensure a fair distribution of rewards. For fair distribution, all pool members should have equal chances to compete with others. Thus, they should have access to same or similar gamified areas in the workplace.
+When no pool has been defined and no user have created a wallet yet, the interface will look like this
+
+|image338|
+
+When users create their wallets, they will be automatically assigned to the default pool until you assign them to an appropriate one.
+
+|image340|
+
+To create a pool, click on the '+' button. You only need to enter the pool's name to be able to create it. 
+
+|image339|
+
+You can also optionally  add a descripton, choose a space in order to add all its members to the pool and/or select a pool manager.
+
+You can fine tune budget per pool :
+
+- **By computing pool reward from total budget: ** It's the default option. The budget attributed to this pool will be computed automatically according to the budget set in the Rewarding programs configuration
+- **By a total fixed budget: ** With this option, this pool's budget will not be taken from the global budget. Instead the pool will have its own fixed budget.
+- **By a fixed budget per eligible member: ** With this option, the pool has its own dynamic budget based on the number of eligible users in the pool.
+
+Then you can add users to the pool and save.
+
+It is possible to enable or disable a pool using the available option from the pool's card. If a pool is disabled at the moment of sending rewards, its members will not recieve tokens.
+
+|image341|
+
+|image342|
+
+
+Send Rewards
+~~~~~~~~~~~~~
+
+Once everything is setup correctly, you can send the rewards from the first tab of reward interface.
+
+|image343|
+
+Reward sending is allowed after the selected period of reward is past. You can't send rewards before the end of the period conforming to the periodicity set in the Configuration tab.
+The button "Send rewards" is disabled when the current period is selected.
+
+|image344|
+
+From this interface, you have the following information:
+
+- **Eligible users:** Displays the number of eligible users for the selected period.
+- **Total budget:** Displays the total amount of tokens (to be) distributed for the selected period.
+- **Sent Cauri:** Displays the amount of token sent if the transaction has been proceeded.
+- **Reserve fund:** Displays the amount of token available  in the reserve. Tokens are sent from the reserve to users. Make sure you have enough funds in the reserve before sending rewards or some users may not receive anything.
+- **Total kudos:** Displays the total number of kudos received during the selected period.
+- **Total gamification:** Displays the total number of gamification points earned during the selected period.
+
+For convenience, you can search for a user by his name, pool or wallet address. 
+
+|image347|
+
+You can also display the disabled users using the appropriate radio button. 
+
+|image346|
+
+The available information for each user are the following:
+
+- Fisrt and last name
+- Actual pool
+- Transaction
+- Status
+- Amount of reward
+- Information icon
+
+When you click on the information icon you see the reward details of the associated user.
+
+|image345|
+
+To send rewards, you must select the reward period then click on the "send reward" button.
 
 .. _ManagingGamification:
 
@@ -4630,29 +4776,97 @@ to go to the **Gamification** page by clicking on the
 top navigation bar, and select Gamification. The **Gamification**
 choices pages will by displayed.
 
-You can manage your rules or Badges by choosing **Manage Rules** or **Manage Badges**.
+You can manage your domains, rules or Badges by choosing **Manage Domains**, **Manage Rules** or **Manage Badges**.
 
-|image323|
+
+
+.. _ManageDomains:
+
+Manage Domains
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the Manage Domains page, a table containing all the Domains in the platform is displayed. To ease the domain's management, a search field is available to allow you searching domains and a filter button to allow you filtering domains by status. 
+Every domain have: 
+
+- Title: A significant title of the domain.
+
+- Description: A description of the domain to explain its goal.
+
+- Enabled: The status of the domain. It could be **True** for enabled status or **false** for disabled.
+
+- Action: A delete and Edit actions for domains is displayed for every line of Domains table. 
+
+
+
+Add Domain
+---------
+
+You can add a new domain just by clicking on **Add domain** button above the Domains table.
+
+A popup will be displayed containing a form to add a new domain.
+
+
+Fields are the same as in the Add Domain popup: 
+
+- Title
+- Description
+- Enabled status (switch button to choose between Yes or No status)
+
+.. note:: Once your domain is successfully added to the Domains base, a success message is displayed : *Domain added successfully*
+          An error message will display if you add a domain with wrong, missing or even similar informations of existing domains: *An error happen when adding a domain*
+
+.. note:: By default, you will have 3 domains: **social**, **Teamwork** and **Knowledge** .
+
+Edit Domain
+----------
+You can edit a domain just by clicking on the edit icon of the domain you want to update. 
+
+A popup containing existing informations of the selected domain to edit will display with 2 buttons : 
+
+- Save: To save changes that you made in the domain
+- Cancel: To cancel changes and conserve the already existing domain.
+
+.. note:: By disabling a domain, all related rules and badges will be disabled too.
+
+Delete Domain
+----------
+You can delete a domain just by clicking on the delete icon of the domain you want to delete. 
+
+A confirmation popup will be displayed and you can confirm the domain's delete or cancel it.
+
+Once the domain is deleted, all related badges and rules will be disabled and have empty fields in the Domain column in the Manage Rules and Manage Badges tables.
+
+Search Domain
+----------
+You can search a domain just by typing some characters on the search field near to the ``Add Domain`` button. 
+
+Fields taken into account during the search are:
+
+- title
+- description
+
+Search results contain only the domains having in their title or description the typed characters.
+
+.. note:: If no results found, an *Empty Table* information is displayed.
 
 
 .. _ManageRules:
 
 Manage Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In the Manage Rules page, you will find a table of all rules in the platform.
+In the Manage Rules page, a table containing all the rules in the platform is displayed. To ease the rules' management,  a search field is available to allow you searching rules and a filter button to allow you filtering rules by status.  
 Every rule have: 
 
-- Title: A significant title of the rule.
+- Rule: A pulldown displaying all predefined rules.
 
 - Description: A description of the rule to explain its goal.
 
-- Score: The number of points obtained by the rule.
+- Points: The number of points gained by the rule.
 
 - Domain: The domain of the rule. It could be **social**, **Teamwork**, **Knowledge**...
 
 - Enabled: The status of the rule. It could be **True** for enabled status or **false** for disabled.
 
-- Action: A delete action for rules is displayed for every line of Rules table. 
+- Actions: A delete action for each Rule in the table.
 
 |image324|
 
@@ -4667,9 +4881,9 @@ A popup will be displayed containing a form to add a new rule.
 
 Fields are the same as in the Add Rule popup: 
 
-- Title
+- Rule
 - Description
-- Score
+- Points
 - Domain (a pulldown to choose easily the rule domain)
 - Enabled status (switch button to choose between Yes or No status)
 
@@ -4681,12 +4895,34 @@ Edit Rule
 ----------
 You can edit a rule just by clicking on the edit icon of the rule you want to update. 
 
-All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
+A popup containing the existing information of the selected rule to edit is displayed with 2 buttons: 
 
-- Save: To save changes that you made in the rule
+- Confirm: To save the made changes on the rule
 - Cancel: To cancel changes and conserve the already existing rule.
 
 |image326|
+
+Delete Rule
+----------
+You can delete a rule just by clicking on the delete icon. 
+
+A confirmation popup is displayed allowing you to confirm or cancel the changes done.
+
+.. note:: Once the rule is deleted, it will be not used anymore on the points score.
+
+Search Rule
+----------
+You can search for a rule just by typing some characters in the search field near the Add Rule button. 
+
+Fields taken into account in the search are:
+
+- Rule 
+- Description
+- Points
+
+Search results contain only rules having in their Rule, description or Points fields the typed characters. 
+
+.. note:: If no results found, an *Empty Table* information is displayed.
 
 .. _ManageBadges:
 
@@ -4696,6 +4932,8 @@ Add Badge
 ----------
 
 You can add a new Badge just by clicking on **Add Badge** button above the Badges table.
+
+A search field is available allowing you to search for Badges and a filter button allowing you to filter them by status. 
 
 A popup will be displayed containing a form to add a new Badge.
 
@@ -4716,12 +4954,35 @@ If the added badge has erroneous or missing details or even similar information 
 
 Edit Badge
 -----------
-You can edit a badge just by clicking on the edit icon of the rule you want to update. 
+You can edit a badge just by clicking on the edit icon of the corresponding badge. 
 
-All fields will be in an edit mode and 2 new buttons will replace the Delete button in the Action column: 
+A popup containing the existing information of the selected badge to edit is displayed with 2 buttons: 
 
-- Save: To save changes that you made in the badge
-- Cancel: To cancel changes and conserve the already existing badge.
+- Confirm: To save the made changes
+- Cancel: To cancel the made changes and keep the existing badge.
+
+Delete Badge
+----------
+You can delete a badge just by clicking on the delete icon of the target badge to delete. 
+
+A confirmation popup is displayed allowing you to confirm the badge's deletion or cancel it.
+
+.. note:: Once the badge is deleted, it will be not used anymore on the points score.
+
+Search Badge
+----------
+You can search for a badge just by typing some characters on the search field near the Add Badge button. 
+
+Fields taken into account in the search are:
+
+- Badge
+- Description
+- Score
+- Domain
+
+The table will display only badges containing the typed characters in one of the above cited fields. 
+
+.. note:: If no results found, an *Empty Table* information is displayed.
 
 .. _BuildingOnlineCommunity:
 
@@ -5284,3 +5545,20 @@ The following image shows the screen when an anonymous user accesses
 .. |image330| image:: images/walletadmin/new_wallet.png
 .. |image331| image:: images/walletadmin/common_actions.png
 .. |image332| image:: images/walletadmin/initialize_reject.png
+.. |image333| image:: images/managekudos/manage_kudos.png
+.. |image334| image:: images/managekudos/select_space.png
+.. |image335| image:: images/managekudos/filter_kudos.png
+.. |image336| image:: images/managekudos/kudos_list.png
+.. |image337| image:: images/managerewards/reward_configuration.png
+.. |image338| image:: images/managerewards/pool_no_user.png
+.. |image339| image:: images/managerewards/create_pool.png
+.. |image340| image:: images/managerewards/pools_tab.png
+.. |image341| image:: images/managerewards/enabled_pool.png
+.. |image342| image:: images/managerewards/disabled_pool.png
+.. |image343| image:: images/managerewards/send_rewards.png
+.. |image344| image:: images/managerewards/send_rewards_button.png
+.. |image345| image:: images/managerewards/reward_details.png
+.. |image346| image:: images/managerewards/display_disabled_users.png
+.. |image347| image:: images/managerewards/search_bar.png
+
+

@@ -1247,9 +1247,10 @@ Internally, these events are used for a variety of uses such as notifications or
 
 Broadcasted events are:
 
-- ``exo.addon.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
-- ``exo.addon.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
-- ``exo.addon.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
+- ``exo.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
+- ``exo.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
+- ``exo.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
+- ``exo.wallet.reward.report.success`` : a period reward has been sent to all wallets and its transactions has completely succeeded. (Example: `RewardSucceedNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/listener/RewardSucceedNotificationListener.java>`__)
 
 To add an event listener using one listed events above, you can add the following configuration inside a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
@@ -1278,8 +1279,8 @@ Internally, these events are used for a variety of uses such as creating an acti
 
 Broadcasted events are:
 
-- ``exo.addons.kudos.sent`` : a new Kudos is sent. (Example: `NewKudosSentActivityGeneratorListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/NewKudosSentActivityGeneratorListener.java>`__)
-- ``exo.addons.kudos.activity`` : a Kudos activity or activity comment is created. (Example: `GamificationIntegrationListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/GamificationIntegrationListener.java>`__)
+- ``exo.kudos.sent`` : a new Kudos is sent. (Example: `NewKudosSentActivityGeneratorListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/NewKudosSentActivityGeneratorListener.java>`__)
+- ``exo.kudos.activity`` : a Kudos activity or activity comment is created. (Example: `GamificationIntegrationListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/GamificationIntegrationListener.java>`__)
 
 To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
@@ -1309,8 +1310,8 @@ Internally, these events are used for a variety of uses such as notifications or
 Broadcasted events are:
 
 - ``exo.perkstore.settings.modified`` : Perk Store settings is modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
-- ``exo.addons.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
-- ``exo.addons.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
+- ``exo.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
+- ``exo.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
 
 To add an event listener using one of listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
