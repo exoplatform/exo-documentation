@@ -5317,9 +5317,9 @@ then the query is sent as if it is two words.
 
 .. _Configuration.ElasticSearch:
   
-=========================================
-Elasticsearch Embedded mode Configuration
-=========================================
+=============================
+Elasticsearch Configuration
+=============================
 
 When deployed as embedded, the `Elasticsearch configuration
 files <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/setup-configuration.html>`__
@@ -5380,6 +5380,20 @@ configurable in :ref:`exo.properties <Configuration.ConfigurationOverview>`
     exo.es.search.server.url=http://127.0.0.1:9200
     exo.es.search.server.username=root
     exo.es.search.server.password=xxxxx
+    
+It is also possible to configure the number of search and indexing calls in the http connection pool used by Elasticsearch 
+by defining these parameters:
+
+
+::
+
+	exo.es.search.http.connections.max=2
+	exo.es.index.http.connections.max=2
+	
+Default value is set to 2 for the both parameters.	
+	
+	
+    
 
 The parameter
 
