@@ -107,7 +107,7 @@ A list of the latest three versions appears in the drawer. Each version contains
    -  The text message "File has been updated" if the document's editor did not input a summary while saving the versions
    -  The text message "File has been renamed to newname.extension" if the document's editor has renamed the file
    
-Clicking on the ``See more`` button redirects you to the Documents application. YOu can then open Versions list by clicking 
+Clicking on the ``See more`` button redirects you to the Documents application. You can then open Versions list by clicking 
 on ``Versions`` button on the toolbar.
 
 |image9|
