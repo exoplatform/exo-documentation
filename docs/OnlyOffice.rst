@@ -70,7 +70,7 @@ Clicking on that button opens a drawer "Save version" with these fields:
 -  The file's breadcrumb
 -  An edit icon allowing to edit the file's name
 -  The summary text field
--  Save button allow to add a version of the document in Documents application.
+-  A ``Save`` button allowing to create a new version of the document .
 -  List of the last previous 3 versions
 -  See more button
 -  A close button at the top right of the drawer
