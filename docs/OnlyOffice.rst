@@ -72,7 +72,7 @@ Clicking on that button opens a drawer "Save version" with these fields:
 -  The summary text field
 -  A ``Save`` button allowing to create a new version of the document .
 -  The list of the 3 latest versions
--  See more button
+-  A ``See more`` button allowing to display the full version history of the document
 -  A close button at the top right of the drawer
 
 |image6|
