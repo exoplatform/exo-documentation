@@ -5390,7 +5390,10 @@ by defining these parameters:
 	exo.es.search.http.connections.max=2
 	exo.es.index.http.connections.max=2
 	
-Default value is set to 2 for the both parameters.	
+``exo.es.search.http.connections.max`` is the maximum number of connections in the HTTP connections pool for 
+Elasticsearch search calls. Default value set to 2.
+``exo.es.index.http.connections.max`` is the maximum number of connections in the HTTP connections pool for 
+Elasticsearch indexing calls. Default value set to 2.
 	
 	
     
