@@ -5321,6 +5321,11 @@ then the query is sent as if it is two words.
 Elasticsearch Configuration
 =============================
 
+.. _ESEmbeddedMode:
+
+Properties of the Elasticsearch embedded node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 When deployed as embedded, the `Elasticsearch configuration
 files <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/setup-configuration.html>`__
 (elasticsearch.yml and logging.yml) are embedded in the add-on. All the
@@ -5328,11 +5333,6 @@ properties can be set directly in
 :ref:`exo.properties <Configuration.ConfigurationOverview>` and will 
 override the default properties defined in ``elasticsearch.yml`` and 
 ``logging.yml``.
-
-.. _ESEmbeddedMode:
-
-Properties of the Elasticsearch embedded node
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All the properties below are standard properties of Elasticsearch. When
 a property ``es.xxx`` is defined in
