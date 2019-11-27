@@ -4,7 +4,12 @@
 OnlyOffice Connector for eXo
 #############################
 
-**What is OnlyOffice**
+.. _OODefinition:
+
+====================
+What is OnlyOffice
+====================
+
 
 `OnlyOffice Online Editors <https://www.onlyoffice.com/office-suite.aspx>`__ is a great open source solution 
 that lets you create, edit and collaborate online on your Office documents. 
@@ -54,7 +59,7 @@ The ``Edit Online`` button is available in these locations:
 
    |image4|
    
-Clicking on this button loads the dcument in the corresponding OnlyOffice editor in new tab for maximum comfort.
+Clicking on this button loads the document in the corresponding OnlyOffice editor in new tab for maximum comfort.
 
 
 .. _EditorInterface:
@@ -64,6 +69,8 @@ Editor Interface
 
 Clicking on |image5| button opens the document you want to edit in an another tab.
 The interface contains the content of the document loaded in the OnlyOffice editor with a floating button.
+
+|image10|
 
 Clicking on that button opens a drawer "Save version" with these fields:
 
@@ -104,11 +111,11 @@ A list of the latest three versions appears in the drawer. Each version contains
 -  The edit summary which could be:
 
    -  The summary inputted when saving the version
-   -  The text message "File has been updated" if the document's editor did not input a summary while saving the versions
+   -  The text message "File has been updated" if the document's editor did not input a summary while saving the version
    -  The text message "File has been renamed to newname.extension" if the document's editor has renamed the file
    
 Clicking on the ``See more`` button redirects you to the Documents application. You can then open Versions list by clicking 
-on ``Versions`` button on the toolbar.
+on ``Versions`` button |image11| on the toolbar.
 
 |image9|
 
@@ -136,3 +143,5 @@ The yellow bar contains also a ``Reload`` link allowing you to load the changes 
 .. |image7| image:: images/OnlyOffice/YellowBar_AS.png
 .. |image8| image:: images/OnlyOffice/YellowBAr_Documents.png
 .. |image9| image:: images/OnlyOffice/Versions_button.png
+.. |image10| image:: images/OnlyOffice/interface.png
+.. |image11| image:: images/OnlyOffice/version_btn_documents.png
