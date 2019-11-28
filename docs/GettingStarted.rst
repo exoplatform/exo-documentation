@@ -1353,6 +1353,13 @@ The page displays the list of "All News".
 
 For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source (space).
 You can also share the displayed articles as explained in the `Sharing a News`_ chapter.
+You can look for articles easily using the available search bar in the topbar of the application. It is possible to search by the article title, its author or content.
+
+|image189|
+
+|image190|
+
+|image191|
 
 	
 .. _Formatting-toolbar:
@@ -2206,4 +2213,9 @@ to display the original timestamp of the comment.
 .. |image186| image:: images/sharenews/unpin_edit.png
 .. |image187| image:: images/sharenews/news_leftnav.png
 .. |image188| image:: images/sharenews/news_app.png
+.. |image189| image:: images/sharenews/search_title.png
+.. |image190| image:: images/sharenews/search_user.png
+.. |image191| image:: images/sharenews/search_content.png
+
+
 
