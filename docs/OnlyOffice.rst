@@ -35,7 +35,7 @@ To install the add-on, use the following command:
 
 ================================
 How to use OnlyOffice for eXo?
-================================	
+================================
 
 .. _EditOnline_BTN:
 
@@ -130,8 +130,33 @@ The yellow bar contains also a ``Reload`` link allowing you to load the changes 
 
 |image8|
 
+.. _New_Document:
 
-		
+==================
+Add New document
+==================
+
+In the Documents toolbar, a ``New Document`` button is available allowing you to create a new document.
+It is possible to instantiate a new document from a template, if you already configured templates in 
+your extension, or to create a new blank Microsoft Office document i.e. docx, pptx pr xlsx.
+
+Clicking on New Document button |image12| opens a popup allowing you to select a template 
+from the existing ones.
+|image13|
+
+Having selected a template, the ``Next`` button turns to enabled status and clicking on it opens an another
+popup to let you input the document's name and then enable the ``Create`` button.
+
+|image14|
+
+When you click on ``Create`` button, the new document is opened in an another tab in the corresponding 
+OnlyOffice editor.
+
+.. note:: -  If you have selected to create a new document from an existing template, 
+             the content of the template will be loaded in the editor.
+          -  All the document's information are loaded in the drawer when creating a new document:
+             it's name, the avatar of the space or the document's owner and the path. The list of versions
+             is empty as there is no older versions for a new document.   
 
 .. |image0| image:: images/OnlyOffice/onlyofficeInterface.png
 .. |image1| image:: images/OnlyOffice/editOnline_btn.png
@@ -145,3 +170,6 @@ The yellow bar contains also a ``Reload`` link allowing you to load the changes 
 .. |image9| image:: images/OnlyOffice/Versions_button.png
 .. |image10| image:: images/OnlyOffice/interface.png
 .. |image11| image:: images/OnlyOffice/version_btn_documents.png
+.. |image12| image:: images/OnlyOffice/New_Document_btn.png
+.. |image13| image:: images/OnlyOffice/New_Document_popup.png
+.. |image14| image:: images/OnlyOffice/New_Document_name.png
