@@ -5317,9 +5317,14 @@ then the query is sent as if it is two words.
 
 .. _Configuration.ElasticSearch:
   
-=========================================
-Elasticsearch Embedded mode Configuration
-=========================================
+=============================
+Elasticsearch Configuration
+=============================
+
+.. _ESEmbeddedMode:
+
+Properties of the Elasticsearch embedded node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When deployed as embedded, the `Elasticsearch configuration
 files <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/setup-configuration.html>`__
@@ -5328,11 +5333,6 @@ properties can be set directly in
 :ref:`exo.properties <Configuration.ConfigurationOverview>` and will 
 override the default properties defined in ``elasticsearch.yml`` and 
 ``logging.yml``.
-
-.. _ESEmbeddedMode:
-
-Properties of the Elasticsearch embedded node
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All the properties below are standard properties of Elasticsearch. When
 a property ``es.xxx`` is defined in
@@ -5380,6 +5380,23 @@ configurable in :ref:`exo.properties <Configuration.ConfigurationOverview>`
     exo.es.search.server.url=http://127.0.0.1:9200
     exo.es.search.server.username=root
     exo.es.search.server.password=xxxxx
+    
+It is also possible to configure the number of connection in the http connections pool used for search and indexing calls to Elasticsearch 
+by defining these parameters:
+
+
+::
+
+	exo.es.search.http.connections.max=2
+	exo.es.index.http.connections.max=2
+	
+``exo.es.search.http.connections.max`` is the maximum number of connections in the HTTP connections pool for 
+Elasticsearch search calls. Default value set to 2.
+``exo.es.index.http.connections.max`` is the maximum number of connections in the HTTP connections pool for 
+Elasticsearch indexing calls. Default value set to 2.
+	
+	
+    
 
 The parameter
 
