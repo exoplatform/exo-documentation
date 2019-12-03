@@ -24,7 +24,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
 
 .. toctree::
    :maxdepth: 2
-   :caption: What's new in eXo Platform 5.3?
+   :caption: What's new in eXo Platform 6.0?
    
    whatsnew
    
