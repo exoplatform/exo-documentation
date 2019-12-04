@@ -3024,7 +3024,7 @@ the portlet in eXo Platform and test:
 Vue.js Portlet
 ~~~~~~~~~~~~~~
 
-eXo Platform 5.3 uses Vue.js version 2.6 in multiple Portlet applications.
+eXo Platform 6.0 uses Vue.js version 2.6 in multiple Portlet applications.
 This guide describes how to build a Vue.js application.
 
 1. Download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vue-portlet-webpack>`__.
@@ -3312,7 +3312,7 @@ This guide describes how to build a Vue.js application.
 Vuetify and Vue.js Portlet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-eXo Platform 5.3 uses Vuetify version 2.0 in multiple Portlet applications.
+eXo Platform 6.0 uses Vuetify version 2.0 in multiple Portlet applications.
 This guide describes how to build an application based on Vuetify 2.0 and Vue.js 2.6.
 
 You can download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vuetify-portlet-webpack>`__ and apply the same steps described in :ref:`Develop Vue.js Portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vue>`.
