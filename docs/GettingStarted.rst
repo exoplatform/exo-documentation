@@ -1172,7 +1172,7 @@ The creation form is opened in a new tab.
 
 Write or paste your article content in. Choose a title, a summary and an illustrative image as desired. 
 
-**Upload a video**
+**Insert a video**
 
 You can insert a video in the article's content by clicking in the video icon from the ckeditor toolbar.
 
