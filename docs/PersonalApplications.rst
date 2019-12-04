@@ -1267,7 +1267,7 @@ your tasks as completed.
 .. _NewsNotifications :
 
 
-**News post in a space**
+**News posted in a space**
 
 You will receive the **News posted in a space** notification when an user posts an article in a space you are member of.
 
