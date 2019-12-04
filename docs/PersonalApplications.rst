@@ -1281,7 +1281,7 @@ You will receive the **News shared in a space** notification when an user shares
 
 **My News shared**
 
-You will receive the **My News shared** notification when a user shares your posted article in another space.
+You will receive the **My News shared** notification when an user shares one of your articles in another space.
 
 	|image99|
 
