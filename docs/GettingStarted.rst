@@ -1162,7 +1162,7 @@ Publishing a news lets you easily write, broadcast  and share communication cont
 Creating and posting a News
 ---------------------------
 
-To create a news article, click "write an article" located at the bottom of the space's composer. 
+To create a news article, click "Write an article" located at the bottom of the space's composer. 
 
 |image156|
 
