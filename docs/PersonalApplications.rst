@@ -1269,19 +1269,19 @@ your tasks as completed.
 
 **News posted in a space**
 
-You will receive the **News posted in a space** notification when an user posts an article in a space you are member of.
+You will receive the **News posted in a space** notification when a user posts an article in a space you are member of.
 
 	|image97|
 
 **News shared in a space**
 
-You will receive the **News shared in a space** notification when an user shares an article in a space you are member of.
+You will receive the **News shared in a space** notification when a user shares an article in a space you are member of.
 
 	|image98|
 
 **My News shared**
 
-You will receive the **My News shared** notification when an user shares one of your articles in another space.
+You will receive the **My News shared** notification when a user shares one of your articles in another space.
 
 	|image99|
 
