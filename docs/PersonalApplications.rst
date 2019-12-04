@@ -936,7 +936,7 @@ In this section, the following notification streams will be presented:
 * :ref:`Post on your activity stream <PostOnYourActivityStream>`
 * :ref:`Post in your space <PostInSpace>`
 * :ref:`Task Management activities <TaskManagement>`
-* :ref:`News activities notifications <NewsNotifications>`
+* :ref:`News notifications <NewsNotifications>`
 
 
 .. _NewUsers:
@@ -1461,4 +1461,3 @@ such as:
 .. |image97| image:: images/sharenews/post_notif.png
 .. |image98| image:: images/sharenews/share_notif.png
 .. |image99| image:: images/sharenews/share_mynews_notif.png
-
