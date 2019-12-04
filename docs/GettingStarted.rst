@@ -1153,13 +1153,16 @@ the link.
 .. _News:
 
 	
-Posting a news in the activity stream
+Posting a News in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is possible to write an article directly from a space composer. This feature is intended to improve and simplify the way information is shared. Users can contribute content intuitively without any former training to the content management system. News offers an inclusive and collaborative way to manage communication.
 Publishing a news lets you easily write, broadcast  and share communication content into other spaces. You can also make it visible to all platform users by pinning articles on the home page.
 
-To post a news article, click "write an article" located at the bottom of the space's composer. 
+creating and posting a News
+---------------------------
+
+To create a news article, click "write an article" located at the bottom of the space's composer. 
 
 |image156|
 
@@ -1167,7 +1170,31 @@ The creation form is opened in a new tab.
 
 |image159|
 
-Write or paste your article content in. Choose a title, a summary and an illustrative image as desired, then press the "Post" button in the top-right corner of the screen. 
+Write or paste your article content in. Choose a title, a summary and an illustrative image as desired. 
+
+**Upload a video**
+
+You can insert a video in the article's content by clicking in the video icon from the ckeditor toolbar.
+
+|image192|
+
+You have to paste the video's url in the field of the displayed popup. The supported video players are Youtube, Vimeo and dailymotion.
+
+|image193|
+
+If the inserted URL format is uncorrect, a red icon is displayed (with a tooltip displaying the message "invalid URL") and the "OK" button is still disabled.
+
+|image195|
+
+If the inserted URL format is correct, a green icon is displayed and the "OK" button is enabled.
+
+|image194|
+
+When you click on the "OK" button a preview of the video is displayed in the content field and you can continue writing the article.
+
+|image196|
+
+When you finish writing your article, press the "Post" button in the top-right corner of the screen. 
 
 |image160|
 
@@ -2216,6 +2243,9 @@ to display the original timestamp of the comment.
 .. |image189| image:: images/sharenews/search_title.png
 .. |image190| image:: images/sharenews/search_user.png
 .. |image191| image:: images/sharenews/search_content.png
-
-
+.. |image192| image:: images/sharenews/video_icon.png
+.. |image193| image:: images/sharenews/video_popup.png
+.. |image194| image:: images/sharenews/correct_video_url.png
+.. |image195| image:: images/sharenews/uncorrect_video_url.png
+.. |image196| image:: images/sharenews/video_creation_form.png
 
