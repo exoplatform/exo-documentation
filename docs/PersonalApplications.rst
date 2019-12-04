@@ -936,6 +936,7 @@ In this section, the following notification streams will be presented:
 * :ref:`Post on your activity stream <PostOnYourActivityStream>`
 * :ref:`Post in your space <PostInSpace>`
 * :ref:`Task Management activities <TaskManagement>`
+* :ref:`News notifications <NewsNotifications>`
 
 
 .. _NewUsers:
@@ -1263,6 +1264,33 @@ your tasks as completed.
    Click on the notification stream, you will be taken to the detailed
    task pane in the Task Management application.
 
+.. _NewsNotifications :
+
+
+**News posted in a space**
+
+You will receive the **News posted in a space** notification when a user posts an article in a space you are member of.
+
+	|image97|
+
+**News shared in a space**
+
+You will receive the **News shared in a space** notification when a user shares an article in a space you are member of.
+
+	|image98|
+
+**My News shared**
+
+You will receive the **My News shared** notification when a user shares one of your articles in another space.
+
+	|image99|
+
+**My News liked**
+
+**My News commented**
+
+**Kudos received for my News**
+
 
 .. _Email-notification-Open-action:
 
@@ -1430,3 +1458,6 @@ such as:
 .. |3| image:: images/common/3.png
 .. |4| image:: images/common/4.png
 .. |5| image:: images/common/5.png
+.. |image97| image:: images/sharenews/post_notif.png
+.. |image98| image:: images/sharenews/share_notif.png
+.. |image99| image:: images/sharenews/share_mynews_notif.png
