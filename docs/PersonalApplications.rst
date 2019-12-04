@@ -1273,7 +1273,7 @@ You will receive the **News posted in a space** notification when an user posts 
 
 	|image97|
 
-**News share in a space**
+**News shared in a space**
 
 You will receive the **News share in a space** notification when a user shares an article in a space of which you are member.
 
