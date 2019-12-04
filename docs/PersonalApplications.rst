@@ -1289,7 +1289,7 @@ You will receive the **My News shared** notification when a user shares one of y
 
 **My News commented**
 
-**Kudos recieved for my News**
+**Kudos received for my News**
 
 
 .. _Email-notification-Open-action:
