@@ -1182,7 +1182,7 @@ You have to paste the video's url in the field of the displayed popup. The suppo
 
 |image193|
 
-If the inserted URL format is uncorrect, a red icon is displayed (with a tooltip displaying the message "invalid URL") and the "OK" button is still disabled.
+If the inserted URL format is incorrect, a red icon is displayed (with a tooltip displaying the message "Invalid URL") and the "OK" button is still disabled.
 
 |image195|
 
