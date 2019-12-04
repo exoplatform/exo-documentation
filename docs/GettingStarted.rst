@@ -1178,7 +1178,7 @@ You can insert a video in the article's content by clicking in the video icon fr
 
 |image192|
 
-You have to paste the video's url in the field of the displayed popup. The supported video players are Youtube, Vimeo and dailymotion.
+You have to paste the video's url in the field of the displayed popup. The supported video players are Youtube, Vimeo and Dailymotion.
 
 |image193|
 
