@@ -1374,12 +1374,14 @@ This application is accessible through the ``News`` link  in the left navigation
 
 |image187|
 
-The page displays the list of "All News". 
+The page displays by default the list of "All News". For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source (space).
+You can also share the displayed articles as explained in the `Sharing a News`_ chapter.
 
 |image188|
 
-For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source (space).
-You can also share the displayed articles as explained in the `Sharing a News`_ chapter.
+Search in News application
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 You can look for articles easily using the available search bar in the topbar of the application. It is possible to search by the article title, its author or content.
 
 |image189|
@@ -1387,6 +1389,18 @@ You can look for articles easily using the available search bar in the topbar of
 |image190|
 
 |image191|
+
+
+News application filters
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Different filters are available from News application so you can easily find pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
+
+To display the pinned news list, select this option from the dropdown menu of the application topbar.
+
+|image197|
+
+After applying this filter, the list will only contain the articles that have been pinned on the home page. 
 
 	
 .. _Formatting-toolbar:
@@ -2248,3 +2262,4 @@ to display the original timestamp of the comment.
 .. |image194| image:: images/sharenews/correct_video_url.png
 .. |image195| image:: images/sharenews/uncorrect_video_url.png
 .. |image196| image:: images/sharenews/video_creation_form.png
+.. |image197| image:: images/sharenews/app_pinned.png
