@@ -1369,7 +1369,7 @@ News application views
 
 Different views are available from News application so you can easily find pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
 
-To display the pinned news list, all you have to do is to choose this option from the dropdown menu of the application topbar.
+To display the pinned news list, select this option from the dropdown menu of the application topbar.
 
 |image192|
 
@@ -2231,5 +2231,4 @@ to display the original timestamp of the comment.
 .. |image190| image:: images/sharenews/search_user.png
 .. |image191| image:: images/sharenews/search_content.png
 .. |image192| image:: images/sharenews/app_pinned.png
-
 
