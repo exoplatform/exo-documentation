@@ -1364,16 +1364,16 @@ You can look for articles easily using the available search bar in the topbar of
 |image191|
 
 
-News application views
-^^^^^^^^^^^^^^^^^^^^^^^
+News application filters
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Different views are available from News application so you can easily find pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
+Different filters are available from News application so you can easily find pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
 
 To display the pinned news list, select this option from the dropdown menu of the application topbar.
 
 |image192|
 
-After applying this view, the list will only contain the articles that have been pinned on the home page. 
+After applying this filter, the list will only contain the articles that have been pinned on the home page. 
 
 	
 .. _Formatting-toolbar:
