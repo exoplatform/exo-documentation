@@ -1286,13 +1286,13 @@ The action is successfully done after confirming it as for the two options above
 
 You may display the home page to verify that the news is available in the appropriate block.
 
-You may display one of the following type of blocks :
+You can display the pinned articles with one of the following layouts :
 
-- Blog block: 
+- Blog layout: 
 
 |image172|
 
-- Latest News block: 
+- Latest News layout: 
 
 |image198|
 
