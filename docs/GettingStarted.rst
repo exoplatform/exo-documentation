@@ -1249,6 +1249,7 @@ You can check that the action has been done successfully by connecting to the de
 
 |image167|
 
+.. _Pinning a News:
 
 Pinning a News in the home page
 -------------------------------
