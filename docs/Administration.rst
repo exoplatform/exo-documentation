@@ -4595,7 +4595,7 @@ The layout is not set by default, you have to edit the page layout then add a "C
 
 |image349| 
 
-The first thing to do is to edit the portlet and choose the folder path.
+Once the application is added in the page, edit its settings and choose the folder path.
 
 |image350| 
 
