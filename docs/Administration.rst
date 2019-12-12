@@ -61,6 +61,9 @@ Administering eXo Platform
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
 	  
+	-  :ref:`Managing News <ManagingNews>`
+       How to manage News related pages and content.
+	  
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
@@ -4574,6 +4577,49 @@ The Service Management page is displayed.
    To invoke a method of the selected service, click Run corresponding
    to it. After invoking it successfully, you will see the result
    returned if any.
+   
+   
+.. _ManagingNews:
+
+==============
+Managing News
+==============
+
+How to manage pinned block layouts
+-----------------------------------
+
+The home page CLV is a block that displays articles that have been pinned on the homepage by a user having the role publisher.
+The layout is not set by default, you have to edit the page layout then add a "Content by query" in the area in which you want to set the block.
+
+|image348| 
+
+|image349| 
+
+The first thing to do is to edit the portlet and choose the folder path.
+
+|image350| 
+
+Then you have to choose the appriopriate template from "Display Settings" tab of "Edit Mode" : 
+
+- For the blog layout, select the following file "NewsPin.gtmpl".
+- For the latest News layout, select the following file "LatestNews.gtmpl". 
+
+|image351| 
+
+Next, fill in the field "Header", this information will be displayed in the top right of the block.
+
+|image352| 
+
+From advanced tab, fill in the following query in the field "By query" :
+
+       *select * from exo:symlink where jcr:path like '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC*
+
+Then select the appropriate page from News folder from the selector "Show in page"
+
+|image353| 
+
+Finally tick the checkbox "Restricted by user role" and click on "Save" button. 
+
 
 .. _ManagingWallets:
 
@@ -5560,5 +5606,10 @@ The following image shows the screen when an anonymous user accesses
 .. |image345| image:: images/managerewards/reward_details.png
 .. |image346| image:: images/managerewards/display_disabled_users.png
 .. |image347| image:: images/managerewards/search_bar.png
-
+.. |image348| image:: images/sharenews/edit_layout.png
+.. |image349| image:: images/sharenews/content_by_query.png
+.. |image350| image:: images/sharenews/folder_path.png
+.. |image351| image:: images/sharenews/template_selector.png
+.. |image352| image:: images/sharenews/header_block.png
+.. |image353| image:: images/sharenews/show_in_page.png
 
