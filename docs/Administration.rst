@@ -4601,7 +4601,7 @@ Once the application is added in the page, edit its settings and choose the fold
 
 Then you have to choose the appriopriate template from "Display Settings" tab of "Edit Mode" : 
 
-- For the blog layout, select the following file "NewsPin.gtmpl".
+- For the blog layout, select "NewsPin.gtmpl".
 - For the latest News layout, select "LatestNews.gtmpl". 
 
 |image351| 
