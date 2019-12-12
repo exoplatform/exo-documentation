@@ -4585,7 +4585,7 @@ The Service Management page is displayed.
 Managing News
 ==============
 
-How to manage pinned block layouts
+How to display pinned News on a page
 -----------------------------------
 
 The home page CLV is a block that displays articles that have been pinned on the homepage by a user having the role publisher.
@@ -5612,4 +5612,3 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
-
