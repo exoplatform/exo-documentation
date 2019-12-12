@@ -4586,10 +4586,11 @@ Managing News
 ==============
 
 How to display pinned News on a page
------------------------------------
+-------------------------------------
 
-The home page CLV is a block that displays articles that have been pinned on the homepage by a user having the role publisher.
-The layout is not set by default, you have to edit the page layout then add a "Content by query" in the area in which you want to set the block.
+The pinned articles are not highlighted by default in the platform (you can refer to `Pinning a News`_ chapter to know more how pin function works).
+
+In order to display these pinned articles in a page, edit the page layout then add a "Content by query" application at the desired location.
 
 |image348| 
 
