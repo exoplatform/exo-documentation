@@ -4606,7 +4606,7 @@ Then you have to choose the appriopriate template from "Display Settings" tab of
 
 |image351| 
 
-Next, fill in the field "Header", this information will be displayed in the top right of the block.
+Next, fill in the field "Header", this information will be displayed in the top left of the block.
 
 |image352| 
 
