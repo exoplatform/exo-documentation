@@ -1258,10 +1258,6 @@ As a platform-wide publisher (publisher:/platform/web-contributors role required
 
 1- Pinning a News from creation form : 
 
-From simple and full creation forms, a  "Pin article" checkbox is available. 
-
-|image168|
-
 After filling in the article details, tick "Pin article" checkbox then click on "post" button. A confirmation message appears.
 
 |image169|
@@ -1290,7 +1286,15 @@ The action is successfully done after confirming it as for the two options above
 
 You may display the home page to verify that the news is available in the appropriate block.
 
+You can display the pinned articles with one of the following layouts :
+
+- Blog layout: 
+
 |image172|
+
+- Latest News layout: 
+
+|image198|
 
 
 Unpinning a News from the home page
@@ -2235,7 +2239,6 @@ to display the original timestamp of the comment.
 .. |image165| image:: images/sharenews/popup_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
-.. |image168| image:: images/sharenews/pin_checkbox.png
 .. |image169| image:: images/sharenews/confirm_pin.png
 .. |image170| image:: images/sharenews/pin_activity.png
 .. |image171| image:: images/sharenews/success_pin.png
@@ -2263,3 +2266,4 @@ to display the original timestamp of the comment.
 .. |image195| image:: images/sharenews/uncorrect_video_url.png
 .. |image196| image:: images/sharenews/video_creation_form.png
 .. |image197| image:: images/sharenews/app_pinned.png
+.. |image198| image:: images/sharenews/latest_news.png
