@@ -77,13 +77,17 @@ Clicking on that button opens a drawer "Save version" with these fields:
 -  The file's breadcrumb
 -  An edit icon allowing to edit the file's name
 -  The summary text field
--  A ``Save`` button allowing to create a new version of the document .
+-  A ``Save`` button allowing to create a new version of the document
 -  The list of the 3 latest versions
--  A ``See more`` button allowing to display the full version history of the document
+-  A ``See more`` button facilitating the display of the full version history of the document
 -  A close button at the top right of the drawer
 
 |image6|
 
+.. note:: To create a version of the document in :ref:`Documents application <Manage-Documents>`, you need either to click on 
+          ``save`` button of the drawer or close the editor browser tab.
+          
+          
 File's breadcrumb
 ------------------
 
@@ -93,13 +97,23 @@ The file's breadcrumb contains:
 -  The file's path
 -  The file's name which is editable
 
+.. note:: You can edit the file's name by clicking on the edit button |image14| or doubel-clicking on the filename.
+
 Summary field
 --------------
 
 The summary text field allows you to add a description of the changes you made on the document.
 
 .. note:: The summary field is not mandatory, if you input it it will be also added as summary for the document's versions 
-          list in Documents application.
+          list in :ref:`Documents application <Manage-Documents>`.
+          
+.. tip:: The summary text field is limited to 510 characters. If you input more than 510 characters and click on ``Save`` button, 
+         an error message will appear:
+
+         |image15|   
+         
+         The content of the filled summary is not lost to allow you to reduce its number of characters and submit it again.
+         
           
 Versions list
 --------------
@@ -108,14 +122,18 @@ A list of the latest three versions appears in the drawer. Each version contains
 
 -  The editor's avatar
 -  The changes timestamp, when hovering it a tooltip appears with the real edit date
--  The edit summary which could be:
+-  The edit summary if it has been filled, if not its content will be empty in the version.
 
-   -  The summary inputted when saving the version
-   -  The text message "File has been updated" if the document's editor did not input a summary while saving the version
-   -  The text message "File has been renamed to newname.extension" if the document's editor has renamed the file
+When the summary text is too long, it will be truncated in the corresponding item in the "Version list" and a tooltip with the 
+full summary text will appear when hovering over the summary content.
+
+|image16|
+
+.. note:: If the document is newly added, the component "versions list" does not appear until a new version of the document is saved.
    
-Clicking on the ``See more`` button redirects you to the Documents application. You can then open Versions list by clicking 
-on ``Versions`` button |image11| on the toolbar.
+Clicking on the ``See more`` button redirects you to the :ref:`Documents application <Manage-Documents>`. 
+You can then open Versions list by clicking  on ``Versions`` button |image11| on the toolbar.
+
 
 |image9|
 
@@ -137,26 +155,19 @@ Add New document
 ==================
 
 In the Documents toolbar, a ``New Document`` button is available allowing you to create a new document.
-It is possible to instantiate a new document from a template, if you already configured templates in 
-your extension, or to create a new blank Microsoft Office document i.e. docx, pptx pr xlsx.
+It is possible to create a new blank Microsoft Office document.
 
-Clicking on New Document button |image12| opens a popup allowing you to select a template 
-from the existing ones.
+Clicking on ``New Document`` button |image12| opens a popup allowing you to set the document's name and select 
+the document's type: docx, pptx or xlsx:
+
 |image13|
 
-Having selected a template, the ``Next`` button turns to enabled status and clicking on it opens an another
-popup to let you input the document's name and then enable the ``Create`` button.
+Clicking on ``Create Document`` button open the newly created blank document in an another tab. 
+If you click on ``Cancel`` button, the ``New Document`` popup disappears and the document's creation process is canceled.
 
-|image14|
-
-When you click on ``Create`` button, the new document is opened in an another tab in the corresponding 
-OnlyOffice editor.
-
-.. note:: -  If you have selected to create a new document from an existing template, 
-             the content of the template will be loaded in the editor.
-          -  All the document's information are loaded in the drawer when creating a new document:
-             it's name, the avatar of the space or the document's owner and the path. The list of versions
-             is empty as there is no older versions for a new document.   
+.. note:: All the document's information are loaded in the drawer when creating a new document:
+          it's name, the space's avatar or the document's owner avatar and the path. The list of versions
+          is empty as there is no older versions for a new document.   
 
 .. |image0| image:: images/OnlyOffice/onlyofficeInterface.png
 .. |image1| image:: images/OnlyOffice/editOnline_btn.png
@@ -172,4 +183,6 @@ OnlyOffice editor.
 .. |image11| image:: images/OnlyOffice/version_btn_documents.png
 .. |image12| image:: images/OnlyOffice/New_Document_btn.png
 .. |image13| image:: images/OnlyOffice/New_Document_popup.png
-.. |image14| image:: images/OnlyOffice/New_Document_name.png
+.. |image14| image:: images/OnlyOffice/edit_button.png
+.. |image15| image:: images/OnlyOffice/error_message.png
+.. |image16| image:: images/OnlyOffice/summary_tooltip.png
