@@ -84,7 +84,9 @@ Clicking on that button opens a drawer "Save version" with these fields:
 
 |image6|
 
-.. note:: To create a version of the document in :ref:`Documents application <Manage-Documents>`, you need either to click on 
+.. note:: The close button at the top right of the drawer allows only to close the drawer, it does not close the document and it
+          does not create a new version.
+          To create a version of the document in :ref:`Documents application <Manage-Documents>`, you need either to click on 
           ``save`` button of the drawer or close the editor browser tab.
           
           
