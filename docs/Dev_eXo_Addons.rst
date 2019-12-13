@@ -42,6 +42,17 @@ eXo Add-ons
     -  :ref:`eXo Web Conferencing connector <PLFDevGuide.eXoAdd-ons.WebconferencingConnector>`
        a How-to develop your own Web Conferencing connector.
 
+    -  :ref:`eXo Reward plugin <PLFDevGuide.eXoAdd-ons.RewardPlugin>`
+       a How-to develop your own reward plugin.
+
+    -  :ref:`eXo Wallet listeners <PLFDevGuide.eXoAdd-ons.WalletListeners>`
+       a How-to listen to eXo Wallet add-on events.
+
+    -  :ref:`eXo Kudos listeners <PLFDevGuide.eXoAdd-ons.KudosListeners>`
+       a How-to listen to eXo Kudos add-on events.
+
+    -  :ref:`eXo Perk store listeners <PLFDevGuide.eXoAdd-ons.PerkStoreListeners>`
+       a How-to listen to eXo Perk Store add-on events.
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension:
 
@@ -1139,7 +1150,184 @@ following:
         </component-plugin>
       </external-component-plugins>  
       
-     
+
+
+.. _PLFDevGuide.eXoAdd-ons.RewardPlugin:
+
+==============================
+eXo Reward plugin
+==============================
+
+eXo Rewards package is a set of addons used to reward employees of an enterprise of their professional effort.
+The list of addons included are:
+
+* `eXo Wallet <https://github.com/exoplatform/wallet>`__
+
+* `eXo Kudos <https://github.com/exoplatform/kudos>`__
+
+* `eXo Perk Store <https://github.com/exoplatform/perk-store>`__
+
+You can build custom rewarding programs thanks to the extensibility provided by `eXo Reward Plugin`. Bult-in plugins are:
+
+* `Kudos reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/KudosRewardPlugin.java>`__ : allows to reward users with tokens when they receive Kudos
+
+* `Gamification reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/GamificationRewardPlugin.java>`__ : allows to reward users based on the number of points they earn from the gamification engine
+
+A reward plugin computes amounts of so-called ``points`` earned by each user over a period of time.
+
+.. note:: The term ``point`` here is abstract and can represent anything meaningful for the rewarding program.
+          Giving existing examples :
+            - In gamification, point is a gamification point
+            - In Kudos, point is a kudos
+          You can, for example, add a custom reward program ``training`` where ``point`` is the average score obtained in exams.
+
+When the Rewards package administrator will pay rewards to users for a period of time (each month for example),
+the rewards plugins will be used to retrieve earned points for each user having a wallet.
+The earned points will be converted into an amount of tokens to send to each user.
+
+For example, the `Kudos reward plugin` is used to return the number of Kudos received by a user during a selected period of time.
+Administrators can configure the token value for each earned Kudos (or a total budget), so the rewarding engine can compute individual amount of tokens for each user.
+
+Developing a custom Reward plugin requires:
+
+* to write a java Class that extends `RewardPlugin <https://github.com/exoplatform/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
+
+   .. code:: java
+      package org.example;
+   
+      public class CustomRewardPlugin extends RewardPlugin {
+        /**
+         * Retrieves earned points for identities in a selected period of time
+         * 
+         * @param identityIds identity ids of wallets to consider in computation
+         * @param startDateInSeconds start timestamp in seconds of reward period
+         * @param endDateInSeconds end timestamp in seconds of reward period
+         * @return a {@link Map} of identity ID with the sum of tokens to send as
+         *         reward
+         */
+        public Map<Long, Double> getEarnedPoints(Set<Long> identityIds, long startDateInSeconds, long endDateInSeconds) {
+          // compute earned points per identityId. This example will return
+          the same number of points per user.
+          // Hint: The user social profile can be retrieved using
+          // org.exoplatform.social.core.manager.IdentityManager.getIdentity(String.valueOf(identityId), true)
+          double earnedPoints = 2d; // constant for all identities (dummy value)
+          return identityIds.stream().collect(Collectors.toMap(Function.identity(), id -> earnedPoints));
+        }
+      }
+
+* to declare the component plugin in a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.addon.wallet.reward.service.RewardSettingsService</target-component>
+        <component-plugin>
+          <!-- Reward plugin name: must be unique  -->
+          <name>custom</name>
+          <set-method>registerPlugin</set-method>
+          <!-- FQN of plugin class  -->
+          <type>org.example.CustomRewardPlugin</type>
+          <description>Custom reward plugin</description>
+        </component-plugin>
+      </external-component-plugins>
+
+Once you deployed your plugin, you will see it added in Reward administration UI:
+
+|CustomRewardPlugin|
+
+.. _PLFDevGuide.eXoAdd-ons.WalletListeners:
+
+==============================
+eXo Wallet listeners
+==============================
+
+eXo Wallet uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about wallets and transactions lifecycle.
+Developers can leverage these events to build custom features or alter external systems.
+Internally, these events are used for a variety of uses such as notifications or maintaining wallet and transactions statuses.
+
+Broadcasted events are:
+
+- ``exo.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
+- ``exo.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
+- ``exo.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
+- ``exo.wallet.reward.report.success`` : a period reward has been sent to all wallets and its transactions has completely succeeded. (Example: `RewardSucceedNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/listener/RewardSucceedNotificationListener.java>`__)
+
+To add an event listener using one listed events above, you can add the following configuration inside a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+          <!-- One of the listed event names -->
+          <name>EVENT_NAME</name>
+          <set-method>addListener</set-method>
+          <!-- FQN of the event listener -->
+          <type>org.example.CustomEventListener</type>
+        </component-plugin>
+      </external-component-plugins>
+
+.. _PLFDevGuide.eXoAdd-ons.KudosListeners:
+
+==============================
+eXo Kudos listeners
+==============================
+
+eXo Kudos uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about kudos lifecycle.
+Developers can leverage these events to build custom features or alter external systems.
+Internally, these events are used for a variety of uses such as creating an activity or comment or attribute gamification points for kudos receiver and sender.
+
+Broadcasted events are:
+
+- ``exo.kudos.sent`` : a new Kudos is sent. (Example: `NewKudosSentActivityGeneratorListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/NewKudosSentActivityGeneratorListener.java>`__)
+- ``exo.kudos.activity`` : a Kudos activity or activity comment is created. (Example: `GamificationIntegrationListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/GamificationIntegrationListener.java>`__)
+
+To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+          <!-- One of the listed event names -->
+          <name>EVENT_NAME</name>
+          <set-method>addListener</set-method>
+          <!-- FQN of the event listener -->
+          <type>org.example.CustomEventListener</type>
+        </component-plugin>
+      </external-component-plugins>
+
+.. _PLFDevGuide.eXoAdd-ons.PerkStoreListeners:
+
+==============================
+eXo Perk Store listeners
+==============================
+
+eXo Perk Store uses :ref:`ListenerService <Kernel.UnderstandingtheListenerService>` to broadcast events about products and orders lifecycle.
+Developers can leverage these events to build custom features or alter external systems.
+Internally, these events are used for a variety of uses such as notifications or updating UI in realtime using Websocket.
+
+Broadcasted events are:
+
+- ``exo.perkstore.settings.modified`` : Perk Store settings is modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
+- ``exo.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
+- ``exo.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
+
+To add an event listener using one of listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
+
+   .. code:: xml
+
+      <external-component-plugins>
+        <target-component>org.exoplatform.services.listener.ListenerService</target-component>
+        <component-plugin>
+          <!-- One of the listed event names -->
+          <name>EVENT_NAME</name>
+          <set-method>addListener</set-method>
+          <!-- FQN of the event listener -->
+          <type>org.example.CustomEventListener</type>
+        </component-plugin>
+      </external-component-plugins>
+
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png
 .. |image2| image:: images/login_page_portal.png
@@ -1147,3 +1335,5 @@ following:
 .. |image4| image:: images/install_my_own_addon.png
 .. |image5| image:: images/addon_register_form.png
 .. |image6| image:: images/webConferencing/architecture.png
+.. |image6| image:: images/webConferencing/architecture.png
+.. |CustomRewardPlugin| image:: images/rewards/wallet/CustomRewardPlugin.png  

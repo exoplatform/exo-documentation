@@ -36,6 +36,9 @@ Installation and Startup
     -  :ref:`Web Conferencing Installation <WebConfInstall>`
        Steps for how to install and uninstall eXo Web Conferencing.
 
+    -  :ref:`Rewards installation <RewardsInstall>`
+       Steps for eXo Rewards package installation steps.
+
     -  :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`
        How to customize environment variables, such as JVM Memory and GC
        settings.
@@ -1035,6 +1038,33 @@ default.
 
 .. _CustomizingEnvironmentVariables:
 
+.. _RewardsInstall:
+
+
+=============================
+Rewards packages installation
+=============================
+
+.. note:: Only the administrator has the right to install and uninstall this application.
+
+Starting with version 5.3, Rewards add-ons are pre-installed by default in Enterprise and Community editions.
+You can uninstall them using these commands :
+
+::
+
+    ./addon uninstall exo-wallet
+    ./addon uninstall exo-kudos
+    ./addon uninstall exo-perk-store
+
+If you want to re-install them again, you should just run these commands:
+
+::
+
+    ./addon install exo-wallet
+    ./addon install exo-kudos
+    ./addon install exo-perk-store
+
+
 =================================
 Customizing environment variables
 =================================
@@ -1654,3 +1684,4 @@ already.
 .. |image13| image:: images/left_navigation.png
 .. |image14| image:: images/chat/chat_icon.png
 .. |image15| image:: images/chat/standalone_mode.png
+

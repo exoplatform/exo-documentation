@@ -1939,7 +1939,7 @@ The table **SOC\_ACTIVITY\_TEMPLATE\_PARAMS** stores information about the activ
 | TEMPLATE_PARAM_KEY    | VARCHAR         | The name of the template parameter.                                                |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
-The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activoty stream.
+The table **SOC\_STREAM\_ITEMS** in which items of the activity stream are stored.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | Name                  | Type            | Description                                                                        |
@@ -1956,7 +1956,37 @@ The table **SOC\_STREAM\_ITEMS** stores informations of the items of the activot
 | UPDATED_DATE          | TIMESTAMP       | The last updated date of the stream item.                                          |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
-The Table **SOC\_MENTIONS** store all the user mentions in the activity stream.
+The table **SOC\_STREAM\_ITEMS** stores the items of the activity stream. Its purpose is to improve performances by 
+precalculating the items that must be displayed in activity streams and to avoid to always recalculate them from the others tables.
+
+Each item references an activity, in the field **ACTIVITY\_ID**, with a specific type, stored in the field **STREAM\_TYPE**.
+When an activity is created, one or more items are created in the table **SOC\_STREAM\_ITEMS** (so an activity can be referenced 
+by one or more items):
+
+-  *activity posted in the user stream*: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **POSTER** and 
+   the **OWNER\_ID** set to the user who has created the activity.
+-  *activity posted in a space*: two entries are inserted in the table **SOC\_STREAM\_ITEMS**:
+   -  an entry of type **POSTER** and with an **OWNER\_ID** equal to the space in which the post has been done
+   -  an entry of type **POSTER** and with an **OWNER\_ID** equal to the user who posted the activity
+-  *comment on a space activity*: no entry is added to table **SOC\_STREAM\_ITEMS**  but the **UPDATED\_DATE** field is updated 
+   for the two entries described above.
+-  *comment on a user activity*: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **COMMENTER** and 
+   the **OWNER\_ID** set to the user who has commented the activity.
+-  *like of a space activity*: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **LIKER** and 
+   the **OWNER\_ID** set to the user who has liked the activity.
+-  *like of a user activity*: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **LIKER** and 
+   the **OWNER\_ID** set to the user who has liked the activity.
+-  *mention someone in a space activity*: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **MENTIONER** and 
+   the **OWNER\_ID** set to the user who mentioned someone.
+-  *mention someone in a user activity*: an entry is inserted in the table **SOC\_STREAM\_ITEMS** with the type **MENTIONER** and 
+   the **OWNER\_ID** set to the user who mentioned someone.
+-  *acivity posted in another's activity stream*: two entries are inserted in the table **SOC\_STREAM\_ITEMS**:
+   -  an entry of type **POSTER** and with an **OWNER\_ID** equal to the owner of the activity stream
+   -  an entry of type **POSTER** and with an **OWNER\_ID** equal to the user who posted the activity
+   
+
+
+The Table **SOC\_MENTIONS** stores all the user mentions in the activity stream.
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | Name                  | Type            | Description                                                                        |

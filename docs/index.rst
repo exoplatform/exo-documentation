@@ -37,6 +37,8 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    introduction
    GettingStarted
    PersonalApplications
+   UserWallet
+   UsingKudos
    ManageTasks
    Chat
    webconferencing
@@ -85,8 +87,10 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    JavaScript
    Developing_Rest_Service
    Authentication_And_Identity
+   SpaceTemplates
    API
    Cookbook
+   Gamification_extension_mechanism
    
 .. _addons-docs:
 
@@ -95,9 +99,11 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    :caption: eXo Add-on Guide 
    
    LeckoAnalytics
+   OnlyOffice
    SSO
    WCM
    CMIS
+   Gamification
    
 
 .. _mobile-docs:

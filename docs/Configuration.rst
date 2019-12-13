@@ -22,6 +22,9 @@ Configuration
     -  :ref:`User inactivity delay configuration <UserInactivityDelay>`
        How to define the user inactivity delay.
 
+    -  :ref:`People directory sort field configuration <Configuration.sortField>`
+       How to define sort order in :ref:`People directory <People_Directory>`.
+
     -  :ref:`Data directory configuration <Configuration.DataDirectory>`
        Explanations of several paths in the local file system.
 
@@ -95,6 +98,9 @@ Configuration
     -  :ref:`Enabling/Disabling Activity type <Configuration.ActivityType>`
        Instructions on how to enable/disable an activity type from
        posting on streams.
+
+    -  :ref:`Enabling/Disabling Activity link preview <Configuration.ActivityLinkPreview>`
+       How to enable/disable link preview in activity.
 
     -  :ref:`Configure spaces administration group <SpacesAdministration>`
        How to define spaces administrators groups.
@@ -178,7 +184,10 @@ Configuration
 
     -  :ref:`Enabling/Disabling login history <Configuration.loginHistory>`
        Parameter for enabling/disabling the login history.
-       
+
+    -  :ref:`Configuring eXo Wallet <Configuration.Wallet>`
+       eXo Wallet configuration.
+
 .. _Configuration.ConfigurationOverview:
 
 ======================
@@ -238,7 +247,7 @@ for detailed instructions.
 
 			-  ``exo.jcr.cluster.jgroups.config``
 
-			-  ``exo.idm.cluster.jgroups.config``
+			-  ``exo.service.cluster.jgroups.config``
 
 			-  ``exo.jcr.cache.config``
 
@@ -249,8 +258,6 @@ for detailed instructions.
 			-  ``exo.jcr.index.cache.config``
 
 			-  ``exo.cache.config.template``
-
-			-  ``exo.idm.api.store.config``
 
 .. _Configuration.eXoConfiguration:
 
@@ -865,14 +872,14 @@ Clustering
 | <Clustering.JGroups.JCR.UDP>`| for JCR using    |                             |
 |                              | UDP.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| JGroups          |                             |
+| :ref:`exo.service.cluster.jgroups| JGroups          |                             |
 | .tcp\*                       | configuration    |                             |
-| <Clustering.JGroups.IDM.TCP>`| for IDM using    |                             |
+| <Clustering.JGroups.SERVICE.TCP>`| for Service layer caches clustering using    |                             |
 |                              | TCP.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| JGroups          |                             |
+| :ref:`exo.service.cluster.jgroups| JGroups          |                             |
 | .udp.\*                      | configuration    |                             |
-| <Clustering.JGroups.IDM.TCP>`| for IDM using    |                             |
+| <Clustering.JGroups.SERVICE.UDP>`| for Service layer caches clustering using    |                             |
 |                              | UDP.             |                             |
 +------------------------------+------------------+-----------------------------+
 | :ref:`exo.jcr.cluster.jgroups| Path to your     |                             |
@@ -889,12 +896,12 @@ Clustering
 |                              | file, applied to |                             |
 |                              | JCR.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| Path to your     |                             |
+| :ref:`exo.service.cluster.jgroups| Path to your     |                             |
 | .config                      | customized       |                             |
 | <Clustering.JGroupsXml>`     | JGroups          |                             |
 |                              | configuration    |                             |
 |                              | file, applied to |                             |
-|                              | IDM.             |                             |
+|                              | Service layer caches.             |                             |
 +------------------------------+------------------+-----------------------------+                           
 
 .. _QuartzSchedulerProperties:
@@ -1649,6 +1656,44 @@ The parameter is expressed in millisecond and the value default is
 
      # The delay when we consider a user as offline. Default value is 240000 milliseconds
     exo.user.status.offline.delay=240000
+    
+.. _Configuration.sortField:    
+    
+==========================================    
+People directory sort field configuration 
+==========================================
+
+In :ref:`people application <People_Directory>`, users are sorted to facilitate 
+the search in the directory.
+It is possible to choose the field on which to sort by defining this 
+parameter in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
+
+::
+
+	exo.social.identity.sort.field=fullname
+	
+The following values are accepted: fullname, lastname or firstname.
+
+.. note:: The fullname is the display name defined by the user.
+
+You can also define the sort direction (ASC for ascending or DESC for descending) with this parameter 
+in :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
+
+:: 
+
+	exo.social.identity.sort.direction=asc
+	
+It is also possible to define the first character filtering field when using the letters filters:
+
+:: 
+
+	exo.social.identity.firstChar.field=lastname
+	
+By default, users are sorted in the :ref:`people directory <People_Directory>`
+by their full names in ascending order and filtered by the first character of their last name.
+
+
+
     
 .. _Configuration.DataDirectory:
 
@@ -2828,7 +2873,35 @@ To disable the activity type, simply set the parameter to ``false``.
 			   a content is shared in a space.  
 			-  **exosocial\\:relationship**: Activity post when two user are
 			   connected together.
+		
+.. _Configuration.ActivityLinkPreview:		
+		
 			    
+==========================================
+Enabling/Disabling activity link preview
+==========================================
+
+In eXo Platform, when :ref:`posting a link in activity stream <Link-post-in-AS>`, 
+the activity displays a preview for this link by fetching the title, an excerpt and 
+a thumbnail of the linked resource.
+
+|image7|
+
+You can enable or disable the link preview by defining the parameter 
+``exo.activity.link.preview.enabled`` in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code::
+
+     exo.activity.link.preview.enabled=true
+     
+By default, the parameter is set to true i.e. the activities link preview
+is enabled.
+
+If you disable activities link preview i.e. set the variable 
+``exo.activity.link.preview.enabled`` to false, activities with links are rendered with the link URL only:
+
+|image6|
+
 
 .. _SpacesAdministration:
 
@@ -4765,7 +4838,59 @@ database.
 -  The **EventCategoriesCache** size is approximately 24 bytes, so the
    maximum heap size equals to the cache size multiplied by 24 bytes.
    
-   
+
+Wallet caches
+~~~~~~~~~~~~~
+
+eXo Platform provides 2 wallet caches:
+
+-  :ref:`Wallet account cache <Wallet.accountCache>`
+
+-  :ref:`Wallet transaction cache <Wallet.transactionCache>`
+
+You can add new values of these caches in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code-block:: jproperties
+
+    exo.cache.wallet.account.MaxNodes=2000
+    exo.cache.wallet.account.TimeToLive=-1
+    exo.cache.wallet.transactions.MaxNodes=2000
+    exo.cache.wallet.transactions.TimeToLive=-1
+
+
+The specific configuration of wallet caches can be found in:
+
+-  ``$PLATFORM_TOMCAT_HOME/webapps/wallet-common.war!/WEB-INF/wallet/cache-configuration.xml``.
+
+.. _Wallet.transactionCache:   
+
+Wallet account cache
+-------------------------
+
+The **Wallet account cache** caches the Wallet objects.
+This object contains metadata information of a wallet, such as identity id, username, space pretty name, wallet enablement...
+When any user get access to their wallet or a space wallet, the cached wallet object will be retrieved from cache rather than the database.
+
+-  The cached **Wallet account** is invalidated when the user updates its metadata such as reimporting its private key.
+
+-  The **Wallet account cache** size should be equal to the number of wallets used in eXo Platform.
+
+-  Each Wallet object take about 400 bytes in memory. So the maximum heap size occupied by the wallet cache would be its size multiplied by 400 bytes.
+
+.. _Wallet.transactionCache:   
+
+Wallet Transactions cache
+-------------------------
+
+The **Wallet Transactions cache** caches the blockchain transaction metadata sent by a wallet. This object contains information such as transaction hash, username, space pretty name, transaction status...
+When any user get access to the list of their transactions or a space wallet transactions, the cached wallet transactions objects will be retrieved from cache rather than the database.
+
+-  The cached **Wallet transaction** is invalidated when the users updates their metadata such as changing transaction status from *pending* to *success* or *failed*.
+
+-  The **Wallet transaction cache** size should equals the number of wallet accounts multiplied by the first transactions list page size (10 elements per page).
+
+-  Each Wallet transaction object take about 700 bytes in memory. So the maximum heap size occupied by the wallet transaction cache would be its size multiplied by 700 bytes.
+
 .. _Configuration.EndDateSuggestion:
 
 ===================
@@ -5909,7 +6034,219 @@ data is stored in the database.
 To disable the login history data storage in the database, simply set the parameter 
 ``exo.audit.login.enabled`` to ``false``.
 
+.. _Configuration.Wallet:
 
+======================
+Configuring eXo Wallet
+======================
+
+The eXo Wallet addon uses the `Ethereum Blockchain <https://www.ethereum.org/>`__ to let eXo users hold and exchange crypto-currency (aka tokens) managed inside this blockchain.
+
+Blockchain network settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The addon is configured by default to communicate with Ethereum's public network (called the "Mainnet") throught `Infura <https://infura.io/>`__ using websocket and http protocols:
+
+.. code-block:: jproperties
+
+    exo.wallet.blockchain.networkId=1
+    exo.wallet.blockchain.network.websocket=wss://mainnet.infura.io/ws/v3/a1ac85aea9ce4be88e9e87dad7c01d40
+    exo.wallet.blockchain.network.http=https://mainnet.infura.io/v3/a1ac85aea9ce4be88e9e87dad7c01d40
+
+.. note:: 
+
+    The default configuration points to an eXo-owner infura project ID that serves as proxy to the mainnet.
+    To learn more about infura infrastructure and projects, please visit `Infura documentation <https://infura.io/docs/>`__
+
+- The Websocket endpoint is used to:
+
+   -  Scan newly mined blocks on the blockchain to check if any validated transaction involves a wallet owned by an available user in your eXo Platform instance.
+      The periodicity can be configured using the following property (Default value: every hour):
+
+    .. code-block:: jproperties
+
+          exo.wallet.ContractTransactionVerifierJob.expression=0 0 * ? * * *
+
+   -  Checks all pending transactions sent using the eXo Wallet application to update its internal state (cache and persistent storage) and send notifications to receiver and sender of the transactions.
+      The check is made periodically and can be configured using the following property (Default value: each day at 7:15 AM):
+
+    .. code-block:: jproperties
+
+          exo.wallet.PendingTransactionVerifierJob.expression=0 15 7 * * ?
+
+   -  Send raw transactions of all wallets. When a user sends a transaction, it gets signed by a private key in the browser side. The resulted raw transaction is sent to eXo Platform server instead of sending it directly to blockchain.
+      This will avoid bad UX of user when network is interrupted or a problem happens on browser side.
+      eXo Platform server will send raw transactions of users into blockchain periodically.
+      The periodicity can be configured using the following property (Default value: every 30 seconds):
+
+    .. code-block:: jproperties
+
+          exo.wallet.TransactionSenderJob.expression=0/30 * * * * ?
+
+      The maximum number of pending transactions to send (per wallet) is determined by the following property (Default: 3 pending transactions per wallet):
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxToSend=3
+
+   -  Retrieve periodically the gas price suggested on blockchain. This gas price will be used in wallets, when dynamic gas price choice is used. 
+      The periodicity can be configured using the following property (Default value: every 2 minutes):
+
+    .. code-block:: jproperties
+
+          exo.wallet.GasPriceUpdaterJob.expression=0 0/2 * * * ?
+
+
+- Unlike the *Admin wallet* which uses `Web3j <https://web3j.io/>`__ (Server side) to issue transactions, the HTTP endpoint is used by *users and spaces wallets* using `Web3.js <https://web3js.readthedocs.io/>`__ (Browser side) to communicate with the blockchain to issue transactions.
+
+  |WalletBlockchainCommunication|
+
+Blockchain transaction settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- When submitting a transaction to the Ethereum blockchain, some special properties are required by the blockchain protocols, namely *gas limit* and *gas price*.
+
+  - **Gas limit**
+
+    The *gas limit* is the maximum gas that a transaction can consume to execute any operation using the token contract. It can be modified using the following property:
+
+      .. code-block:: jproperties
+
+            # Value in GAS
+            exo.wallet.transaction.gas.limit=150000
+
+  - **Gas price**
+
+    The *gas price* parameters will determine transaction fee of operations made using eXo Wallet addon. In the UI, the user has three choices:
+
+      -  Cheap transaction: this option will use the gas price configured by the following property (in `WEI <http://ethdocs.org/en/latest/ether.html>`__):
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.cheapPrice=4000000000
+
+      -  Dynamic or Normal transaction:
+         This is the default choice used for perkstore and wallet.
+         In fact, the default option is to use dynamic gas price that will be computed and determined from blockchain periodically.
+         This will avoid using a static gas price which can lead to a very slow transaction mining time.
+         On the other hand, using a dynamic gas price can lead to having expensive transactions. (This will depend on the proposed gas price by blockchain)   
+         The dynamic gas price is bounded by minimal ``Cheap gas price`` configuration and ``Fast gas price`` configuration.
+         To make this gas price static, you can modify the following parameter (Default value: true):
+
+      .. code-block:: jproperties
+
+            exo.wallet.blockchain.useDynamicGasPrice=false
+
+         Once the dynamic gas price is turned off, you can set a static ``normal gas price`` configured by the following property (in `WEI <http://ethdocs.org/en/latest/ether.html>`__):
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.normalPrice=8000000000
+
+      -  Fast transaction: this option will use the gas price configured by the following property (in `WEI <http://ethdocs.org/en/latest/ether.html>`__):
+
+      .. code-block:: jproperties
+
+            exo.wallet.transaction.gas.fastPrice=15000000000
+
+* When a transaction is submitted but isn't mined for several days, it will be marked as failed in eXo Wallet's internal database.
+  The maximum number of days waiting for transaction mining can be configured using the following property:
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxDays=1
+
+
+    .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
+              if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
+
+* The parallel number of transactions to send:
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxToSend=5
+
+* The number of sending transaction attempts is configured by:
+
+    .. code-block:: jproperties
+
+          exo.wallet.transaction.pending.maxSendingAttempts=3
+
+
+    .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed in eXo's internal database.
+              if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
+
+
+Wallet types
+~~~~~~~~~~~~
+
+* **Admin wallet**
+
+  The *Admin wallet* is created automatically during first startup of the eXo Platform server.
+
+  In order to be able to submit transactions to the blockchain using `Web3j<https://web3j.io/>`__ server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
+  The private key is encrypted by combining two passwords:
+
+     -  A first password is read from a keystore file ( see :ref:`Updating password encryption key <UpdatePasswordEncryptionKey>` )
+
+     .. warning:: The generated keystore file under `gatein/conf/codec` MUST be backed up as a data folder, because it contains a key file that is used to decrypt stored wallets private keys. If it's lost, all wallets private keys will be lost and consequently, all funds would be lost and unrecoverable.
+
+     -  A second password that must be configured in properties:
+
+    .. code-block:: jproperties
+
+          exo.wallet.admin.key=changeThisKey
+
+
+    .. warning:: The password can't be changed once the platform is started for the first time. In fact, this password will be used to encrypt the *Admin wallet*'s private key that will be stored in database.
+        If its value is modified after server startup, the private key of admin wallet won't be decrypted anymore, preventing all administrative operations.
+
+
+  The *Admin wallet* can be used by */platform/rewarding* group members to initialize other wallets.
+  The private key of the admin wallet cannot be accessed by any user to avoid exposing its funds to an unauthorized person.
+
+* **User wallet**
+
+  By default, any user of the platform can create their own wallet. A property is added to restrict access to wallet application to a group of users:
+
+    .. code-block:: jproperties
+
+          # Example of expressions
+          
+          # Any user
+          exo.wallet.accessPermission=
+          # All connected users of the platform
+          exo.wallet.accessPermission=/platform/users
+          # All administrators of the platform
+          exo.wallet.accessPermission=*:/platform/administrators
+          # All members of space associated to group internal_space
+          exo.wallet.accessPermission=member:/spaces/internal_space
+
+* **Space wallet**
+
+  Space managers can add the wallet application in their space using :ref:`Managing space applications <ManagingSpaceApplication>` UI:
+
+  |SpaceAddWallet|
+
+  Space wallets can be managed by one or multiple space managers. In fact, the space wallet is similar to user wallet. To use it, it must be activated by an admin. The operation is carried out by the *Admin Wallet* account.
+  By default, any space member can access to the space wallet in *readonly* mode.
+
+Token contract
+~~~~~~~~~~~~~~
+
+The contract address used for the main token currency can be configured using the following variable:
+
+    .. code-block:: jproperties
+
+          exo.wallet.blockchain.token.address=0xc76987d43b77c45d51653b6eb110b9174acce8fb
+
+This address is the official contract address for the official rewarding token promoted by eXo. It shouldn't change through eXo Platform versions on the Ethereum Mainnet blockchain. This crypto-currency token, is shared by all eXo Community users.
+
+It is an `ERC-20 <https://eips.ethereum.org/EIPS/eip-20>`__ Token contract that is deployed on Ethereum Mainnet.
+
+  |WalletTokenCommunication|
+
+To be able to receive some tokens, a wallet address must be initialized by a *token contract* administrator on the blockchain (this cannot be done on your eXo Platform server).
 
 .. |image0| image:: images/gmail_settings_1.png
 .. |image1| image:: images/openinoffice/openinmsoffice.png
@@ -5917,3 +6254,8 @@ To disable the login history data storage in the database, simply set the parame
 .. |image3| image:: images/openinoffice/openinwriter.png
 .. |image4| image:: images/docviewer/docviewer_maxsize.png
 .. |image5| image:: images/docviewer/docviewer_maxpages.png
+.. |image6| image:: images/disable_link_preview.png
+.. |image7| image:: images/link_preview_AS.png
+.. |SpaceAddWallet| image:: images/rewards/wallet/SpaceAddWallet.png  
+.. |WalletBlockchainCommunication| image:: images/rewards/wallet/WalletBlockchainCommunication.png  
+.. |WalletTokenCommunication| image:: images/rewards/wallet/WalletTokenCommunication.png  
