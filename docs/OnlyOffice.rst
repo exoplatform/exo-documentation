@@ -97,7 +97,7 @@ The file's breadcrumb contains:
 -  The file's path
 -  The file's name which is editable
 
-.. note:: You can edit the file's name by clicking on the edit button |image14| or doubel-clicking on the filename.
+.. note:: You can edit the file's name by clicking on the edit button |image14| or double-clicking on the filename.
 
 Summary field
 --------------
