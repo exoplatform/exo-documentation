@@ -18,51 +18,53 @@ and voting for the new features.
 Functional features
 ~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Spaces Administration <UserGuide.AdministratingSpaces>`
+:ref:`Gamification <Gamification>`
 
-With the spaces administration feature, administrators now have a way to define:
-
-- Who can create new spaces
-- Who can manage spaces
+Enhance your collaborators' engagement and motivate them to adopt a positive behavior with our gamification add-on.
 
 |image0|
-
-
-:ref:`Edit activities and comments <Editing-Activities>`
-
-Users can now edit their own activities and comments in the activity stream.
-
-|image1|
-
-
-:ref:`Empty choice for gender field <About-me>`
-
-Users can now decide to not indicate their gender on their profile.
-
-
-:ref:`Mark all as read in All Notifications page <On-site>`
-
-Users can now mark all their on-site notifications as read with a single click.
 
 |image2|
 
 
-:ref:`Number of unread messages in the browser tab <On-site>`
+:ref:`Rewards <UserWallet>`
 
-The number of unread chat messages is now dynamically added to the page title  
-so that users can easily know when there is something requiring their attention just 
-by looking at their browser tab.
+Discover our rewarding system allowing to recognize employees engagement through digital wallet, kudos and perk store.
 
+|image1|
 
 |image3|
 
-
-:ref:`Reset the default avatar or banner <On-site>`
-
-Users can now reset their profile banner and picture by reverting to the default one.
-It is also applicable for spaces' banners and logos.
-
 |image4|
+
+
+:ref:`OnlyOffice Connector <OnlyOffice>`
+
+eXo partenered with OnlyOffice editors to allow users the co-editing of MS Office documents.
+ 
+|image5| 
+
+
+:ref:`Company branding <BrandingeXoPlatform>`
+
+Brand your eXo Platform server by setting your company logo easily.
+
+|image6|
+
+
+:ref:`Space templates <Create-Space>`
+
+With space templates feature, create a space with the template which the most matches your needs
+
+
+|image7|
+
+
+:ref:`Space widgets <Create-Space>`
+
+New widgets are available on spaces' homepages to display descriptions, managers and events.
+
+|image8|
 
 Other user experience improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -123,12 +125,15 @@ You can learn more about all data structures in
 :ref:`this tutorial <PLFRefGuide.PLFDevelopment.DataStructure>`.
 
 
-.. |image0| image:: images/platform/SpacesAdministration.png
-.. |image1| image:: images/platform/delete_edit.png
-.. |image2| image:: images/social/MArkAllRead.png
-.. |image3| image:: images/social/Notifications_Web_tab.png
-.. |image4| image:: images/social/update_reset_banner.png
-.. |image5| image:: images/chat/filter_3.png
-.. |image6| image:: images/calendar/Add_event_drawer.png
-.. |image7| image:: images/chat/unread_chat_msg.png
+.. |image0| image:: images/whatsNew/gamificaton_board.png
+.. |image1| image:: images/whatsNew/Wallet.png
+.. |image2| image:: images/whatsNew/Badges.png
+.. |image3| image:: images/whatsNew/Kudos.png
+.. |image4| image:: images/whatsNew/PerkStore.png
+.. |image5| image:: images/whatsNew/OnlyOffice.png
+.. |image6| image:: images/platform/branding_page.png
+.. |image7| image:: images/social/add_space_settings_tab.png
+.. |image8| image:: images/whatsNew/SpaceWidgets.png
+
+
 
