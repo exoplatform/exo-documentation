@@ -1225,7 +1225,7 @@ The attachments list will be available in the articles details after posting it.
 
 |image203|
 
-You can display the file preview by clicking on it.
+You can preview the file by clicking on it.
 
 |image204|
 
