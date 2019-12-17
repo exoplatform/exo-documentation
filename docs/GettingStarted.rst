@@ -1196,7 +1196,7 @@ When you click on the "OK" button a preview of the video is displayed in the con
 
 **Insert an attachment**
 
-You can insert attachments in the article's content by clicking in the appopriate icon of the creation form. 
+You can insert attachments in the article's body by clicking on the paper clip icon in the creation form. 
 
 |image199|
 
