@@ -1204,7 +1204,7 @@ A drawer panel opens where you can either upload by selecting your files or by u
 
 |image200|
 
-Once you add files, you can see the upload progress in the drawer as well as the number of selected files. You can cancel the upload of a file in progress or delete it if it is already uploaded using the close icon.
+Once you add files, you can see the upload progress as well as the number of selected files. You can cancel the upload of a file in progress or delete it if it is already uploaded using the close icon.
 
 |image201|
 
