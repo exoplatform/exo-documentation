@@ -1208,7 +1208,7 @@ Once you add files, you can see the upload progress as well as the number of sel
 
 |image201|
 
-You can close the drawer using the 'X' icon, the close button or simply by clicking outside the drawer area. If the upload is still in progress, a circular movement will be visible on the icon containing the number of attachments and the post button will be disabled until all files are uploaded.
+You can close the drawer using the 'X' icon, the close button or simply by clicking outside the drawer panel. If the upload is still in progress as you close the panel, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
 
 |image202|
 
