@@ -1194,6 +1194,25 @@ When you click on the "OK" button a preview of the video is displayed in the con
 
 |image196|
 
+**Insert an attachment**
+
+You can insert attachments in the article's body by clicking on the paper clip icon in the creation form. 
+
+|image199|
+
+A drawer panel opens where you can either upload by selecting your files or by using a drag and drop in the dedicated area. You can attach up to 10 files and each file must not exceed 25 MB.
+
+|image200|
+
+Once you add files, you can see the upload progress as well as the number of selected files. You can cancel the upload of a file in progress or delete it if it is already uploaded using the close icon.
+
+|image201|
+
+You can close the drawer using the 'X' icon, the close button or simply by clicking outside the drawer panel. If the upload is still in progress as you close the panel, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
+
+|image202|
+
+
 When you finish writing your article, press the "Post" button in the top-right corner of the screen. 
 
 |image160|
@@ -1201,6 +1220,14 @@ When you finish writing your article, press the "Post" button in the top-right c
 Once you post an article, you are automatically redirected to it in read mode. 
 
 |image161|
+
+The attachments list will be available in the articles details after posting it.  
+
+|image203|
+
+You can preview the file by clicking on it.
+
+|image204|
 
 The article will be posted into the space's activity stream 
 
@@ -2268,3 +2295,9 @@ to display the original timestamp of the comment.
 .. |image196| image:: images/sharenews/video_creation_form.png
 .. |image197| image:: images/sharenews/app_pinned.png
 .. |image198| image:: images/sharenews/latest_news.png
+.. |image199| image:: images/sharenews/attachment_icon.png
+.. |image200| image:: images/sharenews/attach_files_drawer.png
+.. |image201| image:: images/sharenews/attach_files_progess.png
+.. |image202| image:: images/sharenews/upload_files_form.png
+.. |image203| image:: images/sharenews/attachments-details.png
+.. |image204| image:: images/sharenews/file_preview.png
