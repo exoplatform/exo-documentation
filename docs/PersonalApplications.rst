@@ -1285,9 +1285,33 @@ You will receive the **My News shared** notification when a user shares one of y
 
 	|image99|
 
-**My News liked**
+**My posted News liked**
 
-**My News commented**
+You will receive the **My posted News liked** notification when a user likes one of your articles.
+
+	|image100|
+
+	
+**My shared News liked**
+
+You will receive the **My shared News liked** notification when a user likes an article you shared.
+
+	|image101|
+
+
+**My posted News commented**
+
+You will receive the **My posted News commented** notification when a user comments one of your articles.
+
+	|image102|
+	
+
+**My shared News commented**
+
+You will receive the **My shared News commented** notification when a user comments an article you shared.
+
+	|image103|
+
 
 **Kudos received for my News**
 
@@ -1461,3 +1485,7 @@ such as:
 .. |image97| image:: images/sharenews/post_notif.png
 .. |image98| image:: images/sharenews/share_notif.png
 .. |image99| image:: images/sharenews/share_mynews_notif.png
+.. |image100| image:: images/sharenews/posted_like_notif.png
+.. |image101| image:: images/sharenews/shared_like_notif.png
+.. |image102| image:: images/sharenews/posted_comment_notif.png
+.. |image103| image:: images/sharenews/shared_comment_notif.png
