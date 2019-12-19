@@ -114,7 +114,7 @@ concurrent requests to the ElasticSearch server.
 
 We also upgraded UI layer with latest versons of Vue.js and Vuetify frameworks.
 We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
-this :ref:`link <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
+in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 
 
 
