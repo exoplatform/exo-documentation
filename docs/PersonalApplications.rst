@@ -1269,46 +1269,46 @@ your tasks as completed.
 
 **News posted in a space**
 
-You will receive the **News posted in a space** notification when a user posts an article in a space you are member of.
+You will receive this notification when a user posts an article in a space you are member of.
 
 	|image97|
 
 **News shared in a space**
 
-You will receive the **News shared in a space** notification when a user shares an article in a space you are member of.
+You will receive this notification when a user shares an article in a space you are member of.
 
 	|image98|
 
 **My News shared**
 
-You will receive the **My News shared** notification when a user shares one of your articles in another space.
+You will receive this notification when a user shares one of your articles in another space.
 
 	|image99|
 
 **My posted News liked**
 
-You will receive the **My posted News liked** notification when a user liked one of your articles.
+You will receive this notification when a user likes one of your articles.
 
 	|image100|
 
 	
 **My shared News liked**
 
-You will receive the **My shared News liked** notification when a user liked an article you shared.
+You will receive this notification when a user likes an article you shared.
 
 	|image101|
 
 
 **My posted News commented**
 
-You will receive the **My posted News commented** notification when a user commented one of your articles.
+You will receive this notification when a user comments on one of your articles.
 
 	|image102|
 	
 
 **My shared News commented**
 
-You will receive the **My shared News commented** notification when a user commented an article you shared.
+You will receive this notification when a user comments on an article you shared.
 
 	|image103|
 
