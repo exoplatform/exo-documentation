@@ -89,7 +89,7 @@ It is now possible to open space applications in an another tab with a right-cli
 
 :ref:`Chat contacts filtering does not consider accents <Use-search-bar>`
 
-Chat contact filtering is no more sensitive to accents with eXo Platform 5.3.
+Chat contact filtering is not sensitive to accents anymore
 
 |image11|
 
