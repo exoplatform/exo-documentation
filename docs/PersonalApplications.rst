@@ -1308,7 +1308,7 @@ You will receive the **My posted News commented** notification when a user comme
 
 **My shared News commented**
 
-You will receive the **My shared News commented** notification when a user comments an article you shared.
+You will receive the **My shared News commented** notification when a user commented an article you shared.
 
 	|image103|
 
