@@ -1287,7 +1287,7 @@ You will receive the **My News shared** notification when a user shares one of y
 
 **My posted News liked**
 
-You will receive the **My posted News liked** notification when a user likes one of your articles.
+You will receive the **My posted News liked** notification when a user liked one of your articles.
 
 	|image100|
 
