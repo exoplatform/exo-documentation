@@ -112,7 +112,7 @@ As usual, eXo Platform continues to devote efforts to enhance security and perfo
 In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced allowing to configure max 
 concurrent requests to the ElasticSearch server.
 
-We also made some tools upgrades such as Vue.js and Vuetify. 
+We also upgraded UI layer with latest versons of Vue.js and Vuetify frameworks.
 We invite you to read the whole tutorial to develop Vuetify and Vue.js Portlets through 
 this :ref:`link <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 
