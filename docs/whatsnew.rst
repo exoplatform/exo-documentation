@@ -71,7 +71,7 @@ Other user experience improvements
 
 :ref:`Home button in Desktop Chat application <Chat>`
 
-A new home button is added to the chat application on Desktop to easily go back the platform homepage.
+A new 'home' button was added to the chat application on Desktop to easily go back the platform's homepage.
 
 |image9|
 
@@ -130,6 +130,5 @@ this :ref:`link <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 .. |image9| image:: images/whatsNew/HomeButtonchat.png
 .. |image10| image:: images/whatsNew/confirmation_popup_Chrome.png
 .. |image11| image:: images/whatsNew/chat_accents.png
-
 
 
