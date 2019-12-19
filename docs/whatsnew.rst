@@ -71,7 +71,7 @@ Other user experience improvements
 
 :ref:`Home button in Desktop Chat application <Chat>`
 
-A new 'home' button was added to the chat application on Desktop to easily go back the platform's homepage.
+A new ``home`` button was added to the chat application on Desktop to easily go back the platform's homepage.
 
 |image9|
 
@@ -89,7 +89,7 @@ It is now possible to open space applications in an another tab with a right-cli
 
 :ref:`Chat contacts filtering does not consider accents <Use-search-bar>`
 
-Chat contact filtering is not sensitive to accents anymore
+Chat contact filtering is not sensitive to accents anymore.
 
 |image11|
 
@@ -99,7 +99,7 @@ With the new property ``exo.audit.login.enabled``, it is possible to enable or d
 
 :ref:`Remove uploaded files from chat <Upload-file-chat>`
 
-Files uploaded un chat rooms can now be deleted as any other message.
+Files uploaded in chat rooms can now be deleted as any other message.
 
 
 .. _TechnicalNovelties:
@@ -112,7 +112,7 @@ As usual, eXo Platform continues to devote efforts to enhance security and perfo
 In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced to configure max 
 concurrent requests to the ElasticSearch server.
 
-We also upgraded UI layer with latest versons of Vue.js and Vuetify frameworks.
+We also upgraded UI layer with latest versions of Vue.js and Vuetify frameworks.
 We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
 in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 
