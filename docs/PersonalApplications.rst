@@ -1269,25 +1269,49 @@ your tasks as completed.
 
 **News posted in a space**
 
-You will receive the **News posted in a space** notification when a user posts an article in a space you are member of.
+You will receive this notification when a user posts an article in a space you are member of.
 
 	|image97|
 
 **News shared in a space**
 
-You will receive the **News shared in a space** notification when a user shares an article in a space you are member of.
+You will receive this notification when a user shares an article in a space you are member of.
 
 	|image98|
 
 **My News shared**
 
-You will receive the **My News shared** notification when a user shares one of your articles in another space.
+You will receive this notification when a user shares one of your articles in another space.
 
 	|image99|
 
-**My News liked**
+**My posted News liked**
 
-**My News commented**
+You will receive this notification when a user likes one of your articles.
+
+	|image100|
+
+	
+**My shared News liked**
+
+You will receive this notification when a user likes an article you shared.
+
+	|image101|
+
+
+**My posted News commented**
+
+You will receive this notification when a user comments on one of your articles.
+
+	|image102|
+	
+
+**My shared News commented**
+
+You will receive this notification when a user comments on an article you shared.
+
+	|image103|
+
 
 **Kudos received for my News**
 
@@ -1461,3 +1485,7 @@ such as:
 .. |image97| image:: images/sharenews/post_notif.png
 .. |image98| image:: images/sharenews/share_notif.png
 .. |image99| image:: images/sharenews/share_mynews_notif.png
+.. |image100| image:: images/sharenews/posted_like_notif.png
+.. |image101| image:: images/sharenews/shared_like_notif.png
+.. |image102| image:: images/sharenews/posted_comment_notif.png
+.. |image103| image:: images/sharenews/shared_comment_notif.png
