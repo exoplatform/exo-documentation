@@ -99,7 +99,7 @@ With the new property ``exo.audit.login.enabled``, it is possible to enable or d
 
 :ref:`Remove uploaded files from chat <Upload-file-chat>`
 
-With eXo Platform 5.3, you can delete an attached file in chat discussion.
+Files uploaded un chat rooms can now be deleted as any other message.
 
 
 .. _TechnicalNovelties:
