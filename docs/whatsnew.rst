@@ -85,7 +85,7 @@ A confirmation popup appears when refreshing a page where you already typed some
  
 :ref:`Open space applications by right-click <ManagingSpaceApplication>`
 
-With eXo Platform 5.3, it is possible to open a space's application in an another tab with a right-click.
+It is now possible to open space applications in an another tab with a right-click.
 
 :ref:`Chat contacts filtering does not consider accents <Use-search-bar>`
 
@@ -130,5 +130,4 @@ this :ref:`link <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 .. |image9| image:: images/whatsNew/HomeButtonchat.png
 .. |image10| image:: images/whatsNew/confirmation_popup_Chrome.png
 .. |image11| image:: images/whatsNew/chat_accents.png
-
 
