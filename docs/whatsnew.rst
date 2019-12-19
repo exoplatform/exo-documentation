@@ -109,7 +109,7 @@ Technical novelties in eXo Platform 5.3
 ========================================
 
 As usual, eXo Platform continues to devote efforts to enhance security and performance.
-In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced allowing to configure max 
+In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced to configure max 
 concurrent requests to the ElasticSearch server.
 
 We also upgraded UI layer with latest versons of Vue.js and Vuetify frameworks.
