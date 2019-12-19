@@ -1301,7 +1301,7 @@ You will receive the **My shared News liked** notification when a user likes an 
 
 **My posted News commented**
 
-You will receive the **My posted News commented** notification when a user comments one of your articles.
+You will receive the **My posted News commented** notification when a user commented one of your articles.
 
 	|image102|
 	
