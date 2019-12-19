@@ -93,7 +93,7 @@ Chat contact filtering is no more sensitive to accents with eXo Platform 5.3.
 
 |image11|
 
-:ref:`Allow to disable Login History by configuration <Configuration.loginHistory>`
+:ref:`Login History can now be disabled by configuration <Configuration.loginHistory>`
 
 With the new property ``exo.audit.login.enabled``, it is possible to enable or disable the login history.
 
@@ -130,4 +130,3 @@ this :ref:`link <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 .. |image9| image:: images/whatsNew/HomeButtonchat.png
 .. |image10| image:: images/whatsNew/confirmation_popup_Chrome.png
 .. |image11| image:: images/whatsNew/chat_accents.png
-
