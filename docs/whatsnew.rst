@@ -69,31 +69,38 @@ New widgets are available on spaces' homepages to display descriptions, managers
 Other user experience improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Search bar filter in chat <Use-search-bar>`
+:ref:`Home button in Desktop Chat application <Chat>`
 
-Clear more easily the search filter in chat rooms, simply
-by clicking on the cross icon.
+A new ``home`` button was added to the chat application on Desktop to easily go back the platform's homepage.
 
-|image5|
+|image9|
 
 
-:ref:`Create event drawer <CreatingNewEvent>`
+:ref:`Confirm before refreshing a page <Share-AS>`
 
-Creating a new event has been redesigned as an elegant drawer panel for better usability:
+A confirmation popup appears when refreshing a page where you already typed some data.
 
-|image6|
+|image10|
  
  
-:ref:`Unread messages badge in mini chat <miniChat>`
+:ref:`Open space applications by right-click <ManagingSpaceApplication>`
 
-Keep track of unread messages that arrive while you've scrolled up.
+It is now possible to open space applications in an another tab with a right-click.
 
-|image7|
+:ref:`Chat contacts filtering does not consider accents <Use-search-bar>`
 
-We also tweaked some UIs :
+Chat contact filtering is not sensitive to accents anymore.
 
--  Added more spacing at the left and right of the activities for a better readability.
--  Unified the "Show more" button with the new style used across eXo Platform.
+|image11|
+
+:ref:`Login History can now be disabled by configuration <Configuration.loginHistory>`
+
+With the new property ``exo.audit.login.enabled``, it is possible to enable or disable the login history.
+
+:ref:`Remove uploaded files from chat <Upload-file-chat>`
+
+Files uploaded in chat rooms can now be deleted as any other message.
+
 
 .. _TechnicalNovelties:
 
@@ -101,28 +108,14 @@ We also tweaked some UIs :
 Technical novelties in eXo Platform 5.3
 ========================================
 
-**Security**
+As usual, eXo Platform continues to devote efforts to enhance security and performance.
+In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced to configure max 
+concurrent requests to the ElasticSearch server.
 
-Our continuous effort to improve security lead us to 
-change some default permissions to avoid folder listing cases through WebDAV.
+We also upgraded UI layer with latest versions of Vue.js and Vuetify frameworks.
+We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
+in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 
-**Platform RDBMS**
-
-We continued to decrease our dependency on JCR 
-for data persistence. Now, the following components rely on the relational 
-**database** storage for better speed and manageability :
-
--  Product information
--  Login history
--  Wiki
--  Files
--  Social
--  Notifications
--  Email queue
--  Settings
-
-You can learn more about all data structures in 
-:ref:`this tutorial <PLFRefGuide.PLFDevelopment.DataStructure>`.
 
 
 .. |image0| image:: images/whatsNew/gamificaton_board.png
@@ -134,6 +127,6 @@ You can learn more about all data structures in
 .. |image6| image:: images/platform/branding_page.png
 .. |image7| image:: images/social/add_space_settings_tab.png
 .. |image8| image:: images/whatsNew/SpaceWidgets.png
-
-
-
+.. |image9| image:: images/whatsNew/HomeButtonchat.png
+.. |image10| image:: images/whatsNew/confirmation_popup_Chrome.png
+.. |image11| image:: images/whatsNew/chat_accents.png
