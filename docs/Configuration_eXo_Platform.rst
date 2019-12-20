@@ -517,36 +517,36 @@ This section describes Content services which provide low-level
 functionality for UI components. These services are classified into the
 following groups:
 
--  :ref:Actions <PLFRefGuide.Configurations.Components.Content.Actions>`
+-  :ref:`Actions <PLFRefGuide.Configurations.Components.Content.Actions>`
 
    This section represents the components related to managing Content
    actions and scripts in eXo Platform.
 
--  :ref:Content arrangement <PLFRefGuide.Configurations.Components.Content.ContentArrangement>`
+-  :ref:`Content arrangement <PLFRefGuide.Configurations.Components.Content.ContentArrangement>`
 
    This section describes services related arranging content in eXo
    Platform, consisting of Lock Service, Taxonomy Service, Link Manager,
    Manage View Service, Manage Drives Service, New Folksonomy Service,
    and Relationship Service.
 
--  :ref:Images Processing <PLFRefGuide.Configurations.Components.Content.ImagesProcessing>`
+-  :ref:`Images Processing <PLFRefGuide.Configurations.Components.Content.ImagesProcessing>`
 
    This section describes the components related to processing Content
    images in eXo Platform, consisting of Jod Converter Service, PDF
    Viewer Service, and Thumbnail Service.
 
--  :ref:Publication <PLFRefGuide.Configurations.Components.Content.Publication>`
+-  :ref:`Publication <PLFRefGuide.Configurations.Components.Content.Publication>`
 
    This section describes two components which process document
    publication in eXo Platform.
 
--  :ref:Searching <PLFRefGuide.Configurations.Components.Content.Searching>`
+-  :ref:`Searching <PLFRefGuide.Configurations.Components.Content.Searching>`
 
    This section represents components related to the Content searching
    feature in eXo Platform, consisting of Site Search Service, SEO
    Service, and Query Service.
 
--  :ref:Templates Processing <PLFRefGuide.Configurations.Components.Content.TemplateProcessing>`
+-  :ref:`Templates Processing <PLFRefGuide.Configurations.Components.Content.TemplateProcessing>`
 
    This section describes services related to processing Content
    templates, including Application Template Manager Service, Fragment
@@ -1433,6 +1433,7 @@ The configuration of this component can be found
             <description>some params for runtime</description>
 
             <property name="parameterizedPageURI" value="${wcm.config.parameterizedPageURI:/detail}" />
+            <property name="parameterizedURIParam" value="${wcm.config.parameterizedURIParam:content-id}"/>
             <property name="printPageURI" value="${wcm.config.printPageURI:/printviewer}" />
             <property name="printViewerPage" value="${wcm.config.printViewerPage:printviewer}" />
             <property name="editorPageURI" value="${wcm.config.editorPageURI:editor}" />
@@ -1514,6 +1515,8 @@ The configuration of this component can be found
    | Property-name               | Type     | Value                                                                                                                    | Description                                                                                                                 |
    +=============================+==========+==========================================================================================================================+=============================================================================================================================+
    | ``parameterizedPageURI``    | string   | ``${wcm.config.parameterizedPageURI:/detail}``                                                                           | Contains the path to a page which displays the full content of a document provided by a URL on the browser's address bar.   |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+   | ``parameterizedURIParam``   | string   | ``${wcm.config.parameterizedURIParam:content-id}``                                                                       | Contains the path to a web content that could be displayed in search.                                                       |
    +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
    | ``printPageURI``            | string   | ``${wcm.config.printPageURI:/printviewer}``                                                                              | The URL of the document's print preview page.                                                                               |
    +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
