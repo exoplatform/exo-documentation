@@ -1387,7 +1387,7 @@ with these parameters:
             by **classpath** it means the template should be found on jars and when it is preceeded by 
             **war:** it means the template should be found under webapps.
          -  The parameter ``label`` is the traduction key for the label to be displayed in the ``New Document``
-            form. To define it, you should configure the parameter ``UINewDocumentForm.label.option``.
+            form. To define it, you should configure the key ``UINewDocumentForm.label.option.{label}``.
 
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png
