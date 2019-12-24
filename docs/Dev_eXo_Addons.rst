@@ -1376,7 +1376,7 @@ For that purpose, you just need to define this external component plugin in your
 			</component-plugin>
 		</external-component-plugins>  
 		
-Each new document templated to add should be defined by this object ``org.exoplatform.onlyoffice.documents.NewDocumentType``
+Each new document template to add should be defined by this object ``org.exoplatform.onlyoffice.documents.NewDocumentType``
 with these parameters:
 
 -  ``path``: Defines the path to the created document's template. 
