@@ -1335,7 +1335,7 @@ To add an event listener using one of listed events above, you can add the follo
 OnlyOffice connector for eXo
 ==============================
 
-With :ref:`OnlyOffice connector <OnlyOffice>`, it is possible to add new document types to the
+With :ref:`OnlyOffice connector <OnlyOffice>`, it is possible to :ref:`add new document <New_Document>` types to the
 form ``New document`` by using the :ref:`extension mechanism <PLFDevGuide.eXoAdd-ons.PortalExtension.Mechanism>`.
 For that purpose, you just need to define this external component plugin in your extension:
 
@@ -1379,15 +1379,14 @@ For that purpose, you just need to define this external component plugin in your
 Each new document template to add should be defined by this object ``org.exoplatform.onlyoffice.documents.NewDocumentType``
 with these parameters:
 
--  ``path``: Defines the path to the created document's template. 
--  ``label``: The template's label. 
+-  ``path``: Defines the path to the created document's template. It should be defined as it is made in eXo 
+   Platform components. More details through this :ref:`tutorial <exo_path>`.
+-  ``label``: The template's label i.e. it is the translation key for the label to be displayed in the 
+   ``New Document`` form. 
+   To define it, you should configure the key ``UINewDocumentForm.label.option.{label}``. You can
+   find more details about translations management in eXo through this :ref:`link <InternationalizationConfiguration>`.
 -  ``mimeType``: The document's mimetype.
-
-.. tip:: -  The ``path`` should be defined as it is made in eXo Platform components i.e. when it is preceeded
-            by **classpath** it means the template should be found on jars and when it is preceeded by 
-            **war:** it means the template should be found under webapps.
-         -  The parameter ``label`` is the traduction key for the label to be displayed in the ``New Document``
-            form. To define it, you should configure the key ``UINewDocumentForm.label.option.{label}``.
+ 
 
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png
