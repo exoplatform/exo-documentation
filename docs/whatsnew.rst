@@ -128,5 +128,5 @@ in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vu
 .. |image7| image:: images/social/add_space_settings_tab.png
 .. |image8| image:: images/whatsNew/SpaceWidgets.png
 .. |image9| image:: images/whatsNew/HomeButtonchat.png
-.. |image10| image:: images/whatsNew/confirmation_popup_Chrome.png
+.. |image10| image:: images/platform/confirmation_popup_Chrome.png
 .. |image11| image:: images/whatsNew/chat_accents.png
