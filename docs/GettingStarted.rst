@@ -1238,7 +1238,7 @@ The article will be posted into the space's activity stream
 
          
 You can access the content of the article either by clicking on its title or by clicking on "read more".
-The details of the article are available on the current page and display all the information, including the publication date and the author.
+The details of the article are available on the current page and display all the information, including the publication date, the author and all the activity reactions (likes, comments and sent kudos) 
 
 |image162|
 
@@ -1323,6 +1323,10 @@ You can display the pinned articles with one of the following layouts :
 - Latest News layout: 
 
 |image198|
+
+When you click on the "See all" button,  you are redirected automatically to news application filtered by pinned articles
+
+|image205|
 
 
 Unpinning a News from the home page
@@ -1426,13 +1430,25 @@ You can look for articles easily using the available search bar in the topbar of
 News application filters
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Different filters are available from News application so you can easily find pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
+Different filters are available from News application so you can easily find articles posted in specific spaces, pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
+
+You can search articles by spaces using the filter button from the top bar.
+
+|image206|
+
+In the displayed drawer, you can choose from or search in the list of the spaces in which you are member the space(s) you want to filter by articles in the application then apply the using the button to be redirected to the filtered view. 
+
+|image207|
+
+|image208|
 
 To display the pinned news list, select this option from the dropdown menu of the application topbar.
 
 |image197|
 
-After applying this filter, the list will only contain the articles that have been pinned on the home page. 
+After applying this filter, the list will only contain the articles that have been pinned on the home page. You can reset the filters using the appropriate button inside the drawer.
+
+
 
 	
 .. _Formatting-toolbar:
@@ -2301,3 +2317,8 @@ to display the original timestamp of the comment.
 .. |image202| image:: images/sharenews/upload_files_form.png
 .. |image203| image:: images/sharenews/attachments-details.png
 .. |image204| image:: images/sharenews/file_preview.png
+.. |image205| image:: images/sharenews/pinned_view.png
+.. |image206| image:: images/sharenews/filter_button.png
+.. |image207| image:: images/sharenews/filter_drawer.png
+.. |image208| image:: images/sharenews/filtered_view.png
+
