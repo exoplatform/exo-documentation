@@ -1436,7 +1436,7 @@ You can search articles by spaces using the filter button from the top bar.
 
 |image206|
 
-In the displayed drawer, you can choose from or search in the list of the spaces in which you are member the space(s) you want to filter by articles in the application then apply the using the button to be redirected to the filtered view. 
+In the displayed drawer, you can select the spaces of the articles you want to filter. A search input is available to easily find the spaces you want to select. Only the spaces you are member of are available. A click on the Apply button allows to apply the filter.
 
 |image207|
 
