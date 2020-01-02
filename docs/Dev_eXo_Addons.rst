@@ -180,13 +180,13 @@ configure the extension.
 To deeply understand the extension mechanism, you should read the Kernel
 reference about services, containers and configuration:
 
--  :ref:`Service configuration for beginners <#Kernel.ServiceConfigurationforBeginners>`
+-  :ref:`Service configuration for beginners <Kernel.ServiceConfigurationforBeginners>`
 
--  :ref:`Configuration retrieval <#Kernel.ServiceConfigurationforBeginners.ConfigurationRetrieval>`
+-  :ref:`Configuration retrieval <Kernel.ServiceConfigurationforBeginners.ConfigurationRetrieval>`
 
--  :ref:`Service configuration in detail <#Kernel.ServiceConfigurationinDetail>`
+-  :ref:`Service configuration in detail <Kernel.ServiceConfigurationinDetail>`
 
--  :ref:`Container configuration <#Kernel.ContainerConfiguration>`
+-  :ref:`Container configuration <Kernel.ContainerConfiguration>`
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension.Howto:
 
@@ -397,6 +397,7 @@ details:
                </web>
            </module>
        </application>
+              
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension.Examples:
 
@@ -523,9 +524,36 @@ Some of customizations you can do with shared layout:
 -  Adding your portlet here so that all your pages will have that
    portlet.
 
-See :ref:`Customizing a shared layout <#PLFDevGuide.Site.LookAndFeel.CustomizingSiteSkin.Sharedlayout>`
+See :ref:`Customizing a shared layout <PLFDevGuide.Site.LookAndFeel.CustomizingSiteSkin.Sharedlayout>`
 for more instructions.
 
+.. _exo_path:
+
+Define a path in eXo
+~~~~~~~~~~~~~~~~~~~~~~
+
+When :ref:`creating an extension <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`, you may need to indicate a location
+of a template or file. To do so you should follow the below method.
+If the file to which yo are referring is under:
+
+-  a jar, it's path should be preceeded by the keyword **classpath:**
+
+   ::
+      
+		<import>classpath:/conf/portal/organization-configuration.xml</import>
+	
+	In the above example, the file to which we refer ``organization-configuration.xml`` could be found
+	under the path ``/conf/portal`` in a jar.
+	
+
+-  a war, it's path should be preceeded by the keyword **war:**
+
+   ::
+		 <import>war:/conf/platform/jcr-configuration.xml</import>
+		 
+   For this example, the file ``jcr-configuration.xml`` is found under the path ``/conf/platform/`` in a war.	 
+		 
+		 
 .. _PLFDevGuide.eXoAdd-ons.Packaging:
 
 =========
