@@ -1324,7 +1324,7 @@ You can display the pinned articles with one of the following layouts :
 
 |image198|
 
-When you click on the "See all" button,  you are redirected automatically to news application filtered by pinned articles
+When you click on the "See all" button, you are redirected automatically to news application filtered by pinned articles.
 
 |image205|
 
@@ -2321,4 +2321,3 @@ to display the original timestamp of the comment.
 .. |image206| image:: images/sharenews/filter_button.png
 .. |image207| image:: images/sharenews/filter_drawer.png
 .. |image208| image:: images/sharenews/filtered_view.png
-
