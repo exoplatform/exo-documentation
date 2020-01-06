@@ -1327,6 +1327,66 @@ To add an event listener using one of listed events above, you can add the follo
           <type>org.example.CustomEventListener</type>
         </component-plugin>
       </external-component-plugins>
+      
+      
+.. _PLFDevGuide.eXoAdd-ons.eXoOnlyOfficeConnector:
+
+==============================
+OnlyOffice connector for eXo
+==============================
+
+With :ref:`OnlyOffice connector <OnlyOffice>`, it is possible to :ref:`add new document <New_Document>` types to the
+form ``New document`` by using the :ref:`extension mechanism <PLFDevGuide.eXoAdd-ons.PortalExtension.Mechanism>`.
+For that purpose, you just need to define this external component plugin in your extension:
+
+
+   .. code:: xml
+
+      <external-component-plugins>
+		<target-component>org.exoplatform.onlyoffice.documents.NewDocumentService</target-component>
+			<component-plugin>
+				<name>documentTypePlugin</name>
+				<set-method>addTypePlugin</set-method>
+				<type>org.exoplatform.onlyoffice.documents.NewDocumentTypePlugin</type>
+				<description>Add new document types to create</description>
+			<init-params>
+			<object-param>
+				<name>document-types-configuration</name>
+				<object type="org.exoplatform.onlyoffice.documents.NewDocumentService$NewDocumentTypesConfig">
+					<field name="types">
+						<collection type="java.util.ArrayList">
+						<value>
+				<object type="org.exoplatform.onlyoffice.documents.NewDocumentType">
+					<field name="path">
+						<string>classpath:files/template.docx</string>
+					</field>
+					<field name="label">
+						<string>MicrosoftOfficeDocument</string>
+					</field>
+					<field name="mimeType">
+						<string>application/vnd.openxmlformats-officedocument.wordprocessingml.document</string>
+					</field>
+				</object>
+					</value>
+			</collection>
+			</field>
+				</object>
+			</object-param>
+			</init-params>
+			</component-plugin>
+		</external-component-plugins>  
+		
+Each new document template to add should be defined by this object ``org.exoplatform.onlyoffice.documents.NewDocumentType``
+with these parameters:
+
+-  ``path``: Defines the path to the created document's template. It should be defined as it is made in eXo 
+   Platform components. More details through this :ref:`tutorial <exo_path>`.
+-  ``label``: The template's label i.e. it is the translation key for the label to be displayed in the 
+   ``New Document`` form. 
+   To define it, you should configure the key ``UINewDocumentForm.label.option.{label}``. You can
+   find more details about translations management in eXo through this :ref:`link <InternationalizationConfiguration>`.
+-  ``mimeType``: The document's mimetype.
+ 
 
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png
