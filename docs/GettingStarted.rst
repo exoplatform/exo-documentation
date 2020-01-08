@@ -1482,7 +1482,7 @@ When you click on the archive icon, a confirmation message appears
 
 |image212|
 
-Once you confirm the action, the article is automatically moved into the view "Archived News" of the application and will be no longer available from the application to other users. Only the users having the role publisher (in addition to the author) will be able to see it in their archived view.
+Once you confirm the action, the article is automatically moved into the archive and is no longer available to other users. The archive can be accessed from the "Archived News" entry in the filter. Only the authors and publishers can see articles in the archive.
 The preview of the archived article activity from the feed will be changed :
 
 |image213|
