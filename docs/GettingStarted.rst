@@ -1324,7 +1324,7 @@ You can display the pinned articles with one of the following layouts :
 
 |image198|
 
-When you click on the "See all" button, you are redirected automatically to news application filtered by pinned articles.
+When you click on the "See all" button,  you are redirected automatically to news application filtered by pinned articles
 
 |image205|
 
@@ -1410,8 +1410,12 @@ This application is accessible through the ``News`` link  in the left navigation
 
 |image187|
 
-The page displays by default the list of "All News". For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source (space).
-You can also share the displayed articles as explained in the `Sharing a News`_ chapter.
+The page displays by default the list of the first 10 articles of the view "All News". You have the possibility to load more articles using the appropriate button.
+
+|image217|
+
+For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source space as well as the destination space(s) if the article has been shares.
+You can share the displayed articles as explained in the `Sharing a News`_ chapter. You can also edit the articles when you have the permission to do it.
 
 |image188|
 
@@ -1432,23 +1436,73 @@ News application filters
 
 Different filters are available from News application so you can easily find articles posted in specific spaces, pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
 
-You can search articles by spaces using the filter button from the top bar.
+
+**Filter articles per spaces : ** You can search articles by spaces using the filter button from the top bar.
 
 |image206|
 
-In the displayed drawer, you can select the spaces of the articles you want to filter. A search input is available to easily find the spaces you want to select. Only the spaces you are member of are available. A click on the Apply button allows to apply the filter.
+In the displayed drawer, you can choose from or search in the list of the spaces in which you are member the space(s) you want to filter by articles in the application then apply the using the button to be redirected to the filtered view. 
 
 |image207|
 
 |image208|
 
-To display the pinned news list, select this option from the dropdown menu of the application topbar.
+
+**Filter by pinned articles : ** To display the pinned news list, select this option from the dropdown menu of the application topbar.
 
 |image197|
 
 After applying this filter, the list will only contain the articles that have been pinned on the home page. You can reset the filters using the appropriate button inside the drawer.
 
 
+**Filter by your posted articles : ** To display the articles written by you, select the option "My posted News" from the dropdown menu of the application topbar.
+
+|image209|
+
+After applying this filter, the list will only display the articles posted by you. You have the possibility to archive, edit or share them directly from the application.
+
+|image210|
+
+
+**Filter by archived articles : ** To display your archived articles, select the option "Archived News" from the dropdown menu of the application topbar.
+After applying this filter, the list will only display your archived articles or all archived articles ifyou have the publisher role
+
+|image218|
+
+
+Archiving News
+---------------
+
+As an article's author or as a platform-wide publisher (publisher:/platform/web-contributors role required), you can archive articles from News application interface.
+An "archive/unarchive" icon is available in the right side of the article's preview next to share, edit and pin icons.
+
+|image211|
+
+When you click on the archive icon, a confirmation message appears
+
+|image212|
+
+Once you confirm the action, the article is automatically moved into the view "Archived News" of the application and will be no longer available from the application to other users. Only the users having the role publisher (in addition to the author) will be able to see it in their archived view.
+The preview of the archived article activity from the feed will be changed :
+
+|image213|
+
+Other users will not be able to click on this preview as long as the article is archived. Even if they already have the article's URL, the details are no longer visible. The following message appears :
+
+|image214|
+
+On the other hand, you still have access to the article's details and you are able to unarchive it from this view.
+
+|image215|
+
+It is also possible to unarchive articles using the same icon from news application.
+
+|image216|
+
+Once you confirm the unarchiving action. the article becomes available again to the other users.
+
+.. note:: When you archive a pinned article it will be automatically unpinned from home page. 
+		  If you unarchive the same article, it won't be pinned automatically to the pinned News block.
 
 	
 .. _Formatting-toolbar:
@@ -2321,3 +2375,15 @@ to display the original timestamp of the comment.
 .. |image206| image:: images/sharenews/filter_button.png
 .. |image207| image:: images/sharenews/filter_drawer.png
 .. |image208| image:: images/sharenews/filtered_view.png
+.. |image209| image:: images/sharenews/myposted_view.png
+.. |image210| image:: images/sharenews/myposted_view1.png
+.. |image211| image:: images/sharenews/archive_icon.png
+.. |image212| image:: images/sharenews/archiving_confirmation.png
+.. |image213| image:: images/sharenews/archived_as.png
+.. |image214| image:: images/sharenews/error_archived.png
+.. |image215| image:: images/sharenews/archived_details.png
+.. |image216| image:: images/sharenews/unarchive_application.png
+.. |image217| image:: images/sharenews/loadmore_application.png
+.. |image218| image:: images/sharenews/archived_news.png
+
+
