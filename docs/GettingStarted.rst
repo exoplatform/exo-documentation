@@ -1491,7 +1491,7 @@ Other users won't able to click on this preview as long as the article remains a
 
 |image214|
 
-On the other hand, you still have access to the article's details and you are able to unarchive it from this view.
+However, you, as the author (or publisher), keep have access to the article's details and you can unarchive it from there.
 
 |image215|
 
