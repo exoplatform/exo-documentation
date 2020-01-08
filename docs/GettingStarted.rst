@@ -1410,7 +1410,7 @@ This application is accessible through the ``News`` link  in the left navigation
 
 |image187|
 
-The page displays by default the list of the first 10 articles of the view "All News". You have the possibility to load more articles using the appropriate button.
+The page displays by default the list of the first 10 articles of the view "All News". You can load more articles using the "Load More" button.
 
 |image217|
 
