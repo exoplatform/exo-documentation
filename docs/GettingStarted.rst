@@ -1459,7 +1459,7 @@ After applying this filter, the list will only contain the articles that have be
 
 |image209|
 
-After applying this filter, the list will only display the articles posted by you. You have the possibility to archive, edit or share them directly from the application.
+After applying this filter, the list will only display the articles posted by you. You can either archive, edit or share them directly from the news list.
 
 |image210|
 
