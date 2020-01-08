@@ -1465,7 +1465,7 @@ After applying this filter, the list will only display the articles posted by yo
 
 
 **Filter by archived articles : ** To display your archived articles, select the option "Archived News" from the dropdown menu of the application topbar.
-After applying this filter, the list will only display your archived articles or all archived articles ifyou have the publisher role
+After applying this filter, the list will only display your archived articles or all archived articles if you have the publisher role
 
 |image218|
 
@@ -2385,5 +2385,4 @@ to display the original timestamp of the comment.
 .. |image216| image:: images/sharenews/unarchive_application.png
 .. |image217| image:: images/sharenews/loadmore_application.png
 .. |image218| image:: images/sharenews/archived_news.png
-
 
