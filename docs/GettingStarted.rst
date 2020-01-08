@@ -1456,7 +1456,7 @@ In the displayed drawer, you can select the spaces of the articles you want to f
 After applying this filter, the list will only contain the articles that have been pinned on the home page. You can reset the filters using the appropriate button inside the drawer.
 
 
-**Filter by your posted articles : ** To display the articles written by you, select the option "My posted News" from the dropdown menu of the application topbar.
+**Filter by your posted articles : ** To display the articles written by you, select the option "My posted News" from the dropdown menu of the application's top bar.
 
 |image209|
 
