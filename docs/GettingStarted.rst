@@ -1411,7 +1411,7 @@ This application is accessible through the ``News`` link  in the left navigation
 
 |image187|
 
-The page displays by default the list of the first 10 articles of the view "All News". You can load more articles using the "Load More" button.
+By default, the page displays the 10 latest articles of the  "All News" list. You can load more articles using the "Load More" button.
 
 |image217|
 
