@@ -1492,7 +1492,7 @@ Other users won't able to click on this preview as long as the article remains a
 
 |image214|
 
-However, you, as the author (or publisher), keep have access to the article's details and you can unarchive it from there.
+However, you, as the author (or publisher), maintain access to the article's details and you can unarchive it from there.
 
 |image215|
 
