@@ -1441,7 +1441,7 @@ Different filters are available from News application so you can easily find art
 
 |image206|
 
-In the displayed drawer, you can choose from or search in the list of the spaces in which you are member the space(s) you want to filter by articles in the application then apply the using the button to be redirected to the filtered view. 
+In the displayed drawer, you can select the spaces of the articles you want to filter. A search input is available to easily find the spaces you want to select. Only the spaces you are member of are available. A click on the Apply button allows to apply the filter.
 
 |image207|
 
@@ -1459,7 +1459,7 @@ After applying this filter, the list will only contain the articles that have be
 
 |image209|
 
-After applying this filter, the list will only display the articles posted by you. You can either archive, edit or share them directly from the news list.
+After applying this filter, the list will only display the articles posted by you. You can either archive, edit or share them directly from the news application.
 
 |image210|
 
@@ -1502,7 +1502,6 @@ The same icon allows to unarchive articles from the News application.
 When you confirm the unarchiving of an item, it becomes accessible again to other users.
 
 .. note:: When you archive a pinned article it gets automatically unpinned. However, if you unarchive the same article afterwards, it won't be re-pinned automatically. 
-		  If you unarchive the same article, it won't be pinned automatically to the pinned News block.
 
 	
 .. _Formatting-toolbar:
