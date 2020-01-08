@@ -1487,7 +1487,7 @@ The preview of the archived article activity from the feed will be changed :
 
 |image213|
 
-Other users will not be able to click on this preview as long as the article is archived. Even if they already have the article's URL, the details are no longer visible. The following message appears :
+Other users won't able to click on this preview as long as the article remains archived. Also, for them, accessing an archived article by URL won't let them read it. In such case, the following message appears :
 
 |image214|
 
@@ -2385,4 +2385,3 @@ to display the original timestamp of the comment.
 .. |image216| image:: images/sharenews/unarchive_application.png
 .. |image217| image:: images/sharenews/loadmore_application.png
 .. |image218| image:: images/sharenews/archived_news.png
-
