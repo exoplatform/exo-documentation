@@ -1483,7 +1483,7 @@ When you click on the archive icon, a confirmation message appears
 
 |image212|
 
-Once you confirm the action, the article is automatically moved into the archive and is no longer available to other users. The archive can be accessed from the "Archived News" entry in the filter. Only the authors and publishers can see articles in the archive.
+Once you confirm the action, the article is automatically moved into the archive and is no longer available to other users. The archive can be accessed from the "Archived News" entry in the dropdown. Only the authors and publishers can see articles in the archive.
 Archived articles have a different display in the activity stream  :
 
 |image213|
