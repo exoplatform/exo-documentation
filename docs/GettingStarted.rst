@@ -438,7 +438,8 @@ Quickly perform key actions through the following applications:
 -  *Getting Started*: See a list of suggested actions you can start.
    See :ref:`Getting Started application <Getting Started>` for more details.
 
--  *Calendar*: Get an overview of calendar events. See :ref:`Calendar application <CalendarApp>` for more details.
+-  *Calendar*: Get an overview of calendar events. See :ref:`Calendar application <CalendarApp>
+` for more details.
 
 -  *Invitation*: See a list of spaces and users who have sent connection requests to you. See :ref:`Invitations application <InvitationsApp>` for more details.
 
@@ -1324,7 +1325,7 @@ You can display the pinned articles with one of the following layouts :
 
 |image198|
 
-When you click on the "See all" button,  you are redirected automatically to news application filtered by pinned articles
+When you click on the "See all" button, you are redirected automatically to news application filtered by pinned articles.
 
 |image205|
 
