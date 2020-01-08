@@ -1475,7 +1475,7 @@ Archiving News
 ---------------
 
 As an article's author or as a platform-wide publisher (publisher:/platform/web-contributors role required), you can archive articles from News application interface.
-An "archive/unarchive" icon is available in the right side of the article's preview next to share, edit and pin icons.
+An "archive/unarchive" icon is available on the right side of the article's preview next to "share", "edit" and "pin" icons.
 
 |image211|
 
