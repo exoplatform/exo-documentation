@@ -1479,7 +1479,7 @@ An "archive/unarchive" icon is available on the right side of the article's prev
 
 |image211|
 
-When you click on the archive icon, a confirmation message appears
+When you click on the archive icon, a confirmation message appears : 
 
 |image212|
 
