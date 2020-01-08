@@ -1414,7 +1414,7 @@ The page displays by default the list of the first 10 articles of the view "All 
 
 |image217|
 
-For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the information about the source space as well as the destination space(s) if the article has been shares.
+For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the original space where the article was posted as well as the spaces where it was shared.
 You can share the displayed articles as explained in the `Sharing a News`_ chapter. You can also edit the articles when you have the permission to do it.
 
 |image188|
