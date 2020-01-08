@@ -1501,7 +1501,7 @@ It is also possible to unarchive articles using the same icon from news applicat
 
 Once you confirm the unarchiving action. the article becomes available again to the other users.
 
-.. note:: When you archive a pinned article it will be automatically unpinned from home page. 
+.. note:: When you archive a pinned article it gets automatically unpinned. However, if you unarchive the same article afterwards, it won't be re-pinned automatically. 
 		  If you unarchive the same article, it won't be pinned automatically to the pinned News block.
 
 	
