@@ -1495,7 +1495,7 @@ On the other hand, you still have access to the article's details and you are ab
 
 |image215|
 
-It is also possible to unarchive articles using the same icon from news application.
+The same icon allows to unarchive articles from the News application.
 
 |image216|
 
