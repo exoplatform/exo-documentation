@@ -1234,7 +1234,7 @@ The article will be posted into the space's activity stream
 |image158|
 
 
-.. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
+.. note:: The post button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
 
          
 You can access the content of the article either by clicking on its title or by clicking on "read more".
