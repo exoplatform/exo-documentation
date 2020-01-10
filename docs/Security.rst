@@ -64,8 +64,7 @@ entry declares a Realm name and at least one login module. Each login
 module consists of a Java class and some parameters which are specified 
 by the class.
 
-Below is the default Realm in the Tomcat bundle. In JBoss, it looks
-different but basically, the explanation is right for both.
+Below is the default Realm in the Tomcat bundle.
 
 ::
 
@@ -112,41 +111,6 @@ Declaring JAAS Realm in eXo Platform
 -  A "security domain" property in
    ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` (about this
    file, see :ref:`Configuration overview <Configuration.ConfigurationOverview>`)
-   needs to be set equal to the Realm name:
-
-   ::
-
-       exo.security.domain=gatein-domain
-
-**In the JBoss package**
-
--  The default Realm is declared in the
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-   file, at the following lines:
-
-   .. code:: xml
-
-       <security-domain name="gatein-domain" cache-type="default">
-           <authentication>
-               <!--
-               <login-module code="org.gatein.sso.integration.SSODelegateLoginModule" flag="required">
-                   <module-option name="enabled" value="${gatein.sso.login.module.enabled}"/>
-                   <module-option name="delegateClassName" value="${gatein.sso.login.module.class}"/>
-                   <module-option name="portalContainerName" value="portal"/>
-                   <module-option name="realmName" value="gatein-domain"/>
-                   <module-option name="password-stacking" value="useFirstPass"/>
-               </login-module>
-               -->
-               <login-module code="org.exoplatform.services.security.j2ee.JBossAS7LoginModule" flag="required">
-                   <module-option name="portalContainerName" value="portal"/>
-                   <module-option name="realmName" value="gatein-domain"/>
-               </login-module>
-           </authentication>
-       </security-domain>
-
--  A "security domain" property in
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   (about this file, see :ref:`Configuration overview <Configuration.ConfigurationOverview>`)
    needs to be set equal to the Realm name:
 
    ::
@@ -205,25 +169,6 @@ re-configure:
 
 .. note:: The ``.war`` files are located under the ``$PLATFORM_TOMCAT_HOME/webapps`` folder.
 
-**In the JBoss package:**
-
--  ``exo.portal.web.portal.war``: ``/WEB-INF/jboss-web.xml``,
-   ``/WEB-INF/web.xml``, ``/META-INF/context.xml``.
-
--  ``exo.portal.web.rest.war``: ``/WEB-INF/jboss-web.xml``,
-   ``/WEB-INF/web.xml``.
-
--  ``calendar-extension-webapp.war``: ``/WEB-INF/jboss-web.xml``.
-
--  ``forum-extension-webapp.war``: ``/WEB-INF/jboss-web.xml``.
-
--  ``wiki-extension-webapp.war``: ``/WEB-INF/jboss-web.xml``.
-
--  ``ecms-core-webapp.war``: ``/WEB-INF/jboss-web.xml``.
-
--  ``ecms-packaging-wcm-webapp.war``: ``/WEB-INF/jboss-web.xml``.
-
-.. note:: The ``.war`` files are located under the ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear`` folder.
 
 .. _Security.GadgetProxyConfig:
 
@@ -248,10 +193,7 @@ gadget server is installed.
 To specify domains that you want to allow or deny, modify the file:
 
 -  ``$PLATFORM_TOMCAT_HOME/webapps/portal.war/WEB-INF/conf/common/common-configuration.xml``
-   (in Tomcat).
 
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/exo.portal.web.portal.war/WEB-INF/conf/common/common-configuration.xml``
-   (in JBoss).
 
 The default configuration is:
 
@@ -485,13 +427,11 @@ post <http://blog.exoplatform.com/en/2014/04/17/apache-2-nginx-highly-secure-pfs
 Configuring the HTTP connector
 -------------------------------
 
-In both eXo Platform Tomcat and JBoss distributions, there is a default HTTP
-(8080) connector.
+In eXo Platform distribution, there is a default HTTP (8080) connector.
 
 In any case, you should configure that connector so that eXo Platform is
 aware of the proxy in front of it.
 
--  **In Tomcat**
 
 Set the following property in
 ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file:
@@ -514,30 +454,6 @@ this:
       noCompressionUserAgents=".*MSIE 6.*" compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript"
       proxyName="proxy1.com" proxyPort="443" scheme="https" />
 
--  **In JBoss**
-
-1. Set the following property in
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   file:
-
-   ::
-
-		exo.base.url=https://proxy1.com
-
-2. In ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``,
-   add the property proxy-address-forwarding="true" in the configuration of
-   http-listener:
-
-   .. code:: xml
-
-			<http-listener name="default" redirect-socket="https" 
-						socket-binding="http" max-post-size="209715200" 
-						proxy-address-forwarding="true"/>
-
-After restarting the proxy and eXo Platform, you can test
-*https://proxy1.com*. If you are testing with dummy server names, make
-sure you created the hosts "proxy1.com" and "exo1.com" in the file
-``/etc/hosts``.
 
 .. _PLFAdminGuide.Security.HTTPSConf.eXo:
 
@@ -589,25 +505,6 @@ After starting eXo Platform, you can connect to
 *https://exo1.com:8443/portal*. If you are testing with dummy server
 names, make sure you created the host "exo1.com" in the file
 ``/etc/hosts``.
-
-Configuring eXo Platform's JBoss
-----------------------------------
-
-To configure JBoss to run under HTTPS, you just need to set the
-following property in
-``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-file:
-
-::
-
-    exo.base.url=https://exo1.com:8443
-
-After starting JBoss, you can connect to eXo Platform at
-*https://exo1.com:8443/portal*. If you are testing with dummy server
-names, make sure you created the host "exo1.com" in the file
-``/etc/hosts``.
-
-
 
 .. _Security.KeyRemembermeToken:
 
@@ -675,8 +572,7 @@ example). The valid value of algorithms and other parameters can be
 found
 `here <http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html#SecretKeyFactor>`__.
 
-Then, place the generated file under ``gatein/conf/codec`` (in Tomcat)
-or ``standalone/configuration/gatein/codec`` (in JBoss).
+Then, place the generated file under ``gatein/conf/codec``.
 
 2. Update the ``jca-symmetric-codec.properties`` file with the 
    parameters used in your keytool command:
@@ -701,10 +597,8 @@ Updating password encryption key
 
 The password encryption uses a keystore file. By default, the file is:
 
--  ``$PLATFORM_TOMCAT_HOME/gatein/conf/codec/codeckey.txt`` (in Tomcat).
+-  ``$PLATFORM_TOMCAT_HOME/gatein/conf/codec/codeckey.txt``
 
--  ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/codec/codeckey.txt``
-   (in JBoss).
 
 To update the password encryption key, just remove the file, then
 restart the server. The keystore file will be re-created at the startup

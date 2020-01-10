@@ -321,29 +321,6 @@ Manager:
 
 2. Restart the server.
 
-.. _Jboss-deployment:
-
-**For JBoss:**
-
-1. Add new ``WEB-INF/jboss-deployment-structure.xml`` file to 
-   ``custom-extension.war`` with the following content:
-
-   .. code:: xml
-
-		<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
-			<deployment>
-				<dependencies>
-					<module name="deployment.platform.ear" export="true"/>
-				</dependencies>
-			</deployment>
-		</jboss-deployment-structure>
-
-2. Add ``custom-extension.war`` to
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/`` platform.ear 
-   directory.
-
-3. Restart the server.
-
 .. _AddonsManagerCompliance:
 
 Add-ons Manager compliance
@@ -355,37 +332,6 @@ different. The section :ref:`Packaging <PLFDevGuide.eXoAdd-ons.Packaging>`
 shows you how.
 
 The Add-ons Manager deploys the extension in the same way for Tomcat.
-For JBoss, it uses another method to deploy the .war. Here are the
-details:
-
--  The file ``jboss-deployment-structure.xml`` is not required.
-
--  The .war is deployed into
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear``.
-
--  The Add-ons Manager will edit the
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   to add a module as follows:
-
-   .. code:: xml
-
-       <application>
-           ...
-           <!-- Your custom-extension should be added before starter module. -->
-           <module>
-               <web>
-                   <web-uri>custom-extension.war</web-uri>
-                   <context-root>custom-extension</context-root>
-               </web>
-           </module>
-           ...
-           <module>
-               <web>
-                   <web-uri>exo.portal.starter.war.war</web-uri>
-                   <context-root>starter</context-root>
-               </web>
-           </module>
-       </application>
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension.Examples:
 
@@ -539,13 +485,9 @@ need to compress JARs, WARs and other files into a zip archive:
 When installing an add-on, the Add-ons Manager copies files from the
 add-on archive into PRODUCT, as follows:
 
--  JARs: ``$PLATFORM_TOMCAT_HOME/lib/`` (Tomcat), or
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/lib/``
-   (JBoss).
+-  JARs: ``$PLATFORM_TOMCAT_HOME/lib/``.
 
--  WARs: ``$PLATFORM_TOMCAT_HOME/webapps/`` (Tomcat), or
-   ``$PLATFORM_JBOSS/HOME/standalone/deployments/platform.ear/``
-   (JBoss).
+-  WARs: ``$PLATFORM_TOMCAT_HOME/webapps/``.
 
 -  Other files and folders located at the root of the zip archive will
    be copied to the home directory of the PRODUCT server.
@@ -632,7 +574,7 @@ There are 2 ways to deploy an add-on:
 -  Use the Add-ons Manager - the standard way to install, uninstall, and
    update add-ons in eXo Platform. In this way, you will avoid the manual
    registration that might cause errors. The Add-on Manager allows you
-   to simplify your add-ons management in both Tomcat and JBoss EAP by
+   to simplify your add-ons management in eXo Platform server by
    copying all JARs and WARs in one step and uninstalling them without
    searching in the ``lib`` directory (more than 400 jars) and in the
    ``webapps`` directory (more than 50 wars).

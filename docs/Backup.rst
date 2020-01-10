@@ -78,9 +78,7 @@ Backup and Restore
 If you do not customize and configure eXo Platform, the whole data is located
 in one directory. So you just need to backup and restore the folder:
 
--  ``$PLATFORM_TOMCAT_HOME/gatein/data`` (in Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/data/gatein`` (in JBoss).
+-  ``$PLATFORM_TOMCAT_HOME/gatein/data``.
 
 .. note:: The above locations are the default ones, you may have different path to the data folder which is shared and accessible by your sever node(s).
 
@@ -93,7 +91,7 @@ restore file system data and DBMS tools to backup/restore SQL databases.
 The data folder contains these directories:
 
 -  ``exoplatform-es``: it contains data indexed by Elasticsearch when it
-   is in :ref:`embedded mode <#PLFAdminGuide.Elasticsearch.ES_Embedded>`.
+   is in :ref:`embedded mode <PLFAdminGuide.Elasticsearch.ES_Embedded>`.
 
 -  ``files``: it contains :ref:`file storage <Database.FileStorage>` 
    data.
@@ -113,13 +111,8 @@ The data folder contains these directories:
 File System Data
 ~~~~~~~~~~~~~~~~~
 
-You can check the data location in the customized configuration file:
-
--  In Tomcat, the file is ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize``
-   (``.sh`` for Linux and ``.bat`` for Windows).
-
--  In JBoss, it is ``$PLATFORM_JBOSS_HOME/bin/standalone-customize``
-   (``.conf`` for Linux and ``.conf.bat`` for Windows).
+You can check the data location in the customized configuration file: ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize``
+(``.sh`` for Linux and ``.bat`` for Windows).
 
 Open the file and find *EXO\_DATA\_DIR*. This variable indicates the
 folder you need to backup or restore. As explained above,
