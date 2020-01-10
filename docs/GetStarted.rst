@@ -733,8 +733,6 @@ using
 `JDWP <http://docs.oracle.com/javase/7/docs/technotes/guides/jpda/jdwp-spec.html>`__
 that enables debugging by Eclipse.
 
-**In Tomcat**
-
 In eXo Platform Tomcat, the Debug mode is turned on by appending ``--debug``
 to the startup command:
 
@@ -752,13 +750,6 @@ If you want to change the port (``address=8000``), you have to
 :ref:`customize environment variables <CustomizingEnvironmentVariables>`
 and edit the following variable: ``EXO_DEBUG_PORT="8000"``.
 
-**In JBoss**
-
-In eXo Platform JBoss, you should provide a port in the startup command:
-
-::
-
-	./bin/standalone.sh --debug 8787
 
 .. _PLFDevGuide.GettingStarted.DevMode:
 
@@ -768,9 +759,7 @@ Dev mode
 The Dev mode is useful for debugging container configuration, CSS and
 JavaScript.
 
-**In Tomcat**
-
-In eXo Platform Tomcat, the Dev mode is turned on by appending ``--dev`` 
+In eXo Platform, the Dev mode is turned on by appending ``--dev`` 
 to the startup command: 
 
 ::
@@ -783,11 +772,6 @@ This parameter will add the following system properties:
 
 -  **-Dexo.product.developing=true**
 
-**In JBoss**
-
-In eXo Platform JBoss, the ``--dev`` parameter is not supported. You need to
-:ref:`customize environment variables <CustomizingEnvironmentVariables>`
-to have the following variable: ``EXO_DEV=true``.
 
 **Effects of Dev mode**
 

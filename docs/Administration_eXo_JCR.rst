@@ -24,8 +24,7 @@ Administration
 
     -  :ref:`Performance tuning <chapter-Administration-PerformanceTuning>`
 
-       Instructions on JBoss AS tuning, JCR cache tuning, Clustering,
-       JVM parameters, and Force query hints.
+       Instructions on JCR cache tuning, Clustering, JVM parameters, and Force query hints.
 
 
 .. _chapter-Administration-Connectors:
@@ -45,9 +44,6 @@ Connectors
    Details of configuration parameters of FTP, such as command-port,
    data-min-port and data-max-port, system, and client-side-encoding.
 
--  :ref:`JCA resource adapter <JCR.JCA>`
-
-   Details of SessionFactory, configuration, and deployment.
 
 .. _JCR.WebDAV:
 
@@ -657,118 +653,6 @@ FTP includes the following configuration parameters:
    Define the character that will be used to replace the forbidden
    characters.
 
-.. _JCR.JCA:
-
-JCA resource adapter
-~~~~~~~~~~~~~~~~~~~~~
-
-.. note:: JCA is currently supported in eXo Platform JBoss bundle.
-
-JCR supports *J2EE Connector Architecture* 1.5, thus if you want to
-delegate the JCR Session lifecycle to your application server, you can
-use the JCA resource adapter for eXo JCR. This adapter only supports XA
-Transaction, in other words you cannot use it for local transactions.
-Since the JCR Sessions have not been designed to be shareable, the
-session pooling is simply not covered by the adapter.
-
-**SessionFactory**
-
-The equivalent of the ``javax.resource.cci.ConnectionFactory`` in JCA
-terminology is ``org.exoplatform.connectors.jcr.adapter.SessionFactory``
-in the context of eXo JCR. The resource that you will get thanks to a
-JNDI lookup is of the ``SessionFactory`` type and provides the following
-methods:
-
-.. code:: java
-
-       /**
-        * Get a JCR session corresponding to the repository
-        * defined in the configuration and the default workspace.
-        * @return a JCR session corresponding to the criteria
-        * @throws RepositoryException if the session could not be created
-        */
-       Session getSession() throws RepositoryException;
-
-       /**
-        * Get a JCR session corresponding to the repository
-        * defined in the configuration and the default workspace, using
-        * the given user name and password.
-        * @param userName the user name to use for the authentication
-        * @param password the password to use for the authentication
-        * @return a JCR session corresponding to the criteria
-        * @throws RepositoryException if the session could not be created
-        */
-       Session getSession(String userName, String password) throws RepositoryException;
-
-       /**
-        * Get a JCR session corresponding to the repository
-        * defined in the configuration and the given workspace.
-        * @param workspace the name of the expected workspace
-        * @return a JCR session corresponding to the criteria
-        * @throws RepositoryException if the session could not be created
-        */
-       Session getSession(String workspace) throws RepositoryException;
-
-       /**
-        * Get a JCR session corresponding to the repository
-        * defined in the configuration and the given workspace, using
-        * the given user name and password.
-        * @param workspace the name of the expected workspace
-        * @param userName the user name to use for the authentication
-        * @param password the password to use for the authentication
-        * @return a JCR session corresponding to the criteria
-        * @throws RepositoryException if the session could not be created
-        */
-       Session getSession(String workspace, String userName, String password) throws RepositoryException;
-
-**Configuration**
-
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| *PortalContainer*   | If no portal container can be found in the context of the request, the adapter will use the value of this parameter to get the name of the expected portal container to create the JCR sessions. This parameter is optional. By default, the default portal container will be used.   |
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| *Repository*        | The repository name used to create JCR sessions. This parameter is optional. By default, the current repository will be used.                                                                                                                                                         |
-+---------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-**Deployment**
-
-Get/Download the JBoss bundle of eXo Platform 4 or higher.
-
-Go to the ``exo.jcr.connectors.jca`` folder, then run the
-``mvn clean install -Pplatform`` command.
-
-Deploy
-``exo.jcr.connectors.jca/target/exo.jcr.connectors.jca-1.15.x-GA.rar``
-in ``PLATFORM_JBOSS_HOME/standalone/deployments/``, then rename it to
-``exo-jcr.rar``.
-
-Configure the resource adapter in
-``PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml`` by
-replacing:
-
-::
-
-    <subsystem xmlns="urn:jboss:domain:resource-adapters:1.1"/>
-
-with
-
-::
-
-    <subsystem xmlns="urn:jboss:domain:resource-adapters:1.1">
-        <resource-adapters>
-            <resource-adapter>
-                <archive>exo-jcr.rar</archive>
-                <transaction-support>XATransaction</transaction-support>
-                <connection-definitions>
-                    <connection-definition class-name="org.exoplatform.connectors.jcr.impl.adapter.ManagedSessionFactory"
-                    jndi-name="java:/jcr/Repository">
-                        <config-property name="PortalContainer">portal</config-property>
-                        <config-property name="Repository">repository</config-property>
-                    </connection-definition>
-                </connection-definitions>
-            </resource-adapter>
-        </resource-adapters>
-    </subsystem>
 
 .. _chapter-Administration-Database:
 
