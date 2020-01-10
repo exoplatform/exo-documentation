@@ -580,11 +580,10 @@ adds two JVM options:
 
 -  **-Dexo.product.developing=true**
 
-    **Note**
 
-    The Debug and Dev modes are turned off by default and are not
-    recommended in production environment because of performance impact.
-    See more details in :ref:`Developer guide <#PLFDevGuide.GettingStarted.DebugAndDevMode>`.
+.. note:: The Debug and Dev modes are turned off by default and are not
+          recommended in production environment because of performance impact.
+          See more details in :ref:`Developer guide <#PLFDevGuide.GettingStarted.DebugAndDevMode>`.
 
 .. _EnterpriseEdition.TomcatInstallWinService:
 
