@@ -55,11 +55,7 @@ A warning message appears behind the label "My wallet"
 
 Once your wallet is approved by an administrator, you’ll receive a notification informing you that your wallet is activated.
 
-|image|
-
 All actions become available and you can send and receive funds as well as view transaction history or statistics and reward details.
-
-|image|
 
 
 Wallet security
@@ -165,7 +161,6 @@ In case of a failed transaction, a warning is displayed in the transaction list 
 
 .. |image0| image:: images/reward/profile_mywallet1.png
 .. |image1| image:: images/reward/profile_mywallet2.png
-.. |image2| image:: images/reward/
 .. |image3| image:: images/reward/create_wallet.png
 .. |image4| image:: images/reward/created_wallet.png
 .. |image5| image:: images/reward/warning_funds.png
