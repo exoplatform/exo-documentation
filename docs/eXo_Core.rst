@@ -533,7 +533,7 @@ sources:
    per-Application Server extensions of this login module in the
    **org.exoplatform.services.security.jaas** package, which can be used
    in appropriate AS. In particular, eXo has dedicated Login modules for
-   Tomcat, JBoss, JOnAS and WebSphere.
+   Tomcat, JOnAS and WebSphere.
 
 -  Besides that, in case when the third-party authentication mechanism
    is required,
@@ -563,7 +563,7 @@ To make it work in the particular J2EE server, it is necessary to add
 specific Principals/Credentials to the Subject to be propagated into the
 specific J2EE container implementation. The DefaultLoginModule is
 extended by overloading its commit() method with a dedicated logic,
-presently available for Tomcat, JBoss and JOnAS application servers.
+presently available for Tomcat and JOnAS application servers.
 
 Furthermore, you can use the optional RolesExtractor which is
 responsible for mapping primary Subject's principals (userId and a set
@@ -3419,55 +3419,6 @@ Specify a new login module for JAAS:
          org.exoplatform.services.security.j2ee.DigestAuthenticationTomcatLoginModule required;
        };
 
-**JBoss server configuration**
-
-Edit the configuration file located at
-``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/exo.portal.web.rest.war!/WEB-INF/web.xml``
-by replacing
-
-.. code:: xml
-
-    <login-config>
-        <auth-method>BASIC</auth-method>
-        <realm-name>gatein-domain</realm-name>
-    </login-config>
-
-with
-
-.. code:: xml
-
-    <login-config>
-        <auth-method>DIGEST</auth-method>
-        <realm-name>gatein-domain</realm-name>
-    </login-config>
-
-Edit the login configuration file located at
-``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``:
-
-.. code:: xml
-
-    <security-domain name="gatein-domain" cache-type="default">
-        <authentication>
-            <login-module code="org.exoplatform.services.security.j2ee.DigestAuthenticationJbossLoginModule" flag="required">
-                <module-option name="usersProperties" value="path/to/users.properties" />
-                <module-option name="rolesProperties" value="path/to/roles.properties" />
-                <module-option name="hashAlgorithm" value="MD5" />
-                <module-option name="hashEncoding" value="rfc2617" />
-                <module-option name="hashUserPassword" value="false" />
-                <module-option name="hashStorePassword" value="true" />
-                <module-option name="passwordIsA1Hash" value="true" />
-                <module-option name="storeDigestCallback" value="org.jboss.security.auth.spi.RFC2617Digest" />
-            </login-module>
-        </authentication>
-    </security-domain>
-
-You probably should define **users.properties** and **roles.properties**
-according to your own needs.
-
-See
-`here <https://docs.jboss.org/author/display/AS71/Security+Realms>`__
-for more information about the JBoss server Digest authentication
-configuration.
 
 **Organization Service implementation requirements**
 
