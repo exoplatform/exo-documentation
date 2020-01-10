@@ -212,8 +212,6 @@ that you can adapt by following the following sections.
 
 9. :ref:`Package and deploy <LDAP.QuickStart.PackagingDeploying>` your ldap-extension into Platform.
 
-.. note:: For JBoss, don’t forget to declare :ref:`deployment dependency <Jboss-deployment>`.
-
 10. Make sure the directory server is running, then start eXo Platform.
 
 .. _LDAP.QuickStart.PackagingDeploying:
@@ -221,11 +219,7 @@ that you can adapt by following the following sections.
 Packaging and deploying
 -------------------------
 
-The extension folder must be packaged into ``ldap-extension.war`` then copied to:
-
--  ``$PLATFORM_TOMCAT_HOME/webapps`` for Tomcat.
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments`` for JBoss.
+The extension folder must be packaged into ``ldap-extension.war`` then copied to ``$PLATFORM_TOMCAT_HOME/webapps``.
 
 To compress the folder into a .war (and decompress the .war for editing), you can use any archiver tool that supports .war extension.
 You can use the JDK built-in tool **jar**, as follows:
@@ -244,8 +238,7 @@ You can use the JDK built-in tool **jar**, as follows:
 .. tip:: You should have ldap-extension packaged in .war when deploying it to production. However when testing, if you feel 
          uncomfortable having to edit a .war, you can skip compressing it. 
          In `Tomcat <https://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html>`__, just deploy the original 
-         folder *ldap-extension*. In `JBoss <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/deploying_applications>`__, 
-         rename it to ``ldap-extension.war``.
+         folder *ldap-extension*. 
 
 .. _LDAP.QuickStart.Testing:         
 
