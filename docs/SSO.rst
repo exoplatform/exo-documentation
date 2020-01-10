@@ -25,8 +25,6 @@ application.
 
     -  :ref:`SAML2 <eXoAddonsGuide.SSO.SAML2>`
 
-    -  :ref:`Single Sign-On in Cluster mode <eXoAddonsGuide.SSO.SSO_in_cluster>`
-
 .. _eXoAddonsGuide.SSO.CAS:
 
 ====================================
@@ -53,8 +51,7 @@ The integration between eXo Platform and CAS consists of 3 steps:
 
 -  **i.** CAS is deployed on Tomcat 7 server at **localhost:8888**.
 
--  **ii.** eXo Platform (Tomcat or JBoss EAP) is deployed at
-   **localhost:8080**.
+-  **ii.** eXo Platform is deployed at **localhost:8080**.
 
 .. _eXoAddonsGuide.SSO.CAS.CAS_server_setup:
 
@@ -216,16 +213,10 @@ to configure the eXo Platform server.
 eXo Platform server configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The eXo Platform server configuration is quite different between the Tomcat
-and JBoss packages. Here are instructions for both
-:ref:`Tomcat <eXoAddonsGuide.SSO.CAS.eXoPlatform_server_configuration.Tomcat>`
-and :ref:`JBoss <eXoAddonsGuide.SSO.CAS.eXoPlatform_server_configuration.JBoss>`
-bundles.
+In this section, we will detail how to configure eXo Platform server.
 
 .. _eXoAddonsGuide.SSO.CAS.eXoPlatform_server_configuration.Tomcat:
 
-In Tomcat
-----------
 
 Add the following to the
 ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file (see
@@ -247,8 +238,7 @@ for this file):
 
 In previous versions of eXo Platform, there were much more changes needed in
 various configuration files. But now, all JARS are available in
-``$PLATFORM_TOMCAT_HOME/lib`` or
-``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/lib``, so you
+``$PLATFORM_TOMCAT_HOME/lib``, so you
 do not need to manually add any JAR files. If you are interested in
 technical details about the single properties and configuration, you can
 see the below.
@@ -266,10 +256,8 @@ see the below.
 -  ``gatein.sso.login.module.enabled`` &
    ``gatein.sso.login.module.class`` - There is a special login module
    configured for gatein-domain in
-   ``$PLATFORM_TOMCAT_HOME/conf/jaas.conf`` (Tomcat) or
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-   (JBoss) called **SSODelegateLoginModule**. If SSO is disabled, this
-   **SSODelegateLoginModule** is simply ignored during authentication
+   ``$PLATFORM_TOMCAT_HOME/conf/jaas.conf`` called **SSODelegateLoginModule**. 
+   If SSO is disabled, this **SSODelegateLoginModule** is simply ignored during authentication
    process. But if SSO is enabled by this property, it delegates the
    work to another login module configured via the next option
    ``gatein.sso.login.module.class``. **SSODelegateLoginModule** will
@@ -329,52 +317,6 @@ pages will redirect to the CAS centralized authentication form. And on
 CAS you will be able to authenticate with portal credentials (like
 john/gtn) thanks to Authentication plugin.
 
-.. _eXoAddonsGuide.SSO.CAS.eXoPlatform_server_configuration.JBoss:
-
-In JBoss
----------
-
-1. Edit the  file ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   (see :ref:`Configuration overview <Configuration.ConfigurationOverview>` for this file):
-
-   ::
-
-		# SSO
-				gatein.sso.enabled=true
-				gatein.sso.callback.enabled=${gatein.sso.enabled}
-				gatein.sso.login.module.enabled=${gatein.sso.enabled}
-				gatein.sso.login.module.class=org.gatein.sso.agent.login.SSOLoginModule
-				gatein.sso.server.url=http://localhost:8888/cas
-				gatein.sso.portal.url=http://localhost:8080
-				gatein.sso.filter.logout.class=org.gatein.sso.agent.filter.CASLogoutFilter
-				gatein.sso.filter.logout.url=${gatein.sso.server.url}/logout
-				gatein.sso.filter.login.sso.url=${gatein.sso.server.url}/login?service=${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin
-
-   In which:
-
-   -  **gatein.sso.server.url** (= http://localhost:8888/cas in this
-      example) is the URL of your CAS web context.
-
-   -  **gatein.sso.portal.url** (= http://localhost:8080 in this example)
-      is the URL of your eXo Platform server.
-
-2. Uncomment the below login module in ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``,
-   then change ``${gatein.sso.login.module.enabled}`` and
-   ``${gatein.sso.login.module.class}`` into
-   ``#{gatein.sso.login.module.enabled}`` and
-   ``#{gatein.sso.login.module.class}`` respectively.
-
-   .. code:: xml
-
-		<login-module code="org.gatein.sso.integration.SSODelegateLoginModule" flag="required">
-			<module-option name="enabled" value="#{gatein.sso.login.module.enabled}"/>
-			<module-option name="delegateClassName" value="#{gatein.sso.login.module.class}"/>
-			<module-option name="portalContainerName" value="portal"/>
-			<module-option name="realmName" value="gatein-domain"/>
-			<module-option name="password-stacking" value="useFirstPass"/>
-		</login-module>
-
-Now, you can move to the next section for :ref:`testing <eXoAddonsGuide.SSO.CAS.Testing>`.
 
 .. _eXoAddonsGuide.SSO.CAS.Testing:
 
@@ -499,8 +441,7 @@ The integration between eXo Platform and OpenAM consists of 2 steps:
 
 -  **i.** OpenAM is deployed on Tomcat at **localhost:8888**.
 
--  **ii.** eXo Platform (Tomcat or JBoss) is deployed at
-   **localhost:8080**.
+-  **ii.** eXo Platform is deployed at **localhost:8080**.
 
 .. _eXoAddonsGuide.SSO.OpenAM.OpenAM_server_setup:
 
@@ -768,15 +709,11 @@ to configure the eXo Platform server.
 eXo Platform server configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here are instructions for both
-:ref:`Tomcat <eXoAddonsGuide.SSO.OpenAM.eXoPlatform_server_configuration.Tomcat>`
-and :ref:`JBoss <eXoAddonsGuide.SSO.OpenAM.eXoPlatform_server_configuration.JBoss>`
-packages.
+Here are instructions for 
+:ref:`eXo Platform server <eXoAddonsGuide.SSO.OpenAM.eXoPlatform_server_configuration.Tomcat>`
 
 .. _eXoAddonsGuide.SSO.OpenAM.eXoPlatform_server_configuration.Tomcat:
 
-In Tomcat
-----------
 
 Add the following to the
 ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` file to have the
@@ -808,62 +745,6 @@ In which:
 -  **gatein.sso.openam.realm** (= **exo** in this example) is the realm
    created in previous steps.
 
-.. _eXoAddonsGuide.SSO.OpenAM.eXoPlatform_server_configuration.JBoss:
-
-In JBoss
----------
-
-
-1. Edit the
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   file to have the following lines (see :ref:`Configuration
-   overview <#PLFAdminGuide.Configuration.ConfigurationOverview>` for
-   this file):
-
-   ::
-
-		# SSO
-		gatein.sso.enabled=true
-		gatein.sso.callback.enabled=${gatein.sso.enabled}
-		gatein.sso.login.module.enabled=${gatein.sso.enabled}
-		gatein.sso.login.module.class=org.gatein.sso.agent.login.SSOLoginModule
-		gatein.sso.server.url=http://localhost:8888/openam
-		gatein.sso.openam.realm=exo
-		gatein.sso.portal.url=http://localhost:8080
-		gatein.sso.filter.logout.class=org.gatein.sso.agent.filter.OpenSSOLogoutFilter
-		gatein.sso.filter.logout.url=${gatein.sso.server.url}/UI/Logout
-		gatein.sso.filter.login.sso.url=${gatein.sso.server.url}/UI/Login?realm=${gatein.sso.openam.realm}&goto=${gatein.sso.portal.url}/@@portal.container.name@@/initiatessologin
-
-In which:
-
--  ``gatein.sso.server.url`` (= http://localhost:8888/openam in this
-   example) is the URL of your OpenAM web context.
-
--  ``gatein.sso.portal.url`` (= http://localhost:8080 in this example)
-   is the URL of your eXo Platform server.
-
--  ``gatein.sso.openam.realm`` (= **gatein** in this example) is the
-   realm created in previous steps.
-
-2. Uncomment the below login module in
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``,
-   then change ``${gatein.sso.login.module.enabled}`` and
-   ``${gatein.sso.login.module.class}`` into
-   ``#{gatein.sso.login.module.enabled}`` and
-   ``#{gatein.sso.login.module.class}`` respectively.
-
-   .. code:: xml
-
-		<login-module code="org.gatein.sso.integration.SSODelegateLoginModule" flag="required">
-			<module-option name="enabled" value="#{gatein.sso.login.module.enabled}"/>
-			<module-option name="delegateClassName" value="#{gatein.sso.login.module.class}"/>
-			<module-option name="portalContainerName" value="portal"/>
-			<module-option name="realmName" value="gatein-domain"/>
-			<module-option name="password-stacking" value="useFirstPass"/>
-		</login-module>
-
-After configuring the eXo Platform server, move to the :ref:`next section <eXoAddonsGuide.SSO.OpenAM.Testing>` 
-for testing.
 
 .. _eXoAddonsGuide.SSO.OpenAM.Testing:
 
@@ -896,7 +777,7 @@ for for more details.
 Cross-domain authentication configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the above example (in both JBoss and Tomcat), the eXo Platform and SSO
+In the above example, the eXo Platform and SSO
 servers are deployed at **localhost:8080** and **localhost:8888**. The
 above configuration works if both servers are deployed on the same
 machine or the same domain, like eXo Platform on **portal.mydomain.com** and
@@ -908,10 +789,8 @@ eXo Platform on **portal.yourdomain.com:8080** and OpenAM on
 both sides, as follows:
 
 1. On portal side, change the configuration that you have done to
-   ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` (Tomcat), or
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   (JBoss) to have the following lines (see :ref:`Configuration overview <Configuration.ConfigurationOverview>` 
-   for this file):
+   ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` to have the following lines 
+   (see :ref:`Configuration overview <Configuration.ConfigurationOverview>` for this file):
 
    ::
 
@@ -1412,87 +1291,6 @@ Go to ``$PLATFORM_HOME``, and install SPNEGO add-on with the command:
 
 5. Start eXo Platform.
 
-**Intergating SPNEGO with eXo Platform JBoss**
-
-1. Add the login module "spnego-server" as the child of the
-   ``<security-domains>`` section of the
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-   file.
-
-   .. code:: xml
-
-		<security-domain name="spnego-server" cache-type="default">
-				<authentication>
-					<login-module code="com.sun.security.auth.module.Krb5LoginModule" flag="required">
-						<module-option name="storeKey" value="true"/>
-						<module-option name="doNotPrompt" value="true"/>
-						<module-option name="useKeyTab" value="true"/>
-						<module-option name="keyTab" value="/etc/krb5.keytab"/>
-						<module-option name="principal" value="HTTP/server.example.com@EXAMPLE.COM"/>
-						<module-option name="useFirstPass" value="true"/>
-						<module-option name="debug" value="true"/>
-						<module-option name="isInitiator" value="false"/>
-					</login-module>
-				</authentication>
-			</security-domain>
-
-.. note:: On Windows environment, you should change the path of keytab. For
-          example, if this file is put into the D drive, it should be:
-          keyTab="D:/server.keytab".
-
-2. Uncomment the below login module in ``standalone-exo.xml``, then change
-   ``${gatein.sso.login.module.enabled}`` and
-   ``${gatein.sso.login.module.class}`` into
-   ``#{gatein.sso.login.module.enabled}`` and
-   ``#{gatein.sso.login.module.class}`` respectively.
-
-   .. code:: xml
-
-		<login-module code="org.gatein.sso.integration.SSODelegateLoginModule" flag="required">
-				<module-option name="enabled" value="#{gatein.sso.login.module.enabled}"/>
-				<module-option name="delegateClassName" value="#{gatein.sso.login.module.class}"/>
-				<module-option name="portalContainerName" value="portal"/>
-				<module-option name="realmName" value="gatein-domain"/>
-				<module-option name="password-stacking" value="useFirstPass"/>
-			</login-module>
-
-3. Configure SSO for eXo Platform by appending these configurations into
-   the ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   file (see :ref:`Configuration overview <PLFAdminGuide.Configuration.ConfigurationOverview>` 
-   for this file).
-
-   .. code:: xml
-
-		# SSO
-			gatein.sso.enabled=true
-			gatein.sso.filter.spnego.enabled=true
-			gatein.sso.callback.enabled=false
-			gatein.sso.skip.jsp.redirection=false
-			gatein.sso.login.module.enabled=true
-			gatein.sso.login.module.class=org.gatein.security.sso.spnego.SPNEGOSSOLoginModule
-			gatein.sso.filter.login.sso.url=/@@portal.container.name@@/spnegosso
-			gatein.sso.filter.initiatelogin.enabled=false
-			gatein.sso.valve.enabled=false
-			gatein.sso.filter.logout.enabled=false
-
-4. Start eXo Platform by using the command:
-
-   - On linux:
-
-     ::
-     
-			./standalone.sh -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com
-   
-   - On Windows:
-       
-     ::
-
-			standalone.bat -Djava.security.krb5.realm=EXAMPLE.COM -Djava.security.krb5.kdc=$AD_MACHINE_NAME.example.com -b server.example.com
-
-.. note:: ``$AD_MACHINE_NAME`` is name of the machine that has Active Directory installed.
-
-Next, move to the final step to :ref:`configure the client <eXoAddonsGuide.SSO.SPNEGO.Client_Configuration>` 
-(browser you are using).
 
 .. _eXoAddonsGuide.SSO.SPNEGO.Client_Configuration:
 
@@ -1649,29 +1447,6 @@ form. In this case, you will need to add the
            };
        ...
 
--  ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-   (in JBoss). The ``standalone-exo.xml`` now looks like.
-
-   .. code:: xml
-
-       ...
-           <security-domain name="gatein-domain" cache-type="default">
-               <authentication>
-                   <login-module code="org.gatein.sso.integration.SSODelegateLoginModule" flag="required">
-                       <module-option name="enabled" value="#{gatein.sso.login.module.enabled}" />
-                       <module-option name="delegateClassName" value="#{gatein.sso.login.module.class}" />
-                       <module-option name="portalContainerName" value="portal" />
-                       <module-option name="enableFormAuthentication" value="false"/>
-                       <module-option name="realmName" value="gatein-domain" />
-                       <module-option name="password-stacking" value="useFirstPass" />
-                   </login-module>
-                   <login-module code="org.exoplatform.services.security.j2ee.JBossAS7LoginModule" flag="required">
-                       <module-option name="portalContainerName" value="portal"/>
-                       <module-option name="realmName" value="gatein-domain"/>
-                   </login-module>
-               </authentication>
-           </security-domain>
-       ...
 
 .. _eXoAddonsGuide.SSO.SAML2:
 
@@ -1961,8 +1736,7 @@ follows:
    Remember them to use in next steps.
 
 2. Install your file to
-   ``PLATFORM_*/standalone/configuration/gatein/saml2/`` (for Jboss) or
-   ``PLATFORM_*/gatein/conf/saml2/`` (for Tomcat) if you are configuring
+   ``PLATFORM_*/gatein/conf/saml2/`` if you are configuring
    eXo Platform SP/IDP. Install it to ``WEB-INF/classes/`` inside
    ``PLATFORM_*/standalone/deployments/idp-sig.war`` if you are configuring
    ``idp-sig.war``.
@@ -1970,13 +1744,9 @@ follows:
 3. Modify picketlink configuration file to provide your **keystore
    password** and a **key password**. The picketlink configuration file is:
 
-   -  ``PLATFORM_SP/standalone/configuration/gatein/saml2/picketlink-sp.xml``
-      (for Jboss) and ``PLATFORM_SP/gatein/conf/saml2/picketlink-sp.xml``
-      (for Tomcat) if you are configuring eXo Platform SP.
+   -  ``PLATFORM_SP/gatein/conf/saml2/picketlink-sp.xml`` if you are configuring eXo Platform SP.
 
-   -  ``PLATFORM_IDP/standalone/configuration/gatein/saml2/picketlink-idp.xml``
-      (for Jboss) and ``PLATFORM_IDP/gatein/conf/saml2/picketlink-sp.xml``
-      (for Tomcat) if you are configuring eXo Platform IDP.
+   -  ``PLATFORM_IDP/gatein/conf/saml2/picketlink-sp.xml``if you are configuring eXo Platform IDP.
 
    -  ``WEB-INF/picketlink.xml`` inside
       ``PLATFORM_*/standalone/deployments/idp-sig.war`` if you are
@@ -1996,161 +1766,6 @@ The following configuration is for SP, similar for IDP and
     </KeyProvider>
 
 .. note:: On Windows, you should use the absolute link to the keystore file, instead of using ``${gatein.sso.picketlink.keystore}``.
-
-.. _eXoAddonsGuide.SSO.SSO_in_cluster:
-
-==============================
-Single Sign-On in Cluster mode
-==============================
-
-.. note:: Currently this content is for eXo Platform JBoss only.
-
-In the cluster mode, the eXo Platform SSO valve can be used to
-authenticate a user on one eXo Platform node and have that
-authentication automatically carried across to other nodes in the
-cluster.
-
-Clustered SSO with Load Balancer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you are running the cluster mode with Apache Load Balancer, you are
-using the same URL to access the servers (which is actually URL of the
-Load Balancer). You need to enable SSO by modifying the
-``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo-cluster.xml``
-file, as follows:
-
--  Find **subsystem** that has **xmlns="urn:jboss:domain:web:1.4"**. It
-   looks like:
-
-   .. code:: xml
-
-       <subsystem xmlns="urn:jboss:domain:web:1.4" default-virtual-server="default-host" native="false">
-           <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
-           <connector name="ajp" protocol="AJP/1.3" scheme="http" socket-binding="ajp"/>
-           <virtual-server name="default-host" enable-welcome-root="true">
-               <alias name="localhost"/>
-               <alias name="example.com"/>
-           </virtual-server>
-       </subsystem>
-
--  Add **<sso cache-container="web" cache-name="sso"
-   reauthenticate="false" />** right after **<alias
-   name="example.com"/>**. This will be:
-
-   .. code:: xml
-
-       <subsystem xmlns="urn:jboss:domain:web:1.4" default-virtual-server="default-host" native="false">
-           <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
-           <connector name="ajp" protocol="AJP/1.3" scheme="http" socket-binding="ajp"/>
-           <virtual-server name="default-host" enable-welcome-root="true">
-               <alias name="localhost"/>
-               <alias name="example.com"/>
-               <sso cache-container="web" cache-name="sso" reauthenticate="false" />
-           </virtual-server>
-       </subsystem>
-
-Clustered SSO in a Shared DNS Domain
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-If you are accessing the servers through different URLs in the same DNS
-domain, Single Sign-On can be configured by adding the domain parameter
-to the SSO configuration entry.
-
-Let's see what is the difference. In case Load Balancer is used
-(described above):
-
-.. code:: xml
-
-    <sso cache-container="web" cache-name="sso" reauthenticate="false" />
-
-In this case:
-
-.. code:: xml
-
-    <sso cache-container="web" cache-name="sso" reauthenticate="false" domain="yourdomain.com"/>
-
-The parameter must be added to the entry on all servers in the cluster
-and the name of the shared DNS domain must be specified as its value.
-This configuration ensures that the **JSESSIONIDSSO** cookie will be
-scoped to the specified domain, which is otherwise scoped only to the
-host where the initial authentication was performed.
-
-The following example demonstrates how to simulate and test this case on
-a Linux machine. There are 2 nodes in the cluster.
-
-Configuring and testing SSO in a shared DNS Domain
-----------------------------------------------------
-
-1. Add the following lines to the ``/etc/hosts`` file:
-
-   ::
-
-		127.0.1.1 machine1.yourdomain.com
-		127.0.1.2 machine2.yourdomain.com
-
-2. On both servers, modify the
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo-cluster.xml``
-   file to have:
-
-	.. code:: xml
-
-		<subsystem xmlns="urn:jboss:domain:web:1.4" default-virtual-server="default-host" native="false">
-			<connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
-			<connector name="ajp" protocol="AJP/1.3" scheme="http" socket-binding="ajp"/>
-			<virtual-server name="default-host" enable-welcome-root="true">
-				<alias name="localhost"/>
-				<alias name="example.com"/>
-				<sso cache-container="web" cache-name="sso" reauthenticate="false" domain="yourdomain.com"/>
-			</virtual-server>
-		</subsystem>
-
-3. Start the first server using the following command:
-
-   ::
-
-		./standalone.sh -b machine1.yourdomain.com -c standalone-exo-cluster.xml -Djboss.node.name=node1
-
-4. Start the second server using:
-
-   ::
-
-		./standalone.sh -b machine2.yourdomain.com -c standalone-exo-cluster.xml -Djboss.node.name=node2
-
-5. Access the first server at http://machine1.yourdomain.com:8080/portal
-   and sign in.
-
-6. Access the second server at http://machine2.yourdomain.com:8080/portal
-   and test that you are automatically signed in.
-
-7. Sign out from one server and test that you are automatically signed 
-   out from the other one.
-
-Re-authentication
-~~~~~~~~~~~~~~~~~~~
-
-The eXo Platform SSO valve can also be used to authenticate with any
-other web application. If that application uses the same roles as the
-main eXo Platform instance, no further configuration is required.
-Because the eXo Platform SSO valve includes the same JAAS principal in
-all HTTP requests, even in requests to other web applications, matching
-roles ensure successful authentication with those applications.
-
-To enable the single sing-on authentication with an application that
-uses different roles, you need to set the ``reauthenticate`` parameter
-of the ``sso`` eXo Platform Web subsystem configuration entry to
-``true``:
-
-.. code:: xml
-
-    <sso cache-container="web" cache-name="sso" reauthenticate="true" />
-
-The ``true`` value ensures that reauthentication with user credentials
-will be performed against the web application's security domain in each
-HTTP request. This will enforce creation of a new principal with updated
-roles for the web application. As user credentials are used for
-authentication in this case, it is required that the same user
-credentials exist in both the web application and the JBoss Portal
-Platform instance.
 
 
 

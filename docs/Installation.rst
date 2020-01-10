@@ -481,7 +481,7 @@ Installing eXo Platform Enterprise Edition
 ==========================================
 
 In this section, we will provide how to install the enterpise edition of
-eXo Platform in the two application servers: Tomcat and Jboss.
+eXo Platform in Tomcat application server.
 
 -  :ref:`Installing the Tomcat bundle <EnterpriseEdition.TomcatInstall>`
    Steps to install eXo Platform enterprise edition in Tomcat.
@@ -489,8 +489,6 @@ eXo Platform in the two application servers: Tomcat and Jboss.
 -  :ref:`Installing eXo Platform as a Windows service <EnterpriseEdition.TomcatInstallWinService>`
    Steps to install eXo Platform as a Windows service.
 
--  :ref:`Installing on JBoss EAP <EnterpriseEdition.JbossInstall>`
-   Steps to install eXo Platform enterprise edition in Jboss.
 
 .. _EnterpriseEdition.TomcatInstall:
 
@@ -576,11 +574,10 @@ adds two JVM options:
 
 -  **-Dexo.product.developing=true**
 
-    **Note**
 
-    The Debug and Dev modes are turned off by default and are not
-    recommended in production environment because of performance impact.
-    See more details in :ref:`Developer guide <#PLFDevGuide.GettingStarted.DebugAndDevMode>`.
+.. note:: The Debug and Dev modes are turned off by default and are not
+          recommended in production environment because of performance impact.
+          See more details in :ref:`Developer guide <#PLFDevGuide.GettingStarted.DebugAndDevMode>`.
 
 .. _EnterpriseEdition.TomcatInstallWinService:
 
@@ -672,98 +669,7 @@ The second way: Using the NSSM tool
        nssm stop <servicename>
 
    More details about NSSM commands in this `link <https://nssm.cc/usage>`__.
-
-.. _EnterpriseEdition.JbossInstall:
-
-Installing on JBoss EAP
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Starting from the versions 5.1, eXo Platform integrates with JBoss EAP 7.1.
-
-Prerequisites
----------------
-
--  Have JBoss EAP 7.1 extracted in ``$PLATFORM_JBOSS_HOME``. You can
-   download and install JBoss EAP 7.1 by following instructions on this
-   `link <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/installation_guide/installing_jboss_eap>`__.
-
--  Have the eXo Platform package for JBoss EAP downloaded into your local.
-
-Installing eXo Platform on JBoss EAP
---------------------------------------
-
-1. Extract your downloaded eXo Platform package.
-
-2. Copy all extracted folders and files into ``$PLATFORM_JBOSS_HOME``.
-
-.. note:: This step will overwrite some files of JBoss EAP with new files of eXo Platform.
-
-3. Optionally, if you want to customize the JVM Options, create a copy of
-   ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.sample.conf`` on Linux
-   or ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.sample.conf.bat`` on
-   Windows. Rename the copy to ``standalone-customize.conf`` (or
-   ``standalone-customize.conf.bat`` on Windows), then edit it with your
-   JVM Options.
-
-4. Start up the server.
-
--  On Linux and OS X:
-
-   ::
-
-       $PLATFORM_JBOSS_HOME/bin/standalone.sh
-
--  On Windows:
-
-   ::
-
-       %PLATFORM_JBOSS_HOME%\bin\standalone.bat
-
-The server starts up successfully when you see the following message in
-your log/console 
-
-	::
-
-		INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) started in 115316ms - Started 4570 of 4826 services (602 services are lazy, passive or on-demand)
-
-
-5. Shut down the server.
-
--  On Linux and OS X
-
-	::
-
-       $PLATFORM_JBOSS_HOME/bin/jboss-cli.sh --connect command=:shutdown
-                   
-
--  On Windows
-
-	::
-
-       %PLATFORM_JBOSS_HOME%\bin\jboss-cli.bat --connect command=:shutdown
-                   
-
-The server stops successfully when you see the following message in your
-log/console::
-
-    INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) stopped in 13470ms
-
-
-.. note:: Since JBoss EAP 6.3, there is a new blocking timeout property for
-			JBoss startup.
-
-			This property is not a timeout per deployment but a timeout on
-			container stability and if ``jboss.as.management.blocking.timeout``
-			is reached during startup then all applications will be undeployed
-			and the container shutdown.
-	
-			The default value is set to 300s which is too low for eXo Platform in
-			which we overrode the value.
-
-			::
-
-				JAVA_OPTS="$JAVA_OPTS -Djboss.as.management.blocking.timeout=604800"
-				
+			
 				
 .. _TasksInstallation:	
 
@@ -1056,17 +962,6 @@ Their Windows versions are:
 
 Except their syntax, ``.sh`` and ``.bat`` versions are the same.
 
-In JBoss, the scripts are:
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone.conf`` - the default script.
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.conf`` - the
-   customized script.
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone.conf.bat`` - Windows version.
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.conf.bat`` - Windows
-   version.
 
 **Usage of the 2 scripts**
 
@@ -1088,12 +983,6 @@ In JBoss, the scripts are:
 
    -  For Tomcat in Windows: rename ``setenv-customize.sample.bat`` to
       ``setenv-customize.bat``.
-
-   -  For JBoss in Linux: rename ``standalone-customize.sample.conf`` to
-      ``standalone-customize.conf``.
-
-   -  For JBoss in Windows: rename ``standalone-customize.sample.conf.bat``
-      to ``standalone-customize.conf.bat``.
 
 2. Find the variable that you want to customize, uncomment it (by removing
    '#' in the ``.sh`` file or "REM" in the ``.bat`` file) and edit its
@@ -1258,24 +1147,6 @@ eXo Platform tries to ease it by exposing 3 variables that you can customize:
 |                                               | development tasks.          |
 +-----------------------------------------------+-----------------------------+
 
-**JBoss configuration**
-
-+-----------------------------------------------+-----------------------------+
-| Configuration                                 | Description                 |
-+===============================================+=============================+
-| ``MAX_FD="maximum"``                          | Specifies the maximum file  |
-|                                               | descriptor limit.           |
-+-----------------------------------------------+-----------------------------+
-| ``PROFILER=""``                               | Specifies a profiler        |
-|                                               | configuration file.         |
-+-----------------------------------------------+-----------------------------+
-| ``JAVA_OPTS="$JAVA_OPTS -Djboss.modules.lockl | Uncomment this to not use   |
-| ess=false"``                                  | JBoss Modules lockless      |
-|                                               | mode.                       |
-+-----------------------------------------------+-----------------------------+
-| ``JAVA_OPTS="$JAVA_OPTS -Djboss.modules.metri | Uncomment this to gather    |
-| cs=true"``                                    | JBoss Modules metrics.      |
-+-----------------------------------------------+-----------------------------+
 
 .. _AdvancedCustomization:
 
@@ -1352,10 +1223,6 @@ to the ``CATALINA_OPTS`` variable, for example:
 |                                               | and ssh port 2000.         |
 +-----------------------------------------------+----------------------------+
 
-For JBoss, similar variables can be customized by appending
-``JAVA_OPTS``, for example:
-
--  ``JAVA_OPTS="$JAVA_OPTS -Dcrash.telnet.port=12345 -Dcrash.ssh.port=54321"``
 
 .. _eXoProfiles:
 
@@ -1393,15 +1260,6 @@ variable is required:
 See :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`
 to know how to customize the variables.
 
-To activate the ``minimal`` profile in **JBoss**, edit the property
-``exo.profiles`` in ``standalone/configuration/standalone-exo.xml``
-(``standalone-exo-cluster.xml`` in cluster mode):
-
-.. code:: xml
-
-    <system-properties>
-        <property name="exo.profiles" value="minimal"/>
-    </system-properties>
     
 .. _Troubleshooting:
 
@@ -1551,14 +1409,6 @@ You can use another port than 8080 as follows:
                   URIEncoding="UTF-8"
                   compression="off" compressionMinSize="2048"
                   noCompressionUserAgents=".*MSIE 6.*" compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript" />
-
--  In JBoss, edit the
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-   file and change 8080 into another port, at the following line:
-
-   .. code:: xml
-
-       <socket-binding name="http" port="8080"/>
 
 
 .. note:: In addition to the port 8080, eXo Platform may use some others, such as 8009, 8443. You always can manage those ports in the same way as above.

@@ -182,26 +182,9 @@ Portlet deployment
 ~~~~~~~~~~~~~~~~~~~
 
 The portlet *war* file should be installed into
-``$PLATFORM_TOMCAT_HOME/webapps`` (in Tomcat) or
-``$PLATFORM_JBOSS_HOME/standalone/deployments`` (in JBoss).
+``$PLATFORM_TOMCAT_HOME/webapps``.
 
-**Particularly for JBoss**, you need to include a
-``WEB-INF/jboss-deployment-structure.xml`` file to your portlet *war*,
-to declare *platform.ear* as a dependency:
-
-.. code:: xml
-
-    <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
-        <deployment>
-            <dependencies>
-                <module name="deployment.platform.ear" export="true"/>
-            </dependencies>
-        </deployment>
-    </jboss-deployment-structure>
-
-For more information, see `Master Your Portlet Packaging in JBoss article, <http://blog.exoplatform.com/en/2014/04/22/master-portlet-packaging-jboss>`__.
-
-Both Tomcat and JBoss support hot deployment.
+eXo Platform server supports hot deployment.
 
 To test your portlet in action, you need to add it to a page. This task
 can be done in two ways:
@@ -462,7 +445,7 @@ every page.
 
 **Redeploying a portlet**
 
-Both Tomcat and JBoss support hot redeployment, so you can just replace
+eXo Platform server supports hot redeployment, so you can just replace
 the old war with the new one and it should work. However, depending on
 the technology the portlet uses, the hot redeployment might not work
 properly. In this case, a server restart is required.
@@ -1419,12 +1402,6 @@ The code sample can be found
 `here <https://github.com/exo-samples/docs-samples/tree/4.3.x/portlet/jsf2-portlet-cdi>`__.
 
 
-.. note:: Currently you could not use JSF together with CDI in Tomcat. This tutorial is for JBoss only.
-
-		  Also note that the deployment of this portlet does not follow :ref:`Portlet deployment <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Deployment>`
-		  section completely, so do not miss the :ref:`deployment <PLFDevGuide.DevelopingApplications.DevelopingPortlet.JSF2_CDI.Deployment-in-JBoss>`
-		  part at the end of this tutorial.
-
 **So why CDI?**
 
 If you want to get a quick understanding about CDI, and current
@@ -1752,39 +1729,6 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 		  } 
 		}
     
-.. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.JSF2_CDI.Deployment-in-JBoss:    
-
-**Deployment in eXo Platform JBoss**
-
-Your webapp needs to be scanned by Weld so you will not deploy it in
-``standalone/deployments`` as other portlet applications. Instead,
-deploy it into ``platform.ear`` and add a module in ``application.xml``.
-
-1. ``target/jsf2portlet-cdi-example.war`` into
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear``.
-
-2. Edit ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   to add a module like the following. The module must be added before 
-   the **starter** module, so on top if you like that:
-
-   .. code:: xml
-
-		<module>
-			<web>
-				<web-uri>jsf2portlet-cdi-example.war</web-uri>
-				<context-root>jsf2portlet-cdi-example</context-root>
-			</web>
-		</module>
-
-   Then follow the :ref:`Portlet deployment <#PLFDevGuide.DevelopingApplications.DevelopingPortlet.Deployment>`
-   section to register and add the portlet to a page for testing.
-
-.. note:: Starting from eXo Platform 5.0, we upgraded to JBoss EAP 7.0 which uses `Contexts and Dependency Injection (CDI) 1.2 <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/development_guide/contexts_and_dependency_injection_cdi#introduction_to_cdi>`__.
-		  CDI 1.2 comes with the new notion of implicit bean archive allowing
-		  to scan war archives for annotations to process by Weld (the JBoss
-		  implementation of CDI). This new feature has some conflicts with our
-		  development and thus it has been disabled by default for eXo Platform EAR
-		  including its addons.
 
 .. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.PublicRenderParameter:
 
@@ -2260,8 +2204,7 @@ development:
 
 -  Juzu source code: https://github.com/juzu/juzu.
 
-This tutorial focuses on Juzu portlet deployment in PRODUCT Tomcat and
-JBoss.
+This tutorial focuses on Juzu portlet deployment in eXo Platform.
 
 The dependencies are different for each server and each dependency
 injection implementation, so the project will use different Maven build
@@ -2271,13 +2214,10 @@ profiles for packaging in each case:
    Tomcat using Guice.
 
 -  Use ``mvn clean package -Pplf-jboss-guice`` to build a package for
-   JBoss using Guice.
 
 -  Use ``mvn clean package -Pplf-tomcat-spring`` to build a package for
    Tomcat using Spring.
 
--  Use ``mvn clean package -Pplf-jboss-spring`` to build a package for
-   JBoss using Spring.
 
 .. note:: Currently, only Guice and Spring are covered in this tutorial. The
 		  other implementation, Weld, will be documented later.
@@ -2620,46 +2560,8 @@ Spring:
         <version>2.5.5</version>
     </dependency>
 
-Note that you can deploy this portlet using Guice in Tomcat and JBoss or
-using Spring in Tomcat as usual. However, to deploy this portlet using
-Spring in JBoss, the following dependencies are needed at runtime:
-
--  ``spring-beans-2.5.5.jar``
-
--  ``spring-context-2.5.5.jar``
-
--  ``spring-core-2.5.5.jar``
-
--  ``spring-web-2.5.5.jar``
-
-These dependencies have been already packaged in the generated
-``hellojz.war`` file. Therefore you can choose to deploy this portlet
-via the 2 following ways:
-
--  Copy these above dependencies from ``hellojz.war!/WEB-INF/lib/`` to
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib``,
-   then deploy this portlet as usual.
-
--  Deploy the ``hellojz.war`` file into
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/`` and
-   include it as the first module in the
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   file. The ``application.xml`` file will look like:
-
-   .. code:: xml
-
-       ...
-       <display-name>plf-enterprise-jbosseap-ear</display-name>
-       <initialize-in-order>true</initialize-in-order>
-       <!-- The first module -->
-       <module>
-       <web>
-         <web-uri>hellojz.war</web-uri>
-         <context-root>hello-portlet-sample</context-root>
-       </web>
-       </module>
-       <!-- Other modules -->
-       ...
+Note that you can deploy this portlet using Guice in Tomcat or
+using Spring in Tomcat as usual.
 
 .. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.Spring.Intro:
 
@@ -2954,9 +2856,6 @@ requests to controllers.
 	   initialization of *DispatcherPortlet*. The goal is to define some
 	   beans at the application scope.
 
-.. note:: Pay attention to the attribute *version="2.5"*. The version 2.5 or
-		  greater is required. You should specify the version, otherwise it
-		  might not work in JBoss package.
 
 10. Edit ``applicationContext.xml``.
 
@@ -3184,9 +3083,7 @@ Here are the steps to create your first gadget:
 
 7. Install ``hello-gadget.war`` to:
 
-	-  ``$PLATFORM_TOMCAT_HOME/webapps/`` for Tomcat.
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/`` for JBoss.
+	-  ``$PLATFORM_TOMCAT_HOME/webapps/``.
 
 .. note:: See details about deployment in :ref:`portal extension section <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`,
     especially if you use the traditional extension with jar to be backward compatible.
@@ -4170,10 +4067,7 @@ all source code of this tutorial
 8. Build and deploy the ``.jar`` file
    (``target/wiki-activity-type-1.0.jar``) into eXo Platform package.
 
-	-  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat)
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` (in
-	   JBoss)
+	-  ``$PLATFORM_TOMCAT_HOME/lib``.
 
 **Testing**
 
@@ -5578,10 +5472,7 @@ component to the ``application/zip`` mimetype.
 
 7. Put this ``.jar`` file into the eXo Platform package.
 
-	-  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat).
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` (in
-	   JBoss).
+	-  ``$PLATFORM_TOMCAT_HOME/lib``.
 
 8. Restart the server. The content of a ZIP file is now displayed as 
    below:
