@@ -816,13 +816,8 @@ code and file extension.
 6. Build the Maven project using the command: ``mvn clean install``.
 
 7. Put the ``.jar`` file (``target/custom-validator-1.0-SNAPSHOT.jar``)
-   into the ``lib`` folder of eXo Platform.
-
-   -  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat).
-
-   -  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` (in
-      JBoss).
-
+   into the ``lib`` folder of eXo Platform: ``$PLATFORM_TOMCAT_HOME/lib``.
+   
 8. Start the eXo Platform server.
 
 **Testing**

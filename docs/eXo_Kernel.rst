@@ -1376,11 +1376,6 @@ overloaded in the following lookup sequence:
 
    -  For Tomcat, the value of the variable *${catalina.home}*.
 
-   -  For JBoss AS, the value of the variable
-      *${jboss.server.config.url}* or *${jboss.server.config.dir}* if
-      the ``exo-conf`` directory can be found there; otherwise it will
-      be the value of the *${jboss.home.dir}* variable.
-
 -  *$PORTAL\_NAME* is the name of portal web application.
 
 -  External configuration location can be overridden with System
@@ -1424,7 +1419,7 @@ overloaded in the following lookup sequence:
     -  The ``.ear`` and ``.war`` files from which Kernel gets the
        configuration files for the RootContainer, are found thanks to a
        lookup inside the standard deployment folders, but so far those
-       folders are only properly defined in case of JBoss AS, Tomcat and
+       folders are only properly defined in case of Tomcat and
        Jetty. For other application servers, you will need to use the
        System property described in the previous note.
 
@@ -2454,15 +2449,12 @@ Profiles activation
 An active profile list is obtained during the boot of the root container
 and is composed of the system property *exo.profiles* - a
 comma-separated list - and a server specific profile value (Tomcat for
-Tomcat, JBoss for JBoss, and more).
+Tomcat).
 
 ::
 
     # runs GateIn on Tomcat with the profiles tomcat and foo
     sh gatein.sh -Dexo.profiles=foo
-
-    # runs GateIn on JBoss with the profiles jboss, foo and bar
-    sh run.sh -Dexo.profiles=foo,bar
 
 Profiles configuration
 ------------------------
@@ -4442,7 +4434,7 @@ context factory by a context factory that is ExoContainer aware and that
 is able to delegate to the original initial context factory if it
 detects that it is not in the eXo scope. By default, the feature is
 disabled since it is only required on AS that does not share the objects
-by default like Tomcat and it is not the case of JBoss AS.
+by default like Tomcat.
 
 The BindReferencePlugin component plugin configuration example (for JDBC
 datasource):
@@ -4531,7 +4523,7 @@ Configuration examples
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Log4J <http://logging.apache.org/log4j/>`__ is a very popular and
-flexible logging system. It is a good option for JBoss.
+flexible logging system.
 
 .. code:: xml
 
