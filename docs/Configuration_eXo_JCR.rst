@@ -4045,27 +4045,6 @@ below:
        </component>
      
 
-**A very specific TransactionService for JBoss AS**
-
-If you intend to use JBoss AS with Infinispan, you can use a very
-specific TransactionService for JBoss AS. See the configuration example
-as below:
-
-.. code:: xml
-
-        <component>
-          <key>org.exoplatform.services.transaction.TransactionService</key>
-          <type>org.exoplatform.services.transaction.impl.jboss.JBossTransactionService</type>
-          <!-- Uncomment the lines below if you want to set default transaction timeout that is expressed in seconds -->
-          <!--init-params>
-             <value-param>
-                <name>timeout</name>
-                <value>60</value>
-             </value-param>
-          </init-params-->
-       </component>
-     
-
 **TransactionsEssentials in standalone mode.**
 
 To use ``TransactionsEssentials``, simply add the following component
