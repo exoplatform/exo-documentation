@@ -372,7 +372,21 @@ you must add this configuration snippet under the “attributes” tag in the fi
 				   </attribute>
 		...
 			   </attributes>
-	
+
+These attributes can be retrieved in the User Profile with the Java API:
+
+ .. code:: java
+ 
+		import org.exoplatform.commons.utils.CommonsUtils;
+		import org.exoplatform.services.organization.OrganizationService;
+		import org.exoplatform.services.organization.User;
+		import org.exoplatform.services.organization.UserProfile;
+
+		OrganizationService organizationService = CommonsUtils.getService(OrganizationService.class);
+
+		String userName = "mary";
+		UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(userName);
+		String jobTitle = (String) userProfile.getAttribute("user.jobtitle");		   
 			   
 			   
 .. _LDAP.MultipleDNsGroups:
