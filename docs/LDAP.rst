@@ -373,7 +373,7 @@ you must add this configuration snippet under the “attributes” tag in the fi
 		...
 			   </attributes>
 
-These attributes can be retrieved in the User Profile with the Java API:
+These attributes can be retrieved in the Portal User Profile with the Java API:
 
  .. code:: java
  
