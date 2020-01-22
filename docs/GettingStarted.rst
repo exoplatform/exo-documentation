@@ -1342,7 +1342,7 @@ As for pin, the unpin function is available from three locations :
 1- Unpinning a news from edit form : 
 
 To unpin an article from the edit form, display the article's details then click on the ``Edit`` icon.
-Once the edit form is displayed, just chech the unpin article icon and validate.
+Once the edit form is displayed, just click on the unpin article icon and validate.
 
 |image186|
 
