@@ -62,7 +62,7 @@ Introduction
 
 :ref:`Managing Web Content <Manage-Sites>`
 
-	Contribute and publish web content such as news and blogs. Learn all you need to know to contribute and manage content oublished in your website.
+	Contribute and publish web content such as news and blogs. Learn all you need to know to contribute and manage content published in your website.
 	
 :ref:`Searching Content <Search>`
 
