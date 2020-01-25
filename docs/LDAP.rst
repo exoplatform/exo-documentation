@@ -105,9 +105,8 @@ that you can adapt by following the following sections.
                |__ conf
                        |__ configuration.xml
                        |__ organization
-                   |__ idm-configuration.xml
-                   |__ picketlink-idm-ldap-config.xml
-               |__ jboss-deployment-structure.xml
+                               |__ idm-configuration.xml
+                               |__ picketlink-idm-ldap-config.xml
                |__ web.xml
 
 
