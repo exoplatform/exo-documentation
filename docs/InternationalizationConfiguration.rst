@@ -138,7 +138,7 @@ the following code:
     </locales-config>
 
 -  *locale*: This has to be defined, such as
-   ` http://ftp.ics.uci.edu-pub-ietf-http-related-iso639.txt <http://ftp.ics.uci.edu-pub-ietf-http-related-iso639.txt>`__. In
+   `https://iso639-3.sil.org/code_tables/639/data`__. In
    this example, "*ar*\ " is Arabic.
 
 -  *output-encoding*: This deals with the character encoding. It is
