@@ -3931,11 +3931,11 @@ Table **LOGIN\_HISTORY**
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 | Name                  | Type            | Description                                                                        |
 +=======================+=================+====================================================================================+
-| ID                    | ID              | The unique ID of the login history entry.                                                |
+| ID                    | ID              | The unique ID of the login history entry.                                          |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| USER_ID               | VARCHAR         | The ID of related user to the login history entry.                                       |
+| USER_ID               | VARCHAR         | The ID of related user to the login history entry.                                 |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
-| LOGIN_DATE            | TIMESTAMP       | The date of the login history entry                                            |
+| LOGIN_DATE            | TIMESTAMP       | The date of the login history entry.                                               |
 +-----------------------+-----------------+------------------------------------------------------------------------------------+
 
 
