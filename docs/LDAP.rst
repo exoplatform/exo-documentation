@@ -578,6 +578,45 @@ Configuration reference
 This section is a complete description of the available configuration options. 
 It lists the options of both eXo configuration and PicketLink configuration.
 
+.. _Ref_properties:
+
+Properties configuration
+------------------
+
+The LDAP integration uses jobs to synchronize periodically the eXo internal database with the data modified in the LDAP.
+The list of properties related to LDAP integration that you can use in ``exo.properties`` are:
+
+.. code-block:: jproperties
+
+    # Cron expression used to schedule the job that will import periodically data
+    # from external store
+    # (Default value = every ten minutes)
+    exo.idm.externalStore.import.cronExpression=0 */10 * ? * *
+    # Cron expression used to schedule the job that will delete periodically data
+    # from internal store that has been deleted from external store
+    # (Default value = every day at 23:59 PM)
+    exo.idm.externalStore.delete.cronExpression=0 59 23 ? * *
+    # Cron expression used to schedule the job that will process periodically data
+    # injected in queue
+    # (Default value = every minute)
+    exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
+
+By default, user data are synced with the LDAP when the user signs in. This can be disabled by modifying this property:
+
+.. code-block:: jproperties
+
+    # if true, update user data on login time and only when information change
+    # on external store (Default: true)
+    exo.idm.externalStore.update.onlogin=true
+
+The user data sync tasks (one per user) are executed asynchronously via a queue. If a sync task fails, it can be retried. The maximum number of sync retries before the task is abandoned in error can be configured by changing the following property:
+
+.. code-block:: jproperties
+
+    # Max retries to process Data synchronization from queue
+    exo.idm.externalStore.queue.processing.error.retries.max=5
+
+
 .. _Ref_eXoConfiguration:
 
 eXo configuration
