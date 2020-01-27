@@ -4613,7 +4613,9 @@ Next, fill in the field "Header", this information will be displayed in the top 
 
 From advanced tab, fill in the following query in the field "By query" :
 
-       *select * from exo:symlink where jcr:path like '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC*
+.. code-block:: sql
+
+       SELECT * FROM exo:symlink WHERE jcr:path LIKE '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC
 
 Then select the page *News* > *Details* from the selector "Show in page"
 
