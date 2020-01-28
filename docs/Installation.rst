@@ -43,10 +43,6 @@ Installation and Startup
        How to customize environment variables, such as JVM Memory and GC
        settings.
 
-    -  :ref:`Startup profiles <eXoProfiles>`
-       The runtime profiles which are used to enable/disable modules of
-       eXo Platform.
-
     -  :ref:`Troubleshooting <Troubleshooting>`
        How to solve problems you may encounter when starting up eXo 
        Platform.
@@ -1255,40 +1251,6 @@ to the ``CATALINA_OPTS`` variable, for example:
 |                                               | shell at telnet port 5000  |
 |                                               | and ssh port 2000.         |
 +-----------------------------------------------+----------------------------+
-
-
-.. _eXoProfiles:
-
-================
-Startup profiles
-================
-
-eXo Platform comes with different runtime profiles, enabling you to customize
-which modules you want to enable/disable in each eXo Platform instance.
-
-.. warning:: Before modifying and developing eXo Platform, you should choose carefully
-             the profiles that are suitable to your requirements. In particular,
-			 after you have done any modifications/developments on the server
-			 that you started up with your selected profiles, and then switched
-			 to another new profiles, you will not see such
-			 modifications/developments on eXo Platform.
-
-Some eXo Platform 3.5 profiles are no longer available in eXo Platform 4
-and higer, including: *default, collaboration, social, knowledge, webos, 
-workflow*.
-Currently, eXo Platform only supports the following profiles:
-
--  ``all``: Activate all modules (such as Forum, Wiki, Calendar,
-   Social). This profile is enabled by default.
-
--  ``minimal``: Activate the Content only.
-
-To activate the ``minimal`` profile in **Tomcat**, this customized
-variable is required:
-
-::
-
-    EXO_PROFILES="minimal"
 
 See :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`
 to know how to customize the variables.
