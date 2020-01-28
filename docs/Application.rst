@@ -6365,36 +6365,18 @@ Add the following dependencies to the ``pom.xml`` file:
                 <module>webapp</module>
             </modules>
             <properties>
-                <org.exoplatform.depmgt.version>10-SNAPSHOT</org.exoplatform.depmgt.version>
-                <org.exoplatform.kernel.version>2.4.9-GA</org.exoplatform.kernel.version>
-                <org.exoplatform.core.version>2.5.9-GA</org.exoplatform.core.version>
-                <!--GateIn project's dependencies-->
-                <org.gatein.portal.version>3.5.10.Final</org.gatein.portal.version>
-                <!--Platform project's dependencies-->
-                <org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
+                <!--Platform project's dependencies (REPLACE 6.0.x-SNAPSHOT by the corresponding version)-->
+                <org.exoplatform.social.version>6.0.x-SNAPSHOT</org.exoplatform.social.version>
             </properties>
             <dependencyManagement>
                 <dependencies>
                     <!-- Import versions from platform project -->
-                    <dependency>
-                        <groupId>org.exoplatform</groupId>
-                        <artifactId>maven-depmgt-pom</artifactId>
-                        <version>${org.exoplatform.depmgt.version}</version>
-                        <type>pom</type>
-                        <scope>import</scope>
-                    </dependency>
                     <dependency>
                         <groupId>org.exoplatform.social</groupId>
                         <artifactId>social</artifactId>
                         <version>${org.exoplatform.social.version}</version>
                         <type>pom</type>
                         <scope>import</scope>
-                    </dependency>
-                    <!-- To be replaced by an import of GateIn Portal parent POM -->
-                    <dependency>
-                        <groupId>org.gatein.portal</groupId>
-                        <artifactId>exo.portal.component.portal</artifactId>
-                        <version>${org.gatein.portal.version}</version>
                     </dependency>
                 </dependencies>
             </dependencyManagement>
