@@ -4555,7 +4555,6 @@ configuration of this component is found in
               <name>messageConfig</name>
               <description>Message Configuration</description>
               <object type="org.exoplatform.services.cms.watch.impl.MessageConfig">
-                <field name="sender"><string>${gatein.ecms.watchdocument.sender:support@exoplatform.com}</string></field>
                 <field name="subject"><string>${gatein.ecms.watchdocument.subject:Your watching document is changed}</string></field>
                 <field name="mimeType"><string>${gatein.ecms.watchdocument.mimetype:text/html}</string></field>
                 <field name="content">
@@ -4577,8 +4576,6 @@ configuration of this component is found in
 +----------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | **Field**      | **Type**     | **Value**                                                                                                                                                                                                          | **Description**                               |
 +================+==============+====================================================================================================================================================================================================================+===============================================+
-| **sender**     | ``string``   | ``${gatein.ecms.watchdocument.sender:support@exoplatform.com}``                                                                                                                                                    | The sender who sends the notification mail.   |
-+----------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | **subject**    | ``string``   | ``${gatein.ecms.watchdocument.subject:Your watching document is changed}.``                                                                                                                                        | The subject of the notification mail.         |
 +----------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | **mimeType**   | ``string``   | ``${gatein.ecms.watchdocument.mimetype:text/html}.``                                                                                                                                                               | The format of the notification mail.          |
