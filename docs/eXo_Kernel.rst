@@ -1932,6 +1932,8 @@ If this variable is defined at the default portal container level, the
 value of this variable for a portal container named *"foo"* will be ABC
 foo.
 
+.. _Kernel.PortalContainer.DynamicSettings:
+
 Adding dynamically settings and/or dependencies to a PortalContainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1953,6 +1955,11 @@ foo1 and foo2:
         <!-- The full qualified name of the PortalContainerDefinitionChangePlugin -->
         <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
         <init-params>
+          <values-param>
+            <name>add.profiles</name>
+            <value>custom-profile-1</value>
+            <value>custom-profile-2</value>
+          </values-param>
           <value-param>
             <name>apply.default</name>
             <value>true</value>
@@ -1985,6 +1992,8 @@ foo1 and foo2:
 | apply.default (\*)    | Indicates whether the changes have to be applied to the default portal container or not. The default value of this field is false. This field is a ValueParam and is not mandatory.                                                                                                                                                                                 |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | apply.specific (\*)   | A set of specific portal container names to which we want to apply the changes. This field is a ValuesParam and is not mandatory.                                                                                                                                                                                                                                   |
++-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| add.profiles          | A set of specific profiles that will be injected in portal container when started.                                                                                                                                                                                                                                                                                  |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Other parameters      | Other parameters are ObjectParam of PortalContainerDefinitionChangetype. Those parameters are in fact the list of changes that we want to apply to one or several portal containers. If the list of changes is empty, the component plugin will be ignored. The supported implementations of PortalContainerDefinitionChange are described later in this section.   |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2448,7 +2457,7 @@ Profiles activation
 
 An active profile list is obtained during the boot of the root container
 and is composed of the system property *exo.profiles* - a
-comma-separated list - and a server specific profile value (Tomcat for
+comma-separated list - and a server specific profile value (tomcat for
 Tomcat).
 
 ::
@@ -2603,6 +2612,31 @@ The field configuration element configures the field of an object:
         </field>
       </object>
     </object-param>
+
+Profiles injection by configuration
+-------------------------------------
+
+A set of profiles can be injected in PortalContainer using PortalContainerDefinitionChangePlugin configuration as described in :ref:`Portal container dynamic settings <Kernel.PortalContainer.DynamicSettings>`.
+
+Profiles injection by class
+-------------------------------------
+
+PortalContainer profiles can be injected through a Service Provider that inherits the Service Provider interface `org.exoplatform.container.ExoProfileExtension`.
+For example, you can define a new class :
+
+.. code:: java
+
+    package org.exoplatform.example;
+
+    public class CustomProfileExtension implements org.exoplatform.container.ExoProfileExtension {
+      @Override
+      public Set<String> getProfiles() {
+        return Collections.singleton("custom-profile");
+      }
+    }
+
+And then add a file under META-INF/services/org.exoplatform.container.ExoProfileExtension with content, the FQN of the defined service:
+``org.exoplatform.example.CustomProfileExtension``
 
 Component request lifecycle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

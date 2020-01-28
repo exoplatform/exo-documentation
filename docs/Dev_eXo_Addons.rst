@@ -280,8 +280,13 @@ write more configuration when necessary.
 			  <name>Change PortalContainer Definitions</name>
 			  <set-method>registerChangePlugin</set-method>
 			  <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-			  <priority>101</priority>
+			  <priority>200</priority>
 			  <init-params>
+        <values-param>
+          <name>add.profiles</name>
+          <value>custom-profile-1</value>
+          <value>custom-profile-2</value>
+        </values-param>
 				<value-param>
 				  <name>apply.default</name>
 				  <value>true</value>

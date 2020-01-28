@@ -789,7 +789,7 @@ extension <#PLFDevGuide.eXoAdd-ons.PortalExtension>`__, by adding
                 <name>Add PortalContainer Definitions</name>
                 <set-method>registerChangePlugin</set-method>
                 <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-                <priority>101</priority>
+                <priority>200</priority>
                 <init-params>
                     <values-param>
                         <name>apply.specific</name>
