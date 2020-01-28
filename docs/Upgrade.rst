@@ -51,6 +51,28 @@ In this section, we will present all the breaking changes you should
 know before starting the upgrade to 6.0 version.
 
 
+**Architecture changes**
+
+The components architecture has changed in 6.0 version:
+
+- ECMS, JCR, Forum and Calendar components are considered now as addons and are no more pre-installed in community edition.
+- Forum addon has been deprecated and its support will be removed in future versions.
+- JCR is not considered anymore as a basic component of the platform, and thus must be installed to be used.
+- Chromattic library has been deleted from pre-packaged bundle.
+- intranet site has been deprecated and moved to `exo-legacy-intranet <https://github.com/exoplatform/legacy-intranet>` addon 
+- `integration <https://github.com/exoplatform/integration>` is not used since 6.0 anymore
+- `platform <https://github.com/exoplatform/platform>` is not used since 6.0 anymore
+- `doc-style <https://github.com/exoplatform/doc-style>` is not used since 6.0 anymore
+- Layout management features has been moved to `exo-layout-management <https://github.com/exoplatform/layout-management>` addon
+- Data upgrade plugins are moved to `exo-data-upgrade <https://github.com/exoplatform/data-upgrade>` addon
+- To Upgrade data, the addon `exo-data-upgrade <https://github.com/exoplatform/data-upgrade>` addon must be installed manually
+- Data upgrade is supported for data of version 5.3 only
+- Usage and development using `Juzu <http://juzuweb.org/>` framework has been deprecated
+- Redefinition of ``sharedlayout.xml`` is no more applicable. To shared layout file is suffixed by site name: ``sharedlayout-<site-name>.xml`` (``sharedlayout-intranet.xml`` for example)
+- Redefinition of ``groovy/portal/webui/workspace/UIPortalApplication.gtmpl`` is no more recommended
+- ``all`` profile support has been deleted
+- ``minimal`` profile usage has been deleted
+
 **Templates changes**
 
 Some Groovy templates have been changed in eXo Platform 6.0, check
