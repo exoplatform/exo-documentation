@@ -2424,7 +2424,7 @@ information you need and sending a message:
         message.setBody("There is content update in " + srcWorkspace + ":" + srcPath);
         
         try {
-          ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+          ExoContainerContext.getService(MailService.class).sendMessage(message);
         } catch (Exception e) {
           e.printStackTrace();
         }

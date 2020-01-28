@@ -2794,7 +2794,7 @@ service locator pattern is used:
 .. code:: java
 
     public ServiceA(){
-       this.serviceB =Container.getSInstance().getService(ServiceB.class);
+       this.serviceB =Container.getInstance().getService(ServiceB.class);
     }
 
 -  Ease Unit test (use of Mock objects)
@@ -3501,7 +3501,6 @@ Here is ``DumbJob.java``:
     import org.exoplatform.services.log.ExoLogger;
     import org.exoplatform.services.mail.MailService;
     import org.exoplatform.services.mail.Message;
-    import org.exoplatform.commons.utils.CommonsUtils;
 
     public class DumbJob implements Job {
         

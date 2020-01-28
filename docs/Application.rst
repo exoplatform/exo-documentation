@@ -1682,7 +1682,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 
 		import org.exoplatform.services.mail.MailService;
 		import org.exoplatform.services.mail.Message;
-		import org.exoplatform.commons.utils.CommonsUtils;
+		import org.exoplatform.container.ExoContainerContext;
 
 		@ManagedBean
 		public class MailSender {
@@ -1714,7 +1714,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 			message.setTo(customerMailList.getMailList());
 			
 			try {
-			  ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+			  ExoContainerContext.getService(MailService.class).sendMessage(message);
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
@@ -1728,7 +1728,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 			message.setTo(partnerMailList.getMailList());
 			
 			try {
-			  ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+			  ExoContainerContext.getService(MailService.class).sendMessage(message);
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
@@ -6611,8 +6611,8 @@ Add the following dependencies to the ``pom.xml`` file:
 			import org.exoplatform.commons.api.notification.model.ArgumentLiteral;
 			import org.exoplatform.commons.api.notification.model.NotificationInfo;
 			import org.exoplatform.commons.api.notification.plugin.BaseNotificationPlugin;
-			import org.exoplatform.commons.utils.CommonsUtils;
 			import org.exoplatform.commons.utils.ListAccess;
+      import org.exoplatform.container.ExoContainerContext;
 			import org.exoplatform.container.xml.InitParams;
 			import org.exoplatform.services.log.ExoLogger;
 			import org.exoplatform.services.log.Log;
@@ -6644,7 +6644,7 @@ Add the following dependencies to the ``pom.xml`` file:
 					Profile profile = ctx.value(PROFILE);
 					Set<String> receivers = new HashSet<String>();
 					
-					RelationshipManager relationshipManager = CommonsUtils.getService(RelationshipManager.class);
+					RelationshipManager relationshipManager = ExoContainerContext.getService(RelationshipManager.class);
 					Identity updatedIdentity = profile.getIdentity();
 					ListAccess<Identity> listAccess = relationshipManager.getConnections(updatedIdentity);
 					try {
