@@ -378,7 +378,7 @@ important characteristics of services:
 
 **Java Content Repository**
 
-All data of eXo Platform are stored in a Java Content Repository (JCR). JCR
+Some data of eXo Platform are stored in a Java Content Repository (JCR). JCR
 is the Java specification
 (`JSR-170 <http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html>`__)
 for a type of Object Database tailored to the storage, searching, and
@@ -388,7 +388,12 @@ JCR also provides versioning, transactions, observations of changes in
 data, and import or export of data in XML. The data in JCR are stored
 hierarchically in a tree of nodes with associated properties.
 
-Also, the JCR is primarily used as an internal storage engine.
+The JCR is mainly used as an internal storage engine for the following addons:
+- `ECMS <https://github.com/exoplatform/ecms>`
+- `Calendar <https://github.com/exoplatform/calendar>`
+- `Forum <https://github.com/exoplatform/forum>`
+- `News <https://github.com/exoplatform/news>`
+
 Accordingly, eXo Platform lets you manipulate JCR data directly in several
 places.
 
