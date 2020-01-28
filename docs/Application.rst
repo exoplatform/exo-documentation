@@ -3904,7 +3904,7 @@ added:
 .. note:: This method only works for a fresh (empty data) server because the
 	  	  categories defined in the ApplicationRegistryService configuration
 		  are created all in once when you start PRODUCT for the first time,
-		  and when the JCR repository is empty. In case the server is started
+		  and when the database is empty. In case the server is started
 		  already, you may write a portlet for this job, as described below.
 
 1. Create the category by using the following code:
