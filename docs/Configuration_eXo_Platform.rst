@@ -2141,8 +2141,6 @@ plugins.
 
 -  :ref:`Relationship Publisher <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.RelationshipPublisher>`
 
--  :ref:`Social Chromattic LifeCycle <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SocialChromatticLifeCycle>`
-
 -  :ref:`Space Activity Publisher <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceActivityPublisher>`
 
 -  :ref:`Template Params Processor <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.TemplateParamsProcessor>`
@@ -2498,107 +2496,6 @@ changes on the relationship between two users.
       </component-plugin>
     </external-component-plugins>
 
-.. _PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SocialChromatticLifeCycle:
-
-Social Chromattic LifeCycle
-----------------------------
-
-This plugin is used to manage **ChromatticSession** in the Social
-project.
-
-To use the plugin in the component configuration, you must use the
-following target-component:
-
-.. code:: xml
-
-    <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-
-**Sample configuration**:
-
-.. code:: xml
-
-    <component-plugin>
-      <name>chromattic</name>
-      <set-method>addLifeCycle</set-method>
-      <type>org.exoplatform.social.common.lifecycle.SocialChromatticLifeCycle</type>
-      <init-params>
-        <value-param>
-          <name>domain-name</name>
-          <value>soc</value>
-        </value-param>
-        <value-param>
-          <name>workspace-name</name>
-          <value>social</value>
-        </value-param>
-        <value-param profiles="all,default,minimal">
-          <name>workspace-name</name>
-          <value>social</value>
-        </value-param>
-        <values-param>
-          <name>entities</name>
-          <value>org.exoplatform.social.core.chromattic.entity.ProviderRootEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ProviderEntity</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.IdentityEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ProfileEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityProfileEntity</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.RelationshipEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.RelationshipListEntity</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.HidableEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.LockableEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityListEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityDayEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityMonthEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityYearEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityParameters</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceRootEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceListEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceRef</value>
-        </values-param>
-        <properties-param>
-          <name>options</name>
-          <property name="org.chromattic.api.Option.root_node.path" value="/production"/>
-          <property name="org.chromattic.api.Option.root_node.create" value="true"/>
-        </properties-param>
-      </init-params>
-    </component-plugin>
-
-In which:
-
--  **Name**: ``chromattic``
-
--  **Set-method**: ``addLifeCycle``
-
--  **Type**:
-   ``org.exoplatform.social.common.lifecycle.SocialChromatticLifeCycle``
-
--  **Init-params**:
-
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| Value-param          | Possible value      | Description                                                                               |
-+======================+=====================+===========================================================================================+
-| **domain-name**      | ``String``          | The lifecycle domain name.                                                                |
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| **workspace-name**   | ``String``          | The repository workspace name that is associated with this lifecycle.                     |
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| **entities**         | ``List<String>``    | The list of chromattic entities that will be registered against the chromattic builder.   |
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-
-**Properties-param**: **option**
-
-+---------------------------------------------------+------------------+-------------------+----------------------------------------------------------------------------------------------------------------+
-| Property name                                     | Possible value   | Default value     | Description                                                                                                    |
-+===================================================+==================+===================+================================================================================================================+
-| **org.chromattic.api.Option.root\_node.path**     | ``String``       | ``/production``   | The path of the root node.                                                                                     |
-+---------------------------------------------------+------------------+-------------------+----------------------------------------------------------------------------------------------------------------+
-| **org.chromattic.api.Option.root\_node.create**   | ``Boolean``      | ``true``          | Specifies whether or not the root node is created by the **ROOT\_NODE\_PATH** option when it does not exist.   |
-+---------------------------------------------------+------------------+-------------------+----------------------------------------------------------------------------------------------------------------+
-
 .. _PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceActivityPublisher:
 
 Space Activity Publisher
@@ -2766,8 +2663,6 @@ plugins.
 -  :ref:`Session Created Listener <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.SessionCreatedListener>`
 
 -  :ref:`Session Destroyed Listener <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.SessionDestroyedListener>`
-
--  :ref:`WikiChromatticLifecycle <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiChromatticLifecycle>`
 
 -  :ref:`Uncached Macros <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiUncache>`
 
@@ -3004,79 +2899,6 @@ In which:
 
 -  **Type**:
    ``org.exoplatform.wiki.service.impl.SessionDestroyedListener``
-
-.. _PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiChromatticLifecycle:
-
-Wiki Chromattic Lifecycle
---------------------------
-
-This plugin is used configure workspace and node name with Chromattic.
-The configuration can be found in
-``wiki-service/src/main/resources/conf/portal/configuration.xml``.
-
-**Sample configuration**:
-
-.. code:: xml
-
-    <external-component-plugins>
-            <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-            <component-plugin>
-              <name>chromattic</name>
-              <set-method>addLifeCycle</set-method>
-              <type>org.exoplatform.wiki.service.impl.WikiChromatticLifeCycle</type>
-              <init-params>
-                <value-param>
-                  <name>domain-name</name>
-                  <value>wiki</value>
-                </value-param>
-                <value-param>
-                  <name>workspace-name</name>
-                  <value>collaboration</value>
-                </value-param>
-                <values-param>
-                  <name>entities</name>
-                  <value>org.exoplatform.wiki.mow.core.api.WikiStoreImpl</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.PortalWiki</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.PortalWikiContainer</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.GroupWiki</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.GroupWikiContainer</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.UserWiki</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.UserWikiContainer</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.ParagraphImpl</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.MarkupImpl</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.WikiLink</value>
-                  <value>org.chromattic.ext.ntdef.NTFile</value>
-                  <value>org.chromattic.ext.ntdef.NTResource</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTVersionHistory</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTVersion</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTVersionLabels</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTFrozenNode</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.VersionableMixin</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.AnnotationImpl</value>
-                </values-param>
-            </component-plugin>
-    </external-component-plugins>
-
-In which:
-
--  **Name**: ``chromattic``
-
--  **Set-method**: ``addLifeCycle``
-
--  **Type**:
-   ``org.exoplatform.wiki.service.impl.WikiChromatticLifeCycle``
-
-**Init-params**
-
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
-| **Name**             | **Type**     | **Default value**   | **Description**                                                                 |
-+======================+==============+=====================+=================================================================================+
-| **domain-name**      | ``String``   | ``wiki``            | The domain name where JCR stores Wiki data.                                     |
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
-| **workspace-name**   | ``String``   | ``collaboration``   | The workspace name where JCR stores Wiki data.                                  |
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
-| **entities**         | ``String``   |                     | List of Wiki classes that contain the Chromattic configuration of node types.   |
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
 
 .. _PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiUncache:
 
