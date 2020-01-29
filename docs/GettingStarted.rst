@@ -1261,8 +1261,9 @@ When an article has been edited, the details view display the update date and us
 Sharing a News
 ---------------
 
-Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page (and from the article's preview in the activity stream). 
-When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the destination space(s). You can also add a optional description which will be displayed in the sharing activity.
+Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page and from News application. 
+When you click on the share icon, a drawer appears containing a reminder of the article's title, its creation user and its original space. 
+You have to select the destination space(s) and you can optionaly add a description which will be displayed in the sharing activity.
 
 |image165|
 
@@ -1276,6 +1277,10 @@ Once the article is shared, a message confirming that the action has been comple
 You can check that the action has been done successfully by connecting to the destination spaces. The article preview will be available in the activity stream with the description if this field has been filled in.
 
 |image167|
+
+When you display the activity details, you will see the information about the sharing user, destination space and the description if added in the button of the page:
+
+|image219|
 
 .. _Pinning a News:
 
@@ -2382,3 +2387,4 @@ to display the original timestamp of the comment.
 .. |image216| image:: images/sharenews/unarchive_application.png
 .. |image217| image:: images/sharenews/loadmore_application.png
 .. |image218| image:: images/sharenews/archived_view.png
+.. |image219| image:: images/sharenews/shared_details.png
