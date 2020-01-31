@@ -1103,7 +1103,7 @@ section:
 +======================================+=====================================+
 | ``EXO_PROFILES="all,myOwnProfile"``  | Tomcat only. The default profile    |
 |                                      | is "all". If you customize this     |
-|                                      | variable, refer to Startup profiles |
+|                                      | variable.                           |
 +--------------------------------------+-------------------------------------+
 | ``EXO_CONF_DIR="/opt/ciagent/        | The default configuration folder    |
 | .eXo-platform/conf"``                | is ``./gatein/conf/`` (Tomcat       |
