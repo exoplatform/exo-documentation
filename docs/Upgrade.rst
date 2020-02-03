@@ -66,12 +66,7 @@ The components architecture has changed in 6.0 version:
 - Layout management features has been moved to `exo-layout-management <https://github.com/exoplatform/layout-management>` addon
 - Usage and development using `Juzu <http://juzuweb.org/>` framework has been deprecated
 
-
-- Redefinition of ``sharedlayout.xml`` is no more applicable. To shared layout file is suffixed by site name: ``sharedlayout-<site-name>.xml`` (``sharedlayout-intranet.xml`` for example)
-
 **Templates changes**
-
-
 
 Some Groovy templates have been changed in eXo Platform 6.0, check
 out the :ref:`complete list <Upgrade.BreakingChanges.Templates>`. If 

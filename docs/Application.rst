@@ -464,9 +464,9 @@ Injecting a portlet using Dynamic Container
 **The mechanism**
 
 If you want to inject a portlet to every page in a site, you might add
-it directly to the shared layout (``sharedlayout.xml``). However, in
+it directly to the shared layout (``sharedlayout-<SITENAME>.xml``). However, in
 case you have more than one extension that overrides
-``sharedlayout.xml``, only the last loaded one takes effect. This leads
+``sharedlayout-<SITENAME>.xml``, only the last loaded one takes effect. This leads
 to trouble that portlets injection cannot be solved in packaging, it
 will require extra tasks in deployment (like merging several layouts
 from different projects).
@@ -478,7 +478,7 @@ shared layout and an extension get involved in how it works:
 
    To make a site ready to inject portlets, there should be some Dynamic
    Containers added to the shared layout. This is done by
-   ``sharedlayout.xml``, like this:
+   ``sharedlayout-<SITENAME>.xml``, like this:
 
    .. code:: xml
 
@@ -501,7 +501,7 @@ shared layout and an extension get involved in how it works:
    portlet drag-and-drop is not in the Dynamic Container designation.
 
 So in this way, whenever the named container instance is put into a
-page, or all pages via ``sharedlayout.xml``, the portlet injection is
+page, or all pages via ``sharedlayout-<SITENAME>.xml``, the portlet injection is
 done automatically. An extension does not have to override the layout.
 
 **Example**
@@ -576,7 +576,7 @@ Here are the Dynamic Container instances in the *Intranet* site:
 |image6|
 
 For a customized site, you can manage Dynamic Containers by `customizing
-sharedlayout.xml <#PLFDevGuide.Site.LookAndFeel.CustomizingLayout.SharedLayout>`__.
+shared layout <#PLFDevGuide.Site.LookAndFeel.CustomizingLayout.SharedLayout>`__.
 The configuration sample is given above. There are two templates of
 Dynamic Container:
 

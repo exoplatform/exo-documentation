@@ -4143,8 +4143,11 @@ Customizing a shared layout
 
 In eXo Platform, the top navigation bar is a special container which is
 composed of portlets. All sites share the same top navigation bar that
-is defined in
-``platform-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+is defined in:
+* ``acme-intranet.war!/WEB-INF/conf/portal/portal/sharedlayout-intranet.xml`` for intranet site defined in ``exo-legacy-intranet`` addon
+* ``digital-workplace.war!/WEB-INF/conf/portal/portal/sharedlayout-dw.xml`` for ``dw`` site defined in ``exo-digital-workplace`` addon
+* ``portal/WEB-INF/conf/portal/portal/sharedlayout.xml`` as a fallback configuration file for sites that doesn't have defined their own file.
+
 You can see its content
 `here <https://github.com/exoplatform/platform/blob/master/extension/webapp/src/main/webapp/WEB-INF/conf/portal/portal/sharedlayout.xml>`__.
 This ``sharedlayout.xml`` file configures portlets which are currently
@@ -4153,9 +4156,11 @@ displayed on the top navigation bar.
 |image52|
 
 To override the default shared layout, you first need to copy the
-``sharedlayout.xml`` file from
-``platform-extension.war!/WEB-INF/conf/portal/portal/`` and paste into
+``sharedlayout-<SITENAME>.xml`` file into
 ``custom-extension.war!/WEB-INF/conf/portal/portal/`` directory.
+
+You can also define your own ``sharedlayout-<SITENAME>.xml`` file for your
+custom site so that you avoid redefining the built-in configuration files.
 
 Followings are 4 typical examples of the top navigation bar
 configuration: removing a portlet, adding a new portlet, changing the
@@ -4167,7 +4172,7 @@ Assume that you want to remove the **Help** portlet from the top
 navigation bar, do as follows:
 
 1. Remove the following block from
-   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-<SITENAME>.xml``.
 
    .. code:: xml
 
@@ -4195,7 +4200,7 @@ Assume that you want to add the **SEO** portlet to the top navigation
 bar, do as follows:
 
 1. Add the following block to
-   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-<SITENAME>.xml``.
 
    .. code:: xml
 

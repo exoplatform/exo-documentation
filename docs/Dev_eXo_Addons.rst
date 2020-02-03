@@ -464,7 +464,7 @@ You can override it once again in your portal extension, for example
 
 The shared layout is applied for all pages of a portal. You can override
 this resource by including it in your extension
-``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-<SITENAME>.xml``.
 
 Some of customizations you can do with shared layout:
 
