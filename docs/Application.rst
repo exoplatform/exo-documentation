@@ -4110,6 +4110,9 @@ Extending eXo applications
 -  :ref:`Overriding application templates <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.OverridingApplicationTemplates>`
    Steps to override the default template of a portlet in eXo Platform.
 
+-  :ref:`Extending HTML header element of pages <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ExtendHTMLHeader>`
+   Steps to extend http header elements of pages.
+
 -  :ref:`Applications Plugins <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins>`
    Tutorials to add plugin to eXo applications, such as Activity
    composer or action in Wiki using UI Extension framework.
@@ -4159,6 +4162,47 @@ for downloading.
 |image36|
 
 .. note:: If you are not running eXo Platform in the developer mode, you will have to restart the server.
+
+
+.. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ExtendHTMLHeader:
+
+Extending HTML header element of pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case, you need to define new elements in HTML ``<head>`` element of pages, you can define a service plugin that will allow you to inject a groovy template content in ``<head>`` element of the page.
+
+.. note:: This assumes that you have defined your ``custom-extension.war`` file using :ref:`Extension mechanism <PLFDevGuide.eXoAdd-ons.PortalExtension>`.
+
+.. note:: If you need to add:
+
+    * A stylesheet file, please refer to :ref:`Skin service <#sect-Reference_Guide-Skinning_Portal-Skin_Service>`__
+    * A javascript file, please refer to :ref:`JavaScript development <#sect-Reference_Guide-Javascript_Development>`__
+
+
+1. Add a new file under ``custom-extension.war/groovy/portal/webui/UICustomPortalApplicationHead.gtmpl``
+
+2. Add a plugin configuration that will inject your file inside ``custom-extension.war/WEB-INF/conf/configuration.xml`` :
+
+  .. code:: xml
+  
+      <external-component-plugins>
+        <target-component>org.exoplatform.groovyscript.text.TemplateService</target-component>
+        <component-plugin>
+          <name>UIPortalApplication-head</name>
+          <set-method>addTemplateExtension</set-method>
+          <type>org.exoplatform.groovyscript.text.TemplateExtensionPlugin</type>
+          <init-params>
+            <values-param>
+              <name>templates</name>
+              <description>The list of templates to include in HTML Page Header with UIPortalApplication.gtmpl</description>
+              <value>war:/groovy/portal/webui/UICustomPortalApplicationHead.gtmpl</value>
+            </values-param>
+          </init-params>
+        </component-plugin>
+      </external-component-plugins>
+
+
+.. note:: You can also add an html content at the end of body page using the same definition by using plugin name ``UIPortalApplication-End-Body`` instead of ``UIPortalApplication-head``.
 
 .. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins:
 
