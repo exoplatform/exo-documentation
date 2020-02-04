@@ -2481,25 +2481,15 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-It is possible to restrict which users can create and/or manage spaces or use templates
-through an easy to use interface .
-
-|image305|
-
-.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
-          ``*:/platform/administrators``) are allowed to manage spaces and templates.
-          
 The spaces administration interface is accessible via the menu Administration --> Spaces.
 
 |image306|
 
-This Spaces menu contains two choices:
+This Spaces menu allows you, as an administrator to:
 
-- "Manage Templates" : Lets an administrator display all space templates available 
-- "Manage Spaces" : Lets an administrator configure permissions for who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
-
-
-
+- Access and display all the available spaces templates via the menu "Manage Templates".
+- Configure and manage permissions for who can :ref:`Create <Create-Space>` or 
+  :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces via the menu "Manage Spaces".
 
 
 Manage Templates
@@ -2524,27 +2514,29 @@ All templates are presented in a table with:
 Manage Spaces
 ~~~~~~~~~~~~~~~~~~
 
+It is possible to restrict which users can create and/or manage spaces through an easy to use interface .
+
+|image305|
+
+.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
+          ``*:/platform/administrators``) are allowed to manage spaces and templates.
+
 This interface contains two tabs:
 
-- "Manage spaces" tab displays the list of spaces and the corresponding actions: edit and delete.
-- "Permissions" tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
-
-     
-Spaces administration interface allows to :     
-
--  :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>`
--  :ref:`Change permissions <AdministratingSpaces.Permissions>`
+- :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>` tab displays the list of spaces and the corresponding actions: edit, delete and Space binding.
+- :ref:`Permissions <AdministratingSpaces.Permissions>` tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
 
 .. _AdministratingSpaces.ManageSpaces:
 
 Manage spaces tab
-~~~~~~~~~~~~~~~~~~
+-------------------
 
 |image308|
 
 The "Manage spaces" tab can be seen by users belonging to any group listed in 
 the "Manage spaces" permission of the :ref:`Permissions tab <AdministratingSpaces.Permissions>`. 
 Users with this permission are allowed to edit or delete any space in the platform.
+They are also allowed to add groups binding to any space.
 
 |image307|
 
@@ -2558,9 +2550,10 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
 .. note:: If the permission is neither defined through the interface nor by configuration, only administrators are
           allowed to access the Manage spaces tab.
           
+.. _EditSpace:
 
 Edit space
------------
+^^^^^^^^^^^^
 
 Users granted with the "Manage Spaces" permission, can edit any space settings by clicking the edit icon |image309| of a specific space.
 The Space Settings page of the target space is then opened in another browser tab.
@@ -2576,8 +2569,10 @@ section for more details.
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
 
+.. _DeleteSpace:
+
 Delete space
---------------
+^^^^^^^^^^^^^
 
 Users granted with the Manage Spaces permission, can also :ref:`delete <Delete-Space>` any space of 
 the platform; even the spaces where they are neither a manager nor a member.
@@ -2595,10 +2590,32 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 
 .. warning:: When deleting a space, all its data is also removed and can't be recovered.
 
+.. _BindGroupToSpace:
+
+Space binding
+^^^^^^^^^^^^^^
+
+You can, as an administrator or a :ref:`spaces manager <AdministratingSpaces.ManageSpaces>` member, bind groups to a space
+i.e. add all their members to the space.
+To do so, you should click on the "Space binding" icon |image354|.
+
+A drawer "Add Binding" appears:
+
+|image355|
+
+The drawer contains these components:
+
+-  A text field allowing you to type groups names
+-  "Select from list" icon allowing to open a second level drawer
+-  Bound groups section listing the already bound groups to the space
+-  "Apply" button which remains in disabled status until at least one group is selected
+-  "Cancel" button allowing to clear the text field and close the drawer
+-  A cross icon to close the drawer
+
 .. _AdministratingSpaces.Permissions:
 
 Permissions tab
-~~~~~~~~~~~~~~~~
+-----------------
 
 |image318|
 
@@ -5615,3 +5632,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |image354| image:: images/platform/SpaceBindingIcon.png
+.. |image355| image:: images/platform/AddBindingDrawer.png
