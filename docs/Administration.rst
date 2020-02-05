@@ -331,7 +331,7 @@ quickly.
 Editing a website's content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: You can do this function only when the ACME add-on is already installed by your administrator. See :ref:`here <#PLFAdminGuide.AddonsManagement.Installing>` for how-to.
+.. note:: You can do this function only when the ACME add-on is already installed by your administrator. See :ref:`here <PLFAdminGuide.AddonsManagement.Installing>` for how-to.
 
 Simply click Content from the drop-down menu. The Edit mode will be
 turned on. For more details, see :ref:`Edit mode <EditMode>`.
@@ -2093,7 +2093,7 @@ For more details on these fields, see :ref:`here <CreateNewAccountFormDetails>`.
 
 4. Select the User Profile tab to edit personal information of the 
    selected user, including Profile, Home Info, Business Info, and 
-   Social Networks Info (if :ref:`OAuth authentication <#PLFAdminGuide.OAuthAuthentication>`
+   Social Networks Info (if :ref:`OAuth authentication <PLFAdminGuide.OAuthAuthentication>`
    is configured by your administrator).
 
    -  In Social Networks Info, when clicking the Save button:
@@ -2237,11 +2237,11 @@ should be noticed:
 
 **Answers**
 
-.. note:: Answers is provided as an add-on, so you need to install it first. See :ref:`here <#eXoAddonsGuide.Answers>` for details.
+.. note:: Answers is provided as an add-on, so you need to install it first. See :ref:`here <eXoAddonsGuide.Answers>` for details.
 
--  Their account will not be listed when someone sets the :ref:`category permissions <#eXoAddonsGuide.Answers.Moderator.ManagingCategories.AddingCategory>`.
+-  Their account will not be listed when someone sets the :ref:`category permissions <eXoAddonsGuide.Answers.Moderator.ManagingCategories.AddingCategory>`.
 
--  They will no longer receive emails from the :ref:`Watching feature <#eXoAddonsGuide.Answers.RegularUser.WatchingCategory>` 
+-  They will no longer receive emails from the :ref:`Watching feature <eXoAddonsGuide.Answers.RegularUser.WatchingCategory>` 
    of Answers.
 
 2. To suspend a user, switch **Active ?** button corresponding to this 
@@ -2447,7 +2447,7 @@ themselves.
 To be notified about new users registration, an administrator can
 configure eXo Platform to send him emails by following these steps:
 
-1. Configure your SMTP server by following the :ref:`Outgoing mail service <#PLFAdminGuide.Configuration.OutgoingMailService>` guide.
+1. Configure your SMTP server by following the :ref:`Outgoing mail service <PLFAdminGuide.Configuration.OutgoingMailService>` guide.
 
 2. Configure the service used for sending emails in ``portal.war/WEB-INF/conf/admin/admin-configuration.xml``. 
    This file contains descriptions for each available parameter, 
@@ -2550,10 +2550,9 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
 .. note:: If the permission is neither defined through the interface nor by configuration, only administrators are
           allowed to access the Manage spaces tab.
           
-.. _EditSpace:
 
 Edit space
-^^^^^^^^^^^^
+`````````````
 
 Users granted with the "Manage Spaces" permission, can edit any space settings by clicking the edit icon |image309| of a specific space.
 The Space Settings page of the target space is then opened in another browser tab.
@@ -2569,10 +2568,9 @@ section for more details.
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
 
-.. _DeleteSpace:
 
 Delete space
-^^^^^^^^^^^^^
+```````````````
 
 Users granted with the Manage Spaces permission, can also :ref:`delete <Delete-Space>` any space of 
 the platform; even the spaces where they are neither a manager nor a member.
@@ -2590,10 +2588,9 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 
 .. warning:: When deleting a space, all its data is also removed and can't be recovered.
 
-.. _BindGroupToSpace:
 
 Space binding
-^^^^^^^^^^^^^^
+````````````````
 
 You can, as an administrator or a :ref:`spaces manager <AdministratingSpaces.ManageSpaces>` member, bind groups to a space
 i.e. add all their members to the space.
@@ -3381,7 +3378,7 @@ exact URL of the Register page.
 
 |image216|
 
-.. note:: -  In this section, some examples and screenshots use :ref:`default groups and memberships <#PLFAdminGuide.Configuration.PredefinedUserGroupMembership>`
+.. note:: -  In this section, some examples and screenshots use :ref:`default groups and memberships <PLFAdminGuide.Configuration.PredefinedUserGroupMembership>`
              that are ready-made by configuration. To create groups and memberships as you want, see :ref:`Managing your organization <ManagingYourOrganization>`.
 
 		  -  Do not misunderstand that labels of predefined membership types, such as "manager" or "publisher", represent their permissions.
