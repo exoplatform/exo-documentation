@@ -2337,7 +2337,7 @@ to display the original timestamp of the comment.
 .. |image162| image:: images/sharenews/news_details2.png
 .. |image163| image:: images/sharenews/edit_news.png
 .. |image164| image:: images/sharenews/modified_news.png
-.. |image165| image:: images/sharenews/popup_share.png
+.. |image165| image:: images/sharenews/drawer_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
 .. |image169| image:: images/sharenews/confirm_pin.png
