@@ -2593,8 +2593,10 @@ Space binding
 ````````````````
 
 You can, as an administrator or a :ref:`spaces manager <AdministratingSpaces.ManageSpaces>` member, bind groups to a space
-i.e. add all their members to the space.
-To do so, you should click on the "Space binding" icon |image354|.
+i.e. map all their members to the space.
+To do so, you should click on the "Space binding" icon |image354| of the space in which you want to add group binding.
+
+|image356|
 
 A drawer "Add Binding" appears:
 
@@ -5631,3 +5633,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image353| image:: images/sharenews/show_in_page.png
 .. |image354| image:: images/platform/SpaceBindingIcon.png
 .. |image355| image:: images/platform/AddBindingDrawer.png
+.. |image356| image:: images/platform/spaceBinding.png
