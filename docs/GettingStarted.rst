@@ -1263,7 +1263,7 @@ Sharing a News
 
 Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page and from News application. 
 When you click on the share icon, a drawer appears containing a reminder of the article's title, its creation user and its original space. 
-You have to select the destination space(s) and you can optionaly add a description which will be displayed in the sharing activity.
+You have to select the destination space(s) and you can optionally add a description which will be displayed in the sharing activity.
 
 |image165|
 
