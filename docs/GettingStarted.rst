@@ -1278,7 +1278,7 @@ You can check that the action has been done successfully by connecting to the de
 
 |image167|
 
-When you display the activity details, you will see the information about the sharing user, destination space and the description if added in the button of the page:
+When you display the activity details, you will see the information about the sharing user, destination space and the description (if any) at the bottom of the page:
 
 |image219|
 
