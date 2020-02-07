@@ -416,11 +416,6 @@ In client side, you need to pay attention to the following environment
 requirements before using this feature.
 
 
-.. note:: For all OSs/browsers, it is recommended you install and make sure
-		  Java Applet enabled. This is required for opening Non-MS Office
-		  files. You can visit http://javatester.org/ to make sure Java Plugin
-		  already installed on your browser.
-
 .. _Windows:
 
 Windows
