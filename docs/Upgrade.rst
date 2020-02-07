@@ -58,6 +58,10 @@ out the :ref:`complete list <Upgrade.BreakingChanges.Templates>`. If
 your custom extension overrides some Groovy templates, you must check 
 if it has been changed, and update it if it is the case.
 
+**Shindig removal**
+
+WIth eXo Platform 5.3 version, we no more support gadgets as we dropped the use of `Shindig <https://shindig.apache.org/>`__
+for many reasons cited on the :ref:`technical novelties section <TechnicalNovelties>`
 
 .. _Upgrade.BreakingChanges.Templates
 
