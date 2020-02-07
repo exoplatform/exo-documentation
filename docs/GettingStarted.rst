@@ -1217,7 +1217,7 @@ When you finish writing your article, press the "Post" button in the top-right c
 
 |image160|
 
-Once you post an article, you are automatically redirected to it in read mode. 
+Once you post an article, you are automatically redirected to it in read mode.
 
 |image161|
 
@@ -1238,7 +1238,8 @@ The article will be posted into the space's activity stream
 
          
 You can access the content of the article either by clicking on its title or by clicking on "read more".
-The details of the article are available on the current page and display all the information, including the publication date, the author and all the activity reactions (likes, comments and sent kudos) 
+The details of the article are available on the current page and display all the information, including the publication date, the author, the space's name and all the activity reactions (likes, comments and sent kudos).
+You can also edit or share the article from this interface using the appropriate icons. You can exit the interface using the return button on the top left of the page.
 
 |image162|
 
@@ -1251,7 +1252,7 @@ The `Update` action allows you to make changes in the article without reposting 
 
 |image163|
 
-When an article has been edited, the details view display the updated date and author besides initial information.
+When an article has been edited, the details view display the update date and user if different from the author besides the initial information.
 
 |image164|
 
@@ -1260,8 +1261,9 @@ When an article has been edited, the details view display the updated date and a
 Sharing a News
 ---------------
 
-Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page (and from the article's preview in the activity stream). 
-When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the destination space(s). You can also add a optional description which will be displayed in the sharing activity.
+Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page and from News application. 
+When you click on the share icon, a drawer appears containing a reminder of the article's title, its creation user and its original space. 
+You have to select the destination space(s) and you can optionally add a description which will be displayed in the sharing activity.
 
 |image165|
 
@@ -1275,6 +1277,10 @@ Once the article is shared, a message confirming that the action has been comple
 You can check that the action has been done successfully by connecting to the destination spaces. The article preview will be available in the activity stream with the description if this field has been filled in.
 
 |image167|
+
+When you display the activity details, you will see the information about the sharing user, destination space and the description (if any) at the bottom of the page:
+
+|image219|
 
 .. _Pinning a News:
 
@@ -1341,7 +1347,7 @@ As for pin, the unpin function is available from three locations :
 1- Unpinning a news from edit form : 
 
 To unpin an article from the edit form, display the article's details then click on the ``Edit`` icon.
-Once the edit form is displayed, just untick the checkbox "Pin article" and validate.
+Once the edit form is displayed, just click on the unpin article icon and validate.
 
 |image186|
 
@@ -1382,10 +1388,8 @@ The information about the saving status is displayed in the creation form :
 
 |image175| 
 
-|image176|
-
 You can access to your drafts from the creation form. 
-A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
+A draft button is displayed indicating the number of drafts available for the current space. 
 
 |image177|
 
@@ -1415,7 +1419,7 @@ By default, the page displays the 10 latest articles of the  "All News" list. Yo
 |image217|
 
 For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the original space where the article was posted as well as the spaces where it was shared.
-You can share the displayed articles as explained in the `Sharing a News`_ chapter. You can also edit the articles when you have the permission to do it.
+You can share the displayed articles as explained in the `Sharing a News`_ chapter. You can also edit, archive or pin the articles when you have the permission to do it.
 
 |image188|
 
@@ -2333,7 +2337,7 @@ to display the original timestamp of the comment.
 .. |image162| image:: images/sharenews/news_details2.png
 .. |image163| image:: images/sharenews/edit_news.png
 .. |image164| image:: images/sharenews/modified_news.png
-.. |image165| image:: images/sharenews/popup_share.png
+.. |image165| image:: images/sharenews/drawer_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
 .. |image169| image:: images/sharenews/confirm_pin.png
@@ -2341,7 +2345,6 @@ to display the original timestamp of the comment.
 .. |image171| image:: images/sharenews/success_pin.png
 .. |image172| image:: images/sharenews/bloc_news.png
 .. |image175| image:: images/sharenews/saving_draft.png
-.. |image176| image:: images/sharenews/saved_fullform.png
 .. |image177| image:: images/sharenews/draft_button.png
 .. |image178| image:: images/sharenews/drafts_drawer.png
 .. |image179| image:: images/sharenews/confirm_delete.png
@@ -2350,7 +2353,7 @@ to display the original timestamp of the comment.
 .. |image182| image:: images/sharenews/unpin_activity.png
 .. |image183| image:: images/sharenews/unpin_popup.png
 .. |image184| image:: images/sharenews/unpin_success.png
-.. |image185| image:: images/sharenews/unpin_icon.png
+.. |image185| image:: images/sharenews/unpin_details.png
 .. |image186| image:: images/sharenews/unpin_edit.png
 .. |image187| image:: images/sharenews/news_leftnav.png
 .. |image188| image:: images/sharenews/news_app.png
@@ -2383,4 +2386,5 @@ to display the original timestamp of the comment.
 .. |image215| image:: images/sharenews/archived_details.png
 .. |image216| image:: images/sharenews/unarchive_application.png
 .. |image217| image:: images/sharenews/loadmore_application.png
-.. |image218| image:: images/sharenews/archived_news.png
+.. |image218| image:: images/sharenews/archived_view.png
+.. |image219| image:: images/sharenews/shared_details.png
