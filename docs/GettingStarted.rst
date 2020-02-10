@@ -1159,7 +1159,7 @@ Posting a News in the activity stream
 It is possible to write an article directly from a space composer. This feature is intended to improve and simplify the way information is shared. Users can contribute content intuitively without any former training to the content management system. News offers an inclusive and collaborative way to manage communication.
 Publishing a news lets you easily write, broadcast  and share communication content into other spaces. You can also make it visible to all platform users by pinning articles on the home page.
 
-.. warning:: News feature is beta on 5.3 version. It will be released officially on 6.0 Version. However it is still possible to install the addon and use it in the current version.
+.. warning:: News feature is beta on eXo Platform 5.3. It's planned to be released as generally available in eXo Platform 6.0 Version. It is not pre-packaged in eXo Platform 5.3, however it is still possible to install the addon in order to preview the feature..
 
 Creating and posting a News
 ---------------------------
