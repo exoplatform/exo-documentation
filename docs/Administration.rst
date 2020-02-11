@@ -2592,8 +2592,7 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 Space binding
 ````````````````
 
-You can, as an administrator or a :ref:`spaces manager <AdministratingSpaces.ManageSpaces>` member, bind groups to a space
-i.e. map all their members to the space.
+You can, as an administrator, bind groups to a space i.e. map all their members to the space.
 To do so, you should click on the "Space binding" icon |image354| of the space in which you want to add group binding.
 
 |image356|
@@ -2610,6 +2609,16 @@ The drawer contains these components:
 -  "Apply" button which remains in disabled status until at least one group is selected
 -  "Cancel" button allowing to clear the text field and close the drawer
 -  A cross icon to close the drawer
+
+When you type some characters in the text field, suggestions are proposed to facilitate the groups selection:
+
+|image357|
+
+Having selected at least one group, the "Apply" button turns to enabled status. When you click on it, a confirmation 
+message appears warning you about the process to start.
+
+|image358|
+
 
 .. _AdministratingSpaces.Permissions:
 
@@ -5634,3 +5643,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image354| image:: images/platform/SpaceBindingIcon.png
 .. |image355| image:: images/platform/AddBindingDrawer.png
 .. |image356| image:: images/platform/spaceBinding.png
+.. |image357| image:: images/platform/GroupsSuggester.png
+.. |image358| image:: images/platform/confirmationPopup.png
