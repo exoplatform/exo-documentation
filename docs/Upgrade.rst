@@ -60,7 +60,7 @@ if it has been changed, and update it if it is the case.
 
 **Shindig removal**
 
-WIth eXo Platform 5.3 version, we no more support gadgets as we dropped the use of `Shindig <https://shindig.apache.org/>`__
+In eXo Platform 5.3 version, we no longer support as we dropped `Apache Shindig <https://shindig.apache.org/>` which has been retired.
 for many reasons cited on the :ref:`technical novelties section <TechnicalNovelties>`
 
 .. _Upgrade.BreakingChanges.Templates
