@@ -116,7 +116,7 @@ We also upgraded UI layer with latest versions of Vue.js and Vuetify frameworks.
 We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
 in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 
-With 5.3 version, eXo Platform opted to remove `Shindig <https://shindig.apache.org/>`__, 
+In version 5.3, eXo Platform decided to remove `Shindig <https://shindig.apache.org/>`__, 
 the component used to support Gadgets.
 In fact `Shindig <https://shindig.apache.org/>`__ is no more maintained and this leads to many issues such as:
 
