@@ -1055,7 +1055,7 @@ A new way to share in the activity stream is available via a cliquable text "Pos
 
 |image221|
 
-Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 caracters and post to you audience or a space's audience.
+Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your audience or a space's audience.
 
 |image222|
 
