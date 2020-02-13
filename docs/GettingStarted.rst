@@ -1049,7 +1049,7 @@ other space members (in the space's activity stream):
          
                 |image155|
 
-A new way to share in the activity stream is available via a cliquable text "Post something to your network" if you are in the home page, or "Post something to "space's name" if you are in a space's feed. 
+A new way to share in the activity stream is available via a clickable text "Post something to your network" if you are in the home page, or "Post something to "space's name" if you are in a space's feed. 
 
 |image220|
 
