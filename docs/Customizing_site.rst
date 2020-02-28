@@ -199,8 +199,7 @@ defined in the ``pages.xml`` file that will be explained later.
    -  **HIDDEN**: The node is not visible in the navigation but can be
       accessed directly with its URL.
 
-   -  **SYSTEM**: It is a system node which is visible to superusers. In
-      particular, only superusers can change or delete this system node.
+   -  **SYSTEM**: Same as HIDDEN node, except that this node is not deletable by UI.
 
    -  **TEMPORAL**: The node is displayed in related time range. When
       the visibility of TEMPORAL node is configured, the start and end
