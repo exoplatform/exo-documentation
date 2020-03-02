@@ -58,10 +58,12 @@ out the :ref:`complete list <Upgrade.BreakingChanges.Templates>`. If
 your custom extension overrides some Groovy templates, you must check 
 if it has been changed, and update it if it is the case.
 
+.. _ShindigRemoval:
+
 **Shindig removal**
 
-In eXo Platform 5.3 version, we no longer support as we dropped `Apache Shindig <https://shindig.apache.org/>` which has been retired.
-for many reasons cited on the :ref:`technical novelties section <TechnicalNovelties>`
+In eXo Platform 5.3 version, we no longer support gadgets as we dropped `Apache Shindig <https://shindig.apache.org/>` which has been retired.
+eXo opted for `Apache Shindig <https://shindig.apache.org/>` removal for many reasons cited on the :ref:`technical novelties section <TechnicalNovelties>`
 
 .. _Upgrade.BreakingChanges.Templates
 
@@ -207,6 +209,11 @@ Before the upgrade, you need to:
 			-  Detect and handle issues to make sure they will not happen during the real upgrade.
 			-  Estimate how long the upgrade will take in your production environment.
 			-  Find out if you need to adjust anything to make your upgrade faster and more efficient.
+			
+.. note:: As mentioned in Breaking changes :ref:`section <ShindigRemoval>`, Shindig, the component which supports gadgets is removed 
+          from eXo Platfrom	5.3 and which leads to the removal of gadgets. In fact, dashboard application and all gadgets are automatically 
+          removed. Only four of them namely Login History, Bookmarks, RSS Reader and Featured Poll still remaining and could be placed in pages
+          if necessary.
 
 
 .. _Upgrade.Process:
