@@ -121,7 +121,6 @@ the component used to support Gadgets.
 In fact `Shindig <https://shindig.apache.org/>`__ is no more maintained and this leads to many issues such as:
 
 - The dependance to specific versions of some important libraries namely Guava and which is hard to upgrade
-- SSRF security issues exposure
 - Hardness with the platform server installation as it needs specific actions to make gadgets working
 
 In addition to all the above issues, maintaining and fixing issues related to gadgets and `Shindig <https://shindig.apache.org/>`__
