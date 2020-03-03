@@ -102,8 +102,6 @@ With the new property ``exo.audit.login.enabled``, it is possible to enable or d
 Files uploaded in chat rooms can now be deleted as any other message.
 
 
-.. _TechnicalNovelties:
-
 ========================================
 Technical novelties in eXo Platform 5.3
 ========================================
@@ -115,6 +113,16 @@ concurrent requests to the ElasticSearch server.
 We also upgraded UI layer with latest versions of Vue.js and Vuetify frameworks.
 We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
 in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
+
+In version 5.3, eXo Platform decided to remove `Shindig <https://shindig.apache.org/>`__, 
+the component used to support Gadgets.
+In fact `Shindig <https://shindig.apache.org/>`__ is no more maintained and this leads to many issues such as:
+
+- The dependance to specific versions of some important libraries namely Guava and which is hard to upgrade
+- Hardness with the platform server installation as it needs specific actions to make gadgets working
+
+In addition to all the above issues, maintaining and fixing issues related to gadgets and `Shindig <https://shindig.apache.org/>`__
+took too much time to resolve however it is no more used.
 
 
 
