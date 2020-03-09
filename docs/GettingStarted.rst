@@ -1049,15 +1049,13 @@ other space members (in the space's activity stream):
          
                 |image155|
 
-A new way to share in the activity stream is available via a clickable text "Post something to your network" if you are in the home page, or "Post something to "space's name" if you are in a space's feed. 
+A new way to share in the activity stream is available via a clickable text "Try the new composer" just above the current composer.
 
 |image220|
 
-|image221|
-
 Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your audience or a space's audience.
 
-|image222|
+|image221|
 
 
 .. _text-message:
@@ -2398,6 +2396,5 @@ to display the original timestamp of the comment.
 .. |image217| image:: images/sharenews/loadmore_application.png
 .. |image218| image:: images/sharenews/archived_view.png
 .. |image219| image:: images/sharenews/shared_details.png
-.. |image220| image:: images/sharenews/new_composer_home.png
-.. |image221| image:: images/sharenews/new_composer_space.png
-.. |image222| image:: images/sharenews/composer_drawer.png
+.. |image220| image:: images/new_composer/new_composer.png
+.. |image221| image:: images/new_composer/composer_drawer.png
