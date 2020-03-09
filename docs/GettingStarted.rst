@@ -1210,7 +1210,7 @@ You can insert attachments in the article's body by clicking on the paper clip i
 
 |image199|
 
-A drawer panel opens where you can either upload by selecting your files or by using a drag and drop in the dedicated area. You can attach up to 10 files and each file must not exceed 25 MB.
+A drawer panel opens where you can either upload by selecting your files from existing uploads, by uploading files manually or by using a drag and drop in the dedicated area. You can attach up to 20 files and each file must not exceed 200 MB.
 
 |image200|
 
