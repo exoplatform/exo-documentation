@@ -2494,6 +2494,7 @@ This Spaces menu allows you, as an administrator to:
 
 Manage Templates
 ~~~~~~~~~~~~~~~~~~
+
 |image322|
 
 The "Manage Templates" interface displays all templates that can be chosen by all space creators.
@@ -2589,6 +2590,8 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 .. warning:: When deleting a space, all its data is also removed and can't be recovered.
 
 
+.. _SpaceBindingIcon:
+
 Space binding
 ````````````````
 
@@ -2613,6 +2616,8 @@ The drawer contains these components:
 When you type some characters in the text field, suggestions are proposed to facilitate the groups selection:
 
 |image357|
+
+.. _AddConfirmationMessage:
 
 Having selected at least one group, the "Apply" button turns to enabled status. When you click on it, a confirmation 
 message appears warning you about the process to start.
@@ -2647,6 +2652,80 @@ To define who can create spaces:
 
 To define the :ref:`group of spaces managers <AdministratingSpaces.ManageSpaces>`, simply follow the same 
 procedure.
+
+.. _SpaceGroupsBinding:
+
+Space groups binding
+~~~~~~~~~~~~~~~~~~~~~~
+
+As already described in :ref:`Space binding section<SpaceBindingIcon>`, it is possible to add and remove groups binding to a space.
+In this section, we will explain the life cycle of a space/group binding through these parts:
+
+    -  :ref:`Add binding process <AddBinding>`
+       How is executed an "Add binding" action and its consequences?
+       
+    -  :ref:`Remove binding process <RemoveBinding>`
+        How is executed the "Remove binding" action?
+       
+    -  :ref:`Synchronize binding <SynchronizeBinding>`
+       When and how is launched the sychronization between the space and the bound group?
+       
+
+.. _AddBinding:
+
+Add binding process
+----------------------
+
+After having made the steps described in :ref:`Space binding section<SpaceBindingIcon>` and having ckicked on 
+``Yes I am sure`` button of the :ref:`confirmation message <AddConfirmationMessage>`, you will be redirected to 
+``Binding reports`` tab with new entries of the groups binding (each space/group/Add binding has an entry).
+
+The groups you selected are immediately added to the ``Bound groups`` section, but the "Add binding" process is launched
+when the job is executed.
+The binding job is launched each 5 minutes and handles the selected groups binding.
+
+.. _boundUsers:
+
+At the end of the job's execution, all the members of the selected groups are added as bound users to the space:
+
+-  A bound user could not be deleted by an administrator or spaces manager or space's owner. The delete action
+   is replaced by the label "Bound user" with a tooltip explaining the origin of the user.
+             
+   |image359|
+             
+-  A bound user can not leave a space in which he is bound, the ``Leave`` button becomes disabled when 
+   the binding is set.
+             
+   |image360|
+             
+.. note:: -  Note that the binding is made on group members independently of their roles in the group. They are added to the 
+             corresponding space as members, except those who are managers in the space before the binding, they still in 
+             the space with their role. 
+          -  Users who were in the space before the binding become also bound users and so they can not leave 
+             it nor be deleted by an administrator or spaces manager or the space's owner.      
+
+.. _RemoveBinding:
+
+Remove binding process
+-------------------------
+
+The remove binding process is the action of removing users derived from the binding. Unlike the "Add binding", the
+"Remove binding" is done on a single group.
+When you, as an administrator, click on the delete icon of a bound group, you are redirected to the ``Binding reports`` tab 
+with a new entry (space/group/Remove binding operation) and the group's item is immediately removed from the 
+"Bound groups" section.
+
+Same as for the "Add binding", the "Remove binding" is also executed with a job which is launched each 5 minutes.
+When the execution time comes, the "Remove binding" process removes all the group's users except those who belong to the 
+space before the binding. 
+If they are no more :ref:`bound users <boundUsers>` i.e. they don't belong to an another bound group, they resume their 
+ability to leave space, and they become agin deletable by spaces managers, platform admnistrators and the space's owner.
+
+.. _SynchronizeBinding:
+
+Synchronize binding
+---------------------
+
 
 .. _ManagingSites:
 
@@ -5645,3 +5724,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image356| image:: images/platform/spaceBinding.png
 .. |image357| image:: images/platform/GroupsSuggester.png
 .. |image358| image:: images/platform/confirmationPopup.png
+.. |image359| image:: images/platform/boundUserLabel.png
+.. |image360| image:: images/platform/LeaveDisabled.png
