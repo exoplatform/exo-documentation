@@ -2613,8 +2613,11 @@ Having clicked on the "Space binding" icon, a drawer appears having these compon
 -  "Apply" button which remains disabled until at least one group is selected
 -  "Cancel" button allowing to clear the text field and close the drawer
 -  A cross icon to close the drawer
+
+.. _boundGroupsSection:
+
 -  **Bound groups** section listing the already bound groups to the space only if you clicked on 
-   colored "Space binding" icon
+   a colored "Space binding" icon
    
 Drawer of a space without existing bindings:   
 
@@ -2652,6 +2655,8 @@ If you want to remove the group's users mapping from a space, you just need to f
 - Click on the colored icon |image364| of the corresponding space ==> The :ref:`drawer <coloredicondrawer>` appears
 - Click on the delete icon |image365| of the group you want to remove its members from the space ==>
   A confirmation message appears containing the group's name with a ``Cancel`` and ``Confirm`` buttons
+  
+.. _DeleteConfirmationMessage:  
   
   |image366|
   
@@ -2697,12 +2702,15 @@ As already described in :ref:`Space binding section<SpaceBindingIcon>`, it is po
 In this section, we will explain the life cycle of a space/group binding through these parts:
 
     -  :ref:`Add binding process <AddBinding>`
-       How is executed an "Add binding" action and its consequences?
+    
+       To explain how is executed an "Add binding" action and its consequences.
        
     -  :ref:`Remove binding process <RemoveBinding>`
-        How is executed the "Remove binding" action?
+    
+       To explain how is executed the "Remove binding" action.
        
     -  :ref:`Synchronize binding <SynchronizeBinding>`
+    
        When and how is launched the sychronization between the space and the bound group?
        
 
@@ -2715,8 +2723,8 @@ After having made the steps described in :ref:`Space binding section<SpaceBindin
 ``Yes I am sure`` button of the :ref:`confirmation message <AddConfirmationMessage>`, you will be redirected to 
 ``Binding reports`` tab with new entries of the groups binding (each space/group/Add binding has an entry).
 
-The groups you selected are immediately added to the ``Bound groups`` section, but the "Add binding" process is launched
-when the job is executed.
+The groups you selected are immediately added to the :ref:`Bound groups <boundGroupsSection>` section, 
+but the "Add binding" process is launched when the job is executed.
 The binding job is launched each 5 minutes and handles the selected groups binding.
 
 .. _boundUsers:
@@ -2727,6 +2735,7 @@ At the end of the job's execution, all the members of the selected groups are ad
    is replaced by the label "Bound user" with a tooltip explaining the origin of the user.
              
    |image359|
+   
              
 -  A bound user can not leave a space in which he is bound, the ``Leave`` button becomes disabled when 
    the binding is set.
@@ -2745,10 +2754,11 @@ Remove binding process
 -------------------------
 
 The remove binding process is the action of removing users derived from the binding. Unlike the "Add binding", the
-"Remove binding" is done on a single group.
-When you, as an administrator, click on the delete icon of a bound group, you are redirected to the ``Binding reports`` tab 
-with a new entry (space/group/Remove binding operation) and the group's item is immediately removed from the 
-"Bound groups" section.
+"Remove binding" is done on a single group. You can find :ref:`here <RemoveBindingSteps>` the steps to remove a 
+binding.
+When you, as an administrator, click on the ``Confirm`` button of the :ref:`deletion confirmation message <DeleteConfirmationMessage>`, 
+you are redirected to the ``Binding reports`` tab  with a new entry (space/group/Remove binding operation) 
+and the group's item is immediately removed from the :ref:`Bound groups <boundGroupsSection>` section.
 
 Same as for the "Add binding", the "Remove binding" is also executed with a job which is launched each 5 minutes.
 When the execution time comes, the "Remove binding" process removes all the group's users except those who belong to the 
