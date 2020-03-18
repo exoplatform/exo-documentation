@@ -2594,24 +2594,38 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 
 Space binding
 ````````````````
+.. _AddBindingSteps:
+
+**Add binding steps**
 
 You can, as an administrator, bind groups to a space i.e. map all their members to the space.
 To do so, you should click on the "Space binding" icon |image354| of the space in which you want to add group binding.
 
 |image356|
 
-A drawer "Add Binding" appears:
+- |image361| The "Space binding" icon in default color means that the space hasn't yet bindings with any group
+- |image362| The "Space binding" icon in green color means that the space has already groups bindings.
 
-|image355|
-
-The drawer contains these components:
+Having clicked on the "Space binding" icon, a drawer appears having these components:
 
 -  A text field allowing you to type groups names
 -  "Select from list" icon allowing to open a second level drawer
--  Bound groups section listing the already bound groups to the space
--  "Apply" button which remains in disabled status until at least one group is selected
+-  "Apply" button which remains disabled until at least one group is selected
 -  "Cancel" button allowing to clear the text field and close the drawer
 -  A cross icon to close the drawer
+-  **Bound groups** section listing the already bound groups to the space only if you clicked on 
+   colored "Space binding" icon
+   
+Drawer of a space without existing bindings:   
+
+|image355|
+
+.. _coloredicondrawer:
+
+Drawer of a space with existing bindings:   
+
+|image363|
+
 
 When you type some characters in the text field, suggestions are proposed to facilitate the groups selection:
 
@@ -2623,6 +2637,27 @@ Having selected at least one group, the "Apply" button turns to enabled status. 
 message appears warning you about the process to start.
 
 |image358|
+
+If you click on ``Cancel`` button, nothing happens and the "Add binding" drawer is displayed again.
+If you click on ``Yes, I am sure`` button, the add binding process will start when its execution time comes.
+More details in :ref:`this section <AddBinding>` to learn how users add process is executed.
+
+
+.. _RemoveBindingSteps:
+
+**Remove binding steps**
+
+If you want to remove the group's users mapping from a space, you just need to follow these steps:
+
+- Click on the colored icon |image364| of the corresponding space ==> The :ref:`drawer <coloredicondrawer>` appears
+- Click on the delete icon |image365| of the group you want to remove its members from the space ==>
+  A confirmation message appears containing the group's name with a ``Cancel`` and ``Confirm`` buttons
+  
+  |image366|
+  
+- If you click on ``Cancel`` button nothing happens and the drawer is displayed
+- If you click on ``Confirm`` button, then the remove binding process will be executed when it's runtine comes.
+  More details about the users removal through this :ref:`section <RemoveBinding>`
 
 
 .. _AdministratingSpaces.Permissions:
@@ -5720,9 +5755,16 @@ The following image shows the screen when an anonymous user accesses
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
 .. |image354| image:: images/platform/SpaceBindingIcon.png
-.. |image355| image:: images/platform/AddBindingDrawer.png
+.. |image355| image:: images/platform/AddBindingDrawerDefault.png
 .. |image356| image:: images/platform/spaceBinding.png
 .. |image357| image:: images/platform/GroupsSuggester.png
-.. |image358| image:: images/platform/confirmationPopup.png
+.. |image358| image:: images/platform/AddconfirmationPopup.png
 .. |image359| image:: images/platform/boundUserLabel.png
 .. |image360| image:: images/platform/LeaveDisabled.png
+.. |image361| image:: images/platform/defaultIcon.png
+.. |image362| image:: images/platform/coloredIcon.png
+.. |image363| image:: images/platform/AddBindingDrawer.png
+.. |image364| image:: images/platform/coloredIcon.png
+.. |image365| image:: images/platform/deleteIcon.png
+.. |image366| image:: images/platform/DeleteconfirmationMessage.png
+
