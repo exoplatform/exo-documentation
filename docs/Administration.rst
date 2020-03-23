@@ -2599,25 +2599,27 @@ Space binding
 **Add binding steps**
 
 You can, as an administrator, bind groups to a space i.e. map all their members to the space.
-To do so, you should click on the "Space binding" icon |image354| of the space in which you want to add group binding.
+To do so, you should click on the **Space binding** icon |image354| of the space in which you want to add group binding.
 
 |image356|
 
-- |image361| The "Space binding" icon in default color means that the space hasn't yet bindings with any group
-- |image362| The "Space binding" icon in green color means that the space has already groups bindings.
+- |image361| The **Space binding** icon in default color means that the space hasn't yet bindings with any group
+- |image362| The **Space binding** icon in green color means that the space has already groups bindings.
 
 Having clicked on the "Space binding" icon, a drawer appears having these components:
 
+-  The space's avatar and name
 -  A text field allowing you to type groups names
--  "Select from list" icon allowing to open a second level drawer
--  "Apply" button which remains disabled until at least one group is selected
--  "Cancel" button allowing to clear the text field and close the drawer
+-  ``Select Group`` icon allowing to open a second level drawer
+-  ``Apply`` button which remains disabled until at least one group is selected
+-  ``Cancel`` button allowing to clear the text field and close the drawer
 -  A cross icon to close the drawer
+-  The drawer's title **Add binding**
 
 .. _boundGroupsSection:
 
 -  **Bound groups** section listing the already bound groups to the space only if you clicked on 
-   a colored "Space binding" icon
+   a colored **Space binding** icon
    
 Drawer of a space without existing bindings:   
 
@@ -2636,12 +2638,12 @@ When you type some characters in the text field, suggestions are proposed to fac
 
 .. _AddConfirmationMessage:
 
-Having selected at least one group, the "Apply" button turns to enabled status. When you click on it, a confirmation 
+Having selected at least one group, the ``Apply`` button turns to enabled status. When you click on it, a confirmation 
 message appears warning you about the process to start.
 
 |image358|
 
-If you click on ``Cancel`` button, nothing happens and the "Add binding" drawer is displayed again.
+If you click on ``Cancel`` button, nothing happens and the **Add binding** drawer is displayed again.
 If you click on ``Yes, I am sure`` button, the add binding process will start when its execution time comes.
 More details in :ref:`this section <AddBinding>` to learn how users add process is executed.
 
@@ -2760,7 +2762,7 @@ When you, as an administrator, click on the ``Confirm`` button of the :ref:`dele
 you are redirected to the ``Binding reports`` tab  with a new entry (space/group/Remove binding operation) 
 and the group's item is immediately removed from the :ref:`Bound groups <boundGroupsSection>` section.
 
-Same as for the "Add binding", the "Remove binding" is also executed with a job which is launched each 5 minutes.
+Same as for the **Add binding**, the "Remove binding" is also executed with a job which is launched each 5 minutes.
 When the execution time comes, the "Remove binding" process removes all the group's users except those who belong to the 
 space before the binding. 
 If they are no more :ref:`bound users <boundUsers>` i.e. they don't belong to an another bound group, they resume their 
