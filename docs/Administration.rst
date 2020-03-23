@@ -4588,7 +4588,7 @@ Managing News
 How to display pinned News on a page
 -------------------------------------
 
-The pinned articles are not highlighted by default in the platform (you can refer to `Pinning a News`_ chapter to know more how pin function works).
+The pinned articles are not highlighted by default in the platform (you can refer to :ref:`this chapter <Pinning-a-News>` to know more how pin function works).
 
 In order to display these pinned articles in a page, edit the page layout then add a "Content by query" application at the desired location.
 
@@ -4620,6 +4620,21 @@ Then select the page *News* > *Details* from the selector "Show in page"
 |image353| 
 
 Finally tick the checkbox "Restricted by user role" and click on "Save" button. 
+
+.. note:: An issue was detected in the 5.3 version for the display of pinned news for users who are not members of the post space. This issue is due to incompatibility between News and Web-pack Addons. 
+To work around the problem you can either uninstall Web-pack addon as explained :ref:`here <eXoAddonsGuide.WCM.Installation.uninstall>` or replace the exo:news view template as explained in the following section.
+
+Go to 'Administration > Content > Content Administration' then 'Templates > Documents'. 
+
+|image354| 
+
+From the Documents interface, click on 'edit' action for News template
+
+|image355| 
+
+A popup "View & Edit Template" is displayed. Go to 'View' tab and copy paste the template from the following :ref:`link <https://raw.githubusercontent.com/exoplatform/news/1.1.1/webapp/src/main/webapp/WEB-INF/conf/news/nodetypes-templates/news/views/view1.gtmpl>`__ in the content field
+
+|image356| 
 
 
 .. _ManagingWallets:
@@ -5613,3 +5628,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |image354| image:: images/sharenews/content_administration.png
+.. |image355| image:: images/sharenews/news_template.png
+.. |image356| image:: images/sharenews/view_tab.png
