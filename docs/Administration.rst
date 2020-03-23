@@ -2771,6 +2771,13 @@ ability to leave space, and they become agin deletable by spaces managers, platf
 Synchronize binding
 ---------------------
 
+Synchronize binding operation is the action made on space members following any change made on the bound group.
+
+-  If you add a member to the bound group, he is **automatically added** to the space as 
+   :ref:`bound user <boundUsers>`
+-  If you remove a member from the bound group, he is **automatically removed** from the space even if this user
+   belongs to the space before the space/group binding.
+
 
 .. _ManagingSites:
 
