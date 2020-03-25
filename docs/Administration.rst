@@ -2594,6 +2594,10 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 
 Space binding
 ````````````````
+
+.. note:: The space binding feature is only available for the platform administrators.
+
+
 .. _AddBindingSteps:
 
 **Add binding steps**
@@ -2606,18 +2610,19 @@ To do so, you should click on the **Space binding** icon |image354| of the space
 - |image361| The **Space binding** icon in default color means that the space hasn't yet bindings with any group
 - |image362| The **Space binding** icon in green color means that the space has already groups bindings.
 
+.. _firstDrawer:
+
 Having clicked on the "Space binding" icon, a drawer appears having these components:
 
 -  The space's avatar and name
 -  A text field allowing you to type groups names
--  ``Select Group`` icon allowing to open a second level drawer
+.. _secondDrawer:
+-  ``Select Group`` icon allowing to open a :ref:`second level drawer <SelectGroupDrawer>` listing the whole platform's groups in a tree
 -  ``Apply`` button which remains disabled until at least one group is selected
 -  ``Cancel`` button allowing to clear the text field and close the drawer
 -  A cross icon to close the drawer
 -  The drawer's title **Add binding**
-
 .. _boundGroupsSection:
-
 -  **Bound groups** section listing the already bound groups to the space only if you clicked on 
    a colored **Space binding** icon
    
@@ -2647,7 +2652,35 @@ If you click on ``Cancel`` button, nothing happens and the **Add binding** drawe
 If you click on ``Yes, I am sure`` button, the add binding process will start when its execution time comes.
 More details in :ref:`this section <AddBinding>` to learn how users add process is executed.
 
+.. _SelectGroupDrawer:
 
+As mentioned before, it is possible to display the whole groups tree in a second level drawer 
+by clicking on :ref:`Select group <secondDrawer>` button.
+This second drawer contains these components:
+
+-  The title "Select groups to bind"
+-  Back button allowing to return to the :ref:`first drawer <firstDrawer>`
+-  Search field allowing you to make a search into the groups tree
+-  Close icon allowing to close the two drawers ans abort the binding action
+-  The groups tree, by default not expanded
+-  ``Cancel`` button allowing to deselect all the checked groups
+-  ``Save`` button allowing to validate the checked groups ann add them to the text filed in the :ref:`first drawer <firstDrawer>`
+
+|image367|
+
+
+.. tip: If you already typed some groups from suggestions in the text field of the 
+        :ref:`first drawer <firstDrawer>`, they will be checked in the :ref:`Select groups <SelectGroupDrawer>` drawer.
+        If you uncheck them, they will also be removed from the text field.
+        
+       
+When making a search in the :ref:`Select groups <SelectGroupDrawer>` drawer:
+-  The groups labels matching with the keyword are blue colored
+-  If a subgroup matchs with the keyword, its parent group also appears, but not colored.
+
+|image368|
+          
+          
 .. _RemoveBindingSteps:
 
 **Remove binding steps**
@@ -2780,6 +2813,11 @@ Synchronize binding operation is the action made on space members following any 
 -  If you remove a member from the bound group, he is **automatically removed** from the space even if this user
    belongs to the space before the space/group binding.
 
+
+.. _Binding_reports:
+
+Binding reports
+----------------------
 
 .. _ManagingSites:
 
@@ -5786,4 +5824,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image364| image:: images/platform/coloredIcon.png
 .. |image365| image:: images/platform/deleteIcon.png
 .. |image366| image:: images/platform/DeleteconfirmationMessage.png
+.. |image367| image:: images/platform/SelectGroupsDrawer.png
+.. |image368| image:: images/platform/SearchDrawer2.png
 
