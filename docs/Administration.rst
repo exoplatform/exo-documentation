@@ -2615,14 +2615,23 @@ To do so, you should click on the **Space binding** icon |image354| of the space
 Having clicked on the "Space binding" icon, a drawer appears having these components:
 
 -  The space's avatar and name
+
 -  A text field allowing you to type groups names
+
 .. _secondDrawer:
+
 -  ``Select Group`` icon allowing to open a :ref:`second level drawer <SelectGroupDrawer>` listing the whole platform's groups in a tree
+
 -  ``Apply`` button which remains disabled until at least one group is selected
+
 -  ``Cancel`` button allowing to clear the text field and close the drawer
+
 -  A cross icon to close the drawer
+
 -  The drawer's title **Add binding**
+
 .. _boundGroupsSection:
+
 -  **Bound groups** section listing the already bound groups to the space only if you clicked on 
    a colored **Space binding** icon
    
@@ -2654,17 +2663,25 @@ More details in :ref:`this section <AddBinding>` to learn how users add process 
 
 .. _SelectGroupDrawer:
 
+**Select groups drawer**
+
 As mentioned before, it is possible to display the whole groups tree in a second level drawer 
 by clicking on :ref:`Select group <secondDrawer>` button.
 This second drawer contains these components:
 
 -  The title "Select groups to bind"
+
 -  Back button allowing to return to the :ref:`first drawer <firstDrawer>`
+
 -  Search field allowing you to make a search into the groups tree
+
 -  Close icon allowing to close the two drawers ans abort the binding action
+
 -  The groups tree, by default not expanded
+
 -  ``Cancel`` button allowing to deselect all the checked groups
--  ``Save`` button allowing to validate the checked groups ann add them to the text filed in the :ref:`first drawer <firstDrawer>`
+
+-  ``Save`` button allowing to validate the checked groups and add them to the text filed in the :ref:`first drawer <firstDrawer>`
 
 |image367|
 
@@ -2675,7 +2692,9 @@ This second drawer contains these components:
         
        
 When making a search in the :ref:`Select groups <SelectGroupDrawer>` drawer:
+
 -  The groups labels matching with the keyword are blue colored
+
 -  If a subgroup matchs with the keyword, its parent group also appears, but not colored.
 
 |image368|
@@ -2817,7 +2836,58 @@ Synchronize binding operation is the action made on space members following any 
 .. _Binding_reports:
 
 Binding reports
-----------------------
+-----------------
+
+After making a binding operation i.e. add new space binding or remove a space binding or even update a bound group,
+a report is generated and which could be viewed in the tab "Binding reports".
+The binding reports table contains these information
+
+-  Space: for the space name
+-  Group: for the bound group name
+-  Start date: corresponds to the job's launch date
+-  End date: corresponds to the end of the group's members processing (addition or removal)
+-  Operation type: New binding, Remove binding or Synchronization
+-  Added users: the number of the added users following the binding operation
+-  Removed users: the number of the removed users following the binding operation
+-  File: a downloadable file in csv format
+
+|image369|
+
+.. _AddBindingReport:
+
+Add Binding Report
+```````````````````
+Having added groups binding to a space, an entry **per group is added** to the reporting table:
+
+-  The operation type is set to "New binding"
+-  Added users corresponds to the added users to the space following the group's binding
+-  Removed users is 0
+
+.. _RemoveBindingReport:
+
+Remove Binding Report
+```````````````````````
+Having removed a group binding from a space, an entry is added to the reporting table:
+
+-  The operation type is set to "Remove binding"
+-  Added users is 0
+-  Removed users corresponds to the removed users from the space following the group's binding removal
+
+.. note: If some users are bound and that they belong to more than one bound group, they remain in the space
+         and they are not count in the reporting.
+         
+.. _SyncReport:
+
+Synchronization report
+```````````````````````
+Even the updated made on bound groups are tracked in the binding reporting.
+In fact an entry is added per space/group for the synchronization. Each time a change in made on a bound group,
+this entry is updated:
+-  The start and end dates are updated with the group's change date
+-  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator 
+   (The removal from the group could only be done singularly i.e. only one user per action)
+-  The number of added users is increased if some users were added to the bound group by an administrator
+
 
 .. _ManagingSites:
 
@@ -5826,4 +5896,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image366| image:: images/platform/DeleteconfirmationMessage.png
 .. |image367| image:: images/platform/SelectGroupsDrawer.png
 .. |image368| image:: images/platform/SearchDrawer2.png
+.. |image369| image:: images/platform/BindingReportsTab.png
 
