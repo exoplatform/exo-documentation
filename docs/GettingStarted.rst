@@ -1284,7 +1284,7 @@ When you display the activity details, you will see the information about the sh
 
 |image219|
 
-.. _Pinning a News:
+.. _Pinning-a-News:
 
 Pinning a News in the home page
 -------------------------------
