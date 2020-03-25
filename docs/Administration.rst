@@ -4619,7 +4619,11 @@ Then select the page *News* > *Details* from the selector "Show in page"
 
 |image353| 
 
-Finally tick the checkbox "Restricted by user role" and click on "Save" button. 
+Then tick the checkbox "Restricted by user role" and click on "Save" button. 
+
+Finally, from access permission tab, tick the checkbox "Everyone" then click on "Save and close" button.
+
+|image357| 
 
 .. note:: An issue was detected in the 5.3 version for the display of pinned news for users who are not members of the post space. This issue is due to incompatibility between News and Web-pack Addons. 
 To work around the problem you can either uninstall Web-pack addon as explained :ref:`here <eXoAddonsGuide.WCM.Installation.uninstall>` or replace the exo:news view template as explained in the following section.
@@ -4632,7 +4636,7 @@ From the Documents interface, click on 'edit' action for News template
 
 |image355| 
 
-A popup "View & Edit Template" is displayed. Go to 'View' tab and copy paste the template from the following :ref:`link <https://raw.githubusercontent.com/exoplatform/news/1.1.1/webapp/src/main/webapp/WEB-INF/conf/news/nodetypes-templates/news/views/view1.gtmpl>`__ in the content field
+A popup "View & Edit Template" is displayed. Go to 'View' tab, click on the edit button of the existing 'View' template then copy paste the template from the following :ref:`link <https://raw.githubusercontent.com/exoplatform/news/1.1.1/webapp/src/main/webapp/WEB-INF/conf/news/nodetypes-templates/news/views/view1.gtmpl>`__ in the content field and save the action.
 
 |image356| 
 
@@ -5631,3 +5635,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image354| image:: images/sharenews/content_administration.png
 .. |image355| image:: images/sharenews/news_template.png
 .. |image356| image:: images/sharenews/view_tab.png
+.. |image357| image:: images/sharenews/access_permission.png
