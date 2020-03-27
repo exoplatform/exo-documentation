@@ -4588,7 +4588,8 @@ Managing News
 How to display pinned News on a page
 -------------------------------------
 
-The pinned articles are not highlighted by default in the platform (you can refer to :ref:`this chapter <Pinning-a-News>` to know more how pin function works).
+The pinned articles are not highlighted by default in the platform (you can refer to 
+:ref:`this chapter <Pinning-a-News>` to know more how pin function works).
 
 In order to display these pinned articles in a page, edit the page layout then add a "Content by query" application at the desired location.
 
@@ -4636,7 +4637,9 @@ From the Documents interface, click on 'edit' action for News template
 
 |image355| 
 
-A popup "View & Edit Template" is displayed. Go to 'View' tab, click on the edit button of the existing 'View' template then copy paste the template from the following :ref:`link <https://raw.githubusercontent.com/exoplatform/news/1.1.1/webapp/src/main/webapp/WEB-INF/conf/news/nodetypes-templates/news/views/view1.gtmpl>`__ in the content field and save the action.
+A popup "View & Edit Template" is displayed. Go to 'View' tab, click on the edit button of the existing 'View' 
+template then copy paste the template from the following 
+`link <https://raw.githubusercontent.com/exoplatform/news/1.1.1/webapp/src/main/webapp/WEB-INF/conf/news/nodetypes-templates/news/views/view1.gtmpl>`__ in the content field and save the action.
 
 |image356| 
 
