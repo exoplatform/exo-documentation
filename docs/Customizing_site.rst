@@ -4142,18 +4142,12 @@ Customizing a shared layout
 -----------------------------
 
 In eXo Platform, the top navigation bar is a special container which is
-composed of portlets. All sites share the same top navigation bar that
-is defined in:
-* ``acme-intranet.war!/WEB-INF/conf/portal/portal/sharedlayout-intranet.xml`` for ``intranet`` site defined in ``exo-legacy-intranet`` addon
-* ``digital-workplace.war!/WEB-INF/conf/portal/portal/sharedlayout-dw.xml`` for ``dw`` site defined in ``exo-digital-workplace`` addon
-* ``portal/WEB-INF/conf/portal/portal/sharedlayout.xml`` as a fallback configuration file for sites that doesn't have defined their own file.
-
-You can see its content
-`here <https://github.com/exoplatform/platform/blob/master/extension/webapp/src/main/webapp/WEB-INF/conf/portal/portal/sharedlayout.xml>`__.
-This ``sharedlayout.xml`` file configures portlets which are currently
-displayed on the top navigation bar.
-
-|image52|
+composed of portlets. Each site can define a dedicated shared layout:
+* The addon ``exo-digital-workplace`` addon (which is installed by default) defines the site ``dw``
+  that uses the default shared latout ``portal/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+* By installing ``exo-legacy-intranet`` addon, the ``intranet`` site will be added
+  that defines a dedicated banner for it which is defined in
+  ``portal.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
 
 To override the default shared layout, you first need to copy the
 ``sharedlayout-<SITENAME>.xml`` file into
@@ -4161,6 +4155,12 @@ To override the default shared layout, you first need to copy the
 
 You can also define your own ``sharedlayout-<SITENAME>.xml`` file for your
 custom site so that you avoid redefining the built-in configuration files.
+
+.. note::
+
+      Even for ``dw`` site that uses the default configuration file, you can define ``sharedlayout-dw.xml``
+      inside your custom extension. This way, you will avoid impacting the default shared layout that could
+      be used by other sites that does not define a dedicated sharedlayout file.
 
 Followings are 4 typical examples of the top navigation bar
 configuration: removing a portlet, adding a new portlet, changing the
@@ -4172,7 +4172,7 @@ Assume that you want to remove the **Help** portlet from the top
 navigation bar, do as follows:
 
 1. Remove the following block from
-   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-<SITENAME>.xml``.
+   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-intranet.xml``.
 
    .. code:: xml
 
