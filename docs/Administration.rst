@@ -2635,8 +2635,6 @@ Managing sites include the following actions:
 
 -  :ref:`Editing asite <ManagingSites.EditingSite>`
 
--  :ref:`Selecting the site's skin <ManagingSites.SelectSkin>`
-
 -  :ref:`Deleting a site <ManagingSites.DeletingSite>`
 
 .. _CreatingNewSite:
@@ -2801,38 +2799,6 @@ In this window, you can make changes on fields in the various tabs,
 except the Portal Name field in the Portal Settings tab.
 
 .. note:: For more details on these fields, refer to the :ref:`Creating a new site <CreatingNewSite>` section.
-
-.. _ManagingSites.SelectSkin:
-
-Selecting the site's skin
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-With eXo Platform 5.0 a new ready skin is available as an add-on for
-enterprise packages.
-
-You can install it by using this command in a 5.0 eXo Platform
-package versions: ::
-
-    addon install exo-enterprise-skin
-
-Having the add-on installed in your package and being an administrator,
-you can apply it easily by following these steps:
-
-1. Click |image189| Portal Sites on the top navigation bar.
-
-2. Click on the button Edit Site Configuration, a pop up appears to
-   configure the site.
-
-3. Select the skin: either the default one or the Enterprise one
-
-|image190|
-
-and then click on save button.
-
-Going back to the site's homepage, the selected skin is applied:
-
-|image191|
 
 .. _ManagingSites.DeletingSite:
 
