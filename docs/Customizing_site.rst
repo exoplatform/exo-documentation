@@ -4144,7 +4144,7 @@ Customizing a shared layout
 In eXo Platform, the top navigation bar is a special container which is
 composed of portlets. All sites share the same top navigation bar that
 is defined in:
-* ``acme-intranet.war!/WEB-INF/conf/portal/portal/sharedlayout-intranet.xml`` for intranet site defined in ``exo-legacy-intranet`` addon
+* ``acme-intranet.war!/WEB-INF/conf/portal/portal/sharedlayout-intranet.xml`` for ``intranet`` site defined in ``exo-legacy-intranet`` addon
 * ``digital-workplace.war!/WEB-INF/conf/portal/portal/sharedlayout-dw.xml`` for ``dw`` site defined in ``exo-digital-workplace`` addon
 * ``portal/WEB-INF/conf/portal/portal/sharedlayout.xml`` as a fallback configuration file for sites that doesn't have defined their own file.
 
