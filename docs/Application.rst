@@ -464,9 +464,9 @@ Injecting a portlet using Dynamic Container
 **The mechanism**
 
 If you want to inject a portlet to every page in a site, you might add
-it directly to the shared layout (``sharedlayout.xml``). However, in
+it directly to the shared layout (``sharedlayout-<SITENAME>.xml``). However, in
 case you have more than one extension that overrides
-``sharedlayout.xml``, only the last loaded one takes effect. This leads
+``sharedlayout-<SITENAME>.xml``, only the last loaded one takes effect. This leads
 to trouble that portlets injection cannot be solved in packaging, it
 will require extra tasks in deployment (like merging several layouts
 from different projects).
@@ -478,7 +478,7 @@ shared layout and an extension get involved in how it works:
 
    To make a site ready to inject portlets, there should be some Dynamic
    Containers added to the shared layout. This is done by
-   ``sharedlayout.xml``, like this:
+   ``sharedlayout-<SITENAME>.xml``, like this:
 
    .. code:: xml
 
@@ -501,7 +501,7 @@ shared layout and an extension get involved in how it works:
    portlet drag-and-drop is not in the Dynamic Container designation.
 
 So in this way, whenever the named container instance is put into a
-page, or all pages via ``sharedlayout.xml``, the portlet injection is
+page, or all pages via ``sharedlayout-<SITENAME>.xml``, the portlet injection is
 done automatically. An extension does not have to override the layout.
 
 **Example**
@@ -576,7 +576,7 @@ Here are the Dynamic Container instances in the *Intranet* site:
 |image6|
 
 For a customized site, you can manage Dynamic Containers by `customizing
-sharedlayout.xml <#PLFDevGuide.Site.LookAndFeel.CustomizingLayout.SharedLayout>`__.
+shared layout <#PLFDevGuide.Site.LookAndFeel.CustomizingLayout.SharedLayout>`__.
 The configuration sample is given above. There are two templates of
 Dynamic Container:
 
@@ -789,7 +789,7 @@ extension <#PLFDevGuide.eXoAdd-ons.PortalExtension>`__, by adding
                 <name>Add PortalContainer Definitions</name>
                 <set-method>registerChangePlugin</set-method>
                 <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-                <priority>101</priority>
+                <priority>200</priority>
                 <init-params>
                     <values-param>
                         <name>apply.specific</name>
@@ -1682,7 +1682,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 
 		import org.exoplatform.services.mail.MailService;
 		import org.exoplatform.services.mail.Message;
-		import org.exoplatform.commons.utils.CommonsUtils;
+		import org.exoplatform.container.ExoContainerContext;
 
 		@ManagedBean
 		public class MailSender {
@@ -1714,7 +1714,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 			message.setTo(customerMailList.getMailList());
 			
 			try {
-			  ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+			  ExoContainerContext.getService(MailService.class).sendMessage(message);
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
@@ -1728,7 +1728,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 			message.setTo(partnerMailList.getMailList());
 			
 			try {
-			  ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+			  ExoContainerContext.getService(MailService.class).sendMessage(message);
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
@@ -3904,7 +3904,7 @@ added:
 .. note:: This method only works for a fresh (empty data) server because the
 	  	  categories defined in the ApplicationRegistryService configuration
 		  are created all in once when you start PRODUCT for the first time,
-		  and when the JCR repository is empty. In case the server is started
+		  and when the database is empty. In case the server is started
 		  already, you may write a portlet for this job, as described below.
 
 1. Create the category by using the following code:
@@ -4110,6 +4110,9 @@ Extending eXo applications
 -  :ref:`Overriding application templates <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.OverridingApplicationTemplates>`
    Steps to override the default template of a portlet in eXo Platform.
 
+-  :ref:`Extending HTML header element of pages <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ExtendHTMLHeader>`
+   Steps to extend http header elements of pages.
+
 -  :ref:`Applications Plugins <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins>`
    Tutorials to add plugin to eXo applications, such as Activity
    composer or action in Wiki using UI Extension framework.
@@ -4159,6 +4162,47 @@ for downloading.
 |image36|
 
 .. note:: If you are not running eXo Platform in the developer mode, you will have to restart the server.
+
+
+.. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ExtendHTMLHeader:
+
+Extending HTML header element of pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case, you need to define new elements in HTML ``<head>`` element of pages, you can define a service plugin that will allow you to inject a groovy template content in ``<head>`` element of the page.
+
+.. note:: This assumes that you have defined your ``custom-extension.war`` file using :ref:`Extension mechanism <PLFDevGuide.eXoAdd-ons.PortalExtension>`.
+
+.. note:: If you need to add:
+
+    * A stylesheet file, please refer to :ref:`Skin service <#sect-Reference_Guide-Skinning_Portal-Skin_Service>`__
+    * A javascript file, please refer to :ref:`JavaScript development <#sect-Reference_Guide-Javascript_Development>`__
+
+
+1. Add a new file under ``custom-extension.war/groovy/portal/webui/UICustomPortalApplicationHead.gtmpl``
+
+2. Add a plugin configuration that will inject your file inside ``custom-extension.war/WEB-INF/conf/configuration.xml`` :
+
+  .. code:: xml
+  
+      <external-component-plugins>
+        <target-component>org.exoplatform.groovyscript.text.TemplateService</target-component>
+        <component-plugin>
+          <name>UIPortalApplication-head</name>
+          <set-method>addTemplateExtension</set-method>
+          <type>org.exoplatform.groovyscript.text.TemplateExtensionPlugin</type>
+          <init-params>
+            <values-param>
+              <name>templates</name>
+              <description>The list of templates to include in HTML Page Header with UIPortalApplication.gtmpl</description>
+              <value>war:/groovy/portal/webui/UICustomPortalApplicationHead.gtmpl</value>
+            </values-param>
+          </init-params>
+        </component-plugin>
+      </external-component-plugins>
+
+
+.. note:: You can also add an html content at the end of body page using the same definition by using plugin name ``UIPortalApplication-End-Body`` instead of ``UIPortalApplication-head``.
 
 .. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins:
 
@@ -6365,36 +6409,18 @@ Add the following dependencies to the ``pom.xml`` file:
                 <module>webapp</module>
             </modules>
             <properties>
-                <org.exoplatform.depmgt.version>10-SNAPSHOT</org.exoplatform.depmgt.version>
-                <org.exoplatform.kernel.version>2.4.9-GA</org.exoplatform.kernel.version>
-                <org.exoplatform.core.version>2.5.9-GA</org.exoplatform.core.version>
-                <!--GateIn project's dependencies-->
-                <org.gatein.portal.version>3.5.10.Final</org.gatein.portal.version>
-                <!--Platform project's dependencies-->
-                <org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
+                <!--Platform project's dependencies (REPLACE 6.0.x-SNAPSHOT by the corresponding version)-->
+                <org.exoplatform.social.version>6.0.x-SNAPSHOT</org.exoplatform.social.version>
             </properties>
             <dependencyManagement>
                 <dependencies>
                     <!-- Import versions from platform project -->
-                    <dependency>
-                        <groupId>org.exoplatform</groupId>
-                        <artifactId>maven-depmgt-pom</artifactId>
-                        <version>${org.exoplatform.depmgt.version}</version>
-                        <type>pom</type>
-                        <scope>import</scope>
-                    </dependency>
                     <dependency>
                         <groupId>org.exoplatform.social</groupId>
                         <artifactId>social</artifactId>
                         <version>${org.exoplatform.social.version}</version>
                         <type>pom</type>
                         <scope>import</scope>
-                    </dependency>
-                    <!-- To be replaced by an import of GateIn Portal parent POM -->
-                    <dependency>
-                        <groupId>org.gatein.portal</groupId>
-                        <artifactId>exo.portal.component.portal</artifactId>
-                        <version>${org.gatein.portal.version}</version>
                     </dependency>
                 </dependencies>
             </dependencyManagement>
@@ -6629,8 +6655,8 @@ Add the following dependencies to the ``pom.xml`` file:
 			import org.exoplatform.commons.api.notification.model.ArgumentLiteral;
 			import org.exoplatform.commons.api.notification.model.NotificationInfo;
 			import org.exoplatform.commons.api.notification.plugin.BaseNotificationPlugin;
-			import org.exoplatform.commons.utils.CommonsUtils;
 			import org.exoplatform.commons.utils.ListAccess;
+      import org.exoplatform.container.ExoContainerContext;
 			import org.exoplatform.container.xml.InitParams;
 			import org.exoplatform.services.log.ExoLogger;
 			import org.exoplatform.services.log.Log;
@@ -6662,7 +6688,7 @@ Add the following dependencies to the ``pom.xml`` file:
 					Profile profile = ctx.value(PROFILE);
 					Set<String> receivers = new HashSet<String>();
 					
-					RelationshipManager relationshipManager = CommonsUtils.getService(RelationshipManager.class);
+					RelationshipManager relationshipManager = ExoContainerContext.getService(RelationshipManager.class);
 					Identity updatedIdentity = profile.getIdentity();
 					ListAccess<Identity> listAccess = relationshipManager.getConnections(updatedIdentity);
 					try {

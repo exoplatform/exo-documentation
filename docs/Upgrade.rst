@@ -51,6 +51,21 @@ In this section, we will present all the breaking changes you should
 know before starting the upgrade to 6.0 version.
 
 
+**Architecture changes**
+
+The components architecture has changed in 6.0 version:
+
+- ECMS, JCR, Forum and Calendar components are considered now as addons and are no more pre-installed in community edition.
+- Forum addon has been deprecated and its support will be removed in future versions.
+- JCR is not considered anymore as a basic component of the platform, and thus must be installed to be used.
+- Chromattic library has been deleted from pre-packaged bundle.
+- intranet site has been deprecated and moved to `exo-legacy-intranet <https://github.com/exoplatform/legacy-intranet>` addon 
+- `integration <https://github.com/exoplatform/integration>` is not used since 6.0 anymore
+- `platform <https://github.com/exoplatform/platform>` is not used since 6.0 anymore
+- `doc-style <https://github.com/exoplatform/doc-style>` is not used since 6.0 anymore
+- Layout management features has been moved to `exo-layout-management <https://github.com/exoplatform/layout-management>` addon
+- Usage and development using `Juzu <http://juzuweb.org/>` framework has been deprecated
+
 **Templates changes**
 
 Some Groovy templates have been changed in eXo Platform 6.0, check
@@ -190,19 +205,20 @@ Before the upgrade, you need to:
 -  Back up customizations (including configuration, deployed extensions
    and applications) that you plan to reuse in the new version.
 
+-  Upgrade your data to eXo Platform 5.3 before proceeding to upgrade to 6.0.
+
 -  Download eXo Platform 6.0 version.
+
+-  Make sure that all required addons are installed (especially for: exo-jcr, exo-ecms, exo-wiki, exo-calendar and exo-forum).
+
+-  Install ``exo-data-upgrade`` addon on eXo Platform 6.0 by using command line:
+
+   .. code::
+  
+      ./addon install exo-data-upgrade
 
 -  Perform one or more dry-run upgrade(s) to find out potential problems
    and estimate the upgrade time.
-   
--  :ref:`Rename <Caches-warning>` all caches.   
-   
-.. _Caches-warning:
-   
-.. warning:: The configuration properties names for caches have been changed for eXo Platform 5.1 in order 
-             to use the same names in standalone and cluster modes. 
-             In case you changed default cache configuration, take care to update the cache properties names  
-             as documented at this :ref:`documentation <Configuration.CacheConfiguration>`. 
 
 .. note:: The dry-run upgrade allows you to:
 
@@ -242,7 +258,7 @@ procedure.
 **Upgrade to a new eXo Platform version**
 
 
-1. Stop the old version of eXo Platform, in this case the 5.1 version.
+1. Stop the old version of eXo Platform, in this case the 5.3 version.
 
 2. Apply your customizations into eXo Platform 6.0.
 
@@ -264,18 +280,11 @@ procedure.
 5. Start the eXo Platform server. The upgrade will be run automatically. 
    The startup is successful when you see a message like **INFO \| Server startup in XXXX ms**.
 
+6. Once the upgrade is done successfully, you can delete ``exo-data-upgrade`` addon:
 
-.. note::-  eXo Platform 5.1 version requires the version 5.6 of
-            Elasticsearch, you should `upgrade <https://www.elastic.co/guide/en/elasticsearch/reference/5.6/setup-upgrade.html>`__
-            to this version.
-		    eXo Platform is shipped with an embedded version of Elasticsearch which **automatically starts** when eXo Platform starts. 
-		    You can deactivate it through `Elasticsearch Configuration <Configuration.ElasticSearch>`.
-			This embedded Elasticsearch instance is recommended for development and test but not for production.
-
-			For production it is recommended to run a standalone Elasticsearch cluster (please refer to :ref:`Elasticsearch documentation <#PLFAdminGuide.ElasticsearchElasticsearch>`
-			for more details). In order to use a standalone Elasticsearch cluster, some properties must be defined in
-			:ref:`exo.properties <Configuration.ConfigurationOverview>`. Please refer to :ref:`Elasticsearch Configuration <Configuration.ElasticSearch>`
-			for more details.
+   .. code::
+  
+      ./addon uninstall exo-data-upgrade
 
 
 .. _Upgrade.BestPractices:
