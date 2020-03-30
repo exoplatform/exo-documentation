@@ -256,7 +256,7 @@ You will see your global stylesheet in the Sites Management panel.
               your site successfully or not.
 
 	   -  If the Active field is set to "True" in many global stylesheets, the system will automatically merge all the global 
-	      stylesheets into the ``${site-name}/Default/Stylesheet-min-lt.css`` file of the css folder in the ascending order 
+	      stylesheets into the ``${site-name}/Enterprise/Stylesheet-min-lt.css`` file of the css folder in the ascending order 
 	      and get the stylesheet with the highest priority. 
 	      Thus, after selecting "True", to make sure that your stylesheet is applied, you need to pay attention to the priority 
 	      level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the css folder.
