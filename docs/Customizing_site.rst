@@ -254,6 +254,10 @@ permissions, move applications and containers (optional). Also, the
         </container>
     </page>
 
+A group site has the same structure as portal sites. You can define :
+- ``group.xml`` : defines group site layout
+- ``pages.xml`` : defines pages layouts
+- ``navigation.xml`` : defines pages navigation structure
 
 .. _PLFDevGuide.Site.CreateNew:
 
@@ -455,9 +459,90 @@ configure it properly in the *jar*.
 
 .. note:: Note that the ``override`` value-param should be set to *true*. This
           will be explained in the :ref:`next section <PLFDevGuide.Site.CreateNew.RedeploySiteExtension>`.
-          
-          
-.. _PLFDevGuide.Site.CreateNew.RedeploySiteExtension:          
+
+You can as well, add a group site definition in the same extension:
+
+1. Edit ``sites-definition.xml`` to declare your site(s) to the portal:
+
+   .. code:: xml
+
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+    <configuration
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+       xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+      <external-component-plugins>
+      <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+      <component-plugin>
+        <name>new.portal.config.user.listener</name>
+        <set-method>initListener</set-method>
+        <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+        <description></description>
+        <init-params>
+        <value-param>
+          <name>override</name>
+          <description></description>
+          <value>true</value>
+        </value-param>
+        <object-param>
+          <name>group.configuration</name>
+          <description></description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+          <field name="predefinedOwner">
+            <collection type="java.util.HashSet">
+            <!-- You can declare many group sites here (example of group site name: /platform/administrators) -->
+            <value><string>/GROUP_ID</string></value>
+            </collection>
+          </field>
+          <field name="ownerType">
+            <string>group</string>
+          </field>
+          <field name="templateLocation">
+            <string>war:/conf/sites</string>
+          </field>
+          <field name="importMode">
+            <string>merge</string>
+          </field>
+          </object>
+        </object-param>
+        </init-params>
+      </component-plugin>
+      </external-component-plugins>
+    </configuration>
+
+2. Edit ``WEB-INF/conf/sites/GROUP_ID/group.xml``:
+
+   .. code:: xml
+
+    <portal-config>
+      <portal-name>GROUP_ID</portal-name>
+      <locale>en</locale>
+      <access-permissions>*:GROUP_ID</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <properties>
+        <entry key="sessionAlive">never</entry>
+        <entry key="showPortletInfo">1</entry>
+      </properties>
+      <portal-layout>
+        <page-body> </page-body>
+      </portal-layout>
+    </portal-config>
+
+
+This file will define an empty layout for this group site.
+Instead of doing this, you can avoid adding this file and let
+Dynamic layout used instead for Group site.
+
+In fact, a group which is using a ``dynamic site layout`` will
+inherit the layout defined in Portal Site. This will lead to have
+a unique structure of portal definition centralized in ``portal.xml``
+of parent site to make UI coherent when navigating from a portal to a space
+or a group page.
+
+3. Add ``navigation.xml`` and ``pages.xml`` inside ``WEB-INF/conf/sites/GROUP_ID/`` as defined above.
+4. Restart the server and access the group pages.
+
+.. _PLFDevGuide.Site.CreateNew.RedeploySiteExtension:
           
 Redeploying your site extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
