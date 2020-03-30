@@ -59,10 +59,6 @@ eXo Web Pack
 Installation and Uninstallation
 ===============================
 
-The eXo Web Pack add-on is supported for Enterprise edition.
-For Community edition, you can still install it by adding the
-``--no-compat`` option.
-
 .. _eXoAddonsGuide.WCM.Installation.Install:
 
 Installation
