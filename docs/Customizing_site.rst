@@ -2186,7 +2186,7 @@ Add the preview icon as follows:
            xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 
            <portal-skin>
-               <skin-name>Default</skin-name>
+               <skin-name>Enterprise</skin-name>
                <skin-module>myStylesheet</skin-module>
                <css-path>/skin/myStylesheet.css</css-path>
            </portal-skin>
@@ -2209,20 +2209,17 @@ This section will help you to learn how to customize the look and feel
 of eXo Platform.
 
 A skin is a set of CSS and images files. eXo Platform comes with a 
-default skin called **Default**, and another one, more modern, only 
-available in the Enterprise Edition, called **Enterprise** skin. If 
-these skins do not fit your needs, eXo Platform allows you to create 
-your own skin.
+default skin called **Enterprise**.
 
-You may also want to only make some changes to an existing skin by
+You may want to only make some changes to an existing skin by
 adding or overriding style for custom portlets, native portlets, or the
 whole portal. This can be done without creating a new skin.
 
 .. tip:: The main difference between creating a new skin and customizing an
-         existing one is that when creating a new skin, the Default skin (and
+         existing one is that when creating a new skin, the Enterprise skin (and
          optionally other skins) is still available and can be used.
          Therefore a site could use the new skin and another site could still
-         use the Default skin.
+         use the Enterprise skin.
 		 So if you need to provide the capability to select multiple skins,
 		 go for creating a new skin, otherwise customizing an existing skin
 		 should be sufficient.
@@ -2375,7 +2372,7 @@ declaring them in a file ``WEB-INF/gatein-resources.xml`` in an
 
 New CSS files can be added to a portal skin, meaning they are loaded in
 all the pages of the sites using this skin. For example, in order to add
-a new CSS file to override some styles of the Default skin, the
+a new CSS file to override some styles of the Enterprise skin, the
 following configuration must be defined in the file
 ``WEB-INF/gatein-resources.xml``:
 
@@ -2383,7 +2380,7 @@ following configuration must be defined in the file
 
     <gatein-resources>
         <portal-skin>
-            <skin-name>Default</skin-name>
+            <skin-name>Enterprise</skin-name>
             <css-path>/skin/my-style.css</css-path>
             <skin-module>MyStyle</skin-module>
             <css-priority>0</css-priority>
@@ -2414,7 +2411,7 @@ In which:
       exists. This property is optional. Defaults to false.
 
 Once deployed, the CSS file ``/skin/my-style.css`` will be loaded in all
-the pages of the sites which use the **Default** skin. CSS files will be
+the pages of the sites which use the **Enterprise** skin. CSS files will be
 loaded as **link** tags in the **head** section of the web page,
 following a :ref:`defined Loading strategy <PLFDevGuide.Site.LookAndFeel.StylesheetsLoadingPriority>`,
 so before the portlets CSS files.
@@ -2438,7 +2435,7 @@ difference is that they must have a skin-module tag starting with
 
 		<gatein-resources> 
 			<portal-skin>
-				<skin-name>Default</skin-name>
+				<skin-name>Enterprise</skin-name>
 				<css-path>/skin/my-custom-module-style.css</css-path>
 				<skin-module>customModuleMyStyle</skin-module>
 				<overwrite>false</overwrite> 
@@ -2461,7 +2458,7 @@ WhoIsOnLinPortlet is available on a portal page:
         <portlet-skin>
             <application-name>homepage-portlets</application-name>
             <portlet-name>WhoIsOnLinPortlet</portlet-name>
-            <skin-name>Default</skin-name>
+            <skin-name>Enterprise</skin-name>
             <css-path>/skin/WhoIsOnLinPortlet/my-portlet-style.css</css-path>
             <css-priority>1</css-priority>
             <overwrite>false</overwrite>
@@ -2581,10 +2578,10 @@ Creating a new skin
 --------------------
 
 eXo Platform allows to create new skins. New skins are based on the
-**Default** skin. The difference between creating a new skin compared to
+**Enterprise** skin. The difference between creating a new skin compared to
 customizing an existing skin is that the new skin is available besides
-the Default skin, so a site can use the new skin while another site
-still use the Default skin.
+the Enterprise skin, so a site can use the new skin while another site
+still use the Enterprise skin.
 
 In order to create a new skin, process as follows:
 
@@ -3288,7 +3285,7 @@ instance)?**
        //Use SkinService to get the css
          SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext())
                                  .getComponentInstanceOfType(SkinService.class);
-         String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
+         String loginCssPath = skinService.getSkin("portal/login", "Enterprise").getCSSPath();
        //…
        <link href="<%=loginCssPath%>" rel="stylesheet" type="text/css"/>
 
@@ -3300,7 +3297,7 @@ instance)?**
          <portlet-skin>
            <application-name>portal</application-name>
            <portlet-name>login</portlet-name>
-           <skin-name>Default</skin-name>
+           <skin-name>Enterprise</skin-name>
            <css-path>/skin/css/platform/portlets/extensions/login.css</css-path>
          </portlet-skin>
 
@@ -4010,7 +4007,7 @@ plus the "TDContainer" string literal.
 		
 .. _RegisterNewlyCreatedCSS:		
 
-5. Register the newly created CSS in the above step for the Default skin
+5. Register the newly created CSS in the above step for the Enterprise skin
    which is currently used by the Intranet site under the
    ``gatein-resources.xml``.
 
@@ -4020,9 +4017,9 @@ plus the "TDContainer" string literal.
 						  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
 						  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 		  <portal-skin>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<skin-module>myintranet-css</skin-module>
-			<css-path>/templates/skin/DefaultStylesheet.css</css-path>
+			<css-path>/templates/skin/EnterpriseStylesheet.css</css-path>
 		  </portal-skin>
 		</gatein-resources>
 
@@ -4314,7 +4311,7 @@ grey).
 			background-position: 0 0;
 		}
 
-2. Register your CSS file to **Default** skin, by adding
+2. Register your CSS file to **Enterprise** skin, by adding
    ``custom-extension.war!/WEB-INF/gatein-resources.xml``:
 
    .. code:: xml
@@ -4323,7 +4320,7 @@ grey).
 			xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
 			xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 			<portal-skin>
-				<skin-name>Default</skin-name>
+				<skin-name>Enterprise</skin-name>
 				<skin-module>myintranet-css</skin-module>
 				<css-path>/templates/skin/DefaultStylesheet.css</css-path>
 			</portal-skin>

@@ -1243,14 +1243,14 @@ section.
 		text-decoration: underline;
 		}
 
-6. Register the newly created CSS in the above step for the Default skin
+6. Register the newly created CSS in the above step for the Enterprise skin
    which is currently used in the ACME site by adding the following 
    module to ``gatein-resources.xml``.
 
    .. code:: xml
 
 		<portal-skin>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<skin-module>myacme-css</skin-module>
 			<css-path>/templates/skin/acme/DefaultStylesheet.css</css-path>
 		</portal-skin>

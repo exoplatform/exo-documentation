@@ -828,7 +828,7 @@ The CSS resource is registered like below:
 		  <portlet-skin>
 			<application-name>hello-portlet</application-name>
 			<portlet-name>Hello</portlet-name>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<css-path>/skin/Stylesheet.css</css-path>
 		  </portlet-skin>
 		</gatein-resources>
@@ -3114,13 +3114,6 @@ This guide describes how to build a Vue.js application.
    :emphasize-lines: 3,4,10,11,20
 
     <portal-skin>
-      <skin-name>Default</skin-name>
-      <skin-module>customModuleSampleVuePortlet</skin-module>
-      <css-path>/css/sample.css</css-path>
-      <css-priority>11</css-priority>
-    </portal-skin>
-  
-    <portal-skin>
       <skin-name>Enterprise</skin-name>
       <skin-module>customModuleSampleVuePortlet</skin-module>
       <css-path>/css/sample.css</css-path>
@@ -4995,7 +4988,7 @@ for downloading.
 		  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 		  
 		  <portal-skin>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<skin-module>acme.samples</skin-module>
 			<css-path>/skin/DefaultSkin/Stylesheet.css</css-path>
 		  </portal-skin>
@@ -5442,8 +5435,8 @@ If you want more samples of such configuration, see:
 
 Edit the
 ``webapps/ecmexplorer.war!/skin/icons/24x24/DefaultStylesheet.css`` file
-(for the default Skin) and add the icon definition as below (in this
-case, the "ManageUnLock" icon is re-used but you could add your own
+and add the icon definition as below (in this case, 
+the "ManageUnLock" icon is re-used but you could add your own
 picture into the
 ``webapps/ecmexplorer.war!/skin/icons/24x24/DefaultSkin`` directory):
 
