@@ -954,17 +954,17 @@ You can uninstall them using these commands :
 
 ::
 
-    ./addon uninstall exo-wallet
-    ./addon uninstall exo-kudos
-    ./addon uninstall exo-perk-store
+    ./addon uninstall meeds-wallet
+    ./addon uninstall meeds-kudos
+    ./addon uninstall meeds-perk-store
 
 If you want to re-install them again, you should just run these commands:
 
 ::
 
-    ./addon install exo-wallet
-    ./addon install exo-kudos
-    ./addon install exo-perk-store
+    ./addon install meeds-wallet
+    ./addon install meeds-kudos
+    ./addon install meeds-perk-store
 
 
 =================================

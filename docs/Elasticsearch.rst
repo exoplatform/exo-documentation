@@ -89,7 +89,7 @@ this command:
 
 ::
 
-    ./addon uninstall exo-es-embedded
+    ./addon uninstall meeds-es-embedded
 
 or simply disable it in :ref:`exo.properties <Configuration.ConfigurationOverview>`
 by setting to false the property :ref:`exo.es.embedded.enabled <Configuration.ElasticSearch>`:
