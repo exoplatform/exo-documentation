@@ -3211,34 +3211,14 @@ This guide describes how to build a Vue.js application.
 Vuetify and Vue.js Portlet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-eXo Platform 6.0 uses Vuetify version 2.0 in multiple Portlet applications.
-This guide describes how to build an application based on Vuetify 2.0 and Vue.js 2.6.
+eXo Platform 6.0 uses Vuetify version 2.2 in multiple Portlet applications.
+This guide describes how to build an application based on Vuetify 2.2 and Vue.js 2.6.
 
 You can download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vuetify-portlet-webpack>`__ and apply the same steps described in :ref:`Develop Vue.js Portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vue>`.
 
 In addition to requirements of Vue.js application, inside a Vuetify application some additional configurations are added:
 
-1. Definition of Vuetify CSS that has to be imported globaly as defined in ``src/main/webapp/WEB-INF/gatein-resources.xml``
-
-.. code-block:: xml
-   :caption: gatein-resources.xml
-   :name: gatein-resources.xml
-
-    <portal-skin>
-      <skin-name>Default</skin-name>
-      <skin-module>customModuleVuetify</skin-module>
-      <css-path>/../eXoSkin/skin/css/vuetify/vuetify-all.css</css-path>
-      <css-priority>10</css-priority>
-    </portal-skin>
-  
-    <portal-skin>
-      <skin-name>Enterprise</skin-name>
-      <skin-module>customModuleVuetify</skin-module>
-      <css-path>/../EnterpriseSkin/skin/css/vuetify/vuetify-all.css</css-path>
-      <css-priority>10</css-priority>
-    </portal-skin>
-
-2. Definition of Vuetify javascript module as dependency in ``src/main/webapp/WEB-INF/gatein-resources.xml``:
+1. Add ``vuetify`` JS module as dependency of your custom JS module in ``src/main/webapp/WEB-INF/gatein-resources.xml``:
 
 .. code-block:: xml
    :caption: gatein-resources.xml
@@ -3246,17 +3226,17 @@ In addition to requirements of Vue.js application, inside a Vuetify application 
    :emphasize-lines: 12
 
     <portlet>
-      <name>vuetifyWebpackSample</name>
+      <name>PORTLET_NAME</name> <!-- Portlet name, defined in portlet.xml -->
       <module>
         <script>
           <minify>false</minify>
-          <path>/js/sample.bundle.js</path>
+          <path>PORTLET_MODULE_FILE_PATH</path> <!-- For example: /js/sample.bundle.js -->
         </script>
         <depends>
           <module>vue</module>
         </depends>
         <depends>
-          <module>vuetify</module>
+          <module>vuetify</module> <!-- Vuetify dependency injected in this definition file instead of using 'npm import' -->
         </depends>
         <depends>
           <module>eXoVueI18n</module>
@@ -3264,7 +3244,7 @@ In addition to requirements of Vue.js application, inside a Vuetify application 
       </module>
     </portlet>
 
-3. Add a parent DOM element with class ``VuetifyApp`` to define ``src/main/webapp/index.html``:
+2. Add a parent DOM element with class ``VuetifyApp`` to define ``src/main/webapp/index.html``:
 
 .. code-block:: html
    :caption: index.html
