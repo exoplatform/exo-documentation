@@ -639,23 +639,6 @@ Many eXo projects are public at `eXo Platform repository <https://github.com/exo
 To contribute to a project, you can follow steps described in
 `Community member contribution guide <http://developer.exoplatform.org/#id-community-contributions>`__.
 
-For usage example, after installing GIT and Maven, you can build eXo Platform
-in some steps:
-
-1. Check out the project:
-   ::
-   
-		git clone git@github.com:exoplatform/platform-public-distributions
-
-2. Go to the *platform-public-distributions* directory and build the
-   project: 
-   ::
-   
-		mvn install
-
-You will see the eXo Platform package in the
-``plf-community-tomcat-standalone/target/`` folder.
-
 .. note:: To write your own extension, see `this sample project <https://github.com/exo-samples/docs-samples/tree/master/custom-extension>`__.
 
 .. _PLFDevGuide.GettingStarted.DebugAndDevMode:
