@@ -55,7 +55,6 @@ know before starting the upgrade to 6.0 version.
 
 The components architecture has changed in 6.0 version:
 
-- ECMS, JCR, Forum and Calendar components are considered now as addons and are no more pre-installed in community edition.
 - Forum addon has been deprecated and its support will be removed in future versions.
 - JCR is not considered anymore as a basic component of the platform, and thus must be installed to be used.
 - Chromattic library has been deleted from pre-packaged bundle.

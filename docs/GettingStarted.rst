@@ -247,7 +247,7 @@ displayed as follows:
 
 |image1|
 
-    .. note:: The **Terms and Conditions Agreement** screen appears in the Commercial editions only. In the Community edition, the Account Setup form appears for the first time.
+    .. note:: The **Terms and Conditions Agreement** screen appears in the Commercial editions only.
 
 This agreement contains all terms and conditions that you need to read
 carefully before deciding to use eXo Platform. By ticking the checkbox at the

@@ -624,7 +624,7 @@ Let's say you want to deploy your add-on archived as
 		   "downloadUrl": "file://D:/java/exo-working/PLATFORM_versions/my-addon-1.0.x-SNAPSHOT.zip",
 		   "vendor": "eXo platform",
 		   "license": "LGPLv3",
-		   "supportedDistributions": ["community","enterprise"],
+		   "supportedDistributions": ["enterprise"],
 		   "supportedApplicationServers": ["tomcat","jboss"]
 		 }
 		]
@@ -699,7 +699,7 @@ Each catalog entry is a version of an add-on. Here is an entry sample:
         "license": "LGPLv3",
         "licenseUrl": "https://www.gnu.org/licenses/lgpl-3.0.txt",
         "mustAcceptLicense": false,
-        "supportedDistributions": "community,enterprise",
+        "supportedDistributions": "enterprise",
         "supportedApplicationServers": "tomcat,jboss",
         "compatibility": "[4.2.0,)"
     },
@@ -747,7 +747,7 @@ The following table explains the json keys (\* means mandatory):
 |                           | default.                                       |
 +---------------------------+------------------------------------------------+
 | ``supportedDistributions` | The eXo Platform distributions that support    |
-| `                         | the add-on (for example, Community, Enterprise |
+| `                         | the add-on (for example, Enterprise |
 | (\*)                      | - should be lowercase, comma-separated).       |
 +---------------------------+------------------------------------------------+
 | ``supportedApplicationSer | The application servers that support the       |
