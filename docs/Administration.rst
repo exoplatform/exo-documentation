@@ -3307,7 +3307,7 @@ application itself or its outer layers. To make it accessible to the
 
 3. Go to
    `http://mycompany.com:port/portal/intranet <http://mycompany.com:port/portal/intranet>`__
-    to be at the site level, then select |image213| --> Site --> Layout.
+    to be at the site level, then select |image213| --> Site --> Edit Layout.
     
     |image214|
 
@@ -3610,7 +3610,7 @@ Setting permissions on a container
 If your user account belongs to the */platform/administrators* group,
 you can set the *Access, Move Apps* and *Move Containers* permissions on
 a specific container of a page (via Edit --> Page --> Edit Layout --> 
-Page Editor) or a site (via Edit --> Site --> Layout --> Edit Inline 
+Page Editor) or a site (via Edit --> Site --> Edit Layout --> Edit Inline 
 Composer).
 
 1. Select the **Containers** tab, then hover your cursor over the 
@@ -4180,7 +4180,7 @@ avoid importing unnecessary applications, this function is hidden on the
 action bar by default. To show it on the action bar, do as follows:
 
 1. Go to the :ref:`Manage Applications page <GoToManageApplicationsPage>`
---> Edit --> Page --> Edit Layout on the Administration bar.
+--> Edit --> Page --> Edit Layout on the Edit drawer.
 
 2. Hover your cursor over the Application Registry portlet, then click
    |image267| at the upper left corner of that portlet.
@@ -4614,7 +4614,7 @@ How to access to wallets administration interface
 -------------------------------------------------
 
 Wallets administration interface allows you to manage users and spaces wallets
-To access wallets administration interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Wallet" from the drop-down menu.
+To access wallets administration interface, you have to click on "Administration" menu from the side navigation, then "Reward" --> "Wallet" from second level side bar.
 
 |image328|
 
@@ -4801,12 +4801,9 @@ Managing Gamification
 
 To manage Domains, Rules and Badges in eXo Platform, you first need
 to go to the **Gamification** page by clicking on the
-top navigation bar, and select Gamification. The **Gamification**
-choices pages will by displayed.
+side navigation bar, and in the **Gamification**, you can manage your domains, rules or Badges by choosing **Manage Domains**, **Manage Rules** or **Manage Badges**.
 
-You can manage your domains, rules or Badges by choosing **Manage Domains**, **Manage Rules** or **Manage Badges**.
-
-
+|image354|
 
 .. _ManageDomains:
 
@@ -4823,7 +4820,7 @@ Every domain have:
 
 - Action: A delete and Edit actions for domains is displayed for every line of Domains table. 
 
-
+|image356|
 
 Add Domain
 ---------
@@ -4832,6 +4829,7 @@ You can add a new domain just by clicking on **Add domain** button above the Dom
 
 A popup will be displayed containing a form to add a new domain.
 
+|image360|
 
 Fields are the same as in the Add Domain popup: 
 
@@ -4847,6 +4845,8 @@ Fields are the same as in the Add Domain popup:
 Edit Domain
 ----------
 You can edit a domain just by clicking on the edit icon of the domain you want to update. 
+
+|image363|
 
 A popup containing existing informations of the selected domain to edit will display with 2 buttons : 
 
@@ -4896,7 +4896,7 @@ Every rule have:
 
 - Actions: A delete action for each Rule in the table.
 
-|image324|
+|image356|
 
 Add Rule
 ---------
@@ -4905,7 +4905,7 @@ You can add a new rule just by clicking on **Add rule** button above the Rules t
 
 A popup will be displayed containing a form to add a new rule.
 
-|image325|
+|image359|
 
 Fields are the same as in the Add Rule popup: 
 
@@ -4928,7 +4928,7 @@ A popup containing the existing information of the selected rule to edit is disp
 - Confirm: To save the made changes on the rule
 - Cancel: To cancel changes and conserve the already existing rule.
 
-|image326|
+|image362|
 
 Delete Rule
 ----------
@@ -4956,6 +4956,26 @@ Search results contain only rules having in their Rule, description or Points fi
 
 Manage Badges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the Manage badges page, a table containing all the badges in the platform is displayed. To ease the badges' management,  a search field is available to allow you searching badges and a filter button to allow you filtering badgess by status.  
+Every badge have: 
+
+- Icon: The badge icon.
+
+- Badge: The badge name.
+
+- Description: A description of the badge to explain its goal.
+
+- Score: The number of points gained for this badge.
+
+- Domain: The domain of the badge. It could be **social**, **Teamwork**, **Knowledge**...
+
+- Enabled: The status of the badge. It could be **True** for enabled status or **false** for disabled.
+
+- Actions: A delete action for each badge in the table.
+
+|image355|
+
 Add Badge
 ----------
 
@@ -4965,7 +4985,7 @@ A search field is available allowing you to search for Badges and a filter butto
 
 A popup will be displayed containing a form to add a new Badge.
 
-|image327|
+|image358|
 
 Fields are the same as in the Add Badge popup: 
 
@@ -4983,6 +5003,8 @@ If the added badge has erroneous or missing details or even similar information 
 Edit Badge
 -----------
 You can edit a badge just by clicking on the edit icon of the corresponding badge. 
+
+|image361|
 
 A popup containing the existing information of the selected badge to edit is displayed with 2 buttons: 
 
@@ -5112,8 +5134,8 @@ navigator that shows users a page link if and only when the user has
 access permission to the page, so anonymous only see public pages.
 
 The Left Navigator is in fact "some containers and portlets" included in
-the Site Layout, so you can edit it by clicking Edit --> Site --> 
-Layout.
+the Site Layout, so you can edit it by clicking Edit icon --> Site --> 
+Edit Layout.
 
 Exactly, you need to publish the portlet **UICompanyNavigationPortlet**
 and publish its containers as well. See the illustration. There are
@@ -5142,7 +5164,7 @@ Make it public
 ~~~~~~~~~~~~~~~
 
 To publish the **intranet** site, go to either of its page, like Home
-page, and click Edit --> Site --> Layout from the top navigation bar, 
+page, and click Edit icon --> Site --> Edit Layout from the top navigation bar, 
 then select Site's Config from the Edit Inline Composer window. In the
 Permissions --> Access, tick the *Everyone* checkbox.
 
@@ -5184,7 +5206,7 @@ Navigator <BuildingOnlineCommunity.LeftNavigator>` for details.
 3. Create a web content that gives the links to login and register, as
    follows:
 
-Click Administration --> Content --> Sites Explorer. You can create the 
+Click Administration --> Content --> Sites Management. You can create the 
 content somewhere in a general drive, for example
 ``Sites Management:/intranet``.
 
@@ -5594,6 +5616,16 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |image354| image:: images/gamification/gamification_menu.png
+.. |image355| image:: images/gamification/manage_badges.png
+.. |image356| image:: images/gamification/manage_rules.png
+.. |image357| image:: images/gamification/manage_domains.png
+.. |image358| image:: images/gamification/add_badges.png
+.. |image359| image:: images/gamification/add_rules.png
+.. |image360| image:: images/gamification/add_domains.png
+.. |image361| image:: images/gamification/edit_badges.png
+.. |image362| image:: images/gamification/edit_rules.png
+.. |image363| image:: images/gamification/edit_domains.png
 .. |image364| image:: images/platform/branding_color_picker.png
 .. |image365| image:: images/platform/primary_button_style1.png
 .. |image366| image:: images/platform/primary_button_style2.png
@@ -5604,3 +5636,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image371| image:: images/platform/tertiary_tab.png
 .. |image372| image:: images/platform/Tertiary_information.png
 .. |image373| image:: images/platform/tertiary_stepper.png
+
+
