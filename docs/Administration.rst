@@ -3069,8 +3069,13 @@ for more details.
 | Show Max Window        | The option enables the page to be shown at the    |
 |                        | maximum size or not.                              |
 +------------------------+---------------------------------------------------+
-| Use dynamic layout     | The option enables the use of dynamic layout      |
-|                        | or not.                                           |
+| Use dynamic layout     | When enabled, the group (can be a space) site layout |
+|                        | will be retrieved from current PORTAL site layout. |
+|                        | This options will be turned off automatically |
+|                        | if the user edits the group site |
+|                        | layout and saves changes. |
+|                        | To turn it on again, you should edit the group site |
+|                        | properties then enable the checkbox and save changes. |
 +------------------------+---------------------------------------------------+
 
 
