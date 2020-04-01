@@ -3080,7 +3080,6 @@ for more details.
 
 
 3. Define the page layout in the Page Layout tab.
-s
 4. Define permissions in the Permissions tab. This tab consists of four
    sub-tabs named Access, Edit, Move Apps and Move Containers.
 
