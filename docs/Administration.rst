@@ -150,7 +150,7 @@ Notification administration
 eXo Platform allows administrators to enable/disable notification 
 plugins in the administrative interface.
 
-To do so, simply select |image3| --> Portal --> Notifications on the top
+To do so, simply select |image3| --> OTHER --> Notifications on the top
 administration bar.
 
 The Activity Notification Administration page will be displayed as
@@ -216,7 +216,7 @@ This section covers the following topics:
 Creating a global stylesheet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Click |image5| --> Content --> Site Explorer on the top navigation bar.
+1. Click |image5| --> Content --> Content Explorer on the side navigation bar.
 
 2. Select the ``Site Management`` drive in the drives list.
 
@@ -404,9 +404,8 @@ Only administrators and web contributors can access the Content
 Administration page to manage all workspaces, drives, node types,
 metadata, templates, queries, and more.
 
-To access the **Content Administration** page, click |image14| on the 
-top navigation bar, then select ContentContent Administration from the
-drop-down menu.
+To access the **Content Administration** page, click |image14| --> Content --> Content Administration on the 
+side navigation bar.
 
 The Content Administration page will appear.
 
@@ -414,14 +413,14 @@ The Content Administration page will appear.
 
 From this page, you can access:
 
--  **Templates** |image16|: Manage templates of documents, CLV and
+-  **Templates** : Manage templates of documents, CLV and
    metadata.
 
--  **Explorer** |image17|: Manage views, drives and tags.
+-  **Explorer** : Manage views, drives and tags.
 
--  **Repository** |image18|: Manage namespaces, node types and locks.
+-  **Repository** : Manage namespaces, node types and locks.
 
--  **Advanced** |image19|: Manage categories, queries, scripts and
+-  **Advanced** : Manage categories, queries, scripts and
    actions.
 
 .. _WorkingWithTemplates:
@@ -820,7 +819,7 @@ steps:
 
 1. Log in to eXo Platform as an administrator.
 
-2. Go to Administration Content Content Administration.
+2. Go to Administration -->  Content --> Content Administration.
 
 |image67|
 
@@ -1985,10 +1984,9 @@ This section covers the following topics:
 Adding a user
 ~~~~~~~~~~~~~~
 
-1. Click |image157| on the top navigation bar, then select Community Add
-   Users from the drop-down menu.
+1. Click |image157| --> USERS & SPACES --> Add User on the side navigation bar.
 
-A window with the Account Setting and User Profile tabs will open.
+A view with the Account Setting and User Profile tabs will open.
 
 |image158|
 
@@ -2068,8 +2066,7 @@ Managing users
 ~~~~~~~~~~~~~~~
 
 
-Click |image159| on the top navigation bar, then select Community --> 
-Manage Community from the drop-down menu.
+Click |image159| --> USERS & SPACES --> Manage Users and Groups on the side navigation bar.
 
 You will be redirected to the Users tab. By default, all active users
 will be shown in this tab.
@@ -2499,14 +2496,14 @@ through an easy to use interface .
 .. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
           ``*:/platform/administrators``) are allowed to manage spaces and templates.
           
-The spaces administration interface is accessible via the menu Administration --> Spaces.
+The spaces administration interface is accessible via the menu Administration --> USERS & SPACES --> Manage Spaces and Manage Templates.
 
 |image306|
 
-This Spaces menu contains two choices:
+We have two choices to organize spaces and its templates:
 
-- "Manage Templates" : Lets an administrator display all space templates available 
 - "Manage Spaces" : Lets an administrator configure permissions for who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
+- "Manage Templates" : Lets an administrator display all space templates available 
 
 
 
@@ -2529,7 +2526,7 @@ All templates are presented in a table with:
 
 .. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
           To display the banner, simply click on the eye icon. To close it, click outside the banner or on ESC button of the keyboard.
-          |image323|
+          
 
 Manage Spaces
 ~~~~~~~~~~~~~~~~~~
@@ -2655,9 +2652,10 @@ Creating a new site
 .. note:: You can perform this action only when you are a member of the ``/platform/administrators`` group.
 
 1. Click |image181| --> Portal --> Sites Management on side navigation bar, then click 
+
    Add New Site in the Manage Sites page;
 
-   Or, click EditSiteAdd Site.
+   Or, click Edit --> Site --> Add Site.
 
 By default, the window to create a new site, which contains the Portal
 Settings tab, will open.
@@ -3264,7 +3262,7 @@ that page. To be clearer, see the below example.
 
 For the Intranet site, the Register form is already featured by the
 Register application and put into the Register page (node) (by selecting
-|image208| --> Portal --> Sites Edit Navigation next to **intranet**).
+|image208| --> Portal --> Sites Management  then click on Edit Navigation next to **intranet**).
 
 |image209|
 
@@ -3379,7 +3377,7 @@ account belongs to the */platform/administrators* group.
 The Permissions tab can be opened in some various ways, depending on the
 following approaches.
 
-1. Click |image217| Portal Sites on the top navigation bar.
+1. Click |image217| --> Portal --> Sites Management on the side navigation bar.
 
 The **Manage Sites** page appears.
 
@@ -3519,8 +3517,6 @@ Via Edit Page:
 
 2. Click Edit --> Page --> Edit Layout.
 
-|image228|
-
 You will be directed to the Page Editor window.
 
 3. Click View Page Properties in the Page Editor window.
@@ -3647,7 +3643,6 @@ be listed when a page is edited to add portlets or widgets.
 1. Click |image234| --> OTHER --> Applications on the top navigation bar to open the
    **Manage Applications** page.
 
-|image235|
 
 2. Select one category from the list of available categories in the left
    panel, then click |image236|.
