@@ -90,7 +90,7 @@ Branding eXo Platform
 eXo Platform allows you to easily brand eXo Platform by changing your company logo
 and the color of the top navigation bar in the portal.
 
-1. Click |image0| --> Portal --> Branding on the top navigation bar.
+1. Click |image0| --> OTHER --> Branding on the top navigation bar.
 
 The Branding page will be displayed:
 
@@ -105,12 +105,11 @@ The Branding page will be displayed:
 
 -  The Select Navigation Bar Style pane: Selects the navigation bar
    style suitable to your logo. There are two styles available on the
-   portal, consisting of Dark which is default, and Light.
+   portal, consisting of Light which is default, and Dark.
 
--  The Preview pane: Displays the preview of the top navigation bar with
-   the currently defined logo and navigation bar style.
+-  The Primary, Secondary and Tertiary colors of the Digital Workplace branding.
 
-.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined in the platform.
+.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined in the Digital Workplace.
 
 
 2. Click *Drop your image here or Upload from your computer* to browse and upload the logo from your local device;
@@ -121,15 +120,19 @@ browser supports the HTML 5 and the Drag and Drop function.
 
 .. note::  Even if you delete your company logo, the default logo will be displayed..
 
-3. Click the box in the Select Navigation Bar Style pane and select one
+3. Click on Primary, Secondary and Tertiary color pickers so that your style selection from a color picker will also make the color 
+   of buttons and backgournd.
+
+
+
+4. Click the box in the Select Navigation Bar Style pane and select one
    style from the two choices displayed in radio buttons.
 
-Your style selection will also make the color of fonts on the top
-navigation bar change.
+
 
 .. tip:: If your logo is light and colorful, you should select the Dark style. If it is darker, you should select the Light style.
 
-4. Click Save to accept your changes.
+5. Click Save to accept your changes.
 
 .. _NotificationAdministration:
 
