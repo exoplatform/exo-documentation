@@ -2272,6 +2272,22 @@ By default, all existing groups will be displayed on the left panel. The
 right panel shows information of the selected group and of its members
 with the Add Member form.
 
+.. _ExistingGroups:
+
+**Existing Groups**
+
+By default, in eXo Platform there are 2 parent groups: Organzation and Platform
+**Organization** helps you to organize your company members: Employees, managers...
+**Platform** helps to define roles in the platform, it contains four sub groups:
+-  Administration: contains users having administrative roles i.e. who are able to access 
+   the Administration menu |image|.
+-  Rewarding Administrators: contains users having the right to :ref:`manage rewards <ManagingRewards>`
+-  Guests: contains external users to the platform, they have access only to public content of the platform
+-  Users: contains all the platform users able to connect to the platform.
+
+.. note: Any registred user is autolatically added to the platform/users group to be able to connect.
+
+ 
 .. _AddNewGroup:
 
 Adding a new group
@@ -2391,7 +2407,7 @@ Managing memberships
 Select the Memberships tab. Here, you can manage user roles in a
 specific group.
 
-By default, 9 membership types are available in PRODUCT including
+By default, 9 membership types are available in eXo Platform including
 Member, Author, Editor, Manager, Redactor, Validator, Webdesigner,
 Publisher and \*.
 
@@ -5581,3 +5597,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |image354| image:: images/platform/Admin_menu.png
