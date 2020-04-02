@@ -1172,7 +1172,7 @@ You can add a file or many files to your post by clicking on the "Add a file" op
 
 |image222|
 
-From the dislayed interface, you have three possible options to add a file :
+From the displayed interface, you have three options to add a file :
 
 - Drag and drop a file into the upload area
 - Upload manually from your device 
