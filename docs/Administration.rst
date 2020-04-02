@@ -2644,7 +2644,7 @@ Creating a new site
 
 .. note:: You can perform this action only when you are a member of the ``/platform/administrators`` group.
 
-1. Click |image181| Portal Sites on the top navigation bar, then click 
+1. Click |image181| --> Portal --> Sites Management on side navigation bar, then click 
    Add New Site in the Manage Sites page;
 
    Or, click EditSiteAdd Site.
@@ -3069,9 +3069,17 @@ for more details.
 | Show Max Window        | The option enables the page to be shown at the    |
 |                        | maximum size or not.                              |
 +------------------------+---------------------------------------------------+
+| Use dynamic layout     | When enabled, the group (can be a space) site layout |
+|                        | will be retrieved from current PORTAL site layout. |
+|                        | This options will be turned off automatically |
+|                        | if the user edits the group site |
+|                        | layout and saves changes. |
+|                        | To turn it on again, you should edit the group site |
+|                        | properties then enable the checkbox and save changes. |
++------------------------+---------------------------------------------------+
+
 
 3. Define the page layout in the Page Layout tab.
-
 4. Define permissions in the Permissions tab. This tab consists of four
    sub-tabs named Access, Edit, Move Apps and Move Containers.
 
@@ -3514,7 +3522,7 @@ You will be directed to the Page Editor window.
 Via Pages Management:
 ----------------------
 
-1. Select |image229| --> Portal --> Pages on the top navigation bar to 
+1. Select |image229| --> Portal --> Manage Pages on the side navigation bar to 
    open the Pages Management page.
 
 2. Locate the page you want to edit using the Page Id column, then click
@@ -3626,7 +3634,7 @@ Setting Access permission on a category
 Setting the *Access* permission on categories allows these categories to
 be listed when a page is edited to add portlets or widgets.
 
-1. Click |image234| Applications on the top navigation bar to open the
+1. Click |image234| --> OTHER --> Applications on the top navigation bar to open the
    **Manage Applications** page.
 
 |image235|
@@ -3704,8 +3712,8 @@ Each group has only one page navigation. Only managers or users with the
 administrators group can add/list/edit/delete the navigation or edit
 properties.
 
-To manage the group's page navigation, click |image238| --> Portal -->
-Group Sites on the top navigation bar.
+To manage the group's page navigation, click |image238| --> Portal  -->
+Group Sites Management on the top navigation bar.
 
 The **Group Navigation Management** page will appear.
 
@@ -3964,7 +3972,7 @@ Managing applications
 
 To manage categories, portlets and gadgets in a portal, you first need
 to go to the **Manage Applications** page by clicking |image247| on the
-top navigation bar, and select Applications. The **Manage Applications**
+side navigation bar, and select Applications on **OTHERS** section. The **Manage Applications**
 page will appear.
 
 |image248|
