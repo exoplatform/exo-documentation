@@ -1049,14 +1049,6 @@ other space members (in the space's activity stream):
          
                 |image155|
 
-A new way to share in the activity stream is available via a clickable text "Try the new composer" just above the current composer.
-
-|image220|
-
-Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your audience or a space's audience.
-
-|image221|
-
 
 .. _text-message:
 
@@ -1157,6 +1149,61 @@ the link.
 |image77|
 
     .. note:: If the activity composer is empty, the |image78| button still grey and unclickable until adding something (a text message, a link or a file) in the activity composer area.
+
+
+.. _News-composer:	
+	
+Posting in the activity stream via the New Composer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+
+A new way to share in the activity stream is available via a clickable text "Try the new composer" just above the current home page and space's composers.
+
+|image220|
+
+Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your connections or a space's audience.
+
+|image221|
+
+
+Posting files in the activity stream
+-------------------------------------
+
+You can add a file or many files to your post by clicking on the "Add a file" option from the composer's drawer.
+
+|image222|
+
+From the displayed interface, you have three options to add a file :
+
+- Drag and drop a file into the upload area
+- Upload manually from your device 
+- Select from existing uploads
+
+|image223|
+
+Once you attached your file(s), you have to click on 'Apply' button to save the action and be redirected to the first composer's drawer.
+
+|image224|
+
+You can add a text message or not and then click on 'Post' button to share the file(s) in the activity stream.
+
+|image225|
+
+.. note:: If the upload is still in progress when you apply the attachments, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
+
+
+Posting links in the activity stream
+-------------------------------------
+
+When you copy and paste a link or a video link into the text area, if the link is recognized, a preview appears at the bottom of the typing area. 
+You have the possibility to delete it if you don't want to have a preview in your post using the 'X' icon.
+
+|image226|
+
+|image227|
+
+
+.. note:: The supported video players are Youtube, Vimeo and Dailymotion.
+
 
 .. _News:
 
@@ -2398,3 +2445,9 @@ to display the original timestamp of the comment.
 .. |image219| image:: images/sharenews/shared_details.png
 .. |image220| image:: images/new_composer/new_composer.png
 .. |image221| image:: images/new_composer/composer_drawer.png
+.. |image222| image:: images/new_composer/add_a_file.png
+.. |image223| image:: images/new_composer/attach_files.png
+.. |image224| image:: images/new_composer/attached_files.png
+.. |image225| image:: images/new_composer/attached_files_composer.png
+.. |image226| image:: images/new_composer/insert_video.png
+.. |image227| image:: images/new_composer/insert_link.png
