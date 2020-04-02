@@ -1194,7 +1194,7 @@ You can add a text message or not and then click on 'Post' button to share the f
 Posting links in the activity stream
 -------------------------------------
 
-When you copy and paste a link or a video link into the text area, if the link is regognized, a preview will apear at the buttom of the typing area. 
+When you copy and paste a link or a video link into the text area, if the link is recognized, a preview appears at the bottom of the typing area. 
 You have the possibility to delete it if you don't want to have a preview in your post using the 'X' icon.
 
 |image226|
