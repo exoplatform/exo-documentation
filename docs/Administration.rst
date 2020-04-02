@@ -87,10 +87,9 @@ Administering eXo Platform
 Branding eXo Platform
 ======================
 
-eXo Platform allows you to easily brand eXo Platform by changing your company logo
-and the color of the top navigation bar in the portal.
+eXo Platform allows you to easily brand **eXo Platform** by changing your company logo, the color of the top navigation bar in the portal and picking colors for your buttons, titles, etc..
 
-1. Click |image0| --> OTHER --> Branding on the top navigation bar.
+1. Click |image0| --> OTHER --> Branding on the side navigation bar.
 
 The Branding page will be displayed:
 
@@ -98,16 +97,16 @@ The Branding page will be displayed:
 
 **Details**:
 
--  The Company Name pane: Uploads your company name to be displayed in the topbar.
+-  The Company Name pane: Uploads your company name to be displayed in the topbar and will be used in the left side of the top navigation bar.
 
 -  The Select Logo pane: Uploads your company logo that must be in the
    ``.png`` format, and with Recommended size **300x34** and a transparent background.
 
+-  The Primary, Secondary and Tertiary colors of the Digital Workplace branding.
+
 -  The Select Navigation Bar Style pane: Selects the navigation bar
    style suitable to your logo. There are two styles available on the
    portal, consisting of Light which is default, and Dark.
-
--  The Primary, Secondary and Tertiary colors of the Digital Workplace branding.
 
 .. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined in the Digital Workplace.
 
@@ -123,10 +122,16 @@ browser supports the HTML 5 and the Drag and Drop function.
 3. Click on Primary, Secondary and Tertiary color pickers so that your style selection from a color picker will also make the color 
    of buttons and backgournd.
 
+|image364|
+
+You can use the color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value of the selected color or put on your HEX and it will be automatically identified, or even you can select a color from the palette.
+
+.. note::  -  Primary color Call to action color, Emphasized titles, text hover or press, hyper-links or selected links.
+       -  Secondary color is used for to Default Titles, Headings and default buttons text and Exceptions.
 
 
 4. Click the box in the Select Navigation Bar Style pane and select one
-   style from the two choices displayed in radio buttons.
+   style from the two choices, Light or Dark, displayed in radio buttons.
 
 
 
@@ -5584,3 +5589,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |image364| image:: images/platform/branding_color_picker.png
