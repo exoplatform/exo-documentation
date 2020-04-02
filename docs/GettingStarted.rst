@@ -1180,7 +1180,7 @@ From the displayed interface, you have three options to add a file :
 
 |image223|
 
-Once you attach your file(s), you have to click on 'Apply' button to save the action and be redirected to the first composer's drawer.
+Once you attached your file(s), you have to click on 'Apply' button to save the action and be redirected to the first composer's drawer.
 
 |image224|
 
