@@ -124,10 +124,11 @@ browser supports the HTML 5 and the Drag and Drop function.
 
 |image364|
 
-You can use the color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value of the selected color or put on your HEX and it will be automatically identified, or even you can select a color from the palette.
+You can use the color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value of the selected color or put on your HEX and it will be automatically identified, or even you can select a predefined color from the palette.
 
-.. note::  -  Primary color Call to action color, Emphasized titles, text hover or press, hyper-links or selected links.
-       -  Secondary color is used for to Default Titles, Headings and default buttons text and Exceptions.
+.. note::  -  Primary color Call to action color, Emphasized titles, text hover or press, hyper-links or selected links (Primary and text buttons, Notifications, Actions icon buttons, Spaces and avatars names, mention tags, etc..)
+       -  Secondary color is used for to Default Titles, Headings and default buttons text (like in Selected menu).
+      -  Tertiary color is used for Exceptions, active tabs, Badges, inactive icons (non clickable icons) and stepper.
 
 
 4. Click the box in the Select Navigation Bar Style pane and select one
