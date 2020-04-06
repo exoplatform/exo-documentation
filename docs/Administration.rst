@@ -60,19 +60,19 @@ Administering eXo Platform
     -  :ref:`Managing applications <ManagingApplications>`
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
-	  
-	-  :ref:`Managing News <ManagingNews>`
+    
+  -  :ref:`Managing News <ManagingNews>`
        How to manage News related pages and content.
-	  
+    
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
-	-  :ref:`Managing kudos <ManagingKudos>`
+  -  :ref:`Managing kudos <ManagingKudos>`
        How to manage the use of kudos by users.
-	   
-	-  :ref:`Managing rewards <ManagingRewards>`
+     
+  -  :ref:`Managing rewards <ManagingRewards>`
        How to manage the rewarding programs.
-	   
+     
     -  :ref:`Managing gamification <ManagingGamification>`
        How to manage domains, rules and badges, and introduction
        to management and monitoring gamification in eXo Platform.
@@ -87,9 +87,9 @@ Administering eXo Platform
 Branding eXo Platform
 ======================
 
-eXo Platform can be easily branded by setting your company logo, changing the color of the top navigation bar in the portal and picking colors for your buttons, titles, etc..
+eXo Platform allows you to easily brand **eXo Platform** by changing your company logo, the color of the top navigation bar in the portal and picking colors for your buttons, titles, etc..
 
-1. Click |image0| --> OTHER --> Branding on the side navigation panel.
+1. Click |image0| --> OTHER --> Branding on the side navigation bar.
 
 The Branding page will be displayed:
 
@@ -97,18 +97,18 @@ The Branding page will be displayed:
 
 **Details**:
 
--  The Company Name pane: Uploads your company name to be displayed in the top bar.
+-  The Company Name pane: Uploads your company name to be displayed in the topbar and will be used in the left side of the top navigation bar.
 
 -  The Select Logo pane: Uploads your company logo that must be in the
    ``.png`` format, and with Recommended size **300x34** and a transparent background.
 
--  The Primary, Secondary and Tertiary colors of the user interface.
+-  The Primary, Secondary and Tertiary colors of the Digital Workplace branding.
 
 -  The Select Navigation Bar Style pane: Selects the navigation bar
    style suitable to your logo. There are two styles available on the
    portal, consisting of Light which is default, and Dark.
 
-.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined.
+.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined in the Digital Workplace.
 
 
 2. Click *Drop your image here or Upload from your computer* to browse and upload the logo from your local device;
@@ -119,16 +119,17 @@ browser supports the HTML 5 and the Drag and Drop function.
 
 .. note::  Even if you delete your company logo, the default logo will be displayed..
 
-3. Click on Primary, Secondary and Tertiary color pickers to set the color of buttons and background
-  
+3. Click on Primary, Secondary and Tertiary color pickers so that your style selection from a color picker will also make the color 
+   of buttons and backgournd.
 
 |image364|
 
-You can use the color picker right to select a color and get the HTML color code of this pixel. Also you get the hexadecimal color code value of the selected color or directly enter the hexadecimal code and it will be automatically recognized. Finally, you can also select a predefined color from the palette.
+You can use the color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value of the selected color or put on your HEX and it will be automatically identified, or even you can select a predefined color from the palette.
 
-.. note::  -  Primary color is used for main call to actions, emphasized titles, text hover or press, hyper-links or selected links (Primary and text buttons, Notifications, Actions icon buttons, Spaces and avatars names, mention tags, etc..)
-       -  Secondary color is used for to Default Titles, Headings and default buttons text (like in Selected menu).
-      -  Tertiary color is used for Exceptions, active tabs, Badges, inactive icons (non clickable icons) and stepper.
+.. note::  -  Primary color Call to action color, Emphasized titles, text hover or press, hyper-links |image367| or selected links (Primary |image366| and text buttons |image365|, Notifications, Actions icon buttons, Spaces and avatars names, mention tags |image369|, |image368|, etc..) 
+
+       -  Secondary color is used for to Default Titles, Headings and default buttons text (like in Selected menu |image370|).
+      -  Tertiary color is used for Exceptions, active tabs |image371|, Badges, inactive icons (non clickable icons) |image372| and stepper |image373|.
 
 
 4. Click the box in the Select Navigation Bar Style pane and select one
@@ -181,8 +182,8 @@ below:
 -  **Address**: Defines the email address of the sender in the *From*
    field. It must be in the correct form, such as username@abc.com.
 
-.. note::	 -  Once a notification type is disabled, it will disappear from the Notification Settings page of all users, and no new notification of this type is sent anymore.
-			 -  The **My Tasks** settings are available only if the :ref:`Task Management <ManageTasks>` add-on is  installed.
+.. note::  -  Once a notification type is disabled, it will disappear from the Notification Settings page of all users, and no new notification of this type is sent anymore.
+       -  The **My Tasks** settings are available only if the :ref:`Task Management <ManageTasks>` add-on is  installed.
 
 .. _CustomizingLookAndFeel:
 
@@ -246,12 +247,12 @@ Creating a global stylesheet
    
    ::
    
-		.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
-			background-color: orange;
+    .UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
+      background-color: orange;
                         background-image: none;
-			background-repeat: repeat-x;
-			border-bottom: 1px solid #2C3440;
-		}
+      background-repeat: repeat-x;
+      border-bottom: 1px solid #2C3440;
+    }
 
 
 
@@ -264,19 +265,19 @@ You will see your global stylesheet in the Sites Management panel.
            -  The values in both of the Active and Priority fields decide if your newly created global stylesheet is applied into 
               your site successfully or not.
 
-	   -  If the Active field is set to "True" in many global stylesheets, the system will automatically merge all the global 
-	      stylesheets into the ``${site-name}/Enterprise/Stylesheet-min-lt.css`` file of the css folder in the ascending order 
-	      and get the stylesheet with the highest priority. 
-	      Thus, after selecting "True", to make sure that your stylesheet is applied, you need to pay attention to the priority 
-	      level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the css folder.
+     -  If the Active field is set to "True" in many global stylesheets, the system will automatically merge all the global 
+        stylesheets into the ``${site-name}/Enterprise/Stylesheet-min-lt.css`` file of the css folder in the ascending order 
+        and get the stylesheet with the highest priority. 
+        Thus, after selecting "True", to make sure that your stylesheet is applied, you need to pay attention to the priority 
+        level so that the selected priority of your stylesheet is higher than those of other global stylesheets in the css folder.
 
-	   -  The default global stylesheet will be automatically created in the css folder when you create a new site. 
-	      However, this global stylesheet can be overwritten by either setting "False" for its Active field or setting the higher 
-	      priority for other global stylesheet than that of the default global stylesheet.
+     -  The default global stylesheet will be automatically created in the css folder when you create a new site. 
+        However, this global stylesheet can be overwritten by either setting "False" for its Active field or setting the higher 
+        priority for other global stylesheet than that of the default global stylesheet.
               
             -  When you want to create a common stylesheet to share for all sites in the portal, you should create one in the 
-	      Sites Management/shared/css folder. This stylesheet will be rendered and applied into your desired site when you 
-	      switch to it.
+        Sites Management/shared/css folder. This stylesheet will be rendered and applied into your desired site when you 
+        switch to it.
 
 .. _EditGlobalStylesheet:
 
@@ -477,8 +478,8 @@ each sub-type or define a new template.
    Content**.
 
 .. note:: -  **Contact Us** and **Product** are for the ACME site, so these templates only appear when the ACME site is enabled.
-		  -  **Accessible Breadcrumb**, **Accessible Navigation** and  **Accessible Site Search Box** are for the WAI site, so these templates only appear when the WAI site is enabled.
-		  -  **Populate to Menu** only appears in the list of Action templates when the ACME site is enabled.
+      -  **Accessible Breadcrumb**, **Accessible Navigation** and  **Accessible Site Search Box** are for the WAI site, so these templates only appear when the WAI site is enabled.
+      -  **Populate to Menu** only appears in the list of Action templates when the ACME site is enabled.
 
 Editing/Deleting a Document template
 ``````````````````````````````````````
@@ -517,9 +518,9 @@ The View & Edit Template form appears.
    existing stylesheet.
 
 .. note:: -  You cannot delete the default dialog/view.
-		  -  You cannot change the dialog/view/CSS name.
-		  -  If you click Enable Versioning or Versioning activated checkbox, the edited dialog/view/CSS automatically increments one version after you have clicked **Save**. It is displayed at the Version column.
-		  -  After the dialog/view/CSS has been enabled versioning, you will see the Versions field and the Restore button at the bottom of the form. You can use Restore to roll back to a selected version.
+      -  You cannot change the dialog/view/CSS name.
+      -  If you click Enable Versioning or Versioning activated checkbox, the edited dialog/view/CSS automatically increments one version after you have clicked **Save**. It is displayed at the Version column.
+      -  After the dialog/view/CSS has been enabled versioning, you will see the Versions field and the Restore button at the bottom of the form. You can use Restore to roll back to a selected version.
 
 **Deleting a Document template**
 
@@ -909,8 +910,8 @@ Editing/Deleting an Explorer template
 2. Change the current template's properties.
 
 .. note:: -  You cannot edit the template name.
-		  -  If you tick the Enabled Version checkbox, this template will automatically increase to one version after you have clicked Save. Then, the Edit Explorer Template form has more the Select Version field.
-		  -  If the template has at least two versions, the Edit Explorer Template form displays Restore at the form bottom that allows restoring to a selected version.
+      -  If you tick the Enabled Version checkbox, this template will automatically increase to one version after you have clicked Save. Then, the Edit Explorer Template form has more the Select Version field.
+      -  If the template has at least two versions, the Edit Explorer Template form displays Restore at the form bottom that allows restoring to a selected version.
 
 3. Click Save to accept all changes.
 
@@ -1137,7 +1138,7 @@ Adding a tag style
 3. Click Update to accept adding a new tag style.
 
 .. note:: The format of valid range must be: a..b where 'a', 'b' are positive integers. You can use \* instead of 'b' to indicate it is unlimited. For example, 0..2 (means 0-2 documents assigned to a tag), 10..\* (means at least 10 documents assigned to a tag).
-		  The HTML Style textbox cannot be empty. You can change values of font size, font weight, color, font family, and text decoration later.
+      The HTML Style textbox cannot be empty. You can change values of font size, font weight, color, font family, and text decoration later.
 
 .. _SettingPermissionsOnPublicTags:
 
@@ -1476,7 +1477,7 @@ Adding a category tree
 
 .. note:: -  Do not input some special characters into the Name field, such as: ``!,#,$,&,\*,(,)``.
 
-		  -  Do not add a category which has the same name and level with existing taxonomies in a node.
+      -  Do not add a category which has the same name and level with existing taxonomies in a node.
 
 
 .. _WorkingWithAdvancedConfiguration.Queries:
@@ -2258,9 +2259,9 @@ should be noticed:
 
 .. note:: -  Users/groups permitted to access this application can suspend users. By default, this permission is granted to the *platform/administrator* group.
 
-		  -  A user cannot suspend himself, one warning appears if he attempts to do this.
+      -  A user cannot suspend himself, one warning appears if he attempts to do this.
 
-		  -  The superuser *root* cannot be suspended.
+      -  The superuser *root* cannot be suspended.
 
 3. To re-activate a user, simply switch Active ? button corresponding to
    this user to No.
@@ -2368,7 +2369,7 @@ Adding a user to a group
    of any changes. See more information of membership types :ref:`here <ManagingYourOrganization.ManagingMemberships>`.
 
 .. note:: -  Under the Spaces group, if you select the \* membership for a user in any space group, the user will have the right to access the corresponding :ref:`Space Settings <Manage-Space-Settings>`.
-		     Besides, this user will be listed as a manager in the :ref:`Members <ManagingMembers>` tab as well as an administrator in the :ref:`member list <MembersListOfSpace>` of the space.
+         Besides, this user will be listed as a manager in the :ref:`Members <ManagingMembers>` tab as well as an administrator in the :ref:`member list <MembersListOfSpace>` of the space.
 
 4. Click Save to accept adding the selected users to the specific group
    with the specified membership type.
@@ -3342,7 +3343,7 @@ exact URL of the Register page.
 .. note:: -  In this section, some examples and screenshots use :ref:`default groups and memberships <#PLFAdminGuide.Configuration.PredefinedUserGroupMembership>`
              that are ready-made by configuration. To create groups and memberships as you want, see :ref:`Managing your organization <ManagingYourOrganization>`.
 
-		  -  Do not misunderstand that labels of predefined membership types, such as "manager" or "publisher", represent their permissions.
+      -  Do not misunderstand that labels of predefined membership types, such as "manager" or "publisher", represent their permissions.
              This means, those labels do not define any permissions. If you create a page, you are the person who decides if a "manager" has access to your page or not.
 
 Permissions in this section are divided into:
@@ -3461,11 +3462,11 @@ Move Apps permission
 .. note:: Unless a more restrictive permission is defined for a container (See :ref:`Setting Permissions on a Container <ManagingPermissions.SettingContainerPermissions>`), users who are granted the **Move Apps** permission on a site are able to do the followings when 
           :ref:`editing the site layout <EditingLayout>`:
 
-			-  Add new applications from the **Edit Inline Composer** to the site layout via drag and drop.
+      -  Add new applications from the **Edit Inline Composer** to the site layout via drag and drop.
 
-			-  Move applications contained in the site layout via drag and drop.
+      -  Move applications contained in the site layout via drag and drop.
 
-		  Users who are not granted the **Move Apps** permission on a site are unable to see the *Remove Portlet* icon on applications as well as drag or drop these applications on the site layout.
+      Users who are not granted the **Move Apps** permission on a site are unable to see the *Remove Portlet* icon on applications as well as drag or drop these applications on the site layout.
 
 .. _SettingPortalPermissions.MoveContainersPermission:
 
@@ -3482,13 +3483,13 @@ Move Containers permission
    You can add several memberships to a group as in :ref:`adding Access permission <SettingPortalPermissions.AccessPermission>`.
 
 .. note:: Unless a more restrictive permission is defined for a container (See :ref:`Setting Permissions on a Container <ManagingPermissions.SettingContainerPermissions>`),
-		  users who are granted the **Move Containers** permission on a site are able to do the followings when :ref:`editing the site layout <EditingLayout>`:
+      users who are granted the **Move Containers** permission on a site are able to do the followings when :ref:`editing the site layout <EditingLayout>`:
 
-			-  Add new containers from the **Edit Inline Composer** to the site layout via drag and drop.
+      -  Add new containers from the **Edit Inline Composer** to the site layout via drag and drop.
 
-			-  Move containers contained in the site layout via drag and drop.
+      -  Move containers contained in the site layout via drag and drop.
 
-		  Users who are not granted the **Move Containers** permission on a site are unable to see the *Delete Container* icon on containers as well as drag or drop these containers on the site layout.
+      Users who are not granted the **Move Containers** permission on a site are unable to see the *Delete Container* icon on containers as well as drag or drop these containers on the site layout.
 
 .. note:: If you do not specify which groups or users for the **Move Containers** or **Move Apps** permissions, those who are granted the :ref:`Edit permission <SettingPortalPermissions.EditPermission>` will have these permissions.
 
@@ -3570,11 +3571,11 @@ stated in :ref:`this section <SettingPortalPermissions.MoveAppsPermission>`.
 .. note:: Unless a more restrictive permission is defined for a container (see :ref:`Setting Permissions on a Container <ManagingPermissions.SettingContainerPermissions>`),
           users who are granted the **Move Apps** permission on a page are able to do the followings via Edit Page Edit Layout:
 
-			-  Add new applications from the **Page Editor** to the page layoutvia drag and drop.
+      -  Add new applications from the **Page Editor** to the page layoutvia drag and drop.
 
-			-  Move applications contained in the page layout via drag and drop.
+      -  Move applications contained in the page layout via drag and drop.
 
-		  Users who are not granted the **Move Apps** permission on a page are unable to see the *Delete Portlet* icon on applications as well as drop these applications on the page layout.
+      Users who are not granted the **Move Apps** permission on a page are unable to see the *Delete Portlet* icon on applications as well as drop these applications on the page layout.
 
 .. _.. _SettingPagePermissions.MoveContainersPermission:
 
@@ -3585,13 +3586,13 @@ To assign the *Move Containers* permission on a page, simply follow
 steps as stated in :ref:`this section <SettingPortalPermissions.MoveContainersPermission>`.
 
 .. note:: Unless a more restrictive permission is defined for a container (see :ref:`Setting Permissions on a Container <ManagingPermissions.SettingContainerPermissions>`),
-		  users who are granted the **Move Containers** permission on a page are able to do the followings via Edit Page Edit Layout:
+      users who are granted the **Move Containers** permission on a page are able to do the followings via Edit Page Edit Layout:
 
-			-  Add new containers from the **Page Editor** to the page layout via drag and drop.
+      -  Add new containers from the **Page Editor** to the page layout via drag and drop.
 
-			-  Move containers contained in the page layout via drag and drop.
+      -  Move containers contained in the page layout via drag and drop.
 
-		  Users who are not granted the **Move Containers** permission on a page are unable to see the *Delete Container* icon on containers laid directly on the page layout.
+      Users who are not granted the **Move Containers** permission on a page are unable to see the *Delete Container* icon on containers laid directly on the page layout.
 
 
 
@@ -3619,11 +3620,11 @@ Composer).
    *Move Containers* tabs to add the corresponding permissions to 
    specific groups.
 
-.. note:: 	-  Users who are not granted the *Move Apps* permission on a container do not see the *Delete Portlet* icon laid directly on applications contained in the container in edit mode.
+.. note::   -  Users who are not granted the *Move Apps* permission on a container do not see the *Delete Portlet* icon laid directly on applications contained in the container in edit mode.
 
-			-  Users who are not granted the *Move Containers* permission on a container do not see the *Delete Container* icon in edit mode.
+      -  Users who are not granted the *Move Containers* permission on a container do not see the *Delete Container* icon in edit mode.
 
-			-  Users who are granted the *Move Apps* or *Move Containers* permissions on a container can add new applications or containers from the composer to this container via drag and drop. Besides, they can move the applications or containers contained in this container via drag and drop.
+      -  Users who are granted the *Move Apps* or *Move Containers* permissions on a container can add new applications or containers from the composer to this container via drag and drop. Besides, they can move the applications or containers contained in this container via drag and drop.
 
 .. _ManagingPermissions.SettingAccessPermissionOnCategory:
 
@@ -3700,11 +3701,11 @@ right-click your desired node to open the drop-down menu.
 
 |image237|
 
-.. note::	 -  The users under the */platform/administrators* group can do actions related to the site navigation.
+.. note::  -  The users under the */platform/administrators* group can do actions related to the site navigation.
 
-			-  The navigation of a site is created automatically when a site is created.
+      -  The navigation of a site is created automatically when a site is created.
 
-			-  The navigation will be deleted automatically after its site has been deleted.
+      -  The navigation will be deleted automatically after its site has been deleted.
 
 **Group navigation**
 
@@ -3729,7 +3730,7 @@ Setting set to a page.
 .. note:: The page navigation of a user will be created automatically when the user is created (registered).
           Only the user who is the owner of the user page navigation can edit it.
 
-		  No one can create a user page navigation so that no one can delete it. The navigation will be deleted automatically when its user is deleted.
+      No one can create a user page navigation so that no one can delete it. The navigation will be deleted automatically when its user is deleted.
 
 .. _ManagingNavigations.AddingNewNode:
 
@@ -3867,7 +3868,7 @@ The Add/Edit Page Node form appears.
 
 .. note:: To select a page, you must be a member in the **Access Permission** or **Edit Permission** list of the selected pages. When the page type is 'User', you cannot select a page of other users.
 
-		  If you do not have the *Access* permission for any page in the list, please contact your administrator to get appropriate permissions.
+      If you do not have the *Access* permission for any page in the list, please contact your administrator to get appropriate permissions.
 
 .. _ManagingNavigations.EditingNewNode:
 
@@ -4321,7 +4322,7 @@ interface details.
    to specific groups.
 
 .. note:: If you set the \* permission to a group, all users of that group will have the right to view this portlet, regardless of their membership role. 
-	      See the :REF:`Setting Access permission on a portlet <ManagingPermissions.SettingAccessPermissionOnPortlet>` section for details on how to assign the access permission on a portlet.
+        See the :REF:`Setting Access permission on a portlet <ManagingPermissions.SettingAccessPermissionOnPortlet>` section for details on how to assign the access permission on a portlet.
 
 4. Click Save And Close to accept your changes, then click |image279| to
    quit the Edit Inline Composer/ Page Editor page.
@@ -4369,7 +4370,7 @@ For example:
 
 .. note:: To add the newly added remote gadget to a specific category, simply click the "Click here to add into categories" link at the bottom of the right panel. The table listing all categories will appear and allow you to select your desired category.
 
-		  To update information of the added gadget, simply click |image283| to refresh information.
+      To update information of the added gadget, simply click |image283| to refresh information.
 
 -  You can delete a local gadget using |image284| corresponding to each
    gadget in the left gadgets list.
@@ -5591,3 +5592,12 @@ The following image shows the screen when an anonymous user accesses
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
 .. |image364| image:: images/platform/branding_color_picker.png
+.. |image365| image:: images/platform/primary_button_style1.png
+.. |image366| image:: images/platform/primary_button_style2.png
+.. |image367| image:: images/platform/primary_label_button.png
+.. |image368| image:: images/platform/primary_activity.png
+.. |image369| image:: images/platform/Primary_tag.png
+.. |image370| image:: images/platform/secondary_button_sidebar.png
+.. |image371| image:: images/platform/tertiary_tab.png
+.. |image372| image:: images/platform/Tertiary_information.png
+.. |image373| image:: images/platform/tertiary_stepper.png
