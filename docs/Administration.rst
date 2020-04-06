@@ -102,7 +102,7 @@ The Branding page will be displayed:
 -  The Select Logo pane: Uploads your company logo that must be in the
    ``.png`` format, and with Recommended size **300x34** and a transparent background.
 
--  The Primary, Secondary and Tertiary colors of the Digital Workplace branding.
+-  The Primary, Secondary and Tertiary colors of the user interface.
 
 -  The Select Navigation Bar Style pane: Selects the navigation bar
    style suitable to your logo. There are two styles available on the
