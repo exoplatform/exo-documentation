@@ -120,7 +120,7 @@ browser supports the HTML 5 and the Drag and Drop function.
 .. note::  Even if you delete your company logo, the default logo will be displayed..
 
 3. Click on Primary, Secondary and Tertiary color pickers so that your style selection from a color picker will also make the color 
-   of buttons and backgournd.
+  
 
 |image364|
 
