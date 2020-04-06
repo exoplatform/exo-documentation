@@ -2418,7 +2418,7 @@ Member, Author, Editor, Manager, Redactor, Validator, Webdesigner, Publisher and
 
 |image178|
 
-The membeship, such as `manager:/platform/users`, is defined by both membership type (manager, member, author...) 
+The membership, such as `manager:/platform/users`, is defined by both membership type (manager, member, author...) 
 and a group i.e. it is the combinaison between a group and a membership type to define the user's role in the group.
 
 .. note:: The \* membership is identical to any other type, so choosing this type means adding all available membership types.
