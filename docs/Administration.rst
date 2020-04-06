@@ -97,7 +97,7 @@ The Branding page will be displayed:
 
 **Details**:
 
--  The Company Name pane: Uploads your company name to be displayed in the topbar and will be used in the left side of the top navigation bar.
+-  The Company Name pane: Uploads your company name to be displayed in the top bar.
 
 -  The Select Logo pane: Uploads your company logo that must be in the
    ``.png`` format, and with Recommended size **300x34** and a transparent background.
