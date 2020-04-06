@@ -5278,10 +5278,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image13| image:: images/platform/edit_menu.png
 .. |image14| image:: images/common/administration_navigation.png
 .. |image15| image:: images/ecms/content_administration_page.png
-.. |image16| image:: images/common/1.png
-.. |image17| image:: images/common/2.png
-.. |image18| image:: images/common/3.png
-.. |image19| image:: images/common/4.png
 .. |image20| image:: images/ecms/template_types.png
 .. |image21| image:: images/ecms/documents_template_panel.png
 .. |image22| image:: images/common/edit_icon.png
@@ -5490,7 +5486,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image225| image:: images/gatein/permission_selector_form_edit.png
 .. |image226| image:: images/gatein/moveapps_permission_settings_subtab.png
 .. |image227| image:: images/gatein/movecontainers_permission_settings_subtab.png
-.. |image228| image:: images/gatein/access_edit_page_layout.png
 .. |image229| image:: images/common/administration_navigation.png
 .. |image230| image:: images/common/edit_icon.png
 .. |image231| image:: images/gatein/permission_settings_tab_of_page.png
@@ -5585,11 +5580,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
 .. |image322| image:: images/platform/SpaceTemplatesTable.png
-.. |image323| image:: images/platform/manage_rules_badges.png
-.. |image324| image:: images/platform/addruletable.png
-.. |image325| image:: images/platform/addrulepopup.png
-.. |image326| image:: images/platform/editrule.png
-.. |image327| image:: images/platform/addbadge.png
 .. |image328| image:: images/walletadmin/administration_menu.png
 .. |image329| image:: images/walletadmin/wallets_administration.png
 .. |image330| image:: images/walletadmin/new_wallet.png
