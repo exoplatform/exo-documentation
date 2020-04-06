@@ -108,7 +108,7 @@ The Branding page will be displayed:
    style suitable to your logo. There are two styles available on the
    portal, consisting of Light which is default, and Dark.
 
-.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined in the Digital Workplace.
+.. note::  As default values, the default Company name is **COMPANY** and a default logo are predefined.
 
 
 2. Click *Drop your image here or Upload from your computer* to browse and upload the logo from your local device;
