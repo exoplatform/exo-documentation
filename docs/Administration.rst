@@ -87,7 +87,7 @@ Administering eXo Platform
 Branding eXo Platform
 ======================
 
-eXo Platform allows you to easily brand **eXo Platform** by changing your company logo, the color of the top navigation bar in the portal and picking colors for your buttons, titles, etc..
+eXo Platform can be easily branded by setting your company logo, changing the color of the top navigation bar in the portal and picking colors for your buttons, titles, etc..
 
 1. Click |image0| --> OTHER --> Branding on the side navigation bar.
 
