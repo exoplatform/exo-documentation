@@ -124,7 +124,7 @@ browser supports the HTML 5 and the Drag and Drop function.
 
 |image364|
 
-You can use the color picker right to select a color and get the HTML Color Code of this pixel. Also you get the HEX color code value of the selected color or put on your HEX and it will be automatically identified, or even you can select a predefined color from the palette.
+You can use the color picker right to select a color and get the HTML color code of this pixel. Also you get the hexadecimal color code value of the selected color or directly enter the hexadecimal code and it will be automatically recognized. Finally, you can also select a predefined color from the palette.
 
 .. note::  -  Primary color is used for main call to actions, emphasized titles, text hover or press, hyper-links or selected links (Primary and text buttons, Notifications, Actions icon buttons, Spaces and avatars names, mention tags, etc..)
        -  Secondary color is used for to Default Titles, Headings and default buttons text (like in Selected menu).
