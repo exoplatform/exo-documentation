@@ -2429,7 +2429,7 @@ In eXo Platform, the most used memships are `manager`, `member` and `*`.
 
 - The `manager` role to define users with managing privileges
 - The `member` role to define normal users in a group
-- `*` defines the whole roles
+- `*` all the roles combined, that means a user with * membership type will have the permissions assigned to all  membership types within this group
 
 Other roles i.e. Author, Editor, Redactor, Validator, Webdesigner and Publisher are mainly used for the 
 :ref:`publication process <PublicationProcess>` which could be 
