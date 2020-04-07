@@ -300,6 +300,477 @@ redirected to the :ref:`Social Intranet homepage <PLFHomepage>`. Now, you can st
        - \*:/developers
 
 	* If the server stops before your account setup data is submitted, the Account Setup screen will appear at your next startup.
+
+  .. _DWHomepage:
+
+==========================
+Digital Workplace Homepage
+==========================
+
+This section introduces you to the Digital Workplace homepage, ie **Snapshot**. Besides,
+you will further learn about the following topics:
+   
+ * :ref:`Digital Workplace applications <Intranet-Gadgets>`
+   Introduction to applications that come with the Digital Workplace
+   homepage.
+   
+ * :ref:`Changing the UI language <Change-Language>`
+   Instructions on how to change the UI language of eXo Platform.
+
+After signing in your account successfully, you are redirected to the
+**Digital Workplace** homepage, the starting point for exploring eXo Platform.
+This homepage provides you a perfect overview of all social and
+collaboration activities available in eXo Platform.
+
+|image4|
+
+There are 3 main divisions in the **Digital Workplace** homepage:
+
+**Navigations**
+
+
+-  *Top navigation* |image5|: Take common actions via the following
+   menus:
+
+   -  **Help**: Access online guides by clicking |image6|. For example,
+      if you are in the Wiki application, but still not know how to get
+      started with it, simply click |image7|. You will then be
+      redirected to the instructions page regarding to Wiki in another
+      browser tab.
+
+   -  **User Profile**: Change your profile information, preferences,
+      language or quickly navigate to your personal pages by clicking
+      your display name, for example: John Smith.
+
+   -  **Notification**: Clicking |image8| will show all on-site
+      notifications. See :ref:`Managing your notifications <Managing-Notification>`
+      for more details.
+
+   -  **Search**: Search for any types in eXo Platform, such as people,
+      spaces, files, events, tasks, activities, by clicking |image9|.
+      See :ref:`Searching In eXo Platform <Search>` for more details.
+
+   -  **Administration**: Perform advanced actions, such as managing
+      users, content, applications, monitoring your system or organizing
+      sites, by clicking |image11|. This menu is only visible to members
+      of the web-contributors and administrator group.
+
+   -  **Edit**: Manage certain aspects of eXo Platform, including content,
+      pages and sites by clicking |image12|. This menu is only visible to
+      members of editor and administrator groups. See :ref:`Customizing eXo Platform <CustomizingLookAndFeel>`
+      for details.
+
+       .. note:: The number of menus which are displayed on the top navigation may vary, depending on your role. For example the Edit icon menu appears only for members of the group */platform/administrators*.
+
+-  *Left navigation* |image13|: It is a hamburger menu which allows you
+   to quickly jump to :
+
+   -  **Applications**: By default, the following applications are
+      available:
+
+      -  Snapshot: To come back to your digital Workplace homepage from any
+         page.
+
+      -  Stream: To come back to your stream page from any
+         page.
+         
+.. _People_Directory:          
+
+  -  **People**: To display the whole list of the platform users. You
+         can manage your connections, search for users using different
+         filters...
+
+  -  **Spaces** in the "MY SPACES" list. It is also possible to search
+      for spaces by clicking on Join a space.
+
+  -  **Last visited Spaces**. It is also possible to view
+      the list of your last visited spaces with a recent visited space short list just below the Last visited spaces button.
+        .. note:: A mouse over the Last visited spaces will opens a second level navbar with the full list of your visited spaces listed by last visited first.
+
+  -  **Settings** : You can configure your account by acceeding in the Settings.
+  
+  -  **Administration** : Just you mouse over this menu and a second level navigation will display with multiple administration choices.
+
+  -  **Logout** : By a simple click on this button, you will logout from the digital workplace.
+  
+
+   This hamburger menu will opens a navigation menus clicking which you can navigate to the various applications and spaces :
+
+   |image14|
+
+   When connecting to the platform, the menu is by default hidden. To
+   open or hide it, you should click on the hamburger menu icon
+   |image15|.
+
+   Clicking on an application, or space, icon redirects you to the concerned application, or space.
+
+       .. note:: - The order of applications and pages in the COMPANY list may change in case some applications are not deployed, or some additional applications/pages are implemented.
+         - The MY SPACES list shows the latest spaces browsed by the user. If there are more than 10 spaces in the list, the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
+         - The Show [X] More Spaces link is not displayed when the left navigation menu is collapsed. It is only available if the menu is expansed.
+         - When the left navigation menu is collapsed, spaces search is not possible as the search field is not available. To search spaces, you should expand the left navigation menu.
+
+**Activity Composer** |image16| **& Activity Stream** |image17|
+
+-  From Activity Composer, you can update your status, upload and share
+   your document/link. See `Updating status <Share-AS>`for more details.
+
+-  From Activity Stream, you can follow activities of your colleagues
+   and spaces, create your own activities (liking or commenting). See
+   `Using the Activity Stream <Share-AS>` for more details.
+
+**Applications** |image18|
+
+Quickly perform key actions through the following applications:
+
+-  *Getting Started*: See a list of suggested actions you can start.
+   See :ref:`Getting Started application <Getting Started>` for more details.
+
+-  *Calendar*: Get an overview of calendar events. See :ref:`Calendar application <CalendarApp>` for more details.
+
+-  *Invitation*: See a list of spaces and users who have sent connection requests to you. See :ref:`Invitations application <InvitationsApp>` for more details.
+
+-  *Suggestions*: See who you may want to connect with and spaces which you can ask to join. See :ref:`Suggestions application <SuggestionsApp>` for more details.
+
+-  *Who's Online?*: See who are online or send your connection request to them. See :ref:`Who's Online? application <WhoIsOnlineApp>` for more details.
+
+
+.. _Creating-content:
+
+Creating content quickly
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In eXo Platform, you easily create your preferred content without navigating
+to its relevant application. Simply click |image33| to open the drop-down
+menu.
+
+|image34|
+
+Here, you can do the following actions quickly:
+
+ * :ref:`Creating a task`
+ * :ref:`Creating an event`
+ * :ref:`Creating a poll`
+ * :ref:`Creating a topic` 
+ * :ref:`Uploading a document`
+ * :ref:`Creating a Wiki`
+
+
+.. _Creating a task:
+
+Creating a task
+---------------
+
+1. Simply select Task from the drop-down menu. The menu will be updated into the Create a new task form.
+
+|image35|
+
+2. Fill in the Title field, and then hit the button Add.
+
+After saving, a pop up link appears |image36| which points to the
+created task.
+
+.. _Creating an event:
+
+Creating an event
+-------------------
+
+1. Simply select Event from the drop-down menu. The menu will be updated
+   into the Add event form.
+
+|image37|
+
+2. Give details for your event, including: Title, From and To dates, time.
+   For more details, see :ref:`Creating a new event <CreatingNewEvent>`.
+
+3. Select the calendar where your event will be created from the Select Calendar drop-down menu.
+
+4. Click Save to add your event.
+
+A pop up |image38| appears indicating in which calendar the event was added.
+
+    .. note:: Click Cancel at any time to dismiss the Add event form.
+    
+.. _Creating a poll:    
+
+Creating a poll
+----------------
+
+1. Click Poll from the drop-down menu. This menu will be updated into 
+   the form as below:
+
+|image39|
+
+    .. note:: If there is no forum available in Intranet and the user has no space
+        forum yet, the following warning is displayed: "Sorry, no forum is
+        available yet to create a poll. Start by creating your own space."
+
+2. Select the location where your poll is created from the In Location
+   menu. If you have at least one public forum, the "intranet" location 
+   is selected by default.
+
+3. Click Next to open the Poll form, or Cancel to dismiss the form.
+
+-  If you select a space forum, you will be redirected to the **Forums**
+   application of the selected space after clicking Next.
+
+-  If you select "intranet" which has more than 1 forum and then click
+   Next, another new selection menu will be opened. The Next button now
+   becomes disabled until you have selected one forum from the And Forum
+   menu.
+
+   |image40|
+
+4. Fill in the Poll form. See :ref:`Creating a poll <Create-poll>` for 
+   more details.
+
+.. _Creating a topic: 
+ 
+Creating a topic
+-----------------
+
+
+1. Click Topic from the drop-down menu.
+
+    .. note:: If there is no forum available in Intranet and the user has no space forum yet, the following warning is displayed: "Sorry, no forum is available yet to create a topic. Start by creating your own space."
+
+2. Select the location where your topic is created from the In Location
+drop-down menu. The "intranet" is selected by default.
+
+3. Click Next to open the New Topic form.
+
+-  If you select a space forum, you will be redirected to the **Forums**
+   application of the selected space after clicking Next.
+
+-  After clicking Next, if you select "intranet" which has more than 1
+   forum, one new selection will be opened that requires you to select
+   your desired forum as below. The Next button becomes disabled until
+   you have selected one forum.
+
+   |image41|
+
+4. Fill in the New Topic form. See :ref:`Creating a topic <Create-topic>`
+   for more details.
+
+.. _Uploading a document: 
+
+Uploading a file
+-----------------
+
+Simply select Upload a File from the drop-down menu. See :ref:`Sharing a File <Sharing-Link-and-File>` for more details.
+
+.. _Creating a Wiki: 
+
+Creating a Wiki page
+---------------------
+
+1. Click Wiki Page from the drop-down menu.
+
+|image42|
+
+2. Select the location where your Wiki page is created from the In 
+   Location drop-down menu. The "Intranet" space is selected by default.
+
+3. Click Next to be redirected to the Wiki application of your selected
+   location. Here, you can :ref:`navigate across spaces <Navigate-across-spaces>`.
+
+4. Enter the content of your Wiki page. See :ref:`Creating a page <Creating-New-Page>`
+   for more details.
+
+.. _Intranet-Gadgets:
+
+Social Intranet applications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Intranet applications are ones which come with the Social Intranet
+homepage, including:
+
+ * :ref:`Getting Started`
+ * :ref:`CalendarApp`
+ * :ref:`InvitationsApp`
+ * :ref:`SuggestionsApp`
+ * :ref:`WhoIsOnlineApp`
+
+.. _Getting Started:
+
+Getting Started
+------------------
+
+The Getting Started application is displayed first in the list of the
+Intranet homepage applications on the top right. This application helps
+you start exploring the Social Intranet by suggesting you where to go
+and what you should do first via the following links:
+
+-  :ref:`Add a profile picture <Change-your-avatar>`
+
+-  :ref:`Connect to coworkers <Send-Connection-Request>`
+
+-  :ref:`Join a space <Join-space>`
+
+-  :ref:`Post an activity <Share-AS>`
+
+-  :ref:`Upload a document <Uploading-files>`
+
+|image43|
+
+Clicking each link will direct you to the related page to do the action.
+
+After each action is performed, it will be remarked as completed with a
+strike-through even though it is not performed via this application.
+Also, the completion percentage is updated on the percentage bar.
+
+When all the actions are performed, the completion percentage will be
+100%. You can remove this application from the homepage by clicking
+Close or by hovering your cursor over the application header, and click |image44|.
+
+|image45|
+
+    .. note:: - You cannot get the Getting Started application back when it is removed. 
+        - The "Upload a document" action is considered as completed only when a document has been uploaded in your Personal Documents drive.
+    
+    
+.. _CalendarApp:
+
+Calendar
+---------
+
+The Calendar application displays some calendars and all of their events
+and tasks scheduled in the Calendar applications of Intranet and spaces.
+When going to the homepage, you will see events with their start and end
+date and tasks of Today. You can also see the events and tasks of the
+previous/next day by clicking the previous/next arrow respectively.
+
+|image46|
+
+-  To view details of an event/task directly in the Calendar
+   application, click your desired event/task.
+
+-  To configure and set which calendars to be displayed in the Calendar
+   application, hover your cursor over the application, then click
+   |image47| at the right bottom of the application.
+
+   -  To remove a calendar from the list of Displayed Calendars, click |image47|.
+
+      This removed calendar will appear in the list of Display
+      Additional Calendar.
+
+   -  To add one of removed calendars again to the list of Displayed
+      Calendars, simply hover your cursor over the desired calendar,
+      then click |image48|. You can use the Search box to filter
+      calendars quickly.
+
+   -  Click **OK** to accept your settings.
+
+    .. note:: When a task is completed, it will be remarked with a strike-through.
+
+.. _InvitationsApp:
+
+Invitations
+-------------
+
+The Invitations application shows a list of spaces and users who have
+sent you connection requests. You can see the number of requests
+displayed next to the application name.
+
+|image49|
+
+-  For a user's connection request, you will see his avatar, name and
+   title (if defined).
+
+-  For a space's connection request, you will see its avatar, name, the
+   number of members and know if it is public or private.
+
+You can accept/refuse an invitation by hovering your cursor over a
+user/space's name, then clicking Accept or |image50| respectively.
+
+When the invitation is accepted or refused, it will permanently removed
+from the list.
+
+    .. note:: The Invitations application is not displayed when there is no invitation.
+
+.. _SuggestionsApp:
+
+Suggestions
+------------
+
+The Suggestions application suggests you to connect with other users or
+to join spaces. Usually, it suggests two people having the most common
+connections with you, and two spaces having the most members who are
+your connections. Otherwise, it will suggest the newest users or the
+latest created space in the portal.
+
+|image51|
+
+-  To accept the people/space suggestion, hover your cursor over their
+   names and click Connect or Request respectively.
+
+-  To refuse the suggestion, hover your cursor over the people/space
+   names and click |image52|.
+
+When the suggestion is accepted or refused, it will permanently removed
+from the list.
+
+    .. note:: -  You can click a person's name suggested in the list to see his profile.
+        -  If there is no suggestion, the Suggestions application is not displayed.
+       
+       
+.. _WhoIsOnlineApp:
+
+Who's Online?
+--------------
+
+The Who's Online? application shows all users who are already logged in
+the portal.
+
+|image53|
+
+Hover your cursor over the avatar of an online user, a pop-up will show
+you some information about him, such as name, avatar, current position
+(if defined), and the last activity message of status activity, file or
+link sharing activity (if any).
+
+You can also see your connection status with an online user via the
+corresponding button at the pop-up bottom:
+
+-  If you are not connected with him yet, the Connect button is to send
+   connection invitation to him.
+
+-  If you have sent a connection request, the Cancel Request button is
+   to revoke your connection request.
+
+-  If you are invited to connect, the Confirm button is to accept his
+   connection request.
+
+-  If you are already connected with him, the Remove Connection button
+   is to delete connection between you and him.
+
+    .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
+
+
+.. _Change-Language:
+
+Changing the UI language
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To change the language of eXo Platform, do as follows:
+
+1. Click your display name on the top navigation bar, then select Change
+Language from the drop-down menu.
+
+|image55|
+
+2. In the Interface Language Setting form, you will see 23 languages that
+eXo Platform supports. Select your preferred language to display, for
+instance *English*:
+
+|image56|
+
+3. Click Apply to commit your changes.
+
+    .. note:: In eXo Platform, the priority order of the display language is as the following:
+        *User's language --> Cookies' language --> Browser's language --> Site's language*
+        It means the language set by the user will be at the highest level, and the site's language at the lowest level.
+        Accordingly, you should pay attention to this order when selecting your preferred display language.
+
 	
 .. _PLFHomepage:
 
