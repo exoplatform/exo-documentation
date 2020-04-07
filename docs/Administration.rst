@@ -150,7 +150,7 @@ Notification administration
 eXo Platform allows administrators to enable/disable notification 
 plugins in the administrative interface.
 
-To do so, simply select |image3| --> Portal --> Notifications on the top
+To do so, simply select |image3| --> OTHER --> Notifications on the top
 administration bar.
 
 The Activity Notification Administration page will be displayed as
@@ -216,7 +216,7 @@ This section covers the following topics:
 Creating a global stylesheet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Click |image5| --> Content --> Site Explorer on the top navigation bar.
+1. Click |image5| --> Content --> Content Explorer on the side navigation bar.
 
 2. Select the ``Site Management`` drive in the drives list.
 
@@ -404,9 +404,8 @@ Only administrators and web contributors can access the Content
 Administration page to manage all workspaces, drives, node types,
 metadata, templates, queries, and more.
 
-To access the **Content Administration** page, click |image14| on the 
-top navigation bar, then select ContentContent Administration from the
-drop-down menu.
+To access the **Content Administration** page, click |image14| --> Content --> Content Administration on the 
+side navigation bar.
 
 The Content Administration page will appear.
 
@@ -414,14 +413,14 @@ The Content Administration page will appear.
 
 From this page, you can access:
 
--  **Templates** |image16|: Manage templates of documents, CLV and
+-  **Templates** : Manage templates of documents, CLV and
    metadata.
 
--  **Explorer** |image17|: Manage views, drives and tags.
+-  **Explorer** : Manage views, drives and tags.
 
--  **Repository** |image18|: Manage namespaces, node types and locks.
+-  **Repository** : Manage namespaces, node types and locks.
 
--  **Advanced** |image19|: Manage categories, queries, scripts and
+-  **Advanced** : Manage categories, queries, scripts and
    actions.
 
 .. _WorkingWithTemplates:
@@ -820,7 +819,7 @@ steps:
 
 1. Log in to eXo Platform as an administrator.
 
-2. Go to Administration Content Content Administration.
+2. Go to Administration -->  Content --> Content Administration.
 
 |image67|
 
@@ -1985,10 +1984,9 @@ This section covers the following topics:
 Adding a user
 ~~~~~~~~~~~~~~
 
-1. Click |image157| on the top navigation bar, then select Community Add
-   Users from the drop-down menu.
+1. Click |image157| --> USERS & SPACES --> Add User on the side navigation bar.
 
-A window with the Account Setting and User Profile tabs will open.
+A view with the Account Setting and User Profile tabs will open.
 
 |image158|
 
@@ -2068,8 +2066,7 @@ Managing users
 ~~~~~~~~~~~~~~~
 
 
-Click |image159| on the top navigation bar, then select Community --> 
-Manage Community from the drop-down menu.
+Click |image159| --> USERS & SPACES --> Manage Users and Groups on the side navigation bar.
 
 You will be redirected to the Users tab. By default, all active users
 will be shown in this tab.
@@ -2499,14 +2496,14 @@ through an easy to use interface .
 .. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
           ``*:/platform/administrators``) are allowed to manage spaces and templates.
           
-The spaces administration interface is accessible via the menu Administration --> Spaces.
+The spaces administration interface is accessible via the menu Administration --> USERS & SPACES --> Manage Spaces and Manage Templates.
 
 |image306|
 
-This Spaces menu contains two choices:
+We have two choices to organize spaces and its templates:
 
-- "Manage Templates" : Lets an administrator display all space templates available 
 - "Manage Spaces" : Lets an administrator configure permissions for who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
+- "Manage Templates" : Lets an administrator display all space templates available 
 
 
 
@@ -2529,7 +2526,7 @@ All templates are presented in a table with:
 
 .. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
           To display the banner, simply click on the eye icon. To close it, click outside the banner or on ESC button of the keyboard.
-          |image323|
+          
 
 Manage Spaces
 ~~~~~~~~~~~~~~~~~~
@@ -2655,9 +2652,10 @@ Creating a new site
 .. note:: You can perform this action only when you are a member of the ``/platform/administrators`` group.
 
 1. Click |image181| --> Portal --> Sites Management on side navigation bar, then click 
+
    Add New Site in the Manage Sites page;
 
-   Or, click EditSiteAdd Site.
+   Or, click Edit --> Site --> Add Site.
 
 By default, the window to create a new site, which contains the Portal
 Settings tab, will open.
@@ -3264,7 +3262,7 @@ that page. To be clearer, see the below example.
 
 For the Intranet site, the Register form is already featured by the
 Register application and put into the Register page (node) (by selecting
-|image208| --> Portal --> Sites Edit Navigation next to **intranet**).
+|image208| --> Portal --> Sites Management  then click on Edit Navigation next to **intranet**).
 
 |image209|
 
@@ -3309,7 +3307,7 @@ application itself or its outer layers. To make it accessible to the
 
 3. Go to
    `http://mycompany.com:port/portal/intranet <http://mycompany.com:port/portal/intranet>`__
-    to be at the site level, then select |image213| --> Site --> Layout.
+    to be at the site level, then select |image213| --> Site --> Edit Layout.
     
     |image214|
 
@@ -3379,7 +3377,7 @@ account belongs to the */platform/administrators* group.
 The Permissions tab can be opened in some various ways, depending on the
 following approaches.
 
-1. Click |image217| Portal Sites on the top navigation bar.
+1. Click |image217| --> Portal --> Sites Management on the side navigation bar.
 
 The **Manage Sites** page appears.
 
@@ -3519,8 +3517,6 @@ Via Edit Page:
 
 2. Click Edit --> Page --> Edit Layout.
 
-|image228|
-
 You will be directed to the Page Editor window.
 
 3. Click View Page Properties in the Page Editor window.
@@ -3614,7 +3610,7 @@ Setting permissions on a container
 If your user account belongs to the */platform/administrators* group,
 you can set the *Access, Move Apps* and *Move Containers* permissions on
 a specific container of a page (via Edit --> Page --> Edit Layout --> 
-Page Editor) or a site (via Edit --> Site --> Layout --> Edit Inline 
+Page Editor) or a site (via Edit --> Site --> Edit Layout --> Edit Inline 
 Composer).
 
 1. Select the **Containers** tab, then hover your cursor over the 
@@ -3647,7 +3643,6 @@ be listed when a page is edited to add portlets or widgets.
 1. Click |image234| --> OTHER --> Applications on the top navigation bar to open the
    **Manage Applications** page.
 
-|image235|
 
 2. Select one category from the list of available categories in the left
    panel, then click |image236|.
@@ -4185,7 +4180,7 @@ avoid importing unnecessary applications, this function is hidden on the
 action bar by default. To show it on the action bar, do as follows:
 
 1. Go to the :ref:`Manage Applications page <GoToManageApplicationsPage>`
---> Edit --> Page --> Edit Layout on the Administration bar.
+--> Edit --> Page --> Edit Layout on the Edit drawer.
 
 2. Hover your cursor over the Application Registry portlet, then click
    |image267| at the upper left corner of that portlet.
@@ -4619,7 +4614,7 @@ How to access to wallets administration interface
 -------------------------------------------------
 
 Wallets administration interface allows you to manage users and spaces wallets
-To access wallets administration interface, you have to click on "Administration" menu from the top navigation, then "Reward" - "Wallet" from the drop-down menu.
+To access wallets administration interface, you have to click on "Administration" menu from the side navigation, then "Reward" --> "Wallet" from second level side bar.
 
 |image328|
 
@@ -4806,12 +4801,9 @@ Managing Gamification
 
 To manage Domains, Rules and Badges in eXo Platform, you first need
 to go to the **Gamification** page by clicking on the
-top navigation bar, and select Gamification. The **Gamification**
-choices pages will by displayed.
+side navigation bar, and in the **Gamification**, you can manage your domains, rules or Badges by choosing **Manage Domains**, **Manage Rules** or **Manage Badges**.
 
-You can manage your domains, rules or Badges by choosing **Manage Domains**, **Manage Rules** or **Manage Badges**.
-
-
+|image354|
 
 .. _ManageDomains:
 
@@ -4828,7 +4820,7 @@ Every domain have:
 
 - Action: A delete and Edit actions for domains is displayed for every line of Domains table. 
 
-
+|image356|
 
 Add Domain
 ---------
@@ -4837,6 +4829,7 @@ You can add a new domain just by clicking on **Add domain** button above the Dom
 
 A popup will be displayed containing a form to add a new domain.
 
+|image360|
 
 Fields are the same as in the Add Domain popup: 
 
@@ -4852,6 +4845,8 @@ Fields are the same as in the Add Domain popup:
 Edit Domain
 ----------
 You can edit a domain just by clicking on the edit icon of the domain you want to update. 
+
+|image363|
 
 A popup containing existing informations of the selected domain to edit will display with 2 buttons : 
 
@@ -4901,7 +4896,7 @@ Every rule have:
 
 - Actions: A delete action for each Rule in the table.
 
-|image324|
+|image356|
 
 Add Rule
 ---------
@@ -4910,7 +4905,7 @@ You can add a new rule just by clicking on **Add rule** button above the Rules t
 
 A popup will be displayed containing a form to add a new rule.
 
-|image325|
+|image359|
 
 Fields are the same as in the Add Rule popup: 
 
@@ -4933,7 +4928,7 @@ A popup containing the existing information of the selected rule to edit is disp
 - Confirm: To save the made changes on the rule
 - Cancel: To cancel changes and conserve the already existing rule.
 
-|image326|
+|image362|
 
 Delete Rule
 ----------
@@ -4961,6 +4956,26 @@ Search results contain only rules having in their Rule, description or Points fi
 
 Manage Badges
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the Manage badges page, a table containing all the badges in the platform is displayed. To ease the badges' management,  a search field is available to allow you searching badges and a filter button to allow you filtering badgess by status.  
+Every badge have: 
+
+- Icon: The badge icon.
+
+- Badge: The badge name.
+
+- Description: A description of the badge to explain its goal.
+
+- Score: The number of points gained for this badge.
+
+- Domain: The domain of the badge. It could be **social**, **Teamwork**, **Knowledge**...
+
+- Enabled: The status of the badge. It could be **True** for enabled status or **false** for disabled.
+
+- Actions: A delete action for each badge in the table.
+
+|image355|
+
 Add Badge
 ----------
 
@@ -4970,7 +4985,7 @@ A search field is available allowing you to search for Badges and a filter butto
 
 A popup will be displayed containing a form to add a new Badge.
 
-|image327|
+|image358|
 
 Fields are the same as in the Add Badge popup: 
 
@@ -4988,6 +5003,8 @@ If the added badge has erroneous or missing details or even similar information 
 Edit Badge
 -----------
 You can edit a badge just by clicking on the edit icon of the corresponding badge. 
+
+|image361|
 
 A popup containing the existing information of the selected badge to edit is displayed with 2 buttons: 
 
@@ -5117,8 +5134,8 @@ navigator that shows users a page link if and only when the user has
 access permission to the page, so anonymous only see public pages.
 
 The Left Navigator is in fact "some containers and portlets" included in
-the Site Layout, so you can edit it by clicking Edit --> Site --> 
-Layout.
+the Site Layout, so you can edit it by clicking Edit icon --> Site --> 
+Edit Layout.
 
 Exactly, you need to publish the portlet **UICompanyNavigationPortlet**
 and publish its containers as well. See the illustration. There are
@@ -5147,7 +5164,7 @@ Make it public
 ~~~~~~~~~~~~~~~
 
 To publish the **intranet** site, go to either of its page, like Home
-page, and click Edit --> Site --> Layout from the top navigation bar, 
+page, and click Edit icon --> Site --> Edit Layout from the top navigation bar, 
 then select Site's Config from the Edit Inline Composer window. In the
 Permissions --> Access, tick the *Everyone* checkbox.
 
@@ -5189,7 +5206,7 @@ Navigator <BuildingOnlineCommunity.LeftNavigator>` for details.
 3. Create a web content that gives the links to login and register, as
    follows:
 
-Click Administration --> Content --> Sites Explorer. You can create the 
+Click Administration --> Content --> Sites Management. You can create the 
 content somewhere in a general drive, for example
 ``Sites Management:/intranet``.
 
@@ -5261,10 +5278,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image13| image:: images/platform/edit_menu.png
 .. |image14| image:: images/common/administration_navigation.png
 .. |image15| image:: images/ecms/content_administration_page.png
-.. |image16| image:: images/common/1.png
-.. |image17| image:: images/common/2.png
-.. |image18| image:: images/common/3.png
-.. |image19| image:: images/common/4.png
 .. |image20| image:: images/ecms/template_types.png
 .. |image21| image:: images/ecms/documents_template_panel.png
 .. |image22| image:: images/common/edit_icon.png
@@ -5473,7 +5486,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image225| image:: images/gatein/permission_selector_form_edit.png
 .. |image226| image:: images/gatein/moveapps_permission_settings_subtab.png
 .. |image227| image:: images/gatein/movecontainers_permission_settings_subtab.png
-.. |image228| image:: images/gatein/access_edit_page_layout.png
 .. |image229| image:: images/common/administration_navigation.png
 .. |image230| image:: images/common/edit_icon.png
 .. |image231| image:: images/gatein/permission_settings_tab_of_page.png
@@ -5568,11 +5580,6 @@ The following image shows the screen when an anonymous user accesses
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
 .. |image322| image:: images/platform/SpaceTemplatesTable.png
-.. |image323| image:: images/platform/manage_rules_badges.png
-.. |image324| image:: images/platform/addruletable.png
-.. |image325| image:: images/platform/addrulepopup.png
-.. |image326| image:: images/platform/editrule.png
-.. |image327| image:: images/platform/addbadge.png
 .. |image328| image:: images/walletadmin/administration_menu.png
 .. |image329| image:: images/walletadmin/wallets_administration.png
 .. |image330| image:: images/walletadmin/new_wallet.png
@@ -5599,6 +5606,16 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |image354| image:: images/gamification/gamification_menu.png
+.. |image355| image:: images/gamification/manage_badges.png
+.. |image356| image:: images/gamification/manage_rules.png
+.. |image357| image:: images/gamification/manage_domains.png
+.. |image358| image:: images/gamification/add_badges.png
+.. |image359| image:: images/gamification/add_rules.png
+.. |image360| image:: images/gamification/add_domains.png
+.. |image361| image:: images/gamification/edit_badges.png
+.. |image362| image:: images/gamification/edit_rules.png
+.. |image363| image:: images/gamification/edit_domains.png
 .. |image364| image:: images/platform/branding_color_picker.png
 .. |image365| image:: images/platform/primary_button_style1.png
 .. |image366| image:: images/platform/primary_button_style2.png
@@ -5609,3 +5626,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image371| image:: images/platform/tertiary_tab.png
 .. |image372| image:: images/platform/Tertiary_information.png
 .. |image373| image:: images/platform/tertiary_stepper.png
+
+
