@@ -396,26 +396,26 @@ There are 3 main divisions in the **Digital Workplace** homepage:
 
    This hamburger menu will opens a navigation menus clicking which you can navigate to the various applications and spaces :
 
-   |image228|
+   |image229|
 
    When connecting to the platform, the menu is by default hidden. To
    open or hide it, you should click on the hamburger menu icon
-   |image229|.
+   |image230|.
 
    Clicking on an application, or space, icon redirects you to the concerned application, or space.
 
        .. note:: - The order of applications and pages in the applications list may change in case some applications are not deployed, or some additional applications/pages are implemented.
 
    The **Last visited Spces** list shows the latest spaces browsed by the user. The system will display the last 5 spaces in a quick list just below the Last visited spaces label, and once you mouse ouver this label, a second level navigation bar will open the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
-   |image230|
+   |image231|
    
    The **Show More** Spaces link is displayed in the Last visited spaces navigation menu so that you can display more spaces in the list.
    
    You can also quick search for a space just by typing the spaces name you want to quick display and the list will be filtered and will display only spaces containing text you added.
-   |image231|
+   |image232|
 
    Even if you were in the Last visited spaces navigation menu, you can create your own space just by clicking on **Create Space** just below the spaces filter field.
-   |image232|
+   |image233|
 
 **Activity Composer** |image16| **& Activity Stream** |image17|
 
@@ -2930,8 +2930,8 @@ to display the original timestamp of the comment.
 .. |image225| image:: images/new_composer/attached_files_composer.png
 .. |image226| image:: images/new_composer/insert_video.png
 .. |image227| image:: images/new_composer/insert_link.png
-.. |image228| image:: images/platform/dw_hamburger_menu.gif
-.. |image229| image:: images/common/dw_hamburger_icon.png
-.. |image230| image:: images/platform/last_visited_spaces.png
-.. |image231| image:: images/platform/filter_spaces.png
-.. |image232| image:: images/platform/create_space_navbar.png
+.. |image229| image:: images/platform/dw_hamburger_menu.gif
+.. |image230| image:: images/common/dw_hamburger_icon.png
+.. |image231| image:: images/platform/last_visited_spaces.png
+.. |image232| image:: images/platform/filter_spaces.png
+.. |image233| image:: images/platform/create_space_navbar.png
