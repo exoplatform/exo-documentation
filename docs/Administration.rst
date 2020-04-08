@@ -2293,6 +2293,12 @@ By default, in eXo Platform there are 2 parent groups: Organzation and Platform.
 
 .. note: Any registred user is automatically added to the platform/users group to be able to connect.
 
+.. _spacesGroups:
+
+.. tip: When creating new spaces, an associated group is added under the parent group ``Spaces`` having as label 
+        the space's name. 
+        ``Spaces`` parent is added when creating the first space in the platform.
+
  
 .. _AddNewGroup:
 
@@ -2444,6 +2450,12 @@ The most used roles are:
 
 Remaining roles could be used when you create your 
 :ref:`own publication lifecycle <PLFDevGuide.DevelopingContent.PublicationLifecycle.CreatingPublicationLifecycle>`.
+
+.. note:: For :ref:`Spaces groups <spacesGroups>`, a user belonging to a space could be either a manager or a member.
+          No other memberships used in spaces groups.
+          If you are a manger in a space, this allows you to acces :ref:`the space's settings <Manage-Space-Settings>`
+          and manage the space. If you belong to the space as a member, you are just able to share and view content
+          in the space.
 
 .. _AddNewMembership:
 
