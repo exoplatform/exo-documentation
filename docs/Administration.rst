@@ -2247,6 +2247,33 @@ By default, all existing groups will be displayed on the left panel. The
 right panel shows information of the selected group and of its members
 with the Add Member form.
 
+.. _ExistingGroups:
+
+**Existing Groups**
+
+By default, in eXo Platform there are 4 parent groups: Development, Organzation, Platform and Spaces.
+
+**Development** is a sample group, could be used to organize users.
+
+**Organization** helps you to organize your company: deparments, teams or any way to represent your organization.
+
+.. tip:: Notice that these groups i.e. those under Organization group have no specific effects in the product.
+         They are just made as a placeholder.
+
+**Platform** helps to define roles in the platform, it contains 4 sub groups:
+-  Administration: contains users having administrative roles i.e. who are able to access 
+   the Administration menu |imagee354|.
+-  Guests: contains external users to the platform, they have access only to public content of the platform
+-  Users: contains all the platform users able to connect to the platform
+-  Content Management: contains users who have permissions to add and manage content in the platform
+
+.. note: Any registred user is automatically added to the platform/users group to be able to connect.
+
+.. _spacesGroups:
+
+**Spaces** is the parent group for all spaces groups. When creating a space, its corresponding group is added
+as sub group to ``Spaces`` parent group.
+ 
 .. _AddNewGroup:
 
 Adding a new group
@@ -2366,13 +2393,43 @@ Managing memberships
 Select the Memberships tab. Here, you can manage user roles in a
 specific group.
 
-By default, 9 membership types are available in PRODUCT including
-Member, Author, Editor, Manager, Redactor, Validator, Webdesigner,
-Publisher and \*.
+By default, 9 membership types are available in eXo Platform including
+Member, Author, Editor, Manager, Redactor, Validator, Webdesigner, Publisher and \*.
 
 |image178|
 
+The membership, such as `manager:/platform/users`, is defined by both membership type (manager, member, author...) 
+and a group i.e. it is the combinaison between a group and a membership type to define the user's role in the group.
+
 .. note:: The \* membership is identical to any other type, so choosing this type means adding all available membership types.
+
+**Membership usage in eXo Platform**
+
+In eXo Platform, the most used memships are `manager`, `member` and `*`.
+
+- The `manager` role to define users with managing privileges
+- The `member` role to define normal users in a group
+- `*` all the roles combined, that means a user with * membership type will have the permissions assigned to all  membership types within this group
+
+Other roles i.e. Author, Editor, Redactor, Validator, Webdesigner and Publisher are mainly used for the 
+:ref:`publication process <PublicationProcess>` which could be 
+:ref:`customized <PLFDevGuide.DevelopingContent.PublicationLifecycle.CreatingPublicationLifecycle>`.
+
+The most used roles are:
+
+- The `publisher` role defines users allowed to :ref:`publish content <PublishContent>` i.e. they are able to switch
+  contents from staged to published status.
+  
+- The `Author` role defines users able to add and manage content in draft, pending or approved statuses.
+
+Remaining roles could be used when you create your 
+:ref:`own publication lifecycle <PLFDevGuide.DevelopingContent.PublicationLifecycle.CreatingPublicationLifecycle>`.
+
+.. note:: For :ref:`Spaces groups <spacesGroups>`, a user belonging to a space could be either a manager or a member.
+          No other memberships used in spaces groups.
+          If you are a manger in a space, this allows you to acces :ref:`the space's settings <Manage-Space-Settings>`
+          and manage the space. If you belong to the space as a member, you are just able to share and view content
+          in the space.
 
 .. _AddNewMembership:
 
@@ -4939,3 +4996,5 @@ The following image shows the screen when an anonymous user accesses
 .. |image302| image:: images/community/ecms_publish.png
 .. |image303| image:: images/community/select_content.png
 .. |image304| image:: images/community/anonymous.png
+.. |imagee354| image:: images/platform/Admin_menu.png
+
