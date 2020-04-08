@@ -396,18 +396,26 @@ There are 3 main divisions in the **Digital Workplace** homepage:
 
    This hamburger menu will opens a navigation menus clicking which you can navigate to the various applications and spaces :
 
-   |image14|
+   |image228|
 
    When connecting to the platform, the menu is by default hidden. To
    open or hide it, you should click on the hamburger menu icon
-   |image15|.
+   |image229|.
 
    Clicking on an application, or space, icon redirects you to the concerned application, or space.
 
-       .. note:: - The order of applications and pages in the COMPANY list may change in case some applications are not deployed, or some additional applications/pages are implemented.
-         - The MY SPACES list shows the latest spaces browsed by the user. If there are more than 10 spaces in the list, the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
-         - The Show [X] More Spaces link is not displayed when the left navigation menu is collapsed. It is only available if the menu is expansed.
-         - When the left navigation menu is collapsed, spaces search is not possible as the search field is not available. To search spaces, you should expand the left navigation menu.
+       .. note:: - The order of applications and pages in the applications list may change in case some applications are not deployed, or some additional applications/pages are implemented.
+
+   The **Last visited Spces** list shows the latest spaces browsed by the user. The system will display the last 5 spaces in a quick list just below the Last visited spaces label, and once you mouse ouver this label, a second level navigation bar will open the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
+   |image230|
+   
+   The **Show More** Spaces link is displayed in the Last visited spaces navigation menu so that you can display more spaces in the list.
+   
+   You can also quick search for a space just by typing the spaces name you want to quick display and the list will be filtered and will display only spaces containing text you added.
+   |image231|
+
+   Even if you were in the Last visited spaces navigation menu, you can create your own space just by clicking on **Create Space** just below the spaces filter field.
+   |image232|
 
 **Activity Composer** |image16| **& Activity Stream** |image17|
 
@@ -2922,3 +2930,8 @@ to display the original timestamp of the comment.
 .. |image225| image:: images/new_composer/attached_files_composer.png
 .. |image226| image:: images/new_composer/insert_video.png
 .. |image227| image:: images/new_composer/insert_link.png
+.. |image228| image:: images/platform/dw_hamburger_menu.gif
+.. |image229| image:: images/common/dw_hamburger_icon.png
+.. |image230| image:: images/platform/last_visited_spaces.png
+.. |image231| image:: images/platform/filter_spaces.png
+.. |image232| image:: images/platform/create_space_navbar.png
