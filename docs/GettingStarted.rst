@@ -1221,7 +1221,11 @@ To create a news article, click "Write an article" located at the bottom of the 
 
 |image156|
 
-The creation form is opened in a new tab.
+You can also use the new composer to create an article by clicking on the "Try the new composer" label. In the displayed drawer you just have to click on the option "Write an article".
+
+|image228|
+
+In both cases, the creation form is opened in a new tab.
 
 |image159|
 
@@ -2451,3 +2455,4 @@ to display the original timestamp of the comment.
 .. |image225| image:: images/new_composer/attached_files_composer.png
 .. |image226| image:: images/new_composer/insert_video.png
 .. |image227| image:: images/new_composer/insert_link.png
+.. |image228| image:: images/new_composer/write_article.png
