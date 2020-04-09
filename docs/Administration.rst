@@ -2260,9 +2260,8 @@ By default, in eXo Platform there are 4 parent groups: Development, Organzation,
 .. tip:: Notice that these groups i.e. those under Organization group have no specific effects in the product.
          They are just made as a placeholder.
 
-**Platform** helps to define roles in the platform, it contains 5 sub groups:
+**Platform** helps to define roles in the platform, it contains 4 sub groups:
 -  Administration: contains users having administrative roles i.e. who are able to access the Administration menu |imagee354|.
--  Rewarding Administrators: contains users having the right to :ref:`manage rewards <ManagingRewards>`
 -  Guests: contains external users to the platform, they have access only to public content of the platform
 -  Users: contains all the platform users able to connect to the platform
 -  Content Management: contains users who have permissions to add and manage content in the platform
