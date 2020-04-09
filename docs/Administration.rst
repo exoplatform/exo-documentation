@@ -2427,7 +2427,7 @@ Remaining roles could be used when you create your
 
 .. note:: For :ref:`Spaces groups <spacesGroups>`, a user belonging to a space could be either a manager or a member.
           No other memberships used in spaces groups.
-          If you are a manger in a space, this allows you to acces :ref:`the space's settings <Manage-Space-Settings>`
+          If you are a manger in a space, this allows you to access :ref:`the space's settings <Manage-Space-Settings>`
           and manage the space. If you belong to the space as a member, you are just able to share and view content
           in the space.
 
