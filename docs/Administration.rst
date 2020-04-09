@@ -2247,6 +2247,33 @@ By default, all existing groups will be displayed on the left panel. The
 right panel shows information of the selected group and of its members
 with the Add Member form.
 
+.. _ExistingGroups:
+
+**Existing Groups**
+
+By default, in eXo Platform there are 4 parent groups: Development, Organzation, Platform and Spaces.
+
+**Development** is a sample group, could be used to organize users.
+
+**Organization** helps you to organize your company: departments, teams or any way to represent your organization.
+
+.. tip:: Notice that these groups i.e. those under Organization group have no specific effects in the product.
+         They are just made as a placeholder.
+
+**Platform** helps to define roles in the platform, it contains 4 sub groups:
+-  Administration: contains users having administrative roles i.e. who are able to access the Administration menu |imagee354|.
+-  Guests: contains external users to the platform, they have access only to public content of the platform
+-  Users: contains all the platform users able to connect to the platform
+-  Content Management: contains users who have permissions to add and manage content in the platform
+
+.. note: Any self- registered  user and account created by Administration > Add users  is automatically added to the platform/users group to be able to connect.
+
+.. _spacesGroups:
+
+**Spaces** is the parent group for all spaces groups. When creating a space, its corresponding group is added
+as sub group to ``Spaces`` parent group.
+
+
 .. _AddNewGroup:
 
 Adding a new group
@@ -2366,13 +2393,43 @@ Managing memberships
 Select the Memberships tab. Here, you can manage user roles in a
 specific group.
 
-By default, 9 membership types are available in PRODUCT including
-Member, Author, Editor, Manager, Redactor, Validator, Webdesigner,
-Publisher and \*.
+By default, 9 membership types are available in eXo Platform including
+Member, Author, Editor, Manager, Redactor, Validator, Webdesigner, Publisher and \*.
 
 |image178|
 
+The membership, such as `manager:/platform/users`, is defined by both membership type (manager, member, author...) 
+and a group i.e. it is the combinaison between a group and a membership type to define the user's role in the group.
+
 .. note:: The \* membership is identical to any other type, so choosing this type means adding all available membership types.
+
+**Membership usage in eXo Platform**
+
+In eXo Platform, the most used membership types are `manager`, `member` and `*`.
+
+- The `manager` role to define users with managing privileges
+- The `member` role to define normal users in a group
+- `*` all the roles combined, that means a user with * membership type will have the permissions assigned to all  membership types within this group
+
+Other roles i.e. Author, Editor, Redactor, Validator, Webdesigner and Publisher are mainly used for the 
+:ref:`publication process <PublicationProcess>` which could be 
+:ref:`customized <PLFDevGuide.DevelopingContent.PublicationLifecycle.CreatingPublicationLifecycle>`.
+
+The most used roles are:
+
+- The `publisher` role defines users allowed to :ref:`publish content <PublishContent>` i.e. they are able to switch
+  contents from staged to published status.
+  
+- The `Author` role defines users able to add and manage content in draft, pending or approved statuses.
+
+Remaining roles could be used when you create your 
+:ref:`own publication lifecycle <PLFDevGuide.DevelopingContent.PublicationLifecycle.CreatingPublicationLifecycle>`.
+
+.. note:: For :ref:`Spaces groups <spacesGroups>`, a user belonging to a space could be either a manager or a member.
+          No other memberships used in spaces groups.
+          If you are a manger in a space, this allows you to access :ref:`the space's settings <Manage-Space-Settings>`
+          and manage the space. If you belong to the space as a member, you are just able to share and view content
+          in the space.
 
 .. _AddNewMembership:
 
@@ -5073,3 +5130,51 @@ The following image shows the screen when an anonymous user accesses
 .. |image319| image:: images/platform/create_space_permission.png
 .. |image320| image:: images/platform/edit_space.png
 .. |image321| image:: images/platform/type-ahead-suggestions.png
+.. |image322| image:: images/platform/SpaceTemplatesTable.png
+.. |image328| image:: images/walletadmin/administration_menu.png
+.. |image329| image:: images/walletadmin/wallets_administration.png
+.. |image330| image:: images/walletadmin/new_wallet.png
+.. |image331| image:: images/walletadmin/common_actions.png
+.. |image332| image:: images/walletadmin/initialize_reject.png
+.. |image333| image:: images/managekudos/manage_kudos.png
+.. |image334| image:: images/managekudos/select_space.png
+.. |image335| image:: images/managekudos/filter_kudos.png
+.. |image336| image:: images/managekudos/kudos_list.png
+.. |image337| image:: images/managerewards/reward_configuration.png
+.. |image338| image:: images/managerewards/pool_no_user.png
+.. |image339| image:: images/managerewards/create_pool.png
+.. |image340| image:: images/managerewards/pools_tab.png
+.. |image341| image:: images/managerewards/enabled_pool.png
+.. |image342| image:: images/managerewards/disabled_pool.png
+.. |image343| image:: images/managerewards/send_rewards.png
+.. |image344| image:: images/managerewards/send_rewards_button.png
+.. |image345| image:: images/managerewards/reward_details.png
+.. |image346| image:: images/managerewards/display_disabled_users.png
+.. |image347| image:: images/managerewards/search_bar.png
+.. |image348| image:: images/sharenews/edit_layout.png
+.. |image349| image:: images/sharenews/content_by_query.png
+.. |image350| image:: images/sharenews/folder_path.png
+.. |image351| image:: images/sharenews/template_selector.png
+.. |image352| image:: images/sharenews/header_block.png
+.. |image353| image:: images/sharenews/show_in_page.png
+.. |imagee354| image:: images/platform/Admin_menu.png
+.. |image354| image:: images/gamification/gamification_menu.png
+.. |image355| image:: images/gamification/manage_badges.png
+.. |image356| image:: images/gamification/manage_rules.png
+.. |image357| image:: images/gamification/manage_domains.png
+.. |image358| image:: images/gamification/add_badges.png
+.. |image359| image:: images/gamification/add_rules.png
+.. |image360| image:: images/gamification/add_domains.png
+.. |image361| image:: images/gamification/edit_badges.png
+.. |image362| image:: images/gamification/edit_rules.png
+.. |image363| image:: images/gamification/edit_domains.png
+.. |image364| image:: images/platform/branding_color_picker.png
+.. |image365| image:: images/platform/primary_button_style1.png
+.. |image366| image:: images/platform/primary_button_style2.png
+.. |image367| image:: images/platform/primary_label_button.png
+.. |image368| image:: images/platform/primary_activity.png
+.. |image369| image:: images/platform/Primary_tag.png
+.. |image370| image:: images/platform/secondary_button_sidebar.png
+.. |image371| image:: images/platform/tertiary_tab.png
+.. |image372| image:: images/platform/Tertiary_information.png
+.. |image373| image:: images/platform/tertiary_stepper.png
