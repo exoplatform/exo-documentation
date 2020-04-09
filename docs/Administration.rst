@@ -2266,7 +2266,7 @@ By default, in eXo Platform there are 4 parent groups: Development, Organzation,
 -  Users: contains all the platform users able to connect to the platform
 -  Content Management: contains users who have permissions to add and manage content in the platform
 
-.. note: Any registred user is automatically added to the platform/users group to be able to connect.
+.. note: Any self- registered  user and account created by Administration > Add users  is automatically added to the platform/users group to be able to connect.
 
 .. _spacesGroups:
 
