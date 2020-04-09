@@ -5694,23 +5694,4 @@ The following image shows the screen when an anonymous user accesses
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
 .. |imagee354| image:: images/platform/Admin_menu.png
-.. |image354| image:: images/gamification/gamification_menu.png
-.. |image355| image:: images/gamification/manage_badges.png
-.. |image356| image:: images/gamification/manage_rules.png
-.. |image357| image:: images/gamification/manage_domains.png
-.. |image358| image:: images/gamification/add_badges.png
-.. |image359| image:: images/gamification/add_rules.png
-.. |image360| image:: images/gamification/add_domains.png
-.. |image361| image:: images/gamification/edit_badges.png
-.. |image362| image:: images/gamification/edit_rules.png
-.. |image363| image:: images/gamification/edit_domains.png
-.. |image364| image:: images/platform/branding_color_picker.png
-.. |image365| image:: images/platform/primary_button_style1.png
-.. |image366| image:: images/platform/primary_button_style2.png
-.. |image367| image:: images/platform/primary_label_button.png
-.. |image368| image:: images/platform/primary_activity.png
-.. |image369| image:: images/platform/Primary_tag.png
-.. |image370| image:: images/platform/secondary_button_sidebar.png
-.. |image371| image:: images/platform/tertiary_tab.png
-.. |image372| image:: images/platform/Tertiary_information.png
-.. |image373| image:: images/platform/tertiary_stepper.png
+
