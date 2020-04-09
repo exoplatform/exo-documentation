@@ -2251,7 +2251,9 @@ with the Add Member form.
 
 **Existing Groups**
 
-By default, in eXo Platform there are 2 parent groups: Organzation and Platform.
+By default, in eXo Platform there are 4 parent groups: Development, Organzation, Platform and Spaces.
+
+**Development** is a sample group, could be used to organize users.
 
 **Organization** helps you to organize your company: deparments, teams or any way to represent your organization.
 
@@ -2259,8 +2261,7 @@ By default, in eXo Platform there are 2 parent groups: Organzation and Platform.
          They are just made as a placeholder.
 
 **Platform** helps to define roles in the platform, it contains 5 sub groups:
--  Administration: contains users having administrative roles i.e. who are able to access 
-   the Administration menu |image|.
+-  Administration: contains users having administrative roles i.e. who are able to access the Administration menu |imagee354|.
 -  Rewarding Administrators: contains users having the right to :ref:`manage rewards <ManagingRewards>`
 -  Guests: contains external users to the platform, they have access only to public content of the platform
 -  Users: contains all the platform users able to connect to the platform
@@ -2270,11 +2271,10 @@ By default, in eXo Platform there are 2 parent groups: Organzation and Platform.
 
 .. _spacesGroups:
 
-.. tip: When creating new spaces, an associated group is added under the parent group ``Spaces`` having as label 
-        the space's name. 
-        ``Spaces`` parent is added when creating the first space in the platform.
+**Spaces** is the parent group for all spaces groups. When creating a space, its corresponding group is added
+as sub group to ``Spaces`` parent group.
 
- 
+
 .. _AddNewGroup:
 
 Adding a new group
