@@ -2255,7 +2255,7 @@ By default, in eXo Platform there are 4 parent groups: Development, Organzation,
 
 **Development** is a sample group, could be used to organize users.
 
-**Organization** helps you to organize your company: deparments, teams or any way to represent your organization.
+**Organization** helps you to organize your company: departments, teams or any way to represent your organization.
 
 .. tip:: Notice that these groups i.e. those under Organization group have no specific effects in the product.
          They are just made as a placeholder.
