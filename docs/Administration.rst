@@ -2285,7 +2285,7 @@ By default, in eXo Platform there are 2 parent groups: Organzation and Platform.
 
 **Platform** helps to define roles in the platform, it contains 5 sub groups:
 -  Administration: contains users having administrative roles i.e. who are able to access 
-   the Administration menu |image|.
+   the Administration menu |imagee354|.
 -  Rewarding Administrators: contains users having the right to :ref:`manage rewards <ManagingRewards>`
 -  Guests: contains external users to the platform, they have access only to public content of the platform
 -  Users: contains all the platform users able to connect to the platform
