@@ -2405,7 +2405,7 @@ and a group i.e. it is the combinaison between a group and a membership type to 
 
 **Membership usage in eXo Platform**
 
-In eXo Platform, the most used memships are `manager`, `member` and `*`.
+In eXo Platform, the most used membership types are `manager`, `member` and `*`.
 
 - The `manager` role to define users with managing privileges
 - The `member` role to define normal users in a group
