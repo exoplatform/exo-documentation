@@ -2536,6 +2536,9 @@ This interface contains three tabs:
 - :ref:`Permissions <AdministratingSpaces.Permissions>` tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
 - :ref:`Binding reports <Binding_reports>` tab allows to display **only to administrators** (i.e. members of the group platform/administrators) :ref:`the binding <SpaceGroupsBinding>` reports.
 
+.. note:: Users field displays, for each space, the number of bound users, i.e. mapped from a group, per the total number
+          of the space's members.
+
 
 .. _AdministratingSpaces.ManageSpaces:
 
