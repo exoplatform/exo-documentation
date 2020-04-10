@@ -2880,7 +2880,7 @@ Add Binding Report
 ```````````````````
 Having added groups binding to a space, an entry **per group is added** to the reporting table:
 
--  The operation type is set to "New binding"
+-  The operation type is set to "Add binding"
 -  Added users corresponds to the added users to the space following the group's binding
 -  Removed users is 0
 
@@ -2901,10 +2901,11 @@ Having removed a group binding from a space, an entry is added to the reporting 
 
 Synchronization report
 ```````````````````````
-Even the updated made on bound groups are tracked in the binding reporting.
-In fact an entry is added per space/group for the synchronization. Each time a change in made on a bound group,
+Even the updates made on bound groups are tracked in the binding reporting.
+In fact an entry is added per space/group for the synchronization. Each time a change is made on a bound group,
 this entry is updated:
--  The start and end dates are updated with the group's change date
+-  The start date corresponds to the fist update made on the group after the binding
+-  The end date is updated each time a change is made on the group
 -  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator 
    (The removal from the group could only be done singularly i.e. only one user per action)
 -  The number of added users is increased if some users were added to the bound group by an administrator
