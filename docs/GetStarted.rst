@@ -378,7 +378,7 @@ important characteristics of services:
 
 **Java Content Repository**
 
-All data of eXo Platform are stored in a Java Content Repository (JCR). JCR
+Some data of eXo Platform are stored in a Java Content Repository (JCR). JCR
 is the Java specification
 (`JSR-170 <http://jcp.org/aboutJava/communityprocess/final/jsr170/index.html>`__)
 for a type of Object Database tailored to the storage, searching, and
@@ -388,7 +388,12 @@ JCR also provides versioning, transactions, observations of changes in
 data, and import or export of data in XML. The data in JCR are stored
 hierarchically in a tree of nodes with associated properties.
 
-Also, the JCR is primarily used as an internal storage engine.
+The JCR is mainly used as an internal storage engine for the following addons:
+- `ECMS <https://github.com/exoplatform/ecms>`
+- `Calendar <https://github.com/exoplatform/calendar>`
+- `Forum <https://github.com/exoplatform/forum>`
+- `News <https://github.com/exoplatform/news>`
+
 Accordingly, eXo Platform lets you manipulate JCR data directly in several
 places.
 
@@ -576,16 +581,11 @@ Importing eXo dependencies
 You can, of course, add any eXo artifact as a dependency of your
 project. To avoid losing time looking for the good version of the
 artifacts you want to add as dependencies, eXo Platform provides an
-`import
-dependency <https://repository.exoplatform.org/content/groups/public/org/exoplatform/platform/platform/>`__
+`import dependency <https://repository.exoplatform.org/content/groups/public/org/exoplatform/social/social/>`__
 which defines all of the versions for you. You just need to give the
 version of eXo Platform you are using, without concerning about proper
 versions of all artifacts. To import the right eXo dependencies, you can
-choose between the 2 ways below.
-
-**Inheriting dependency version from eXo Platform**
-
-You can refer to `Dependency Management <http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Management>`__
+refer to `Dependency Management <http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Management>`__
 for more details.
 
 -  Here is an example of the ``pom.xml`` file using implicit variables
@@ -602,14 +602,14 @@ for more details.
                <packaging>war</packaging>
                <name>My project</name>
                <properties>
-                   <exoplatform.version>4.2.0</exoplatform.version>
+                   <exoplatform.version>6.0.0</exoplatform.version>
                </properties>
                <dependencyManagement>
                    <dependencies>
-                   <!-- Import versions from platform project -->
+                   <!-- Import versions from social project -->
                        <dependency>
-                           <groupId>org.exoplatform.platform</groupId>
-                           <artifactId>platform</artifactId>
+                           <groupId>org.exoplatform.social</groupId>
+                           <artifactId>social</artifactId>
                            <version>${exoplatform.version}</version>
                            <type>pom</type>
                            <scope>import</scope>
@@ -625,49 +625,6 @@ for more details.
    variable ``${exoplatform.version}`` without specifying its artifact
    version.
 
-**Declaring exact versions**
-
-In case you want to control the versions of artifact, you can add them
-manually. For each dependency, do as below:
-
--  Select the version of eXo Platform you are using at
-   `here <https://repository.exoplatform.org/content/groups/public/org/exoplatform/platform/platform/>`__.
-
--  Select the targeted ``.pom`` file and open it to see its
-   configurations.
-
--  Find the ``artifactId`` you need to include in your project, for
-   instance ``platform-ui``. You will see its version which was declared
-   in the implicit variable as
-   ``${org.exoplatform.platform-ui.version}``.
-
--  Search for this variable under ``properties`` tag to get the exact
-   version of the artifact and include it in your ``pom.xml`` file, for
-   example:
-
-   .. code:: xml
-
-       <?xml version="1.0" encoding="UTF-8"?>
-           <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-               <modelVersion>4.0.0</modelVersion>
-               <groupId>com.mycompany</groupId>  
-               <artifactId>my-project</artifactId>
-               <version>1.0-SNAPSHOT</version>
-               <packaging>war</packaging>
-               <name>My project</name>
-               <dependencies>
-                   <dependency>
-                       <groupId>org.exoplatform.platform-ui</groupId>
-                       <artifactId>platform-ui</artifactId>
-                       <version>4.2</version>
-                       <scope>provided</scope>
-                   </dependency>
-               </dependencies>
-       </project>
-
-.. note:: In the sample projects of this book, notice that you need to check the artifact versions of each dependency (using `this link <https://repository.exoplatform.org/content/groups/public/org/exoplatform/platform/platform/>`__)
-          to be sure whether they are suitable with your platform package or not.
-
 .. _PLFDevGuide.GettingStarted.GIT:
 
 GIT and github.com
@@ -678,27 +635,9 @@ managing source code. Thus, to contribute to the projects, you need to
 install GIT and register a `github.com <https://github.com>`__ account.
 See http://git-scm.com/docs to learn to use GIT.
 
-Many eXo projects are public at the `eXo Platform
-repository <https://github.com/exoplatform/>`__, so all GIT users have
-the Read access. To contribute to a project, you need to have the Write
-access.
-
-For usage example, after installing GIT and Maven, you can build eXo Platform
-in some steps:
-
-1. Check out the project:
-   ::
-   
-		git clone git@github.com:exoplatform/platform-public-distributions
-
-2. Go to the *platform-public-distributions* directory and build the
-   project: 
-   ::
-   
-		mvn install
-
-You will see the eXo Platform package in the
-``plf-community-tomcat-standalone/target/`` folder.
+Many eXo projects are public at `eXo Platform repository <https://github.com/exoplatform/>`__.
+To contribute to a project, you can follow steps described in
+`Community member contribution guide <http://developer.exoplatform.org/#id-community-contributions>`__.
 
 .. note:: To write your own extension, see `this sample project <https://github.com/exo-samples/docs-samples/tree/master/custom-extension>`__.
 

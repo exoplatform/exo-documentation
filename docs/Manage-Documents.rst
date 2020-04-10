@@ -371,7 +371,7 @@ Basic compatibility
 eXo Platform core has a basic compatibility for Microsoft environments. So,
 if you are using Windows (7, 8 or 10) with Microsoft Office 2016
 installed, you can work with Word, Excel and Powerpoint files in many
-browsers: IE11, Firefox, Google Chrome and Edge.
+browsers: Firefox, Google Chrome, Safari and Edge.
 
 .. note::To make Open in Office work well on IE11, you need to enable ActiveX
 			by selecting Internet OptionsSecurity tabCustom levelInitialize and
@@ -393,25 +393,17 @@ supported in eXo Platform:
 +--------------------+----------------------------+----------------------------+
 | OS                 | Browsers                   | Office suites              |
 +====================+============================+============================+
-| Windows 7, Windows | IE11, Firefox, Chrome,     | Microsoft Office 2016      |
-| 8, Windows 10      | Edge                       | (Recommended), Microsoft   |
-|                    |                            | Office 2010 and 2013       |
-|                    |                            | (Supported)                |
+| Windows 7,         | Firefox, Chrome, Edge      | Microsoft Office 2016      |
+| Windows 10         |                            |                            |
 +--------------------+----------------------------+----------------------------+
-| MAC OS 10.9+       | Firefox, Safari            | Microsoft Office for Mac   |
-|                    |                            | 2016 (Recommended),        |
-|                    |                            | Microsoft Office for Mac   |
-|                    |                            | 2011 (Compatible)          |
+| MAC OS 10.12+      | Firefox, Safari, Chrome    | Microsoft Office for Mac   |
+|                    |                            | 2016                       |
 +--------------------+----------------------------+----------------------------+
-| Ubuntu 17.04       | Firefox                    | LibreOffice 5.4            |
-|                    |                            | (Supported), OpenOffice    |
-|                    |                            | 4.1 (Compatible)           |
+| Ubuntu 18.04       | Firefox, Chrome            | LibreOffice 6.0            |
 +--------------------+----------------------------+----------------------------+
 
 
 .. note::	-  It is recommended to use the latest versions of Firefox and Chrome.
-
-			-  Google chrome browser is incompatible for Ubuntu OS.
 
 			-  For Chrome in Windows and MAC OS, you need to enable NPAPI, as said `here <https://java.com/en/download/faq/chrome.xml#npapichrome>`__.
 
@@ -423,11 +415,6 @@ Client requirements
 In client side, you need to pay attention to the following environment
 requirements before using this feature.
 
-
-.. note:: For all OSs/browsers, it is recommended you install and make sure
-			Java Applet enabled. This is required for opening Non-MS Office
-			files. You can visit http://javatester.org/ to make sure Java Plugin
-			already installed on your browser.
 
 .. _Windows:
 
@@ -514,6 +501,12 @@ these steps:
 
    $ trust_server_cert /etc/davfs2/certs/myserver.pem
      
+     
+.. note:: For Linux Operating systems, to work with Open in Office functionnality,
+          it is recommended to run the platform server on :ref:`SSL mode <Security.HTTPSConf>` with a **trusted certificate**.
+          If it is not the case, you can workarround by adding the certificate under **/etc/davfs2/certs**. More details
+          in this `link <http://manpages.ubuntu.com/manpages/cosmic/man8/mount.davfs.8.html>`__ .
+             
 
 .. _MAC:
 
@@ -527,7 +520,7 @@ MAC
 -  In case you cannot open Microsoft Office files, you should close or
    force closing Microsoft Office Application, then re-open it.
 
--  In MAC OS 10.9, to edit a text file, it is recommended you use
+-  In MAC OS 10.12, to edit a text file, it is recommended you use
    TextWrangler (not default TextEditor) to edit it.
 
 .. _WorkingWithBasicActions:

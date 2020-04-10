@@ -1333,7 +1333,7 @@ Let's start your coding.
 			<portlet-skin>
 				<application-name>portal</application-name>
 				<portlet-name>login</portlet-name>
-				<skin-name>Default</skin-name>
+				<skin-name>Enterprise</skin-name>
 				<css-path>/skin/login.css</css-path>
 			</portlet-skin>
 		</gatein-resources>
