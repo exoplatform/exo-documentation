@@ -2487,10 +2487,11 @@ The spaces administration interface is accessible via the menu Administration --
 
 This Spaces menu allows you, as an administrator to:
 
-- Access and display all the available spaces templates via the menu "Manage Templates".
+- Access and display all the available spaces templates via the menu :ref:`Manage Templates <ManageSpaceTemplates>`.
 - Configure and manage permissions for who can :ref:`Create <Create-Space>` or 
   :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces via the menu "Manage Spaces".
 
+.. _ManageSpaceTemplates:
 
 Manage Templates
 ~~~~~~~~~~~~~~~~~~
@@ -2500,12 +2501,19 @@ Manage Templates
 The "Manage Templates" interface displays all templates that can be chosen by all space creators.
 
 All templates are presented in a table with: 
+
 - Name : Name of the template as shown to end users
+
 - Description : description of the template to hint users about the intended use of the space
+
 - Visibility status : default visibility option (visible, secret) for the space
+
 - Registration : default registration policy for the space (open, closed, validation)
+
 - Applications : list of applications populated by default in the space
+
 - Permissions : list of groups/roles that are authorized to create a space from this template
+
 - Banner View : the image that will be used by default as banner for the space (click to display)
 
 .. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
@@ -2522,10 +2530,12 @@ It is possible to restrict which users can create and/or manage spaces through a
 .. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
           ``*:/platform/administrators``) are allowed to manage spaces and templates.
 
-This interface contains two tabs:
+This interface contains three tabs:
 
-- :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>` tab displays the list of spaces and the corresponding actions: edit, delete and Space binding.
+- :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>` tab displays the list of spaces with their properties (visibility, registration policy, Users) and the corresponding actions: ``edit``, ``delete`` and ``Space binding``.
 - :ref:`Permissions <AdministratingSpaces.Permissions>` tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
+- :ref:`Binding reports <Binding_reports>` tab allows to display **only to administrators** (i.e. members of the group platform/administrators) :ref:`the binding <SpaceGroupsBinding>` reports.
+
 
 .. _AdministratingSpaces.ManageSpaces:
 
@@ -2537,7 +2547,7 @@ Manage spaces tab
 The "Manage spaces" tab can be seen by users belonging to any group listed in 
 the "Manage spaces" permission of the :ref:`Permissions tab <AdministratingSpaces.Permissions>`. 
 Users with this permission are allowed to edit or delete any space in the platform.
-They are also allowed to add groups binding to any space.
+
 
 |image307|
 
@@ -2595,7 +2605,7 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 Space binding
 ````````````````
 
-.. note:: The space binding feature is only available for the platform administrators.
+.. warning:: The space binding feature is **only available** for the **platform administrators** i.e. users who belong to platform/administrators group.
 
 
 .. _AddBindingSteps:
@@ -2603,12 +2613,12 @@ Space binding
 **Add binding steps**
 
 You can, as an administrator, bind groups to a space i.e. map all their members to the space.
-To do so, you should click on the **Space binding** icon |image354| of the space in which you want to add group binding.
+To do so, you should click on the **Space binding** icon |Bimage354| of the space in which you want to add group binding.
 
-|image356|
+|Bimage356|
 
-- |image361| The **Space binding** icon in default color means that the space hasn't yet bindings with any group
-- |image362| The **Space binding** icon in green color means that the space has already groups bindings.
+- |Bimage361| The **Space binding** icon in default color means that the space hasn't yet bindings with any group
+- |Bimage362| The **Space binding** icon in green color means that the space has already groups bindings.
 
 .. _firstDrawer:
 
@@ -2637,28 +2647,28 @@ Having clicked on the "Space binding" icon, a drawer appears having these compon
    
 Drawer of a space without existing bindings:   
 
-|image355|
+|Bimage355|
 
 .. _coloredicondrawer:
 
 Drawer of a space with existing bindings:   
 
-|image363|
+|Bimage363|
 
 
 When you type some characters in the text field, suggestions are proposed to facilitate the groups selection:
 
-|image357|
+|Bimage357|
 
 .. _AddConfirmationMessage:
 
 Having selected at least one group, the ``Apply`` button turns to enabled status. When you click on it, a confirmation 
 message appears warning you about the process to start.
 
-|image358|
+|Bimage358|
 
 If you click on ``Cancel`` button, nothing happens and the **Add binding** drawer is displayed again.
-If you click on ``Yes, I am sure`` button, the add binding process will start when its execution time comes.
+If you click on ``Yes, I am sure`` button, the add binding process will start when its execution time comes (it is launched each 5min).
 More details in :ref:`this section <AddBinding>` to learn how users add process is executed.
 
 .. _SelectGroupDrawer:
@@ -2675,7 +2685,7 @@ This second drawer contains these components:
 
 -  Search field allowing you to make a search into the groups tree
 
--  Close icon allowing to close the two drawers ans abort the binding action
+-  Close icon allowing to close the two drawers and abort the binding action
 
 -  The groups tree, by default not expanded
 
@@ -2683,7 +2693,7 @@ This second drawer contains these components:
 
 -  ``Save`` button allowing to validate the checked groups and add them to the text filed in the :ref:`first drawer <firstDrawer>`
 
-|image367|
+|Bimage367|
 
 
 .. tip: If you already typed some groups from suggestions in the text field of the 
@@ -2697,8 +2707,8 @@ When making a search in the :ref:`Select groups <SelectGroupDrawer>` drawer:
 
 -  If a subgroup matchs with the keyword, its parent group also appears, but not colored.
 
-|image368|
-          
+|Bimage368|
+                   
           
 .. _RemoveBindingSteps:
 
@@ -2706,13 +2716,13 @@ When making a search in the :ref:`Select groups <SelectGroupDrawer>` drawer:
 
 If you want to remove the group's users mapping from a space, you just need to follow these steps:
 
-- Click on the colored icon |image364| of the corresponding space ==> The :ref:`drawer <coloredicondrawer>` appears
-- Click on the delete icon |image365| of the group you want to remove its members from the space ==>
+- Click on the colored icon |Bimage364| of the corresponding space ==> The :ref:`drawer <coloredicondrawer>` appears
+- Click on the delete icon |Bimage365| of the group you want to remove its members from the space ==>
   A confirmation message appears containing the group's name with a ``Cancel`` and ``Confirm`` buttons
   
 .. _DeleteConfirmationMessage:  
   
-  |image366|
+  |Bimage366|
   
 - If you click on ``Cancel`` button nothing happens and the drawer is displayed
 - If you click on ``Confirm`` button, then the remove binding process will be executed when it's runtine comes.
@@ -2755,17 +2765,11 @@ Space groups binding
 As already described in :ref:`Space binding section<SpaceBindingIcon>`, it is possible to add and remove groups binding to a space.
 In this section, we will explain the life cycle of a space/group binding through these parts:
 
-    -  :ref:`Add binding process <AddBinding>`
-    
-       To explain how is executed an "Add binding" action and its consequences.
+    -  :ref:`Add binding process <AddBinding>`: To explain how is executed an "Add binding" action and its consequences.
        
-    -  :ref:`Remove binding process <RemoveBinding>`
-    
-       To explain how is executed the "Remove binding" action.
+    -  :ref:`Remove binding process <RemoveBinding>`: To explain how is executed the "Remove binding" action.
        
-    -  :ref:`Synchronize binding <SynchronizeBinding>`
-    
-       When and how is launched the sychronization between the space and the bound group?
+    -  :ref:`Synchronize binding <SynchronizeBinding>`: When and how is launched the sychronization between the space and the bound group?
        
 
 .. _AddBinding:
@@ -2775,7 +2779,8 @@ Add binding process
 
 After having made the steps described in :ref:`Space binding section<SpaceBindingIcon>` and having ckicked on 
 ``Yes I am sure`` button of the :ref:`confirmation message <AddConfirmationMessage>`, you will be redirected to 
-``Binding reports`` tab with new entries of the groups binding (each space/group/Add binding has an entry).
+:ref:`Binding reports <Binding_reports>` tab with new entries of the groups binding 
+(each space/group/Add binding has an entry).
 
 The groups you selected are immediately added to the :ref:`Bound groups <boundGroupsSection>` section, 
 but the "Add binding" process is launched when the job is executed.
@@ -2788,13 +2793,13 @@ At the end of the job's execution, all the members of the selected groups are ad
 -  A bound user could not be deleted by an administrator or spaces manager or space's owner. The delete action
    is replaced by the label "Bound user" with a tooltip explaining the origin of the user.
              
-   |image359|
+   |Bimage359|
    
              
 -  A bound user can not leave a space in which he is bound, the ``Leave`` button becomes disabled when 
    the binding is set.
              
-   |image360|
+   |Bimage360|
              
 .. note:: -  Note that the binding is made on group members independently of their roles in the group. They are added to the 
              corresponding space as members, except those who are managers in the space before the binding, they still in 
@@ -2811,12 +2816,12 @@ The remove binding process is the action of removing users derived from the bind
 "Remove binding" is done on a single group. You can find :ref:`here <RemoveBindingSteps>` the steps to remove a 
 binding.
 When you, as an administrator, click on the ``Confirm`` button of the :ref:`deletion confirmation message <DeleteConfirmationMessage>`, 
-you are redirected to the ``Binding reports`` tab  with a new entry (space/group/Remove binding operation) 
+you are redirected to the :ref:`Binding reports <Binding_reports>` tab  with a new entry (space/group/Remove binding operation) 
 and the group's item is immediately removed from the :ref:`Bound groups <boundGroupsSection>` section.
 
 Same as for the **Add binding**, the "Remove binding" is also executed with a job which is launched each 5 minutes.
-When the execution time comes, the "Remove binding" process removes all the group's users except those who belong to the 
-space before the binding. 
+When the execution time comes, the "Remove binding" process removes all the group's users **except those who belong to the 
+space before the binding**. 
 If they are no more :ref:`bound users <boundUsers>` i.e. they don't belong to an another bound group, they resume their 
 ability to leave space, and they become agin deletable by spaces managers, platform admnistrators and the space's owner.
 
@@ -2832,6 +2837,9 @@ Synchronize binding operation is the action made on space members following any 
 -  If you remove a member from the bound group, he is **automatically removed** from the space even if this user
    belongs to the space before the space/group binding.
 
+.. note:: The synchronize action also generates a report in the :ref:`Binding reports <Binding_reports>` tab.
+          Only one entry per space/group binding is added to the reports table and it is updated each time a change is
+          done on the group.
 
 .. _Binding_reports:
 
@@ -2844,14 +2852,27 @@ The binding reports table contains these information
 
 -  Space: for the space name
 -  Group: for the bound group name
--  Start date: corresponds to the job's launch date
+-  Start date: corresponds to the action's validation date i.e. the time of confirming the action (Add or Remove binding) in the confirmation message. 
 -  End date: corresponds to the end of the group's members processing (addition or removal)
--  Operation type: New binding, Remove binding or Synchronization
--  Added users: the number of the added users following the binding operation
--  Removed users: the number of the removed users following the binding operation
+-  Operation type: Add binding, Remove binding or Synchronize
+-  Added users: the number of the added users following the binding operation, it is 0 when the operation type is **Remove binding**
+-  Removed users: the number of the removed users following the binding operation, it is 0 when the operation type is **Add binding**
 -  File: a downloadable file in csv format
 
-|image369|
+|Bimage369|
+
+A filter allows you to filter the reports table by operation:
+
+|Bimage370|
+
+The search fielfallows to search by space name and return reports of spaces whose names corresponds to the keyword:
+
+|Bimage371|
+
+It is also possible to filter by operation type the search results:
+
+|Bimage372|
+
 
 .. _AddBindingReport:
 
@@ -5881,20 +5902,23 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
-.. |image354| image:: images/platform/SpaceBindingIcon.png
-.. |image355| image:: images/platform/AddBindingDrawerDefault.png
-.. |image356| image:: images/platform/spaceBinding.png
-.. |image357| image:: images/platform/GroupsSuggester.png
-.. |image358| image:: images/platform/AddconfirmationPopup.png
-.. |image359| image:: images/platform/boundUserLabel.png
-.. |image360| image:: images/platform/LeaveDisabled.png
-.. |image361| image:: images/platform/defaultIcon.png
-.. |image362| image:: images/platform/coloredIcon.png
-.. |image363| image:: images/platform/AddBindingDrawer.png
-.. |image364| image:: images/platform/coloredIcon.png
-.. |image365| image:: images/platform/deleteIcon.png
-.. |image366| image:: images/platform/DeleteconfirmationMessage.png
-.. |image367| image:: images/platform/SelectGroupsDrawer.png
-.. |image368| image:: images/platform/SearchDrawer2.png
-.. |image369| image:: images/platform/BindingReportsTab.png
+.. |Bimage354| image:: images/platform/SpaceBindingIcon.png
+.. |Bimage355| image:: images/platform/AddBindingDrawerDefault.png
+.. |Bimage356| image:: images/platform/spaceBinding.png
+.. |Bimage357| image:: images/platform/GroupsSuggester.png
+.. |Bimage358| image:: images/platform/AddconfirmationPopup.png
+.. |Bimage359| image:: images/platform/boundUserLabel.png
+.. |Bimage360| image:: images/platform/LeaveDisabled.png
+.. |Bimage361| image:: images/platform/defaultIcon.png
+.. |Bimage362| image:: images/platform/coloredIcon.png
+.. |Bimage363| image:: images/platform/AddBindingDrawer.png
+.. |Bimage364| image:: images/platform/coloredIcon.png
+.. |Bimage365| image:: images/platform/deleteIcon.png
+.. |Bimage366| image:: images/platform/DeleteconfirmationMessage.png
+.. |Bimage367| image:: images/platform/SelectGroupsDrawer.png
+.. |Bimage368| image:: images/platform/SearchDrawer2.png
+.. |Bimage369| image:: images/platform/BindingReportsTab.png
+.. |Bimage370| image:: images/platform/FilterBinding.png
+.. |Bimage371| image:: images/platform/SeachReports.png
+.. |Bimage372| image:: images/platform/search_filter_reports.png
 
