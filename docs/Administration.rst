@@ -391,7 +391,7 @@ Removing an application from eXo Platform
 When installing an :ref:`addon <eXo_addons>` in eXo Platform, an application appears in the platform's navigation
 and it could be added to spaces applications list.
 
-When :ref:`unistalling the addon <AddonsManagement.Uninstalling>`, it's corresponding navigation remains
+When :ref:`unistalling the addon <AddonsManagement.Uninstalling>`, its corresponding navigation remains
 in the platform.
 
 To completely remove it, follow these steps:
