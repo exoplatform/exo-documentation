@@ -391,7 +391,7 @@ Removing an application from eXo Platform
 When installing an :ref:`addon <eXo_addons>` in eXo Platform, an application appears in the platform's navigation
 and it could be added to spaces applications list.
 
-When :ref:`unistalling the addon <AddonsManagement.Uninstalling>`, it's corresponding navigation remains
+When :ref:`unistalling the addon <AddonsManagement.Uninstalling>`, its corresponding navigation remains
 in the platform.
 
 .. note:: To follow the below steps in eXo Platform 6, you shoud install the addon ``exo-layout-management``
@@ -413,10 +413,10 @@ To completely remove it, follow these steps:
 
     |TA3|       
     
-If the addon belongs to a space's applications list, these are the needed steps and which could be done by the 
-space's owner or a spaces manager:
+If the application was installed in a space, below are the required steps to be done by the 
+space owner or any space manager:
 
-1-  Go to Space settings |TA4| then to Navigation tab 
+1-  Go to Space Settings |TA4| then to Navigation tab 
 
     |TA5|
 
