@@ -410,7 +410,7 @@ To completely remove it, follow these steps:
 
     |TA3|       
     
-If the addon belongs to a space's applications list, these are the needed steps and which could be done by the 
+If the application was installed in a space, below are the required steps to be done by the 
 space owner or any space manager:
 
 1-  Go to Space settings |TA4| then to Navigation tab 
