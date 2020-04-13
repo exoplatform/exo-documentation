@@ -394,6 +394,9 @@ and it could be added to spaces applications list.
 When :ref:`unistalling the addon <AddonsManagement.Uninstalling>`, it's corresponding navigation remains
 in the platform.
 
+.. note:: To follow the below steps in eXo Platform 6, you shoud install the addon ``exo-layout-management``
+          which enables you to :ref:`edit site's layout and navigation <EditingSite>`.
+
 To completely remove it, follow these steps:
 
 1-  Switch to site's edit mode by clicking on Edit -> Site -> Edit Navigation
