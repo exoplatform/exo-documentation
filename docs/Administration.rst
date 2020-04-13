@@ -413,7 +413,7 @@ To completely remove it, follow these steps:
 If the application was installed in a space, below are the required steps to be done by the 
 space owner or any space manager:
 
-1-  Go to Space settings |TA4| then to Navigation tab 
+1-  Go to Space Settings |TA4| then to Navigation tab 
 
     |TA5|
 
