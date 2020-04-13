@@ -23,6 +23,9 @@ Administering eXo Platform
        Instructions on how to edit certain aspects of eXo Platform, including
        website content, pages and sites.
 
+    -  :ref:`Removing an application from eXo Platform <RemovingApp>`
+       Instructions on how to completely remove an application from eXo Platform.
+
     -  :ref:`Content Administration <ContentAdministration>`
        The way to access the Content Administration page where you can
        manage workspaces, drives, node types, metadata, templates, and
@@ -377,6 +380,47 @@ Hover your cursor over Site, then click:
 
 -  Click Add Site to add a new site. See :ref:`Creating a new site <CreatingNewSite>`
    for details.
+   
+   
+.. _RemovingApp:   
+   
+============================================
+Removing an application from eXo Platform 
+============================================
+
+When installing an :ref:`addon <eXo_addons>` in eXo Platform, an application appears in the platform's navigation
+and it could be added to spaces applications list.
+
+When :ref:`unistalling the addon <AddonsManagement.Uninstalling>`, it's corresponding navigation remains
+in the platform.
+
+To completely remove it, follow these steps:
+
+1-  Switch to site's edit mode by clicking on Edit -> Site -> Edit Navigation
+
+    |TA1|
+    
+    ==> The site's navigation appears
+    
+    |TA2|
+    
+2-  Right click on the corresponding application's navigation i.e. the navigation of the unistalled addon
+
+3-  Click on ``Delete Node`` button and then the confirmation button.
+
+    |TA3|       
+    
+If the addon belongs to a space's applications list, these are the needed steps and which could be done by the 
+space's owner or a spaces manager:
+
+1-  Go to Space settings |TA4| then to Navigation tab 
+
+    |TA5|
+
+2-  Right click on the correspong navigation of the uninstalled addon and click on ``Delete Node`` button
+
+    |TA6|
+    
 
 .. _ContentAdministration:
 
@@ -5685,3 +5729,9 @@ The following image shows the screen when an anonymous user accesses
 .. |image371| image:: images/platform/tertiary_tab.png
 .. |image372| image:: images/platform/Tertiary_information.png
 .. |image373| image:: images/platform/tertiary_stepper.png
+.. |TA1| image:: images/platform/EditModeNavigation.png
+.. |TA2| image:: images/platform/SiteNavigation.png
+.. |TA3| image:: images/platform/DeleteNode.png
+.. |TA4| image:: images/platform/SpaceSettings.png
+.. |TA5| image:: images/platform/SpaceSettingsNavigations.png
+.. |TA6| image:: images/platform/DeleteNodeSpace.png
