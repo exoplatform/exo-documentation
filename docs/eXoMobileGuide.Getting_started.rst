@@ -124,6 +124,9 @@ Click the ``Add new intranet`` button, you will be redirected to this screen:
 
 Enter the URL of your intranet and click on ``Go``. 
 
+.. note:: For Android devices and with the version 9, you should use eXo Platform in secured mode
+          i.e. with :ref:`https mode enabled <Security.HTTPSConf>` to acces your server in mobile.
+
 |image5|
 
 You will be redirected to your intranet login page.
