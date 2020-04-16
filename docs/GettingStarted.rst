@@ -312,7 +312,7 @@ redirected to the :ref:`Legacy Social Intranet <PLFHomepage>`. Now, you can star
 Navigate in Digital Workplace
 ==============================
 
-This section introduces you to the navigation in the Digital Workplace, ie **Snapshot**. Besides,
+This section introduces the navigation in the Digital Workplace site. Besides,
 you will further learn about the following topics:
    
  * :ref:`Navigation <Navigation>`
