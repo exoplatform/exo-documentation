@@ -495,7 +495,7 @@ After each action is performed, it will be remarked as completed with a
 check-mark even though it is not performed via this application.
 
 When all the actions are performed, you can remove this widget from the Stream Page by clicking
-Close on the application header|DW-2|.
+Close on the header|DW-2|.
 
     .. note:: - You cannot get the Getting Started application back when it is removed.
 
