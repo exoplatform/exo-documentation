@@ -604,7 +604,7 @@ By clicking on this number, the Perks Store application will be opened on the li
 Wallet Balance
 ---------------
 
-The Wallet widget will presents to you the number of your cauris on your wallet.
+The Wallet widget displays the number of your balance of your wallet.
 Cauris are earned by the points you gained on gamification when you react and collabore with your collaborators.
 
 |DW-9|
