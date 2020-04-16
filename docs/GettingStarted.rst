@@ -458,7 +458,7 @@ Quickly perform key actions through the following applications:
 
 .. _DW-Gadgets:
 
-Digital Workplace applications
+Digital Workplace widgets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Digital Workplace widgets come with the Digital Workplace, including:
