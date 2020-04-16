@@ -18,7 +18,7 @@ This chapter covers the following topics:
 :ref:`Navigate on the Digital Workplacce <DWHomepage>`
 
        Introduction to the navigation on the Digital Workplace, the Digital Workplace
-       applications, Spaces and Settings.
+       widgets, spaces and settings.
        
 :ref:`Legacy Intranet Homepage <PLFHomepage>`
 
