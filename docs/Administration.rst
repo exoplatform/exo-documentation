@@ -2711,8 +2711,32 @@ When making a search in the :ref:`Select groups <SelectGroupDrawer>` drawer:
 -  If a subgroup matchs with the keyword, its parent group also appears, but not colored.
 
 |Bimage368|
-                   
-          
+
+When you click on the search icon, the drawer turns on search mode with:
+
+-  The search field having "Search here" placeholder
+
+-  Back icon allowing to exit the search mode
+
+|Bimage373|
+                
+When you start typing a keyword in the search field, a corss icon appears allowing to to clear 
+search results and the keyword.
+
+|Bimage374|
+
+.. note:: -  Already bound groups may appear in the search results in the groups tree but their checkbox is uncheckable
+              
+              |Bimage375|
+              
+          -  Already seized groups appear in the groups tree as checked.
+              
+              |Bimage376|
+
+.. tip:: The groups tree drawer and the text field of the first drawer are synchronized i.e. when a group is seized in 
+         the first drawer, it appears checked in the second one. Checked groups in the second drawer are added to the text field
+         when saving selection.
+                        
 .. _RemoveBindingSteps:
 
 **Remove binding steps**
@@ -2818,6 +2842,7 @@ Remove binding process
 The remove binding process is the action of removing users derived from the binding. Unlike the "Add binding", the
 "Remove binding" is done on a single group. You can find :ref:`here <RemoveBindingSteps>` the steps to remove a 
 binding.
+
 When you, as an administrator, click on the ``Confirm`` button of the :ref:`deletion confirmation message <DeleteConfirmationMessage>`, 
 you are redirected to the :ref:`Binding reports <Binding_reports>` tab  with a new entry (space/group/Remove binding operation) 
 and the group's item is immediately removed from the :ref:`Bound groups <boundGroupsSection>` section.
@@ -2825,6 +2850,7 @@ and the group's item is immediately removed from the :ref:`Bound groups <boundGr
 Same as for the **Add binding**, the "Remove binding" is also executed with a job which is launched each 5 minutes.
 When the execution time comes, the "Remove binding" process removes all the group's users **except those who belong to the 
 space before the binding**. 
+
 If they are no more :ref:`bound users <boundUsers>` i.e. they don't belong to an another bound group, they resume their 
 ability to leave space, and they become agin deletable by spaces managers, platform admnistrators and the space's owner.
 
@@ -2841,7 +2867,7 @@ Synchronize binding operation is the action made on space members following any 
    belongs to the space before the space/group binding.
 
 .. note:: The synchronize action also generates a report in the :ref:`Binding reports <Binding_reports>` tab.
-          Only one entry per space/group binding is added to the reports table and it is updated each time a change is
+          Only one entry per space/group binding is added to the reports table and its end date is updated each time a change is
           done on the group.
 
 .. _Binding_reports:
@@ -2851,9 +2877,9 @@ Binding reports
 
 After making a binding operation i.e. add new space binding or remove a space binding or even update a bound group,
 a report is generated and which could be viewed in the tab "Binding reports".
-The binding reports table contains these information
+The binding reports table contains these information:
 
--  Space: for the space name
+-  Space: for the space name and avatar
 -  Group: for the bound group name
 -  Start date: corresponds to the action's validation date i.e. the time of confirming the action (Add or Remove binding) in the confirmation message. 
 -  End date: corresponds to the end of the group's members processing (addition or removal)
@@ -2868,7 +2894,7 @@ A filter allows you to filter the reports table by operation:
 
 |Bimage370|
 
-The search fielfallows to search by space name and return reports of spaces whose names corresponds to the keyword:
+The search field allows to search by space name and return reports of spaces whose names corresponds to the keyword:
 
 |Bimage371|
 
@@ -2907,10 +2933,13 @@ Synchronization report
 Even the updates made on bound groups are tracked in the binding reporting.
 In fact an entry is added per space/group for the synchronization. Each time a change is made on a bound group,
 this entry is updated:
+
 -  The start date corresponds to the fist update made on the group after the binding
+
 -  The end date is updated each time a change is made on the group
--  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator 
-   (The removal from the group could only be done singularly i.e. only one user per action)
+
+-  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator (The removal from the group could only be done singularly i.e. only one user per action)
+   
 -  The number of added users is increased if some users were added to the bound group by an administrator
 
 
@@ -5925,4 +5954,9 @@ The following image shows the screen when an anonymous user accesses
 .. |Bimage370| image:: images/platform/FilterBinding.png
 .. |Bimage371| image:: images/platform/SeachReports.png
 .. |Bimage372| image:: images/platform/search_filter_reports.png
+.. |Bimage373| image:: images/platform/SearchMode.png
+.. |Bimage374| image:: images/platform/SearchClearIcon.png
+.. |Bimage375| image:: images/platform/BoundGroupsTree.png
+.. |Bimage376| image:: images/platform/SeizedGroupsTree.png
+
 
