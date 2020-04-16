@@ -528,7 +528,7 @@ your points obtained in the current week and your weekly rank.
 
 |DW-4|
 
-- You will have also your Weekly rank and by clicking on your rank, you will have a leaderboad 
+- You can also your rank for this week and by clicking on your rank, you can see a leaderboard 
   that presents your position comparing to you collaborators and your weekly gained points.
 
 |DW-5|
