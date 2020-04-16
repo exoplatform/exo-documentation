@@ -512,7 +512,7 @@ your points obtained in the current week and your weekly rank.
 - You will see your avatar and your name just after the welcome Back label.
 
 - For your spaces, you will see the total number of spaces that you're member of.
-  If you have some requests to join a space, you will find a badge displaying the number of requests
+  If you have some invitations to join spaces, you will find a badge displaying the number of awaiting invitations
   you have and you can just click on them to display them in a drawer.
 
     .. note:: - If you don't have any request to join a space, the badge will be hidden.
