@@ -529,7 +529,7 @@ your points obtained in the current week and your weekly rank.
 |DW-4|
 
 - You can also your rank for this week and by clicking on your rank, you can see a leaderboard 
-  that presents your position comparing to you collaborators and your weekly gained points.
+  that presents your position comparing to other members and the amount of points you earned this week so far.
 
 |DW-5|
 
