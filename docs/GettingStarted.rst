@@ -605,7 +605,7 @@ Wallet Balance
 ---------------
 
 The Wallet widget displays the number of your balance of your wallet.
-Cauris are earned by the points you gained on gamification when you react and collabore with your collaborators.
+You will receive tokens regularly in your wallet by collaborating through the digital workplace apps. 
 
 |DW-9|
 
