@@ -595,7 +595,7 @@ Perkstore
 ----------
 
 The Perks Store widget will presents to you the number of your current orders in the Perkstore.
-By clicking on this number, the Perkstore page will be opened on the list of all your orders.
+By clicking on this number, the Perks Store application will be opened on the list of all your orders.
 
 |DW-8|
 
