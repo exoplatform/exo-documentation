@@ -594,7 +594,7 @@ corresponding button at the pop-up bottom:
 Perkstore
 ----------
 
-The My Orders widget will presents to you the number of your current orders in the Perkstore.
+The Perks Store widget will presents to you the number of your current orders in the Perkstore.
 By clicking on this number, the Perkstore page will be opened on the list of all your orders.
 
 |DW-8|
