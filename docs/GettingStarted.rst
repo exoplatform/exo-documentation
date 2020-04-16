@@ -504,7 +504,7 @@ Close on the header|DW-2|.
 Welcome Back
 -------------
 
-The welcome back widget is an application that welcomes you with some information about your spaces, connections, 
+The welcome back widget is an block that welcomes you with some information about your spaces, connections, 
 your points obtained in the current week and your weekly rank.
 
 |DW-3|
