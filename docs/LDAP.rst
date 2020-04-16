@@ -376,12 +376,12 @@ These attributes can be retrieved in the Portal User Profile with the Java API:
 
  .. code:: java
  
-		import org.exoplatform.commons.utils.CommonsUtils;
+    import org.exoplatform.container.ExoContainerContext;
 		import org.exoplatform.services.organization.OrganizationService;
 		import org.exoplatform.services.organization.User;
 		import org.exoplatform.services.organization.UserProfile;
 
-		OrganizationService organizationService = CommonsUtils.getService(OrganizationService.class);
+		OrganizationService organizationService = ExoContainerContext.getService(OrganizationService.class);
 
 		String userName = "mary";
 		UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(userName);

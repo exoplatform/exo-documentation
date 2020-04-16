@@ -208,7 +208,7 @@ If you have not created ``exo.properties`` yet, see :ref:`Configuration overview
 Configuring database for a docker container
 ===========================================
 
-eXo Platform community docker image supports both HSQL and MySQL databases.
+eXo Platform docker image supports both HSQL and MySQL databases.
 HSQL database is the default one for testing purposes. To move into
 production environment, it is highly recommended to connect the docker
 image to MySQL database.
@@ -222,8 +222,8 @@ needed variables:
 |                    |              | value        |                                |
 +====================+==============+==============+================================+
 | EXO\_DB\_TYPE      | No           | hsqldb       | The database type to be used,  |
-|                    |              |              | Community edition only         |
-|                    |              |              | supports hsqldb and mysql      |
+|                    |              |              | supports hsqldb (not for       |
+|                    |              |              | production) and mysql          |
 |                    |              |              | databases.                     |
 +--------------------+--------------+--------------+--------------------------------+
 | EXO\_DB\_HOST      | No           | mysql        | The host to connect to the     |
@@ -242,8 +242,7 @@ needed variables:
 |                    |              |              | database.                      |
 +--------------------+--------------+--------------+--------------------------------+
 
-An example of the execution command to use MySQL database for eXo Platform
-community docker image:
+An example of the execution command to use MySQL database for eXo Platform docker image:
 
 ::
 
