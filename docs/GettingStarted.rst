@@ -523,7 +523,7 @@ your points obtained in the current week and your weekly rank.
 
     .. note:: - If you don't have any request to join a space, the badge will be hidden.
 
-- You will have your Weekly gamifications gained points and by clicking on your points, you will have a pie chart 
+- You can see the points you earned his week and by clicking on your points, you will have a pie chart 
   that presents your points partition by domains.
 
 |DW-4|
