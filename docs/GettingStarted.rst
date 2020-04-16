@@ -319,7 +319,7 @@ you will further learn about the following topics:
    How to navigate in the Digital Workplace.
 
  * :ref:`Snapshot <Snapshot>`
-   Introduction to the Digital Workplace Homepage.
+   Introduction to the Snapshot page, all your Digital Workplace at a glance .
 
  * :ref:`Digital Workplace widgets <DW-Gadgets>`
    Introduction to widget blocks that come with the Digital Workplace.
