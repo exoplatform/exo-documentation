@@ -321,7 +321,7 @@ you will further learn about the following topics:
  * :ref:`Snapshot <Snapshot>`
    Introduction to the Digital Workplace Homepage.
 
- * :ref:`Digital Workplace applications <DW-Gadgets>`
+ * :ref:`Digital Workplace widgets <DW-Gadgets>`
    Introduction to widget blocks that come with the Digital Workplace.
 
  * :ref:`Changing the UI language <Change-Language>`
