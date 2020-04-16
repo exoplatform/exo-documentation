@@ -461,7 +461,7 @@ Quickly perform key actions through the following applications:
 Digital Workplace applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Digital Workplace applications are ones which come with the Digital Workplace, including:
+Digital Workplace widgets come with the Digital Workplace, including:
 
  * :ref:`Getting Started`
  * :ref:`CalendarApp`
