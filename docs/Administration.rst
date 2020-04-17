@@ -2869,7 +2869,7 @@ In this section, we will explain the life cycle of a space/group binding through
 Add binding process
 ----------------------
 
-After having made the steps described in :ref:`Space binding section<SpaceBindingIcon>` and having ckicked on 
+After having made the steps described in :ref:`Space binding section<SpaceBindingIcon>` and having clicked on 
 ``Yes I am sure`` button of the :ref:`confirmation message <AddConfirmationMessage>`, you will be redirected to 
 :ref:`Binding reports <Binding_reports>` tab with new entries of the groups binding 
 (each space/group/Add binding has an entry).
