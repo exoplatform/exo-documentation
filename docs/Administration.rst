@@ -2988,8 +2988,13 @@ Having removed a group binding from a space, an entry is added to the reporting 
 -  Added users is 0
 -  Removed users corresponds to the removed users from the space following the group's binding removal
 
-.. note: If some users are bound and that they belong to more than one bound group, they remain in the space
-         and they are not count in the reporting. Same if the user was member of the space  before the binding was created. In this case, when the binding is removed, the user is revert to normal user, and he is not removed from the space. So, he is not count in the "Removed Users"  column. But, the information is present in the csv report file, in which the user is not mark as removed, but marked as "still in space"
+.. note:: -  If some users are bound and that they belong to more than one bound group, they remain in the space
+             and they are not count in the reporting. 
+             
+          -  If a user was member of the space before the binding was created. When removing the binding, 
+             he remains in the space and becomes again normal member i.e. not bound. So, he is not count 
+             in the "Removed Users"  column. But, the information is present in the csv report file, in which 
+             he is marked as "still in space".
          
          
 .. _SyncReport:
