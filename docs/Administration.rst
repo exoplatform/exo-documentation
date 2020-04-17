@@ -2917,7 +2917,7 @@ When the execution time comes, the "Remove binding" process removes all the grou
 space before the binding**. 
 
 If they are no more :ref:`bound users <boundUsers>` i.e. they don't belong to an another bound group, they resume their 
-ability to leave space, and they become agin deletable by spaces managers, platform admnistrators and the space's owner.
+ability to leave space, and they become again deletable by spaces managers, platform admnistrators and the space's owner.
 
 .. _SynchronizeBinding:
 
