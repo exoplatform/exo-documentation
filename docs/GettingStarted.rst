@@ -321,8 +321,8 @@ you will further learn about the following topics:
  * :ref:`Snapshot <Snapshot>`
    Introduction to the Snapshot page, all your Digital Workplace at a glance .
 
- * :ref:`Digital Workplace widgets <DW-Gadgets>`
-   Introduction to widget blocks that come with the Digital Workplace.
+ * :ref:`Digital Workplace applications <DW-Widgets>`
+   Introduction to applications that come with the Digital Workplace.
 
  * :ref:`Changing the UI language <Change-Language>`
    Instructions on how to change the UI language of eXo Platform.
@@ -456,7 +456,7 @@ Quickly perform key actions through the following applications:
 
 *This section will be developed soon*
 
-.. _DW-Gadgets:
+.. _DW-Widgets:
 
 Digital Workplace widgets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -528,8 +528,9 @@ your points obtained in the current week and your weekly rank.
 
 |DW-4|
 
-- You can also your rank for this week and by clicking on your rank, you can see a leaderboard 
-  that presents your position comparing to other members and the amount of points you earned this week so far.
+- You will have also your Weekly rank and by clicking on your rank, you will have a leaderboad 
+  that presents your position comparing to you collaborators and your weekly gained points.
+  See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
 |DW-5|
 
@@ -589,10 +590,10 @@ corresponding button at the pop-up bottom:
 
     .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
 
-.. _Perkstore:
+.. _Perksstore:
 
-Perkstore
-----------
+Perks Store
+------------
 
 The Perks Store widget will presents to you the number of your current orders in the Perkstore.
 By clicking on this number, the Perks Store application will be opened on the list of all your orders.
