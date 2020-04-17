@@ -2790,7 +2790,7 @@ search results and the keyword.
 
 |Bimage374|
 
-.. note:: -  Already bound groups may appear in the search results in the groups tree but their checkbox is uncheckable
+.. note:: -  Already bound groups may appear in the search results in the groups tree but their checkbox are uncheckable
               
               |Bimage375|
               
