@@ -319,10 +319,10 @@ you will further learn about the following topics:
    How to navigate in the Digital Workplace.
 
  * :ref:`Snapshot <Snapshot>`
-   Introduction to the Snapshot page, all your Digital Workplace at a glance .
+   Introduction to the Snapshot page, all your Digital Workplace at a glance.
 
- * :ref:`Digital Workplace applications <DW-Widgets>`
-   Introduction to applications that come with the Digital Workplace.
+ * :ref:`Digital Workplace Widgets <DW-Widgets>`
+   Introduction to widget blocks that come with the Digital Workplace.
 
  * :ref:`Changing the UI language <Change-Language>`
    Instructions on how to change the UI language of eXo Platform.
@@ -461,7 +461,7 @@ Quickly perform key actions through the following applications:
 Digital Workplace widgets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Digital Workplace widgets come with the Digital Workplace, including:
+Digital Workplace comes with several widget applications preinstalled on default pages to provide useful info and handy shortcuts to all apps and key information such as :
 
  * :ref:`Getting Started`
  * :ref:`CalendarApp`
@@ -494,10 +494,10 @@ Clicking each link will direct you to the related page to do the action.
 After each action is performed, it will be remarked as completed with a
 check-mark even though it is not performed via this application.
 
-When all the actions are performed, you can remove this widget from the Stream Page by clicking
+When all the actions are performed, you can dismiss this widget permanently by clicking
 Close on the header|DW-2|.
 
-    .. note:: - You can’t get the Getting Started widget back when it is removed.
+    .. note:: - You can’t get the Getting Started widget back after you closed it.
 
 .. _WelcomeBack:
 
@@ -505,31 +505,32 @@ Welcome Back
 -------------
 
 The welcome back widget is an block that welcomes you with some information about your spaces, connections, 
-your points obtained in the current week and your weekly rank.
+the points you earned and the rank you reached this week.
+See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
 
 |DW-3|
 
-- You will see your avatar and your name just after the welcome Back label.
+- You can see your profile picture and your name just after the welcome Back label.
 
-- For your spaces, you will see the total number of spaces that you're member of.
-  If you have some invitations to join spaces, you will find a badge displaying the number of awaiting invitations
-  you have and you can just click on it to display them in a drawer.
+- The widget also displays the  total number of spaces that you're member of.
+  A counter of your pending space invitations is displayed in a small badge.
+  Click the badge to display all invitations and easily accept or refuse them.
 
-    .. note:: - If you don't have any request to join a space, the badge will be hidden.
+    .. note:: - When you don't have any space invitation, the badge is hidden.
 
-- For your connections, you will see the total number of connections on your network.
-  If you have some connection requests, you will find a badge displaying the number of requests
-  you have and you can just click on them to display them in a drawer.
+- This widget also reminds you the size of your social network by displaying your current number of Connections.
+  When you have some pending  connection requests, a small badge displays a requests counter.
+  Click the badge to display the list of pending requests and accept or refuse them.
 
-    .. note:: - If you don't have any request to join a space, the badge will be hidden.
+    .. note:: - When you don’t have any connection request, the badge is hidden.
 
-- You can see the points you earned his week and by clicking on your points, you will have a pie chart 
+- - You can see the points you earned this week and by clicking on your points, you can see a pie chart 
   that presents your points distribution by domain.
 
 |DW-4|
 
-- You will have also your Weekly rank and by clicking on your rank, you will have a leaderboad 
-  that presents your position comparing to you collaborators and your weekly gained points.
+- You can also see your rank for this week and by clicking on your rank, you can see a leaderboard  
+  that presents your position comparing to other members and how many points you earned this week so far.
   See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
 |DW-5|
@@ -588,14 +589,14 @@ corresponding button at the pop-up bottom:
 -  If you are already connected with him, the Remove Connection button
    is to delete connection between you and him.
 
-    .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
+    .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page....
 
 .. _Perksstore:
 
 Perks Store
 ------------
 
-The Perks Store widget will presents to you the number of your current orders in the Perkstore.
+The Perks Store widget displays pending orders you have in the Perks Store application.
 By clicking on this number, the Perks Store application will be opened on the list of all your orders.
 
 |DW-8|
@@ -605,8 +606,9 @@ By clicking on this number, the Perks Store application will be opened on the li
 Wallet Balance
 ---------------
 
-The Wallet widget displays the number of your balance of your wallet.
+The Wallet widget displays the token balance of your wallet.
 You will receive tokens regularly in your wallet by collaborating through the digital workplace apps. 
+See :ref:`Total rewarded funds <UserWallet>` for more details.
 
 |DW-9|
 
