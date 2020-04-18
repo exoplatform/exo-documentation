@@ -14,15 +14,20 @@ This chapter covers the following topics:
 
        Introduction to what you need to do for the first startup of
        eXo Platform.
-       
-:ref:`Social Intranet Homepage <PLFHomepage>`
 
-       Introduction to the Social Intranet homepage, the Social Intranet
+:ref:`Navigate on the Digital Workplacce <DWHomepage>`
+
+       Introduction to the navigation on the Digital Workplace, the Digital Workplace
+       widgets, spaces and settings.
+       
+:ref:`Legacy Intranet Homepage <PLFHomepage>`
+
+       Introduction to the Legacy Social Intranet homepage, the Legacy Social Intranet
        applications and how to change your language.
        
-:ref:`Signing in/Signing out Social Intranet <Signing-in-and-Signing-out>`      
+:ref:`Signing in/Signing out Legacy Social Intranet <Signing-in-and-Signing-out>`      
 
-       How to sign in and sign out Social Intranet.
+       How to sign in and sign out Legacy Social Intranet.
        
 :ref:`Changing your account settings <Managing-Account>`  
 
@@ -291,7 +296,7 @@ appears that illustrates how to add more users.
 |image3|
 
 3. Click Start to be automatically logged in with your created account and
-redirected to the :ref:`Social Intranet homepage <PLFHomepage>`. Now, you can start adding more users to collaborate, creating/joining spaces, or creating/following activities.
+redirected to the :ref:`Legacy Social Intranet <PLFHomepage>`. Now, you can start adding more users to collaborate, creating/joining spaces, or creating/following activities.
 
     .. note:: * After your accounts have been submitted successfully, the following memberships will be granted to your primary account:
        - \*:/platform/administrators
@@ -303,17 +308,22 @@ redirected to the :ref:`Social Intranet homepage <PLFHomepage>`. Now, you can st
 
   .. _DWHomepage:
 
-==========================
-Digital Workplace Homepage
-==========================
+==============================
+Navigate in Digital Workplace
+==============================
 
-This section introduces you to the Digital Workplace homepage, ie **Snapshot**. Besides,
+This section introduces the navigation in the Digital Workplace site. Besides,
 you will further learn about the following topics:
    
- * :ref:`Digital Workplace applications <Intranet-Gadgets>`
-   Introduction to applications that come with the Digital Workplace
-   homepage.
-   
+ * :ref:`Navigation <Navigation>`
+   How to navigate in the Digital Workplace.
+
+ * :ref:`Snapshot <Snapshot>`
+   Introduction to the Snapshot page, all your Digital Workplace at a glance.
+
+ * :ref:`Digital Workplace Widgets <DW-Widgets>`
+   Introduction to widget blocks that come with the Digital Workplace.
+
  * :ref:`Changing the UI language <Change-Language>`
    Instructions on how to change the UI language of eXo Platform.
 
@@ -442,155 +452,343 @@ Quickly perform key actions through the following applications:
 -  *Who's Online?*: See who are online or send your connection request to them. See :ref:`Who's Online? application <WhoIsOnlineApp>` for more details.
 
 
-.. _Creating-content:
+.. _Snapshot:
 
-Creating content quickly
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*This section will be developed soon*
 
-In eXo Platform, you easily create your preferred content without navigating
-to its relevant application. Simply click |image33| to open the drop-down
-menu.
+.. _DW-Widgets:
 
-|image34|
+Digital Workplace widgets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here, you can do the following actions quickly:
+Digital Workplace comes with several widget applications preinstalled on default pages to provide useful info and handy shortcuts to all apps and key information such as :
 
- * :ref:`Creating a task`
- * :ref:`Creating an event`
- * :ref:`Creating a poll`
- * :ref:`Creating a topic` 
- * :ref:`Uploading a document`
- * :ref:`Creating a Wiki`
+ * :ref:`Getting Started`
+ * :ref:`CalendarApp`
+ * :ref:`InvitationsApp`
+ * :ref:`SuggestionsApp`
+ * :ref:`WhoIsOnlineApp`
 
+.. _Getting Started:
 
-.. _Creating a task:
+Getting Started
+------------------
 
-Creating a task
+The Getting Started application is displayed first in the list of the
+Intranet homepage applications on the top right. This application helps
+you start exploring the Social Intranet by suggesting you where to go
+and what you should do first via the following links:
+
+-  :ref:`Set your profile picture <Change-your-avatar>`
+
+-  :ref:`Join a space <Join-space>`
+
+-  :ref:`Add Connections <Send-Connection-Request>`
+
+-  :ref:`Post an activity <Share-AS>`
+
+|DW-1|
+
+Clicking each link will direct you to the related page to do the action.
+
+After each action is performed, it will be remarked as completed with a
+check-mark even though it is not performed via this application.
+
+When all the actions are performed, you can dismiss this widget permanently by clicking
+Close on the header|DW-2|.
+
+    .. note:: - You can’t get the Getting Started widget back after you closed it.
+
+.. _WelcomeBack:
+
+Welcome Back
+-------------
+
+The welcome back widget is an block that welcomes you with some information about your spaces, connections, 
+the points you earned and the rank you reached this week.
+See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
+
+|DW-3|
+
+- You can see your profile picture and your name just after the welcome Back label.
+
+- The widget also displays the  total number of spaces that you're member of.
+  A counter of your pending space invitations is displayed in a small badge.
+  Click the badge to display all invitations and easily accept or refuse them.
+
+    .. note:: - When you don't have any space invitation, the badge is hidden.
+
+- This widget also reminds you the size of your social network by displaying your current number of Connections.
+  When you have some pending  connection requests, a small badge displays a requests counter.
+  Click the badge to display the list of pending requests and accept or refuse them.
+
+    .. note:: - When you don’t have any connection request, the badge is hidden.
+
+- - You can see the points you earned this week and by clicking on your points, you can see a pie chart 
+  that presents your points distribution by domain.
+
+|DW-4|
+
+- You can also see your rank for this week and by clicking on your rank, you can see a leaderboard  
+  that presents your position comparing to other members and how many points you earned this week so far.
+  See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
+
+|DW-5|
+
+.. _SuggestionsApp:
+
+Suggestions
+------------
+
+The Suggestions application suggests you to connect with other users or
+to join spaces. Usually, it suggests two people having the most common
+connections with you, and two spaces having the most members who are
+your connections. Otherwise, it will suggest the newest users or the
+latest created space in the portal.
+
+|DW-6|
+
+-  To accept the people/space suggestion, you can click on Connect or Request respectively.
+
+-  To refuse the suggestion, you can click on Decline icon.
+
+When the suggestion is accepted or refused, it will permanently removed
+from the list.
+
+    .. note:: -  You can click a person's name suggested in the list to see his profile.
+        -  If there is no suggestion, the Suggestions application is not displayed.
+       
+       
+.. _WhoIsOnlineApp:
+
+Who's Online?
+--------------
+
+The Who's Online? application shows all users who are already logged in
+the portal.
+
+|DW-7|
+
+Hover your cursor over the avatar of an online user, a pop-up will show
+you some information about him, such as name, avatar, current position
+(if defined), and the last activity message of status activity, file or
+link sharing activity (if any).
+
+You can also see your connection status with an online user via the
+corresponding button at the pop-up bottom:
+
+-  If you are not connected with him yet, the Connect button is to send
+   connection invitation to him.
+
+-  If you have sent a connection request, the Cancel Request button is
+   to revoke your connection request.
+
+-  If you are invited to connect, the Confirm button is to accept his
+   connection request.
+
+-  If you are already connected with him, the Remove Connection button
+   is to delete connection between you and him.
+
+    .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page....
+
+.. _Perksstore:
+
+Perks Store
+------------
+
+The Perks Store widget displays pending orders you have in the Perks Store application.
+By clicking on this number, the Perks Store application will be opened on the list of all your orders.
+
+|DW-8|
+
+.. _Wallet:
+
+Wallet Balance
 ---------------
 
-1. Simply select Task from the drop-down menu. The menu will be updated into the Create a new task form.
+The Wallet widget displays the token balance of your wallet.
+You will receive tokens regularly in your wallet by collaborating through the digital workplace apps. 
+See :ref:`Total rewarded funds <UserWallet>` for more details.
 
-|image35|
+|DW-9|
 
-2. Fill in the Title field, and then hit the button Add.
+.. _Change-Language:
 
-After saving, a pop up link appears |image36| which points to the
-created task.
+Changing the UI language
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _Creating an event:
+To change the language of eXo Platform, do as follows:
 
-Creating an event
--------------------
+1. Click your display name on the top navigation bar, then select Change
+Language from the drop-down menu.
 
-1. Simply select Event from the drop-down menu. The menu will be updated
-   into the Add event form.
+|image55|
 
-|image37|
+2. In the Interface Language Setting form, you will see 23 languages that
+eXo Platform supports. Select your preferred language to display, for
+instance *English*:
 
-2. Give details for your event, including: Title, From and To dates, time.
-   For more details, see :ref:`Creating a new event <CreatingNewEvent>`.
+|image56|
 
-3. Select the calendar where your event will be created from the Select Calendar drop-down menu.
+3. Click Apply to commit your changes.
 
-4. Click Save to add your event.
+    .. note:: In eXo Platform, the priority order of the display language is as the following:
+        *User's language --> Cookies' language --> Browser's language --> Site's language*
+        It means the language set by the user will be at the highest level, and the site's language at the lowest level.
+        Accordingly, you should pay attention to this order when selecting your preferred display language.
 
-A pop up |image38| appears indicating in which calendar the event was added.
+	
+.. _PLFHomepage:
 
-    .. note:: Click Cancel at any time to dismiss the Add event form.
-    
-.. _Creating a poll:    
+==========================
+Legacy Social Intranet
+==========================
 
-Creating a poll
-----------------
+This section introduces you to the Legacy Social Intranet. Besides,
+you will further learn about the following topics:
 
-1. Click Poll from the drop-down menu. This menu will be updated into 
-   the form as below:
+ * :ref:`Creating content quickly <Creating-content>`
+   How to create your preferred content without navigating to its
+   relevant application, including events, tasks, polls, topics and Wiki
+   pages.
+   
+ * :ref:`Social Intranet applications <Intranet-Gadgets>`
+   Introduction to applications that come with the Social Intranet
+   homepage.
+   
+ * :ref:`Changing the UI language <Change-Language>`
+   Instructions on how to change the UI language of eXo Platform.
 
-|image39|
+After signing in your account successfully, you are redirected to the
+**Social Intranet** homepage, the starting point for exploring eXo Platform.
+This homepage provides you a perfect overview of all social and
+collaboration activities available in eXo Platform.
 
-    .. note:: If there is no forum available in Intranet and the user has no space
-        forum yet, the following warning is displayed: "Sorry, no forum is
-        available yet to create a poll. Start by creating your own space."
+|image4|
 
-2. Select the location where your poll is created from the In Location
-   menu. If you have at least one public forum, the "intranet" location 
-   is selected by default.
+There are 3 main divisions in the **Social Intranet** homepage:
 
-3. Click Next to open the Poll form, or Cancel to dismiss the form.
-
--  If you select a space forum, you will be redirected to the **Forums**
-   application of the selected space after clicking Next.
-
--  If you select "intranet" which has more than 1 forum and then click
-   Next, another new selection menu will be opened. The Next button now
-   becomes disabled until you have selected one forum from the And Forum
-   menu.
-
-   |image40|
-
-4. Fill in the Poll form. See :ref:`Creating a poll <Create-poll>` for 
-   more details.
-
-.. _Creating a topic: 
- 
-Creating a topic
------------------
+**Navigations**
 
 
-1. Click Topic from the drop-down menu.
+-  *Top navigation* |image5|: Take common actions via the following
+   menus:
 
-    .. note:: If there is no forum available in Intranet and the user has no space forum yet, the following warning is displayed: "Sorry, no forum is available yet to create a topic. Start by creating your own space."
+   -  **Help**: Access online guides by clicking |image6|. For example,
+      if you are in the Wiki application, but still not know how to get
+      started with it, simply click |image7|. You will then be
+      redirected to the instructions page regarding to Wiki in another
+      browser tab.
 
-2. Select the location where your topic is created from the In Location
-drop-down menu. The "intranet" is selected by default.
+   -  **User Profile**: Change your profile information, preferences,
+      language or quickly navigate to your personal pages by clicking
+      your display name, for example: John Smith.
 
-3. Click Next to open the New Topic form.
+   -  **Notification**: Clicking |image8| will show all on-site
+      notifications. See :ref:`Managing your notifications <Managing-Notification>`
+      for more details.
 
--  If you select a space forum, you will be redirected to the **Forums**
-   application of the selected space after clicking Next.
+   -  **Search**: Search for any types in eXo Platform, such as people,
+      spaces, files, events, tasks, activities, by clicking |image9|.
+      See :ref:`Searching In eXo Platform <Search>` for more details.
 
--  After clicking Next, if you select "intranet" which has more than 1
-   forum, one new selection will be opened that requires you to select
-   your desired forum as below. The Next button becomes disabled until
-   you have selected one forum.
+   -  **Create**: Quickly create content (Wiki pages, topics, polls,
+      events/tasks, files) from any places by clicking |image10|. See
+      `Creating content
+      quickly <Creating-content>`__ for more details.
 
-   |image41|
+   -  **Administration**: Perform advanced actions, such as managing
+      users, content, applications, monitoring your system or organizing
+      sites, by clicking |image11|. This menu is only visible to members
+      of the web-contributors and administrator group.
 
-4. Fill in the New Topic form. See :ref:`Creating a topic <Create-topic>`
-   for more details.
+   -  **Edit**: Manage certain aspects of eXo Platform, including content,
+      pages and sites by clicking |image12|. This menu is only visible to
+      members of editor and administrator groups. See :ref:`Customizing eXo Platform <CustomizingLookAndFeel>`
+      for details.
 
-.. _Uploading a document: 
+       .. note:: The number of menus which are displayed on the top navigation may vary, depending on your role. For example the administration menu appears only for members of the group */platform/administrators*.
 
-Uploading a file
------------------
+-  *Left navigation* |image13|: It is a hamburger menu which allows you
+   to quickly jump to :
 
-Simply select Upload a File from the drop-down menu. See :ref:`Sharing a File <Sharing-Link-and-File>` for more details.
+   -  **Applications**: By default, the following applications are
+      available:
 
-.. _Creating a Wiki: 
+      -  Home: To come back to your Legacy social intranet homepage from any
+         page.
+         
+.. _People_Directory:          
 
-Creating a Wiki page
----------------------
+      -  People: To display the whole list of the platform users. You
+         can manage your connections, search for users using different
+         filters...
 
-1. Click Wiki Page from the drop-down menu.
+      -  Wiki: To go to your social intranet wiki application which is
+         shared between all users.
 
-|image42|
+      -  Documents: To go to documents application where you can manage
+         your personal drive and shared files.
 
-2. Select the location where your Wiki page is created from the In 
-   Location drop-down menu. The "Intranet" space is selected by default.
+      -  Forums: To go to your social intranet forums application where
+         you can post and reply to discussions.
 
-3. Click Next to be redirected to the Wiki application of your selected
-   location. Here, you can :ref:`navigate across spaces <Navigate-across-spaces>`.
+      -  Calendar: To go to calendar application and view personal and
+         shared calendars.
 
-4. Enter the content of your Wiki page. See :ref:`Creating a page <Creating-New-Page>`
-   for more details.
+   -  **Pages** shared by all users in the COMPANY list.
+
+   -  **Spaces** in the "MY SPACES" list. It is also possible to search
+      for spaces by clicking on Join a space.
+
+   This hamburger menu is collapsible in order to widen the area for the
+   activity stream:
+
+   |image14|
+
+   When connecting to the platform, the menu is by default expansed. To
+   collapse or expand it, you should click on the hamburger menu icon
+   |image15|.
+
+   When collapsed, the left navigation menu displays only application's
+   icons. Mousing over an icon displays a tooltip with the application's
+   name. Clicking on an icon redirects you to the concerned application.
+
+       .. note:: - The order of applications and pages in the COMPANY list may change in case some applications are not deployed, or some additional applications/pages are implemented.
+				 - The MY SPACES list shows the latest spaces browsed by the user. If there are more than 10 spaces in the list, the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
+				 - The Show [X] More Spaces link is not displayed when the left navigation menu is collapsed. It is only available if the menu is expansed.
+				 - When the left navigation menu is collapsed, spaces search is not possible as the search field is not available. To search spaces, you should expand the left navigation menu.
+
+**Activity Composer** |image16| **& Activity Stream** |image17|
+
+-  From Activity Composer, you can update your status, upload and share
+   your document/link. See `Updating status <Share-AS>`for more details.
+
+-  From Activity Stream, you can follow activities of your colleagues
+   and spaces, create your own activities (liking or commenting). See
+   `Using the Activity Stream <Share-AS>` for more details.
+
+**Applications** |image18|
+
+Quickly perform key actions through the following applications:
+
+-  *Getting Started*: See a list of suggested actions you can start.
+   See :ref:`Getting Started application <Getting Started>` for more details.
+
+-  *Calendar*: Get an overview of calendar events. See :ref:`Calendar application <CalendarApp>` for more details.
+
+-  *Invitation*: See a list of spaces and users who have sent connection requests to you. See :ref:`Invitations application <InvitationsApp>` for more details.
+
+-  *Suggestions*: See who you may want to connect with and spaces which you can ask to join. See :ref:`Suggestions application <SuggestionsApp>` for more details.
+
+-  *Who's Online?*: See who are online or send your connection request to them. See :ref:`Who's Online? application <WhoIsOnlineApp>` for more details.
 
 .. _Intranet-Gadgets:
 
-Social Intranet applications
+Legacy Intranet applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Intranet applications are ones which come with the Social Intranet
-homepage, including:
+Legacy Intranet applications are ones which come with the Intranet, including:
 
  * :ref:`Getting Started`
  * :ref:`CalendarApp`
@@ -752,178 +950,6 @@ corresponding button at the pop-up bottom:
    is to delete connection between you and him.
 
     .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
-
-
-.. _Change-Language:
-
-Changing the UI language
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To change the language of eXo Platform, do as follows:
-
-1. Click your display name on the top navigation bar, then select Change
-Language from the drop-down menu.
-
-|image55|
-
-2. In the Interface Language Setting form, you will see 23 languages that
-eXo Platform supports. Select your preferred language to display, for
-instance *English*:
-
-|image56|
-
-3. Click Apply to commit your changes.
-
-    .. note:: In eXo Platform, the priority order of the display language is as the following:
-        *User's language --> Cookies' language --> Browser's language --> Site's language*
-        It means the language set by the user will be at the highest level, and the site's language at the lowest level.
-        Accordingly, you should pay attention to this order when selecting your preferred display language.
-
-	
-.. _PLFHomepage:
-
-==========================
-Social Intranet Homepage
-==========================
-
-This section introduces you to the Social Intranet homepage. Besides,
-you will further learn about the following topics:
-
- * :ref:`Creating content quickly <Creating-content>`
-   How to create your preferred content without navigating to its
-   relevant application, including events, tasks, polls, topics and Wiki
-   pages.
-   
- * :ref:`Social Intranet applications <Intranet-Gadgets>`
-   Introduction to applications that come with the Social Intranet
-   homepage.
-   
- * :ref:`Changing the UI language <Change-Language>`
-   Instructions on how to change the UI language of eXo Platform.
-
-After signing in your account successfully, you are redirected to the
-**Social Intranet** homepage, the starting point for exploring eXo Platform.
-This homepage provides you a perfect overview of all social and
-collaboration activities available in eXo Platform.
-
-|image4|
-
-There are 3 main divisions in the **Social Intranet** homepage:
-
-**Navigations**
-
-
--  *Top navigation* |image5|: Take common actions via the following
-   menus:
-
-   -  **Help**: Access online guides by clicking |image6|. For example,
-      if you are in the Wiki application, but still not know how to get
-      started with it, simply click |image7|. You will then be
-      redirected to the instructions page regarding to Wiki in another
-      browser tab.
-
-   -  **User Profile**: Change your profile information, preferences,
-      language or quickly navigate to your personal pages by clicking
-      your display name, for example: John Smith.
-
-   -  **Notification**: Clicking |image8| will show all on-site
-      notifications. See :ref:`Managing your notifications <Managing-Notification>`
-      for more details.
-
-   -  **Search**: Search for any types in eXo Platform, such as people,
-      spaces, files, events, tasks, activities, by clicking |image9|.
-      See :ref:`Searching In eXo Platform <Search>` for more details.
-
-   -  **Create**: Quickly create content (Wiki pages, topics, polls,
-      events/tasks, files) from any places by clicking |image10|. See
-      `Creating content
-      quickly <Creating-content>`__ for more details.
-
-   -  **Administration**: Perform advanced actions, such as managing
-      users, content, applications, monitoring your system or organizing
-      sites, by clicking |image11|. This menu is only visible to members
-      of the web-contributors and administrator group.
-
-   -  **Edit**: Manage certain aspects of eXo Platform, including content,
-      pages and sites by clicking |image12|. This menu is only visible to
-      members of editor and administrator groups. See :ref:`Customizing eXo Platform <CustomizingLookAndFeel>`
-      for details.
-
-       .. note:: The number of menus which are displayed on the top navigation may vary, depending on your role. For example the administration menu appears only for members of the group */platform/administrators*.
-
--  *Left navigation* |image13|: It is a hamburger menu which allows you
-   to quickly jump to :
-
-   -  **Applications**: By default, the following applications are
-      available:
-
-      -  Home: To come back to your social intranet homepage from any
-         page.
-         
-.. _People_Directory:          
-
-      -  People: To display the whole list of the platform users. You
-         can manage your connections, search for users using different
-         filters...
-
-      -  Wiki: To go to your social intranet wiki application which is
-         shared between all users.
-
-      -  Documents: To go to documents application where you can manage
-         your personal drive and shared files.
-
-      -  Forums: To go to your social intranet forums application where
-         you can post and reply to discussions.
-
-      -  Calendar: To go to calendar application and view personal and
-         shared calendars.
-
-   -  **Pages** shared by all users in the COMPANY list.
-
-   -  **Spaces** in the "MY SPACES" list. It is also possible to search
-      for spaces by clicking on Join a space.
-
-   This hamburger menu is collapsible in order to widen the area for the
-   activity stream:
-
-   |image14|
-
-   When connecting to the platform, the menu is by default expansed. To
-   collapse or expand it, you should click on the hamburger menu icon
-   |image15|.
-
-   When collapsed, the left navigation menu displays only application's
-   icons. Mousing over an icon displays a tooltip with the application's
-   name. Clicking on an icon redirects you to the concerned application.
-
-       .. note:: - The order of applications and pages in the COMPANY list may change in case some applications are not deployed, or some additional applications/pages are implemented.
-				 - The MY SPACES list shows the latest spaces browsed by the user. If there are more than 10 spaces in the list, the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
-				 - The Show [X] More Spaces link is not displayed when the left navigation menu is collapsed. It is only available if the menu is expansed.
-				 - When the left navigation menu is collapsed, spaces search is not possible as the search field is not available. To search spaces, you should expand the left navigation menu.
-
-**Activity Composer** |image16| **& Activity Stream** |image17|
-
--  From Activity Composer, you can update your status, upload and share
-   your document/link. See `Updating status <Share-AS>`for more details.
-
--  From Activity Stream, you can follow activities of your colleagues
-   and spaces, create your own activities (liking or commenting). See
-   `Using the Activity Stream <Share-AS>` for more details.
-
-**Applications** |image18|
-
-Quickly perform key actions through the following applications:
-
--  *Getting Started*: See a list of suggested actions you can start.
-   See :ref:`Getting Started application <Getting Started>` for more details.
-
--  *Calendar*: Get an overview of calendar events. See :ref:`Calendar application <CalendarApp>` for more details.
-
--  *Invitation*: See a list of spaces and users who have sent connection requests to you. See :ref:`Invitations application <InvitationsApp>` for more details.
-
--  *Suggestions*: See who you may want to connect with and spaces which you can ask to join. See :ref:`Suggestions application <SuggestionsApp>` for more details.
-
--  *Who's Online?*: See who are online or send your connection request to them. See :ref:`Who's Online? application <WhoIsOnlineApp>` for more details.
 
 
 .. _Creating-content:
@@ -1475,7 +1501,7 @@ activity streams.
 The homepage also aggregates activities from spaces, so you can keep
 track of their activities without visiting every space. For example,
 when there is a new post in a forum of a given space, it is displayed in
-**Activity Stream** of the space and of the Social Intranet homepage.
+**Activity Stream** of the space and of the Legacy Social Intranet homepage.
 
 You can filter what you want to see on the homepage:
 
@@ -2706,6 +2732,15 @@ to display the original timestamp of the comment.
 
 |image148|
 
+.. |DW-1| image:: images/dw/Getting_Started.png 
+.. |DW-2| image:: images/dw/Getting_Started_Close.png 
+.. |DW-3| image:: images/dw/Welcome_Back.png 
+.. |DW-4| image:: images/dw/Points.gif 
+.. |DW-5| image:: images/dw/Rank.gif
+.. |DW-6| image:: images/dw/Suggestions.png 
+.. |DW-7| image:: images/dw/Whos_Online.png 
+.. |DW-8| image:: images/dw/Perkstore.png 
+.. |DW-9| image:: images/dw/Wallet.png 
 .. |image0| image:: images/platform/top_navigation_bar.png 
 .. |image1| image:: images/platform/Unlock-termsentskin.jpg
 .. |image2| image:: images/platform/Unlock-ACCOUNTSETUP.jpg
