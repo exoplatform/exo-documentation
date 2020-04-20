@@ -235,14 +235,16 @@ After going to the Spaces page, you can add a new space so that you and
 your collaborators can work together or discuss specific topics as
 follows:
 
-1. Click |image22| at the top left corner of the **Space** page to open the Add New Space form.
+1. Click |image22| at the top left corner of the **Spaces** page to open the Add New Space form.
 
-2. A popup is displayed containing all information related to the space creation.
+2. A drawer is displayed containing all information related to the space creation based on 3 steps: 
 
-3. The space creator must enter a space name (3 to 200 characters) and may enter an optional description (max 255 characters).
+Step 1: Space details
+~~~~~~~~~~~~~~~~~~~~~~~
 
-|image23|
+You must enter a space name (3 to 200 characters) and may enter an optional description (max 255 characters).
 
+|SP-4|
 
 .. note:: Special characters are not allowed on space names. Only the character **&** is allowed.
            
@@ -253,11 +255,18 @@ follows:
 A pulldown lists all predefined templates that the space creator can use. 
 A description of each template is displayed below the selectors.
 
-.. note:: Each template defines its default visibility, registration criteria and list of applications.
+.. note:: Each template defines its default visibility, registration criteria and list of applications, and does have a description of the choice selected to help you choosing the best template for your needs when creating a new space.
+
+.. note:: You can continue to the next step just by introducing the space name and click on **Continue**.
+
+Step 2: Space access
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _access-level-step:
 
-4. The space creator may override the predefined visibility and registration options of the space.
+You may override the predefined visibility and registration options of the space.
+
+|SP-8|
 
 .. _About-space-visibility:
 
@@ -276,13 +285,17 @@ A description of each template is displayed below the selectors.
 
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
+
+
+.. note:: Visibility and registration fields have a description of the choice selected to help you choosing the best template for your needs when creating a new space.
       
+.. note:: You can continue to the next step just by a click on **Continue**, and can also go back to the previous step by clicking on **Back**.
+
+Step 3: Invite Users
+~~~~~~~~~~~~~~~~~~~~~~~
 .. _Users_invitation:      
 
-
-.. note:: Template, Visibility and registration fields have a description of the choice selected to help you choosing the best template for your needs when creating a new space.
-
-5. In the **Users** field, the space creator can invite users or space members to the space to create just by picking them with the selector.
+In the third, and last, step, the **Users** field, you can invite users or space members to the space to create just by picking them with the selector.
 
 Type-ahead suggestions allow to facilitate selection users and spaces members to invite.
 
@@ -290,8 +303,11 @@ Type-ahead suggestions allow to facilitate selection users and spaces members to
 
 Users field can be pre-filled by default users or spaces defined in space template.
 
+.. note:: You can go back to the previous step by clicking on **Back**.
 
-6. Click Create Space button to finish adding your new space. The new space appears.
+|SP-9|
+
+Finally, you click on **Create** Space button to finish adding your new space. The new space appears.
 
 |image27|
 
@@ -384,13 +400,13 @@ The default space home page contains the following content:
    
    |image78|
 
-.. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
+.. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is Online? <WhoIsOnlineApp>` portlets are the same
           as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
 
 .. note:: When you are a  platform administrator and member of a space, you are able to add more portlets 
           just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.
           
-              |image81|
+              |SP-11|
 
 
 .. _Space-banner-avatar:
@@ -502,11 +518,11 @@ of 2 ways:
 
 -  **The second way**
 
-   -  `Go to the Spaces  page <note-access-spaces-page>`, then select the All Spaces or My Spaces tab.
+   -  `Go to the Spaces  page <note-access-spaces-page>`, choose the space to edit, then you click on area button to display the Edit button.
 
-   -  Click Edit under the space name which you want to edit.
+   -  Click Edit.
 
-      |image34|
+      |SP-5|
 
 .. _ChangingInfoVisibility:
 
@@ -808,7 +824,9 @@ Revoking your request
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  To revoke your request for joining a space that has not been
-   validated by its manager, simply click Cancel.
+   validated by its manager, simply click Cancel in the Pending requests drawer.
+
+   |SP-6|
 
 .. _Leave-space:
 
@@ -835,11 +853,11 @@ Deleting a space
 
 Only the space managers have permission to delete their spaces.
 
-1. Open the Spaces pages, then select the All Spaces or My Spaces tab.
+1. Open the Spaces pages, then select the space you want to delete.
 
-|image62|
+2. Click **Remove** in the area button.
 
-2. Click Delete under the space name which you want to delete.
+|SP-5|
 
 3. A confirmation message appears:
 
@@ -860,18 +878,15 @@ Accepting/Ignoring invitations
 
 This function allows you to accept and/or deny invitations that you
 received from others. You can see all spaces which are being waited for
-your acceptance in the Invitations Received tab, or in the :ref:`Invitations <InvitationsApp>`
-application in the right pane of the Intranet homepage.
+your acceptance in the Invitations Received drawer, or directly in the Spaces page.
 
--  To accept/ignore the invitations via the Invitations application, see :ref:`here <InvitationsApp>` for more details.
+-  To accept/ignore the invitations via the Invitations drawer.
+   |SP-7|
 
--  To accept/ignore the invitations in the Invitations Received tab, do as follows:
+-  To accept/ignore the invitations in the Spaces page, you can click Accept to join/ Decline corresponding to your desired space to 
+   accept/deny joining the space respectively.
 
-   1. Open the Invitations Received tab in the Spaces page.
-
-   |image63|
-
-   2. Click Accept/ Ignore corresponding to your desired space to accept/deny joining the space respectively.
+   |SP-10|
 
 .. _Sharing-On-Space:
 
@@ -918,6 +933,14 @@ deleted.
 .. |SP-1| image:: images/spaces/spaces_list.png
 .. |SP-2| image:: images/spaces/Spaces_cards_list.png
 .. |SP-3| image:: images/spaces/Space_cards.gif
+.. |SP-4| image:: images/spaces/Space_details
+.. |SP-5| image:: images/spaces/Remove_space
+.. |SP-6| image:: images/spaces/Revok_request.png
+.. |SP-7| image:: images/spaces/Invitations_to_space.png
+.. |SP-8| image:: images/spaces/Space_access.png
+.. |SP-9| image:: images/spaces/Invite_users.png
+.. |SP-10| image:: images/spaces/Accept_space_invitation.png
+.. |SP-11| image:: images/spaces/Whos_Online.png
 .. |image0| image:: images/social/spaces_list.png
 .. |image1| image:: images/common/1.png
 .. |image2| image:: images/common/2.png
@@ -940,7 +963,7 @@ deleted.
 .. |image19| image:: images/social/navBar_with_more_button.png
 .. |image20| image:: images/social/remaining_apps.png
 .. |image21| image:: images/social/space_new_navbar_mobile.gif
-.. |image22| image:: images/social/add_new_space_button.png
+.. |image22| image:: images/spaces/add_new_space_button.png
 .. |image23| image:: images/social/add_space_settings_tab.png
 .. |image24| image:: images/social/add_new_space_invite_users.png
 .. |image25| image:: images/social/add_new_space_selected_group.png
@@ -981,7 +1004,6 @@ deleted.
 .. |image60| image:: images/social/wrong_username-popup.png
 .. |image61| image:: images/social/warning_leave_space.png
 .. |image62| image:: images/social/delete_my_spaces.png
-.. |image63| image:: images/social/invitations_received_tab.png
 .. |image64| image:: images/social/Space_status.png
 .. |image65| image:: images/social/status_shared_space.png
 .. |image66| image:: images/social/space_popover.png
@@ -999,5 +1021,5 @@ deleted.
 .. |image78| image:: images/social/WhoIsOnLinePortlet.png
 .. |image79| image:: images/social/CalendarPortletPopulated.png
 .. |image80| image:: images/social/arrowsCalendar.png
-.. |image81| image:: images/social/editPage.png
+
 
