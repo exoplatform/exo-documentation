@@ -922,8 +922,8 @@ deleted.
 .. |image1| image:: images/common/1.png
 .. |image2| image:: images/common/2.png
 .. |image3| image:: images/common/3.png
-.. |image4| image:: images/social/my_spaces_link.png
-.. |image5| image:: images/common/4.png
+.. |image4| image:: images/common/4.png
+.. |image5| image:: images/common/5.png
 .. |image6| image:: images/social/restricted_area_join.png
 .. |image7| image:: images/social/restricted_area_request_to_join.png
 .. |image8| image:: images/social/restricted_area_find_spaces.png
