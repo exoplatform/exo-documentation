@@ -58,48 +58,57 @@ Accessing a space
 =================
 
 After logging in eXo Platform successfully, you will see a list of your
-spaces under MY SPACES on the left pane of the page.
+last visited spaces with a short list on the left pane of the page, and you can see all spaces via **SPACES**.
 
-|image0|
+|SP-1|
 
 **Details**:
 
--  |image1| The Search box which allows you to quickly search for a
+-  |image1| The Filter box which allows you to quickly filter for a
    space from your spaces list.
 
--  |image2| The list of spaces where you are a member or manager.
+-  |image2| The list of last visited spaces where you are a member or manager, classed by last visited first.
 
 -  |image3| Allows you to access the Spaces page which displays all the
    spaces in the portal. Here, you can quickly join a space or search
    for your desired space.
+
+-  |image4| Allows you to quick create a new space.
    
-.. _note-access-spaces-page:
+.. _note-last-visited-space:
 
- .. note::   You can also see all your spaces by directly clicking the |image4| link or clicking Join a space to open the Spaces page, then selecting the My Spaces tab.
+ .. note::   You will see a short list of your last visited spaces just below the Last visited button.
 
-                 |image5|
-                 
+.. _spaces-page:
 
-The Space navigation includes the following tabs:
+The Spaces page includes the following sections:
 
-.. _All-spaces-access:
+|SP-2|
 
--  **All Spaces**: All spaces, including your spaces, :ref:`visible
+- |image1| You will have many options on this section such as: Add a new space, information about the number of displayed space, 
+   Filter spaces by name or description and a pulldown with choices All spaces and My spaces to filter the spaces list.  
+
+ .. note:: All spaces, including your spaces, :ref:`visible
    spaces <About-space-visibility>`, and :ref:`hidden spaces <About-space-visibility>` where
-   you are invited to become members.
+   you are invited to become members, and my spaces for spaces where you are a member or manager.
 
--  **My Spaces**: Spaces where you are a member or manager.
+- |image2| Spaces Cards list in which you will have all spaces informations like,: Space name, avatar, cover 
+   and accessing button.    
 
--  **Invitations Received**: Spaces where you are invited to become members
-   by space managers.
+ .. note:: You can click on the information icon in the space card and then the card will flip and display the 
+   space description and list of managers.
+   |SP-3| 
 
--  **Requests Pending**: Spaces where you have requested for becoming their
-   members.
+- |image3| A block for spaces requests (invitations to join a space, pending requests sent, pending requests for your spaces and the list of your managing spaces.  
 
+- |image4| You will have a suggestion list that recommand some spaces that you can join. 
+   You can either send a request to join or decline the suggestion.   
+
+- |image5| A list of the most popular spaces, listed by their harvested gamification points on the current week. 
+   
+ .. note:: You can either send a request to join the popular space if you are not a member, or decline a pending sent request.
 To access a specific space, just click the space name.
 
-  .. tip::  You can quickly find out your desired space from the list of your spaces by typing its name/description into the Search Spaces box on the left pane or using the **Search** feature in the Space application. 
-			See the :ref:`Searching for spaces <Search-Space>` section for more details.
 
 **Accessing via URL**
 
@@ -906,12 +915,15 @@ notifications related to that deleted activity in the space are also
 deleted.
 
 
+.. |SP-1| image:: images/spaces/spaces_list.png
+.. |SP-2| image:: images/spaces/Spaces_cards_list.png
+.. |SP-3| image:: images/spaces/Space_cards.gif
 .. |image0| image:: images/social/spaces_list.png
 .. |image1| image:: images/common/1.png
 .. |image2| image:: images/common/2.png
 .. |image3| image:: images/common/3.png
 .. |image4| image:: images/social/my_spaces_link.png
-.. |image5| image:: images/social/space_page.png
+.. |image5| image:: images/common/4.png
 .. |image6| image:: images/social/restricted_area_join.png
 .. |image7| image:: images/social/restricted_area_request_to_join.png
 .. |image8| image:: images/social/restricted_area_find_spaces.png
