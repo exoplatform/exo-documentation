@@ -344,7 +344,7 @@ quickly.
 Editing a website's content
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: You can do this function only when the ACME add-on is already installed by your administrator. See :ref:`here <#PLFAdminGuide.AddonsManagement.Installing>` for how-to.
+.. note:: You can do this function only when the ACME add-on is already installed by your administrator. See :ref:`here <PLFAdminGuide.AddonsManagement.Installing>` for how-to.
 
 Simply click Content from the drop-down menu. The Edit mode will be
 turned on. For more details, see :ref:`Edit mode <EditMode>`.
@@ -2147,7 +2147,7 @@ For more details on these fields, see :ref:`here <CreateNewAccountFormDetails>`.
 
 4. Select the User Profile tab to edit personal information of the 
    selected user, including Profile, Home Info, Business Info, and 
-   Social Networks Info (if :ref:`OAuth authentication <#PLFAdminGuide.OAuthAuthentication>`
+   Social Networks Info (if :ref:`OAuth authentication <PLFAdminGuide.OAuthAuthentication>`
    is configured by your administrator).
 
    -  In Social Networks Info, when clicking the Save button:
@@ -2291,11 +2291,11 @@ should be noticed:
 
 **Answers**
 
-.. note:: Answers is provided as an add-on, so you need to install it first. See :ref:`here <#eXoAddonsGuide.Answers>` for details.
+.. note:: Answers is provided as an add-on, so you need to install it first. See :ref:`here <eXoAddonsGuide.Answers>` for details.
 
--  Their account will not be listed when someone sets the :ref:`category permissions <#eXoAddonsGuide.Answers.Moderator.ManagingCategories.AddingCategory>`.
+-  Their account will not be listed when someone sets the :ref:`category permissions <eXoAddonsGuide.Answers.Moderator.ManagingCategories.AddingCategory>`.
 
--  They will no longer receive emails from the :ref:`Watching feature <#eXoAddonsGuide.Answers.RegularUser.WatchingCategory>` 
+-  They will no longer receive emails from the :ref:`Watching feature <eXoAddonsGuide.Answers.RegularUser.WatchingCategory>` 
    of Answers.
 
 2. To suspend a user, switch **Active ?** button corresponding to this 
@@ -2559,7 +2559,7 @@ themselves.
 To be notified about new users registration, an administrator can
 configure eXo Platform to send him emails by following these steps:
 
-1. Configure your SMTP server by following the :ref:`Outgoing mail service <#PLFAdminGuide.Configuration.OutgoingMailService>` guide.
+1. Configure your SMTP server by following the :ref:`Outgoing mail service <PLFAdminGuide.Configuration.OutgoingMailService>` guide.
 
 2. Configure the service used for sending emails in ``portal.war/WEB-INF/conf/admin/admin-configuration.xml``. 
    This file contains descriptions for each available parameter, 
@@ -2593,40 +2593,39 @@ should be sent to you.
 Administrating spaces 
 ======================
 
-It is possible to restrict which users can create and/or manage spaces or use templates
-through an easy to use interface .
-
-|image305|
-
-.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
-          ``*:/platform/administrators``) are allowed to manage spaces and templates.
-          
-The spaces administration interface is accessible via the menu Administration --> USERS & SPACES --> Manage Spaces and Manage Templates.
+The spaces administration interface is accessible via the menu Administration --> Spaces.
 
 |image306|
 
-We have two choices to organize spaces and its templates:
+This Spaces menu allows you, as an administrator to:
 
-- "Manage Spaces" : Lets an administrator configure permissions for who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces.
-- "Manage Templates" : Lets an administrator display all space templates available 
+- Access and display all the available spaces templates via the menu :ref:`Manage Templates <ManageSpaceTemplates>`.
+- Configure and manage permissions for who can :ref:`Create <Create-Space>` or 
+  :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces via the menu "Manage Spaces".
 
-
-
-
+.. _ManageSpaceTemplates:
 
 Manage Templates
 ~~~~~~~~~~~~~~~~~~
+
 |image322|
 
 The "Manage Templates" interface displays all templates that can be chosen by all space creators.
 
 All templates are presented in a table with: 
+
 - Name : Name of the template as shown to end users
+
 - Description : description of the template to hint users about the intended use of the space
+
 - Visibility status : default visibility option (visible, secret) for the space
+
 - Registration : default registration policy for the space (open, closed, validation)
+
 - Applications : list of applications populated by default in the space
+
 - Permissions : list of groups/roles that are authorized to create a space from this template
+
 - Banner View : the image that will be used by default as banner for the space (click to display)
 
 .. note:: The Manage Template screen currently only allows to displaying all templates informations. Customising a space template must be done by editing config files as explained in :ref:`developers guide <PLFDevGuide.SpaceTemplates.Extend>` 
@@ -2636,27 +2635,34 @@ All templates are presented in a table with:
 Manage Spaces
 ~~~~~~~~~~~~~~~~~~
 
-This interface contains two tabs:
+It is possible to restrict which users can create and/or manage spaces through an easy to use interface .
 
-- "Manage spaces" tab displays the list of spaces and the corresponding actions: edit and delete.
-- "Permissions" tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
+|image305|
 
-     
-Spaces administration interface allows to :     
+.. note:: By default, only the super user (i.e. **root**) is allowed to create spaces and templates and only administrators (i.e.
+          ``*:/platform/administrators``) are allowed to manage spaces and templates.
 
--  :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>`
--  :ref:`Change permissions <AdministratingSpaces.Permissions>`
+This interface contains three tabs:
+
+- :ref:`Manage spaces <AdministratingSpaces.ManageSpaces>` tab displays the list of spaces with their properties (visibility, registration policy, Users) and the corresponding actions: ``edit``, ``delete`` and ``Space binding``.
+- :ref:`Permissions <AdministratingSpaces.Permissions>` tab displays the list of groups who can :ref:`Create <Create-Space>` or :ref:`Manage <AdministratingSpaces.ManageSpaces>` spaces. 
+- :ref:`Binding reports <Binding_reports>` tab allows to display **only to administrators** (i.e. members of the group platform/administrators) :ref:`the binding <SpaceGroupsBinding>` reports.
+
+.. note:: Users field displays, for each space, the number of bound users, i.e. mapped from a group, per the total number
+          of the space's members.
+
 
 .. _AdministratingSpaces.ManageSpaces:
 
 Manage spaces tab
-~~~~~~~~~~~~~~~~~~
+-------------------
 
 |image308|
 
 The "Manage spaces" tab can be seen by users belonging to any group listed in 
 the "Manage spaces" permission of the :ref:`Permissions tab <AdministratingSpaces.Permissions>`. 
 Users with this permission are allowed to edit or delete any space in the platform.
+
 
 |image307|
 
@@ -2672,7 +2678,7 @@ by the property :ref:`exo.social.spaces.administrators <SpacesAdministration>` i
           
 
 Edit space
------------
+`````````````
 
 Users granted with the "Manage Spaces" permission, can edit any space settings by clicking the edit icon |image309| of a specific space.
 The Space Settings page of the target space is then opened in another browser tab.
@@ -2688,8 +2694,9 @@ section for more details.
 
 .. tip: You can find :ref:`here <Manage-Space-Settings>` the possible actions for a space's manager.
 
+
 Delete space
---------------
+```````````````
 
 Users granted with the Manage Spaces permission, can also :ref:`delete <Delete-Space>` any space of 
 the platform; even the spaces where they are neither a manager nor a member.
@@ -2707,10 +2714,164 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 
 .. warning:: When deleting a space, all its data is also removed and can't be recovered.
 
+
+.. _SpaceBindingIcon:
+
+Space binding
+````````````````
+
+.. warning:: The space binding feature is **only available** for the **platform administrators** i.e. users who belong to platform/administrators group.
+
+
+.. _AddBindingSteps:
+
+**Add binding steps**
+
+You can, as an administrator, bind groups to a space i.e. map all their members to the space.
+To do so, you should click on the **Space binding** icon |Bimage354| of the space in which you want to add group binding.
+
+|Bimage356|
+
+- |Bimage361| The **Space binding** icon in default color means that the space hasn't yet bindings with any group
+- |Bimage362| The **Space binding** icon in green color means that the space has already groups bindings.
+
+.. _firstDrawer:
+
+Having clicked on the "Space binding" icon, a drawer appears having these components:
+
+-  The space's avatar and name
+
+-  A text field allowing you to type groups names
+
+.. _secondDrawer:
+
+-  ``Select Group`` icon allowing to open a :ref:`second level drawer <SelectGroupDrawer>` listing the whole platform's groups in a tree
+
+-  ``Apply`` button which remains disabled until at least one group is selected
+
+-  ``Cancel`` button allowing to clear the text field and close the drawer
+
+-  A cross icon to close the drawer
+
+-  The drawer's title **Add binding**
+
+.. _boundGroupsSection:
+
+-  **Bound groups** section listing the already bound groups to the space only if you clicked on 
+   a colored **Space binding** icon
+   
+Drawer of a space without existing bindings:   
+
+|Bimage355|
+
+.. _coloredicondrawer:
+
+Drawer of a space with existing bindings:   
+
+|Bimage363|
+
+
+When you type some characters in the text field, suggestions are proposed to facilitate the groups selection:
+
+|Bimage357|
+
+.. _AddConfirmationMessage:
+
+Having selected at least one group, the ``Apply`` button turns to enabled status. When you click on it, a confirmation 
+message appears warning you about the process to start.
+
+|Bimage358|
+
+If you click on ``Cancel`` button, nothing happens and the **Add binding** drawer is displayed again.
+If you click on ``Yes, I am sure`` button, the add binding process will start when its execution time comes (it is launched each 5min).
+More details in :ref:`this section <AddBinding>` to learn how users add process is executed.
+
+.. _SelectGroupDrawer:
+
+**Select groups drawer**
+
+As mentioned before, it is possible to display the whole groups tree in a second level drawer 
+by clicking on :ref:`Select group <secondDrawer>` button.
+This second drawer contains these components:
+
+-  The title "Select groups to bind"
+
+-  Back button allowing to return to the :ref:`first drawer <firstDrawer>`
+
+-  Search field allowing you to make a search into the groups tree
+
+-  Close icon allowing to close the two drawers and abort the binding action
+
+-  The groups tree, by default not expanded
+
+-  ``Cancel`` button allowing to deselect all the checked groups
+
+-  ``Save`` button allowing to validate the checked groups and add them to the text filed in the :ref:`first drawer <firstDrawer>`
+
+|Bimage367|
+
+
+.. tip: If you already typed some groups from suggestions in the text field of the 
+        :ref:`first drawer <firstDrawer>`, they will be checked in the :ref:`Select groups <SelectGroupDrawer>` drawer.
+        If you uncheck them, they will also be removed from the text field.
+        
+       
+When making a search in the :ref:`Select groups <SelectGroupDrawer>` drawer:
+
+-  The groups labels matching with the keyword are blue colored
+
+-  If a subgroup matchs with the keyword, its parent group also appears, but not colored.
+
+|Bimage368|
+
+When you click on the search icon, the drawer turns on search mode with:
+
+-  The search field having "Search here" placeholder
+
+-  Back icon allowing to exit the search mode
+
+|Bimage373|
+                
+When you start typing a keyword in the search field, a corss icon appears allowing to to clear 
+search results and the keyword.
+
+|Bimage374|
+
+.. note:: -  Already bound groups may appear in the search results in the groups tree but their checkbox are uncheckable
+              
+              |Bimage375|
+              
+          -  Already seized groups appear in the groups tree as checked.
+              
+              |Bimage376|
+
+.. tip:: The groups tree drawer and the text field of the first drawer are synchronized i.e. when a group is seized in 
+         the first drawer, it appears checked in the second one. Checked groups in the second drawer are added to the text field
+         when saving selection.
+                        
+.. _RemoveBindingSteps:
+
+**Remove binding steps**
+
+If you want to remove the group's users mapping from a space, you just need to follow these steps:
+
+- Click on the colored icon |Bimage364| of the corresponding space ==> The :ref:`drawer <coloredicondrawer>` appears
+- Click on the delete icon |Bimage365| of the group you want to remove its members from the space ==>
+  A confirmation message appears containing the group's name with a ``Cancel`` and ``Confirm`` buttons
+  
+.. _DeleteConfirmationMessage:  
+  
+  |Bimage366|
+  
+- If you click on ``Cancel`` button nothing happens and the drawer is displayed
+- If you click on ``Confirm`` button, then the remove binding process will be executed when it's runtine comes.
+  More details about the users removal through this :ref:`section <RemoveBinding>`
+
+
 .. _AdministratingSpaces.Permissions:
 
 Permissions tab
-~~~~~~~~~~~~~~~~
+-----------------
 
 |image318|
 
@@ -2734,6 +2895,171 @@ To define who can create spaces:
 
 To define the :ref:`group of spaces managers <AdministratingSpaces.ManageSpaces>`, simply follow the same 
 procedure.
+
+.. _SpaceGroupsBinding:
+
+Space groups binding
+~~~~~~~~~~~~~~~~~~~~~~
+
+As already described in :ref:`Space binding section<SpaceBindingIcon>`, it is possible to add and remove groups binding to a space.
+In this section, we will explain the life cycle of a space/group binding through these parts:
+
+    -  :ref:`Add binding process <AddBinding>`: To explain how is executed an "Add binding" action and its consequences.
+       
+    -  :ref:`Remove binding process <RemoveBinding>`: To explain how is executed the "Remove binding" action.
+       
+    -  :ref:`Synchronize binding <SynchronizeBinding>`: When and how is launched the sychronization between the space and the bound group?
+       
+
+.. _AddBinding:
+
+Add binding process
+----------------------
+
+After having made the steps described in :ref:`Space binding section<SpaceBindingIcon>` and having clicked on 
+``Yes I am sure`` button of the :ref:`confirmation message <AddConfirmationMessage>`, you will be redirected to 
+:ref:`Binding reports <Binding_reports>` tab with new entries of the groups binding 
+(each space/group/Add binding has an entry).
+
+The groups you selected are immediately added to the :ref:`Bound groups <boundGroupsSection>` section, 
+but the "Add binding" process is launched when the job is executed.
+The binding job is launched each 5 minutes and handles the selected groups binding.
+
+.. _boundUsers:
+
+At the end of the job's execution, all the members of the selected groups are added as bound users to the space:
+
+-  A bound user could not be deleted by an administrator or spaces manager or space's owner. The delete action
+   is replaced by the label "Bound user" with a tooltip explaining the origin of the user.
+             
+   |Bimage359|
+   
+             
+-  A bound user can not leave a space in which he is bound, the ``Leave`` button becomes disabled when 
+   the binding is set.
+             
+   |Bimage360|
+             
+.. note:: -  Note that the binding is made on group members independently of their roles in the group. They are added to the 
+             corresponding space as members, except those who are managers in the space before the binding, they still in 
+             the space with their role. 
+          -  Users who were in the space before the binding become also bound users and so they can not leave 
+             it nor be deleted by an administrator or spaces manager or the space's owner.      
+
+.. _RemoveBinding:
+
+Remove binding process
+-------------------------
+
+The remove binding process is the action of removing users derived from the binding. Unlike the "Add binding", the
+"Remove binding" is done on a single group. You can find :ref:`here <RemoveBindingSteps>` the steps to remove a 
+binding.
+
+When you, as an administrator, click on the ``Confirm`` button of the :ref:`deletion confirmation message <DeleteConfirmationMessage>`, 
+you are redirected to the :ref:`Binding reports <Binding_reports>` tab  with a new entry (space/group/Remove binding operation) 
+and the group's item is immediately removed from the :ref:`Bound groups <boundGroupsSection>` section.
+
+Same as for the **Add binding**, the "Remove binding" is also executed with a job which is launched each 5 minutes.
+When the execution time comes, the "Remove binding" process removes all the group's users **except those who belong to the 
+space before the binding**. 
+
+If they are no more :ref:`bound users <boundUsers>` i.e. they don't belong to an another bound group, they resume their 
+ability to leave space, and they become again deletable by spaces managers, platform admnistrators and the space's owner.
+
+.. _SynchronizeBinding:
+
+Synchronize binding
+---------------------
+
+Synchronize binding operation is the action made on space members following any change made on the bound group.
+
+-  If you add a member to the bound group, he is **automatically added** to the space as 
+   :ref:`bound user <boundUsers>`
+-  If you remove a member from the bound group, he is **automatically removed** from the space even if this user
+   belongs to the space before the space/group binding.
+
+.. note:: The synchronize action also generates a report in the :ref:`Binding reports <Binding_reports>` tab.
+          Only one entry per space/group binding is added to the reports table and its end date is updated each time a change is
+          done on the group.
+
+.. _Binding_reports:
+
+Binding reports
+-----------------
+
+After making a binding operation i.e. add new space binding or remove a space binding or even update a bound group,
+a report is generated and which could be viewed in the tab "Binding reports".
+The binding reports table contains these information:
+
+-  Space: for the space name and avatar
+-  Group: for the bound group name
+-  Start date: corresponds to the action's validation date i.e. the time of confirming the action (Add or Remove binding) in the confirmation message. 
+-  End date: corresponds to the end of the group's members processing (addition or removal)
+-  Operation type: Add binding, Remove binding or Synchronize
+-  Added users: the number of the added users following the binding operation, it is 0 when the operation type is **Remove binding**
+-  Removed users: the number of the removed users following the binding operation, it is 0 when the operation type is **Add binding**
+-  File: a downloadable file in csv format
+
+|Bimage369|
+
+A filter allows you to filter the reports table by operation:
+
+|Bimage370|
+
+The search field allows to search by space name and return reports of spaces whose names corresponds to the keyword:
+
+|Bimage371|
+
+It is also possible to filter by operation type the search results:
+
+|Bimage372|
+
+
+.. _AddBindingReport:
+
+Add Binding Report
+```````````````````
+Having added groups binding to a space, an entry **per group is added** to the reporting table:
+
+-  The operation type is set to "Add binding"
+-  Added users corresponds to the added users to the space following the group's binding
+-  Removed users is 0
+
+.. _RemoveBindingReport:
+
+Remove Binding Report
+```````````````````````
+Having removed a group binding from a space, an entry is added to the reporting table:
+
+-  The operation type is set to "Remove binding"
+-  Added users is 0
+-  Removed users corresponds to the removed users from the space following the group's binding removal
+
+.. note:: -  If some users are bound and that they belong to more than one bound group, they remain in the space
+             and they are not count in the reporting. 
+             
+          -  If a user was member of the space before the binding was created. When removing the binding, 
+             he remains in the space and becomes again normal member i.e. not bound. So, he is not count 
+             in the "Removed Users"  column. But, the information is present in the csv report file, in which 
+             he is marked as "still in space".
+         
+         
+.. _SyncReport:
+
+Synchronization report
+```````````````````````
+Even the updates made on bound groups are tracked in the binding reporting.
+In fact an entry is added per space/group for the synchronization. Each time a change is made on a bound group,
+this entry is updated:
+
+-  The start date corresponds to the fist update made on the group after the binding
+
+-  The end date is updated each time a change is made on the group
+
+-  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator (The removal from the group could only be done singularly i.e. only one user per action)
+   
+-  The number of added users is increased if some users were added to the bound group by an administrator
+
 
 .. _ManagingSites:
 
@@ -3451,7 +3777,7 @@ exact URL of the Register page.
 
 |image216|
 
-.. note:: -  In this section, some examples and screenshots use :ref:`default groups and memberships <#PLFAdminGuide.Configuration.PredefinedUserGroupMembership>`
+.. note:: -  In this section, some examples and screenshots use :ref:`default groups and memberships <PLFAdminGuide.Configuration.PredefinedUserGroupMembership>`
              that are ready-made by configuration. To create groups and memberships as you want, see :ref:`Managing your organization <ManagingYourOrganization>`.
 
       -  Do not misunderstand that labels of predefined membership types, such as "manager" or "publisher", represent their permissions.
@@ -5711,6 +6037,29 @@ The following image shows the screen when an anonymous user accesses
 .. |image351| image:: images/sharenews/template_selector.png
 .. |image352| image:: images/sharenews/header_block.png
 .. |image353| image:: images/sharenews/show_in_page.png
+.. |Bimage354| image:: images/platform/SpaceBindingIcon.png
+.. |Bimage355| image:: images/platform/AddBindingDrawerDefault.png
+.. |Bimage356| image:: images/platform/spaceBinding.png
+.. |Bimage357| image:: images/platform/GroupsSuggester.png
+.. |Bimage358| image:: images/platform/AddconfirmationPopup.png
+.. |Bimage359| image:: images/platform/boundUserLabel.png
+.. |Bimage360| image:: images/platform/LeaveDisabled.png
+.. |Bimage361| image:: images/platform/defaultIcon.png
+.. |Bimage362| image:: images/platform/coloredIcon.png
+.. |Bimage363| image:: images/platform/AddBindingDrawer.png
+.. |Bimage364| image:: images/platform/coloredIcon.png
+.. |Bimage365| image:: images/platform/deleteIcon.png
+.. |Bimage366| image:: images/platform/DeleteconfirmationMessage.png
+.. |Bimage367| image:: images/platform/SelectGroupsDrawer.png
+.. |Bimage368| image:: images/platform/SearchDrawer2.png
+.. |Bimage369| image:: images/platform/BindingReportsTab.png
+.. |Bimage370| image:: images/platform/FilterBinding.png
+.. |Bimage371| image:: images/platform/SeachReports.png
+.. |Bimage372| image:: images/platform/search_filter_reports.png
+.. |Bimage373| image:: images/platform/SearchMode.png
+.. |Bimage374| image:: images/platform/SearchClearIcon.png
+.. |Bimage375| image:: images/platform/BoundGroupsTree.png
+.. |Bimage376| image:: images/platform/SeizedGroupsTree.png
 .. |imagee354| image:: images/platform/Admin_menu.png
 .. |image354| image:: images/gamification/gamification_menu.png
 .. |image355| image:: images/gamification/manage_badges.png
@@ -5738,3 +6087,4 @@ The following image shows the screen when an anonymous user accesses
 .. |TA4| image:: images/platform/SpaceSettings.png
 .. |TA5| image:: images/platform/SpaceSettingsNavigations.png
 .. |TA6| image:: images/platform/DeleteNodeSpace.png
+
