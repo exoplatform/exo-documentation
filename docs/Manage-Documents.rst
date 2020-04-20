@@ -371,7 +371,7 @@ Basic compatibility
 eXo Platform core has a basic compatibility for Microsoft environments. So,
 if you are using Windows (7, 8 or 10) with Microsoft Office 2016
 installed, you can work with Word, Excel and Powerpoint files in many
-browsers: IE11, Firefox, Google Chrome and Edge.
+browsers: Firefox, Google Chrome, Safari and Edge.
 
 .. note::To make Open in Office work well on IE11, you need to enable ActiveX
 			by selecting Internet OptionsSecurity tabCustom levelInitialize and
@@ -393,25 +393,17 @@ supported in eXo Platform:
 +--------------------+----------------------------+----------------------------+
 | OS                 | Browsers                   | Office suites              |
 +====================+============================+============================+
-| Windows 7, Windows | IE11, Firefox, Chrome,     | Microsoft Office 2016      |
-| 8, Windows 10      | Edge                       | (Recommended), Microsoft   |
-|                    |                            | Office 2010 and 2013       |
-|                    |                            | (Supported)                |
+| Windows 7,         | Firefox, Chrome, Edge      | Microsoft Office 2016      |
+| Windows 10         |                            |                            |
 +--------------------+----------------------------+----------------------------+
-| MAC OS 10.9+       | Firefox, Safari            | Microsoft Office for Mac   |
-|                    |                            | 2016 (Recommended),        |
-|                    |                            | Microsoft Office for Mac   |
-|                    |                            | 2011 (Compatible)          |
+| MAC OS 10.12+      | Firefox, Safari, Chrome    | Microsoft Office for Mac   |
+|                    |                            | 2016                       |
 +--------------------+----------------------------+----------------------------+
-| Ubuntu 17.04       | Firefox                    | LibreOffice 5.4            |
-|                    |                            | (Supported), OpenOffice    |
-|                    |                            | 4.1 (Compatible)           |
+| Ubuntu 18.04       | Firefox, Chrome            | LibreOffice 6.0            |
 +--------------------+----------------------------+----------------------------+
 
 
 .. note::	-  It is recommended to use the latest versions of Firefox and Chrome.
-
-			-  Google chrome browser is incompatible for Ubuntu OS.
 
 			-  For Chrome in Windows and MAC OS, you need to enable NPAPI, as said `here <https://java.com/en/download/faq/chrome.xml#npapichrome>`__.
 
@@ -423,11 +415,6 @@ Client requirements
 In client side, you need to pay attention to the following environment
 requirements before using this feature.
 
-
-.. note:: For all OSs/browsers, it is recommended you install and make sure
-			Java Applet enabled. This is required for opening Non-MS Office
-			files. You can visit http://javatester.org/ to make sure Java Plugin
-			already installed on your browser.
 
 .. _Windows:
 
@@ -514,6 +501,12 @@ these steps:
 
    $ trust_server_cert /etc/davfs2/certs/myserver.pem
      
+     
+.. note:: For Linux Operating systems, to work with Open in Office functionnality,
+          it is recommended to run the platform server on :ref:`SSL mode <Security.HTTPSConf>` with a **trusted certificate**.
+          If it is not the case, you can workarround by adding the certificate under **/etc/davfs2/certs**. More details
+          in this `link <http://manpages.ubuntu.com/manpages/cosmic/man8/mount.davfs.8.html>`__ .
+             
 
 .. _MAC:
 
@@ -527,7 +520,7 @@ MAC
 -  In case you cannot open Microsoft Office files, you should close or
    force closing Microsoft Office Application, then re-open it.
 
--  In MAC OS 10.9, to edit a text file, it is recommended you use
+-  In MAC OS 10.12, to edit a text file, it is recommended you use
    TextWrangler (not default TextEditor) to edit it.
 
 .. _WorkingWithBasicActions:
@@ -1908,6 +1901,9 @@ eXo Platform.
 
    When droping the file, the area dedicated to the files upload is
    greyed.
+   Having the file attached, you can click on the |folder| icon
+   to choose a destination folder where to store the file. More details in 
+   the :ref:`Activity stream file's classification section <_AS_Files_Classification>`.
 
 -  upload manually: Allows you to select documents from your hard disc.
 
@@ -1916,6 +1912,11 @@ eXo Platform.
    Cliking on upload manually opens a window showing a drive from your
    hard disk (it opens files drive for mobile devices) and allows you to
    select one or many files.
+   You can select a destination folder for each uploaded file by clicking on |folder2| icon:
+   
+   |destination|
+   
+   More details in the :ref:`Activity stream file's classification <_AS_Files_Classification>` section.
 
 -  select from existing uploads: Allows you to select documents from
    your eXo Platform drives.
@@ -2082,6 +2083,47 @@ Multiple file sharing conditions
    file is already attached.
 
    |image167|
+   
+.. _AS_Files_Classification:   
+
+Activity stream file's classification
+````````````````````````````````````````
+
+When sharing multiple files in the activity stream by uploading them from your hard disk
+either by dragging and dropping or uploading them manually, you can classify them and choose
+a destination folder in eXo Documents to store them.
+
+For that purpose, you just need to click on ``Select destination folder`` link.
+
+|dest_folder|
+
+A popup of the documents drives appears allowing you to select a destination folder.
+
+.. note:: When uploading files from a space, the popup list folders of the space's drive, otherwise, it's your **Personal Documents**.
+
+                    
+After selecting the files to upload from your hard disk, you can define a destination folder for each of them
+by clicking on |folder_icon| at the end of the file's row.
+
+ 
+|destination_file|
+
+After choosing a destination folder, the Select Folder button switches to display the destination folder with a cancel icon
+allowing to restore the default destination.
+
+|destination_selected|
+
+-  If the user deletes the selected destination folder for a file (using cross button), the default one will be used
+-  If the user deletes the selected default destination folder for all files, the folder ``Activity Stream Documents`` will be used. 
+
+.. note:: If you don't select a destination folder for each of the attached files, the destination chosen
+          in the first step will be the destination of all files.
+          If you also did not select a destination neither for all files neither for each file, attached files
+          will be stored in the default destination i.e.:
+            
+            -  ``Space drive/Activity Stream Documents`` if the post is in a space's activity stream
+            -  ``Personal Documents/Public/Activity Stream Documents`` if the post is in your activity stream.
+               
 
 .. _ActivityForDocChanges:
 
@@ -2885,3 +2927,10 @@ information.
 .. |edit| image:: images/ecms/edit.png
 .. |edit1| image:: images/ecms/edit.png
 .. |warning| image:: images/ecms/warning.png
+.. |folder| image:: images/ecms/folder_icon.png
+.. |folder2| image:: images/ecms/folder_icon.png
+.. |folder_icon| image:: images/ecms/folder_icon.png
+.. |destination| image:: images/ecms/destination_folder.png
+.. |dest_folder| image:: images/ecms/dest_folder_link.png
+.. |destination_file| image:: images/ecms/file_dest.png
+.. |destination_selected| image:: images/ecms/destination_selected.png

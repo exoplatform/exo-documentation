@@ -11,16 +11,10 @@ Installation and Startup
     -  :ref:`System requirements <SystemRequirements>`
        Specifications which are required for running eXo Platform.
 
-    -  :ref:`Installing eXo Platform Trial docker image <EETrial>`
-       Steps needed to install eXo Platform Trial.
-
-    -  :ref:`Installing eXo Platform CommunityEdition <CommunityEdition>`
-       Steps needed to install eXo Platform Community Edition.
-
     -  :ref:`Registering your installation <Registration>`
        Instructions for how to register your installation the eXo Tribe.
 
-    -  :ref:`Unlocking your trial with an unlock key <unlockTrial>`
+    -  :ref:`Unlocking your eXo Platform Enterprise Edition with an unlock key <unlockTrial>`
        Instructions for how to unlock the free 30-day trial.
 
     -  :ref:`Installing eXo Platform Enterprise Edition <EnterpriseEdition>`
@@ -43,10 +37,6 @@ Installation and Startup
        How to customize environment variables, such as JVM Memory and GC
        settings.
 
-    -  :ref:`Startup profiles <eXoProfiles>`
-       The runtime profiles which are used to enable/disable modules of
-       eXo Platform.
-
     -  :ref:`Troubleshooting <Troubleshooting>`
        How to solve problems you may encounter when starting up eXo 
        Platform.
@@ -59,7 +49,7 @@ System requirements
 
 .. warning:: The requirements cited below are provisional and may change according to quality tests findings.
 
-To run eXo Platform 5.3, your system is required to meet the following 
+To run eXo Platform 6.0, your system is required to meet the following 
 specifications or higher:
 
 -  CPU: Multi-core recommended, 2GHz minimum.
@@ -71,11 +61,11 @@ specifications or higher:
 
 -  Free disk space: 10GB minimum
 
--  Java 8+: JDK 8 is required for eXo Platform 5.3 version. Set the
+-  Java 8+: JDK 8 is required for eXo Platform 6.0 version. Set the
    **JAVA\_HOME** environment variable to point to your JDK
    installation.
 
--  Java 7 and below is incompatible for eXo Platform 5.3 version.
+-  Java 7 and below is incompatible for eXo Platform 6.0 version.
 
 -  Browser Compatibility:
 
@@ -125,11 +115,11 @@ specifications or higher:
 
 .. note:: The eXo server will run on the port 8080 by default, so make sure this port is not currently in use or configure eXo Platform to use another port.
 
-.. _EETrial:
+.. _EnterpriseEdition:
 
-================================
-eXo Platform Trial Docker image
-================================
+===============================
+eXo Platform Enterprise Edition
+===============================
 
 In this section, we will provide how to install the Trial edition of
 eXo Platform and the steps following the installation from registering the
@@ -137,76 +127,16 @@ software to unlocking it.
 
 Here are the steps to follow:
 
--  :ref:`Starting the Docker Image <EETrial.start>`
+-  :ref:`Registering your software <EnterpriseEdition.register>`
 
--  :ref:`Registering your software <EETrial.register>`
+-  :ref:`Setting up the admin accounts <EnterpriseEdition.admins>`
 
--  :ref:`Setting up the admin accounts <EETrial.admins>`
-
-.. _EETrial.start:
-
-Starting the Docker Image
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The trial edition of the commercial version of eXo Platform is available as
-docker container in various versions: 5.1.0, 5.0.1, 4.4.3 ...
-
-In this section, you will learn how to start and stop it.
-
-.. warning:: eXo Platform's Community Edition and the trial version of the commercial Enterprise Edition are only available as a Docker install
-			 to facilitate deployment for testing. Owners of the full commercial version are not supported based on a Docker install, this
-			 Docker-related documentation is therefore not relevant to them.
-			 Subscribed customers can refer to next sections to install their commercial package.
-
-The docker image of the trial version of eXo Platform Enterprise Edition
-supports **only** HSQL database for testing purposes.
-
-To be able to start eXo Platform Trial Docker image, these prerequisites
-should be satisfied:
-
--  Docker daemon version 12+ installed on your machine.
-
--  Internet connection.
-
--  4GB of RAM available and 1GB of free disk space.
-
-Having the above requirement satisfied, you can start eXo Platform trial
-edition using this command:
-
-::
-
-    docker run --rm -v exo_trial_data:/srv -p 8080:8080 exoplatform/exo-trial
-
-A log message appears indicating the startup of the server:
-
-::
-
-    2017-09-19 12:34:54,573 | INFO  | Server startup in 80328 ms [org.apache.catalina.startup.Catalina<main>]
-
-The platform is then accessible via `http://localhost:8080 <#>`__.
-
-To stop the server, just click on Ctrl+c in the keyboard or run the
-command:
-
-::
-
-    docker stop <your-container-ID>
-
-The container-ID is known via the command:
-
-::
-
-    docker ps
-
-.. tip:: For more details about eXo Platform Trial edition Docker image: versions, how to configure, how to add/remove add-ons..., you can consult this `documentation <https://hub.docker.com/r/exoplatform/exo-trial/>`__.
-
-.. _EETrial.register:
 
 Registering your software
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-eXo Tribe provides access to an enormous community of eXo Platform users
-and developers.
+eXo Tribe provides access to all community of eXo Platform including developers
+and users.
 
 As a result, registration is needed so that you can post questions in
 the community to get help from other IT professionals around the world.
@@ -219,7 +149,8 @@ redirected to the *Register your Software* screen as follows:
 
 |image0|
 
-.. note:: For the Enterprise edition, you have to accept the Terms and Conditions Agreement before going to the registration.
+.. note:: Because you are using a commercial edition, you have to accept
+    the Terms and Conditions Agreement before going to the registration.
 
 From the *Register your Software* screen, click Register your software
 to start the registration. If you do not want to register this time,
@@ -235,8 +166,8 @@ message:
 
 |image2|
 
-It means the registration has completed. Now you can select Continue to
-start using eXo Platform. Once this is registered, you will never be asked
+It means the registration has completed. Now you can select Continue with more
+steps for getting started with eXo Platform. Once this is registered, you will never be asked
 for registration again.
 
 .. note:: -  If the eXo Tribe website can't be reached, you will get this message:
@@ -246,11 +177,11 @@ for registration again.
 		 
 		  -  Upgrading to a new platform version will require a new  registration.
 
-		  -  For the Enterprise edition, it is possible to skip the registration completely by unlocking it with :ref:`an official key <EETrial.unlock.UnlockKey>`.
+		  -  For the Enterprise edition, it is possible to skip the registration completely by unlocking it with :ref:`an official key <EnterpriseEdition.unlock.UnlockKey>`.
 
 		  -  If the authorization process failed, try to redo the registration or contact `our support team <https://community.exoplatform.com/portal/intranet/>`__ for more details.
 
-.. _EETrial.admins:
+.. _EnterpriseEdition.admins:
 
 Setting up the admin accounts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -267,181 +198,16 @@ In the first part of the screen, the user will belong to the group
 /platform/administrators. The second part of the screen allows you to
 redefine the super user **root** password.
 
-.. _CommunityEdition:
+=========================================
+Unlocking eXo Platform with an unlock key
+=========================================
 
-===========================================
-Installing eXo Platform Community Edition
-===========================================
-
-eXo Platform Community Edition is distributed as a convenient Docker image
-available with different versions: 5.1, 5.0, 4.4, 4.3...
-
-`Docker <https://www.docker.com>`__ is a software container platform
-which enables enterprises to build agile software delivery pipelines to
-ship new features faster, more securely and with confidence for both
-Linux, Windows Server, and Linux-on-mainframe apps.
-
-.. warning:: eXo Platform's Community Edition and the trial version of the
-			 commercial Enterprise Edition are only available as a Docker install
-			 to facilitate deployment for testing. Owners of the full commercial
-			 version are not supported based on a Docker install, this
-			 Docker-related documentation is therefore not relevant to them.
-			 Subscribed customers can refer to next sections to install their commercial package.
-
-In this section, we will provide the needed steps to install an eXo Platform
-Community Edition docker image.
-
-This docker image of eXo Platform supports HSQL database for testing purposes
-and MySQL for eXo Platformion environments.
-
-To try the eXo Platform community edition docker image, some prerequisites
-should be satisfied:
-
--  Docker daemon version 12+ installed on your machine.
-
--  Internet connection.
-
--  4GB of RAM available and 1GB of free disk space.
-
-To start and test eXo Platform Community Edition, simply execute this
-command:
-
-::
-
-    docker run -v exo_data:/srv/exo -p 8080:8080 exoplatform/exo-community
-
-The execution of this command will launch a container of the last
-millestone version of eXo Platform PLF\_VERSION and the version is updated
-every week after each weekly release:
-
-.. note:: You can set a custom name to your container by adding the option ``--name custom_name`` to the start command.
-
-
-::
-
-    2017-09-19 09:37:10,271 | INFO  | Server startup in 176588 ms [org.apache.catalina.startup.Catalina<main>]
-
-The above log message indicates the server startup. You can start
-exploring eXo Platform Community Edition by visiting the URL
-`http://localhost:8080 <#>`__ and then follow the instructions.
-
-To shutdown the server, you can either click on the keyboard buttons
-Ctrl+c or execute this command:
-
-::
-
-    docker stop <your-container-name>
-
-.. note:: To list all docker conatainers that already exist on your machine with their different parameters, just execute this command:
-
-			::
-
-				docker ps -a
-
-			An example of the result of the cited command:
-
-			::
-
-				CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS                           PORTS                    NAMES
-				6d6d74d07030        exoplatform/exo-community   "/opt/exo/start_eX..."   6 minutes ago       Up 6 minutes                     0.0.0.0:8080->8080/tcp   agitated_williams
-				ee949d337207        exoplatform/exo-community   "/opt/exo/start_eX..."   About an hour ago   Exited (130) About an hour ago                            vibrant_feynman
-		
-			To just paste parameters of the running container, the command to execute is:
-
-			::
-
-				docker ps
-
-
-With a docker container, it is possible to start eXo Platform in debug or dev
-mode: by adding --debug or --dev:
-
--  Debug mode: You should add the option *--debug* to the start command
-   cited above and you should specify the debug port by the parameter
-   ``-p 8000:8000``.
-
-   A log message appears indication that the debug mode is active:
-
-   ::
-
-       Listening for transport dt_socket at address: 8000
-
--  Dev mode: You should add the option *--dev* to the start command
-   cited above.
-
-.. tip:: For more details about eXo Platform Community Docker image: versions, how to configure, how to add/remove add-ons..., you can consult this `documentation <https://hub.docker.com/r/exoplatform/exo-community/>`__.
-
-.. _Registration:
-
-=============================
-Registering your installation
-=============================
-
-eXo Tribe provides access to an enormous community of eXo Platform users
-and developers. As a result, registration is needed so that you can post
-questions in the community to get help from other IT professionals
-around the world. Also, by registering your installation in the tribe,
-you will contribute to anonymous statistics published on the tribe
-website and help improving the product.
-
-After a successful installation, at the first startup, you will be
-redirected to the *Register your Software* screen as follows:
-
-|image5|
-
-.. note:: For the Enterprise edition, you have to accept the Terms and Conditions Agreement before going to the registration.
-
-From the *Register your Software* screen, click Register your software
-to start the registration. If you do not want to register this time,
-just click the Skip button, but remember that skipping is allowed only
-twice.
-
-|image6|
-
-Click the Authorize button to activate the authorization process (you
-can select Cancel to skip registering this time, but remember that
-canceling is also allowed only twice), if successful, you will see this
-message:
-
-|image7|
-
-It means the registration has completed. Now you can select Continue to
-start using eXo Platform. Once this is registered, you will never be asked
-for registration again.
-
-.. note:: -  If the eXo Tribe website can't be reached, you will get this message:
-
-			|image8|
-
-			In this case, clicking the Continue button still allows you to start using eXo Platform as normal, but you will be asked to register
-			again after next server startup.
-
-		  -  Upgrading to a new platform version will require a new registration.
-
-		  -  For the Enterprise edition, it is possible to skip the  registration completely by unlocking it with :ref:`an official key <EETrial.unlock.UnlockKey>`.
-
-		  -  If the authorization process failed, try to redo the registration or contact `our support team <https://community.exoplatform.com/portal/intranet/>`__for more details.
-
-.. _unlockTrial:
-
-=======================================
-Unlocking your trial with an unlock key
-=======================================
-
-eXo Platform offers **commercial editions** as a 30-day trial. Thus, you will
+eXo Platform offers **commercial editions**. Thus, you will
 see a trial banner at the page footer.
 
 |image9|
 
--  During the trial period, the message of the trial banner is "You have
-   XX days left in your evaluation" where XX is the number of days left
-   for your trial.
-
--  After the trial period, the trial banner turns into red with the
-   "Your evaluation period has expired XX days ago" text where XX is the
-   number of days as from the expired trial.
-   
-.. _EETrial.unlock.UnlockKey:   
+.. _EnterpriseEdition.unlock.UnlockKey:
 
 Unlocking your trial with an unlock key
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -479,15 +245,8 @@ On this screen:
    page.
    
    
-.. _EnterpriseEdition:
-
-
-==========================================
-Installing eXo Platform Enterprise Edition
-==========================================
-
 In this section, we will provide how to install the enterpise edition of
-eXo Platform in the two application servers: Tomcat and Jboss.
+eXo Platform in Tomcat application server.
 
 -  :ref:`Installing the Tomcat bundle <EnterpriseEdition.TomcatInstall>`
    Steps to install eXo Platform enterprise edition in Tomcat.
@@ -495,8 +254,6 @@ eXo Platform in the two application servers: Tomcat and Jboss.
 -  :ref:`Installing eXo Platform as a Windows service <EnterpriseEdition.TomcatInstallWinService>`
    Steps to install eXo Platform as a Windows service.
 
--  :ref:`Installing on JBoss EAP <EnterpriseEdition.JbossInstall>`
-   Steps to install eXo Platform enterprise edition in Jboss.
 
 .. _EnterpriseEdition.TomcatInstall:
 
@@ -505,7 +262,7 @@ Installing the Tomcat bundle
 
 The eXo Platform Tomcat bundle is a ready-made package on top of the Tomcat 8.5
 application server. So, you just need to download and extract the
-package (named ``eXo-Platform-5.3.0.zip``, for example) on your server.
+package (named ``eXo-Platform-6.0.0.zip``, for example) on your server.
 In this guideline, ``$PLATFORM_TOMCAT_HOME`` is the folder path of the
 extracted package.
 
@@ -582,11 +339,10 @@ adds two JVM options:
 
 -  **-Dexo.product.developing=true**
 
-    **Note**
 
-    The Debug and Dev modes are turned off by default and are not
-    recommended in production environment because of performance impact.
-    See more details in :ref:`Developer guide <#PLFDevGuide.GettingStarted.DebugAndDevMode>`.
+.. note:: The Debug and Dev modes are turned off by default and are not
+          recommended in production environment because of performance impact.
+          See more details in :ref:`Developer guide <#PLFDevGuide.GettingStarted.DebugAndDevMode>`.
 
 .. _EnterpriseEdition.TomcatInstallWinService:
 
@@ -678,98 +434,7 @@ The second way: Using the NSSM tool
        nssm stop <servicename>
 
    More details about NSSM commands in this `link <https://nssm.cc/usage>`__.
-
-.. _EnterpriseEdition.JbossInstall:
-
-Installing on JBoss EAP
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Starting from the versions 5.1, eXo Platform integrates with JBoss EAP 7.1.
-
-Prerequisites
----------------
-
--  Have JBoss EAP 7.1 extracted in ``$PLATFORM_JBOSS_HOME``. You can
-   download and install JBoss EAP 7.1 by following instructions on this
-   `link <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/installation_guide/installing_jboss_eap>`__.
-
--  Have the eXo Platform package for JBoss EAP downloaded into your local.
-
-Installing eXo Platform on JBoss EAP
---------------------------------------
-
-1. Extract your downloaded eXo Platform package.
-
-2. Copy all extracted folders and files into ``$PLATFORM_JBOSS_HOME``.
-
-.. note:: This step will overwrite some files of JBoss EAP with new files of eXo Platform.
-
-3. Optionally, if you want to customize the JVM Options, create a copy of
-   ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.sample.conf`` on Linux
-   or ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.sample.conf.bat`` on
-   Windows. Rename the copy to ``standalone-customize.conf`` (or
-   ``standalone-customize.conf.bat`` on Windows), then edit it with your
-   JVM Options.
-
-4. Start up the server.
-
--  On Linux and OS X:
-
-   ::
-
-       $PLATFORM_JBOSS_HOME/bin/standalone.sh
-
--  On Windows:
-
-   ::
-
-       %PLATFORM_JBOSS_HOME%\bin\standalone.bat
-
-The server starts up successfully when you see the following message in
-your log/console 
-
-	::
-
-		INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0025: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) started in 115316ms - Started 4570 of 4826 services (602 services are lazy, passive or on-demand)
-
-
-5. Shut down the server.
-
--  On Linux and OS X
-
-	::
-
-       $PLATFORM_JBOSS_HOME/bin/jboss-cli.sh --connect command=:shutdown
-                   
-
--  On Windows
-
-	::
-
-       %PLATFORM_JBOSS_HOME%\bin\jboss-cli.bat --connect command=:shutdown
-                   
-
-The server stops successfully when you see the following message in your
-log/console::
-
-    INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: JBoss EAP 7.1.0.GA (WildFly Core 3.0.10.Final-redhat-1) stopped in 13470ms
-
-
-.. note:: Since JBoss EAP 6.3, there is a new blocking timeout property for
-			JBoss startup.
-
-			This property is not a timeout per deployment but a timeout on
-			container stability and if ``jboss.as.management.blocking.timeout``
-			is reached during startup then all applications will be undeployed
-			and the container shutdown.
-	
-			The default value is set to 300s which is too low for eXo Platform in
-			which we overrode the value.
-
-			::
-
-				JAVA_OPTS="$JAVA_OPTS -Djboss.as.management.blocking.timeout=604800"
-				
+			
 				
 .. _TasksInstallation:	
 
@@ -778,9 +443,6 @@ Task Management Installation and Uninstallation
 ================================================
 
 .. note:: Only the administrator has the right to install and uninstall this application.
-
-The Task Management add-on is supported for both Enterprise and
-Community editions.
 
 Installation
 ~~~~~~~~~~~~~
@@ -1016,9 +678,6 @@ Web Conferencing installation
 
 .. note:: Only the administrator has the right to install and uninstall this application.
 
-The Web Conferencing add-on is supported for both Enterprise and
-Community editions.
-
 The Web Conferencing add-on is by default installed in the Enterprise
 Edition. You can uninstall it using this command:
 
@@ -1032,10 +691,6 @@ If you want to re-install it again, you should just run this command:
 
     ./addon install exo-web-conferencing
 
-If you are using the Community Edition and you want to benefit from the
-Web Conferencing add-on, you need to install it as it is not set by
-default.
-
 .. _CustomizingEnvironmentVariables:
 
 .. _RewardsInstall:
@@ -1047,22 +702,22 @@ Rewards packages installation
 
 .. note:: Only the administrator has the right to install and uninstall this application.
 
-Starting with version 5.3, Rewards add-ons are pre-installed by default in Enterprise and Community editions.
+Rewards add-ons are pre-installed by default in Enterprise edition.
 You can uninstall them using these commands :
 
 ::
 
-    ./addon uninstall exo-wallet
-    ./addon uninstall exo-kudos
-    ./addon uninstall exo-perk-store
+    ./addon uninstall meeds-wallet
+    ./addon uninstall meeds-kudos
+    ./addon uninstall meeds-perk-store
 
 If you want to re-install them again, you should just run these commands:
 
 ::
 
-    ./addon install exo-wallet
-    ./addon install exo-kudos
-    ./addon install exo-perk-store
+    ./addon install meeds-wallet
+    ./addon install meeds-kudos
+    ./addon install meeds-perk-store
 
 
 =================================
@@ -1089,17 +744,6 @@ Their Windows versions are:
 
 Except their syntax, ``.sh`` and ``.bat`` versions are the same.
 
-In JBoss, the scripts are:
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone.conf`` - the default script.
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.conf`` - the
-   customized script.
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone.conf.bat`` - Windows version.
-
--  ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.conf.bat`` - Windows
-   version.
 
 **Usage of the 2 scripts**
 
@@ -1121,12 +765,6 @@ In JBoss, the scripts are:
 
    -  For Tomcat in Windows: rename ``setenv-customize.sample.bat`` to
       ``setenv-customize.bat``.
-
-   -  For JBoss in Linux: rename ``standalone-customize.sample.conf`` to
-      ``standalone-customize.conf``.
-
-   -  For JBoss in Windows: rename ``standalone-customize.sample.conf.bat``
-      to ``standalone-customize.conf.bat``.
 
 2. Find the variable that you want to customize, uncomment it (by removing
    '#' in the ``.sh`` file or "REM" in the ``.bat`` file) and edit its
@@ -1218,7 +856,7 @@ section:
 +======================================+=====================================+
 | ``EXO_PROFILES="all,myOwnProfile"``  | Tomcat only. The default profile    |
 |                                      | is "all". If you customize this     |
-|                                      | variable, refer to Startup profiles |
+|                                      | variable.                           |
 +--------------------------------------+-------------------------------------+
 | ``EXO_CONF_DIR="/opt/ciagent/        | The default configuration folder    |
 | .eXo-platform/conf"``                | is ``./gatein/conf/`` (Tomcat       |
@@ -1291,24 +929,6 @@ eXo Platform tries to ease it by exposing 3 variables that you can customize:
 |                                               | development tasks.          |
 +-----------------------------------------------+-----------------------------+
 
-**JBoss configuration**
-
-+-----------------------------------------------+-----------------------------+
-| Configuration                                 | Description                 |
-+===============================================+=============================+
-| ``MAX_FD="maximum"``                          | Specifies the maximum file  |
-|                                               | descriptor limit.           |
-+-----------------------------------------------+-----------------------------+
-| ``PROFILER=""``                               | Specifies a profiler        |
-|                                               | configuration file.         |
-+-----------------------------------------------+-----------------------------+
-| ``JAVA_OPTS="$JAVA_OPTS -Djboss.modules.lockl | Uncomment this to not use   |
-| ess=false"``                                  | JBoss Modules lockless      |
-|                                               | mode.                       |
-+-----------------------------------------------+-----------------------------+
-| ``JAVA_OPTS="$JAVA_OPTS -Djboss.modules.metri | Uncomment this to gather    |
-| cs=true"``                                    | JBoss Modules metrics.      |
-+-----------------------------------------------+-----------------------------+
 
 .. _AdvancedCustomization:
 
@@ -1385,56 +1005,9 @@ to the ``CATALINA_OPTS`` variable, for example:
 |                                               | and ssh port 2000.         |
 +-----------------------------------------------+----------------------------+
 
-For JBoss, similar variables can be customized by appending
-``JAVA_OPTS``, for example:
-
--  ``JAVA_OPTS="$JAVA_OPTS -Dcrash.telnet.port=12345 -Dcrash.ssh.port=54321"``
-
-.. _eXoProfiles:
-
-================
-Startup profiles
-================
-
-eXo Platform comes with different runtime profiles, enabling you to customize
-which modules you want to enable/disable in each eXo Platform instance.
-
-.. warning:: Before modifying and developing eXo Platform, you should choose carefully
-             the profiles that are suitable to your requirements. In particular,
-			 after you have done any modifications/developments on the server
-			 that you started up with your selected profiles, and then switched
-			 to another new profiles, you will not see such
-			 modifications/developments on eXo Platform.
-
-Some eXo Platform 3.5 profiles are no longer available in eXo Platform 4
-and higer, including: *default, collaboration, social, knowledge, webos, 
-workflow*.
-Currently, eXo Platform only supports the following profiles:
-
--  ``all``: Activate all modules (such as Forum, Wiki, Calendar,
-   Social). This profile is enabled by default.
-
--  ``minimal``: Activate the Content only.
-
-To activate the ``minimal`` profile in **Tomcat**, this customized
-variable is required:
-
-::
-
-    EXO_PROFILES="minimal"
-
 See :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`
 to know how to customize the variables.
 
-To activate the ``minimal`` profile in **JBoss**, edit the property
-``exo.profiles`` in ``standalone/configuration/standalone-exo.xml``
-(``standalone-exo-cluster.xml`` in cluster mode):
-
-.. code:: xml
-
-    <system-properties>
-        <property name="exo.profiles" value="minimal"/>
-    </system-properties>
     
 .. _Troubleshooting:
 
@@ -1584,14 +1157,6 @@ You can use another port than 8080 as follows:
                   URIEncoding="UTF-8"
                   compression="off" compressionMinSize="2048"
                   noCompressionUserAgents=".*MSIE 6.*" compressableMimeType="text/html,text/xml,text/plain,text/css,text/javascript" />
-
--  In JBoss, edit the
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo.xml``
-   file and change 8080 into another port, at the following line:
-
-   .. code:: xml
-
-       <socket-binding name="http" port="8080"/>
 
 
 .. note:: In addition to the port 8080, eXo Platform may use some others, such as 8009, 8443. You always can manage those ports in the same way as above.

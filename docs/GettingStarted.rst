@@ -14,15 +14,20 @@ This chapter covers the following topics:
 
        Introduction to what you need to do for the first startup of
        eXo Platform.
-       
-:ref:`Social Intranet Homepage <PLFHomepage>`
 
-       Introduction to the Social Intranet homepage, the Social Intranet
+:ref:`Navigate on the Digital Workplacce <DWHomepage>`
+
+       Introduction to the navigation on the Digital Workplace, the Digital Workplace
+       widgets, spaces and settings.
+       
+:ref:`Legacy Intranet Homepage <PLFHomepage>`
+
+       Introduction to the Legacy Social Intranet homepage, the Legacy Social Intranet
        applications and how to change your language.
        
-:ref:`Signing in/Signing out Social Intranet <Signing-in-and-Signing-out>`      
+:ref:`Signing in/Signing out Legacy Social Intranet <Signing-in-and-Signing-out>`      
 
-       How to sign in and sign out Social Intranet.
+       How to sign in and sign out Legacy Social Intranet.
        
 :ref:`Changing your account settings <Managing-Account>`  
 
@@ -247,7 +252,7 @@ displayed as follows:
 
 |image1|
 
-    .. note:: The **Terms and Conditions Agreement** screen appears in the Commercial editions only. In the Community edition, the Account Setup form appears for the first time.
+    .. note:: The **Terms and Conditions Agreement** screen appears in the Commercial editions only.
 
 This agreement contains all terms and conditions that you need to read
 carefully before deciding to use eXo Platform. By ticking the checkbox at the
@@ -291,7 +296,7 @@ appears that illustrates how to add more users.
 |image3|
 
 3. Click Start to be automatically logged in with your created account and
-redirected to the :ref:`Social Intranet homepage <PLFHomepage>`. Now, you can start adding more users to collaborate, creating/joining spaces, or creating/following activities.
+redirected to the :ref:`Legacy Social Intranet <PLFHomepage>`. Now, you can start adding more users to collaborate, creating/joining spaces, or creating/following activities.
 
     .. note:: * After your accounts have been submitted successfully, the following memberships will be granted to your primary account:
        - \*:/platform/administrators
@@ -300,14 +305,346 @@ redirected to the :ref:`Social Intranet homepage <PLFHomepage>`. Now, you can st
        - \*:/developers
 
 	* If the server stops before your account setup data is submitted, the Account Setup screen will appear at your next startup.
+
+  .. _DWHomepage:
+
+==============================
+Navigate in Digital Workplace
+==============================
+
+This section introduces the navigation in the Digital Workplace site. Besides,
+you will further learn about the following topics:
+   
+ * :ref:`Navigation <Navigation>`
+   How to navigate in the Digital Workplace.
+
+ * :ref:`Snapshot <Snapshot>`
+   Introduction to the Snapshot page, all your Digital Workplace at a glance.
+
+ * :ref:`Digital Workplace Widgets <DW-Widgets>`
+   Introduction to widget blocks that come with the Digital Workplace.
+
+ * :ref:`Changing the UI language <Change-Language>`
+   Instructions on how to change the UI language of eXo Platform.
+
+After signing in your account successfully, you are redirected to the
+**Digital Workplace** homepage, the starting point for exploring eXo Platform.
+This homepage provides you a perfect overview of all social and
+collaboration activities available in eXo Platform.
+
+|image4|
+
+There are 3 main divisions in the **Digital Workplace** homepage:
+
+**Navigations**
+
+
+-  *Top navigation* |image5|: Take common actions via the following
+   menus:
+
+   -  **Help**: Access online guides by clicking |image6|. For example,
+      if you are in the Wiki application, but still not know how to get
+      started with it, simply click |image7|. You will then be
+      redirected to the instructions page regarding to Wiki in another
+      browser tab.
+
+   -  **User Profile**: Change your profile information, preferences,
+      language or quickly navigate to your personal pages by clicking
+      your display name, for example: John Smith.
+
+   -  **Notification**: Clicking |image8| will show all on-site
+      notifications. See :ref:`Managing your notifications <Managing-Notification>`
+      for more details.
+
+   -  **Search**: Search for any types in eXo Platform, such as people,
+      spaces, files, events, tasks, activities, by clicking |image9|.
+      See :ref:`Searching In eXo Platform <Search>` for more details.
+
+   -  **Administration**: Perform advanced actions, such as managing
+      users, content, applications, monitoring your system or organizing
+      sites, by clicking |image11|. This menu is only visible to members
+      of the web-contributors and administrator group.
+
+   -  **Edit**: Manage certain aspects of eXo Platform, including content,
+      pages and sites by clicking |image12|. This menu is only visible to
+      members of editor and administrator groups. See :ref:`Customizing eXo Platform <CustomizingLookAndFeel>`
+      for details.
+
+       .. note:: The number of menus which are displayed on the top navigation may vary, depending on your role. For example the Edit icon menu appears only for members of the group */platform/administrators*.
+
+-  *Left navigation* |image13|: It is a hamburger menu which allows you
+   to quickly jump to :
+
+   -  **Applications**: By default, the following applications are
+      available:
+
+      -  Snapshot: To come back to your digital Workplace homepage from any
+         page.
+
+      -  Stream: To come back to your stream page from any
+         page.
+         
+.. _People_Directory:          
+
+  -  **People**: To display the whole list of the platform users. You
+         can manage your connections, search for users using different
+         filters...
+
+  -  **Spaces** in the "MY SPACES" list. It is also possible to search
+      for spaces by clicking on Join a space.
+
+  -  **Last visited Spaces**. It is also possible to view
+      the list of your last visited spaces with a recent visited space short list just below the Last visited spaces button.
+        .. note:: A mouse over the Last visited spaces will opens a second level navbar with the full list of your visited spaces listed by last visited first.
+
+  -  **Settings** : You can configure your account by acceeding in the Settings.
+  
+  -  **Administration** : Just you mouse over this menu and a second level navigation will display with multiple administration choices.
+
+  -  **Logout** : By a simple click on this button, you will logout from the digital workplace.
+  
+
+   This hamburger menu will opens a navigation menus clicking which you can navigate to the various applications and spaces :
+
+   |image229|
+
+   When connecting to the platform, the menu is by default hidden. To
+   open or hide it, you should click on the hamburger menu icon
+   |image230|.
+
+   Clicking on an application, or space, icon redirects you to the concerned application, or space.
+
+       .. note:: - The order of applications and pages in the applications list may change in case some applications are not deployed, or some additional applications/pages are implemented.
+
+   The **Last visited Spces** list shows the latest spaces browsed by the user. The system will display the last 5 spaces in a quick list just below the Last visited spaces label, and once you mouse ouver this label, a second level navigation bar will open the Show [X] More Spaces link appears at the list bottom. Click this link to view more spaces.
+   |image231|
+   
+   The **Show More** Spaces link is displayed in the Last visited spaces navigation menu so that you can display more spaces in the list.
+   
+   You can also quick search for a space just by typing the spaces name you want to quick display and the list will be filtered and will display only spaces containing text you added.
+   |image232|
+
+   Even if you were in the Last visited spaces navigation menu, you can create your own space just by clicking on **Create Space** just below the spaces filter field.
+   |image233|
+
+**Activity Composer** |image16| **& Activity Stream** |image17|
+
+-  From Activity Composer, you can update your status, upload and share
+   your document/link. See `Updating status <Share-AS>`for more details.
+
+-  From Activity Stream, you can follow activities of your colleagues
+   and spaces, create your own activities (liking or commenting). See
+   `Using the Activity Stream <Share-AS>` for more details.
+
+**Applications** |image18|
+
+Quickly perform key actions through the following applications:
+
+-  *Getting Started*: See a list of suggested actions you can start.
+   See :ref:`Getting Started application <Getting Started>` for more details.
+
+-  *Calendar*: Get an overview of calendar events. See :ref:`Calendar application <CalendarApp>` for more details.
+
+-  *Invitation*: See a list of spaces and users who have sent connection requests to you. See :ref:`Invitations application <InvitationsApp>` for more details.
+
+-  *Suggestions*: See who you may want to connect with and spaces which you can ask to join. See :ref:`Suggestions application <SuggestionsApp>` for more details.
+
+-  *Who's Online?*: See who are online or send your connection request to them. See :ref:`Who's Online? application <WhoIsOnlineApp>` for more details.
+
+
+.. _Snapshot:
+
+*This section will be developed soon*
+
+.. _DW-Widgets:
+
+Digital Workplace widgets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Digital Workplace comes with several widget applications preinstalled on default pages to provide useful info and handy shortcuts to all apps and key information such as :
+
+ * :ref:`Getting Started`
+ * :ref:`CalendarApp`
+ * :ref:`InvitationsApp`
+ * :ref:`SuggestionsApp`
+ * :ref:`WhoIsOnlineApp`
+
+.. _Getting Started:
+
+Getting Started
+------------------
+
+The Getting Started application is displayed first in the list of the
+Intranet homepage applications on the top right. This application helps
+you start exploring the Social Intranet by suggesting you where to go
+and what you should do first via the following links:
+
+-  :ref:`Set your profile picture <Change-your-avatar>`
+
+-  :ref:`Join a space <Join-space>`
+
+-  :ref:`Add Connections <Send-Connection-Request>`
+
+-  :ref:`Post an activity <Share-AS>`
+
+|DW-1|
+
+Clicking each link will direct you to the related page to do the action.
+
+After each action is performed, it will be remarked as completed with a
+check-mark even though it is not performed via this application.
+
+When all the actions are performed, you can dismiss this widget permanently by clicking
+Close on the header|DW-2|.
+
+    .. note:: - You can’t get the Getting Started widget back after you closed it.
+
+.. _WelcomeBack:
+
+Welcome Back
+-------------
+
+The welcome back widget is an block that welcomes you with some information about your spaces, connections, 
+the points you earned and the rank you reached this week.
+See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
+
+|DW-3|
+
+- You can see your profile picture and your name just after the welcome Back label.
+
+- The widget also displays the  total number of spaces that you're member of.
+  A counter of your pending space invitations is displayed in a small badge.
+  Click the badge to display all invitations and easily accept or refuse them.
+
+    .. note:: - When you don't have any space invitation, the badge is hidden.
+
+- This widget also reminds you the size of your social network by displaying your current number of Connections.
+  When you have some pending  connection requests, a small badge displays a requests counter.
+  Click the badge to display the list of pending requests and accept or refuse them.
+
+    .. note:: - When you don’t have any connection request, the badge is hidden.
+
+- - You can see the points you earned this week and by clicking on your points, you can see a pie chart 
+  that presents your points distribution by domain.
+
+|DW-4|
+
+- You can also see your rank for this week and by clicking on your rank, you can see a leaderboard  
+  that presents your position comparing to other members and how many points you earned this week so far.
+  See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
+
+|DW-5|
+
+.. _SuggestionsApp:
+
+Suggestions
+------------
+
+The Suggestions application suggests you to connect with other users or
+to join spaces. Usually, it suggests two people having the most common
+connections with you, and two spaces having the most members who are
+your connections. Otherwise, it will suggest the newest users or the
+latest created space in the portal.
+
+|DW-6|
+
+-  To accept the people/space suggestion, you can click on Connect or Request respectively.
+
+-  To refuse the suggestion, you can click on Decline icon.
+
+When the suggestion is accepted or refused, it will permanently removed
+from the list.
+
+    .. note:: -  You can click a person's name suggested in the list to see his profile.
+        -  If there is no suggestion, the Suggestions application is not displayed.
+       
+       
+.. _WhoIsOnlineApp:
+
+Who's Online?
+--------------
+
+The Who's Online? application shows all users who are already logged in
+the portal.
+
+|DW-7|
+
+Hover your cursor over the avatar of an online user, a pop-up will show
+you some information about him, such as name, avatar, current position
+(if defined), and the last activity message of status activity, file or
+link sharing activity (if any).
+
+You can also see your connection status with an online user via the
+corresponding button at the pop-up bottom:
+
+-  If you are not connected with him yet, the Connect button is to send
+   connection invitation to him.
+
+-  If you have sent a connection request, the Cancel Request button is
+   to revoke your connection request.
+
+-  If you are invited to connect, the Confirm button is to accept his
+   connection request.
+
+-  If you are already connected with him, the Remove Connection button
+   is to delete connection between you and him.
+
+    .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page....
+
+.. _Perksstore:
+
+Perks Store
+------------
+
+The Perks Store widget displays pending orders you have in the Perks Store application.
+By clicking on this number, the Perks Store application will be opened on the list of all your orders.
+
+|DW-8|
+
+.. _Wallet:
+
+Wallet Balance
+---------------
+
+The Wallet widget displays the token balance of your wallet.
+You will receive tokens regularly in your wallet by collaborating through the digital workplace apps. 
+See :ref:`Total rewarded funds <UserWallet>` for more details.
+
+|DW-9|
+
+.. _Change-Language:
+
+Changing the UI language
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To change the language of eXo Platform, do as follows:
+
+1. Click your display name on the top navigation bar, then select Change
+Language from the drop-down menu.
+
+|image55|
+
+2. In the Interface Language Setting form, you will see 23 languages that
+eXo Platform supports. Select your preferred language to display, for
+instance *English*:
+
+|image56|
+
+3. Click Apply to commit your changes.
+
+    .. note:: In eXo Platform, the priority order of the display language is as the following:
+        *User's language --> Cookies' language --> Browser's language --> Site's language*
+        It means the language set by the user will be at the highest level, and the site's language at the lowest level.
+        Accordingly, you should pay attention to this order when selecting your preferred display language.
+
 	
 .. _PLFHomepage:
 
 ==========================
-Social Intranet Homepage
+Legacy Social Intranet
 ==========================
 
-This section introduces you to the Social Intranet homepage. Besides,
+This section introduces you to the Legacy Social Intranet. Besides,
 you will further learn about the following topics:
 
  * :ref:`Creating content quickly <Creating-content>`
@@ -378,7 +715,7 @@ There are 3 main divisions in the **Social Intranet** homepage:
    -  **Applications**: By default, the following applications are
       available:
 
-      -  Home: To come back to your social intranet homepage from any
+      -  Home: To come back to your Legacy social intranet homepage from any
          page.
          
 .. _People_Directory:          
@@ -445,6 +782,174 @@ Quickly perform key actions through the following applications:
 -  *Suggestions*: See who you may want to connect with and spaces which you can ask to join. See :ref:`Suggestions application <SuggestionsApp>` for more details.
 
 -  *Who's Online?*: See who are online or send your connection request to them. See :ref:`Who's Online? application <WhoIsOnlineApp>` for more details.
+
+.. _Intranet-Gadgets:
+
+Legacy Intranet applications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Legacy Intranet applications are ones which come with the Intranet, including:
+
+ * :ref:`Getting Started`
+ * :ref:`CalendarApp`
+ * :ref:`InvitationsApp`
+ * :ref:`SuggestionsApp`
+ * :ref:`WhoIsOnlineApp`
+
+.. _Getting Started:
+
+Getting Started
+------------------
+
+The Getting Started application is displayed first in the list of the
+Intranet homepage applications on the top right. This application helps
+you start exploring the Social Intranet by suggesting you where to go
+and what you should do first via the following links:
+
+-  :ref:`Add a profile picture <Change-your-avatar>`
+
+-  :ref:`Connect to coworkers <Send-Connection-Request>`
+
+-  :ref:`Join a space <Join-space>`
+
+-  :ref:`Post an activity <Share-AS>`
+
+-  :ref:`Upload a document <Uploading-files>`
+
+|image43|
+
+Clicking each link will direct you to the related page to do the action.
+
+After each action is performed, it will be remarked as completed with a
+strike-through even though it is not performed via this application.
+Also, the completion percentage is updated on the percentage bar.
+
+When all the actions are performed, the completion percentage will be
+100%. You can remove this application from the homepage by clicking
+Close or by hovering your cursor over the application header, and click |image44|.
+
+|image45|
+
+    .. note:: - You cannot get the Getting Started application back when it is removed. 
+        - The "Upload a document" action is considered as completed only when a document has been uploaded in your Personal Documents drive.
+    
+    
+.. _CalendarApp:
+
+Calendar
+---------
+
+The Calendar application displays some calendars and all of their events
+and tasks scheduled in the Calendar applications of Intranet and spaces.
+When going to the homepage, you will see events with their start and end
+date and tasks of Today. You can also see the events and tasks of the
+previous/next day by clicking the previous/next arrow respectively.
+
+|image46|
+
+-  To view details of an event/task directly in the Calendar
+   application, click your desired event/task.
+
+-  To configure and set which calendars to be displayed in the Calendar
+   application, hover your cursor over the application, then click
+   |image47| at the right bottom of the application.
+
+   -  To remove a calendar from the list of Displayed Calendars, click |image47|.
+
+      This removed calendar will appear in the list of Display
+      Additional Calendar.
+
+   -  To add one of removed calendars again to the list of Displayed
+      Calendars, simply hover your cursor over the desired calendar,
+      then click |image48|. You can use the Search box to filter
+      calendars quickly.
+
+   -  Click **OK** to accept your settings.
+
+    .. note:: When a task is completed, it will be remarked with a strike-through.
+
+.. _InvitationsApp:
+
+Invitations
+-------------
+
+The Invitations application shows a list of spaces and users who have
+sent you connection requests. You can see the number of requests
+displayed next to the application name.
+
+|image49|
+
+-  For a user's connection request, you will see his avatar, name and
+   title (if defined).
+
+-  For a space's connection request, you will see its avatar, name, the
+   number of members and know if it is public or private.
+
+You can accept/refuse an invitation by hovering your cursor over a
+user/space's name, then clicking Accept or |image50| respectively.
+
+When the invitation is accepted or refused, it will permanently removed
+from the list.
+
+    .. note:: The Invitations application is not displayed when there is no invitation.
+
+.. _SuggestionsApp:
+
+Suggestions
+------------
+
+The Suggestions application suggests you to connect with other users or
+to join spaces. Usually, it suggests two people having the most common
+connections with you, and two spaces having the most members who are
+your connections. Otherwise, it will suggest the newest users or the
+latest created space in the portal.
+
+|image51|
+
+-  To accept the people/space suggestion, hover your cursor over their
+   names and click Connect or Request respectively.
+
+-  To refuse the suggestion, hover your cursor over the people/space
+   names and click |image52|.
+
+When the suggestion is accepted or refused, it will permanently removed
+from the list.
+
+    .. note:: -  You can click a person's name suggested in the list to see his profile.
+        -  If there is no suggestion, the Suggestions application is not displayed.
+       
+       
+.. _WhoIsOnlineApp:
+
+Who's Online?
+--------------
+
+The Who's Online? application shows all users who are already logged in
+the portal.
+
+|image53|
+
+Hover your cursor over the avatar of an online user, a pop-up will show
+you some information about him, such as name, avatar, current position
+(if defined), and the last activity message of status activity, file or
+link sharing activity (if any).
+
+You can also see your connection status with an online user via the
+corresponding button at the pop-up bottom:
+
+-  If you are not connected with him yet, the Connect button is to send
+   connection invitation to him.
+
+-  If you have sent a connection request, the Cancel Request button is
+   to revoke your connection request.
+
+-  If you are invited to connect, the Confirm button is to accept his
+   connection request.
+
+-  If you are already connected with him, the Remove Connection button
+   is to delete connection between you and him.
+
+    .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
 
 
 .. _Creating-content:
@@ -996,7 +1501,7 @@ activity streams.
 The homepage also aggregates activities from spaces, so you can keep
 track of their activities without visiting every space. For example,
 when there is a new post in a forum of a given space, it is displayed in
-**Activity Stream** of the space and of the Social Intranet homepage.
+**Activity Stream** of the space and of the Legacy Social Intranet homepage.
 
 You can filter what you want to see on the homepage:
 
@@ -1048,7 +1553,7 @@ other space members (in the space's activity stream):
          - In Firefox browser:
          
                 |image155|
-         
+
 
 .. _text-message:
 
@@ -1108,8 +1613,10 @@ file appears:
 
 |image70|
 
-Select the desired file or files. More details in :ref:`Share multiple documents in activity stream <MultiUpload>` 
-section.
+Select the desired files either from your hard disk or from existing uploads in the Documents application. 
+
+.. note:: Uploaded files may be classified in different folders. 
+          More details in :ref:`Activity stream file's classification <AS_Files_Classification>` section.
 
 You can add a text message or not and then click on |image71| button to
 share the file(s) in the activity stream.
@@ -1148,65 +1655,155 @@ the link.
 
     .. note:: If the activity composer is empty, the |image78| button still grey and unclickable until adding something (a text message, a link or a file) in the activity composer area.
 
+
+.. _News-composer:	
+	
+Posting in the activity stream via the New Composer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+
+A new way to share in the activity stream is available via a clickable text "Try the new composer" just above the current home page and space's composers.
+
+|image220|
+
+Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your connections or a space's audience.
+
+|image221|
+
+
+Posting files in the activity stream
+-------------------------------------
+
+You can add a file or many files to your post by clicking on the "Add a file" option from the composer's drawer.
+
+|image222|
+
+From the displayed interface, you have three options to add a file :
+
+- Drag and drop a file into the upload area
+- Upload manually from your device 
+- Select from existing uploads
+
+|image223|
+
+Once you attached your file(s), you have to click on 'Apply' button to save the action and be redirected to the first composer's drawer.
+
+|image224|
+
+You can add a text message or not and then click on 'Post' button to share the file(s) in the activity stream.
+
+|image225|
+
+.. note:: If the upload is still in progress when you apply the attachments, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
+
+
+Posting links in the activity stream
+-------------------------------------
+
+When you copy and paste a link or a video link into the text area, if the link is recognized, a preview appears at the bottom of the typing area. 
+You have the possibility to delete it if you don't want to have a preview in your post using the 'X' icon.
+
+|image226|
+
+|image227|
+
+
+.. note:: The supported video players are Youtube, Vimeo and Dailymotion.
+
+
 .. _News:
 
 	
-Posting a news in the activity stream
+Posting a News in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	
-From a space's acivity stream, you are able to share a news with the space’s members. 
-Publishing a news allows you to easily write, broadcast, pin and share communication content.
 
+It is possible to write an article directly from a space composer. This feature is intended to improve and simplify the way information is shared. Users can contribute content intuitively without any former training to the content management system. News offers an inclusive and collaborative way to manage communication.
+Publishing a news lets you easily write, broadcast  and share communication content into other spaces. You can also make it visible to all platform users by pinning articles on the home page.
 
-Posting a simple news from short form
---------------------------------------
+Creating and posting a News
+---------------------------
 
-To post an article with other space’s members, click on News tab from the activity composer, the tab contains :
-
-
-- A **Title** field :  Allows you to enter the news title. The title should not exceed 150 characters: Beyond that limit you will not be allowed to write.
-
-- A **Content** field : Allows you to enter the content of the News. No limitation for the number of characters.
-
-- A **Pin article** Check box.
-
-- A **More icon** with a tooltip “more options”: Permits to open the creation full form.
-
-- A **Post** button : Disabled by default until the two fields “Title” and “Content” are filled.
+To create a news article, click "Write an article" located at the bottom of the space's composer. 
 
 |image156|
 
-Once all fields are filled, click on the Post button to post the News in the space's activity stream.
+You can also use the new composer to create an article by clicking on the "Try the new composer" label. In the displayed drawer you just have to click on the option "Write an article".
 
-The article is shared into the space's activity stream.
+|image228|
+
+In both cases, the creation form is opened in a new tab.
+
+|image159|
+
+Write or paste your article content in. Choose a title, a summary and an illustrative image as desired. 
+
+**Insert a video**
+
+You can insert a video in the article's content by clicking in the video icon from the ckeditor toolbar.
+
+|image192|
+
+You have to paste the video's url in the field of the displayed popup. The supported video players are Youtube, Vimeo and Dailymotion.
+
+|image193|
+
+If the inserted URL format is incorrect, a red icon is displayed (with a tooltip displaying the message "Invalid URL") and the "OK" button is still disabled.
+
+|image195|
+
+If the inserted URL format is correct, a green icon is displayed and the "OK" button is enabled.
+
+|image194|
+
+When you click on the "OK" button a preview of the video is displayed in the content field and you can continue writing the article.
+
+|image196|
+
+**Insert an attachment**
+
+You can insert attachments in the article's body by clicking on the paper clip icon in the creation form. 
+
+|image199|
+
+A drawer panel opens where you can either upload by selecting your files from existing uploads, by uploading files manually or by using a drag and drop in the dedicated area. You can attach up to 20 files and each file must not exceed 200 MB.
+
+|image200|
+
+Once you add files, you can see the upload progress as well as the number of selected files. You can cancel the upload of a file in progress or delete it if it is already uploaded using the close icon.
+
+|image201|
+
+You can close the drawer using the 'X' icon, the close button or simply by clicking outside the drawer panel. If the upload is still in progress as you close the panel, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
+
+|image202|
+
+
+When you finish writing your article, press the "Post" button in the top-right corner of the screen. 
+
+|image160|
+
+Once you post an article, you are automatically redirected to it in read mode.
+
+|image161|
+
+The attachments list will be available in the articles details after posting it.  
+
+|image203|
+
+You can preview the file by clicking on it.
+
+|image204|
+
+The article will be posted into the space's activity stream 
 
 |image158|
 
 
-.. note:: The |image157| button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
+.. note:: The post button is grey and unclickable until the mandatory fields *title* and *content* are filled. 
 
          
-Posting a news from full form
-------------------------------
-
-The creation of a news since the composer is minimalist. More options are available from the full form. In order to access to this form, you have to display the small form as explained in the previous paragraph and click on "More options" button.
-
-|image159|
-
-The full form allows you in addition to the fields available in the simple form to add a summary to your article. This field is optional and will be displayed in the news preview if filled. If not it is the first three lines of article's content that will be displayed in the news preview. The summary is limited to 1000 characters.
-It is also possible to upload optionally an image as an illustrative vignette of the article from the dedicated area. The image size must not exceed 10 Mo and the supported extensions are ".jpg",".jpeg",".png" and ".gif".
-
-The plus icon of the simple form is replaced by a less icon with a tooltip “return to original post”. This icon allows you to return to the creation simple form without losing the changes made in the full form.
-
-|image160|
-
-As for the simple form, once all fields are filled, click on the Post button to post the News in the space's activity stream.
-The article is shared into the space's activity stream.
-
-|image161|
-
 You can access the content of the article either by clicking on its title or by clicking on "read more".
-The details of the article are available on the current page and display all the information, including the publication date and the author.
+The details of the article are available on the current page and display all the information, including the publication date, the author, the space's name and all the activity reactions (likes, comments and sent kudos).
+You can also edit or share the article from this interface using the appropriate icons. You can exit the interface using the return button on the top left of the page.
 
 |image162|
 
@@ -1219,16 +1816,18 @@ The `Update` action allows you to make changes in the article without reposting 
 
 |image163|
 
-When an article has been edited, the details view display the updated date and author besides initial information.
+When an article has been edited, the details view display the update date and user if different from the author besides the initial information.
 
 |image164|
 
+.. _Sharing a News:
 
 Sharing a News
 ---------------
 
-Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page (and from the article's preview in the activity stream). 
-When you click on the share icon, a popup appears containing a reminder of the title of the article and allowing you to select the destination space(s). You can also add a optional description which will be displayed in the sharing activity.
+Once an article is posted, you will be allowed to share it in other spaces. The sharing action is possible from the article details page and from News application. 
+When you click on the share icon, a drawer appears containing a reminder of the article's title, its creation user and its original space. 
+You have to select the destination space(s) and you can optionaly add a description which will be displayed in the sharing activity.
 
 |image165|
 
@@ -1243,18 +1842,19 @@ You can check that the action has been done successfully by connecting to the de
 
 |image167|
 
+When you display the activity details, you will see the information about the sharing user, destination space and the description if added in the button of the page:
+
+|image219|
+
+.. _Pinning a News:
 
 Pinning a News in the home page
 -------------------------------
 
-As a platform-wide publisher (publisher:/platform/users role required), you are allowed to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available at three locations described below:
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you get permissions to pin any article to the home page. Pinning an article effectively publishes it from wherever it was originally posted to all users of the platform. Pin function is available from three locations :
 
 
 1- Pinning a News from creation form : 
-
-From simple and full creation forms, a  "Pin article" checkbox is available. 
-
-|image168|
 
 After filling in the article details, tick "Pin article" checkbox then click on "post" button. A confirmation message appears.
 
@@ -1276,31 +1876,84 @@ After confirmation, a success message appears:
 |image171|
 
 
-*3- Pinning a News from News details*
+*3- Pinning a News from News details : To pin a News from details, you only need to click on the available pin icon.
 
+|image181|
+
+The action is successfully done after confirming it as for the two options above. 
 
 You may display the home page to verify that the news is available in the appropriate block.
 
+You can display the pinned articles with one of the following layouts :
+
+- Blog layout: 
+
 |image172|
+
+- Latest News layout: 
+
+|image198|
+
+When you click on the "See all" button, you are redirected automatically to news application filtered by pinned articles.
+
+|image205|
+
+
+Unpinning a News from the home page
+----------------------------------
+
+As a platform-wide publisher (publisher:/platform/web-contributors role required), you can unpin any pinned article from the home page. 
+The unpin option lets you undo the pin action for an article by removing it from the home page news block.
+
+As for pin, the unpin function is available from three locations :
+
+
+1- Unpinning a news from edit form : 
+
+To unpin an article from the edit form, display the article's details then click on the ``Edit`` icon.
+Once the edit form is displayed, just click on the unpin article icon and validate.
+
+|image186|
+
+A confirmation message appears : 
+
+|image183|
+
+After confirmation, the article is no longer available on the home page. 
+
+
+2- Unpinning an article from the activity stream : the ``unpin article`` entry is also available from the three-dots menu of the news activity.
+
+|image182|
+
+When you choose this option, a confirmation popup appears:
+
+|image183|
+
+After confirmation, a success message appears:
+
+|image184|
+
+
+3- Unpinning an article from news details : to unpin a an article from details, just click on the ``unpin`` icon.
+
+|image185|
+
+The action is successfully done after confirming it as for the two options above. 
+
+You may display the home page to verify that the article is no longer available in the news block.
 
 
 Drafts management
 -----------------
 
 When you start writing an article, a draft is automatically saved as long as you write or modify the information in the form. 
-The information about the saving status is displayed in the simple and the complete form :
-
-|image173| 
-
-|image174|
-
+The information about the saving status is displayed in the creation form :
 
 |image175| 
 
-|image176|
-
-You can access to your drafts from the complete creation form. 
-A draft button is displayed indicating the number of drafts available for the space in which you are writing the article. 
+You can access to your drafts from the creation form. 
+A draft button is displayed indicating the number of drafts available for the current space. 
 
 |image177|
 
@@ -1317,7 +1970,108 @@ The content of the related draft will be displayed in the form and you can updat
 
 |image180|
 
-		
+News application
+-----------------
+
+The News application displays all the articles posted in the spaces that you have access to, as well as the articles pinned on the home page. 
+This application is accessible through the ``News`` link  in the left navigation.
+
+|image187|
+
+By default, the page displays the 10 latest articles of the  "All News" list. You can load more articles using the "Load More" button.
+
+|image217|
+
+For each article you can see the title, the illustration, the first words of the summary or the article body, the author, the publication date, the number of views and the original space where the article was posted as well as the spaces where it was shared.
+You can share the displayed articles as explained in the `Sharing a News`_ chapter. You can also edit, archive or pin the articles when you have the permission to do it.
+
+|image188|
+
+Search in News application
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can look for articles easily using the available search bar in the topbar of the application. It is possible to search by the article title, its author or content.
+
+|image189|
+
+|image190|
+
+|image191|
+
+
+News application filters
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Different filters are available from News application so you can easily find articles posted in specific spaces, pinned articles, your posted articles, your scheduled articles, your drafts or your archived articles.
+
+
+**Filter articles per spaces : ** You can search articles by spaces using the filter button from the top bar.
+
+|image206|
+
+In the displayed drawer, you can select the spaces of the articles you want to filter. A search input is available to easily find the spaces you want to select. Only the spaces you are member of are available. A click on the Apply button allows to apply the filter.
+
+|image207|
+
+|image208|
+
+
+**Filter by pinned articles : ** To display the pinned news list, select this option from the dropdown menu of the application topbar.
+
+|image197|
+
+After applying this filter, the list will only contain the articles that have been pinned on the home page. You can reset the filters using the appropriate button inside the drawer.
+
+
+**Filter by your posted articles : ** To display the articles written by you, select the option "My posted News" from the dropdown menu of the application's top bar.
+
+|image209|
+
+After applying this filter, the list will only display the articles posted by you. You can either archive, edit or share them directly from the news application.
+
+|image210|
+
+
+**Filter by archived articles : ** To display your archived articles, select the option "Archived News" from the dropdown menu of the application topbar.
+After applying this filter, the list will only display your archived articles or all archived articles if you have the publisher role
+
+|image218|
+
+
+Archiving News
+---------------
+
+As an article's author or as a platform-wide publisher (publisher:/platform/web-contributors role required), you can archive articles from News application interface.
+An "archive/unarchive" icon is available on the right side of the article's preview next to "share", "edit" and "pin" icons.
+
+|image211|
+
+When you click on the archive icon, a confirmation message appears : 
+
+|image212|
+
+Once you confirm the action, the article is automatically moved into the archive and is no longer available to other users. The archive can be accessed from the "Archived News" entry in the dropdown. Only the authors and publishers can see articles in the archive.
+Archived articles have a different display in the activity stream  :
+
+|image213|
+
+Other users won't able to click on this preview as long as the article remains archived. Also, for them, accessing an archived article by URL won't let them read it. In such case, the following message appears :
+
+|image214|
+
+However, you, as the author (or publisher), maintain access to the article's details and you can unarchive it from there.
+
+|image215|
+
+The same icon allows to unarchive articles from the News application.
+
+|image216|
+
+When you confirm the unarchiving of an item, it becomes accessible again to other users.
+
+.. note:: When you archive a pinned article it gets automatically unpinned. However, if you unarchive the same article afterwards, it won't be re-pinned automatically. 
+
+	
 .. _Formatting-toolbar:
 
 The formatting toolbar in activity messages and comments
@@ -1978,6 +2732,15 @@ to display the original timestamp of the comment.
 
 |image148|
 
+.. |DW-1| image:: images/dw/Getting_Started.png 
+.. |DW-2| image:: images/dw/Getting_Started_Close.png 
+.. |DW-3| image:: images/dw/Welcome_Back.png 
+.. |DW-4| image:: images/dw/Points.gif 
+.. |DW-5| image:: images/dw/Rank.gif
+.. |DW-6| image:: images/dw/Suggestions.png 
+.. |DW-7| image:: images/dw/Whos_Online.png 
+.. |DW-8| image:: images/dw/Perkstore.png 
+.. |DW-9| image:: images/dw/Wallet.png 
 .. |image0| image:: images/platform/top_navigation_bar.png 
 .. |image1| image:: images/platform/Unlock-termsentskin.jpg
 .. |image2| image:: images/platform/Unlock-ACCOUNTSETUP.jpg
@@ -2138,29 +2901,77 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_news.png
+.. |image156| image:: images/sharenews/composer_space.png
 .. |image157| image:: images/sharenews/post.png
-.. |image158| image:: images/sharenews/shared_news.png
-.. |image159| image:: images/sharenews/More_options.png
-.. |image160| image:: images/sharenews/complete_form.png
-.. |image161| image:: images/sharenews/shared_news_cf.png
+.. |image158| image:: images/sharenews/posted_news.png
+.. |image159| image:: images/sharenews/creation_form.png
+.. |image160| image:: images/sharenews/filled_form.png
+.. |image161| image:: images/sharenews/news_details.png
 .. |image162| image:: images/sharenews/news_details2.png
 .. |image163| image:: images/sharenews/edit_news.png
 .. |image164| image:: images/sharenews/modified_news.png
-.. |image165| image:: images/sharenews/popup_share.png
+.. |image165| image:: images/sharenews/drawer_share.png
 .. |image166| image:: images/sharenews/shared_message2.png
 .. |image167| image:: images/sharenews/shared_news2.png
-.. |image168| image:: images/sharenews/pin_checkbox.png
 .. |image169| image:: images/sharenews/confirm_pin.png
 .. |image170| image:: images/sharenews/pin_activity.png
 .. |image171| image:: images/sharenews/success_pin.png
 .. |image172| image:: images/sharenews/bloc_news.png
-.. |image173| image:: images/sharenews/saving_shortform.png
-.. |image174| image:: images/sharenews/saved_shortform.png
 .. |image175| image:: images/sharenews/saving_draft.png
-.. |image176| image:: images/sharenews/saved_fullform.png
 .. |image177| image:: images/sharenews/draft_button.png
 .. |image178| image:: images/sharenews/drafts_drawer.png
 .. |image179| image:: images/sharenews/confirm_delete.png
 .. |image180| image:: images/sharenews/resume_article.png
-
+.. |image181| image:: images/sharenews/pin_details.png
+.. |image182| image:: images/sharenews/unpin_activity.png
+.. |image183| image:: images/sharenews/unpin_popup.png
+.. |image184| image:: images/sharenews/unpin_success.png
+.. |image185| image:: images/sharenews/unpin_details.png
+.. |image186| image:: images/sharenews/unpin_edit.png
+.. |image187| image:: images/sharenews/news_leftnav.png
+.. |image188| image:: images/sharenews/news_app.png
+.. |image189| image:: images/sharenews/search_title.png
+.. |image190| image:: images/sharenews/search_user.png
+.. |image191| image:: images/sharenews/search_content.png
+.. |image192| image:: images/sharenews/video_icon.png
+.. |image193| image:: images/sharenews/video_popup.png
+.. |image194| image:: images/sharenews/correct_video_url.png
+.. |image195| image:: images/sharenews/uncorrect_video_url.png
+.. |image196| image:: images/sharenews/video_creation_form.png
+.. |image197| image:: images/sharenews/app_pinned.png
+.. |image198| image:: images/sharenews/latest_news.png
+.. |image199| image:: images/sharenews/attachment_icon.png
+.. |image200| image:: images/sharenews/attach_files_drawer.png
+.. |image201| image:: images/sharenews/attach_files_progess.png
+.. |image202| image:: images/sharenews/upload_files_form.png
+.. |image203| image:: images/sharenews/attachments-details.png
+.. |image204| image:: images/sharenews/file_preview.png
+.. |image205| image:: images/sharenews/pinned_view.png
+.. |image206| image:: images/sharenews/filter_button.png
+.. |image207| image:: images/sharenews/filter_drawer.png
+.. |image208| image:: images/sharenews/filtered_view.png
+.. |image209| image:: images/sharenews/myposted_view.png
+.. |image210| image:: images/sharenews/myposted_view1.png
+.. |image211| image:: images/sharenews/archive_icon.png
+.. |image212| image:: images/sharenews/archiving_confirmation.png
+.. |image213| image:: images/sharenews/archived_as.png
+.. |image214| image:: images/sharenews/error_archived.png
+.. |image215| image:: images/sharenews/archived_details.png
+.. |image216| image:: images/sharenews/unarchive_application.png
+.. |image217| image:: images/sharenews/loadmore_application.png
+.. |image218| image:: images/sharenews/archived_view.png
+.. |image219| image:: images/sharenews/shared_details.png
+.. |image220| image:: images/new_composer/new_composer.png
+.. |image221| image:: images/new_composer/composer_drawer.png
+.. |image222| image:: images/new_composer/add_a_file.png
+.. |image223| image:: images/new_composer/attach_files.png
+.. |image224| image:: images/new_composer/attached_files.png
+.. |image225| image:: images/new_composer/attached_files_composer.png
+.. |image226| image:: images/new_composer/insert_video.png
+.. |image227| image:: images/new_composer/insert_link.png
+.. |image228| image:: images/new_composer/write_article.png
+.. |image229| image:: images/platform/dw_hamburger_menu.gif
+.. |image230| image:: images/common/dw_hamburger_icon.png
+.. |image231| image:: images/platform/last_visited_spaces.png
+.. |image232| image:: images/platform/filter_spaces.png
+.. |image233| image:: images/platform/create_space_navbar.png

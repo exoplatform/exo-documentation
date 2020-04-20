@@ -105,9 +105,8 @@ that you can adapt by following the following sections.
                |__ conf
                        |__ configuration.xml
                        |__ organization
-                   |__ idm-configuration.xml
-                   |__ picketlink-idm-ldap-config.xml
-               |__ jboss-deployment-structure.xml
+                               |__ idm-configuration.xml
+                               |__ picketlink-idm-ldap-config.xml
                |__ web.xml
 
 
@@ -212,8 +211,6 @@ that you can adapt by following the following sections.
 
 9. :ref:`Package and deploy <LDAP.QuickStart.PackagingDeploying>` your ldap-extension into Platform.
 
-.. note:: For JBoss, don’t forget to declare :ref:`deployment dependency <Jboss-deployment>`.
-
 10. Make sure the directory server is running, then start eXo Platform.
 
 .. _LDAP.QuickStart.PackagingDeploying:
@@ -221,11 +218,7 @@ that you can adapt by following the following sections.
 Packaging and deploying
 -------------------------
 
-The extension folder must be packaged into ``ldap-extension.war`` then copied to:
-
--  ``$PLATFORM_TOMCAT_HOME/webapps`` for Tomcat.
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments`` for JBoss.
+The extension folder must be packaged into ``ldap-extension.war`` then copied to ``$PLATFORM_TOMCAT_HOME/webapps``.
 
 To compress the folder into a .war (and decompress the .war for editing), you can use any archiver tool that supports .war extension.
 You can use the JDK built-in tool **jar**, as follows:
@@ -244,8 +237,7 @@ You can use the JDK built-in tool **jar**, as follows:
 .. tip:: You should have ldap-extension packaged in .war when deploying it to production. However when testing, if you feel 
          uncomfortable having to edit a .war, you can skip compressing it. 
          In `Tomcat <https://tomcat.apache.org/tomcat-8.0-doc/deployer-howto.html>`__, just deploy the original 
-         folder *ldap-extension*. In `JBoss <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/deploying_applications>`__, 
-         rename it to ``ldap-extension.war``.
+         folder *ldap-extension*. 
 
 .. _LDAP.QuickStart.Testing:         
 
@@ -379,7 +371,21 @@ you must add this configuration snippet under the “attributes” tag in the fi
 				   </attribute>
 		...
 			   </attributes>
-	
+
+These attributes can be retrieved in the Portal User Profile with the Java API:
+
+ .. code:: java
+ 
+    import org.exoplatform.container.ExoContainerContext;
+		import org.exoplatform.services.organization.OrganizationService;
+		import org.exoplatform.services.organization.User;
+		import org.exoplatform.services.organization.UserProfile;
+
+		OrganizationService organizationService = ExoContainerContext.getService(OrganizationService.class);
+
+		String userName = "mary";
+		UserProfile userProfile = organizationService.getUserProfileHandler().findUserProfileByName(userName);
+		String jobTitle = (String) userProfile.getAttribute("user.jobtitle");		   
 			   
 			   
 .. _LDAP.MultipleDNsGroups:
@@ -571,6 +577,45 @@ Configuration reference
 
 This section is a complete description of the available configuration options. 
 It lists the options of both eXo configuration and PicketLink configuration.
+
+.. _Ref_properties:
+
+Properties configuration
+------------------
+
+The LDAP integration uses jobs to synchronize periodically the eXo internal database with the data modified in the LDAP.
+The list of properties related to LDAP integration that you can use in ``exo.properties`` are:
+
+.. code-block:: jproperties
+
+    # Cron expression used to schedule the job that will import periodically data
+    # from external store
+    # (Default value = every ten minutes)
+    exo.idm.externalStore.import.cronExpression=0 */10 * ? * *
+    # Cron expression used to schedule the job that will delete periodically data
+    # from internal store that has been deleted from external store
+    # (Default value = every day at 23:59 PM)
+    exo.idm.externalStore.delete.cronExpression=0 59 23 ? * *
+    # Cron expression used to schedule the job that will process periodically data
+    # injected in queue
+    # (Default value = every minute)
+    exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
+
+By default, user data are synced with the LDAP when the user signs in. This can be disabled by modifying this property:
+
+.. code-block:: jproperties
+
+    # if true, update user data on login time and only when information change
+    # on external store (Default: true)
+    exo.idm.externalStore.update.onlogin=true
+
+The user data sync tasks (one per user) are executed asynchronously via a queue. If a sync task fails, it can be retried. The maximum number of sync retries before the task is abandoned in error can be configured by changing the following property:
+
+.. code-block:: jproperties
+
+    # Max retries to process Data synchronization from queue
+    exo.idm.externalStore.queue.processing.error.retries.max=5
+
 
 .. _Ref_eXoConfiguration:
 

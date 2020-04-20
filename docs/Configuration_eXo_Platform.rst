@@ -517,36 +517,36 @@ This section describes Content services which provide low-level
 functionality for UI components. These services are classified into the
 following groups:
 
--  :ref:Actions <PLFRefGuide.Configurations.Components.Content.Actions>`
+-  :ref:`Actions <PLFRefGuide.Configurations.Components.Content.Actions>`
 
    This section represents the components related to managing Content
    actions and scripts in eXo Platform.
 
--  :ref:Content arrangement <PLFRefGuide.Configurations.Components.Content.ContentArrangement>`
+-  :ref:`Content arrangement <PLFRefGuide.Configurations.Components.Content.ContentArrangement>`
 
    This section describes services related arranging content in eXo
    Platform, consisting of Lock Service, Taxonomy Service, Link Manager,
    Manage View Service, Manage Drives Service, New Folksonomy Service,
    and Relationship Service.
 
--  :ref:Images Processing <PLFRefGuide.Configurations.Components.Content.ImagesProcessing>`
+-  :ref:`Images Processing <PLFRefGuide.Configurations.Components.Content.ImagesProcessing>`
 
    This section describes the components related to processing Content
    images in eXo Platform, consisting of Jod Converter Service, PDF
    Viewer Service, and Thumbnail Service.
 
--  :ref:Publication <PLFRefGuide.Configurations.Components.Content.Publication>`
+-  :ref:`Publication <PLFRefGuide.Configurations.Components.Content.Publication>`
 
    This section describes two components which process document
    publication in eXo Platform.
 
--  :ref:Searching <PLFRefGuide.Configurations.Components.Content.Searching>`
+-  :ref:`Searching <PLFRefGuide.Configurations.Components.Content.Searching>`
 
    This section represents components related to the Content searching
    feature in eXo Platform, consisting of Site Search Service, SEO
    Service, and Query Service.
 
--  :ref:Templates Processing <PLFRefGuide.Configurations.Components.Content.TemplateProcessing>`
+-  :ref:`Templates Processing <PLFRefGuide.Configurations.Components.Content.TemplateProcessing>`
 
    This section describes services related to processing Content
    templates, including Application Template Manager Service, Fragment
@@ -1433,6 +1433,7 @@ The configuration of this component can be found
             <description>some params for runtime</description>
 
             <property name="parameterizedPageURI" value="${wcm.config.parameterizedPageURI:/detail}" />
+            <property name="parameterizedURIParam" value="${wcm.config.parameterizedURIParam:content-id}"/>
             <property name="printPageURI" value="${wcm.config.printPageURI:/printviewer}" />
             <property name="printViewerPage" value="${wcm.config.printViewerPage:printviewer}" />
             <property name="editorPageURI" value="${wcm.config.editorPageURI:editor}" />
@@ -1510,27 +1511,29 @@ The configuration of this component can be found
 
 -  **properties-param**: ``RuntimeContextParams``
 
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | Property-name               | Type     | Value                                                                                                                    | Description                                                                                                                 |
-   +=============================+==========+==========================================================================================================================+=============================================================================================================================+
-   | ``parameterizedPageURI``    | string   | ``${wcm.config.parameterizedPageURI:/detail}``                                                                           | Contains the path to a page which displays the full content of a document provided by a URL on the browser's address bar.   |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``printPageURI``            | string   | ``${wcm.config.printPageURI:/printviewer}``                                                                              | The URL of the document's print preview page.                                                                               |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``printViewerPage``         | string   | ``${wcm.config.printViewerPage:printviewer}``                                                                            | The name of the print preview page.                                                                                         |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``editorPageURI``           | string   | ``${wcm.config.editorPageURI:editor}``                                                                                   | The name of the page which users can in-line edit its content displayed in the front-end page.                              |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``siteExplorerURI``         | String   | ``${wcm.config.siteExplorerURI:siteExplorer}``                                                                           | The URL of a page containing the Sites Explorer portlet.                                                                    |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``CLVPortlet``              | String   | ``/presentation/ContentListViewerPortlet``                                                                               | The portlet which contains a list of content.                                                                               |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``SCVPortlet``              | String   | ``/presentation/SingleContentViewer``                                                                                    | The portlet which contains single content.                                                                                  |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``formViewTemplatePath``    | String   | ``${wcm.config.formViewTemplatePath:}``                                                                                  | The path to the template used to display the contents in this portlet.                                                      |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-   | ``paginatorTemplatePath``   | String   | ``${wcm.config.paginatorTemplatePath:/exo:ecm/views/templates/content-list-viewer/paginators/DefaultPaginator.gtmpl}``   | The path to the paginator used to display the contents in this portlet.                                                     |
-   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | Property-name               | Type     | Value                                                                                                                    | Description                                                                                                                          |
+   +=============================+==========+==========================================================================================================================+======================================================================================================================================+
+   | ``parameterizedPageURI``    | string   | ``${wcm.config.parameterizedPageURI:/detail}``                                                                           | Contains the path to a page which displays the full content of a document provided by a URL on the browser's address bar.            |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``parameterizedURIParam``   | string   | ``${wcm.config.parameterizedURIParam:content-id}``                                                                       | Contains the parameter that takes the URL of a document on the browser's address bar to be displayed in the ``parameterizedPageURI``.|
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``printPageURI``            | string   | ``${wcm.config.printPageURI:/printviewer}``                                                                              | The URL of the document's print preview page.                                                                                        |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``printViewerPage``         | string   | ``${wcm.config.printViewerPage:printviewer}``                                                                            | The name of the print preview page.                                                                                                  |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``editorPageURI``           | string   | ``${wcm.config.editorPageURI:editor}``                                                                                   | The name of the page which users can in-line edit its content displayed in the front-end page.                                       |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``siteExplorerURI``         | String   | ``${wcm.config.siteExplorerURI:siteExplorer}``                                                                           | The URL of a page containing the Sites Explorer portlet.                                                                             |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``CLVPortlet``              | String   | ``/presentation/ContentListViewerPortlet``                                                                               | The portlet which contains a list of content.                                                                                        |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``SCVPortlet``              | String   | ``/presentation/SingleContentViewer``                                                                                    | The portlet which contains single content.                                                                                           |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``formViewTemplatePath``    | String   | ``${wcm.config.formViewTemplatePath:}``                                                                                  | The path to the template used to display the contents in this portlet.                                                               |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
+   | ``paginatorTemplatePath``   | String   | ``${wcm.config.paginatorTemplatePath:/exo:ecm/views/templates/content-list-viewer/paginators/DefaultPaginator.gtmpl}``   | The path to the paginator used to display the contents in this portlet.                                                              |
+   +-----------------------------+----------+--------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------+
 
 -  **properties-param**: ``share.portal.config``
 
@@ -2138,8 +2141,6 @@ plugins.
 
 -  :ref:`Relationship Publisher <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.RelationshipPublisher>`
 
--  :ref:`Social Chromattic LifeCycle <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SocialChromatticLifeCycle>`
-
 -  :ref:`Space Activity Publisher <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceActivityPublisher>`
 
 -  :ref:`Template Params Processor <PLFRefGuide.Configurations.ExternalComponentPlugins.Social.TemplateParamsProcessor>`
@@ -2495,107 +2496,6 @@ changes on the relationship between two users.
       </component-plugin>
     </external-component-plugins>
 
-.. _PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SocialChromatticLifeCycle:
-
-Social Chromattic LifeCycle
-----------------------------
-
-This plugin is used to manage **ChromatticSession** in the Social
-project.
-
-To use the plugin in the component configuration, you must use the
-following target-component:
-
-.. code:: xml
-
-    <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-
-**Sample configuration**:
-
-.. code:: xml
-
-    <component-plugin>
-      <name>chromattic</name>
-      <set-method>addLifeCycle</set-method>
-      <type>org.exoplatform.social.common.lifecycle.SocialChromatticLifeCycle</type>
-      <init-params>
-        <value-param>
-          <name>domain-name</name>
-          <value>soc</value>
-        </value-param>
-        <value-param>
-          <name>workspace-name</name>
-          <value>social</value>
-        </value-param>
-        <value-param profiles="all,default,minimal">
-          <name>workspace-name</name>
-          <value>social</value>
-        </value-param>
-        <values-param>
-          <name>entities</name>
-          <value>org.exoplatform.social.core.chromattic.entity.ProviderRootEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ProviderEntity</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.IdentityEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ProfileEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityProfileEntity</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.RelationshipEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.RelationshipListEntity</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.HidableEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.LockableEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityListEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityDayEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityMonthEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityYearEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.ActivityParameters</value>
-
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceRootEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceListEntity</value>
-          <value>org.exoplatform.social.core.chromattic.entity.SpaceRef</value>
-        </values-param>
-        <properties-param>
-          <name>options</name>
-          <property name="org.chromattic.api.Option.root_node.path" value="/production"/>
-          <property name="org.chromattic.api.Option.root_node.create" value="true"/>
-        </properties-param>
-      </init-params>
-    </component-plugin>
-
-In which:
-
--  **Name**: ``chromattic``
-
--  **Set-method**: ``addLifeCycle``
-
--  **Type**:
-   ``org.exoplatform.social.common.lifecycle.SocialChromatticLifeCycle``
-
--  **Init-params**:
-
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| Value-param          | Possible value      | Description                                                                               |
-+======================+=====================+===========================================================================================+
-| **domain-name**      | ``String``          | The lifecycle domain name.                                                                |
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| **workspace-name**   | ``String``          | The repository workspace name that is associated with this lifecycle.                     |
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-| **entities**         | ``List<String>``    | The list of chromattic entities that will be registered against the chromattic builder.   |
-+----------------------+---------------------+-------------------------------------------------------------------------------------------+
-
-**Properties-param**: **option**
-
-+---------------------------------------------------+------------------+-------------------+----------------------------------------------------------------------------------------------------------------+
-| Property name                                     | Possible value   | Default value     | Description                                                                                                    |
-+===================================================+==================+===================+================================================================================================================+
-| **org.chromattic.api.Option.root\_node.path**     | ``String``       | ``/production``   | The path of the root node.                                                                                     |
-+---------------------------------------------------+------------------+-------------------+----------------------------------------------------------------------------------------------------------------+
-| **org.chromattic.api.Option.root\_node.create**   | ``Boolean``      | ``true``          | Specifies whether or not the root node is created by the **ROOT\_NODE\_PATH** option when it does not exist.   |
-+---------------------------------------------------+------------------+-------------------+----------------------------------------------------------------------------------------------------------------+
-
 .. _PLFRefGuide.Configurations.ExternalComponentPlugins.Social.SpaceActivityPublisher:
 
 Space Activity Publisher
@@ -2763,8 +2663,6 @@ plugins.
 -  :ref:`Session Created Listener <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.SessionCreatedListener>`
 
 -  :ref:`Session Destroyed Listener <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.SessionDestroyedListener>`
-
--  :ref:`WikiChromatticLifecycle <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiChromatticLifecycle>`
 
 -  :ref:`Uncached Macros <PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiUncache>`
 
@@ -3001,79 +2899,6 @@ In which:
 
 -  **Type**:
    ``org.exoplatform.wiki.service.impl.SessionDestroyedListener``
-
-.. _PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiChromatticLifecycle:
-
-Wiki Chromattic Lifecycle
---------------------------
-
-This plugin is used configure workspace and node name with Chromattic.
-The configuration can be found in
-``wiki-service/src/main/resources/conf/portal/configuration.xml``.
-
-**Sample configuration**:
-
-.. code:: xml
-
-    <external-component-plugins>
-            <target-component>org.exoplatform.commons.chromattic.ChromatticManager</target-component>
-            <component-plugin>
-              <name>chromattic</name>
-              <set-method>addLifeCycle</set-method>
-              <type>org.exoplatform.wiki.service.impl.WikiChromatticLifeCycle</type>
-              <init-params>
-                <value-param>
-                  <name>domain-name</name>
-                  <value>wiki</value>
-                </value-param>
-                <value-param>
-                  <name>workspace-name</name>
-                  <value>collaboration</value>
-                </value-param>
-                <values-param>
-                  <name>entities</name>
-                  <value>org.exoplatform.wiki.mow.core.api.WikiStoreImpl</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.PortalWiki</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.PortalWikiContainer</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.GroupWiki</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.GroupWikiContainer</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.UserWiki</value>
-                  <value>org.exoplatform.wiki.mow.core.api.wiki.UserWikiContainer</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.ParagraphImpl</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.MarkupImpl</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.WikiLink</value>
-                  <value>org.chromattic.ext.ntdef.NTFile</value>
-                  <value>org.chromattic.ext.ntdef.NTResource</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTVersionHistory</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTVersion</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTVersionLabels</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.NTFrozenNode</value>
-                  <value>org.exoplatform.wiki.chromattic.ext.ntdef.VersionableMixin</value>
-                  <value>org.exoplatform.wiki.mow.core.api.content.AnnotationImpl</value>
-                </values-param>
-            </component-plugin>
-    </external-component-plugins>
-
-In which:
-
--  **Name**: ``chromattic``
-
--  **Set-method**: ``addLifeCycle``
-
--  **Type**:
-   ``org.exoplatform.wiki.service.impl.WikiChromatticLifeCycle``
-
-**Init-params**
-
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
-| **Name**             | **Type**     | **Default value**   | **Description**                                                                 |
-+======================+==============+=====================+=================================================================================+
-| **domain-name**      | ``String``   | ``wiki``            | The domain name where JCR stores Wiki data.                                     |
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
-| **workspace-name**   | ``String``   | ``collaboration``   | The workspace name where JCR stores Wiki data.                                  |
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
-| **entities**         | ``String``   |                     | List of Wiki classes that contain the Chromattic configuration of node types.   |
-+----------------------+--------------+---------------------+---------------------------------------------------------------------------------+
 
 .. _PLFRefGuide.Configurations.ExternalComponentPlugins.Wiki.WikiUncache:
 
@@ -4552,7 +4377,6 @@ configuration of this component is found in
               <name>messageConfig</name>
               <description>Message Configuration</description>
               <object type="org.exoplatform.services.cms.watch.impl.MessageConfig">
-                <field name="sender"><string>${gatein.ecms.watchdocument.sender:support@exoplatform.com}</string></field>
                 <field name="subject"><string>${gatein.ecms.watchdocument.subject:Your watching document is changed}</string></field>
                 <field name="mimeType"><string>${gatein.ecms.watchdocument.mimetype:text/html}</string></field>
                 <field name="content">
@@ -4574,8 +4398,6 @@ configuration of this component is found in
 +----------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | **Field**      | **Type**     | **Value**                                                                                                                                                                                                          | **Description**                               |
 +================+==============+====================================================================================================================================================================================================================+===============================================+
-| **sender**     | ``string``   | ``${gatein.ecms.watchdocument.sender:support@exoplatform.com}``                                                                                                                                                    | The sender who sends the notification mail.   |
-+----------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | **subject**    | ``string``   | ``${gatein.ecms.watchdocument.subject:Your watching document is changed}.``                                                                                                                                        | The subject of the notification mail.         |
 +----------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | **mimeType**   | ``string``   | ``${gatein.ecms.watchdocument.mimetype:text/html}.``                                                                                                                                                               | The format of the notification mail.          |

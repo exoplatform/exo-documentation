@@ -188,26 +188,9 @@ Portlet deployment
 ~~~~~~~~~~~~~~~~~~~
 
 The portlet *war* file should be installed into
-``$PLATFORM_TOMCAT_HOME/webapps`` (in Tomcat) or
-``$PLATFORM_JBOSS_HOME/standalone/deployments`` (in JBoss).
+``$PLATFORM_TOMCAT_HOME/webapps``.
 
-**Particularly for JBoss**, you need to include a
-``WEB-INF/jboss-deployment-structure.xml`` file to your portlet *war*,
-to declare *platform.ear* as a dependency:
-
-.. code:: xml
-
-    <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
-        <deployment>
-            <dependencies>
-                <module name="deployment.platform.ear" export="true"/>
-            </dependencies>
-        </deployment>
-    </jboss-deployment-structure>
-
-For more information, see `Master Your Portlet Packaging in JBoss article, <http://blog.exoplatform.com/en/2014/04/22/master-portlet-packaging-jboss>`__.
-
-Both Tomcat and JBoss support hot deployment.
+eXo Platform server supports hot deployment.
 
 To test your portlet in action, you need to add it to a page. This task
 can be done in two ways:
@@ -468,7 +451,7 @@ every page.
 
 **Redeploying a portlet**
 
-Both Tomcat and JBoss support hot redeployment, so you can just replace
+eXo Platform server supports hot redeployment, so you can just replace
 the old war with the new one and it should work. However, depending on
 the technology the portlet uses, the hot redeployment might not work
 properly. In this case, a server restart is required.
@@ -481,9 +464,9 @@ Injecting a portlet using Dynamic Container
 **The mechanism**
 
 If you want to inject a portlet to every page in a site, you might add
-it directly to the shared layout (``sharedlayout.xml``). However, in
+it directly to the shared layout (``sharedlayout-<SITENAME>.xml``). However, in
 case you have more than one extension that overrides
-``sharedlayout.xml``, only the last loaded one takes effect. This leads
+``sharedlayout-<SITENAME>.xml``, only the last loaded one takes effect. This leads
 to trouble that portlets injection cannot be solved in packaging, it
 will require extra tasks in deployment (like merging several layouts
 from different projects).
@@ -495,7 +478,7 @@ shared layout and an extension get involved in how it works:
 
    To make a site ready to inject portlets, there should be some Dynamic
    Containers added to the shared layout. This is done by
-   ``sharedlayout.xml``, like this:
+   ``sharedlayout-<SITENAME>.xml``, like this:
 
    .. code:: xml
 
@@ -518,7 +501,7 @@ shared layout and an extension get involved in how it works:
    portlet drag-and-drop is not in the Dynamic Container designation.
 
 So in this way, whenever the named container instance is put into a
-page, or all pages via ``sharedlayout.xml``, the portlet injection is
+page, or all pages via ``sharedlayout-<SITENAME>.xml``, the portlet injection is
 done automatically. An extension does not have to override the layout.
 
 **Example**
@@ -593,7 +576,7 @@ Here are the Dynamic Container instances in the *Intranet* site:
 |image6|
 
 For a customized site, you can manage Dynamic Containers by `customizing
-sharedlayout.xml <#PLFDevGuide.Site.LookAndFeel.CustomizingLayout.SharedLayout>`__.
+shared layout <#PLFDevGuide.Site.LookAndFeel.CustomizingLayout.SharedLayout>`__.
 The configuration sample is given above. There are two templates of
 Dynamic Container:
 
@@ -806,7 +789,7 @@ extension <#PLFDevGuide.eXoAdd-ons.PortalExtension>`__, by adding
                 <name>Add PortalContainer Definitions</name>
                 <set-method>registerChangePlugin</set-method>
                 <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-                <priority>101</priority>
+                <priority>200</priority>
                 <init-params>
                     <values-param>
                         <name>apply.specific</name>
@@ -845,7 +828,7 @@ The CSS resource is registered like below:
 		  <portlet-skin>
 			<application-name>hello-portlet</application-name>
 			<portlet-name>Hello</portlet-name>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<css-path>/skin/Stylesheet.css</css-path>
 		  </portlet-skin>
 		</gatein-resources>
@@ -1425,12 +1408,6 @@ The code sample can be found
 `here <https://github.com/exo-samples/docs-samples/tree/4.3.x/portlet/jsf2-portlet-cdi>`__.
 
 
-.. note:: Currently you could not use JSF together with CDI in Tomcat. This tutorial is for JBoss only.
-
-		  Also note that the deployment of this portlet does not follow :ref:`Portlet deployment <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Deployment>`
-		  section completely, so do not miss the :ref:`deployment <PLFDevGuide.DevelopingApplications.DevelopingPortlet.JSF2_CDI.Deployment-in-JBoss>`
-		  part at the end of this tutorial.
-
 **So why CDI?**
 
 If you want to get a quick understanding about CDI, and current
@@ -1705,7 +1682,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 
 		import org.exoplatform.services.mail.MailService;
 		import org.exoplatform.services.mail.Message;
-		import org.exoplatform.commons.utils.CommonsUtils;
+		import org.exoplatform.container.ExoContainerContext;
 
 		@ManagedBean
 		public class MailSender {
@@ -1737,7 +1714,7 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 			message.setTo(customerMailList.getMailList());
 			
 			try {
-			  ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+			  ExoContainerContext.getService(MailService.class).sendMessage(message);
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
@@ -1751,46 +1728,13 @@ For that, you will create two qualifiers, *Customer* and *Partner*.
 			message.setTo(partnerMailList.getMailList());
 			
 			try {
-			  ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+			  ExoContainerContext.getService(MailService.class).sendMessage(message);
 			} catch (Exception e) {
 			  e.printStackTrace();
 			}
 		  } 
 		}
     
-.. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.JSF2_CDI.Deployment-in-JBoss:    
-
-**Deployment in eXo Platform JBoss**
-
-Your webapp needs to be scanned by Weld so you will not deploy it in
-``standalone/deployments`` as other portlet applications. Instead,
-deploy it into ``platform.ear`` and add a module in ``application.xml``.
-
-1. ``target/jsf2portlet-cdi-example.war`` into
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear``.
-
-2. Edit ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   to add a module like the following. The module must be added before 
-   the **starter** module, so on top if you like that:
-
-   .. code:: xml
-
-		<module>
-			<web>
-				<web-uri>jsf2portlet-cdi-example.war</web-uri>
-				<context-root>jsf2portlet-cdi-example</context-root>
-			</web>
-		</module>
-
-   Then follow the :ref:`Portlet deployment <#PLFDevGuide.DevelopingApplications.DevelopingPortlet.Deployment>`
-   section to register and add the portlet to a page for testing.
-
-.. note:: Starting from eXo Platform 5.0, we upgraded to JBoss EAP 7.0 which uses `Contexts and Dependency Injection (CDI) 1.2 <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/development_guide/contexts_and_dependency_injection_cdi#introduction_to_cdi>`__.
-		  CDI 1.2 comes with the new notion of implicit bean archive allowing
-		  to scan war archives for annotations to process by Weld (the JBoss
-		  implementation of CDI). This new feature has some conflicts with our
-		  development and thus it has been disabled by default for eXo Platform EAR
-		  including its addons.
 
 .. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.PublicRenderParameter:
 
@@ -2266,8 +2210,7 @@ development:
 
 -  Juzu source code: https://github.com/juzu/juzu.
 
-This tutorial focuses on Juzu portlet deployment in PRODUCT Tomcat and
-JBoss.
+This tutorial focuses on Juzu portlet deployment in eXo Platform.
 
 The dependencies are different for each server and each dependency
 injection implementation, so the project will use different Maven build
@@ -2277,13 +2220,10 @@ profiles for packaging in each case:
    Tomcat using Guice.
 
 -  Use ``mvn clean package -Pplf-jboss-guice`` to build a package for
-   JBoss using Guice.
 
 -  Use ``mvn clean package -Pplf-tomcat-spring`` to build a package for
    Tomcat using Spring.
 
--  Use ``mvn clean package -Pplf-jboss-spring`` to build a package for
-   JBoss using Spring.
 
 .. note:: Currently, only Guice and Spring are covered in this tutorial. The
 		  other implementation, Weld, will be documented later.
@@ -2626,46 +2566,8 @@ Spring:
         <version>2.5.5</version>
     </dependency>
 
-Note that you can deploy this portlet using Guice in Tomcat and JBoss or
-using Spring in Tomcat as usual. However, to deploy this portlet using
-Spring in JBoss, the following dependencies are needed at runtime:
-
--  ``spring-beans-2.5.5.jar``
-
--  ``spring-context-2.5.5.jar``
-
--  ``spring-core-2.5.5.jar``
-
--  ``spring-web-2.5.5.jar``
-
-These dependencies have been already packaged in the generated
-``hellojz.war`` file. Therefore you can choose to deploy this portlet
-via the 2 following ways:
-
--  Copy these above dependencies from ``hellojz.war!/WEB-INF/lib/`` to
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib``,
-   then deploy this portlet as usual.
-
--  Deploy the ``hellojz.war`` file into
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/`` and
-   include it as the first module in the
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   file. The ``application.xml`` file will look like:
-
-   .. code:: xml
-
-       ...
-       <display-name>plf-enterprise-jbosseap-ear</display-name>
-       <initialize-in-order>true</initialize-in-order>
-       <!-- The first module -->
-       <module>
-       <web>
-         <web-uri>hellojz.war</web-uri>
-         <context-root>hello-portlet-sample</context-root>
-       </web>
-       </module>
-       <!-- Other modules -->
-       ...
+Note that you can deploy this portlet using Guice in Tomcat or
+using Spring in Tomcat as usual.
 
 .. _PLFDevGuide.DevelopingApplications.DevelopingPortlet.Spring.Intro:
 
@@ -2960,9 +2862,6 @@ requests to controllers.
 	   initialization of *DispatcherPortlet*. The goal is to define some
 	   beans at the application scope.
 
-.. note:: Pay attention to the attribute *version="2.5"*. The version 2.5 or
-		  greater is required. You should specify the version, otherwise it
-		  might not work in JBoss package.
 
 10. Edit ``applicationContext.xml``.
 
@@ -3024,7 +2923,7 @@ the portlet in eXo Platform and test:
 Vue.js Portlet
 ~~~~~~~~~~~~~~
 
-eXo Platform 5.3 uses Vue.js version 2.6 in multiple Portlet applications.
+eXo Platform 6.0 uses Vue.js version 2.6 in multiple Portlet applications.
 This guide describes how to build a Vue.js application.
 
 1. Download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vue-portlet-webpack>`__.
@@ -3215,13 +3114,6 @@ This guide describes how to build a Vue.js application.
    :emphasize-lines: 3,4,10,11,20
 
     <portal-skin>
-      <skin-name>Default</skin-name>
-      <skin-module>customModuleSampleVuePortlet</skin-module>
-      <css-path>/css/sample.css</css-path>
-      <css-priority>11</css-priority>
-    </portal-skin>
-  
-    <portal-skin>
       <skin-name>Enterprise</skin-name>
       <skin-module>customModuleSampleVuePortlet</skin-module>
       <css-path>/css/sample.css</css-path>
@@ -3312,34 +3204,14 @@ This guide describes how to build a Vue.js application.
 Vuetify and Vue.js Portlet
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-eXo Platform 5.3 uses Vuetify version 2.0 in multiple Portlet applications.
-This guide describes how to build an application based on Vuetify 2.0 and Vue.js 2.6.
+eXo Platform 6.0 uses Vuetify version 2.2 in multiple Portlet applications.
+This guide describes how to build an application based on Vuetify 2.2 and Vue.js 2.6.
 
 You can download the complete example from `here <https://github.com/exo-samples/docs-samples/tree/master/portlet/vuetify-portlet-webpack>`__ and apply the same steps described in :ref:`Develop Vue.js Portlet <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vue>`.
 
 In addition to requirements of Vue.js application, inside a Vuetify application some additional configurations are added:
 
-1. Definition of Vuetify CSS that has to be imported globaly as defined in ``src/main/webapp/WEB-INF/gatein-resources.xml``
-
-.. code-block:: xml
-   :caption: gatein-resources.xml
-   :name: gatein-resources.xml
-
-    <portal-skin>
-      <skin-name>Default</skin-name>
-      <skin-module>customModuleVuetify</skin-module>
-      <css-path>/../eXoSkin/skin/css/vuetify/vuetify-all.css</css-path>
-      <css-priority>10</css-priority>
-    </portal-skin>
-  
-    <portal-skin>
-      <skin-name>Enterprise</skin-name>
-      <skin-module>customModuleVuetify</skin-module>
-      <css-path>/../EnterpriseSkin/skin/css/vuetify/vuetify-all.css</css-path>
-      <css-priority>10</css-priority>
-    </portal-skin>
-
-2. Definition of Vuetify javascript module as dependency in ``src/main/webapp/WEB-INF/gatein-resources.xml``:
+1. Add ``vuetify`` JS module as dependency of your custom JS module in ``src/main/webapp/WEB-INF/gatein-resources.xml``:
 
 .. code-block:: xml
    :caption: gatein-resources.xml
@@ -3347,17 +3219,17 @@ In addition to requirements of Vue.js application, inside a Vuetify application 
    :emphasize-lines: 12
 
     <portlet>
-      <name>vuetifyWebpackSample</name>
+      <name>PORTLET_NAME</name> <!-- Portlet name, defined in portlet.xml -->
       <module>
         <script>
           <minify>false</minify>
-          <path>/js/sample.bundle.js</path>
+          <path>PORTLET_MODULE_FILE_PATH</path> <!-- For example: /js/sample.bundle.js -->
         </script>
         <depends>
           <module>vue</module>
         </depends>
         <depends>
-          <module>vuetify</module>
+          <module>vuetify</module> <!-- Vuetify dependency injected in this definition file instead of using 'npm import' -->
         </depends>
         <depends>
           <module>eXoVueI18n</module>
@@ -3365,7 +3237,7 @@ In addition to requirements of Vue.js application, inside a Vuetify application 
       </module>
     </portlet>
 
-3. Add a parent DOM element with class ``VuetifyApp`` to define ``src/main/webapp/index.html``:
+2. Add a parent DOM element with class ``VuetifyApp`` to define ``src/main/webapp/index.html``:
 
 .. code-block:: html
    :caption: index.html
@@ -3547,9 +3419,7 @@ Here are the steps to create your first gadget:
 
 7. Install ``hello-gadget.war`` to:
 
-	-  ``$PLATFORM_TOMCAT_HOME/webapps/`` for Tomcat.
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/`` for JBoss.
+	-  ``$PLATFORM_TOMCAT_HOME/webapps/``.
 
 .. note:: See details about deployment in :ref:`portal extension section <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`,
     especially if you use the traditional extension with jar to be backward compatible.
@@ -4007,7 +3877,7 @@ added:
 .. note:: This method only works for a fresh (empty data) server because the
 	  	  categories defined in the ApplicationRegistryService configuration
 		  are created all in once when you start PRODUCT for the first time,
-		  and when the JCR repository is empty. In case the server is started
+		  and when the database is empty. In case the server is started
 		  already, you may write a portlet for this job, as described below.
 
 1. Create the category by using the following code:
@@ -4213,6 +4083,9 @@ Extending eXo applications
 -  :ref:`Overriding application templates <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.OverridingApplicationTemplates>`
    Steps to override the default template of a portlet in eXo Platform.
 
+-  :ref:`Extending HTML header element of pages <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ExtendHTMLHeader>`
+   Steps to extend http header elements of pages.
+
 -  :ref:`Applications Plugins <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins>`
    Tutorials to add plugin to eXo applications, such as Activity
    composer or action in Wiki using UI Extension framework.
@@ -4262,6 +4135,47 @@ for downloading.
 |image36|
 
 .. note:: If you are not running eXo Platform in the developer mode, you will have to restart the server.
+
+
+.. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ExtendHTMLHeader:
+
+Extending HTML header element of pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case, you need to define new elements in HTML ``<head>`` element of pages, you can define a service plugin that will allow you to inject a groovy template content in ``<head>`` element of the page.
+
+.. note:: This assumes that you have defined your ``custom-extension.war`` file using :ref:`Extension mechanism <PLFDevGuide.eXoAdd-ons.PortalExtension>`.
+
+.. note:: If you need to add:
+
+    * A stylesheet file, please refer to :ref:`Skin service <#sect-Reference_Guide-Skinning_Portal-Skin_Service>`__
+    * A javascript file, please refer to :ref:`JavaScript development <#sect-Reference_Guide-Javascript_Development>`__
+
+
+1. Add a new file under ``custom-extension.war/groovy/portal/webui/UICustomPortalApplicationHead.gtmpl``
+
+2. Add a plugin configuration that will inject your file inside ``custom-extension.war/WEB-INF/conf/configuration.xml`` :
+
+  .. code:: xml
+  
+      <external-component-plugins>
+        <target-component>org.exoplatform.groovyscript.text.TemplateService</target-component>
+        <component-plugin>
+          <name>UIPortalApplication-head</name>
+          <set-method>addTemplateExtension</set-method>
+          <type>org.exoplatform.groovyscript.text.TemplateExtensionPlugin</type>
+          <init-params>
+            <values-param>
+              <name>templates</name>
+              <description>The list of templates to include in HTML Page Header with UIPortalApplication.gtmpl</description>
+              <value>war:/groovy/portal/webui/UICustomPortalApplicationHead.gtmpl</value>
+            </values-param>
+          </init-params>
+        </component-plugin>
+      </external-component-plugins>
+
+
+.. note:: You can also add an html content at the end of body page using the same definition by using plugin name ``UIPortalApplication-End-Body`` instead of ``UIPortalApplication-head``.
 
 .. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins:
 
@@ -4533,10 +4447,7 @@ all source code of this tutorial
 8. Build and deploy the ``.jar`` file
    (``target/wiki-activity-type-1.0.jar``) into eXo Platform package.
 
-	-  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat)
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` (in
-	   JBoss)
+	-  ``$PLATFORM_TOMCAT_HOME/lib``.
 
 **Testing**
 
@@ -5077,7 +4988,7 @@ for downloading.
 		  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 		  
 		  <portal-skin>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<skin-module>acme.samples</skin-module>
 			<css-path>/skin/DefaultSkin/Stylesheet.css</css-path>
 		  </portal-skin>
@@ -5524,8 +5435,8 @@ If you want more samples of such configuration, see:
 
 Edit the
 ``webapps/ecmexplorer.war!/skin/icons/24x24/DefaultStylesheet.css`` file
-(for the default Skin) and add the icon definition as below (in this
-case, the "ManageUnLock" icon is re-used but you could add your own
+and add the icon definition as below (in this case, 
+the "ManageUnLock" icon is re-used but you could add your own
 picture into the
 ``webapps/ecmexplorer.war!/skin/icons/24x24/DefaultSkin`` directory):
 
@@ -5941,10 +5852,7 @@ component to the ``application/zip`` mimetype.
 
 7. Put this ``.jar`` file into the eXo Platform package.
 
-	-  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat).
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` (in
-	   JBoss).
+	-  ``$PLATFORM_TOMCAT_HOME/lib``.
 
 8. Restart the server. The content of a ZIP file is now displayed as 
    below:
@@ -6474,36 +6382,18 @@ Add the following dependencies to the ``pom.xml`` file:
                 <module>webapp</module>
             </modules>
             <properties>
-                <org.exoplatform.depmgt.version>10-SNAPSHOT</org.exoplatform.depmgt.version>
-                <org.exoplatform.kernel.version>2.4.9-GA</org.exoplatform.kernel.version>
-                <org.exoplatform.core.version>2.5.9-GA</org.exoplatform.core.version>
-                <!--GateIn project's dependencies-->
-                <org.gatein.portal.version>3.5.10.Final</org.gatein.portal.version>
-                <!--Platform project's dependencies-->
-                <org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
+                <!--Platform project's dependencies (REPLACE 6.0.x-SNAPSHOT by the corresponding version)-->
+                <org.exoplatform.social.version>6.0.x-SNAPSHOT</org.exoplatform.social.version>
             </properties>
             <dependencyManagement>
                 <dependencies>
                     <!-- Import versions from platform project -->
-                    <dependency>
-                        <groupId>org.exoplatform</groupId>
-                        <artifactId>maven-depmgt-pom</artifactId>
-                        <version>${org.exoplatform.depmgt.version}</version>
-                        <type>pom</type>
-                        <scope>import</scope>
-                    </dependency>
                     <dependency>
                         <groupId>org.exoplatform.social</groupId>
                         <artifactId>social</artifactId>
                         <version>${org.exoplatform.social.version}</version>
                         <type>pom</type>
                         <scope>import</scope>
-                    </dependency>
-                    <!-- To be replaced by an import of GateIn Portal parent POM -->
-                    <dependency>
-                        <groupId>org.gatein.portal</groupId>
-                        <artifactId>exo.portal.component.portal</artifactId>
-                        <version>${org.gatein.portal.version}</version>
                     </dependency>
                 </dependencies>
             </dependencyManagement>
@@ -6738,8 +6628,8 @@ Add the following dependencies to the ``pom.xml`` file:
 			import org.exoplatform.commons.api.notification.model.ArgumentLiteral;
 			import org.exoplatform.commons.api.notification.model.NotificationInfo;
 			import org.exoplatform.commons.api.notification.plugin.BaseNotificationPlugin;
-			import org.exoplatform.commons.utils.CommonsUtils;
 			import org.exoplatform.commons.utils.ListAccess;
+      import org.exoplatform.container.ExoContainerContext;
 			import org.exoplatform.container.xml.InitParams;
 			import org.exoplatform.services.log.ExoLogger;
 			import org.exoplatform.services.log.Log;
@@ -6771,7 +6661,7 @@ Add the following dependencies to the ``pom.xml`` file:
 					Profile profile = ctx.value(PROFILE);
 					Set<String> receivers = new HashSet<String>();
 					
-					RelationshipManager relationshipManager = CommonsUtils.getService(RelationshipManager.class);
+					RelationshipManager relationshipManager = ExoContainerContext.getService(RelationshipManager.class);
 					Identity updatedIdentity = profile.getIdentity();
 					ListAccess<Identity> listAccess = relationshipManager.getConnections(updatedIdentity);
 					try {

@@ -24,7 +24,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
 
 .. toctree::
    :maxdepth: 2
-   :caption: What's new in eXo Platform 5.3?
+   :caption: What's new in eXo Platform 6.0?
    
    whatsnew
    
@@ -39,6 +39,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    PersonalApplications
    UserWallet
    UsingPerkStore
+   UsingKudos
    ManageTasks
    Chat
    webconferencing
@@ -90,6 +91,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    SpaceTemplates
    API
    Cookbook
+   Gamification_extension_mechanism
    
 .. _addons-docs:
 

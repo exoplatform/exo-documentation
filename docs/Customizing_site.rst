@@ -199,8 +199,7 @@ defined in the ``pages.xml`` file that will be explained later.
    -  **HIDDEN**: The node is not visible in the navigation but can be
       accessed directly with its URL.
 
-   -  **SYSTEM**: It is a system node which is visible to superusers. In
-      particular, only superusers can change or delete this system node.
+   -  **SYSTEM**: Same as HIDDEN node, except that this node is not deletable by UI.
 
    -  **TEMPORAL**: The node is displayed in related time range. When
       the visibility of TEMPORAL node is configured, the start and end
@@ -255,6 +254,10 @@ permissions, move applications and containers (optional). Also, the
         </container>
     </page>
 
+A group site has the same structure as portal sites. You can define :
+- ``group.xml`` : defines group site layout
+- ``pages.xml`` : defines pages layouts
+- ``navigation.xml`` : defines pages navigation structure
 
 .. _PLFDevGuide.Site.CreateNew:
 
@@ -456,9 +459,90 @@ configure it properly in the *jar*.
 
 .. note:: Note that the ``override`` value-param should be set to *true*. This
           will be explained in the :ref:`next section <PLFDevGuide.Site.CreateNew.RedeploySiteExtension>`.
-          
-          
-.. _PLFDevGuide.Site.CreateNew.RedeploySiteExtension:          
+
+You can as well, add a group site definition in the same extension:
+
+1. Edit ``sites-definition.xml`` to declare your site(s) to the portal:
+
+   .. code:: xml
+
+    <?xml version="1.0" encoding="ISO-8859-1"?>
+    <configuration
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+       xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+      <external-component-plugins>
+      <target-component>org.exoplatform.portal.config.UserPortalConfigService</target-component>
+      <component-plugin>
+        <name>new.portal.config.user.listener</name>
+        <set-method>initListener</set-method>
+        <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+        <description></description>
+        <init-params>
+        <value-param>
+          <name>override</name>
+          <description></description>
+          <value>true</value>
+        </value-param>
+        <object-param>
+          <name>group.configuration</name>
+          <description></description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+          <field name="predefinedOwner">
+            <collection type="java.util.HashSet">
+            <!-- You can declare many group sites here (example of group site name: /platform/administrators) -->
+            <value><string>/GROUP_ID</string></value>
+            </collection>
+          </field>
+          <field name="ownerType">
+            <string>group</string>
+          </field>
+          <field name="templateLocation">
+            <string>war:/conf/sites</string>
+          </field>
+          <field name="importMode">
+            <string>merge</string>
+          </field>
+          </object>
+        </object-param>
+        </init-params>
+      </component-plugin>
+      </external-component-plugins>
+    </configuration>
+
+2. Edit ``WEB-INF/conf/sites/GROUP_ID/group.xml``:
+
+   .. code:: xml
+
+    <portal-config>
+      <portal-name>GROUP_ID</portal-name>
+      <locale>en</locale>
+      <access-permissions>*:GROUP_ID</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <properties>
+        <entry key="sessionAlive">never</entry>
+        <entry key="showPortletInfo">1</entry>
+      </properties>
+      <portal-layout>
+        <page-body> </page-body>
+      </portal-layout>
+    </portal-config>
+
+
+This file will define an empty layout for this group site.
+Instead of doing this, you can avoid adding this file and let
+Dynamic layout used instead for Group site.
+
+In fact, a group which is using a ``dynamic site layout`` will
+inherit the layout defined in Portal Site. This will lead to have
+a unique structure of portal definition centralized in ``portal.xml``
+of parent site to make UI coherent when navigating from a portal to a space
+or a group page.
+
+3. Add ``navigation.xml`` and ``pages.xml`` inside ``WEB-INF/conf/sites/GROUP_ID/`` as defined above.
+4. Restart the server and access the group pages.
+
+.. _PLFDevGuide.Site.CreateNew.RedeploySiteExtension:
           
 Redeploying your site extension
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2187,7 +2271,7 @@ Add the preview icon as follows:
            xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 
            <portal-skin>
-               <skin-name>Default</skin-name>
+               <skin-name>Enterprise</skin-name>
                <skin-module>myStylesheet</skin-module>
                <css-path>/skin/myStylesheet.css</css-path>
            </portal-skin>
@@ -2210,20 +2294,17 @@ This section will help you to learn how to customize the look and feel
 of eXo Platform.
 
 A skin is a set of CSS and images files. eXo Platform comes with a 
-default skin called **Default**, and another one, more modern, only 
-available in the Enterprise Edition, called **Enterprise** skin. If 
-these skins do not fit your needs, eXo Platform allows you to create 
-your own skin.
+default skin called **Enterprise**.
 
-You may also want to only make some changes to an existing skin by
+You may want to only make some changes to an existing skin by
 adding or overriding style for custom portlets, native portlets, or the
 whole portal. This can be done without creating a new skin.
 
 .. tip:: The main difference between creating a new skin and customizing an
-         existing one is that when creating a new skin, the Default skin (and
+         existing one is that when creating a new skin, the Enterprise skin (and
          optionally other skins) is still available and can be used.
          Therefore a site could use the new skin and another site could still
-         use the Default skin.
+         use the Enterprise skin.
 		 So if you need to provide the capability to select multiple skins,
 		 go for creating a new skin, otherwise customizing an existing skin
 		 should be sufficient.
@@ -2376,7 +2457,7 @@ declaring them in a file ``WEB-INF/gatein-resources.xml`` in an
 
 New CSS files can be added to a portal skin, meaning they are loaded in
 all the pages of the sites using this skin. For example, in order to add
-a new CSS file to override some styles of the Default skin, the
+a new CSS file to override some styles of the Enterprise skin, the
 following configuration must be defined in the file
 ``WEB-INF/gatein-resources.xml``:
 
@@ -2384,7 +2465,7 @@ following configuration must be defined in the file
 
     <gatein-resources>
         <portal-skin>
-            <skin-name>Default</skin-name>
+            <skin-name>Enterprise</skin-name>
             <css-path>/skin/my-style.css</css-path>
             <skin-module>MyStyle</skin-module>
             <css-priority>0</css-priority>
@@ -2415,7 +2496,7 @@ In which:
       exists. This property is optional. Defaults to false.
 
 Once deployed, the CSS file ``/skin/my-style.css`` will be loaded in all
-the pages of the sites which use the **Default** skin. CSS files will be
+the pages of the sites which use the **Enterprise** skin. CSS files will be
 loaded as **link** tags in the **head** section of the web page,
 following a :ref:`defined Loading strategy <PLFDevGuide.Site.LookAndFeel.StylesheetsLoadingPriority>`,
 so before the portlets CSS files.
@@ -2439,7 +2520,7 @@ difference is that they must have a skin-module tag starting with
 
 		<gatein-resources> 
 			<portal-skin>
-				<skin-name>Default</skin-name>
+				<skin-name>Enterprise</skin-name>
 				<css-path>/skin/my-custom-module-style.css</css-path>
 				<skin-module>customModuleMyStyle</skin-module>
 				<overwrite>false</overwrite> 
@@ -2462,7 +2543,7 @@ WhoIsOnLinPortlet is available on a portal page:
         <portlet-skin>
             <application-name>homepage-portlets</application-name>
             <portlet-name>WhoIsOnLinPortlet</portlet-name>
-            <skin-name>Default</skin-name>
+            <skin-name>Enterprise</skin-name>
             <css-path>/skin/WhoIsOnLinPortlet/my-portlet-style.css</css-path>
             <css-priority>1</css-priority>
             <overwrite>false</overwrite>
@@ -2582,10 +2663,10 @@ Creating a new skin
 --------------------
 
 eXo Platform allows to create new skins. New skins are based on the
-**Default** skin. The difference between creating a new skin compared to
+**Enterprise** skin. The difference between creating a new skin compared to
 customizing an existing skin is that the new skin is available besides
-the Default skin, so a site can use the new skin while another site
-still use the Default skin.
+the Enterprise skin, so a site can use the new skin while another site
+still use the Enterprise skin.
 
 In order to create a new skin, process as follows:
 
@@ -3289,7 +3370,7 @@ instance)?**
        //Use SkinService to get the css
          SkinService skinService = (SkinService) PortalContainer.getCurrentInstance(session.getServletContext())
                                  .getComponentInstanceOfType(SkinService.class);
-         String loginCssPath = skinService.getSkin("portal/login", "Default").getCSSPath();
+         String loginCssPath = skinService.getSkin("portal/login", "Enterprise").getCSSPath();
        //…
        <link href="<%=loginCssPath%>" rel="stylesheet" type="text/css"/>
 
@@ -3301,7 +3382,7 @@ instance)?**
          <portlet-skin>
            <application-name>portal</application-name>
            <portlet-name>login</portlet-name>
-           <skin-name>Default</skin-name>
+           <skin-name>Enterprise</skin-name>
            <css-path>/skin/css/platform/portlets/extensions/login.css</css-path>
          </portlet-skin>
 
@@ -4011,7 +4092,7 @@ plus the "TDContainer" string literal.
 		
 .. _RegisterNewlyCreatedCSS:		
 
-5. Register the newly created CSS in the above step for the Default skin
+5. Register the newly created CSS in the above step for the Enterprise skin
    which is currently used by the Intranet site under the
    ``gatein-resources.xml``.
 
@@ -4021,9 +4102,9 @@ plus the "TDContainer" string literal.
 						  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
 						  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 		  <portal-skin>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<skin-module>myintranet-css</skin-module>
-			<css-path>/templates/skin/DefaultStylesheet.css</css-path>
+			<css-path>/templates/skin/EnterpriseStylesheet.css</css-path>
 		  </portal-skin>
 		</gatein-resources>
 
@@ -4142,20 +4223,25 @@ Customizing a shared layout
 -----------------------------
 
 In eXo Platform, the top navigation bar is a special container which is
-composed of portlets. All sites share the same top navigation bar that
-is defined in
-``platform-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
-You can see its content
-`here <https://github.com/exoplatform/platform/blob/master/extension/webapp/src/main/webapp/WEB-INF/conf/portal/portal/sharedlayout.xml>`__.
-This ``sharedlayout.xml`` file configures portlets which are currently
-displayed on the top navigation bar.
-
-|image52|
+composed of portlets. Each site can define a dedicated shared layout:
+* The addon ``exo-digital-workplace`` addon (which is installed by default) defines the site ``dw``
+  that uses the default shared latout ``portal/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+* By installing ``exo-legacy-intranet`` addon, the ``intranet`` site will be added
+  that defines a dedicated banner for it which is defined in
+  ``portal.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
 
 To override the default shared layout, you first need to copy the
-``sharedlayout.xml`` file from
-``platform-extension.war!/WEB-INF/conf/portal/portal/`` and paste into
+``sharedlayout-<SITENAME>.xml`` file into
 ``custom-extension.war!/WEB-INF/conf/portal/portal/`` directory.
+
+You can also define your own ``sharedlayout-<SITENAME>.xml`` file for your
+custom site so that you avoid redefining the built-in configuration files.
+
+.. note::
+
+      Even for ``dw`` site that uses the default configuration file, you can define ``sharedlayout-dw.xml``
+      inside your custom extension. This way, you will avoid impacting the default shared layout that could
+      be used by other sites that does not define a dedicated sharedlayout file.
 
 Followings are 4 typical examples of the top navigation bar
 configuration: removing a portlet, adding a new portlet, changing the
@@ -4167,7 +4253,7 @@ Assume that you want to remove the **Help** portlet from the top
 navigation bar, do as follows:
 
 1. Remove the following block from
-   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-intranet.xml``.
 
    .. code:: xml
 
@@ -4195,7 +4281,7 @@ Assume that you want to add the **SEO** portlet to the top navigation
 bar, do as follows:
 
 1. Add the following block to
-   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+   ``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-<SITENAME>.xml``.
 
    .. code:: xml
 
@@ -4310,7 +4396,7 @@ grey).
 			background-position: 0 0;
 		}
 
-2. Register your CSS file to **Default** skin, by adding
+2. Register your CSS file to **Enterprise** skin, by adding
    ``custom-extension.war!/WEB-INF/gatein-resources.xml``:
 
    .. code:: xml
@@ -4319,7 +4405,7 @@ grey).
 			xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
 			xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 			<portal-skin>
-				<skin-name>Default</skin-name>
+				<skin-name>Enterprise</skin-name>
 				<skin-module>myintranet-css</skin-module>
 				<css-path>/templates/skin/DefaultStylesheet.css</css-path>
 			</portal-skin>

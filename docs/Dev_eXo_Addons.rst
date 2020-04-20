@@ -280,8 +280,13 @@ write more configuration when necessary.
 			  <name>Change PortalContainer Definitions</name>
 			  <set-method>registerChangePlugin</set-method>
 			  <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-			  <priority>101</priority>
+			  <priority>200</priority>
 			  <init-params>
+        <values-param>
+          <name>add.profiles</name>
+          <value>custom-profile-1</value>
+          <value>custom-profile-2</value>
+        </values-param>
 				<value-param>
 				  <name>apply.default</name>
 				  <value>true</value>
@@ -332,29 +337,6 @@ Manager:
 
 2. Restart the server.
 
-.. _Jboss-deployment:
-
-**For JBoss:**
-
-1. Add new ``WEB-INF/jboss-deployment-structure.xml`` file to 
-   ``custom-extension.war`` with the following content:
-
-   .. code:: xml
-
-		<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
-			<deployment>
-				<dependencies>
-					<module name="deployment.platform.ear" export="true"/>
-				</dependencies>
-			</deployment>
-		</jboss-deployment-structure>
-
-2. Add ``custom-extension.war`` to
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/`` platform.ear 
-   directory.
-
-3. Restart the server.
-
 .. _AddonsManagerCompliance:
 
 Add-ons Manager compliance
@@ -366,37 +348,6 @@ different. The section :ref:`Packaging <PLFDevGuide.eXoAdd-ons.Packaging>`
 shows you how.
 
 The Add-ons Manager deploys the extension in the same way for Tomcat.
-For JBoss, it uses another method to deploy the .war. Here are the
-details:
-
--  The file ``jboss-deployment-structure.xml`` is not required.
-
--  The .war is deployed into
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear``.
-
--  The Add-ons Manager will edit the
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   to add a module as follows:
-
-   .. code:: xml
-
-       <application>
-           ...
-           <!-- Your custom-extension should be added before starter module. -->
-           <module>
-               <web>
-                   <web-uri>custom-extension.war</web-uri>
-                   <context-root>custom-extension</context-root>
-               </web>
-           </module>
-           ...
-           <module>
-               <web>
-                   <web-uri>exo.portal.starter.war.war</web-uri>
-                   <context-root>starter</context-root>
-               </web>
-           </module>
-       </application>
 
 .. _PLFDevGuide.eXoAdd-ons.PortalExtension.Examples:
 
@@ -513,7 +464,7 @@ You can override it once again in your portal extension, for example
 
 The shared layout is applied for all pages of a portal. You can override
 this resource by including it in your extension
-``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout.xml``.
+``custom-extension.war!/WEB-INF/conf/portal/portal/sharedlayout-<SITENAME>.xml``.
 
 Some of customizations you can do with shared layout:
 
@@ -550,13 +501,9 @@ need to compress JARs, WARs and other files into a zip archive:
 When installing an add-on, the Add-ons Manager copies files from the
 add-on archive into PRODUCT, as follows:
 
--  JARs: ``$PLATFORM_TOMCAT_HOME/lib/`` (Tomcat), or
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/lib/``
-   (JBoss).
+-  JARs: ``$PLATFORM_TOMCAT_HOME/lib/``.
 
--  WARs: ``$PLATFORM_TOMCAT_HOME/webapps/`` (Tomcat), or
-   ``$PLATFORM_JBOSS/HOME/standalone/deployments/platform.ear/``
-   (JBoss).
+-  WARs: ``$PLATFORM_TOMCAT_HOME/webapps/``.
 
 -  Other files and folders located at the root of the zip archive will
    be copied to the home directory of the PRODUCT server.
@@ -643,7 +590,7 @@ There are 2 ways to deploy an add-on:
 -  Use the Add-ons Manager - the standard way to install, uninstall, and
    update add-ons in eXo Platform. In this way, you will avoid the manual
    registration that might cause errors. The Add-on Manager allows you
-   to simplify your add-ons management in both Tomcat and JBoss EAP by
+   to simplify your add-ons management in eXo Platform server by
    copying all JARs and WARs in one step and uninstalling them without
    searching in the ``lib`` directory (more than 400 jars) and in the
    ``webapps`` directory (more than 50 wars).
@@ -677,7 +624,7 @@ Let's say you want to deploy your add-on archived as
 		   "downloadUrl": "file://D:/java/exo-working/PLATFORM_versions/my-addon-1.0.x-SNAPSHOT.zip",
 		   "vendor": "eXo platform",
 		   "license": "LGPLv3",
-		   "supportedDistributions": ["community","enterprise"],
+		   "supportedDistributions": ["enterprise"],
 		   "supportedApplicationServers": ["tomcat","jboss"]
 		 }
 		]
@@ -752,7 +699,7 @@ Each catalog entry is a version of an add-on. Here is an entry sample:
         "license": "LGPLv3",
         "licenseUrl": "https://www.gnu.org/licenses/lgpl-3.0.txt",
         "mustAcceptLicense": false,
-        "supportedDistributions": "community,enterprise",
+        "supportedDistributions": "enterprise",
         "supportedApplicationServers": "tomcat,jboss",
         "compatibility": "[4.2.0,)"
     },
@@ -800,7 +747,7 @@ The following table explains the json keys (\* means mandatory):
 |                           | default.                                       |
 +---------------------------+------------------------------------------------+
 | ``supportedDistributions` | The eXo Platform distributions that support    |
-| `                         | the add-on (for example, Community, Enterprise |
+| `                         | the add-on (for example, Enterprise |
 | (\*)                      | - should be lowercase, comma-separated).       |
 +---------------------------+------------------------------------------------+
 | ``supportedApplicationSer | The application servers that support the       |
@@ -1161,17 +1108,17 @@ eXo Reward plugin
 eXo Rewards package is a set of addons used to reward employees of an enterprise of their professional effort.
 The list of addons included are:
 
-* `eXo Wallet <https://github.com/exoplatform/wallet>`__
+* `eXo Wallet <https://github.com/meeds-io/wallet>`__
 
-* `eXo Kudos <https://github.com/exoplatform/kudos>`__
+* `eXo Kudos <https://github.com/meeds-io/kudos>`__
 
-* `eXo Perk Store <https://github.com/exoplatform/perk-store>`__
+* `eXo Perk Store <https://github.com/meeds-io/perk-store>`__
 
 You can build custom rewarding programs thanks to the extensibility provided by `eXo Reward Plugin`. Bult-in plugins are:
 
-* `Kudos reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/KudosRewardPlugin.java>`__ : allows to reward users with tokens when they receive Kudos
+* `Kudos reward plugin <https://github.com/meeds-io/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/KudosRewardPlugin.java>`__ : allows to reward users with tokens when they receive Kudos
 
-* `Gamification reward plugin <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/GamificationRewardPlugin.java>`__ : allows to reward users based on the number of points they earn from the gamification engine
+* `Gamification reward plugin <https://github.com/meeds-io/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/plugin/GamificationRewardPlugin.java>`__ : allows to reward users based on the number of points they earn from the gamification engine
 
 A reward plugin computes amounts of so-called ``points`` earned by each user over a period of time.
 
@@ -1190,7 +1137,7 @@ Administrators can configure the token value for each earned Kudos (or a total b
 
 Developing a custom Reward plugin requires:
 
-* to write a java Class that extends `RewardPlugin <https://github.com/exoplatform/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
+* to write a java Class that extends `RewardPlugin <https://github.com/meeds-io/wallet/blob/develop/wallet-api/src/main/java/org/exoplatform/addon/wallet/reward/api/RewardPlugin.java>`__
 
    .. code:: java
       package org.example;
@@ -1247,10 +1194,10 @@ Internally, these events are used for a variety of uses such as notifications or
 
 Broadcasted events are:
 
-- ``exo.addon.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
-- ``exo.addon.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
-- ``exo.addon.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
-- ``exo.wallet.reward.report.success`` : a period reward has been sent to all wallets and its transactions has completely succeeded. (Example: `RewardSucceedNotificationListener <https://github.com/exoplatform/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/listener/RewardSucceedNotificationListener.java>`__)
+- ``exo.wallet.addressAssociation.new`` : a new wallet gets created for the first time by a user. (Example: `NewWalletListener <https://github.com/meeds-io/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/NewWalletListener.java>`__)
+- ``exo.wallet.addressAssociation.modification`` : a user/space's associated wallet address is modified. (Example: `ModifiedWalletListener <https://github.com/meeds-io/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/ModifiedWalletListener.java>`__)
+- ``exo.wallet.transaction.mined`` : a pending transaction sent from a knwon wallet address gets mined on the blockchain and updated in internal database. (Example: `TransactionNotificationListener <https://github.com/meeds-io/wallet/blob/develop/wallet-services/src/main/java/org/exoplatform/addon/wallet/listener/TransactionNotificationListener.java>`__)
+- ``exo.wallet.reward.report.success`` : a period reward has been sent to all wallets and its transactions has completely succeeded. (Example: `RewardSucceedNotificationListener <https://github.com/meeds-io/wallet/blob/develop/wallet-reward-services/src/main/java/org/exoplatform/addon/wallet/reward/listener/RewardSucceedNotificationListener.java>`__)
 
 To add an event listener using one listed events above, you can add the following configuration inside a :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
@@ -1279,8 +1226,8 @@ Internally, these events are used for a variety of uses such as creating an acti
 
 Broadcasted events are:
 
-- ``exo.addons.kudos.sent`` : a new Kudos is sent. (Example: `NewKudosSentActivityGeneratorListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/NewKudosSentActivityGeneratorListener.java>`__)
-- ``exo.addons.kudos.activity`` : a Kudos activity or activity comment is created. (Example: `GamificationIntegrationListener <https://github.com/exoplatform/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/GamificationIntegrationListener.java>`__)
+- ``exo.kudos.sent`` : a new Kudos is sent. (Example: `NewKudosSentActivityGeneratorListener <https://github.com/meeds-io/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/NewKudosSentActivityGeneratorListener.java>`__)
+- ``exo.kudos.activity`` : a Kudos activity or activity comment is created. (Example: `GamificationIntegrationListener <https://github.com/meeds-io/kudos/blob/develop/kudos-services/src/main/java/org/exoplatform/addon/kudos/listener/GamificationIntegrationListener.java>`__)
 
 To add an event listener using one listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
@@ -1309,9 +1256,9 @@ Internally, these events are used for a variety of uses such as notifications or
 
 Broadcasted events are:
 
-- ``exo.perkstore.settings.modified`` : Perk Store settings is modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
-- ``exo.addons.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
-- ``exo.addons.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/exoplatform/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
+- ``exo.perkstore.settings.modified`` : Perk Store settings is modified by an administrator. (Example: `WebSocketSettingsListener <https://github.com/meeds-io/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketSettingsListener.java>`__)
+- ``exo.perkstore.product.createOrModify`` : Perk Store product is created or modified. (Example: `WebSocketProductListener <https://github.com/meeds-io/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketProductListener.java>`__)
+- ``exo.perkstore.order.createOrModify`` : Perk Store product order is created or modified. (Example: `WebSocketOrderListener <https://github.com/meeds-io/perk-store/blob/develop/perk-store-services/src/main/java/org/exoplatform/addon/perkstore/listener/WebSocketOrderListener.java>`__)
 
 To add an event listener using one of listed events above, you can add the following configuration inside a  :ref:`Portal extension <PLFDevGuide.eXoAdd-ons.PortalExtension>` configuration file:
 
@@ -1327,6 +1274,66 @@ To add an event listener using one of listed events above, you can add the follo
           <type>org.example.CustomEventListener</type>
         </component-plugin>
       </external-component-plugins>
+      
+      
+.. _PLFDevGuide.eXoAdd-ons.eXoOnlyOfficeConnector:
+
+==============================
+OnlyOffice connector for eXo
+==============================
+
+With :ref:`OnlyOffice connector <OnlyOffice>`, it is possible to :ref:`add new document <New_Document>` types to the
+form ``New document`` by using the :ref:`extension mechanism <PLFDevGuide.eXoAdd-ons.PortalExtension.Mechanism>`.
+For that purpose, you just need to define this external component plugin in your extension:
+
+
+   .. code:: xml
+
+      <external-component-plugins>
+		<target-component>org.exoplatform.onlyoffice.documents.NewDocumentService</target-component>
+			<component-plugin>
+				<name>documentTypePlugin</name>
+				<set-method>addTypePlugin</set-method>
+				<type>org.exoplatform.onlyoffice.documents.NewDocumentTypePlugin</type>
+				<description>Add new document types to create</description>
+			<init-params>
+			<object-param>
+				<name>document-types-configuration</name>
+				<object type="org.exoplatform.onlyoffice.documents.NewDocumentService$NewDocumentTypesConfig">
+					<field name="types">
+						<collection type="java.util.ArrayList">
+						<value>
+				<object type="org.exoplatform.onlyoffice.documents.NewDocumentType">
+					<field name="path">
+						<string>classpath:files/template.docx</string>
+					</field>
+					<field name="label">
+						<string>MicrosoftOfficeDocument</string>
+					</field>
+					<field name="mimeType">
+						<string>application/vnd.openxmlformats-officedocument.wordprocessingml.document</string>
+					</field>
+				</object>
+					</value>
+			</collection>
+			</field>
+				</object>
+			</object-param>
+			</init-params>
+			</component-plugin>
+		</external-component-plugins>  
+		
+Each new document template to add should be defined by this object ``org.exoplatform.onlyoffice.documents.NewDocumentType``
+with these parameters:
+
+-  ``path``: Defines the path to the created document's template. It should be defined as it is made in eXo 
+   Platform components. More details through this :ref:`tutorial <exo_path>`.
+-  ``label``: The template's label i.e. it is the translation key for the label to be displayed in the 
+   ``New Document`` form. 
+   To define it, you should configure the key ``UINewDocumentForm.label.option.{label}``. You can
+   find more details about translations management in eXo through this :ref:`link <InternationalizationConfiguration>`.
+-  ``mimeType``: The document's mimetype.
+ 
 
 .. |image0| image:: images/portalextensionstructure.png
 .. |image1| image:: images/addon/portal_extension.png

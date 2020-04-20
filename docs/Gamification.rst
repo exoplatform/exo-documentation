@@ -22,32 +22,18 @@ When employees are engaged, they participate more on your platform by posting, c
 Domains
 =======================
 
-.. _Badges:
+Domains are used to categorize all behaviors of the platform users. 
+Each domain contains rules and badges related to a different context and usage of specific applications.
 
-=======================
-Badges
-=======================
+The following are the default domains that come with eXo Platform: 
 
-.. _Leaderboard:
+- Social: living together in organized communities, typically with different opinion shared on activities, by comments, likes; in your profile or created spaces. 
 
-=============
-Leaderboard 
-=============
+- Team work : The combined action of a group, especially when effective and efficient, and it's ensured using Tasks management.
 
-Leaderboards will give you a snapshot of your gained points progress, and of other collaborators in your platform to encourage them to gain more points. 
+- Knowledge: Facts, information, and skills acquired through experiences using Forum, Wiki and Documents applications.
 
-|image9|
-
-Place in Leaderboard is determined by number of points earned by period : Week, Month or All times and filtered by selected domain.
-
-In the Leaderboard, the TOP 10 of employees having higher gained points, and every employee is presented by its Full Name, avatar and gained points.
-
-An information of your rank is displayed just below the top 10, if you are not on it. 
-
-You can also load more 10 employees by clicking on Load more button just below the Leaderboard.
-
-|image10|
-When you mouse over an employee in the leaderboard, a detailed pie chart is displayed next to him displaying all pourcentages of gained points based on the domain.
+.. note:: You can add, edit or remove your own domains using :ref: `Manage Domain <Manage Domain>` in Gamification Administration .
 
 
 .. _MyAchievements:
@@ -100,6 +86,31 @@ When you mouse over a badge, its information appear in a pop up:
 
 |image8|
 
+
+.. _Leaderboard:
+
+=============
+Leaderboard 
+=============
+
+Leaderboards display a snapshot of users with most points. You always see your own rank so you can compare yourself to others in various domains. It's a friendly competition designed to encourage everyone to engage in various activities by earning points. 
+
+|image9|
+
+The position in the leaderboard is determined by the number of points earned over the period : Week, Month or All times and is filtered by selected domain.
+
+In the Leaderboard, the top 10 users with the highest scores over the period are displayed with their full name, profile picture and score (points gathered).
+
+Your rank is displayed just below the top 10, if you are not in it. 
+
+You can also navigate in the ranks by clicking on Load more button to load 10 more entries.
+
+|image10|
+
+When you mouse over a user in the leaderboard, a pie chart is displayed to illustrate the distribution of points across domains. Hence you can discover what are their sweet spot domains and learn from their behaviors.
+
+
+
 .. _HowCanIEarnPoints:
 
 =======================
@@ -137,4 +148,4 @@ You can filter rules by clicking on the desired domain to display.
 .. |image7| image:: images/gamification/badges.png
 .. |image8| image:: images/gamification/popoverBadge.png
 .. |image9| image:: images/gamification/Leaderboard.png
-.. |image10| image:: images/gamification/Leaderboardpirchart.png
+.. |image10| image:: images/gamification/Leaderboardpiechart.png

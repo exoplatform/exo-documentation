@@ -102,8 +102,7 @@ Configuring eXo Platform
 			 could be used for testing purpose but it is not possible to use it
 			 in production environments.
 
-eXo Platform relies on the application server (Tomcat/JBoss) to access
-databases. It uses three JNDI datasources:
+eXo Platform relies on the Tomcat application server to access databases. It uses three JNDI datasources:
 
 -  IDM uses *exo-idm\_portal*.
 
@@ -117,12 +116,10 @@ credentials.
 
 .. _ConfigureDBTomcat:
 
-For Tomcat
-~~~~~~~~~~~
 
 1. Configure the datasources.
 
-   -  i. Edit ``conf/server.xml`` to remove the default HSQL configuration:
+   i. Edit ``conf/server.xml`` to remove the default HSQL configuration:
 
       .. code:: xml
 
@@ -136,7 +133,7 @@ For Tomcat
           <Resource name="exo-jpa_portal" ...
           username="sa" password="" driverClassName="org.hsqldb.jdbcDriver" .../>
 
-   -  ii. Add a new one. For MySQL as an example, you will just need to
+   ii. Add a new one. For MySQL as an example, you will just need to
       copy the sample in ``conf/server-mysql.xml``:
 
       .. code:: xml
@@ -154,13 +151,13 @@ For Tomcat
 				...
 				username="plf" password="plf" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/plf?autoReconnect=true&amp;characterEncoding=utf8" />
 
-   -  iii. Edit username, password, url (host, port and database name).
-      Besides MySQL, if you are using Enterprise Edition, you will find the
-      samples for other RDBMSs in ``conf/server-*.xml``.
+   iii. Edit username, password, url (host, port and database name).
+        Besides MySQL, if you are using Enterprise Edition, you will find the
+        samples for other RDBMSs in ``conf/server-*.xml``.
 
-   -  iv. Append this character encoding to the url in case your 
-      database character set is ``utf8``. For example, in MySQL (this 
-      is different between RDBMSs):
+   iv. Append this character encoding to the url in case your 
+       database character set is ``utf8``. For example, in MySQL (this 
+       is different between RDBMSs):
 
       .. code:: xml
 
@@ -205,194 +202,13 @@ If you have not created ``exo.properties`` yet, see :ref:`Configuration overview
 		 http://dev.mysql.com/downloads/connector/j/, and for Oracle:
 		 http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html.
 
-.. _ConfigureDBJboss:
-
-For JBoss
-~~~~~~~~~~~
-
-1. Configure the datasources.
-
-   -  i. Edit ``standalone/configuration/standalone-exo.xml`` to remove the
-      default HSQL configuration:
-
-      .. code:: xml
-
-				  <!-- eXo IDM Datasource for PLF -->
-				   <datasource enabled="true" jndi-name="java:/comp/env/exo-idm_portal" jta="false" pool-name="exo-idm_portal" spy="false" use-ccm="true" use-java-context="true">
-				   <!-- HSQLDB -->
-				     <driver>hsqldb-driver.jar</driver>
-				     <driver-class>org.hsqldb.jdbcDriver</driver-class>
-				     <connection-url>jdbc:hsqldb:file:${exo.data.dir}/hsql/exo-plf;shutdown=true;hsqldb.write_delay=false;hsqldb.tx=mvcc;</connection-url>
-				     ...
-				  <!-- eXo JCR Datasource for PLF -->
-				   <datasource enabled="true" jndi-name="java:/comp/env/exo-jcr_portal" jta="false" pool-name="exo-jcr_portal" spy="false" use-ccm="true" use-java-context="true">
-				   <!-- HSQLDB -->
-					   <driver>hsqldb-driver.jar</driver>
-					   <driver-class>org.hsqldb.jdbcDriver</driver-class>
-					   <connection-url>jdbc:hsqldb:file:${exo.data.dir}/hsql/exo-plf;shutdown=true;hsqldb.write_delay=false;hsqldb.tx=mvcc;</connection-url>
-					    ...
-				  <!-- eXo JPA Datasource for PLF -->
-				   <datasource enabled="true" jndi-name="java:/comp/env/exo-jpa_portal" jta="false" pool-name="exo-jpa_portal" spy="false" use-ccm="true" use-java-context="true">
-				   <!-- HSQLDB -->
-				    <driver>hsqldb-driver.jar</driver>
-				    <driver-class>org.hsqldb.jdbcDriver</driver-class>
-				    <connection-url>jdbc:hsqldb:file:${exo.data.dir}/hsql/exo-plf;shutdown=true;hsqldb.write_delay=false;hsqldb.tx=mvcc;</connection-url>
-				     ...
-
-   -  ii. For MySQL as an example, need to uncomment some lines in the
-      file, edit driver, username, password, url:
-
-      .. code:: xml
-
-		   <!-- MySQL -->
-		   <driver>mysql-connector-java-5.1.44.jar_com.mysql.jdbc.Driver_5_1</driver>
-		   <driver-class>com.mysql.jdbc.Driver</driver-class>
-		   <connection-url>jdbc:mysql://localhost:3306/plf?autoReconnect=true</connection-url>
-		   ...
-		   <security>
-			   <user-name>root</username>
-			   <password>exoplf</password>
-		   </security>
-		   <validation>
-			   ...
-			   <!-- MySQL -->
-			   <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter" />
-			   <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker" />
-
-.. note:: The recommended version of MySQL JDBC driver for eXo Platfom 
-          5.0 is **5.1.44**. This driver version has two JDBC driver
-          implementations **com.mysql.jdbc.Driver** and
-          **com.mysql.fabric.jdbc.FabricMySQLDriver**, so Jboss deploys
-          them as ``mysql-connector-java-5.1.44.jar_com.mysql.jdbc.Driver_5_1`` 
-          and ``mysql-connector-java-5.1.44.jar_com.mysql.fabric.jdbc.FabricMySQLDriver_5_1``.
-          Therefore the ``driver`` parameter must be set to
-          **mysql-connector-java-5.1.44.jar\_com.mysql.jdbc.Driver\_5\_1**,
-          as in the above example.
-          
-          
-
-  -  iii. Append this character encoding to the url in case your database
-     character set is ``utf8``. For example, in MySQL (this is different
-     between RDBMSs):
-
-      .. code:: xml
-
-           <connection-url>jdbc:mysql://localhost:3306/plf?autoReconnect=true&amp;characterEncoding=utf8</connection-url>
-
-2. Set the SQL Dialect if necessary.
-
-   This step is not mandatory because the dialect is auto-detected in most
-   cases. You only need to take care of it for some particular RDBMSs:
-
-   -  i. For JCR, only when you are using MySQL and database character set
-      ``utf8``, you need to edit
-      ``standalone/configuration/gatein/exo.properties`` file to have:
-
-      ::
-
-          exo.jcr.datasource.dialect=MySQL-UTF8
-
-   -  ii. For IDM, eXo Platform detects automatically the dialect for
-      RDBMSs listed
-      `here <http://docs.jboss.org/hibernate/orm/4.1/manual/en-US/html_single/#configuration-optional-dialects>`__.
-      Only when your RDBMS is **not** in the list, for example *Postgres
-      Plus Advanced Server 9.2*, you will need to edit
-      ``standalone/configuration/gatein/exo.properties`` file to have:
-
-      ::
-
-          hibernate.dialect=org.hibernate.dialect.PostgresPlusDialect
-
-If you have not created ``exo.properties`` yet, see :ref:`Configuration overview <Configuration.ConfigurationOverview>`.
-
-3. Download the JDBC driver for Java and install it to ``$PLATFORM_JBOSS_HOME/standalone/deployments``.
-
-.. tip:: Normally you can find out an appropriate driver for your JDK from
-         your database vendor website. For example, for MySQL:
-         http://dev.mysql.com/downloads/connector/j/, and for Oracle:
-         http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html.
-
-.. note:: Particularly to MySQL, this fast install method might not work for
-		  some couples of MySQL server and driver versions. If it happens to
-		  you, solve it by installing the driver as a *module*. See details
-		  below.
-
-**Installing JDBC driver as a JBoss module**
-
-This alternative method is applied to solve a deployment problem with
-some couples of MySQL server and driver versions. There is no statement
-that indicates exactly the versions, but the problem likely happens with
-some most recent versions, such as MySQL server 5.6.19 and
-mysql-connector-java-5.1.35-bin.jar.
-
--  When it happens, you will get a JBAS014775 message like the
-   following, and Platform JBoss does not start successfully ::
-
-       JBAS014775:    New missing/unsatisfied dependencies:
-             service jboss.jdbc-driver.mysql-connector-java-5_1_35-bin_jar (missing) dependents: 
-             [service jboss.data-source.java:/comp/env/exo-idm_portal, 
-             service jboss.driver-demander.java:/comp/env/exo-jcr_portal, 
-             service jboss.driver-demander.java:/comp/env/exo-idm_portal, JBAS014799: ... and 3 more ]
-
-Then you should remove the jar from
-``$PLATFORM_JBOSS_HOME/standalone/deployments/`` and install it to JBoss
-modules as follows:
-
-1. Create a new folder: ``$PLATFORM_JBOSS_HOME/modules/com/mysql/main/``.
-
-2. Place the driver (.jar) in the created folder.
-
-3. Create a ``module.xml`` file in the created folder, with the following
-   content:
-
-	.. code:: xml
-
-		<?xml version="1.0" encoding="UTF-8"?>
-		<module xmlns="urn:jboss:module:1.0" name="com.mysql">  
-			<resources>  
-				<resource-root path="mysql-connector-java-5.1.35-bin.jar"/>  <!--replace this with your jar file-->
-			</resources>  
-			<dependencies>  
-				<module name="javax.api"/>
-			</dependencies>  
-		</module>
-
-4. Modify the datasources configuration in ``standalone-exo.xml`` to
-   declare a driver in *drivers* tag and reference to it in *datasource*
-   tag:
-
-	.. code:: xml
-
-		<subsystem xmlns="urn:jboss:domain:datasources:1.1">
-			<datasources>
-				<!-- eXo IDM Datasource for PLF -->
-				<datasource enabled="true" jndi-name="java:/comp/env/exo-idm_portal" jta="false" pool-name="exo-idm_portal" spy="false" use-ccm="true" use-java-context="true">
-
-					<driver>com.mysql</driver>
-					<connection-url>jdbc:mysql://localhost:3306/plf?autoReconnect=true</connection-url>
-
-					<!-- note: don't put driver-class tag here-->
-					...
-				</datasource>
-				<!-- similar to other datasources, JCR (and Quartz in cluster) -->
-
-				<drivers>
-					<driver name="com.mysql" module="com.mysql">
-						<xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
-						<driver-class>com.mysql.jdbc.Driver</driver-class>
-					</driver>
-				</drivers>
-			</datasources>
-		</subsystem>
-
-
 .. _Database.DockerDatabase:
 
 ===========================================
 Configuring database for a docker container
 ===========================================
 
-eXo Platform community docker image supports both HSQL and MySQL databases.
+eXo Platform docker image supports both HSQL and MySQL databases.
 HSQL database is the default one for testing purposes. To move into
 production environment, it is highly recommended to connect the docker
 image to MySQL database.
@@ -406,8 +222,8 @@ needed variables:
 |                    |              | value        |                                |
 +====================+==============+==============+================================+
 | EXO\_DB\_TYPE      | No           | hsqldb       | The database type to be used,  |
-|                    |              |              | Community edition only         |
-|                    |              |              | supports hsqldb and mysql      |
+|                    |              |              | supports hsqldb (not for       |
+|                    |              |              | production) and mysql          |
 |                    |              |              | databases.                     |
 +--------------------+--------------+--------------+--------------------------------+
 | EXO\_DB\_HOST      | No           | mysql        | The host to connect to the     |
@@ -426,8 +242,7 @@ needed variables:
 |                    |              |              | database.                      |
 +--------------------+--------------+--------------+--------------------------------+
 
-An example of the execution command to use MySQL database for eXo Platform
-community docker image:
+An example of the execution command to use MySQL database for eXo Platform docker image:
 
 ::
 
@@ -483,11 +298,9 @@ you need to edit the following properties:
     # name of the datasource that will be used by eXo JCR
     exo.jcr.datasource.name=java:/comp/env/exo-jcr
 
-in ``gatein/conf/exo.properties`` (Tomcat), or
-``standalone/configuration/gatein/exo.properties`` (JBoss).
+in ``gatein/conf/exo.properties``
 
-If you have not created ``exo.properties`` yet, see `Configuration
-overview <#PLFAdminGuide.Configuration.ConfigurationOverview>`__.
+If you have not created ``exo.properties`` yet, see `Configuration overview <PLFAdminGuide.Configuration.ConfigurationOverview>`.
 
 **Particularly in Tomcat**, you also need to edit
 ``conf/Catalina/localhost/context.xml.default`` file:
@@ -654,9 +467,7 @@ Configuring eXo Chat database
    recommended version for eXo Platform 5.0 is **3.4**.
 
 2. Configure the database parameters in ``chat.properties`` or
-   ``exo.properties``. The files are located in
-   ``$PLATFORM_TOMCAT_HOME/gatein/conf`` for Tomcat and
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein`` for Jboss.
+   ``exo.properties``. The files are located in ``$PLATFORM_TOMCAT_HOME/gatein/conf``
 
 More details in :ref:`chat configuration <Configuration.ChatConfiguration>`
 section.
@@ -813,36 +624,4 @@ For more details, refer to the following:
 
 -  https://confluence.atlassian.com/display/JIRA/Surviving+Connection+Closures
 
-**Q:** **How to enable managed connection?**
-
-**A:** This question is specific to the JCR datasource in Platform JBoss
-package.
-
-When you want to use managed connections, set "true" for the
-``gatein.jcr.datasource.managed`` property in the
-``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-file. See :ref:`Configuration overview <Configuration.ConfigurationOverview>`
-if you have not created this file yet.
-
-.. code:: java
-
-    gatein.jcr.datasource.managed=true
-
-To be clear, this property needs to be "true" in two cases:
-
--  You use a **datasource** with JTA enabled:
-
-   .. code:: xml
-
-       <datasource jndi-name="java:/comp/env/exo-jcr_portal" jta="true" .../>
-
--  You use an **xa-datasource**:
-
-   .. code:: xml
-
-       <xa-datasource  jndi-name="java:/comp/env/exo-jcr_portal" .../>
-
-Using managed connections has pros and cons, so only do it if you know
-what you are doing. By default eXo Platform JBoss uses **datasource
-jta="false"**.
 

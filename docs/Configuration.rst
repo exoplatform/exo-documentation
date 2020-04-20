@@ -123,11 +123,6 @@ Configuration
        The configurations for users, groups and memberships
        initialization.
 
-    -  :ref:`Gadget configuration <Configuration.GadgetConfiguration>`
-       Information about the OAuth key that will be used in case the
-       OAuth gadgets do not indicate a key, and how to disable the
-       Shindig default online features.
-
     -  :ref:`Groovy templates statistics <statisticsParameter>`
        Parameter for enabling/disabling Groovy Templates statistics.
 
@@ -200,12 +195,7 @@ simply do as follows:
 
 1. Create your own ``.properties`` file that must be named
    ``exo.properties``. This file contains all configurations to be
-   customized.
-
-   -  ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` (Tomcat).
-
-   -  ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-   (JBoss).
+   customized: ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties``
 
 A ``.properties`` file has no header, so you do not need to preserve the
 header. You can refer to ``exo-sample.properties`` that is provided by
@@ -247,7 +237,7 @@ for detailed instructions.
 
 			-  ``exo.jcr.cluster.jgroups.config``
 
-			-  ``exo.idm.cluster.jgroups.config``
+			-  ``exo.service.cluster.jgroups.config``
 
 			-  ``exo.jcr.cache.config``
 
@@ -259,8 +249,6 @@ for detailed instructions.
 
 			-  ``exo.cache.config.template``
 
-			-  ``exo.idm.api.store.config``
-
 .. _Configuration.eXoConfiguration:
 
 ============================
@@ -269,14 +257,10 @@ eXo Platform configuration
 
 In eXo Platform, almost all configurations are performed in a folder that is
 controlled by a system property named **exo.conf.dir**. This property is
-set by ``setenv.*`` scripts (Tomcat) or ``standalone-exo-*.xml`` files
-(JBoss).
+set by ``setenv.*`` scripts.
 
-The default value of **exo.conf.dir** is:
+The default value of **exo.conf.dir** is: ``$PLATFORM_TOMCAT_HOME/gatein/conf``.
 
--  ``$PLATFORM_TOMCAT_HOME/gatein/conf`` (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein`` (JBoss).
 
 That folder contains the following main files that you need to take
 care: ``exo.properties`` (if you need to override the eXo Platform
@@ -874,14 +858,14 @@ Clustering
 | <Clustering.JGroups.JCR.UDP>`| for JCR using    |                             |
 |                              | UDP.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| JGroups          |                             |
+| :ref:`exo.service.cluster.jgroups| JGroups          |                             |
 | .tcp\*                       | configuration    |                             |
-| <Clustering.JGroups.IDM.TCP>`| for IDM using    |                             |
+| <Clustering.JGroups.SERVICE.TCP>`| for Service layer caches clustering using    |                             |
 |                              | TCP.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| JGroups          |                             |
+| :ref:`exo.service.cluster.jgroups| JGroups          |                             |
 | .udp.\*                      | configuration    |                             |
-| <Clustering.JGroups.IDM.TCP>`| for IDM using    |                             |
+| <Clustering.JGroups.SERVICE.UDP>`| for Service layer caches clustering using    |                             |
 |                              | UDP.             |                             |
 +------------------------------+------------------+-----------------------------+
 | :ref:`exo.jcr.cluster.jgroups| Path to your     |                             |
@@ -898,12 +882,12 @@ Clustering
 |                              | file, applied to |                             |
 |                              | JCR.             |                             |
 +------------------------------+------------------+-----------------------------+
-| :ref:`exo.idm.cluster.jgroups| Path to your     |                             |
+| :ref:`exo.service.cluster.jgroups| Path to your     |                             |
 | .config                      | customized       |                             |
 | <Clustering.JGroupsXml>`     | JGroups          |                             |
 |                              | configuration    |                             |
 |                              | file, applied to |                             |
-|                              | IDM.             |                             |
+|                              | Service layer caches.             |                             |
 +------------------------------+------------------+-----------------------------+                           
 
 .. _QuartzSchedulerProperties:
@@ -1728,8 +1712,7 @@ Typically, the JCR File System data consists of four folders:
 -  Swap data (temporary memory space).
 
 By default, these four folders are located under a common directory that
-is ``$PLATFORM_TOMCAT_HOME/gatein/data`` (Tomcat),
-``$PLATFORM_JBOSS_HOME/standalone/data/gatein`` (JBoss).
+is ``$PLATFORM_TOMCAT_HOME/gatein/data``.
 
 In production, it is recommended to configure it to use a directory
 separated from the package. Especially in cluster mode, it should be a
@@ -1747,24 +1730,6 @@ In Tomcat, the directory is configured by the environment variable
 You need to create the script file by copying/renaming the sample
 ``bin/setenv-customize.sample.(sh|bat)``. See :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`
 for more information.
-
-**Configuration in Platform JBoss**
-
-In JBoss, the directory is configured by the system property
-``exo.data.dir``. Edit ``standalone/configuration/standalone-exo.xml``
-like below:
-
-.. code:: xml
-
-    <system-properties>
-        ...
-        <property name="exo.data.dir" value="/mnt/nfs/shared/exo/data"/>
-        ...
-    </system-properties>
-
-Note that if you are configuring the cluster mode, the configuration
-might be different. The file should be ``standalone-exo-cluster.xml``
-and the property should be ``exo.shared.dir``. See :ref:`Setting up eXo Platform cluster <Clustering.SettingUpCluster>`.
 
 .. _AssetsVersionConf:    
 
@@ -2477,10 +2442,7 @@ not stopped successfully when you shut down eXo Platform, and it causes
 problem in your next start.
 
 So `download <http://sourceforge.net/projects/sigar/files/>`__ the
-following files and install them to the lib folder
-(``$PLATFORM_TOMCAT_HOME/lib`` in Tomcat,
-``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/lib`` in
-JBoss:
+following files and install them to the lib folder :``$PLATFORM_TOMCAT_HOME/lib``
 
 -  ``sigar.jar``
 
@@ -2717,16 +2679,6 @@ Both sizes could be defined through these properties:
 
 .. note:: The size is in MB for all the above properties.
 
-.. warning:: If you are using eXo Platform in JBoss application server, note that in
-			 addition to the parameters described above aiming to customize files
-			 size, you should configure the value of the parameter
-			 ``max-post-size`` in ``standalone/configuration/standalone-exo.xml``
-			 which is set by default to 200 MB in eXo Platform package.
-
-			 .. code:: xml
-
-					<http-listener name="default" socket-binding="http" redirect-socket="https" max-post-size="209715200"/>
-
 .. tip:: For any others file upload location, the maximum file size is defined by the property ``exo.uploadLimit``.
 		 
 			 .. code::xml
@@ -2956,20 +2908,15 @@ By default, the logs are configured to:
 
 -  log errors and warnings on the console.
 
--  log ``$PLATFORM_TOMCAT_HOME/logs/platform.log`` (Tomcat), or
-   ``$PLATFORM_JBOSS_HOME/standalone/log/server.log`` (JBoss).
+-  log ``$PLATFORM_TOMCAT_HOME/logs/platform.log``.
 
 The logs are configured via the file:
 
--  ``$PLATFORM_TOMCAT_HOME/conf/logging.properties`` (Tomcat). Please
+-  ``$PLATFORM_TOMCAT_HOME/conf/logging.properties``. Please
    refer to `Tomcat's Logging
    Documentation <http://tomcat.apache.org/tomcat-7.0-doc/logging.html>`__
    for more information on how to adjust this file to your needs.
 
--  ``$PLATFORM_JBOSS_HOME/standalone/configuration/logging.properties``
-   (JBoss).
-   
-   
 .. _Configuration.JPA:
 
 =============================
@@ -3430,19 +3377,11 @@ The specific configuration of Portal caches can be found in the files:
 **i.** For **MOPSessionManager**, **NavigationService**,
 **DescriptionService**, **PageService**:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/portal.war!/WEB-INF/conf/portal/portal-configuration.xml``
-   (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/exo.portal.web.portal.war!/WEB-INF/conf/portal/portal-configuration.xml``
-   (JBoss).
+-  ``$PLATFORM_TOMCAT_HOME/webapps/portal.war!/WEB-INF/conf/portal/portal-configuration.xml``.
 
 **ii.** For **TemplateService** and **ResourceBundle**:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/platform-extension.war!/WEB-INF/conf/platform/cache-configuration.xml``
-   (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/platform-extension-webapp.war!/WEB-INF/conf/platform/cache-configuration.xml``
-   (JBoss).
+-  ``$PLATFORM_TOMCAT_HOME/webapps/platform-extension.war!/WEB-INF/conf/platform/cache-configuration.xml``.
 
 .. _Portal.MOPCache:
 
@@ -3626,11 +3565,7 @@ file.
 
 The specific configuration of **SettingCache** can be found in the file:
 
--  ``$PLATFORM_TOMCAT_HOME/lib/commons-component-common-X.Y.Z.jar!/conf/portal/configuration.xml``
-   (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib/commons-component-common.jar!/conf/portal/configuration.xml``
-   (JBoss).
+-  ``$PLATFORM_TOMCAT_HOME/lib/commons-component-common-X.Y.Z.jar!/conf/portal/configuration.xml``.
    
 .. _SettingCache:   
 
@@ -3755,18 +3690,11 @@ These properties are exposed via ``exo.properties`` for administrators.
 The full configuration can be found in XML configuration files. For SEO
 Cache, the file is:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/ecm-wcm-extension.war!/WEB-INF/conf/wcm-extension/wcm/seo-configuration.xml``
-   (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/ecms-packaging-wcm-webapp.war!/WEB-INF/conf/wcm-extension/wcm/seo-configuration.xml`` (JBoss).
+-  ``$PLATFORM_TOMCAT_HOME/webapps/ecm-wcm-extension.war!/WEB-INF/conf/wcm-extension/wcm/seo-configuration.xml``.
 
 For the other caches, the file is:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/ecm-wcm-core.war!/WEB-INF/conf/wcm-core/core-services-configuration.xml``
-   (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/ecms-core-webapp.war!/WEB-INF/conf/wcm-core/core-services-configuration.xml`` (JBoss).
-
+-  ``$PLATFORM_TOMCAT_HOME/webapps/ecm-wcm-core.war!/WEB-INF/conf/wcm-core/core-services-configuration.xml``.
 .. _ECMS.WCMDriveCache:
 
 Drive Cache
@@ -4037,11 +3965,8 @@ In particular:
 
 The specific configuration of each Social cache can be found in:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/social-extension.war!/WEB-INF/conf/social-extension/social/cache-configuration.xml``
-   (Tomcat).
+-  ``$PLATFORM_TOMCAT_HOME/webapps/social-extension.war!/WEB-INF/conf/social-extension/social/cache-configuration.xml``.
 
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/social-extension-war.war!/WEB-INF/conf/social-extension/social/cache-configuration.xml``
-   (JBoss).
 
 .. _Social.identityCache:
 
@@ -4325,11 +4250,8 @@ file.
 
 The specific configuration of each Forum cache can be found in:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/forum-extension.war!/WEB-INF/ks-extension/ks/forum/cache-configuration.xml``
-   (Tomcat).
+-  ``$PLATFORM_TOMCAT_HOME/webapps/forum-extension.war!/WEB-INF/ks-extension/ks/forum/cache-configuration.xml``.
 
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/forum-extension-webapp.war!/WEB-INF/ks-extension/ks/forum/cache-configuration.xml``
-   (JBoss).
 
 .. _Forum.userProfileCache:
 
@@ -4545,11 +4467,8 @@ In particular:
 
 The specific configuration of each Wiki cache can be found in:
 
--  ``$PLATFORM_TOMCAT_HOME/lib/wiki-service-xxx.jar!/conf/portal/cache-configuration.xml``
-   (Tomcat).
+-  ``$PLATFORM_TOMCAT_HOME/lib/wiki-service-xxx.jar!/conf/portal/cache-configuration.xml``.
 
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/lib/wiki-service.jar!/conf/portal/cache-configuration.xml``
-   (JBoss).
    
 .. _Wiki.RenderingCache:   
 
@@ -4684,11 +4603,7 @@ You can change values of these Calendar caches in
 
 The specific configuration of each Calendar cache can be found in:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/calendar-extension.war!/WEB-INF/cs-extension/cs/cs-configuration.xml``
-   (Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/calendar-extension-webapp.war!/WEB-INF/cs-extension/cs/cs-configuration.xml``
-   (JBoss).
+-  ``$PLATFORM_TOMCAT_HOME/webapps/calendar-extension.war!/WEB-INF/cs-extension/cs/cs-configuration.xml``.
    
 .. _Calendar.groupCalendarCache:   
 
@@ -4954,11 +4869,7 @@ However, the word "membership" is sometimes used with the meaning of
 Next you will learn the configurations of predefined users, groups and
 memberships which are written in:
 
--  ``$PLATFORM_TOMCAT_HOME/webapps/platform-extension.war!/WEB-INF/conf/organization/organization-configuration.xml``
-   (Tomcat)
-
--  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/platform-extension-webapp.war!/WEB-INF/conf/organization/organization-configuration.xml``
-   (JBoss)
+-  ``$PLATFORM_TOMCAT_HOME/webapps/platform-extension.war!/WEB-INF/conf/organization/organization-configuration.xml``.
 
 This section does not directly aim at changing those predefined
 organizational data, but if it is the further step you want to go, you
@@ -5069,84 +4980,6 @@ Note that the code above uses the *exo.super.user* property which is set
 to *root* in
 :ref:`exo.properties <Configuration.ConfigurationOverview>` file:
 
-
-.. _Configuration.GadgetConfiguration:
-
-====================
-Gadget configuration
-====================
-
-Gadget configuration consists of OAuth key, Shindig properties, and
-security token key. By default those configuration files are located at:
-
--  ``gatein/conf/gadgets`` for Tomcat.
-
--  ``standalone/configuration/gatein/gadgets`` for JBoss.
-
-To use your customized configuration files, it is recommended that you
-replace default files in that location with yours.
-
-It is possible to change the location by pointing ``exo.conf.dir`` to
-another folder. However, ``exo.conf.dir`` holds many configuration files
-besides gadgets, so take care that you have those files in the new
-folder. Also note that the folder of gadgets files will be
-``${exo.conf.dir}/gadgets``.
-
-To change ``exo.conf.dir``:
-
--  In Tomcat: customize the variable
-   ``EXO_CONF_DIR=/path/to/your/folder`` (see :ref:`Customizing variables <CustomizingEnvironmentVariables>`
-   for how-to).
-
--  In JBoss: edit the property ``exo.conf.dir`` in
-   ``standalone/configuration/standalone-exo.xml``
-   (``standalone-exo-cluster.xml`` in cluster mode).
-
-   .. code:: xml
-
-       <sytem-properties>
-           <property name="exo.conf.dir" value="/path/to/your/folder"/>
-       </system-properties>
-
-The security token key (``key.txt``) is automatically generated by the
-server so you just need to acknowledge its location. Next is more
-information about OAuth key and Shindig properties.
-
-**OAuth key configuration**
-
-In eXo Platform, the OAuth gadgets use an OAuth key to authorize with
-external service providers. There is always a default key defined in the
-``oauthkey.pem`` file. This key will be used in case the OAuth gadgets
-do not indicate a key. It is strongly recommended that you create your
-own ``oauthkey.pem`` file by using the **openssl** tool and some
-commands as follows:
-
-::
-
-    openssl req -newkey rsa:1024 -days 365 -nodes -x509 -keyout testkey.pem -out testkey.pem -subj '/CN=mytestkey'
-    openssl pkcs8 -in testkey.pem -out oauthkey.pem -topk8 -nocrypt -outform PEM
-
-Then, replace the default **oauthkey.pem** with yours.
-
-**Disabling Shindig online features**
-
-Some Shindig features require online access which may lead to
-significant delay time at startup time. Administrators can disable those
-features in the ``shindig.properties`` file. Once the online features,
-for example analytics, are disabled, they will not be available in
-gadgets.
-
-Default (enabled):
-
-::
-
-    shindig.features.default=res://features/default-features.txt,res://features/online-features.txt
-
-To disable:
-
-::
-
-    shindig.features.default=res://features/default-features.txt
 
 .. _statisticsParameter:
 
@@ -5319,9 +5152,14 @@ then the query is sent as if it is two words.
 
 .. _Configuration.ElasticSearch:
   
-=========================================
-Elasticsearch Embedded mode Configuration
-=========================================
+=============================
+Elasticsearch Configuration
+=============================
+
+.. _ESEmbeddedMode:
+
+Properties of the Elasticsearch embedded node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When deployed as embedded, the `Elasticsearch configuration
 files <https://www.elastic.co/guide/en/elasticsearch/reference/2.3/setup-configuration.html>`__
@@ -5330,11 +5168,6 @@ properties can be set directly in
 :ref:`exo.properties <Configuration.ConfigurationOverview>` and will 
 override the default properties defined in ``elasticsearch.yml`` and 
 ``logging.yml``.
-
-.. _ESEmbeddedMode:
-
-Properties of the Elasticsearch embedded node
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All the properties below are standard properties of Elasticsearch. When
 a property ``es.xxx`` is defined in
@@ -5382,6 +5215,23 @@ configurable in :ref:`exo.properties <Configuration.ConfigurationOverview>`
     exo.es.search.server.url=http://127.0.0.1:9200
     exo.es.search.server.username=root
     exo.es.search.server.password=xxxxx
+    
+It is also possible to configure the number of connection in the http connections pool used for search and indexing calls to Elasticsearch 
+by defining these parameters:
+
+
+::
+
+	exo.es.search.http.connections.max=2
+	exo.es.index.http.connections.max=2
+	
+``exo.es.search.http.connections.max`` is the maximum number of connections in the HTTP connections pool for 
+Elasticsearch search calls. Default value set to 2.
+``exo.es.index.http.connections.max`` is the maximum number of connections in the HTTP connections pool for 
+Elasticsearch indexing calls. Default value set to 2.
+	
+	
+    
 
 The parameter
 
@@ -5801,9 +5651,7 @@ have not created this file, see :ref:`Configuration Overview <Configuration.Conf
 
 These configuration files are located in:
 
--  ``$PLATFORM_TOMCAT_HOME/gatein/conf/`` for Tomcat.
-
--  ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/`` for JBoss.
+-  ``$PLATFORM_TOMCAT_HOME/gatein/conf/``.
 
 .. note:: You were asked to create the files for security during the setup. If
 			you include any parameter below into the ``exo.properties``, you
@@ -6156,7 +6004,7 @@ Blockchain transaction settings
 
     .. code-block:: jproperties
 
-          exo.wallet.transaction.pending.maxDays=3
+          exo.wallet.transaction.pending.maxDays=1
 
 
     .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed transaction in eXo's internal database.
@@ -6166,7 +6014,7 @@ Blockchain transaction settings
 
     .. code-block:: jproperties
 
-          exo.wallet.transaction.pending.maxToSend=3
+          exo.wallet.transaction.pending.maxToSend=5
 
 * The number of sending transaction attempts is configured by:
 

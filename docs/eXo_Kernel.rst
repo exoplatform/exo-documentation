@@ -1376,11 +1376,6 @@ overloaded in the following lookup sequence:
 
    -  For Tomcat, the value of the variable *${catalina.home}*.
 
-   -  For JBoss AS, the value of the variable
-      *${jboss.server.config.url}* or *${jboss.server.config.dir}* if
-      the ``exo-conf`` directory can be found there; otherwise it will
-      be the value of the *${jboss.home.dir}* variable.
-
 -  *$PORTAL\_NAME* is the name of portal web application.
 
 -  External configuration location can be overridden with System
@@ -1424,7 +1419,7 @@ overloaded in the following lookup sequence:
     -  The ``.ear`` and ``.war`` files from which Kernel gets the
        configuration files for the RootContainer, are found thanks to a
        lookup inside the standard deployment folders, but so far those
-       folders are only properly defined in case of JBoss AS, Tomcat and
+       folders are only properly defined in case of Tomcat and
        Jetty. For other application servers, you will need to use the
        System property described in the previous note.
 
@@ -1937,6 +1932,8 @@ If this variable is defined at the default portal container level, the
 value of this variable for a portal container named *"foo"* will be ABC
 foo.
 
+.. _Kernel.PortalContainer.DynamicSettings:
+
 Adding dynamically settings and/or dependencies to a PortalContainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1958,6 +1955,11 @@ foo1 and foo2:
         <!-- The full qualified name of the PortalContainerDefinitionChangePlugin -->
         <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
         <init-params>
+          <values-param>
+            <name>add.profiles</name>
+            <value>custom-profile-1</value>
+            <value>custom-profile-2</value>
+          </values-param>
           <value-param>
             <name>apply.default</name>
             <value>true</value>
@@ -1990,6 +1992,8 @@ foo1 and foo2:
 | apply.default (\*)    | Indicates whether the changes have to be applied to the default portal container or not. The default value of this field is false. This field is a ValueParam and is not mandatory.                                                                                                                                                                                 |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | apply.specific (\*)   | A set of specific portal container names to which we want to apply the changes. This field is a ValuesParam and is not mandatory.                                                                                                                                                                                                                                   |
++-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| add.profiles          | A set of specific profiles that will be injected in portal container when started.                                                                                                                                                                                                                                                                                  |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Other parameters      | Other parameters are ObjectParam of PortalContainerDefinitionChangetype. Those parameters are in fact the list of changes that we want to apply to one or several portal containers. If the list of changes is empty, the component plugin will be ignored. The supported implementations of PortalContainerDefinitionChange are described later in this section.   |
 +-----------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -2453,16 +2457,13 @@ Profiles activation
 
 An active profile list is obtained during the boot of the root container
 and is composed of the system property *exo.profiles* - a
-comma-separated list - and a server specific profile value (Tomcat for
-Tomcat, JBoss for JBoss, and more).
+comma-separated list - and a server specific profile value (tomcat for
+Tomcat).
 
 ::
 
     # runs GateIn on Tomcat with the profiles tomcat and foo
     sh gatein.sh -Dexo.profiles=foo
-
-    # runs GateIn on JBoss with the profiles jboss, foo and bar
-    sh run.sh -Dexo.profiles=foo,bar
 
 Profiles configuration
 ------------------------
@@ -2611,6 +2612,31 @@ The field configuration element configures the field of an object:
         </field>
       </object>
     </object-param>
+
+Profiles injection by configuration
+-------------------------------------
+
+A set of profiles can be injected in PortalContainer using PortalContainerDefinitionChangePlugin configuration as described in :ref:`Portal container dynamic settings <Kernel.PortalContainer.DynamicSettings>`.
+
+Profiles injection by class
+-------------------------------------
+
+PortalContainer profiles can be injected through a Service Provider that inherits the Service Provider interface `org.exoplatform.container.ExoProfileExtension`.
+For example, you can define a new class :
+
+.. code:: java
+
+    package org.exoplatform.example;
+
+    public class CustomProfileExtension implements org.exoplatform.container.ExoProfileExtension {
+      @Override
+      public Set<String> getProfiles() {
+        return Collections.singleton("custom-profile");
+      }
+    }
+
+And then add a file under META-INF/services/org.exoplatform.container.ExoProfileExtension with content, the FQN of the defined service:
+``org.exoplatform.example.CustomProfileExtension``
 
 Component request lifecycle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -2802,7 +2828,7 @@ service locator pattern is used:
 .. code:: java
 
     public ServiceA(){
-       this.serviceB =Container.getSInstance().getService(ServiceB.class);
+       this.serviceB =Container.getInstance().getService(ServiceB.class);
     }
 
 -  Ease Unit test (use of Mock objects)
@@ -3509,7 +3535,6 @@ Here is ``DumbJob.java``:
     import org.exoplatform.services.log.ExoLogger;
     import org.exoplatform.services.mail.MailService;
     import org.exoplatform.services.mail.Message;
-    import org.exoplatform.commons.utils.CommonsUtils;
 
     public class DumbJob implements Job {
         
@@ -4442,7 +4467,7 @@ context factory by a context factory that is ExoContainer aware and that
 is able to delegate to the original initial context factory if it
 detects that it is not in the eXo scope. By default, the feature is
 disabled since it is only required on AS that does not share the objects
-by default like Tomcat and it is not the case of JBoss AS.
+by default like Tomcat.
 
 The BindReferencePlugin component plugin configuration example (for JDBC
 datasource):
@@ -4531,7 +4556,7 @@ Configuration examples
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 `Log4J <http://logging.apache.org/log4j/>`__ is a very popular and
-flexible logging system. It is a good option for JBoss.
+flexible logging system.
 
 .. code:: xml
 

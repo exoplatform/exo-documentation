@@ -816,13 +816,8 @@ code and file extension.
 6. Build the Maven project using the command: ``mvn clean install``.
 
 7. Put the ``.jar`` file (``target/custom-validator-1.0-SNAPSHOT.jar``)
-   into the ``lib`` folder of eXo Platform.
-
-   -  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat).
-
-   -  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` (in
-      JBoss).
-
+   into the ``lib`` folder of eXo Platform: ``$PLATFORM_TOMCAT_HOME/lib``.
+   
 8. Start the eXo Platform server.
 
 **Testing**
@@ -1248,14 +1243,14 @@ section.
 		text-decoration: underline;
 		}
 
-6. Register the newly created CSS in the above step for the Default skin
+6. Register the newly created CSS in the above step for the Enterprise skin
    which is currently used in the ACME site by adding the following 
    module to ``gatein-resources.xml``.
 
    .. code:: xml
 
 		<portal-skin>
-			<skin-name>Default</skin-name>
+			<skin-name>Enterprise</skin-name>
 			<skin-module>myacme-css</skin-module>
 			<css-path>/templates/skin/acme/DefaultStylesheet.css</css-path>
 		</portal-skin>
@@ -2429,7 +2424,7 @@ information you need and sending a message:
         message.setBody("There is content update in " + srcWorkspace + ":" + srcPath);
         
         try {
-          ((MailService) CommonsUtils.getService(MailService.class)).sendMessage(message);
+          ExoContainerContext.getService(MailService.class).sendMessage(message);
         } catch (Exception e) {
           e.printStackTrace();
         }

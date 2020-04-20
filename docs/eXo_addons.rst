@@ -340,7 +340,7 @@ An example for this command output:
 
     Loading add-on details from exo-tasks.status ............................. [OK]
     Loading add-on details from exo-answers.status ........................... [OK]
-    Loading add-on details from exo-es-embedded.status ....................... [OK]
+    Loading add-on details from meeds-es-embedded.status ....................... [OK]
     ===============================================================================
     Installed add-ons
     ===============================================================================
@@ -352,7 +352,7 @@ An example for this command output:
     eXo Answers 
     + Installed version : 1.3.x-SNAPSHOT
     -------------------------------------------------------------------------------
-    exo-es-embedded - ElasticSearch Embedded in eXo Platform
+    meeds-es-embedded - ElasticSearch Embedded in eXo Platform
     Embed ElasticSearch into eXo Platform 
     + Installed version : 2.0.0-M08
     -------------------------------------------------------------------------------

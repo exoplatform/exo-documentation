@@ -18,80 +18,89 @@ and voting for the new features.
 Functional features
 ~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Spaces Administration <UserGuide.AdministratingSpaces>`
+:ref:`Gamification <Gamification>`
 
-With the spaces administration feature, administrators now have a way to define:
-
-- Who can create new spaces
-- Who can manage spaces
+Enhance your collaborators' engagement and motivate them to adopt a positive behavior with our gamification add-on.
 
 |image0|
-
-
-:ref:`Edit activities and comments <Editing-Activities>`
-
-Users can now edit their own activities and comments in the activity stream.
-
-|image1|
-
-
-:ref:`Empty choice for gender field <About-me>`
-
-Users can now decide to not indicate their gender on their profile.
-
-
-:ref:`Mark all as read in All Notifications page <On-site>`
-
-Users can now mark all their on-site notifications as read with a single click.
 
 |image2|
 
 
-:ref:`Number of unread messages in the browser tab <On-site>`
+:ref:`Rewards <UserWallet>`
 
-The number of unread chat messages is now dynamically added to the page title  
-so that users can easily know when there is something requiring their attention just 
-by looking at their browser tab.
+Discover our rewarding system allowing to recognize employees engagement through digital wallet, kudos and perk store.
 
+|image1|
 
 |image3|
 
-
-:ref:`Reset the default avatar or banner <On-site>`
-
-Users can now reset their profile banner and picture by reverting to the default one.
-It is also applicable for spaces' banners and logos.
-
 |image4|
+
+
+:ref:`OnlyOffice Connector <OnlyOffice>`
+
+eXo partenered with OnlyOffice editors to allow users the co-editing of MS Office documents.
+ 
+|image5| 
+
+
+:ref:`Company branding <BrandingeXoPlatform>`
+
+Brand your eXo Platform server by setting your company logo easily.
+
+|image6|
+
+
+:ref:`Space templates <Create-Space>`
+
+With space templates feature, create a space with the template which the most matches your needs
+
+
+|image7|
+
+
+:ref:`Space widgets <Create-Space>`
+
+New widgets are available on spaces' homepages to display descriptions, managers and events.
+
+|image8|
 
 Other user experience improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Search bar filter in chat <Use-search-bar>`
+:ref:`Home button in Desktop Chat application <Chat>`
 
-Clear more easily the search filter in chat rooms, simply
-by clicking on the cross icon.
+A new ``home`` button was added to the chat application on Desktop to easily go back the platform's homepage.
 
-|image5|
+|image9|
 
 
-:ref:`Create event drawer <CreatingNewEvent>`
+:ref:`Confirm before refreshing a page <Share-AS>`
 
-Creating a new event has been redesigned as an elegant drawer panel for better usability:
+A confirmation popup appears when refreshing a page where you already typed some data.
 
-|image6|
+|image10|
  
  
-:ref:`Unread messages badge in mini chat <miniChat>`
+:ref:`Open space applications by right-click <ManagingSpaceApplication>`
 
-Keep track of unread messages that arrive while you've scrolled up.
+It is now possible to open space applications in an another tab with a right-click.
 
-|image7|
+:ref:`Chat contacts filtering does not consider accents <Use-search-bar>`
 
-We also tweaked some UIs :
+Chat contact filtering is not sensitive to accents anymore.
 
--  Added more spacing at the left and right of the activities for a better readability.
--  Unified the "Show more" button with the new style used across eXo Platform.
+|image11|
+
+:ref:`Login History can now be disabled by configuration <Configuration.loginHistory>`
+
+With the new property ``exo.audit.login.enabled``, it is possible to enable or disable the login history.
+
+:ref:`Remove uploaded files from chat <Upload-file-chat>`
+
+Files uploaded in chat rooms can now be deleted as any other message.
+
 
 .. _TechnicalNovelties:
 
@@ -99,36 +108,35 @@ We also tweaked some UIs :
 Technical novelties in eXo Platform 5.3
 ========================================
 
-**Security**
+As usual, eXo Platform continues to devote efforts to enhance security and performance.
+In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced to configure max 
+concurrent requests to the ElasticSearch server.
 
-Our continuous effort to improve security lead us to 
-change some default permissions to avoid folder listing cases through WebDAV.
+We also upgraded UI layer with latest versions of Vue.js and Vuetify frameworks.
+We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
+in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
 
-**Platform RDBMS**
+In version 5.3, eXo Platform decided to remove `Shindig <https://shindig.apache.org/>`__, 
+the component used to support Gadgets.
+In fact `Shindig <https://shindig.apache.org/>`__ is no more maintained and this leads to many issues such as:
 
-We continued to decrease our dependency on JCR 
-for data persistence. Now, the following components rely on the relational 
-**database** storage for better speed and manageability :
+- The dependance to specific versions of some important libraries namely Guava and which is hard to upgrade
+- Hardness with the platform server installation as it needs specific actions to make gadgets working
 
--  Product information
--  Login history
--  Wiki
--  Files
--  Social
--  Notifications
--  Email queue
--  Settings
-
-You can learn more about all data structures in 
-:ref:`this tutorial <PLFRefGuide.PLFDevelopment.DataStructure>`.
+In addition to all the above issues, maintaining and fixing issues related to gadgets and `Shindig <https://shindig.apache.org/>`__
+took too much time to resolve however it is no more used.
 
 
-.. |image0| image:: images/platform/SpacesAdministration.png
-.. |image1| image:: images/platform/delete_edit.png
-.. |image2| image:: images/social/MArkAllRead.png
-.. |image3| image:: images/social/Notifications_Web_tab.png
-.. |image4| image:: images/social/update_reset_banner.png
-.. |image5| image:: images/chat/filter_3.png
-.. |image6| image:: images/calendar/Add_event_drawer.png
-.. |image7| image:: images/chat/unread_chat_msg.png
 
+.. |image0| image:: images/whatsNew/gamificaton_board.png
+.. |image1| image:: images/whatsNew/Wallet.png
+.. |image2| image:: images/whatsNew/Badges.png
+.. |image3| image:: images/whatsNew/Kudos.png
+.. |image4| image:: images/whatsNew/PerkStore.png
+.. |image5| image:: images/whatsNew/OnlyOffice.png
+.. |image6| image:: images/platform/branding_page.png
+.. |image7| image:: images/social/add_space_settings_tab.png
+.. |image8| image:: images/whatsNew/SpaceWidgets.png
+.. |image9| image:: images/whatsNew/HomeButtonchat.png
+.. |image10| image:: images/platform/confirmation_popup_Chrome.png
+.. |image11| image:: images/whatsNew/chat_accents.png

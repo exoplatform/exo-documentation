@@ -105,14 +105,6 @@ section.
 After the start, put your JMX configurations in the form described in
 `Advanced Customization <AdvancedCustomization>` section.
 
-Although the two sections are written for Tomcat bundle, it is very
-similar for JBoss, except the customized configuration file. In JBoss,
-the file is ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.conf`` for
-Linux, ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.conf.bat`` for
-Windows. You can create it by using the sample file
-``$PLATFORM_JBOSS_HOME/bin/standalone-customize.sample.conf`` for Linux
-or ``$PLATFORM_JBOSS_HOME/bin/standalone-customize.sample.conf.bat`` for
-Windows.
 
 **Securing JMX connection**
 
