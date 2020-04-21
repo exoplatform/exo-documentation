@@ -88,7 +88,7 @@ The Spaces page includes the following sections:
 |SP-2|
 
 - |image1| This section contains the following options: Add a new space, the number of spaces displayed, 
-   Filter spaces by name or description and a pulldown with choices All spaces and My spaces to filter the spaces list.  
+   Filter spaces by name or description and a pulldown to filter the list  : All spaces or My spaces.  
 
  .. note:: All spaces, including your spaces, :ref:`visible
    spaces <About-space-visibility>`, and :ref:`hidden spaces <About-space-visibility>` where
