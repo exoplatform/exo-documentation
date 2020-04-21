@@ -92,7 +92,7 @@ The Spaces page includes the following sections:
    spaces <About-space-visibility>`, and :ref:`hidden spaces <About-space-visibility>` where
    you are invited to become members, and my spaces for spaces where you are a member or manager.
 
-- |image2| Spaces Cards list in which you will have all spaces informations like,: Space name, avatar, cover 
+- |image2| Spaces' Cards list in which you will have all spaces information like Space name, avatar and cover 
    and accessing button.    
 
  .. note:: You can click on the information icon of the space's card which will flip to display the 
