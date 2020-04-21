@@ -297,7 +297,7 @@ Step 3: Invite Users
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. _Users_invitation:      
 
-In the third and last step, the **Users** field allows to pick with the selector the users or space members that you entend to invite ti the space you are creating.
+In the third and last step, the **Users** field allows to pick users or space members that you intend to invite to the new space.
 
 Type-ahead suggestions allow to facilitate selection users and spaces members to invite.
 
