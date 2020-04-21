@@ -69,7 +69,7 @@ last visited spaces with a short list on the left pane of the page, and you can 
 
 -  |image2| The list of last visited spaces where you are a member or manager, sorted by last visit time.
 
-.. note::   The short list of your last visited spaces displays as many spaces as your screen allows it.
+.. note::   The short list of your last visited spaces displays as many spaces as your screen allows.
 
 -  |image3| Allows you to access the Spaces page which displays all the
    spaces in the portal. Here, you can quickly join a space or search
