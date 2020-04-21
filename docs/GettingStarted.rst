@@ -2090,6 +2090,10 @@ place where you can add text message. It allows you to:
 
 |toolbar|
 
+.. tip:: The spellchecker is by default enabled in the CKeditor.
+
+         |SCimage|
+
 Text formatting in the microblog
 -----------------------------------
 
@@ -2975,3 +2979,4 @@ to display the original timestamp of the comment.
 .. |image231| image:: images/platform/last_visited_spaces.png
 .. |image232| image:: images/platform/filter_spaces.png
 .. |image233| image:: images/platform/create_space_navbar.png
+.. |SCimage| image:: images/platform/SpellcheckerEnabled.png
