@@ -96,7 +96,7 @@ The Spaces page includes the following sections:
    and accessing button.    
 
  .. note:: You can click on the information icon in the space card and then the card will flip and display the 
-   space description and list of managers.
+   space description and the list of managers.
    |SP-3| 
 
 - |image3| A block for spaces requests (invitations to join a space, pending requests sent, pending requests for your spaces and the list of your managing spaces.  
