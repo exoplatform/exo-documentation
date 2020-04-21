@@ -8,7 +8,7 @@ Working With Spaces
     The "team work" concept becomes very familiar in business
     environment. By establishing one specific team or group, you and
     your collaborators can work together on important projects. Based on
-    the importance of team working, eXo Platform develops the **Space**
+    the importance of team working, eXo Platform develops the **Spaces**
     application, allowing you to collaborate with specific people. The
     scope of using spaces is so flexible that can be applied for teams,
     themes, communities or any kind of informal groups to your business
@@ -68,6 +68,8 @@ last visited spaces with a short list on the left pane of the page, and you can 
    space from your spaces list.
 
 -  |image2| The list of last visited spaces where you are a member or manager, classed by last visited first.
+
+.. note::   The short list of your last visited spaces displays as many spaces as your screen allows it.
 
 -  |image3| Allows you to access the Spaces page which displays all the
    spaces in the portal. Here, you can quickly join a space or search
