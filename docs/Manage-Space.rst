@@ -73,7 +73,7 @@ last visited spaces with a short list on the left pane of the page, and you can 
    spaces in the portal. Here, you can quickly join a space or search
    for your desired space.
 
--  |image4| Allows you to quick create a new space.
+-  |image4| Allows you to quickly create a new space.
    
 .. _note-last-visited-space:
 
