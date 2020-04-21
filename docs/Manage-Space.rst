@@ -291,7 +291,7 @@ You may override the predefined visibility and registration options of the space
 
 .. note:: Visibility and registration fields have a description of the choice selected to help you choosing the best template for your needs when creating a new space.
       
-.. note:: You can continue to the next step just by a click on **Continue**, and can also go back to the previous step by clicking on **Back**.
+.. note:: You can continue to the next step with **Continue** button, and can also go back to the previous step with the **Back** button.
 
 Step 3: Invite Users
 ~~~~~~~~~~~~~~~~~~~~~~~
