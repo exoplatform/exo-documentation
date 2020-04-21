@@ -295,7 +295,7 @@ Step 3: Invite Users
 ~~~~~~~~~~~~~~~~~~~~~~~
 .. _Users_invitation:      
 
-In the third, and last, step, the **Users** field, you can invite users or space members to the space to create just by picking them with the selector.
+In the third and last step, the **Users** field allows to pick with the selector the users or space members that you entend to invite ti the space you are creating.
 
 Type-ahead suggestions allow to facilitate selection users and spaces members to invite.
 
@@ -1021,5 +1021,4 @@ deleted.
 .. |image78| image:: images/social/WhoIsOnLinePortlet.png
 .. |image79| image:: images/social/CalendarPortletPopulated.png
 .. |image80| image:: images/social/arrowsCalendar.png
-
 
