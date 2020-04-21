@@ -79,7 +79,7 @@ last visited spaces with a short list on the left pane of the page, and you can 
    
 .. _note-last-visited-space:
 
- .. note::   You will see a short list of your last visited spaces just below the Last visited button.
+ .. note::   You can see a short list of your last visited spaces just below the Last visited button.
 
 .. _spaces-page:
 
