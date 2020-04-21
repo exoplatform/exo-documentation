@@ -855,7 +855,7 @@ Only the space managers have permission to delete their spaces.
 
 1. Open the Spaces pages, then select the space you want to delete.
 
-2. Click **Remove** in the area button.
+2. Click on **Remove** in the area button.
 
 |SP-5|
 
@@ -1021,4 +1021,3 @@ deleted.
 .. |image78| image:: images/social/WhoIsOnLinePortlet.png
 .. |image79| image:: images/social/CalendarPortletPopulated.png
 .. |image80| image:: images/social/arrowsCalendar.png
-
