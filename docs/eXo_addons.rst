@@ -221,6 +221,8 @@ Also, add the following options:
 | ``--no-cache``           |                                                  |
 +--------------------------+--------------------------------------------------+
 
+.. _AddonsManagement.Uninstalling:
+
 **Uninstalling an add-on**
 
 Use the ``uninstall`` command to remove an add-on that is already
@@ -232,6 +234,10 @@ installed, regardless of its stable or development version.
 
 |image4|
 
+.. note:: When uninstalling an addon from the platform, you should in addition of the execution of the above command,
+          follow this :ref:`tutorial <RemovingApp>` to remove the display of its corresponding application.
+          
+          
 .. _AddonsManagement.InstallingUninstallingInDocker:
 
 =====================================================
