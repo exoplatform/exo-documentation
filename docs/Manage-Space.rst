@@ -309,7 +309,7 @@ Users field can be pre-filled by default users or spaces defined in space templa
 
 |SP-9|
 
-Finally, you click on **Create** Space button to finish adding your new space. The new space appears.
+Finally, click **Create** button to finish adding your new space. The new space appears.
 
 |image27|
 
