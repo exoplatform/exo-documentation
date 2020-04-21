@@ -64,7 +64,7 @@ last visited spaces with a short list on the left pane of the page, and you can 
 
 **Details**:
 
--  |image1| The Filter box which allows you to quickly filter for a
+-  |image1| The Filter box which allows you to quickly look for a
    space from your spaces list.
 
 -  |image2| The list of last visited spaces where you are a member or manager, classed by last visited first.
