@@ -99,7 +99,7 @@ The Spaces page includes the following sections:
    space description and the list of managers.
    |SP-3| 
 
-- |image3| A block for spaces requests (invitations to join a space, pending requests sent, pending requests for your spaces and the list of your managing spaces.  
+- |image3| A block for spaces requests (invitations to join a space, pending requests sent, pending requests for your spaces and the list of the spaces your are managing.  
 
 - |image4| You will have a suggestion list that recommand some spaces that you can join. 
    You can either send a request to join or decline the suggestion.   
