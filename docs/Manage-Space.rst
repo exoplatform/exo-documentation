@@ -239,7 +239,7 @@ follows:
 
 1. Click |image22| at the top left corner of the **Spaces** page to open the Add New Space form.
 
-2. A drawer is displayed containing all information related to the space creation based on 3 steps: 
+2. A drawer panel is displayed containing all information related to the space creation based on 3 steps: 
 
 Step 1: Space details
 ~~~~~~~~~~~~~~~~~~~~~~~
