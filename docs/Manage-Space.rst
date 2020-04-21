@@ -95,7 +95,7 @@ The Spaces page includes the following sections:
 - |image2| Spaces Cards list in which you will have all spaces informations like,: Space name, avatar, cover 
    and accessing button.    
 
- .. note:: You can click on the information icon in the space card and then the card will flip and display the 
+ .. note:: You can click on the information icon of the space's card which will flip to display the 
    space's description and its list of managers.
    |SP-3| 
 
