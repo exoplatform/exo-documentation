@@ -101,7 +101,7 @@ The Spaces page includes the following sections:
 
 - |image3| A block for spaces requests (invitations to join a space, pending requests sent, pending requests for your spaces and the list of the spaces your are managing.  
 
-- |image4| You will have a suggestion list that recommand some spaces that you can join. 
+- |image4| A suggestion list of recommended spaces to join. 
    You can either send a request to join or decline the suggestion.   
 
 - |image5| A list of the most popular spaces, listed by their harvested gamification points on the current week. 
