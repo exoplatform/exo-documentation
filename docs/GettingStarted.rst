@@ -1695,6 +1695,34 @@ You can add a text message or not and then click on 'Post' button to share the f
 
 .. note:: If the upload is still in progress when you apply the attachments, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
 
+Selecting destination folder for uploads
+``````````````````````````````````````````
+
+You can select destination folders for uploaded files from the new composer. 
+Once the files are uploaded, you can use the 'folder' icon to choose a destination folder where to store them.
+It is possible to select the storage for all uploaded files using the folder icon above all files or file per file separately.
+
+|image234|
+
+When you select the principal folder icon, all uploaded files will be stored in the selected folder.
+When you select a destination folder for one file, the information will be displayed and it is possible to undo the action using the 'X' icon
+
+|image236|
+
+If the added files are selected from existing uploads, it is not possible to change the destination folder. 
+A forbidden sign icon is displayed instead of the folder one for these files. A tooltip "Not available for selected files" is displayed when we mouse over this icon.
+
+|image235|
+
+If the added files are a mix between uploaded (by drag and drop or manually) and selected files, the folder selected as a destination folder will be applied only for uploaded files. 
+A tooltip "Only applicable for uploaded files" is displayed when you mouse over this icon.
+
+|image237|
+
+.. note:: The default destination folder is the following for:
+Home page composer: /Public/Activity Stream Documents under the Personal Documents drive.
+Space composer : /Activity Stream Documents under the space’s drive.
+
 
 Posting links in the activity stream
 -------------------------------------
@@ -2975,3 +3003,7 @@ to display the original timestamp of the comment.
 .. |image231| image:: images/platform/last_visited_spaces.png
 .. |image232| image:: images/platform/filter_spaces.png
 .. |image233| image:: images/platform/create_space_navbar.png
+.. |image234| image:: images/new_composer/destination_folder.png
+.. |image235| image:: images/new_composer/selected_files.png
+.. |image236| image:: images/new_composer/selected_des_file.png
+.. |image237| image:: images/new_composer/mix_uploaded_selected.png
