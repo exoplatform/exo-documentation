@@ -1721,7 +1721,7 @@ A tooltip "Only applicable for uploaded files" is displayed when you mouse over 
 
 .. note:: The default destination folder is the following for:
 Home page composer: /Public/Activity Stream Documents under the Personal Documents drive.
-Space composer : /Activity Stream Documents under the space’s drive.
+Space composer : `/Activity Stream Documents` under the space’s drive.
 
 
 Posting links in the activity stream
