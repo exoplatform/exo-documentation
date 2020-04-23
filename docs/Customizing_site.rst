@@ -2118,8 +2118,7 @@ to be a SearchResult object returned in a collection.
 Creating a page layout template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In eXo Platform, a page is a set of portlets.
-The portlets can be arranged in columns, rows and tabs.
+In eXo Platform, a page is a set of portlets which could be arranged in columns, rows, and tabs.
 A page layout template is a layout sample that is used in :ref:`Page Creation Wizard <ManagingPages.AddingNewPage>`.
 
 In this tutorial, you will:
