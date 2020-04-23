@@ -1695,7 +1695,7 @@ You can add a text message or not and then click on 'Post' button to share the f
 
 .. note:: If the upload is still in progress when you apply the attachments, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
 
-Selecting destination folder for uploads
+Selecting destination folder for uploaded files
 ``````````````````````````````````````````
 
 You can select destination folders for uploaded files from the new composer. 
