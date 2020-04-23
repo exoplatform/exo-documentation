@@ -2118,9 +2118,8 @@ to be a SearchResult object returned in a collection.
 Creating a page layout template
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In eXo Platform, page is a set of portlets and gadgets. The portlets and
-gadgets can be arranged in columns, rows and tabs. A page layout
-template is a layout sample that is used in :ref:`Page Creation Wizard <ManagingPages.AddingNewPage>`.
+In eXo Platform, a page is a set of portlets which could be arranged in columns, rows, and tabs.
+A page layout template is a layout sample that is used in :ref:`Page Creation Wizard <ManagingPages.AddingNewPage>`.
 
 In this tutorial, you will:
 
@@ -2145,8 +2144,8 @@ labels:
    .. code:: xml
 
 		<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_3 http://www.gatein.org/xml/ns/gatein_objects_1_3" 
-		xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_3">
+		xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_7 http://www.gatein.org/xml/ns/gatein_objects_1_7"
+		xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_7">
 			<name></name>
 			<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
@@ -2185,8 +2184,12 @@ In which:
 		categories.add(customPageConfigs) ;
 		customPageConfigs.addSelectItemOption(new SelectItemOption("customPage.CustomLayout", "custom", "CustomLayout")) ;
 
-This code adds a category named "customPageConfigs" and a template named
-"CustomLayout".
+This code adds a category named "customPageConfigs" and a template named "CustomLayout".
+The arguments of the SelectItemOption object are:
+
+  - the key of the localized name of the template
+  - the unique name of the template. This name must be the folder name containing the page.xml file (WEB-INF/conf/portal/template/pages/<name>/page.xml)
+  - the CSS class name for the template icon
 
 4. Localize the labels as follows:
 
@@ -4666,7 +4669,7 @@ to:
 .. |image4| image:: images/results_unifiedsearch_wikipedia.png
 .. |image5| image:: images/search_results_notwikipedia.png
 .. |image6| image:: images/page_layout/template.png
-.. |image7| image:: images/page_layout/template.png
+.. |image7| image:: images/page_layout/extension_structure.png
 .. |image8| image:: images/page_layout/custom_template.png
 .. |image9| image:: images/example_addItalian.png
 .. |image10| image:: images/example_removeFrench.png
