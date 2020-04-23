@@ -1709,7 +1709,7 @@ When you select a destination folder for one file, the information will be displ
 
 |image236|
 
-If the added files are selected from existing uploads, it is not possible to change the destination folder. 
+If the attached files are selected from existing uploads, it is not possible to change the destination folder. 
 A forbidden sign icon is displayed instead of the folder one for these files. A tooltip "Not available for selected files" is displayed when we mouse over this icon.
 
 |image235|
