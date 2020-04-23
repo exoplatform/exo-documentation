@@ -2117,6 +2117,10 @@ place where you can add text message. It allows you to:
 
 |toolbar|
 
+.. tip:: The spellchecker is by default enabled in the CKeditor.
+
+         |SCimage|
+
 Text formatting in the microblog
 -----------------------------------
 
@@ -3002,7 +3006,9 @@ to display the original timestamp of the comment.
 .. |image231| image:: images/platform/last_visited_spaces.png
 .. |image232| image:: images/platform/filter_spaces.png
 .. |image233| image:: images/platform/create_space_navbar.png
+.. |SCimage| image:: images/platform/SpellcheckerEnabled.png
 .. |image234| image:: images/new_composer/destination_folder.png
 .. |image235| image:: images/new_composer/selected_files.png
 .. |image236| image:: images/new_composer/selected_des_file.png
 .. |image237| image:: images/new_composer/mix_uploaded_selected.png
+
