@@ -1696,10 +1696,10 @@ You can add a text message or not and then click on 'Post' button to share the f
 .. note:: If the upload is still in progress when you apply the attachments, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
 
 Selecting destination folder for uploaded files
-``````````````````````````````````````````
+````````````````````````````````````````````````
 
 You can select the destination folder of the uploaded files in the new composer. 
-Once the files are uploaded, you can use the 'folder' icon to choose the folder in which the will be stored.
+Once the files are uploaded, you can use the 'folder' icon to choose the folder in which it will be stored.
 It is possible to select the storage for all uploaded files using the folder icon above all files or file per file separately.
 
 |image234|
@@ -1710,12 +1710,11 @@ When you select a destination folder for one file, the information will be displ
 |image236|
 
 If the attached files are selected from existing uploads, it is not possible to change the destination folder. 
-A forbidden sign icon is displayed instead of the folder one for these files. A tooltip "Not available for selected files" is displayed when we mouse over this icon.
+A forbidden sign icon is displayed instead of the folder one for these files. 
 
 |image235|
 
 If the attached files are a mix between uploaded (by drag and drop or manually) and selected files, the folder selected as a destination folder will be applied only for uploaded files. 
-A tooltip "Only applicable for uploaded files" is displayed when you mouse over this icon.
 
 |image237|
 
