@@ -1704,7 +1704,7 @@ It is possible to select the storage for all uploaded files using the folder ico
 
 |image234|
 
-When you select the principal folder icon, all uploaded files will be stored in the selected folder.
+When you use the principal folder icon, all uploaded files will be stored in the selected folder.
 When you select a destination folder for one file, the information will be displayed and it is possible to undo the action using the 'X' icon
 
 |image236|
