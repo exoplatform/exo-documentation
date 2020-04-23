@@ -1698,7 +1698,7 @@ You can add a text message or not and then click on 'Post' button to share the f
 Selecting destination folder for uploaded files
 ``````````````````````````````````````````
 
-You can select destination folders for uploaded files from the new composer. 
+You can select the destination folder of the uploaded files in the new composer. 
 Once the files are uploaded, you can use the 'folder' icon to choose a destination folder where to store them.
 It is possible to select the storage for all uploaded files using the folder icon above all files or file per file separately.
 
