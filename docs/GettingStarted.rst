@@ -1714,7 +1714,7 @@ A forbidden sign icon is displayed instead of the folder one for these files. A 
 
 |image235|
 
-If the added files are a mix between uploaded (by drag and drop or manually) and selected files, the folder selected as a destination folder will be applied only for uploaded files. 
+If the attached files are a mix between uploaded (by drag and drop or manually) and selected files, the folder selected as a destination folder will be applied only for uploaded files. 
 A tooltip "Only applicable for uploaded files" is displayed when you mouse over this icon.
 
 |image237|
