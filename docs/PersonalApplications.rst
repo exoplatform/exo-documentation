@@ -334,33 +334,53 @@ via the following topics:
  * :ref:`Accepting/Denying a connection request <Accept-Deny-Connection-Request>`
  * :ref:`Disconnecting from your contacts <Disconnect-Contact>`
 
-To build your connections, you first need to click your display name on
-the top navigation bar and select My Connections from the drop-down
-menu.
+To build your connections, you first need to click the humberger menu on
+the side navigation bar and select **People**.
 
-|image24|
+|PEOPLE1|
 
-The **My Connections** page appears.
+The **People** page appears.
 
     .. note:: If there are so many connections, the Show More bar will appear at the page bottom. Click Show More to see more connections.
+             If you don't have any connection, a simple text is displated *NO PEOPLE*.
 
-.. _MyConnectionPage.Tabs:
+.. _People.Page:
 
-This page consists of the following tabs:
+This People page includes the following sections:
 
--  *Everyone*: lists users who have registered in the eXo Platform system.
+|PEOPLE2|
 
--  *My Connections*: lists users who have established connections with you. You can remove these connections by clicking Remove Connection.
+- |image1| This section contains the following options: the number of connection displayed, 
+   Filter connection by name, position or skills and a pulldown to filter the list  : Everyone or My Connections.  
 
-       .. note:: The :ref:`suspended users <DisablingUser>` will not be listed in the **Everyone** and **My Connections** applications.
+ .. note:: -  *Everyone*: lists users who have registered in the eXo Platform system.
+           -  *My Connections*: lists users who have established connections with you. You can remove these connections by clicking Remove Connection.
+
+- |image2| Connections in which you can see information like Full Name, avatar, cover image, job title
+   and connection button.    
+
+ .. note:: You can click on the information icon of the user's card which flips to display the 
+   user's about me section and its number of connections and spaces.
+
+    .. note:: For the number of spaces, the number displayed is for all spaces that this user is a manager or member.
+              If the About me description is very long, an ellipsis is displayed and the full about me text will be displayed in a tooltip. 
+   |PEOPLE3| 
+
+- |image3| A block for invitations requests and Pending requests sent.
+
+- |image4| A suggestion list of users to connect with. 
+   You can either send a request to connect or decline the suggestion.   
+
+- |image5| Leaderboards display a snapshot of users with most points. 
+
+      .. note:: For more information about the *Leadebroard*, you can take a look on Gamification :ref:`Leaderboard <Leaderboard>`.
 
 -  *Requests Received*: lists users who have sent you connection request. You can click Confirm to accept being as his/her contact or Ignore to refuse.
 
 -  *Requests Pending*: lists users to whom you have sent connection
    requests. You can also click Cancel Request to revoke your request.
 
-    .. note:: You can also view your connections by clicking People on the left pane to open the People Directory page which lists all users registered in the portal. 
-				However, when the number of users in the network is bigger and bigger, you should select the relevant tabs (My Connections, Requests Received, and Requests Pending) to do actions more quickly and conveniently.
+
 
 .. _View-Profile-Contacts:
 
@@ -409,16 +429,19 @@ Sending connection requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After :ref:`specifying your desired contact <SearchingForContact>`,
-you can send a connection request via one of two ways.
+you can send a connection request via one of three ways.
 
 **The first way**
 
-Click Connect under the contact name to send your connection request, or
-hover your cursor over the contact name and click Connect button.
-
-|image26|
+Click Connect under the contact name to send your connection request, 
+|PEOPLE4|
 
 **The second way**
+
+Hover your cursor over the contact name and click Connect button.
+|PEOPLE5|
+
+**The third way**
 
 :ref:`Access the profile page of the contact <View-Profile-Contacts>` to whom you want to send a connection request, then click Connect button on their profile banner.
 
@@ -439,11 +462,19 @@ following ways:
 
 **The first way**
 
-1. Select the Requests Pending tab in the My Connections page.
+Access to the People page and click on **Cancel Request** in the users' card to revoke the connection request.
 
-2. Click **Cancel Request** under the contact name, or hover your cursor over the contact name and click Cancel Request to revoke the connection request.
+|PEOPLE6|
 
 **The second way**
+
+1. Select the Requests Pending drawer in Requests section.
+
+2. Click **Cancel Request** icon button next to the contact name, or click directly on Cancel request button in the users' card to revoke the connection request.
+
+|PEOPLE7|
+
+**The third way**
 
 :ref:`Access the profile page of the contact <View-Profile-Contacts>` to whom you sent a connection request, then click **Cancel Request**.
 
@@ -458,18 +489,18 @@ You can perform these actions by doing one of the following ways:
 
 **The first way**
 
-Use the Invitations application on the Social Intranet homepage. See :ref:`here <invitationsapp>` for more details.
+Use the Invitations application on the Welcome Back block on the Digital Workplace homepage. See :ref:`here <DW-Widgets>` for more details.
 
 **The second way**
 
-1. Select the Requests Received tab in the My Connections page.
+1. Select Invitation in the Invitations block in the My Connections page and click on it, a drawer containing all received invitations is displayed.
 
-|image27|
+|PEOPLE8|
 
-2. Click Confirm/ Ignore under the contact name to accept/deny the request respectively.
+2. Click Confirm/ Ignore icons next to the contact name to accept/deny the request respectively.
 
-    
-    .. note:: You can also accept the request by hovering your cursor over the contact name, then click Confirm.
+    .. note:: You can also accept the request directly in the users' card and by hovering the cursor over the contact name, then click Confirm.
+    |PEOPLE9|
 
 **The third way**
 
@@ -505,11 +536,11 @@ between you and the users who are your contacts via one of two following
 ways.
 
 
-Click **Remove Connection** under the contact name; or hover your cursor
-over the contact name and click Remove Connection to remove your
+Click **Disconnect** under the contact name; or hover your cursor
+over the contact name and click Disconnect to remove your
 established connection.
 
-|image30|
+|PEOPLE10|
 
 
 
@@ -1152,6 +1183,16 @@ such as:
    Open actions opens the content in the Sites Explorer.
 
 
+.. |PEOPLE1| image:: images/people/people_sidebar.png
+.. |PEOPLE2| image:: images/people/People_page.png
+.. |PEOPLE3| image:: images/people/flip card.gif
+.. |PEOPLE4| image:: images/people/Connect_user.png
+.. |PEOPLE5| image:: images/people/user_popover.png
+.. |PEOPLE6| image:: images/people/cancel_request.png
+.. |PEOPLE7| image:: images/people/pending_requests_drawer.png
+.. |PEOPLE8| image:: images/people/invitations_drawer.png
+.. |PEOPLE9| image:: images/people/accept_revoke_invitation.png
+.. |PEOPLE10| image:: images/people/disconnect_user.png
 .. |image0| image:: images/platform/personal_applications_menu.png
 .. |image1| image:: images/social/select_my_profile.png
 .. |image2| image:: images/social/profile_changes_activities.png
