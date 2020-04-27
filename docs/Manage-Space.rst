@@ -108,9 +108,11 @@ The Spaces page includes the following sections:
 
 - |image5| A list of the most popular spaces, listed by their harvested gamification points on the current week. 
    
- .. note:: You can either send a request to join the popular space if you are not a member, or decline a pending sent request.
+ .. note:: You can either send a request to join the popular space if you are not a member, or decline a request sent pending .
 To access a specific space, just click the space name.
 
+.. note::   For smartphone devices, you have to slide or swipe your finger to display spaces widgets.
+   |SP-12|
 
 **Accessing via URL**
 
@@ -943,6 +945,7 @@ deleted.
 .. |SP-9| image:: images/spaces/Invite_users.png
 .. |SP-10| image:: images/spaces/Accept_space_invitation.png
 .. |SP-11| image:: images/spaces/Whos_Online.png
+.. |SP-12| image:: images/spaces/Swipe_mobile.gif
 .. |image0| image:: images/social/spaces_list.png
 .. |image1| image:: images/common/1.png
 .. |image2| image:: images/common/2.png
