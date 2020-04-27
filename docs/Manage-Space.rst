@@ -108,7 +108,7 @@ The Spaces page includes the following sections:
 
 - |image5| A list of the most popular spaces, listed by their harvested gamification points on the current week. 
    
- .. note:: You can either send a request to join the popular space if you are not a member, or decline a pending sent request.
+ .. note:: You can either send a request to join the popular space if you are not a member, or decline a request sent pending .
 To access a specific space, just click the space name.
 
 .. note::   For smartphone devices, you have to slide or swipe your finger to display spaces widgets.
