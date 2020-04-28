@@ -470,7 +470,7 @@ Access to the People page and click on **Cancel Request** in the users' card to 
 
 1. Select the Requests Pending drawer in Requests section.
 
-2. Click **Cancel Request** icon button next to the contact name, or click directly on Cancel request button in the users' card to revoke the connection request.
+2. Click **Cancel Request** icon button near the contact name or click directly on the "Cancel request" button on the users' card to revoke the connection request.
 
 |PEOPLE7|
 
