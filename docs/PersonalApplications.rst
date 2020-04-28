@@ -346,7 +346,7 @@ The **People** page appears.
 
 .. _People.Page:
 
-This People page includes the following sections:
+The People page includes the following sections:
 
 |PEOPLE2|
 
