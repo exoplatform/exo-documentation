@@ -1537,6 +1537,7 @@ Edit the following properties (add them if they don't exist):
 			gatein.sso.filter.logout.enabled=true
 			gatein.sso.filter.logout.class=org.gatein.sso.saml.plugin.filter.SAML2LogoutFilter
 			gatein.sso.filter.logout.url=${gatein.sso.sp.url}?GLO=true 
+			gatein.sso.saml.config.file=${exo.conf.dir}/saml2/picketlink-sp.xml
 			
 			# Custom properties
 
