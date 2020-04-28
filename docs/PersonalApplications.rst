@@ -363,7 +363,7 @@ The People page includes the following sections:
    user's "about me" section and the number of connections and spaces.
 
     .. note:: For spaces number, it counts spaces where this user is manager or member.
-              If the About me description is very long, an ellipsis is displayed and the full about me text will be displayed in a tooltip. 
+              If "About me" description is very long, an ellipsis is displayed with the full text. 
    |PEOPLE3| 
 
 - |image3| A block for invitations requests and Pending requests sent.
