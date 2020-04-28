@@ -360,7 +360,7 @@ The People page includes the following sections:
    and connection button.    
 
  .. note:: You can click on the information icon of the user's card which flips to display the 
-   user's about me section and its number of connections and spaces.
+   user's "about me" section and the number of connections and spaces.
 
     .. note:: For the number of spaces, the number displayed is for all spaces that this user is a manager or member.
               If the About me description is very long, an ellipsis is displayed and the full about me text will be displayed in a tooltip. 
