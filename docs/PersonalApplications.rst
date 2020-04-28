@@ -354,7 +354,7 @@ The People page includes the following sections:
    Filter connection by name, position or skills and a pulldown to filter the list  : Everyone or My Connections.  
 
  .. note:: -  *Everyone*: lists users who have registered in the eXo Platform system.
-           -  *My Connections*: lists users who have established connections with you. You can remove these connections by clicking Remove Connection.
+           -  *My Connections*: lists users connected with you. You can remove a connection by clicking on "Remove Connection" button.
 
 - |image2| Connections in which you can see information like Full Name, avatar, cover image, job title
    and connection button.    
