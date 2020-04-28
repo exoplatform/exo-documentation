@@ -429,7 +429,7 @@ Sending connection requests
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After :ref:`specifying your desired contact <SearchingForContact>`,
-you can send a connection request via one of three ways.
+you can send a connection request via one of these three ways.
 
 **The first way**
 
