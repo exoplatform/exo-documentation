@@ -499,7 +499,7 @@ Use the Invitations application on the Welcome Back block on the Digital Workpla
 
 2. Click Confirm/ Ignore icons near the contact name to accept/deny the request respectively.
 
-    .. note:: You can also accept the request directly in the users' card and by hovering the cursor over the contact name, then click Confirm.
+    .. note:: You can also accept the request directly in the user's card by hovering the cursor over the contact name, then clicking "Confirm" button.
     |PEOPLE9|
 
 **The third way**
