@@ -344,7 +344,7 @@ The **People** page appears.
     .. note:: If there are so many connections, the Show More bar will appear at the page bottom. Click Show More to see more connections.
              If you don't have any connection, a simple text is displated *NO PEOPLE*.
 
-.. _People.Page:
+.. __MyConnectionPage.Tabs:
 
 The People page includes the following sections:
 
@@ -354,7 +354,7 @@ The People page includes the following sections:
    Filter connection by name, position or skills and a pulldown to filter the list  : Everyone or My Connections.  
 
  .. note:: -  *Everyone*: lists users who have registered in the eXo Platform system.
-           -  *My Connections*: lists users connected with you. You can remove a connection by clicking on "Remove Connection" button.
+           -  *My Connections*: lists users connected with you. You can remove a connection by clicking on "Disconnect" button.
 
 - |image2| Connections in which you can see information like Full Name, avatar, cover image, job title
    and connection button.    
