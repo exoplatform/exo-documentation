@@ -373,7 +373,7 @@ The People page includes the following sections:
 
 - |image5| Leaderboards display a snapshot of users with most points. 
 
-      .. note:: For more information about the *Leadebroard*, you can take a look on Gamification :ref:`Leaderboard <Leaderboard>`.
+      .. note:: For more information about the *Leaderboard*, you can take a look at :ref:`Leaderboard <Leaderboard>` part on Gamification chapter .
 
 -  *Requests Received*: lists users who have sent you connection request. You can click Confirm to accept being as his/her contact or Ignore to refuse.
 
