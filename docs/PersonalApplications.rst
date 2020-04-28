@@ -334,7 +334,7 @@ via the following topics:
  * :ref:`Accepting/Denying a connection request <Accept-Deny-Connection-Request>`
  * :ref:`Disconnecting from your contacts <Disconnect-Contact>`
 
-To build your connections, you first need to click the humberger menu on
+To build your connections, you first need to click the hamburger menu on
 the side navigation bar and select **People**.
 
 |PEOPLE1|
