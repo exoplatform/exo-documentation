@@ -1661,9 +1661,12 @@ the link.
 Posting in the activity stream via the New Composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 
-A new way to share in the activity stream is available via a clickable text "Try the new composer" just above the current home page and space's composers.
+A new way to share in the activity stream is available via a clickable text "Post something to your network" from home page and "Post something to 'Space Name' " from space's home page.
 
 |image220|
+
+|image238|
+
 
 Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your connections or a space's audience.
 
@@ -1695,6 +1698,7 @@ You can add a text message or not and then click on 'Post' button to share the f
 
 .. note:: If the upload is still in progress when you apply the attachments, it will continue in the background. An animation around the attachments counter badge indicates progress. Note that the post button will be disabled until all files are uploaded.
 
+
 Selecting destination folder for uploaded files
 ````````````````````````````````````````````````
 
@@ -1722,6 +1726,13 @@ If the attached files are a mix between uploaded (by drag and drop or manually) 
 Home page composer: `/Public/Activity Stream Documents` under the `Personal Documents` drive.
 Space composer : `/Activity Stream Documents` under the space’s drive.
 
+You can create a new folder from the select folder drawer by clicking on the appropriate icon:
+
+|image239|
+
+You only have to set the name of the automatically created folder, then enter to register the action. 
+
+|image240|
 
 Posting links in the activity stream
 -------------------------------------
@@ -3011,4 +3022,7 @@ to display the original timestamp of the comment.
 .. |image235| image:: images/new_composer/selected_files.png
 .. |image236| image:: images/new_composer/selected_des_file.png
 .. |image237| image:: images/new_composer/mix_uploaded_selected.png
+.. |image238| image:: images/new_composer/new_composer_space.png
+.. |image239| image:: images/new_composer/create_new_folder.png
+.. |image240| image:: images/new_composer/create_new_folder.gif
 
