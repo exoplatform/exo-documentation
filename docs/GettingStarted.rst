@@ -1661,7 +1661,7 @@ the link.
 Posting in the activity stream via the New Composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 
-A new way to share in the activity stream is available via a clickable text "Post something to your network" from home page and "Post something to 'Space Name' " from space's home page.
+A new way to share in the activity stream is available via a clickable text "Post something to your network" from the home page and "Post something to '$Space Name' " from space's home page.
 
 |image220|
 
@@ -3025,4 +3025,3 @@ to display the original timestamp of the comment.
 .. |image238| image:: images/new_composer/new_composer_space.png
 .. |image239| image:: images/new_composer/create_new_folder.png
 .. |image240| image:: images/new_composer/create_new_folder.gif
-
