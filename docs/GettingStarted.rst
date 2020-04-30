@@ -1730,7 +1730,7 @@ You can create a new folder from the select folder drawer by clicking on the app
 
 |image239|
 
-You only have to set the name of the automatically created folder, then enter to register the action. 
+You just have to set the name for the automatically created folder, and then press enter to validate the action. 
 
 |image240|
 
