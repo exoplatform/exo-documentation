@@ -326,7 +326,7 @@ On this section, you have an idea about your gained badges history and next badg
 
 In the Badges by domain section you have all domain labels with the last earned badge 
 
-    .. note:: If we don't have gained any badge yet for a domain, the domain is not displayed.
+    .. note:: If you don't have any badge yet for a domain, the domain is not displayed.
 
 By clicking on a domain, the domain drawer is displayed with :
 
