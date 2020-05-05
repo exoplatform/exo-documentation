@@ -324,7 +324,7 @@ All your last gained badges are displayed in the Badges by domain section,
 
 On this section, you have an idea about your gained badges history and next badges to gain.
 
-In the Badges by domain section you have all domain labels with the last gained badge 
+In the Badges by domain section you have all domain labels with the last earned badge 
 
     .. note:: If we don't have gained any badge yet for a domain, the domain is not displayed.
 
