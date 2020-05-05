@@ -258,7 +258,7 @@ To add a new experience, you can simply click on Add new button in the top Work 
 Weekly Kudos
 --------------
 
-Weekly Received and sent kudos informations are displayed in the Kudos section.
+The number of Kudos received and sent by the user is displayed in the Kudos section.
 
 |PRFL-5|
 
