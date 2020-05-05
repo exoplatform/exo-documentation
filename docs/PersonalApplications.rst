@@ -67,7 +67,7 @@ Details:
 
 - |2| a brief description of your profile in **About me** block.
 
-- |3| Kudos (Received and sent) and Total cauris gained.
+- |3| Kudos (Received and sent) and Total coins earned.
 
 - |4| your work experiences 
 
