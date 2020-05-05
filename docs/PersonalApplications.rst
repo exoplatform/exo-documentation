@@ -87,7 +87,7 @@ Details:
 Edit your profile
 ~~~~~~~~~~~~~~~~~~~
 
-To build a profile as expected, an edit icon is available on specific sections: About me, Contact informations and Work experiences.
+To fill your profile, an edit icon is available on the following sections: About me, Contact Informations and Work Experiences.
 
     .. note:: After making changes, click **Save** or **Cancel** to respectively save or ignore them.
 
