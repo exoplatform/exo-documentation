@@ -320,7 +320,7 @@ See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
 Badges By Domains
 -------------------
 
-All your last gained badges are displayed in the Badges by domain section,
+All your latest earned badges are displayed in the Badges by domain section,
 
 On this section, you have an idea about your gained badges history and next badges to gain.
 
