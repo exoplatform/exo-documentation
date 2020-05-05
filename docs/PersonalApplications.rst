@@ -106,7 +106,7 @@ To change the profile banner:
 
 1. Mouse over the top right of the grey banner, an edit icon appear.
 
-    .. note:: the banner should have 130 pixels height.
+    .. note:: the banner should be 130 pixels height.
 
 2. Select the desired profile banner image and double click on it.
 
