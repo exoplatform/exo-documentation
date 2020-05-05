@@ -15,6 +15,10 @@ How to update your current position/avatar and to edit your information.
 
 Introduction to your own Activity Stream page.
 
+:ref:`Managing your favourite applications <Managing-Fav-Apps>`
+
+Introduction to your favourite applications drawer.
+
 :ref:`Managing your connections <Managing-Connections>`
 
 How to view profiles of your contacts, to send/revoke a connection request, to accept/deny connection requests and to disconnect from your contacts.
@@ -313,6 +317,30 @@ The activities in My Activities are similar to those in :ref:`My Activities <Man
 			to anyone even if they are not your connections. They can comment or
 			like on your activity stream page. However, only your connections
 			can see the Activity Composer that enables them to post on your stream.
+
+.. _Managing-Fav-Apps:
+
+=======================================
+Managing your favourite applications
+=======================================
+
+Starting with eXo Platform 6, you can quickly access your favourite applications 
+through the application center drawer.
+
+To access your favourite applications, you just need to click on this button |AC_image0| from
+the top navigation bar.
+
+|AC_image1|
+
+A drawer will open displaying your favourite applications alphabetically-organized in ascendant order.
+
+|AC_image2|
+ 
+.. note:: When an administrator sets some applications as default, they also appear in your applications
+          center drawer.
+
+When you click on an application icon it will open in the same tab of it is an eXo application, otherwise,
+it will open in a new tab.
 
  .. _Managing-Connections:
 
@@ -1303,3 +1331,6 @@ such as:
 .. |image101| image:: images/sharenews/shared_like_notif.png
 .. |image102| image:: images/sharenews/posted_comment_notif.png
 .. |image103| image:: images/sharenews/shared_comment_notif.png
+.. |AC_image0| image:: images/platform/AppCenter/app_center_btn.png
+.. |AC_image1| image:: images/platform/AppCenter/topbar.png
+.. |AC_image2| image:: images/platform/AppCenter/Apps_drawerbar.png
