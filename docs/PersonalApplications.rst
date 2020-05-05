@@ -77,7 +77,7 @@ Details:
 
 - |7| your gained badges by domains
 
-    .. note:: When someone opens your profile, many action are available such as: Chat, Call, Send kudos, Send Cauris and Connect button if you're not in connection.
+    .. note:: When you open someone else's profile, several interactions are possible such as: Chat, Call, Send Kudos, Send Coins and Connect.
 
         |PRFL-2|
  
