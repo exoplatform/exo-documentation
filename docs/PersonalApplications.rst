@@ -262,7 +262,7 @@ The number of Kudos received and sent by the user is displayed in the Kudos sect
 
 |PRFL-5|
 
-By clicking on Received or Sent Kudos number, a drawer is opened that displays the list of weekly kudos.
+By clicking on Received or Sent Kudos number, a drawer is opened that displays the details of Kudos received or sent.
 
 |PRFL-6|
 
