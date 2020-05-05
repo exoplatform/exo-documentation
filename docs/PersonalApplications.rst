@@ -40,7 +40,7 @@ Managing your profile
 
 Your profile is always visible by all users of the portal that helps them understand more about you, so it is very necessary to have a profile with the full and clear information.
 
-From eXo Platform 6.0, the profile page has been redesigned in order to enriche and better organize yout information.
+From eXo Platform 6.0, the profile page has been redesigned in order to enrich and better organize user information.
 
 This part introduces you how to:
 
