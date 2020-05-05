@@ -1,7 +1,7 @@
 .. _Application:
 
 ########################
-Developing Applications
+Developing Meeds Applications
 ########################
 
     Portlets and gadgets are the two main types of eXo applications.
