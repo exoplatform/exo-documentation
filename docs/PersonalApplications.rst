@@ -322,7 +322,7 @@ Badges By Domains
 
 All your latest earned badges are displayed in the Badges by domain section,
 
-On this section, you have an idea about your gained badges history and next badges to gain.
+In this section, you can have an idea about badges' earning history and next badges you can earn.
 
 In the Badges by domain section you have all domain labels with the last earned badge 
 
