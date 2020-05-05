@@ -292,7 +292,7 @@ See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
 
 - You can see your profile picture and your name just after the welcome To My Profile label.
 
-- The widget also displays the total number of spaces that you're, or the user is, member of.
+- The widget also displays the total number of spaces that the profile owner is member of.
   A counter of your pending space invitations is displayed in a small badge.
   Click the badge to display all invitations and easily accept or refuse them, with the list of all spaces that you are, or the user are, member in.
 
