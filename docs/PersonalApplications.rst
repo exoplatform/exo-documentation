@@ -266,7 +266,7 @@ By clicking on Received or Sent Kudos number, a drawer is opened that displays t
 
 |PRFL-6|
 
-All kudos in the drawer are clickable and opens, in a new browser tab, the activity in which the kudos is sent or received (either it's an activity or comment).
+All Kudos in the drawer are clickable and open, in a new browser tab, the source activity where the Kudos was sent or received.
 
 
 .. _Cauris:
