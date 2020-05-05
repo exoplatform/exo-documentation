@@ -131,6 +131,8 @@ will not be displayed on your profile page.
 
 By clicking on the edit icon, an edit drawer is opened with a composer.
 
+|PRFL-14|
+
     .. note:: A character counter is displayed to help you to avoid exceeding the characters limit. If exceeded, The **Save** button will be disabled.
 
 .. _Contact-info:
@@ -152,13 +154,6 @@ Contact Information
 |                      | for example, johnsmith@exoplatform.com (see more    |
 |                      | details about the **Email Address** format          |
 |                      | :ref:`here <CreateNewAccountFormDetails>`.)         |
-+----------------------+-----------------------------------------------------+
-
-    .. note:: You can also change the above information in the Account Profiles
-        tab by clicking your display name, then select Settings from the
-        drop-down menu. These changes will be automatically synchronized
-        with details in the Contact information of your profile and vice versa.
-
 +----------------------+-----------------------------------------------------+
 | Avatar               | The representative picture of user. If it is not    |
 |                      | defined, the default avatar is used.                |
@@ -182,13 +177,15 @@ Contact Information
 
 By clicking on the edit icon, an edit drawer is opened.
 
+|PRFL-19|
+
 .. _Change-your-avatar:
 
 **To change your avatar:**
 
 *The first way:*
 
-1. Click on |image18| button then on Change Avatar from the section **Contact Information**.
+1. Click on edit button then mouse over your Avatar from the section **Contact Information**.
 
    |PRFL-4|
 
@@ -200,17 +197,16 @@ By clicking on the edit icon, an edit drawer is opened.
 
 *The second way:*
 
-1. Mouse over your profile avatar, an icon |image21| will appear.
+1. Mouse over your profile avatar, an icon |PRFL-18| will appear.
 
-2. Click on that icon, an ``Update`` button appears |image93|.
+2. Click on this icon, this will prompt you to pick a file from your computer.
 
-3. Click on this icon, this will prompt you to pick a file from your computer.
+3. Double click on the desired image.
 
-4. Double click on the desired image.
-
-5. The profile icon will be automatically changed.
+4. The profile icon will be automatically changed.
 
 .. note:: - This second way is only available in web version. On mobile devices, you should follow the first way to update/edit your profile avatar.
+          - On mobile devices, the edit icon is by default displayed in the first way.
           - Your image will be automatically resized to a specified value to correspond to the image allowed size.
 
 
@@ -244,9 +240,18 @@ By clicking on the edit icon, an edit drawer is opened.
 
 Experiences will be presented in accordions. Your recent experience accordion is opened by default.
 
+|PRFL-15|
+
 To remove your experience, you can simply click on Remove Experience button.
 
+|PRFL-16|
+
     .. note:: After making changes, click **Save** or **Cancel** to respectively save or ignore them.
+
+
+To add a new experience, you can simply click on Add new button in the top Work Experiences drawer, and a new empty experience form is added.
+
+|PRFL-17|
 
 .. _Kudos:
 
@@ -383,11 +388,11 @@ Hover your cursor over the contact name and click Connect button.
 
 :ref:`Access the profile page of the contact <View-Profile-Contacts>` to whom you want to send a connection request, then click Connect button on their profile banner.
 
-|PRFL-14|
+|PRFL-11|
 
     .. note:: The Connect button will become **Cancel Request**.
     
-        |PRFL-15|
+        |PRFL-12|
 
 .. _Revoke-Connection-Request:
 
@@ -416,7 +421,7 @@ Access to the People page and click on **Cancel Request** in the users' card to 
 
 :ref:`Access the profile page of the contact <View-Profile-Contacts>` to whom you sent a connection request, then click **Cancel Request**.
 
-|PRFL-16|
+|PRFL-12|
 
 .. _Accept-Deny-Connection-Request:
 
@@ -1131,6 +1136,25 @@ such as:
 .. |PEOPLE8| image:: images/people/invitations_drawer.png
 .. |PEOPLE9| image:: images/people/accept_revoke_invitation.png
 .. |PEOPLE10| image:: images/people/disconnect_user.png
+.. |PRFL-1| image:: images/profile/profile_sidebar.png
+.. |PRFL-2| image:: images/profile/myprofile.png
+.. |PRFL-3| image:: images/profile/swipe_profile.gif
+.. |PRFL-4| image:: images/profile/change_avatar_contact.png
+.. |PRFL-5| image:: images/profile/weekly_kudos.png
+.. |PRFL-6| image:: images/profile/kudos_drawer.png
+.. |PRFL-7| image:: images/profile/cauris_profile.png
+.. |PRFL-8| image:: images/profile/spaces_drawer.png
+.. |PRFL-9| image:: images/profile/connection_drawer.png
+.. |PRFL-10| image:: images/profile/profile_view.png
+.. |PRFL-11| image:: images/profile/connect_button.png
+.. |PRFL-12| image:: images/profile/cancel_request.png
+.. |PRFL-13| image:: images/profile/accept_deny_connection.png
+.. |PRFL-14| image:: images/profile/aboutme_drawer.png
+.. |PRFL-15| image:: images/profile/experiences_drawer.png
+.. |PRFL-16| image:: images/profile/remove_experience.png
+.. |PRFL-17| image:: images/profile/add_new_experience.png
+.. |PRFL-18| image:: images/profile/edit_avatar.gif
+.. |PRFL-19| image:: images/profile/contact_informations_drawer.png
 .. |image0| image:: images/platform/personal_applications_menu.png
 .. |image1| image:: images/social/select_my_profile.png
 .. |image2| image:: images/social/profile_changes_activities.png
