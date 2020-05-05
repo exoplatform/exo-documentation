@@ -114,7 +114,7 @@ To change the profile banner:
 
 In mobile devices, your profile display is divided on 2 sections: 
 - section 1: About me, Kudos, Coins and Work Experiences
-- section 2: Welcome to my profile, Contact informations and Badges by domains
+- section 2: Welcome to my profile, Contact Informations and Badges by domain
 
 To switch from both sections, you can use the swipe icon.
 
