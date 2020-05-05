@@ -344,7 +344,7 @@ By clicking on a domain, the domain drawer is displayed with :
 .. _View-Profile-Contacts:
 
 
-Viewing profile of other contacts
+Viewing profile of other users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To view all information of a contact, simply click his/her name. You
