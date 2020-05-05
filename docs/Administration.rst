@@ -2,7 +2,7 @@
 
 
 ############################
-Administering eXo Platform
+Administering Meeds
 ############################
 
     This chapter is for administrators only who have the highest right
