@@ -276,7 +276,7 @@ Cauris
 
 Monthly Rewards block displays the number of coins earned through  points and through kudos (the same value we already have in the cumulated Rewards in My Wallet application).
 
-By clicking on the Meeds points, a drawer is opened and displays the cumulated meeds displayed by period of month.
+By clicking on the number, a drawer is opened and displays the cumulated coins per month.
 
 |PRFL-7|
 
