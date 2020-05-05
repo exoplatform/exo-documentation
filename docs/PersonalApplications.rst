@@ -125,7 +125,7 @@ To switch between sections, you can use the swipe icon.
 About Me
 -----------
 
-A brief introduction of yourself with 2000 characters in maximum,
+A brief introduction of yourself (in less than 2000 characters),
 telling people who you are and what you do. If this section is empty, it
 will not be displayed on your profile page.
 
