@@ -113,7 +113,7 @@ To change the profile banner:
 3. The profile banner image will be automatically loaded.
 
 In mobile devices, your profile display is divided on 2 sections: 
-- section 1: About me, , Kudos, Cauris and Work experiences
+- section 1: About me, Kudos, Coins and Work Experiences
 - section 2: Welcome to my profile, Contact informations and Badges by domains
 
 To switch from both sections, you can use the swipe icon.
