@@ -294,7 +294,7 @@ See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
 
 - The widget also displays the total number of spaces that the profile owner is member of.
   A counter of your pending space invitations is displayed in a small badge.
-  Click the badge to display all invitations and easily accept or refuse them, with the list of all spaces that you are, or the user are, member in.
+  Click the badge to display all invitations and easily accept or refuse them.
 
 |PRFL-8|
 
