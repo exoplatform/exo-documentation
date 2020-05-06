@@ -1677,7 +1677,7 @@ In case you exceed the maximum number of characters. the characters counter col
 
 |image241|
 
-If you are typing your message in a space for which you are manager or if you have the rôle redactor or publisher, when you exceed the maximum number of characters, a clickable text "Switch to an article" appears under the ck editor area.
+If you are typing your message in a space for which you are manager or if you have the role redactor or publisher, when you exceed the maximum number of characters, a clickable text "Switch to an article" appears under the editor area.
 When you click on "Switch to an article", a creation form opens in a new tab and the text written in the composer is included in the 'Content' field of the creation form.
 
 |image242|
