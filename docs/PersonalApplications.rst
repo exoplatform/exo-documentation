@@ -339,7 +339,7 @@ A drawer will open displaying your favourite applications alphabetically sorted
 .. note:: When an administrator sets some applications as default, they also appear in your applications
           center drawer.
 
-When you click on an application icon it will open in the same tab of it is an eXo application, otherwise,
+When you click on an application icon it will open in the same tab of it is an eXo Platform, otherwise,
 it will open in a new tab.
 
  .. _Managing-Connections:
