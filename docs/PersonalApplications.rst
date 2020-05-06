@@ -325,7 +325,7 @@ Managing your favourite applications
 =======================================
 
 Starting with eXo Platform 6, you can quickly access your favourite applications 
-through the application center drawer.
+through the Application Center drawer.
 
 To access your favourite applications, you just need to click on this button |AC_image0| from
 the top navigation bar.
