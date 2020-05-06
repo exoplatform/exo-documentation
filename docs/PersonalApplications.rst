@@ -332,7 +332,7 @@ the top navigation bar.
 
 |AC_image1|
 
-A drawer will open displaying your favourite applications alphabetically-organized in ascendant order.
+A drawer will open displaying your favourite applications alphabetically sorted
 
 |AC_image2|
  
