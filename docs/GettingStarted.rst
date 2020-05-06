@@ -1744,7 +1744,7 @@ You just have to set the name for the automatically created folder, and then pre
 
 |image240|
 
-You can delete a folder from the select folder drawer by right clicking on the folder icon then choosing the delete option. You just have to confirm the action from the confirmation popup to delete definetely the selected folder.
+You can delete a folder from the select folder drawer by right clicking on the folder icon then choosing the delete option. You just have to confirm the action from the confirmation popup to delete definitely the selected folder.
 
 |image243|
 
