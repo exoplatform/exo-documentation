@@ -1333,4 +1333,4 @@ such as:
 .. |image103| image:: images/sharenews/shared_comment_notif.png
 .. |AC_image0| image:: images/platform/AppCenter/app_center_btn.png
 .. |AC_image1| image:: images/platform/AppCenter/topbar.png
-.. |AC_image2| image:: images/platform/AppCenter/Apps_drawerbar.png
+.. |AC_image2| image:: images/platform/AppCenter/Apps_drawer.png
