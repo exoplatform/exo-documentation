@@ -1661,16 +1661,24 @@ the link.
 Posting in the activity stream via the New Composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 
-A new way to share in the activity stream is available via a clickable text "Post something to your network" from the home page and "Post something to '$Space Name' " from space's home page.
+A new way to share in the activity stream is available via a clickable text "Post" from the home page and "Post in '$Space Name' " from space's home page.
 
 |image220|
 
 |image238|
 
-
-Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your connections or a space's audience.
+Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 1300 characters and post to your connections or a space's audience.
 
 |image221|
+
+In case you exceed the maximum number of characters, the characters counter colour changes to red and the post button is disabled.
+
+|image241|
+
+If you are typing your message in a space for which you are manager or if you have the role redactor or publisher, when you exceed the maximum number of characters, a clickable text "Switch to an article" appears under the editor area.
+When you click on "Switch to an article", a creation form opens in a new tab and the text written in the composer is included in the 'Content' field of the creation form.
+
+|image242|
 
 
 Posting files in the activity stream
@@ -1734,6 +1742,11 @@ You just have to set the name for the automatically created folder, and then pre
 
 |image240|
 
+You can delete a folder from the select folder drawer by right clicking on the folder icon then choosing the delete option. You just have to confirm the action from the confirmation popup to delete definitely the selected folder.
+
+|image243|
+
+
 Posting links in the activity stream
 -------------------------------------
 
@@ -1760,15 +1773,11 @@ Publishing a news lets you easily write, broadcast  and share communication cont
 Creating and posting a News
 ---------------------------
 
-To create a news article, click "Write an article" located at the bottom of the space's composer. 
-
-|image156|
-
-You can also use the new composer to create an article by clicking on the "Try the new composer" label. In the displayed drawer you just have to click on the option "Write an article".
+To create a news article, you have to click on the space's composer. In the displayed drawer you just have to click on the option "Write an article".
 
 |image228|
 
-In both cases, the creation form is opened in a new tab.
+The creation form is opened in a new tab.
 
 |image159|
 
@@ -2943,7 +2952,6 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_space.png
 .. |image157| image:: images/sharenews/post.png
 .. |image158| image:: images/sharenews/posted_news.png
 .. |image159| image:: images/sharenews/creation_form.png
@@ -3025,3 +3033,6 @@ to display the original timestamp of the comment.
 .. |image238| image:: images/new_composer/new_composer_space.png
 .. |image239| image:: images/new_composer/create_new_folder.png
 .. |image240| image:: images/new_composer/create_new_folder.gif
+.. |image241| image:: images/new_composer/characters_counter.png
+.. |image242| image:: images/new_composer/switch_to_article.gif
+.. |image242| image:: images/new_composer/
