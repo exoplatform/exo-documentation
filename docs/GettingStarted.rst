@@ -1671,8 +1671,6 @@ Once you click on the text, a drawer allowing you to type and post a short messa
 
 |image221|
 
-If you are typing your message in a space and you have the 
-
 In case you exceed the maximum number of characters, the characters counter colour changes to red and the post button is disabled.
 
 |image241|
