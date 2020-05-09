@@ -697,7 +697,6 @@ Allows to enable or disable one or namy notifications channels by switching the 
 
 real-time notifications are displayed in the notification center inside eXo Platform. A bell icon with a ticker indicating the number of unread notifications is updated dynamically eaxh time you receive a notification without
 refreshing your browser.
-the number of unread messages as follows:
 
 |settings5|
 
