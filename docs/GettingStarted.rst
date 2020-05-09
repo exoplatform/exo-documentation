@@ -688,7 +688,7 @@ Allows to enable or disable one or namy notifications channels by switching the 
 -  **Notify me on mobile**: If you choose No option, the functions
    concerning mobile notifications will be hidden.  
 
-.. note:: - A switch button is available to enable or disable the notification type.
+.. note:: - A switch button lets you enable or disable the notification type.
           - A descriptiion is available below every notification type to give more information about the notification type.
 
 .. _On-site:
