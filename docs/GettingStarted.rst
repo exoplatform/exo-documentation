@@ -618,7 +618,7 @@ Settings
 ~~~~~~~~~~
 
 The platform settings allow you to configure various settings for your Digital Workplace experience like: 
-- Choose your language 
+- Choose the language in which you want to view the user interface
 - Choose your timezone
 - Manage your notifications center
 - Set your password
