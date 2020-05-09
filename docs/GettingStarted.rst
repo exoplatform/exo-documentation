@@ -670,7 +670,7 @@ Notifications
 ---------------
 
 eXo Platform provides an extensive notification system which helps you to
-avoid missing anything in your organization. As from eXo Platform 5.1, there
+avoid missing anything in your organization. There
 are 3 notification types that you can use.
 
 |settings4|
