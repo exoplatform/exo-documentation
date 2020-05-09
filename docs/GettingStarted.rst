@@ -700,7 +700,7 @@ refreshing your browser.
 
 |settings5|
 
-When you click the Notification icon, all notifications will be listed in a drawer 
+When you click the Notification icon, all notifications are listed in a drawer 
 starting from the most recent one:
 
 |settings6|
