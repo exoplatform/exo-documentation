@@ -752,7 +752,7 @@ Clicking on it opens directly the concerned activity.
 **Via emails**
 
 
-Besides on-site notifications, you are totally able to keep track of
+Besides on-site and push notifications, you can keep track of
 activities and events via emails. In eXo Platform, it is easy to control your
 own email notifications from a single location in the user settings.
 When this function is enabled, you will receive emails in 2 ways:
