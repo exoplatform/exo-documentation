@@ -325,7 +325,7 @@ you will further learn about the following topics:
    Introduction to widget blocks that come with the Digital Workplace.
 
  * :ref:`Settings <Settings>`
-   Instructions on how to configure the UI language, Timezone, notifications and password of eXo Platform.
+   Instructions on how to configure your UI language, Timezone, notifications and password.
 
 After signing in your account successfully, you are redirected to the
 **Digital Workplace** homepage, the starting point for exploring eXo Platform.
