@@ -652,7 +652,7 @@ instance *English* :
 TimeZone
 -----------
 
-To change the Timezone of eXo Platform used for the Calendar, do as follows:
+To change the Timezone of to be used for events in the eXo Calendar, do as follows:
 
 1. Click on edit Timezone icon.
 
