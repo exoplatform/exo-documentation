@@ -671,7 +671,7 @@ Notifications
 
 eXo Platform provides an extensive notification system which helps you to
 avoid missing anything in your organization. There
-are 3 notification types that you can use.
+is three types of notifications by default
 
 |settings4|
 
