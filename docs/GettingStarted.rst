@@ -689,7 +689,7 @@ Allows to enable or disable one or namy notifications channels by switching the 
    concerning mobile notifications will be hidden.  
 
 .. note:: - A switch button lets you enable or disable the notification type.
-          - A descriptiion is available below every notification type to give more information about the notification type.
+          - A description is available below every notification.
 
 .. _On-site:
 
