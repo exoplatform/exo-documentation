@@ -669,7 +669,7 @@ To change the Timezone of to be used for events in the eXo Calendar, do as follo
 Notifications
 ---------------
 
-eXo Platform provides you a complete notification function which helps you to
+eXo Platform provides an extensive notification system which helps you to
 avoid missing anything in your organization. As from eXo Platform 5.1, there
 are 3 notification types that you can use.
 
