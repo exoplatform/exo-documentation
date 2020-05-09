@@ -324,8 +324,8 @@ you will further learn about the following topics:
  * :ref:`Digital Workplace Widgets <DW-Widgets>`
    Introduction to widget blocks that come with the Digital Workplace.
 
- * :ref:`Changing the UI language <Change-Language>`
-   Instructions on how to change the UI language of eXo Platform.
+ * :ref:`Settings <Settings>`
+   Instructions on how to configure your UI language, Timezone, notifications and password.
 
 After signing in your account successfully, you are redirected to the
 **Digital Workplace** homepage, the starting point for exploring eXo Platform.
@@ -614,21 +614,32 @@ See :ref:`Total rewarded funds <UserWallet>` for more details.
 
 .. _Change-Language:
 
+Settings
+~~~~~~~~~~
+
+The platform settings allow you to configure various settings for your Digital Workplace experience like: 
+- Choose the language in which you want to view the user interface
+- Choose your timezone
+- Manage your notifications center
+- Set your password
+
+|settings1|
+
+.. note:: For Language and Timezone, your already chosen choices are displayed just below their labels.
+
 Changing the UI language
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 To change the language of eXo Platform, do as follows:
 
-1. Click your display name on the top navigation bar, then select Change
-Language from the drop-down menu.
+1. Click on edit Languages icon.
 
-|image55|
+2. A drawer that contains languages that eXo Platform supports. 
 
-2. In the Interface Language Setting form, you will see 23 languages that
-eXo Platform supports. Select your preferred language to display, for
-instance *English*:
+3. Select your preferred language to display, for
+instance *English* :
 
-|image56|
+|settings2|
 
 3. Click Apply to commit your changes.
 
@@ -636,6 +647,200 @@ instance *English*:
         *User's language --> Cookies' language --> Browser's language --> Site's language*
         It means the language set by the user will be at the highest level, and the site's language at the lowest level.
         Accordingly, you should pay attention to this order when selecting your preferred display language.
+
+
+TimeZone
+-----------
+
+To change the Timezone of to be used for events in the eXo Calendar, do as follows:
+
+1. Click on edit Timezone icon.
+
+2. A drawer that contains Timezones that eXo Platform supports. 
+
+3. Select your preferred Timezone to use:
+
+|settings3|
+
+3. Click Apply to commit your changes.
+
+
+
+Notifications
+---------------
+
+eXo Platform provides an extensive notification system which helps you to
+avoid missing anything in your organization. There
+is three types of notifications by default
+
+|settings4|
+
+You can select notification options as desired. In particular:
+
+Allows to enable or disable one or namy notifications channels by switching the button between Yes and No:
+
+-  **Notify me by email**: If you choose No option, the functions 
+   concerning email notification will be hidden.
+
+-  **Notify me on-site**: If you choose No option, the functions 
+   concerning on-site notification will be hidden.
+
+-  **Notify me on mobile**: If you choose No option, the functions
+   concerning mobile notifications will be hidden.  
+
+.. note:: - A switch button lets you enable or disable the notification type.
+          - A description is available below every notification.
+
+.. _On-site:
+
+**On-site**
+
+real-time notifications are displayed in the notification center inside eXo Platform. A bell icon with a ticker indicating the number of unread notifications is updated dynamically eaxh time you receive a notification without
+refreshing your browser.
+
+|settings5|
+
+When you click the Notification icon, all notifications are listed in a drawer 
+starting from the most recent one:
+
+|settings6|
+
+By clicking each notification item, you will be redirected to the
+corresponding activity or any other object that triggered the notification (such a a task, a news, etc.). Click **View All** to see all
+notifications. Besides, the **Mark all as read** function lets you
+change all messages on this menu into the read status. Finally, to
+remove any notification item, simply click the corresponding close arrow |image51|.
+
+.. note:: You can also view all your notifications in the page ``My Notifications`` accessible by clicking on
+          your See all on the bottom notifications drawer :
+
+            |settings7|
+            
+          It is possible to mark all your unread notifications as read simply by cliking on ``Mark all as read`` on the bottom notifications drawer:
+          
+            |settings8|
+            
+.. tip:: When you are not on the platform web page and you receive On-site notifications, 
+         to grab your attention, a number appears in the web browser tab indicating the number of unread
+         notifications.
+         
+         If the platform browser tab is pinned, an indication appears near the favicon to attract 
+         your attention about unread notifications.
+               
+                 |image96|
+ 
+
+.. _mobilePushNotifs:
+
+**Mobile push notifications**
+
+A push notification is a real-time notification that pops up on a mobile
+device (iOS and Android). It is pushed instantly when the action is 
+done.
+
+The push notification displays the same content as the on-site 
+notification. It also displays the eXo Mobile application logo, the 
+site's name (eXo community for example) and the receipt time. 
+Clicking on it opens directly the concerned activity.
+
+|pushNotif1|
+
+.. _Via-emails:
+
+**Via emails**
+
+
+Besides on-site and push notifications, you can keep track of
+activities and events via emails. In eXo Platform, it is easy to control your
+own email notifications from a single location in the user settings.
+When this function is enabled, you will receive emails in 2 ways:
+
+-  A notification email with different content for each event type. For
+   example, for the activity embedding a video, the message will be
+   represented as a thumbnail image of the embedded media, like below:
+
+   |image52|
+
+   By clicking the **Watch the video** link, you will be redirected to
+   the activity stream where you can play the embedded video.
+
+-  A digest email that collects all notifications during a certain
+   period and is sent once per day or per week.
+
+   |image53|
+
+    .. note:: To receive notification and digest emails as well as on-site notifications, your administrator must enable notification plugins first. See :ref:`Notification administration <NotificationAdministration>` for details.
+
+This section shows you how to manage your notifications via the
+**Manage Notifications** view.
+
+Manage Notifications 
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+By clicking on Manage Notifications, a new view is displayed that contains all kinds of notifications that are possible to receive in the 
+digital workplace after a click on the arrow in front of **Manage notifications** label.
+
+|settings9|
+
+
+Every notification is displayed as following: 
+
+- Notification category : Like General, Connections, Spaces, Activity stream, etc...
+- Every notification category can have at least one notification type displayed with description text
+- Activated notifications for the selected notification type 
+- Edit icon to edit the notification type.
+
+|settings10|
+
+   .. note:: If you don't choose any notification, a *No Notification* label is displayed
+  |settings11|
+       
+By clicking on Edit icon of the notification type, a drawer is displayed.
+|settings12|
+
+The drawer contains: 
+
+- The Notification category title in the drawer topbar
+
+- **Notify me by email**: Indicates whether you want to receive email notifications instantly or not.
+
+- **Send me a digest email**: Specifies whether notifications of  selected types are included in the digest emails or not. Three frequencies exist:
+
+    -  *Never*: Not include notifications of the selected types in any digest email.
+
+    -  *Daily*: Includes notifications of the selected types in the 
+       daily digest email.
+
+    -  *Weekly*: Includes notifications of the selected types in the 
+       weekly digest email.
+
+- **Notify me on mobile**: Indicates whether you want to receive push notifications on your mobile or not.       
+
+- **Notify me on site**: Indicates whether you want to receive notifications on-site or not.
+     
+
+You can click Save button to save your new notification settings, or Cancel button to cancel all modification done.
+
+.. note:: You can click on Back button to go back to the Settings page.
+
+Security
+----------
+
+You can change your password on Security view after a click on the arrow in front of Security label.
+
+|settings13|
+
+To change your password you have to : 
+
+1- Input your current password to identify that you are the owner of this account.
+
+2- Input your new password which must have at least 6 characters.
+
+3- Re-enter your password in the **Confirm New Password** field. 
+
+4- Click **Save** button to accept your changes. 
+
+.. note:: You can click on Back button to go back to the Settings page.
 
 	
 .. _PLFHomepage:
@@ -1264,7 +1469,7 @@ corresponding button at the pop-up bottom:
     .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
 
 
-.. _Change-Language:
+.. _Settings:
 
 Changing the UI language
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1356,31 +1561,6 @@ Changing your profile information
 3- Click Save button to submit your changes. 
 
 .. note:: The email address changed must be in the valid format. See details about the Email Address format here.
-
-.. _Change-password:
-
-Changing your password
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1- Select the **Change Password** tab. 
-
-|image23|
-
-2- Input your current password to identify that you are the owner of this account.
-
-3- Input your new password which must have at least 6 characters.
-
-4- Re-enter your password in the **Confirm New Password** field. 
-
-5- Click **Save** button to accept your changes. 
-
-.. note:: The users who just did their login via the social networks will not have a password defined. 
-			They should be able to reset a password via their Account Settings or via the Forgot Password feature or ask the administrator to set it (in the Manage Community page). 
-			Once the password is set, the user can either log in via the login/password or via the social networks.
-
-When the reset password link is clicked:
-- An information message is displayed: Reset password guidelines have been sent to you. Please check your mailbox.
-- The **Forgot Password** function is executed, and the users receive an email to guide them to change their account password.
 
 .. _Managing-social-networks:
 
@@ -2792,6 +2972,19 @@ to display the original timestamp of the comment.
 .. |DW-7| image:: images/dw/Whos_Online.png 
 .. |DW-8| image:: images/dw/Perkstore.png 
 .. |DW-9| image:: images/dw/Wallet.png 
+.. |settings1| image:: images/settings/settingsview.png 
+.. |settings2| image:: images/settings/languagedrawer.png 
+.. |settings3| image:: images/settings/timezonedrawer.png 
+.. |settings4| image:: images/settings/notifications.png 
+.. |settings5| image:: images/settings/topbarnotification.png 
+.. |settings6| image:: images/settings/notificationasdrawer.png 
+.. |settings7| image:: images/settings/seeall.png  
+.. |settings8| image:: images/settings/markallasread.png 
+.. |settings9| image:: images/settings/managenotificationsview.png 
+.. |settings10| image:: images/settings/notificationdisplay.png
+.. |settings11| image:: images/settings/nonotifications.png  
+.. |settings12| image:: images/settings/notificationdrawer.png 
+.. |settings13| image:: images/settings/security.png  
 .. |image0| image:: images/platform/top_navigation_bar.png 
 .. |image1| image:: images/platform/Unlock-termsentskin.jpg
 .. |image2| image:: images/platform/Unlock-ACCOUNTSETUP.jpg
