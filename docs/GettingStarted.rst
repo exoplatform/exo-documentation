@@ -706,7 +706,7 @@ starting from the most recent one:
 |settings6|
 
 By clicking each notification item, you will be redirected to the
-corresponding activity stream or you can select **View All** to see all
+corresponding activity or any other object that triggered the notification (such a a task, a news, etc.). Click **View All** to see all
 notifications. Besides, the **Mark all as read** function allows you to
 change all messages on this menu into the read status. Finally, to
 remove any notification item, simply click the corresponding |image51|.
