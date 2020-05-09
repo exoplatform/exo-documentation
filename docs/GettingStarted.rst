@@ -779,7 +779,7 @@ This section shows you how to manage your notifications via the
 Manage Notifications 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-By clicking on Manage Notifications, a new view is displayed that contains all notification you have in the 
+By clicking on Manage Notifications, a new view is displayed that contains all kinds of notifications that are possible to receive in the 
 digital workplace after a click on the arrow in front of **Manage notifications** label.
 
 |settings9|
