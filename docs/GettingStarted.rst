@@ -709,7 +709,7 @@ By clicking each notification item, you will be redirected to the
 corresponding activity or any other object that triggered the notification (such a a task, a news, etc.). Click **View All** to see all
 notifications. Besides, the **Mark all as read** function lets you
 change all messages on this menu into the read status. Finally, to
-remove any notification item, simply click the corresponding |image51|.
+remove any notification item, simply click the corresponding close arrow |image51|.
 
 .. note:: You can also view all your notifications in the page ``My Notifications`` accessible by clicking on
           your See all on the bottom notifications drawer :
