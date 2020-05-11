@@ -271,7 +271,7 @@ All Kudos in the drawer are clickable and open, in a new browser tab, the sourc
 
 .. _Coins:
 
-Cauris
+Coins
 --------
 
 Monthly Rewards block displays the number of coins earned through  points and through kudos (the same value we already have in the cumulated Rewards in My Wallet application).
