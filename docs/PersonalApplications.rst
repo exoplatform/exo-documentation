@@ -246,7 +246,7 @@ To remove an experience, you can simply click on Remove Experience button.
 
 |PRFL-16|
 
-    .. note:: After making changes, click **Save** or **Cancel** to respectively save or ignore them.
+    .. note:: After making changes, make sure you click **Save** to update your profile or **Cancel** to dismiss the changes.
 
 
 To add a new experience, you can simply click on Add new button in the top Work Experiences drawer, and a new empty experience form is added.
