@@ -347,7 +347,7 @@ By clicking on a domain, the domain drawer is displayed with :
 Viewing profile of other users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To view all information of a contact, simply click his/her name. You
+To view all information of a contact, simply click their name. You
 will be redirected to his/her profile page.
 
 |PRFL-10|
