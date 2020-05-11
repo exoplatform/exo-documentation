@@ -93,10 +93,10 @@ Example:
 
 
 The chapter `Configuration reference <LDAP.ConfigurationReference>`__ lists all of available parameters.
-Please refer to this list to check defaults values of these parameters 
+Please refer to this list to check default values of these parameters 
 and define them in the ``exo.properties`` file to adapt them to your directory characteristics.
 
-Once the parameters are set, the eXo Platform can be started and users and groups will be imported.
+Once the parameters are set, the eXo Platform can be started. Users and groups will be then imported.
 
 .. _LDAP.ConfigurationReference:
 
