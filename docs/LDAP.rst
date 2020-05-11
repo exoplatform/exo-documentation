@@ -93,10 +93,10 @@ Example:
 
 
 The chapter `Configuration reference <LDAP.ConfigurationReference>`__ lists all of available parameters.
-Please refer to this list to check default values of these parameters 
+Please refer to this list to check defaults values of these parameters 
 and define them in the ``exo.properties`` file to adapt them to your directory characteristics.
 
-Once the parameters are set, the eXo Platform can be started. Users and groups will be then imported.
+Once the parameters are set, the eXo Platform can be started and users and groups will be imported.
 
 .. _LDAP.ConfigurationReference:
 
@@ -224,7 +224,7 @@ Synchronization configuration
 =============================
 
 The LDAP integration uses jobs to synchronize periodically the eXo internal database with the data modified in the LDAP.
-The periodicy of these jobs can be changed in ``exo.properties`` thanks to the following properties:
+The periodicity of these jobs can be changed in the ``exo.properties`` file thanks to the following properties:
 
 .. code-block:: jproperties
 
@@ -241,7 +241,7 @@ The periodicy of these jobs can be changed in ``exo.properties`` thanks to the f
     # (Default value = every minute)
     exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
 
-By default, user data are synced with the LDAP when the user signs in. This can be disabled by modifying this property:
+By default, user data are synchronized with the LDAP when he/she signs in. This can be disabled by modifying this property:
 
 .. code-block:: jproperties
 
