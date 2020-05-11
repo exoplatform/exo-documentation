@@ -242,7 +242,7 @@ Experiences will be presented in accordions. Your recent experience accordion is
 
 |PRFL-15|
 
-To remove your experience, you can simply click on Remove Experience button.
+To remove an experience, you can simply click on Remove Experience button.
 
 |PRFL-16|
 
