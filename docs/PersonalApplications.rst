@@ -133,7 +133,7 @@ By clicking on the edit icon, an edit drawer is opened with a composer.
 
 |PRFL-14|
 
-    .. note:: A character counter is displayed to help you to avoid exceeding the characters limit. If exceeded, The **Save** button will be disabled.
+    .. note:: A character counter displays the number of characters entered in the About me. If you exceed the maximum allowed (200 characters), the  **Save** button will be disabled until the text is reduced within the limit.
 
 .. _Contact-info:
 
