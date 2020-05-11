@@ -348,7 +348,7 @@ Viewing profile of other users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To view all information of a contact, simply click their name. You
-will be redirected to his/her profile page.
+will be redirected to their profile page.
 
 |PRFL-10|
 
