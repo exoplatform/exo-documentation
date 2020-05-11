@@ -336,7 +336,7 @@ By clicking on a domain, the domain drawer is displayed with :
 
 - all badges are presented by their avatar, badge name, badge points and gain timestamp 
 
-    .. note:: - The first badge is always the next badge to gain in grey color 
+    .. note:: - The first badge is always the next badge to obtain in grey color 
               - the second line in the timeline is your avatar with your current points on this selected domain. 
               - From the second line, it displays the full list of earned badges sorted by last to first
 
