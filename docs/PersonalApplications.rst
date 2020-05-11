@@ -285,7 +285,7 @@ By clicking on the number, a drawer is opened and displays the cumulated coins p
 Welcome To My Profile
 -----------------------
 
-The welcome To My Profile widget is an block that welcomes you, and your collaborators, with some information about your spaces, connections, 
+The **welcome To My Profile** widget is an block that welcomes you, and your collaborators, with some information about your spaces, connections, 
 the points you earned and the rank you reached this week.
 See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
