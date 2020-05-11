@@ -287,7 +287,7 @@ Welcome To My Profile
 
 The welcome To My Profile widget is an block that welcomes you, and your collaborators, with some information about your spaces, connections, 
 the points you earned and the rank you reached this week.
-See :ref:`Leaderboard <Leaderboard>` in Gamification for more details.
+See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
 
 - You can see your profile picture and your name just after the welcome To My Profile label.
