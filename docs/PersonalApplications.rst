@@ -298,7 +298,7 @@ See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
 |PRFL-8|
 
-    .. note:: - When you don't have any space invitation, the badge is hidden, and the drawer will display only the spaces list.
+    .. note:: - When you don't have any space invitation, the badge is hidden, and the drawer will display only the space list.
    
 - This widget also reminds you the size of your social network by displaying your, or the user's, current number of Connections.
   When you have some pending  connection requests, a small badge displays a requests counter.
