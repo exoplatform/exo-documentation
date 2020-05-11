@@ -308,7 +308,7 @@ See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
 |PRFL-9|
 
-- - You can see the points you, or the user's, earned this week and by clicking on your points, you can see a pie chart 
+- - You can see the points you (or the profile's owner), have earned this week. By clicking on your points, you can see a pie chart 
   that reveals their distribution by domain.
 
 - You can also see your rank for this week and by clicking on your rank, you can see a leaderboard  
