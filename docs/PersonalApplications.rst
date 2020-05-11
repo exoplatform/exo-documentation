@@ -300,7 +300,7 @@ See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
     .. note:: - When you don't have any space invitation, the badge is hidden, and the drawer will display only the space list.
    
-- This widget also reminds you the size of your social network by displaying your, or the user's, current number of Connections.
+- This widget also reminds you the size of your (or the profile owner's) social network by displaying your, that is, the current number of Connections.
   When you have some pending  connection requests, a small badge displays a requests counter.
   Click the badge to display the list of pending requests and accept or refuse them, with the list of all your, or the user's, connections.
 
