@@ -269,7 +269,7 @@ By clicking on Received or Sent Kudos number, a drawer is opened that displays t
 All Kudos in the drawer are clickable and open, in a new browser tab, the source activity where the Kudos was sent or received.
 
 
-.. _Cauris:
+.. _Coins:
 
 Cauris
 --------
