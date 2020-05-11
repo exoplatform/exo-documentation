@@ -21,10 +21,262 @@ plug to a directory.
 This chapter covers the following topics:
 
     -  :ref:`Introduction <LDAP.Introduction>`
-       An introduction about directory server integration basics.
+       An introduction about directory server integration.
 
     -  :ref:`Quick start <LDAP.QuickStart>`
-       A step by step tutorial for eXo Platform configuration with a directory server.
+       A quick start for eXo Platform configuration with a directory server.
+
+    -  :ref:`Configuration reference <LDAP.ConfigurationReference>`
+       A reference guide of all available configuration parameters.
+
+    -  :ref:`Synchronization Configuration <LDAP.SynchronizationConfiguration>`
+       A guide of all available configuration parameters for directory synchronization.
+
+    -  :ref:`Advanced configuration <LDAP.AdvancedConfiguration>`
+       A guide about advanced configuration using PicketLink IDM configuration.
+
+    -  :ref:`Frequently asked questions <LDAP.FAQ>`
+       How to resolve some possible issues of a directory integration.
+
+.. _LDAP.Introduction:
+
+============
+Introduction
+============
+
+eXo Platform can be plugged to a directory server to use its users, groups and memberships:
+
+-  the directory can be plugged in read-only mode only
+
+-  the directory can contain users and groups, or only users
+
+-  the supported directory implementations are: OpenLDAP and Microsoft Active Directory. You can refer to our official 
+   `supported environments <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__ matrix for more 
+   details about the supported versions. 
+
+The term "Directory users" represents users who are created in the directory by its utilities.
+The term "Platform users" represents users who are created via eXo Platform UI.
+The understanding is similar for "Directory groups" and "Platform group*".
+
+
+.. _LDAP.QuickStart:
+
+============
+Quick Start
+============
+
+eXo Platform provides a set of configuration parameters to define the directory integration.
+These parameters allow to cover most of the directory types and structures.
+For more complex or specific directories structures, please refer to the chapter `Advanced configuration <LDAP.AdvancedConfiguration>`__.
+
+The parameters must be defined in the ``exo.properties`` file.
+The minimal set of parameters to define is:
+
+ -  **exo.ldap.type** - defines the type of directory. Must be ``ad`` for Microsoft Active Directory or ``ldap`` for any other LDAP directory.
+ -  **exo.ldap.url** - defines the URL to connect to the directory.
+ -  **exo.ldap.admin.dn** - defines the full DN of the admin user used to fetch data.
+ -  **exo.ldap.admin.password** - defines the password of the admin user used to fetch data.
+ -  **exo.ldap.users.base.dn** - defines the base DN of the users. Multiple DNs can be provided by separating them by semicolons.
+ -  **exo.ldap.groups.base.dn** - (optional, required only if directory groups must be used) defines the base DN of the groups. Multiple DNs can be provided by separating them by semicolons.
+
+
+Example:
+
+   .. code:: properties
+
+       exo.ldap.type=ldap
+       exo.ldap.url=ldap://my-ldap-server-host:389
+       exo.ldap.admin.dn=cn=admin,dc=company,dc=com
+       exo.ldap.admin.password=123456
+       exo.ldap.users.base.dn=ou=users1,dc=company,dc=com;ou=users2,dc=company,dc=com
+       exo.ldap.groups.base.dn=ou=groups,dc=company,dc=com
+
+
+The chapter `Configuration reference <LDAP.ConfigurationReference>`__ lists all of available parameters.
+Please refer to this list to check defaults values of these parameters 
+and define them in the ``exo.properties`` file to adapt them to your directory characteristics.
+
+Once the parameters are set, the eXo Platform can be started and users and groups will be imported.
+
+.. _LDAP.ConfigurationReference:
+
+=======================
+Configuration reference
+=======================
+
+Here is the list of all available configuration properties for directory integration to define in ``exo.properties``:
+
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | Name                                           | Description                                             | Value                     | Default                            | Example                    |
+   +================================================+=========================================================+===========================+====================================+============================+
+   | exo.ldap.type                                  | Type of LDAP server                                     | ``ldap``, ``ad`` or empty | Empty (no LDAP/AD integration)     | cn                         |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.url                                   | URL to the LDAP/AD server                               | URL                       | http://localhost:389               | ldap://my-ldap-server:389  |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.admin.dn                              | Full DN of the admin user                               | String                    | cn=admin                           | cn=admin,dc=company,dc=com |
+   |                                                | used to fetch data                                      |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.admin.password                        | Password of the admin user                              | String                    | Empty                              |                            |
+   |                                                | used to fetch data                                      | String                    | Empty                              |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.connection.pool                       | Is connection pooling used ?                            | ``true`` or ``false``     | ``true``                           |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.connection.pool.authentication        | List of space-separated authentication                  | ``none``, ``simple``      | ``none simple``                    |                            |
+   |                                                | types of connections that may be pooled,                | and ``DIGEST-MD5``        |                                    |                            |
+   |                                                | alias for com.sun.jndi.ldap.connect.pool.authentication |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.connection.pool.maxsize               | Maximum number of connections per connection            | Any positive number       | 300000                             |                            |
+   |                                                | identity that can be maintained concurrently,           |                           |                                    |                            |
+   |                                                | alias for com.sun.jndi.ldap.connect.pool.maxsize        |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.connection.pool.timeout               | Number of milliseconds that an idle connection          | Any non negative number   |                                    |                            |
+   |                                                | may remain in the pool without being closed             |                           |                                    |                            |
+   |                                                | and removed from the pool,                              |                           |                                    |                            |
+   |                                                | alias for com.sun.jndi.ldap.connect.pool.timeout        |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.connection.pool.protocol              | List of space-separated protocol types of               | ``plain`` and/or ``ssl``  | ``plain ssl``                      |                            |
+   |                                                | connections that may be pooled,                         |                           |                                    |                            |
+   |                                                | alias for com.sun.jndi.ldap.connect.pool.protocol       |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.search.timelimit                      | Number of milliseconds that a search may last           | Any positive number       | 10000                              |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.base.dn                         | Semicolon-separated list of full DNs                    |                           | ``ou=users,dc=company,dc=org``     |                            |
+   |                                                | of the objects containing the users.                    |                           |                                    |                            |
+   |                                                | An empty value means users are not synchronized.        |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.id.attributeName                | Attribute used to authentified the users                |                           | ``uid`` for LDAP                   |                            |
+   |                                                |                                                         |                           | and ``sAMAccountName`` for AD      |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.password.attributeName          | Attribute used for password for users authentication    |                           | ``userPassword`` for LDAP          |                            |
+   |                                                |                                                         |                           | and ``unicodePwd`` for AD          |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.filter                          | Filter used to fetch the users                          |                           | ``(&(uid={0})(objectClass=User))`` |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.attributes.                     | Mapping of the mandatory users                          |                           | ``cn`` for LDAP and ``givenName``  |                            |
+   | {firstName|lastName|email}.mapping             | attributes (firstName, lastName and email)              |                           | for AD for firstName, ``sn`` for   |                            |
+   |                                                |                                                         |                           | lastName and ``mail`` for email    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.attributes.custom.names         | Comma-separated list of custom users                    |                           | Empty                              |                            |
+   |                                                | attributes (for example ``department,city``)            |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.attributes.{name}.mapping       | Mapping of the custom user attribute                    |                           | Name of the custom attribute       |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.attributes.{name}.type          | Type of the custom user attribute                       | ``text`` or ``binary``    | ``text``                           |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.attributes.{name}.isRequired    | Is the attribute required                               | ``true`` or ``false``     | ``false``                          |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.attributes.{name}.isMultivalued | Is the attribute multi-valued                           | ``true`` or ``false``     | ``false``                          |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.users.search.scope                    | Scope of the search for users                           | ``base``, ``one``         | ``subtree``                        |                            |
+   |                                                |                                                         | or ``subtree``            |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.base.dn                        | Semicolon-separated list of full DNs                    | ``true`` or ``false``     | ``ou=groups,dc=company,dc=org``    |                            |
+   |                                                | of the objects containing the groups.                   |                           |                                    |                            |
+   |                                                | An empty value means groups are not synchronized.       |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.id                             | Attribute used to authenticate the groups               |                           | ``cn``                             |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.filter                         | Filter used to fetch the groups                         |                           | ``(&(cn={0})(objectClass=Group))`` |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.attributes.custom.names        | Comma-separated list of custom groups                   |                           | Empty                              |                            |
+   |                                                | attributes (for example ``description,city``)           |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.attributes.{name}.mapping      | Mapping of the custom group attribute                   |                           | Name of the custom attribute       |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.attributes.{name}.mapping      | Mapping of the custom group attribute                   |                           | Name of the custom attribute       |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.attributes.{name}.type         | Type of the custom group attribute                      | ``text`` or ``binary``    | ``text``                           |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.attributes.{name}.isRequired   | Is the attribute required                               | ``true`` or ``false``     | ``false``                          |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.attributes.{name}.isMultivalued| Is the attribute multi-valued                           | ``true`` or ``false``     | ``false``                          |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.search.scope                   | Scope of the search for groups                          | ``base``, ``one``         | ``subtree``                        |                            |
+   |                                                |                                                         | or ``subtree``            |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.parentMembershipAttributeName  | LDAP attribute that defines children of IdentityObject. |                           | ``member``                         |                            |
+   |                                                | Used to retrieved relationships from                    |                           |                                    |                            |
+   |                                                | IdentityObject entry. Option is required if             |                           |                                    |                            |
+   |                                                | IdentityObject can be part of relationship.             |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.isParentMembershipAttributeDN  | Defines if values of attribute defined in               | ``true`` or ``false``     | ``true``                           |                            |
+   |                                                | parentMembershipAttributeName are fully qualified       |                           |                                    |                            |
+   |                                                | LDAP DNs.                                               |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.childMembershipAttributeName   | LDAP attribute that defines parents of IdentityObject.  | ``true`` or ``false``     | ``true``                           |                            |
+   |                                                | Used to retrieved relationships from                    |                           |                                    |                            |
+   |                                                | IdentityObject entry. Good example of such attribute    |                           |                                    |                            |
+   |                                                | in LDAP schema is ``memberOf``.                         |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.childMembershipAttributeDN     | Defines if values of attribute defined in               | ``true`` or ``false``     | ``false``                          |                            |
+   |                                                | childMembershipAttributeName are fully qualified        |                           |                                    |                            |
+   |                                                | LDAP DNs.                                               |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+   | exo.ldap.groups.rootGroup                      | Root group to bind LDAP/AD groups, all LDAP/AD groups   | Any group id, ending      | ``/platform/*``                    |                            |
+   |                                                | will be available under this group. It must end         | with ``/``                |                                    |                            |
+   |                                                | with ``/``. Root group ("/") cannot be used.            |                           |                                    |                            |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+----------------------------+
+ 
+.. _LDAP.SynchronizationConfiguration:
+
+=============================
+Synchronization configuration
+=============================
+
+The LDAP integration uses jobs to synchronize periodically the eXo internal database with the data modified in the LDAP.
+The periodicy of these jobs can be changed in ``exo.properties`` thanks to the following properties:
+
+.. code-block:: jproperties
+
+    # Cron expression used to schedule the job that will import periodically data
+    # from external store
+    # (Default value = every ten minutes)
+    exo.idm.externalStore.import.cronExpression=0 */10 * ? * *
+    # Cron expression used to schedule the job that will delete periodically data
+    # from internal store that has been deleted from external store
+    # (Default value = every day at 23:59 PM)
+    exo.idm.externalStore.delete.cronExpression=0 59 23 ? * *
+    # Cron expression used to schedule the job that will process periodically data
+    # injected in queue
+    # (Default value = every minute)
+    exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
+
+By default, user data are synced with the LDAP when the user signs in. This can be disabled by modifying this property:
+
+.. code-block:: jproperties
+
+    # if true, update user data on login time and only when information change
+    # on external store (Default: true)
+    exo.idm.externalStore.update.onlogin=true
+
+The user data sync tasks (one per user) are executed asynchronously via a queue.
+If a sync task fails, it can be retried.
+The maximum number of sync retries before the task is abandoned in error can be configured by changing the following property:
+
+.. code-block:: jproperties
+
+    # Max retries to process Data synchronization from queue
+    exo.idm.externalStore.queue.processing.error.retries.max=5
+
+
+.. _LDAP.AdvancedConfiguration:
+
+======================
+Advanced configuration
+======================
+
+If configuration properties described in the previous chapters are not sufficient, eXo Platform allows to configure directory integration even more finely.
+eXo Platform uses `PicketLink IDM framework <http://picketlink.org/>`__ that allows a very flexible integration with a directory server.
+The PicketLink configuration can be directly updated.
+
+The following section is a step-by-step tutorial to integrate eXo Platform with a directory server using Picketink configuration.
+
+If you want to know more about PicketLink IDM configuration, you can refer to the official documentation of PicketLink.
+
+This chapter covers the following topics:
+
+    -  :ref:`Quick start <LDAP.PicketLinkQuickStart>`
+       A step by step tutorial for eXo Platform configuration with a directory server using PicketLink.
    
     -  :ref:`How to map multiple DNs for users? <LDAP.MapDNsUsers>`
        A step by step tutorial to map multiple DNs for users from your directory to eXo Platform.
@@ -41,40 +293,14 @@ This chapter covers the following topics:
     -  :ref:`How to map directory groups to a new eXo Platform group? <LDAP.NewPLFGroups>`
        A tutorial allowing to map your directory groups to new eXo platform groups.
 
-    -  :ref:`Configuration reference <LDAP.ConfigurationReference>`
+    -  :ref:`Configuration reference <LDAP.AdvancedConfigurationReference>`
        A reference guide about PicketLink IDM configuration and eXO Platform configuration.
 
-    -  :ref:`Frequently asked questions <LDAP.FAQ>`
-       How to resolve some possible issues of a directory integration.
 
-.. _LDAP.Introduction:
+.. _LDAP.PicketLinkQuickStart:
 
-=============
-Introduction
-=============
-
-eXo Platform uses `PicketLink IDM framework <http://picketlink.org/>`__ 
-that allows a very flexible integration with a directory server:
-
--  It can be plugged to an already populated directory, in read-only mode. The directory can contain users and groups, or only users.
-  
--  Structure of users and groups in the directory can be finely customized.
-
--  The supported directory implementations are: OpenLDAP and Microsoft Active Directory. You can refer to our official 
-   `supported environments <https://www.exoplatform.com/terms-conditions/supported-environments.pdf>`__ matrix for more 
-   details about the supported versions. 
-
-The term "Directory users" represents users who are created in the directory by its utilities. The term "Platform users" represents users who are created via eXo Platform UI. The understanding is similar for "Directory groups" and "Platform group*".
-
-The following section is a step-by-step tutorial to integrate eXo Platform with a directory server.
-
-If you want to know more about PicketLink IDM configuration, you can refer to the official documentation of PicketLink.
-
-.. _LDAP.QuickStart:
-
-============
-Quick start
-============
+PicketLink Quick start
+----------------------
 
 Through this tutorial, you will be able to integrate eXo Platform with a populated directory server.
 We suppose that your directory server has a structure similar to the following one:
@@ -137,12 +363,11 @@ that you can adapt by following the following sections.
 
 4. Copy content from one of PicketLink sample files to your ``picketlink-idm-ldap-config.xml``  file.
 
-.. note:: The sample files can be found in,``portal.war!/WEB-INF/conf/organization/picketlink-idm/examples``.
+.. note:: The sample files can be found in,``portal.war!/WEB-INF/conf/organization/picketlink-idm``.
           Choose either of the following files:
 
 			-  ``picketlink-idm-msad-config.xml`` if you use MS Active Directory.
-			-  ``picketlink-idm-openldap-config.xml`` for OpenLDAP.
-			-  ``picketlink-idm-ldap-config.xml`` for other LDAP compliant directories.
+			-  ``picketlink-idm-ldap-config.xml`` for OpenLDAP and other LDAP compliant directories.
 
 
 5. Modify the ``picketlink-idm-ldap-config.xml`` file according to your directory setup. Most of the time,  
@@ -166,7 +391,7 @@ that you can adapt by following the following sections.
 
       keytool -import -file  certificate -keystore truststore
 
-   ii. Edit the following parameters in the ``picketlink-idm-ldap-config.xml``file:
+   ii. Edit the following parameters in the ``picketlink-idm-ldap-config.xml`` file:
 
        -  providerURL: Should use SSL (ldaps://).
        -  customSystemProperties: Give your truststore file path and password.
@@ -177,7 +402,7 @@ that you can adapt by following the following sections.
                  <value>javax.net.ssl.trustStore=/path/to/msad.truststore</value>
                  <value>javax.net.ssl.trustStorePassword=password</value>
 
-7. Uncomment the following entries in the ``idm-configuration.xml``  file:
+7. Add the following entries in the ``idm-configuration.xml`` file:
 
    -  groupTypeMappings
 
@@ -215,8 +440,7 @@ that you can adapt by following the following sections.
 
 .. _LDAP.QuickStart.PackagingDeploying:
 
-Packaging and deploying
--------------------------
+1. **Packaging and deploying**
 
 The extension folder must be packaged into ``ldap-extension.war`` then copied to ``$PLATFORM_TOMCAT_HOME/webapps``.
 
@@ -241,17 +465,15 @@ You can use the JDK built-in tool **jar**, as follows:
 
 .. _LDAP.QuickStart.Testing:         
 
-Testing
---------
+2. **Testing**
 
 If the integration was successful, the directory users and groups will appear in eXo Platform under the menu 
 **Administration --> Users --> Manage Users**.
 
 .. _LDAP.MapDNsUsers:
 
-===================================
 How to map multiple DNs for users?
-===================================
+-----------------------------------
 
 eXo Platform allows to map users dispatched in multiple directory DNs, like this:
 
@@ -277,9 +499,8 @@ Since only one type of user can be defined, all users of these DNs must share th
 
 .. _LDAP.MandatoryUserAttributes:
 
-===========================================================
 How to change default mandatory users attributes mapping?
-===========================================================
+---------------------------------------------------------
 
 There are five attributes that **should always be mapped** (because they are mandatory in eXo Platform):
 
@@ -348,9 +569,8 @@ You can update them in the file picketlink-idm-ldap-config.xml to match your spe
 
 .. _LDAP.AdditionalUserAttributes:
 
-========================================
 How to map additional user attributes?
-========================================
+--------------------------------------
 
 As described in the previous section, by default, only 5 attributes are mapped from a directory user to an eXo Platform user. 
 Additional user attributes can be mapped by configuration by adding new ``attribute`` element in the ``attributes`` section of 
@@ -390,9 +610,8 @@ These attributes can be retrieved in the Portal User Profile with the Java API:
 			   
 .. _LDAP.MultipleDNsGroups:
 
-========================================
 How to map multiple DNs for groups?
-========================================	   
+-----------------------------------	   
 			   
 As in previous sections, we assume that you already have a populated directory and some groups that should be mapped into eXo Platform. 
 
@@ -421,9 +640,8 @@ follow these steps:
 			 
 .. _LDAP.NewPLFGroups:
 
-==========================================================
 How to map directory groups to a new eXo Platform group?
-==========================================================				 
+--------------------------------------------------------				 
 			
 In the :ref:`Quick start chapter <LDAP.QuickStart>` we map the directory groups to default eXo Platform groups 
 ``/platform`` and ``/organization``. In this chapter we will learn how to map  directory groups into a new eXo Platform group. 
@@ -569,58 +787,18 @@ Then this new object type must be referenced in the PortalRepository repository:
 				</component>
 				
 				
-.. _LDAP.ConfigurationReference:
+.. _LDAP.AdvancedConfigurationReference:
 
-=========================
-Configuration reference
-=========================
+Advanced Configuration reference
+--------------------------------
 
 This section is a complete description of the available configuration options. 
 It lists the options of both eXo configuration and PicketLink configuration.
 
-.. _Ref_properties:
-
-Properties configuration
-------------------
-
-The LDAP integration uses jobs to synchronize periodically the eXo internal database with the data modified in the LDAP.
-The list of properties related to LDAP integration that you can use in ``exo.properties`` are:
-
-.. code-block:: jproperties
-
-    # Cron expression used to schedule the job that will import periodically data
-    # from external store
-    # (Default value = every ten minutes)
-    exo.idm.externalStore.import.cronExpression=0 */10 * ? * *
-    # Cron expression used to schedule the job that will delete periodically data
-    # from internal store that has been deleted from external store
-    # (Default value = every day at 23:59 PM)
-    exo.idm.externalStore.delete.cronExpression=0 59 23 ? * *
-    # Cron expression used to schedule the job that will process periodically data
-    # injected in queue
-    # (Default value = every minute)
-    exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
-
-By default, user data are synced with the LDAP when the user signs in. This can be disabled by modifying this property:
-
-.. code-block:: jproperties
-
-    # if true, update user data on login time and only when information change
-    # on external store (Default: true)
-    exo.idm.externalStore.update.onlogin=true
-
-The user data sync tasks (one per user) are executed asynchronously via a queue. If a sync task fails, it can be retried. The maximum number of sync retries before the task is abandoned in error can be configured by changing the following property:
-
-.. code-block:: jproperties
-
-    # Max retries to process Data synchronization from queue
-    exo.idm.externalStore.queue.processing.error.retries.max=5
-
-
 .. _Ref_eXoConfiguration:
 
 eXo configuration
-------------------
+~~~~~~~~~~~~~~~~~
 
 The eXo configuration related to PicketLink integration is defined in these 2 services:
 
@@ -634,7 +812,7 @@ in the file ``idm-configuration.xml`` as described in the :ref:`Quick Start sect
 .. _Ref_eXoConfiguration_PicketLinkIDMServiceImpl:
 
 PicketLinkIDMServiceImpl service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+********************************
 
 This service has the following parameters:
 
@@ -687,7 +865,7 @@ This service has the following parameters:
 .. _Ref_eXoConfiguration_PicketLinkIDMOrganizationServiceImpl:
 
 PicketLinkIDMOrganizationServiceImpl service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+********************************************
 
 This service has the following parameters defined as fields of ``object-param`` 
 of type ``org.exoplatform.services.organization.idm.Config``:
@@ -735,7 +913,7 @@ of type ``org.exoplatform.services.organization.idm.Config``:
 .. _Ref_PicketlinkIDMConfiguration:
 
 PicketLink IDM configuration file
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Let's see the ``picketlink-idm-ldap-config.xml`` structure:
 
@@ -802,7 +980,7 @@ The structure is re-drawn as follows:
 .. _PicketlinkIDM_Directory_connection:
 
 The directory connection
-~~~~~~~~~~~~~~~~~~~~~~~~~
+************************
 
 The directory connection (URL and credentials) is Store configuration. It is provided in the *PortalLDAPStore*:
 
@@ -831,7 +1009,7 @@ The directory connection (URL and credentials) is Store configuration. It is pro
 .. _PicketlinkIDM_ReadOnly_mode:
 
 Read-only mode
-~~~~~~~~~~~~~~~
+**************
 
 .. note:: It is the only supported mode.
 
@@ -857,7 +1035,7 @@ You should ensure to enable the read-only mode by setting the option to true:
 .. _PicketlinkIDM_Search_scope:
 
 Search scope (entrySearchScope option)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**************************************
 
 The *entrySearchScope* option can be placed in identity object type, 
 like this:
@@ -902,7 +1080,7 @@ Assume you are mapping the LDAP users in the tree above, using the ctxDNs
 .. _PicketlinkIDM_User_attributes:
 
 Platform user attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+************************
 
 The list of Platform user attribute names (the asterisk (\*) marks a
 mandatory attribute):
@@ -977,10 +1155,10 @@ mandatory attribute):
 | *user.business-info.online.uri*                 | business page                       |
 +-------------------------------------------------+-------------------------------------+
 
-.. _PicketlinkIDM_Search_scope:
+.. _PicketlinkIDM_OpenLDAP:
 
 Placeholder - A note for OpenLDAP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*********************************
 
 Ruled by OpenLDAP default *core* schema, the *member* attribute is a MUST attribute of *groupOfNames* objectClass:
 
@@ -1013,8 +1191,7 @@ Frequently asked questions
 
 .. _LDAP.FAQ.Q1:
 
-Q1- How does Directory get ready for integration?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Q1- How does Directory get ready for integration?**
 
 **A:** Not any condition except that the top DN should be created before being integrated.
 
@@ -1029,12 +1206,11 @@ You should ensure that the Directory contains an entry like the following:
 
 .. _LDAP.FAQ.Q2:
 
-Q2- How to enable sign-in for LDAP pre-existing users?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Q2- How to enable sign-in for LDAP pre-existing users?**
 
 **A:** LDAP users are visible in the :ref:`Users and Groups Management Page <ManagingYourOrganization.ManagingUsers>`
-but they are unable to sign in eXo Platform. More exactly, they do not have
-access permission to any pages.
+but they are unable to sign in eXo Platform.
+More exactly, they do not have access permission to any pages.
 
 Additional steps should be done to allow them to sign in:
 
@@ -1048,10 +1224,16 @@ Additional steps should be done to allow them to sign in:
 
 .. _LDAP.FAQ.Q3:
 
-Q3- How to configure PicketLink to look up users in an entire tree?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Q3- How to configure PicketLink to look up users in an entire tree?**
 
-**A:** Use this option:
+**A:** The default configuration already look up users in an entire tree.
+This behavior can be modified by updating the properties ``exo.ldap.users.search.scope`` in the file ``exo.properties``:
+
+.. code:: properties
+
+    exo.ldap.users.search.scope=one
+
+In the case the PicketLink configuration is used, the following option must be used:
 
 .. code:: xml
 
@@ -1064,8 +1246,7 @@ See more details at :ref:`PicketLink IDM configuration <PicketlinkIDM_Search_sco
 
 .. _LDAP.FAQ.Q4:
 
-Q4- Cannot log into eXo Platform: error code 49
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Q4- Cannot log into eXo Platform: error code 49**
 
 **A:** This may happen with OpenLDAP, when users are created successfully but they cannot login, and there is error code 49 in your LDAP log as follows:
 
