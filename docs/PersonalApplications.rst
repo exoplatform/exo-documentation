@@ -304,7 +304,7 @@ See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
   When you have some pending  connection requests, a small badge displays a requests counter.
   Click the badge to display the list of pending requests and accept or refuse them, with the list of all your, or the user's, connections.
 
-    .. note:: - When you don’t have any connection request, the badge is hidden, and the drawer will display only the connections list.
+    .. note:: When you don’t have any connection request, the badge is hidden, and the drawer will display only the connections list.
 
 |PRFL-9|
 
