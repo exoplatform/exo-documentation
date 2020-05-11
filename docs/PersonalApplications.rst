@@ -89,7 +89,7 @@ Edit your profile
 
 Use the edit icons to fill the various profile sections: About me, Contact Informations and Work Experiences.
 
-    .. note:: After making changes, click **Save** or **Cancel** to respectively save or ignore them.
+    .. note:: After making changes, make sure you click **Save** to update your profile or **Cancel** to dismiss the changes.
 
 The followings are changeable information in each section.
 
