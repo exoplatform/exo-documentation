@@ -75,7 +75,7 @@ Details:
 
 - |6| your contact informations
 
-- |7| your gained badges by domains
+- |7| your earned badges by domains
 
     .. note:: When you open someone else's profile, several interactions are possible such as: Chat, Call, Send Kudos, Send Coins and Connect.
 
