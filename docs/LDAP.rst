@@ -56,7 +56,7 @@ eXo Platform can be plugged to a directory server to use its users, groups and m
 
 The term "Directory users" represents users who are created in the directory by its utilities.
 The term "Platform users" represents users who are created via eXo Platform UI.
-The understanding is similar for "Directory groups" and "Platform group*".
+The understanding is similar for "Directory groups" and "Platform groups".
 
 
 .. _LDAP.QuickStart:
