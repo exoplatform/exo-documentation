@@ -77,8 +77,8 @@ On the CAS server side, the following packages are required:
 
 -  ``$CAS_HOME``: The CAS package that you may download from
    `here <https://github.com/apereo/cas/releases>`__. For eXo Platform
-   integration, eXo Platform supports **CAS 3.5** and **CAS 4.0**. This
-   documentation is based on testing results of CAS 3.5.2 and CAS 4.0.0
+   integration, eXo Platform supports **CAS 4.0**. This
+   documentation is based on testing CAS 4.0.0
    integration. However, the integration can still work with all
    versions.
 
@@ -137,7 +137,7 @@ In paticular:
 
 -  If you store users in another datasource (such as LDAP), you need to
    have an Authentication plugin that is compatible with your
-   datasource. For **CAS 3.5** and **CAS 4.0** integration, see
+   datasource. For **CAS 4.0** integration, see
    `here <https://apereo.github.io/cas/5.0.x/installation/Configuring-Authentication-Components.html>`__
    for specific cases.
 
@@ -160,27 +160,8 @@ In paticular:
 3. Open ``$CAS_TOMCAT_HOME/webapps/cas/WEB-INF/deployerConfigContext.xml``
    to modify.
 
-   -  If you are using CAS 3.5.x, replace:
-
-      .. code:: xml
-
-		   <bean
-			   class="org.jasig.cas.authentication.handler.support.SimpleTestUsernamePasswordAuthenticationHandler" />
-
-      with the following (make sure you have set the host, port and context
-      with the values corresponding to your portal).
-
-      .. code:: xml
-
-		   <bean class="org.gatein.sso.cas.plugin.AuthenticationPlugin">
-			   <property name="gateInProtocol"><value>http</value></property>
-			   <property name="gateInHost"><value>localhost</value></property>
-			   <property name="gateInPort"><value>8080</value></property>
-			   <property name="gateInContext"><value>portal</value></property>
-			   <property name="httpMethod"><value>POST</value></property>
-		   </bean>
-
-   -  Or, if you are using CAS 4.0.0, find:
+   
+   -  using CAS 4.0.0, find:
 
       .. code:: xml
 
