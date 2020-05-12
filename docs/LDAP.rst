@@ -119,25 +119,6 @@ Here is the list of all available configuration properties for directory integra
    | exo.ldap.admin.password                        | Password of the admin user                              | String                    | Empty                              |                                         |
    |                                                | used to fetch data                                      | String                    | Empty                              |                                         |
    +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-   | exo.ldap.connection.pool                       | Is connection pooling used ?                            | ``true`` or ``false``     | ``true``                           |                                         |
-   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-   | exo.ldap.connection.pool.authentication        | List of space-separated authentication                  | ``none``, ``simple``      | ``none simple``                    |                                         |
-   |                                                | types of connections that may be pooled,                | and ``DIGEST-MD5``        |                                    |                                         |
-   |                                                | alias for com.sun.jndi.ldap.connect.pool.authentication |                           |                                    |                                         |
-   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-   | exo.ldap.connection.pool.maxsize               | Maximum number of connections per connection            | Any positive number       | 300000                             |                                         |
-   |                                                | identity that can be maintained concurrently,           |                           |                                    |                                         |
-   |                                                | alias for com.sun.jndi.ldap.connect.pool.maxsize        |                           |                                    |                                         |
-   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-   | exo.ldap.connection.pool.timeout               | Number of milliseconds that an idle connection          | Any non negative number   |                                    |                                         |
-   |                                                | may remain in the pool without being closed             |                           |                                    |                                         |
-   |                                                | and removed from the pool,                              |                           |                                    |                                         |
-   |                                                | alias for com.sun.jndi.ldap.connect.pool.timeout        |                           |                                    |                                         |
-   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-   | exo.ldap.connection.pool.protocol              | List of space-separated protocol types of               | ``plain`` and/or ``ssl``  | ``plain ssl``                      |                                         |
-   |                                                | connections that may be pooled,                         |                           |                                    |                                         |
-   |                                                | alias for com.sun.jndi.ldap.connect.pool.protocol       |                           |                                    |                                         |
-   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
    | exo.ldap.search.timelimit                      | Number of milliseconds that a search may last           | Any positive number       | 10000                              |                                         |
    +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
    | exo.ldap.users.base.dn                         | Semicolon-separated list of full DNs                    |                           | ``ou=users,dc=company,dc=org``     | ``ou=users1,dc=org;ou=users2,dc=org``   |
@@ -216,7 +197,10 @@ Here is the list of all available configuration properties for directory integra
    |                                                | will be available under this group. It must end         | with ``/``                |                                    |                                         |
    |                                                | with ``/``. Root group ("/") cannot be used.            |                           |                                    |                                         |
    +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
- 
+
+LDAP/AD connection pool can also be customized in the ``exo.properties`` file using `JVM standard system properties <https://docs.oracle.com/javase/jndi/tutorial/ldap/connect/config.html>`__.
+
+
 .. _LDAP.SynchronizationConfiguration:
 
 =============================
