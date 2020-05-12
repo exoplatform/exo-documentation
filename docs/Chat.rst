@@ -135,7 +135,7 @@ When you click on a discussion, it opens to display the messages.
 
 -  |Chat_drawer4| Allows you to start a video call with your interlocuter (not available for groups chats)
 
--  |Cha5_drawer5| Allows you to open the discussion in the chat application in an another browser tab
+-  |Chat_drawer5| Allows you to open the discussion in the chat application in an another browser tab
 
 -  |Chat_drawer6| A cross icon to close the drawer
 
