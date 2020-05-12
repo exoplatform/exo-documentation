@@ -133,7 +133,7 @@ When you click on a discussion, it opens to display the messages.
 
 -  |Chat_drawer3| Allows you to back to the discussion's list
 
--  |Chat_drawer4| Allows you to start a video call with your interlocuter (not available 
+-  |Chat_drawer4| Allows you to start a video call with your interlocuter (not available for groups chats)
 
 -  |Cha5_drawer5| Allows you to open the discussion in the chat application in an another browser tab
 
