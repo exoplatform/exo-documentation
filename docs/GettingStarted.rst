@@ -1546,7 +1546,6 @@ When you click on "Switch to an article", a creation form opens in a new tab and
 
 |image242|
 
-
 Posting files in the activity stream
 -------------------------------------
 
@@ -1597,8 +1596,8 @@ If the attached files are a mix between uploaded (by drag and drop or manually) 
 |image237|
 
 .. note:: The default destination folder is the following for:
-Home page composer: `/Public/Activity Stream Documents` under the `Personal Documents` drive.
-Space composer : `/Activity Stream Documents` under the space’s drive.
+			Home page composer: `/Public/Activity Stream Documents` under the `Personal Documents` drive.
+			Space composer : `/Activity Stream Documents` under the space’s drive.
 
 You can create a new folder from the select folder drawer by clicking on the appropriate icon:
 
@@ -1619,7 +1618,16 @@ Posting links in the activity stream
 When you copy and paste a link or a video link into the text area, if the link is recognized, a preview appears at the bottom of the typing area. 
 You have the possibility to delete it if you don't want to have a preview in your post using the 'X' icon.
 
+Normal links preview:
+
 |image226|
+
+|image244|
+
+.. note:: If the link doesn't contain any image, the following default image appears as a preview 
+			|image245|
+
+Video Links preview : 
 
 |image227|
 
@@ -2903,4 +2911,6 @@ to display the original timestamp of the comment.
 .. |image240| image:: images/new_composer/create_new_folder.gif
 .. |image241| image:: images/new_composer/characters_counter.png
 .. |image242| image:: images/new_composer/switch_to_article.gif
-.. |image242| image:: images/new_composer/
+.. |image243| image:: images/new_composer/delete_folder.png
+.. |image244| image:: images/new_composer/link_preview.png
+.. |image245| image:: images/new_composer/default_preview_link.png
