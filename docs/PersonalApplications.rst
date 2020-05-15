@@ -332,9 +332,13 @@ the top navigation bar.
 
 |AC_image1|
 
-A drawer will open displaying your favourite applications alphabetically sorted
+A drawer will open displaying your favourite applications alphabetically sorted.
 
 |AC_image2|
+ 
+You can reorganize your favorite applications by dragging and dropping their icons according to your choice.
+
+|AC_image3|
  
 .. note:: When an administrator sets some applications as default, they also appear in your applications
           center drawer.
@@ -1334,3 +1338,4 @@ such as:
 .. |AC_image0| image:: images/platform/AppCenter/app_center_btn.png
 .. |AC_image1| image:: images/platform/AppCenter/topbar.png
 .. |AC_image2| image:: images/platform/AppCenter/Apps_drawer.png
+.. |AC_image3| image:: images/platform/AppCenter/dnd.gif
