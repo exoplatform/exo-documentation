@@ -71,7 +71,7 @@ Details:
 
 - |4| your work experiences 
 
-- |5| welcome to my profile block
+- |5| 'welcome to my profile' block
 
 - |6| your contact informations
 
