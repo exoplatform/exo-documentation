@@ -238,7 +238,7 @@ Work Experiences
 
 By clicking on the edit icon, an edit drawer is opened.
 
-Experiences will be presented in accordions. Your recent experience accordion is opened by default.
+Experiences will be presented in accordions. Your recent experiences' accordion is opened by default.
 
 |PRFL-15|
 
