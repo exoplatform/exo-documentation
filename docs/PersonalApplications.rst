@@ -274,7 +274,7 @@ All Kudos in the drawer are clickable and open, in a new browser tab, the sourc
 Coins
 --------
 
-Monthly Rewards block displays the number of coins earned through  points and through kudos (the same value we already have in the cumulated Rewards in My Wallet application).
+Monthly Rewards block displays the number of coins earned through  points and through kudos (the same value we already have in the cumulated Rewards in :ref:`My Wallet <UserWallet>`application).
 
 By clicking on the number, a drawer is opened and displays the cumulated coins per month.
 
