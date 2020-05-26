@@ -325,7 +325,7 @@ Managing your favourite applications
 =======================================
 
 Starting with eXo Platform 6, you can quickly access your favourite applications 
-through the Application Center drawer.
+through the Applications drawer.
 
 To access your favourite applications, you just need to click on this button |AC_image0| from
 the top navigation bar.
@@ -345,6 +345,36 @@ You can reorganize your favorite applications by dragging and dropping their ico
 
 When you click on an application icon it will open in the same tab of it is an eXo Platform, otherwise,
 it will open in a new tab.
+
+In addition to your favorite application displayed in the drawer, you can also navigate through the whole 
+applications list you are allowed to view.
+
+You just need to click on |AC_image4| button in the drawer to access the applications center.
+
+|AC_image5|
+
+Application center is devided into 2 parts: on at the right listing your favorite applications and 
+the second listing the whole applications your are allowed to view and use.
+
+This second part contains applications cards with these details for each one:
+
+-  Application's name and image
+-  Application's description
+-  Two buttons "Open" and |AC_image6| in the card's bottom
+-  The icon |AC_image7| in the card's topper
+
+You can favorite an application in the application center by clicking on the |AC_image8| in the application's card.
+The "Star" button will then be yellow colored and the application will be automatically added to the right panel
+i.e. to the "favorite applications" list and to the drawer.
+
+You can also unfavorite an application in the applications center either by clicking on the yellow colored 
+"Star" button on the applications card or on the "Star" button |AC_image9| in front of the application's name in the
+"favorite applications" list.
+
+.. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message
+          appears informing you that you are not allowed to add another favorite application.
+          
+          |AC_image10|
 
  .. _Managing-Connections:
 
@@ -1339,3 +1369,11 @@ such as:
 .. |AC_image1| image:: images/platform/AppCenter/topbar.png
 .. |AC_image2| image:: images/platform/AppCenter/Apps_drawer.png
 .. |AC_image3| image:: images/platform/AppCenter/dnd.gif
+.. |AC_image4| image:: images/platform/AppCenter/ViewAllApps.png
+.. |AC_image5| image:: images/platform/AppCenter/AppCenter.png
+.. |AC_image6| image:: images/platform/AppCenter/StarButtonCard.png
+.. |AC_image7| image:: images/platform/AppCenter/HelpIconCard.png
+.. |AC_image8| image:: images/platform/AppCenter/UncheckStar.png
+.. |AC_image9| image:: images/platform/AppCenter/StarFavAppsList.png
+.. |AC_image10| image:: images/platform/AppCenter/maxFavAppsMsg.png
+
