@@ -371,8 +371,7 @@ You can also unfavorite an application in the applications center either by clic
 "Star" button on the applications card or on the "Star" button |AC_image9| in front of the application's name in the
 "favorite applications" list.
 
-.. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message
-          appears informing you that you are not allowed to add another favorite application.
+.. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message appears informing you that you are not allowed to add another favorite application.
           
           |AC_image10|
 
