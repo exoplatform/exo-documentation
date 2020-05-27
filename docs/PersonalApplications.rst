@@ -340,7 +340,7 @@ You can reorganize your favorite applications by dragging and dropping their ico
 
 |AC_image3|
  
-.. note:: When an administrator sets some applications as default, they also appear in your applications
+.. note:: When an administrator sets some applications as mandatory, they also appear in your applications
           center drawer.
 
 When you click on an application icon it will open in the same tab of it is an eXo Platform, otherwise,
@@ -1376,4 +1376,3 @@ such as:
 .. |AC_image8| image:: images/platform/AppCenter/UncheckStar.png
 .. |AC_image9| image:: images/platform/AppCenter/StarFavAppsList.png
 .. |AC_image10| image:: images/platform/AppCenter/maxFavAppsMsg.png
-
