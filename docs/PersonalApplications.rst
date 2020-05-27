@@ -32,7 +32,6 @@ To do the above actions, simply click your display name at the top navigation ba
 |image0|
 
 
-
 .. _Managing-Profile:
 
 =====================
@@ -41,7 +40,7 @@ Managing your profile
 
 Your profile is always visible by all users of the portal that helps them understand more about you, so it is very necessary to have a profile with the full and clear information.
 
-From eXo Platform 4.4, the profile page has been redesigned in order to enriche and better organize yout information.
+From eXo Platform 6.0, the profile page has been redesigned in order to enrich and better organize user information.
 
 This part introduces you how to:
 
@@ -55,43 +54,32 @@ Access your profile
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To access the My Profile page, simply click your display name on the top
-right corner, and select My Profile from the drop-down menu.
+side bar.
 
-|image1|
+|PRFL-1|
 
 By default, your profile is just initialized with the basic account
 information as below:
 
-This layout enables you to view:
+Details:
 
--  your **Status** which is indicated by a round shape displayed next to
-   your name with corresponding colors:
+- |1| your avatar and cover 
 
-   -  green - "*Available*\ ".
+- |2| a brief description of your profile in **About me** block.
 
-   -  red - "*Do not disturb*\ ".
+- |3| Kudos (Received and Sent) and Total coins earned.
 
-   -  yellow - "*Away*\ ".
+- |4| your work experiences 
 
-   -  grey - "*Offline*\ ".
+- |5| 'welcome to my profile' block
 
--  your **Contact Information**, such as *email*, *gender*.
+- |6| your contact informations
 
--  your **Recent Activities** that lists the latest activities
-   concerning yourself or with which you reacted (comment, like). You
-   can either click on each item of the list to jump to the
-   corresponding activity stream with full information, or select View
-   All button to go to the expanded list.
+- |7| your earned badges by domain
 
--  your **People** that displays the most recent connections you have
-   made. From the scratch, if you do not have anyone in your network, a
-   message saying "*You do not have connections yet.*\ " will be
-   displayed. By clicking **Find connections**, you will be redirected
-   to the :ref:`Search for contacts <SearchingForContact>` page.
+    .. note:: When you open someone else's profile, several interactions are possible such as: Chat, Call, Send Kudos, Send Coins and Connect.
 
-    .. note:: When you change the information of your profile at the first time, an activity will be created on the activity stream. Also, a comment informing your change is added to the activity. Your later changes will automatically create comments updated to the activity.
-
-				|image2|
+        |PRFL-2|
  
  
  .. _Edit-Your-Profile:
@@ -99,13 +87,9 @@ This layout enables you to view:
 Edit your profile
 ~~~~~~~~~~~~~~~~~~~
 
-To build a profile as expected, click |image3| to jump to the **Edit
-Profile** page:
+Use the edit icons to fill the various profile sections: About me, Contact Informations and Work Experiences.
 
-|image4|
-
-    .. note:: In the Contact Information and Experience sections, click |image5| corresponding to one field which you want to add more or click |image6| to delete your input information. 
-				After making changes, click **Save** or **Cancel** to respectively save or ignore them.
+    .. note:: After making changes, make sure you click **Save** to update your profile or **Cancel** to dismiss the changes.
 
 The followings are changeable information in each section.
 
@@ -120,63 +104,36 @@ image.
 
 To change the profile banner:
 
-1. Mouse over the top right of the grey banner, an icon will appearn |image7| and a tooltip indicating that the banner should have 130 pixels height.
+1. Mouse over the top right of the grey banner, an edit icon appear.
 
-|image8|
+    .. note:: the banner should be 130 pixels height.
 
-2. Click on the icon |image9|, an ``update`` button appears |image92|. 
+2. Select the desired profile banner image and double click on it.
 
-3. Click on the Update button, a drive from your hard disk will open.
+3. The profile banner image will be automatically loaded.
 
-4. Select the desired profile banner image and double click on it.
+In mobile devices, your profile display is divided in 2 sections: 
+- section 1: About me, Kudos, Coins and Work Experiences
+- section 2: Welcome to my profile, Contact Informations and Badges by domain
 
-5. The profile banner image will be automatically loaded.
+To switch between sections, you can use the swipe icon.
 
-|image10|
-
-To reset the profile banner, you just need to hover the right corner
-again and this time, you will have two butons:
-
-|image11|
-
--  ``Update`` button which opens a drive from your hard disk and allows you to change your profile banner.
-
--  ``Reset`` button to restore the default grey banner.
-
-When scrolling down on your profile page and if you exceed the cover
-section limit, the profile banner will be replaced by a new navigation
-bar:
-
-|image13|
-
-This new navigation bar contains:
-
--  Your avatar in a cercle form.
-
--  Your display name and your chat status.
-
--  The edit button |image14| allowing you to edit your profile.
-
--  Your applications navigation bar.
-
--  The *More* button |image15| which appears when applications display
-   exceed the navigation bar limit.
-
-   |image16|
-
-In mobile devices, when scrolling down your profile page, the
-applications navigation bar is scrollable left and right.
-
-|image17|
+|PRFL-3|
 
 .. _About-me:
 
 About Me
 -----------
 
-A brief introduction of yourself with 1500 characters in maximum,
+A brief introduction of yourself (in less than 2000 characters),
 telling people who you are and what you do. If this section is empty, it
 will not be displayed on your profile page.
+
+By clicking on the edit icon, an edit drawer is opened with a composer.
+
+|PRFL-14|
+
+    .. note:: A character counter displays the number of characters entered in the About me. If you exceed the maximum allowed (200 characters), the  **Save** button will be disabled until the text is reduced within the limit.
 
 .. _Contact-info:
 
@@ -198,32 +155,29 @@ Contact Information
 |                      | details about the **Email Address** format          |
 |                      | :ref:`here <CreateNewAccountFormDetails>`.)         |
 +----------------------+-----------------------------------------------------+
-
-    .. note:: You can also change the above information in the Account Profiles
-	      tab by clicking your display name, then select Settings from the
-	      drop-down menu. These changes will be automatically synchronized
-	      with details in the Contact information of your profile and vice versa.
-
-+----------------------+-----------------------------------------------------+
 | Avatar               | The representative picture of user. If it is not    |
 |                      | defined, the default avatar is used.                |
 +----------------------+-----------------------------------------------------+
 | Job Title            | The job position. Note that the information entered |
 |                      | in the field will be retrieved when you             |
-|		       | :ref:`search for contacts <SearchingForContact>`    | 
+|                      | :ref:`search for contacts <SearchingForContact>`    | 
 +----------------------+-----------------------------------------------------+
 | Gender               | The gender of user. Select your gender from the     |
 |                      | select box, either male, female or empty.           |
 +----------------------+-----------------------------------------------------+
-| Phone                | The phone numbers at work, home or at other sites   |
+| Phones               | The phone numbers at work, home or at other sites   |
 |                      | which must be from 3 to 20 numeric characters.      |
 +----------------------+-----------------------------------------------------+
-| IM                   | The nickname of either IM services that must be     |
+| IMs                  | The nickname of either IM services that must be     |
 |                      | between 3 to 60 characters.                         |
 +----------------------+-----------------------------------------------------+
 | URL                  | The website address which must be in the correct    |
 |                      | format, for example, http://exoplatform.com/.       |
 +----------------------+-----------------------------------------------------+
+
+By clicking on the edit icon, an edit drawer is opened.
+
+|PRFL-19|
 
 .. _Change-your-avatar:
 
@@ -231,45 +185,35 @@ Contact Information
 
 *The first way:*
 
-1. Click on |image18| button then on Change Avatar from the section **Contact Information** to open the Upload an Avatar form.
+1. Click on edit button then mouse over your Avatar from the section **Contact Information**.
 
-   |image19|
+   |PRFL-4|
 
-2. Click Select File to pick up an image from your local device.
-
-3. Select your desired image, then click Open button, or double-click the image to upload.
+2. Select your desired image, then click Open button, or double-click the image to upload.
 
     .. note:: The uploaded image must be smaller than 2 MB.
 
-4. Click Confirm to open the Avatar Preview form to see some related information, such as file name, file type, and image size.
-
-   |image20|
-
-5. Click Save to accept your changes.
+3. Click Save to accept your changes.
 
 *The second way:*
 
-1. Mouse over your profile avatar, an icon |image21| will appear.
+1. Mouse over your profile avatar, an icon |PRFL-18| will appear.
 
-2. Click on that icon, an ``Update`` button appears |image93|.
+2. Click on this icon, this will prompt you to pick a file from your computer.
 
-3. Click on the ``Update`` button. This will prompt you to pick a file from your computer.
-
-4. Double click on the desired image.
+3. Double click on the desired image.
 
 4. The profile icon will be automatically changed.
 
 .. note:: - This second way is only available in web version. On mobile devices, you should follow the first way to update/edit your profile avatar.
+          - On mobile devices, the edit icon is by default displayed in the first way.
           - Your image will be automatically resized to a specified value to correspond to the image allowed size.
-
-After setting a profile icon, you can update it again or reset it to the default one by clicking on |image94|
-and then clickig on one of the buttons that appear |image95|.
 
 
 .. _Experience:
 
-Experience
------------
+Work Experiences
+-------------------
 
 +----------------------+-----------------------------------------------------+
 | Field                | Description                                         |
@@ -292,135 +236,134 @@ Experience
 
 .. note:: The information entered in the Skill Used field will be retrieved when you :ref:`search for contacts <Search-Contacts>`.
 
+By clicking on the edit icon, an edit drawer is opened.
 
-.. _Managing-Activity-Stream:
+Experiences will be presented in accordions. Your recent experiences' accordion is opened by default.
 
-=============================
-Managing your activity stream
-=============================
+|PRFL-15|
 
-From the drop-down menu of your display name, select My Activities. You
-will be redirected to your own activity stream page.
+To remove an experience, you can simply click on Remove Experience button.
 
-|image23|
+|PRFL-16|
 
-Here, you can see your activities (inside and outside a space) and
-activities where you were :ref:`mentioned <Mentioning-People>`, liked or left comments.
-
-The activities in My Activities are similar to those in :ref:`My Activities <Managing-Activities>` of the Social Intranet homepage. 
-
-.. note:: Your activity stream page (``../activities/[username]``) is visible
-			to anyone even if they are not your connections. They can comment or
-			like on your activity stream page. However, only your connections
-			can see the Activity Composer that enables them to post on your stream.
-
- .. _Managing-Connections:
-
-=========================
-Managing your connections
-=========================
+    .. note:: After making changes, make sure you click **Save** to update your profile or **Cancel** to dismiss the changes.
 
 
-Building connections between you and other users in the system is very
-important. It will not only help you follow their activities on the
-activity stream, but also improve your communication and collaboration.
+To add a new experience, you can simply click on Add new button in the top Work Experiences drawer, and a new empty experience form is added.
 
-This section shows you how to make connection with your desired users
-via the following topics:
+|PRFL-17|
 
- * :ref:`Viewing profile of other contacts <View-Profile-Contacts>`
- * :ref:`Sending connection requests <Send-Connection-Request>`
- * :ref:`Revoking a connection request <Revoke-Connection-Request>`
- * :ref:`Accepting/Denying a connection request <Accept-Deny-Connection-Request>`
- * :ref:`Disconnecting from your contacts <Disconnect-Contact>`
+.. _Kudos:
 
-To build your connections, you first need to click the hamburger menu on
-the side navigation bar and select **People**.
+Weekly Kudos
+--------------
 
-|PEOPLE1|
+The number of Kudos received and sent by the user is displayed in the Kudos section.
 
-The **People** page appears.
+|PRFL-5|
 
-    .. note:: If there are so many connections, the Show More bar will appear at the page bottom. Click Show More to see more connections.
-             If you don't have any connection, a simple text is displated *NO PEOPLE*.
+By clicking on Received or Sent Kudos number, a drawer is opened that displays the details of Kudos received or sent.
 
-.. __MyConnectionPage.Tabs:
+|PRFL-6|
 
-The People page includes the following sections:
+All Kudos in the drawer are clickable and open, in a new browser tab, the source activity where the Kudos was sent or received.
 
-|PEOPLE2|
 
-- |image1| This section contains the following options: the number of connection displayed, 
-   Filter connection by name, position or skills and a pulldown to filter the list  : Everyone or My Connections.  
+.. _Coins:
 
- .. note:: -  *Everyone*: lists users who have registered in the eXo Platform system.
-           -  *My Connections*: lists users connected with you. You can remove a connection by clicking on "Disconnect" button.
+Coins
+--------
 
-- |image2| Connections in which you can see information like Full Name, avatar, cover image, job title
-   and connection button.    
+Monthly Rewards block displays the number of coins earned through  points and through kudos (the same value we already have in the cumulated Rewards in :ref:`My Wallet <UserWallet>`application).
 
- .. note:: You can click on the information icon of the user's card which flips to display the 
-   user's "about me" section and the number of connections and spaces.
+By clicking on the number, a drawer is opened and displays the cumulated coins per month.
 
-    .. note:: For spaces number, it counts spaces where this user is manager or member.
-              If "About me" description is very long, an ellipsis is displayed with the full text. 
-   |PEOPLE3| 
+|PRFL-7|
 
-- |image3| A block for invitations requests and Pending requests sent.
+.. _Welcome-To-My-Profile:
 
-- |image4| A suggestion list of users to connect with. 
-   You can either send a request to connect or decline the suggestion.   
+Welcome To My Profile
+-----------------------
 
-- |image5| Leaderboards display a snapshot of users with most points. 
+The **welcome To My Profile** widget is an block that welcomes you, and your collaborators, with some information about your spaces, connections, 
+the points you earned and the rank you reached this week.
+See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
 
-      .. note:: For more information about the *Leaderboard*, you can take a look at :ref:`Leaderboard <Leaderboard>` part on Gamification chapter .
 
--  *Requests Received*: lists users who have sent you connection request. You can click Confirm to accept being as his/her contact or Ignore to refuse.
+- You can see your profile picture and your name just after the welcome To My Profile label.
 
--  *Requests Pending*: lists users to whom you have sent connection
-   requests. You can also click Cancel Request to revoke your request.
+- The widget also displays the total number of spaces that the profile owner is member of.
+  A counter of your pending space invitations is displayed in a small badge.
+  Click the badge to display all invitations and easily accept or refuse them.
 
+|PRFL-8|
+
+    .. note:: - When you don't have any space invitation, the badge is hidden, and the drawer will display only the space list.
+   
+- This widget also reminds you the size of your (or the profile owner's) social network by displaying your, that is, the current number of Connections.
+  When you have some pending  connection requests, a small badge displays a requests counter.
+  Click the badge to display the list of pending requests and accept or refuse them, with the list of all your, or the user's, connections.
+
+    .. note:: When you don’t have any connection request, the badge is hidden, and the drawer will display only the connections list.
+
+|PRFL-9|
+
+- - You can see the points you (or the profile's owner), have earned this week. By clicking on your points, you can see a pie chart 
+  that reveals their distribution by domain.
+
+- You can also see your rank for this week and by clicking on your rank, you can see a leaderboard  
+  that presents your position comparing to other members and how many points you earned this week so far.
+  See :ref:`Leaderboard <Leaderboard>` in **Gamification** for more details.
+
+.. _Badges-By-domain:
+
+Badges By Domains
+-------------------
+
+All your latest earned badges are displayed in the Badges by domain section,
+
+In this section, you can have an idea about badges' earning history and next badges you can earn.
+
+In the Badges by domain section you have all domain labels with the last earned badge 
+
+    .. note:: If you don't have any badge yet for a domain, the domain is not displayed.
+
+By clicking on a domain, the domain drawer is displayed with :
+
+- the history of badges for this domain
+
+- a timeline with the gained badges
+
+- all badges are presented by their avatar, badge name, badge points and gain timestamp 
+
+    .. note:: - The first badge is always the next badge to obtain in grey color 
+              - the second line in the timeline is your avatar with your current points on this selected domain. 
+              - From the second line, it displays the full list of earned badges sorted by last to first
 
 
 .. _View-Profile-Contacts:
 
 
-Viewing profile of other contacts
+Viewing profile of other users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To view all information of a contact, simply click his/her name. You
-will be redirected to his/her profile page.
+To view all information of a contact, simply click their name. You
+will be redirected to their profile page.
 
-|image25|
+|PRFL-10|
 
-You can also see his/her recent activities, connections, Wiki pages,
-connection status with you and current status.
-
--  To see all his/her activities, click Activities on the navigation
-   bar.
-
--  To see all his/her connections, click Connections on the navigation
-   bar.
-
--  To see his/her Wiki pages, click Wiki on the navigation bar. However,
-   you can only access this Wiki if it has been :ref:`made public <MakingPublic>`
-   by the owner or when you are granted as an administrator.
-
--  To return his/her profile page, click Profile on the navigation bar.
-
-    .. note:: Regardless of being an administrator, you do not have right to edit profiles of other contacts.
     
 If you are not yet connected to the user, you will see in his profile page the connect button in his profile banner:
 
-|image84|
+|PRFL-11|
 
 Clicking on that button sends him a connection request, and the button changes to **Cancel request**.
 
-|image85|
+|PRFL-12|
 
 When you access a user's profile who sent you a connection request, a dropdown appears in his profile banner allowing either to accept or to deny his request:
 
-|image86|
+|PRFL-13|
 
 
 .. _Send-Connection-Request:
@@ -445,11 +388,11 @@ Hover your cursor over the contact name and click Connect button.
 
 :ref:`Access the profile page of the contact <View-Profile-Contacts>` to whom you want to send a connection request, then click Connect button on their profile banner.
 
-|image87|
+|PRFL-11|
 
     .. note:: The Connect button will become **Cancel Request**.
     
-				|image88|
+        |PRFL-12|
 
 .. _Revoke-Connection-Request:
 
@@ -478,7 +421,7 @@ Access to the People page and click on **Cancel Request** in the users' card to 
 
 :ref:`Access the profile page of the contact <View-Profile-Contacts>` to whom you sent a connection request, then click **Cancel Request**.
 
-|image89|
+|PRFL-12|
 
 .. _Accept-Deny-Connection-Request:
 
@@ -509,7 +452,7 @@ Use the Invitations application on the Welcome Back block on the Digital Workpla
 - Accept button as first choice
 - Deny button as second choice
 
-|image28|
+|PRFL-17|
 
 To revoke the connection request, click on Deny button.
 
@@ -558,7 +501,7 @@ your own Wiki page. See the :ref:`Working With Wikis <Wiki>` chapter for the ful
 |image31|
 
 .. note:: Your wiki page is private by default. This means only you and your administrator can access this via the link (``.../wiki/user/[username]``). 
-	      However, if you have :ref:`made public <MakingPublic>` for your own wiki, anyone can access, read and edit it via the link.
+        However, if you have :ref:`made public <MakingPublic>` for your own wiki, anyone can access, read and edit it via the link.
 
 
 .. _Managing-Notification:
@@ -701,18 +644,18 @@ Settings page.
 
 -  |3|: **Send me a digest email**: Specifies whether notifications of  selected types are included in the digest emails or not. Three frequencies exist:
 
-		-  *Never*: Not include notifications of the selected types in any digest email.
+    -  *Never*: Not include notifications of the selected types in any digest email.
 
-		-  *Daily*: Includes notifications of the selected types in the 
-		   daily digest email.
+    -  *Daily*: Includes notifications of the selected types in the 
+       daily digest email.
 
-		-  *Weekly*: Includes notifications of the selected types in the 
-		   weekly digest email.
+    -  *Weekly*: Includes notifications of the selected types in the 
+       weekly digest email.
 
--  |4|: **See on mobile**: Indicates whether you want to receive push notifications on your mobile or not.		   
+-  |4|: **See on mobile**: Indicates whether you want to receive push notifications on your mobile or not.       
 
 -  |5|: **See on site**: Indicates whether you want to receive notifications on-site or not.
-	   
+     
 
 
 3. Click Save button to save your new notification settings.
@@ -975,7 +918,7 @@ someone posts on the activity streams of your spaces:
 
        
 
- .. note:	If the comment is longer than on line in the All notifications screen, an ellipsis (...) is used on the line end. To display all the comment, click on Read More.
+ .. note: If the comment is longer than on line in the All notifications screen, an ellipsis (...) is used on the line end. To display all the comment, click on Read More.
 
    Clicking on the notification, you will be taken to the activity with
    all comments expanded.
@@ -1075,46 +1018,46 @@ your tasks as completed.
 
 You will receive this notification when a user posts an article in a space you are member of.
 
-	|image97|
+  |image97|
 
 **News shared in a space**
 
 You will receive this notification when a user shares an article in a space you are member of.
 
-	|image98|
+  |image98|
 
 **My News shared**
 
 You will receive this notification when a user shares one of your articles in another space.
 
-	|image99|
+  |image99|
 
 **My posted News liked**
 
 You will receive this notification when a user likes one of your articles.
 
-	|image100|
+  |image100|
 
-	
+  
 **My shared News liked**
 
 You will receive this notification when a user likes an article you shared.
 
-	|image101|
+  |image101|
 
 
 **My posted News commented**
 
 You will receive this notification when a user comments on one of your articles.
 
-	|image102|
-	
+  |image102|
+  
 
 **My shared News commented**
 
 You will receive this notification when a user comments on an article you shared.
 
-	|image103|
+  |image103|
 
 
 **Kudos received for my News**
@@ -1193,6 +1136,25 @@ such as:
 .. |PEOPLE8| image:: images/people/invitations_drawer.png
 .. |PEOPLE9| image:: images/people/accept_revoke_invitation.png
 .. |PEOPLE10| image:: images/people/disconnect_user.png
+.. |PRFL-1| image:: images/profile/profile_sidebar.png
+.. |PRFL-2| image:: images/profile/myprofile.png
+.. |PRFL-3| image:: images/profile/swipe_profile.gif
+.. |PRFL-4| image:: images/profile/change_avatar_contact.png
+.. |PRFL-5| image:: images/profile/weekly_kudos.png
+.. |PRFL-6| image:: images/profile/kudos_drawer.png
+.. |PRFL-7| image:: images/profile/cauris_profile.png
+.. |PRFL-8| image:: images/profile/spaces_drawer.png
+.. |PRFL-9| image:: images/profile/connection_drawer.png
+.. |PRFL-10| image:: images/profile/profile_view.png
+.. |PRFL-11| image:: images/profile/connect_button.png
+.. |PRFL-12| image:: images/profile/cancel_request.png
+.. |PRFL-13| image:: images/profile/accept_deny_connection.png
+.. |PRFL-14| image:: images/profile/aboutme_drawer.png
+.. |PRFL-15| image:: images/profile/experiences_drawer.png
+.. |PRFL-16| image:: images/profile/remove_experience.png
+.. |PRFL-17| image:: images/profile/add_new_experience.png
+.. |PRFL-18| image:: images/profile/edit_avatar.gif
+.. |PRFL-19| image:: images/profile/contact_informations_drawer.png
 .. |image0| image:: images/platform/personal_applications_menu.png
 .. |image1| image:: images/social/select_my_profile.png
 .. |image2| image:: images/social/profile_changes_activities.png
