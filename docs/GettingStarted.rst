@@ -403,6 +403,9 @@ There are 3 main divisions in the **Digital Workplace** homepage:
 
   -  **Logout** : By a simple click on this button, you will logout from the digital workplace.
   
+   .. note:: you can choose your default Homepage page, by a mouse over a non default page, a home icon is displayed so that you can change
+             the existing default one to a new page. A confirmation message will be displayed to confirm my action. |DW-10|
+             By default, the Snapshot page will be the default home page. 
 
    This hamburger menu will opens a navigation menus clicking which you can navigate to the various applications and spaces :
 
@@ -453,6 +456,8 @@ Quickly perform key actions through the following applications:
 
 
 .. _Snapshot:
+
+**Snapshot**
 
 *This section will be developed soon*
 
@@ -611,6 +616,9 @@ You will receive tokens regularly in your wallet by collaborating through the di
 See :ref:`Total rewarded funds <UserWallet>` for more details.
 
 |DW-9|
+
+.. note:: All applications are floating containers in the Activity stream page, so that when you scroll up or down, all widget will scroll with you.
+|DW-11|
 
 .. _Change-Language:
 
@@ -951,148 +959,6 @@ corresponding button at the pop-up bottom:
 
     .. note:: From the pop-up, you can click his avatar or display name to jump to his activity stream page.
 
-
-.. _Creating-content:
-
-Creating content quickly
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In eXo Platform, you easily create your preferred content without navigating
-to its relevant application. Simply click |image33| to open the drop-down
-menu.
-
-|image34|
-
-Here, you can do the following actions quickly:
-
- * :ref:`Creating a task`
- * :ref:`Creating an event`
- * :ref:`Creating a poll`
- * :ref:`Creating a topic` 
- * :ref:`Uploading a document`
- * :ref:`Creating a Wiki`
-
-
-.. _Creating a task:
-
-Creating a task
----------------
-
-1. Simply select Task from the drop-down menu. The menu will be updated into the Create a new task form.
-
-|image35|
-
-2. Fill in the Title field, and then hit the button Add.
-
-After saving, a pop up link appears |image36| which points to the
-created task.
-
-.. _Creating an event:
-
-Creating an event
--------------------
-
-1. Simply select Event from the drop-down menu. The menu will be updated
-   into the Add event form.
-
-|image37|
-
-2. Give details for your event, including: Title, From and To dates, time.
-   For more details, see :ref:`Creating a new event <CreatingNewEvent>`.
-
-3. Select the calendar where your event will be created from the Select Calendar drop-down menu.
-
-4. Click Save to add your event.
-
-A pop up |image38| appears indicating in which calendar the event was added.
-
-    .. note:: Click Cancel at any time to dismiss the Add event form.
-    
-.. _Creating a poll:    
-
-Creating a poll
-----------------
-
-1. Click Poll from the drop-down menu. This menu will be updated into 
-   the form as below:
-
-|image39|
-
-    .. note:: If there is no forum available in Intranet and the user has no space
-				forum yet, the following warning is displayed: "Sorry, no forum is
-				available yet to create a poll. Start by creating your own space."
-
-2. Select the location where your poll is created from the In Location
-   menu. If you have at least one public forum, the "intranet" location 
-   is selected by default.
-
-3. Click Next to open the Poll form, or Cancel to dismiss the form.
-
--  If you select a space forum, you will be redirected to the **Forums**
-   application of the selected space after clicking Next.
-
--  If you select "intranet" which has more than 1 forum and then click
-   Next, another new selection menu will be opened. The Next button now
-   becomes disabled until you have selected one forum from the And Forum
-   menu.
-
-   |image40|
-
-4. Fill in the Poll form. See :ref:`Creating a poll <Create-poll>` for 
-   more details.
-
-.. _Creating a topic: 
- 
-Creating a topic
------------------
-
-
-1. Click Topic from the drop-down menu.
-
-    .. note:: If there is no forum available in Intranet and the user has no space forum yet, the following warning is displayed: "Sorry, no forum is available yet to create a topic. Start by creating your own space."
-
-2. Select the location where your topic is created from the In Location
-drop-down menu. The "intranet" is selected by default.
-
-3. Click Next to open the New Topic form.
-
--  If you select a space forum, you will be redirected to the **Forums**
-   application of the selected space after clicking Next.
-
--  After clicking Next, if you select "intranet" which has more than 1
-   forum, one new selection will be opened that requires you to select
-   your desired forum as below. The Next button becomes disabled until
-   you have selected one forum.
-
-   |image41|
-
-4. Fill in the New Topic form. See :ref:`Creating a topic <Create-topic>`
-   for more details.
-
-.. _Uploading a document: 
-
-Uploading a file
------------------
-
-Simply select Upload a File from the drop-down menu. See :ref:`Sharing a File <Sharing-Link-and-File>` for more details.
-
-.. _Creating a Wiki: 
-
-Creating a Wiki page
----------------------
-
-1. Click Wiki Page from the drop-down menu.
-
-|image42|
-
-2. Select the location where your Wiki page is created from the In 
-   Location drop-down menu. The "Intranet" space is selected by default.
-
-3. Click Next to be redirected to the Wiki application of your selected
-   location. Here, you can :ref:`navigate across spaces <Navigate-across-spaces>`.
-
-4. Enter the content of your Wiki page. See :ref:`Creating a page <Creating-New-Page>`
-   for more details.
 
 .. _Intranet-Gadgets:
 
@@ -1661,17 +1527,24 @@ the link.
 Posting in the activity stream via the New Composer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 
-A new way to share in the activity stream is available via a clickable text "Post something to your network" from the home page and "Post something to '$Space Name' " from space's home page.
+A new way to share in the activity stream is available via a clickable text "Post" from the home page and "Post in '$Space Name' " from space's home page.
 
 |image220|
 
 |image238|
 
-
-Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 2000 characters and post to your connections or a space's audience.
+Once you click on the text, a drawer allowing you to type and post a short message is displayed. You can write up to 1300 characters and post to your connections or a space's audience.
 
 |image221|
 
+In case you exceed the maximum number of characters, the characters counter colour changes to red and the post button is disabled.
+
+|image241|
+
+If you are typing your message in a space for which you are manager or if you have the role redactor or publisher, when you exceed the maximum number of characters, a clickable text "Switch to an article" appears under the editor area.
+When you click on "Switch to an article", a creation form opens in a new tab and the text written in the composer is included in the 'Content' field of the creation form.
+
+|image242|
 
 Posting files in the activity stream
 -------------------------------------
@@ -1723,8 +1596,8 @@ If the attached files are a mix between uploaded (by drag and drop or manually) 
 |image237|
 
 .. note:: The default destination folder is the following for:
-Home page composer: `/Public/Activity Stream Documents` under the `Personal Documents` drive.
-Space composer : `/Activity Stream Documents` under the space’s drive.
+			Home page composer: `/Public/Activity Stream Documents` under the `Personal Documents` drive.
+			Space composer : `/Activity Stream Documents` under the space’s drive.
 
 You can create a new folder from the select folder drawer by clicking on the appropriate icon:
 
@@ -1734,13 +1607,27 @@ You just have to set the name for the automatically created folder, and then pre
 
 |image240|
 
+You can delete a folder from the select folder drawer by right clicking on the folder icon then choosing the delete option. You just have to confirm the action from the confirmation popup to delete definitely the selected folder.
+
+|image243|
+
+
 Posting links in the activity stream
 -------------------------------------
 
 When you copy and paste a link or a video link into the text area, if the link is recognized, a preview appears at the bottom of the typing area. 
 You have the possibility to delete it if you don't want to have a preview in your post using the 'X' icon.
 
+Normal links preview:
+
 |image226|
+
+|image244|
+
+.. note:: If the link doesn't contain any image, the following default image appears as a preview 
+			|image245|
+
+Video Links preview : 
 
 |image227|
 
@@ -1760,15 +1647,11 @@ Publishing a news lets you easily write, broadcast  and share communication cont
 Creating and posting a News
 ---------------------------
 
-To create a news article, click "Write an article" located at the bottom of the space's composer. 
-
-|image156|
-
-You can also use the new composer to create an article by clicking on the "Try the new composer" label. In the displayed drawer you just have to click on the option "Write an article".
+To create a news article, you have to click on the space's composer. In the displayed drawer you just have to click on the option "Write an article".
 
 |image228|
 
-In both cases, the creation form is opened in a new tab.
+The creation form is opened in a new tab.
 
 |image159|
 
@@ -2783,6 +2666,8 @@ to display the original timestamp of the comment.
 .. |DW-7| image:: images/dw/Whos_Online.png 
 .. |DW-8| image:: images/dw/Perkstore.png 
 .. |DW-9| image:: images/dw/Wallet.png 
+.. |DW-10| image:: images/dw/fav_homepage.png
+.. |DW-11| image:: images/dw/Stream.gif
 .. |image0| image:: images/platform/top_navigation_bar.png 
 .. |image1| image:: images/platform/Unlock-termsentskin.jpg
 .. |image2| image:: images/platform/Unlock-ACCOUNTSETUP.jpg
@@ -2943,7 +2828,6 @@ to display the original timestamp of the comment.
 .. |image153| image:: images/platform/limit_comment.png
 .. |image154| image:: images/platform/confirmation_popup_Chrome.png
 .. |image155| image:: images/platform/Confirmation_popup_FF.png
-.. |image156| image:: images/sharenews/composer_space.png
 .. |image157| image:: images/sharenews/post.png
 .. |image158| image:: images/sharenews/posted_news.png
 .. |image159| image:: images/sharenews/creation_form.png
@@ -3025,3 +2909,8 @@ to display the original timestamp of the comment.
 .. |image238| image:: images/new_composer/new_composer_space.png
 .. |image239| image:: images/new_composer/create_new_folder.png
 .. |image240| image:: images/new_composer/create_new_folder.gif
+.. |image241| image:: images/new_composer/characters_counter.png
+.. |image242| image:: images/new_composer/switch_to_article.gif
+.. |image243| image:: images/new_composer/delete_folder.png
+.. |image244| image:: images/new_composer/link_preview.png
+.. |image245| image:: images/new_composer/default_preview_link.png

@@ -100,43 +100,47 @@ name.
 
 .. _miniChat:
 
-================
-Mini chat window
-================
+=================
+Mini chat drawer
+=================
 
 When you receive an instant message in eXo Chat, an icon showing the
 number of messages received appears next to the chat icon |image11|.
-Clicking on that icon opens the chat list menu in which the received
-message appears:
+Clicking on that icon opens the chat drawer listing all your discussions.
+Discussions with unread messages appear the first in the list with a badge containing the
+number of unread messages.
 
 |image12|
 
-When you click on the message, the mini chat window appears:
 
-|image13|
+-  |image14| Clicking on your avatar allows you to change your status
+   
+   |Chat_drawer0|
 
--  |image14| To minimize the mini chat window.
+-  |image15| Allows you to filter discussions using a keyword
 
--  |image15| To open the chat in another tab i.e it does the same as
-   clicking on the button Open Chat.
+   |Chat_drawer1|
 
--  |image16| To close the mini chat window.
+-  |image16| Allows you to open the chat application in an another browser tab
 
--  |image17| Where the message is composed. Clicking Enter on the
-   keyboard sends the message.
+-  |image17| A cross icon to close the drawer
 
--  |image18| The display name near the avatar of the user who sent the 
-   message.
+-  |image18| The number of unread messages of the discussion
 
--  |image19| The message content.
+When you click on a discussion, it opens to display the messages.
 
-.. tip:: When you scroll up into the mini chat discussion and that your 
-         interlocutor sends you new chat messages, a badge with the 
-         **number of unread messages** appears near to the display name:
-         
-                   |image144|
+|Chat_drawer2|
 
-.. note:: * The mini chat window could also be opened by:
+-  |Chat_drawer3| Allows you to back to the discussion's list
+
+-  |Chat_drawer4| Allows you to start a video call with your interlocuter (not available for groups chats)
+
+-  |Chat_drawer5| Allows you to open the discussion in the chat application in an another browser tab
+
+-  |Chat_drawer6| A cross icon to close the drawer
+
+
+.. note:: * The chat drawer could also be opened by:
  
 				- Clicking on chat button |image20| on the user profile.
 				
@@ -146,19 +150,12 @@ When you click on the message, the mini chat window appears:
 				|image21|
 				
               
-		   * The mini chat window behaves on mobile devices the same as
+		   * The chat drawer behaves on mobile devices the same as
 		     for web:
 		     
 		     
 				|image22|
 				
-			
-		   * When your mini chat window is collapsed and you receive an 
-		     instant message, the number of unread messages appears in 
-		     the collapsed mini chat window near the user's name:
-		     
-			
-			|image23|
 
 .. _CreatingEditingGroupChat:
 
@@ -902,7 +899,7 @@ discussions in accordance to it:
 .. |image9| image:: images/chat/away_icon.png
 .. |image10| image:: images/chat/invisible_icon.png
 .. |image11| image:: images/chat/icon_number.png
-.. |image12| image:: images/chat/message.png
+.. |image12| image:: images/chat/chat_drawer.png
 .. |image13| image:: images/chat/mini_chat_window.png
 .. |image14| image:: images/1.png
 .. |image15| image:: images/2.png
@@ -912,7 +909,7 @@ discussions in accordance to it:
 .. |image19| image:: images/common/6.png
 .. |image20| image:: images/chat/chat-icon-user-profile.png
 .. |image21| image:: images/chat/chat-button_popover.png
-.. |image22| image:: images/chat/mini_chat_mobile.png
+.. |image22| image:: images/chat/mobile_chat.jpeg
 .. |image23| image:: images/chat/mini_chat_closed.png
 .. |image24| image:: images/chat/space_chat.png
 .. |image25| image:: images/chat/chat_icon.png
@@ -1037,5 +1034,12 @@ discussions in accordance to it:
 .. |image142| image:: images/chat/Remove_favorites.png
 .. |image143| image:: images/chat/clear_icon.png
 .. |image144| image:: images/chat/unread_chat_msg.png
+.. |Chat_drawer0| image:: images/chat/change_status.png
+.. |Chat_drawer1| image:: images/chat/Filter_discussions.png
+.. |Chat_drawer2| image:: images/chat/discussion_drawer.png
+.. |Chat_drawer3| image:: images/1.png
+.. |Chat_drawer4| image:: images/2.png
+.. |Chat_drawer5| image:: images/3.png
+.. |Chat_drawer6| image:: images/common/4.png
 
 
