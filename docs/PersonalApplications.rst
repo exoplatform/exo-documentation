@@ -353,7 +353,7 @@ You just need to click on |AC_image4| button in the drawer to access the applica
 
 |AC_image5|
 
-Application center is devided into 2 parts: on at the right listing your favorite applications and 
+Application center is divided into 2 parts: on the right listing your favorite applications and 
 the second listing the whole applications your are allowed to view and use.
 
 This second part contains applications cards with these details for each one:
