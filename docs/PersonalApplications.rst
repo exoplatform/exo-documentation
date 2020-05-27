@@ -513,7 +513,7 @@ your own Wiki page. See the :ref:`Working With Wikis <Wiki>` chapter for the ful
 .. _Managing-Fav-Apps:
 
 =======================================
-Managing your favourite applications
+Managing your favorite applications
 =======================================
 
 Starting with eXo Platform 6, you can quickly access your favourite applications 
@@ -532,16 +532,16 @@ You can reorganize your favorite applications by dragging and dropping their ico
 
 |AC_image3|
  
-.. note:: When an administrator sets some applications as mandatory, they also appear in your applications
+.. note:: When an administrator sets some applications as mandatory, they also appear in your Application
           center drawer.
 
-When you click on an application icon it will open in the same tab of it is an eXo Platform, otherwise,
+When you click on an application icon it will open in the same tab if it is an eXo Platform, otherwise,
 it will open in a new tab.
 
 In addition to your favorite application displayed in the drawer, you can also navigate through the whole 
 applications list you are allowed to view.
 
-You just need to click on |AC_image4| button in the drawer to access the applications center.
+You just need to click on |AC_image4| button in the drawer to access the Application Center.
 
 |AC_image5|
 
@@ -555,12 +555,12 @@ This second part contains applications cards with these details for each one:
 -  Two buttons "Open" and |AC_image6| in the card's bottom
 -  The icon |AC_image7| in the card's topper
 
-You can favorite an application in the application center by clicking on the |AC_image8| in the application's card.
+You can favorite an application in the Application Center by clicking on the |AC_image8| in the application's card.
 The "Star" button will then be yellow colored and the application will be automatically added to the right panel
 i.e. to the "favorite applications" list and to the drawer.
 
-You can also unfavorite an application in the applications center either by clicking on the yellow colored 
-"Star" button on the applications card or on the "Star" button |AC_image9| in front of the application's name in the
+You can also unfavorite an application in the Application Center either by clicking on the yellow colored 
+"Star" button on the application's card or on the "Star" button |AC_image9| in front of the application's name in the
 "favorite applications" list.
 
 .. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message appears informing you that you are not allowed to add another favorite application.
