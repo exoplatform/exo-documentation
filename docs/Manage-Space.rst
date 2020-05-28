@@ -169,7 +169,7 @@ By clicking on it, you can pick up an image from your computer.
 Space avatar
 ~~~~~~~~~~~~~
 
-Contrary to the banner, you can choose an another space avatar only in your space **Settings**.
+Unlike the banner, you can choose another space avatar only from space **Settings**.
 
 
 When scrolling down in the space's activity stream, or applications, you always have the space' avatar, the space name and their applications in the topbar.
