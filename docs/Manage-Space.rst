@@ -147,7 +147,7 @@ not its member yet, you will receive various instructions as follows:
 Space banner and avatar
 =======================
 
-After :ref:`creating a space <Create-Space>`, by default it has the default banner (in grey color) and the default space's icon. 
+After :ref:`creating a space <Create-Space>`, by default it has the default banner (related to the space template) and the default space's icon. 
 You can choose different images for the banner and the avatar.
 
 .. _SpaceBanner:
@@ -156,78 +156,41 @@ Space banner
 ~~~~~~~~~~~~~~
 
 To change the banner just mouse over in the top right corner of the
-space banner, an icon |image10| will appear.
+space banner, an icon |SP-13| appears.
 
-When you click on the icon |image68|, an ``Update`` button |image69| appears  
-allowing you to pick up an image from your computer.
+By clicking on it, you can pick up an image from your computer.
 
 .. tip:: The banner size should be 130 pixels height minimum.
 
-   |image11|
-
-Having chosen the banner and if you click again on the button |image70| 
-in the top right, two buttons appear:
-
-|image12|
-
--  ``Update``: Allows you to pick up another banner image from your computer.
-
--  ``Reset``: Allows you to delete the current banner image and restore
-   the default grey banner.
+.. note:: You can update your current banner by clicking on the same icon.
 
 .. _SpaceAvatar:
 
 Space avatar
 ~~~~~~~~~~~~~
 
-Same as for the banner, you can choose an another space avatar, just click on 
-|image15| and an ``Upload`` button appears allowing you to pick up an image 
-from your hard disk:
+Contrary to the banner, you can choose an another space avatar only in your space **Settings**.
 
-|image16|
 
-Pick up an image by double-clicking on it. The image will be loaded in
-the space's avatar.
+When scrolling down in the space's activity stream, or applications, you always have the space' avatar, the space name and their applications in the topbar.
 
-After setting a space avtar, when you click again on |image71|, you can:
+.. tip:: By opening a space, the default platform topbar is replaced by the space topbar.
 
-- ``Update`` the image by selecting an another one from your computer or
+The space's topbar contains:
 
-- ``Reset`` to restore the default space icon.
-
-|image72|
-
-When scrolling down in the space's activity stream and when you exceed
-the cover section limit, the banner image is collapsed and a new space's
-navigation bar still appear. It allows you to see all the space's tabs.
-
-|image17|
-
-The new navigation bar contains:
-
--  The space's avatar in a cercle form.
+-  The space's avatar in a square form.
 
 -  The space's name allowing you to know in which space you are.
 
--  The chat button allowing you to start a conversation with the space's
-   members.
-
 -  The space's applications.
 
--  The *More* button |image18| appears when the number of applications
-   exceeds the number that the navigation bar is able to display or when
-   the spae's name is long.
+-  The same actions icons we already have in the platform default topbar: 
+   Notifications, Applications center, Search icon and Chat.
 
-   |image19|
-
-   Clicking on it displays the list of the remaining applications.
-
-   |image20|
-
-In mobile devices, applications navigation bar is scrollable right and
+In mobile devices, applications navigation bar is displayed on the bottom and scrollable right and
 left.
 
-|image21|
+|SP-14|
 
 .. _Create-Space:
 
@@ -313,7 +276,7 @@ Users field can be pre-filled by default users or spaces defined in space templa
 
 Finally, click **Create** button to finish adding your new space. The new space appears.
 
-|image27|
+|SP-15|
 
 .. _Space-templates:
 
@@ -340,7 +303,7 @@ Default Settings for the Community template are :
    -  Description: a general purpose area for collaboration and communication of a digital community.
    -  Hidden: No 
    -  Registration : Open
-   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Space Settings
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Settings
 
 
 **Project**
@@ -352,7 +315,7 @@ Projects is ideal to coordinate actors toward a shared outcome.
    -  Description: A project space where members coordinate on tasks toward a predefined outcome.
    -  Hidden: No 
    -  Registration : Validation
-   -  Predefined Apps : Home, Tasks, Documents, Calendar, Wiki, Forum, Members, Space Settings
+   -  Predefined Apps : Home, Tasks, Documents, Calendar, Wiki, Forum, Members, Settings
    
 **Team**
 
@@ -363,7 +326,7 @@ For organizational teams or work groups.
    -  Description: A central destination for members of a team.
    -  Hidden: Yes
    -  Registration : Validation
-   -  Predefined Apps : Home, Calendar, Documents, Wiki, Tasks, Members, Space Settings
+   -  Predefined Apps : Home, Calendar, Documents, Wiki, Tasks, Members, Settings
    
 **Communication**
 
@@ -373,10 +336,10 @@ Communication is the perfect choice to exchange knowledges and skills.
    -  Description: Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
    -  Hidden: No 
    -  Registration : Validation
-   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Space Settings
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Settings
    
    You can redefine the space banner and the space avatar by mousing
-   over and then clicking on |image29| allowing you to pick an image from
+   over and then clicking on |SP-13| allowing you to pick an image from
    your computer.
 
    More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
@@ -389,9 +352,10 @@ Communication is the perfect choice to exchange knowledges and skills.
 The default space home page contains the following content:
 
 -  Activity stream: displays the space's activities
+
 -  Description: displays the space's description and the list of the space's managers
 
-   |image76|
+   |SP-16|
    
 -  :ref:`Calendar <CalendarApp>`: displays the events of the space's calendar by day (today's events by default)
    
@@ -402,15 +366,13 @@ The default space home page contains the following content:
 -  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the online members of the space. 
    It appears while at least one member is online.
    
-   |image78|
+   |SP-11|
 
 .. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is Online? <WhoIsOnlineApp>` portlets are the same
           as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
 
 .. note:: When you are a  platform administrator and member of a space, you are able to add more portlets 
-          just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.
-          
-              |SP-11|
+          just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.    
 
 
 .. _Space-banner-avatar:
@@ -422,19 +384,19 @@ By default, the space banner is set to be the one predefined in the template and
 
    |image28|
 
-You can redefine the space banner and the space avatar by mousingover and then clicking on 
-|image29| allowing you to pick an image from your computer.
+You can redefine the space banner and the space avatar by mousing over and then clicking on 
+|image29| allowing you to pick an image from your computer in the space home page for the space avatar and space settings for the space avatar.
 
 More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
 
-*Space applications*
+**Space applications**
 
 
    The space is featured with some default applications
    pages on the space navigation bar. Simply click each application to
    use its functions. See :ref:`Managing space navigation bar <Manage-space-navbar>` for more details.
 
-   -  **Activity Stream**: Displays changes on the space information and all
+   -  **Home**: Displays changes on the space information and all
       the activities of space members. See :ref:`Using the Activity Stream <Managing-Activities>` for more details.
 
    -  **Forums**: Allows space members to exchange their opinions on a
@@ -449,7 +411,7 @@ More details about how to redefine space banner and profile :ref:`here <Space-ba
    -  **Agenda**: Allows space members to create/edit the same events/tasks
       in the space calendar. See :ref:`Managing Your Calendars <Calendar>` for more details.
 
-   -  **Space Settings**: Allows the space manager only to edit the space.
+   -  **Settings**: Allows the space manager only to edit the space.
       This application is invisible to space members, except the space
       manager. See :ref:`Managing space settings <Manage-Space-Settings>` to know how to edit a space.
 
@@ -463,7 +425,7 @@ More details about how to redefine space banner and profile :ref:`here <Space-ba
           to see more members.
 
 
-.. note:: In the space seeting, you can have an idea about the space template 
+.. note:: In the space *Settings*, you can have an idea about the space template 
           for your space, the Space template pulldown will display the selected template but you can't change it.
 
 		  
@@ -512,21 +474,28 @@ can manage its initial settings in Space Settings, including:
 -  :ref:`Space navigation bar <Manage-space-navbar>`
 
 To edit a space, access the Space Settings page first by following one
-of 2 ways:
+of 3 ways:
 
 -  **The first way**
 
-   -  :ref:`Access your desired space <Access-Space>`, then select Space Settings on the space navigation bar.
+   -  :ref:`Access your desired space <Access-Space>`, then select Settings on the space navigation bar.
 
-      |image33|
+      |SP-25|
 
 -  **The second way**
 
-   -  `Go to the Spaces  page <note-access-spaces-page>`, choose the space to edit, then you click on area button to display the Edit button.
+   -  `Go to the Spaces page <Access-Space>`, choose the space to edit, then you click on area button to display the Edit button.
 
    -  Click Edit.
 
       |SP-5|
+
+
+-  **The third way**
+
+`Go to the Spaces page <Access-Space>`, click on **Managing**, then you click on edit button to display the edit space drawer.
+
+      |SP-29|
 
 .. _ChangingInfoVisibility:
 
@@ -536,38 +505,35 @@ Changing space information/visibility
 Changing space information
 ---------------------------
 
-This function allows you to edit the basic information of a space.
+This function allows you to edit the basic information of a space, which are General space informations and space's applications.
 
-1. Select the Settings tab in the **Space Settings** page.
+To open the Settings page, you can select the Settings tab in the space navigation bar.
 
-|image35|
+**General**
 
-2. Change information in the Name, Description fields and the space avatar.
+By clicking on the edit icon in front of the General label, uyou can change space's information like: 
 
--  To change the space avatar, click Change Picture below the avatar to
-   open the Upload an Image form. See :ref:`Uploading your avatar <Change-your-avatar>` for more details.
+- Space avatar (See :ref:`Uploading your avatar <Change-your-avatar>` for more details.)
 
-3. Click Save to accept your changes.
+- Space Name
+
+- Space Description 
+
+- values of Visibility and Registration (For more details, see :ref:`here <access-level-step>`.)
+
+Click Save to accept your changes.
 
 .. note:: The space template combo will be disabled, so that you can't edit its template.
 
-Changing visibility
---------------------
-
-1. Select the Access & Edit tab in the **Space Settings** page.
-
-2. Change values of Visibility and Registration if you want. For more details, see :ref:`here <access-level-step>`.
-
-3. Click Save to accept your changes.
 
 .. _ManagingMembers:
 
 Managing members
 ~~~~~~~~~~~~~~~~~
 
-Select the Members tab in **Space Settings** page.
+Select the Members application in the space navigation bar.
 
-|image58|
+|SP-18|
 
 Here, you can do many actions on members as follows:
 
@@ -578,117 +544,91 @@ Inviting new members
 
 You can invite other users to join your spaces as follows:
 
--  **Inviting users**
+1- You click on |SP-17|    
 
-   -  **The first way**
+2- An Invite user drawer is opened.
 
-      If you know the username of a person, simply enter his/her
-      username in the textbox, then click Invite.
+|SP-23| 
 
-      To invite multiple people, use commas to separate your multiple
-      entered usernames.
-
-   -  **The second way**
-
-      1. Click |image36| to open the Select Users form.
-
-      |image37|
-
-      2. Select your desired users by ticking their corresponding checkboxes, and click Add.
-
-      You can also search for your desired members in eXo Platform, do as follows:
-
-      -  **i.** Enter a search term into the Search box.
-
-      -  **ii.** Select a criterion you want to find in the combo box next to the Search box.
-
-      -  **iii.** Click |image38| or press **Enter** to perform searching.
-
-      3. Click Invite to invite your selected users.
-
-   -  **The third way**
-
-      |image39|
-
-      1. |image40| Go to Members application of the space.
-
-      2. |image41| Enter the username of the person you wish to invite to
+3- Enter the username of the person you wish to invite to
       the space. You can just type in the first letters and a list of
       suggestions should appear. This list contains persons having those
       letters in their username, First name or Last name. Press Enter on
       keyboard to confirm the user selection.
 
-      If you entered a wrong username (i.e it doesn't exist), it gets underlined in red:
-      
-      |image42|
 
-      3. |image43| Choose one or more persons to invite from the list. You
-      can remove some persons by just clicking on |image10| in front of
-      the displayed named.
+.. note:: Every user, or space, added to the invite drawer, is presented by the full name and its avatar.
+         If you entered a wrong username (i.e it doesn't exist), nothing will be displayed in the suggestions list. 
 
-      4. |image44| Click on Invite to send invitations to the chosen
+4. Click on Invite to send invitations to the chosen
       persons.
 
-      If you press on Enter to confirm a wrong username and then click
-      on Invite, an error pop up appears indicating that the selected
-      username is not valid.
+      If you press on Invite to confirm a wrong username, the wrong username is not taken into account on sent invitations.
       
-      |image60|
+ 
+The invitees will see your invitations in the :ref:`Invitations application <Accept-Ignore-Space-Invitation>` at the right panel of their homepage.
 
-   -  **Inviting users from a group**
+Filter space members
+-----------------------
+You can filter space's members by choosing a value from the pulldown: 
 
-      1. Click |image45| to open the Select a Group form.
+- Members: Displays all the space's members
 
-      2. Select a group on the left pane, then select its sub-group on the right pane.
+- Managers: Displays only the space's managers
 
-      3. Click Invite to invite your selected group.
+- Invited: displays invited users to the space
 
-After that, you will see the list of invited users. The invitees will
-see your invitations in the :ref:`Invitations application <InvitationsApp>` at the right panel of their homepage.
+- Requested: displays users that send a request to join the space.
 
-Revoking your invitations
----------------------------
+.. note:: Invited and Requested are visible to only the space managers.
 
-If the invited users have not accepted your requests yet, you can revoke
-your invitations by clicking |image46| corresponding to the users' name.
-The users will be removed from the Invited list.
+Display Invited members
+-------------------------
 
-Validating/Declining request
------------------------------
+You can display the list of invited members just by selecting **Invited** on the filter space members pulldown.
 
-As a manager or creator of a space, you can validate other users'
-requests for joining your space.
+|SP-19|
 
--  To accept a user's request for joining your space, click |image47| in
-   the Action column.
+Display Requestd to join  members
+------------------------------------
 
--  To decline a user's request for joining your space, click |image48|
-   in the Action column.
+You can display the list of members who sent a request to join the space just by selecting **Requested** on the filter space members pulldown.
+
+|SP-20|
 
 .. _PromotingDemotingMember:
 
 Promoting/Demoting a member
 ----------------------------
 
--  To promote a member to the manager position, click |image49| in the
-   Manager column. The user will be automatically promoted as a manager
+-  To promote a member to the manager position, click **Promote Manager** in the
+   member pulldown. The member is automatically promoted as a manager
    in the current space.
 
--  To demote a member, click |image50|.
+|SP-22|
+
+-  To demote a member, click **Remove Manager**, and the member is automatically removed as a manager
+   in the current space
 
 .. note:: Be careful not to remove the rights for yourself; otherwise, you
 			will not be able to change your space's settings anymore. Besides,
 			there should be at least one manager in a space, so the last manager
 			of the space is not permitted to be demoted.
 
+.. note:: When you are a space manager, an icon is displayed next to the information icon.
+      This icon is used to easily identify managers. By mousing over this icon, a **Space Manager**
+      tooltip is displayed. |SP-24|
+
 .. _RemovingMember:
 
 Removing a member
 ------------------
 
-Click |image51| corresponding to the member you want to delete in the
-**Members** list. In case this member is the only manager of the space,
-there will be a warning like this:
+To remove a member from your space, you can click on **Remove** in the
+   member pulldown. The member is automatically removed from the space.
+
+In case this member is the only manager of the space,
+a warning is displayed:
 
 |image52|
 
@@ -702,21 +642,22 @@ before you can delete that member.
 Managing space applications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Select the Applications tab to go the **Applications** page which allows
-you to manage space applications.
+By clicking on the arrow in front of Applications label, the **Applications** page which allows
+you to manage space applications is displayed.
+
+|SP-27|
 
 Here, you can:
 
 Adding a new space application
 -------------------------------
 
-1. Click Add Application to open the Space Application Installer form.
+1. Click Add Application icon to open the *Space Application Installer* drawer.
 
-|image53|
+|SP-21|
 
-2. Click a category on the left panel to show its applications on the right
-panel, then select the application you want to add by clicking Add
-corresponding to it.
+2. Select the application you want to add by clicking Add icon
+in front of it.
 
 If there is no available application, ask your system administrator to
 gain the access right.
@@ -724,8 +665,9 @@ gain the access right.
 Deleting an application
 --------------------------
 
-To remove an application, click |image54| corresponding to the
-application name.
+To remove an application, click **Remove** in the application's pulldown.
+
+|SP-28|
 
  .. note::You cannot delete the Space Settings application because it is configured as a mandatory space application.
 
@@ -733,69 +675,24 @@ Renaming an application
 -------------------------
 
 As manager of a space, you are allowed to rename its applications **except the Activity Stream**.
-To rename an application, simply double-click on its name:
-
-|image73|
+To rename an application, simply double-click on its name.
 
 
 .. _Manage-space-navbar:
 
 Managing space navigation bar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------
 
 Each space is featured with some "pages" on the space navigation bar.
 These pages may contain applications or any content. By clicking on each
 page, you will be redirected to it.
 
-|image55|
+|SP-26|
 
-Also, you can easily manage these pages on the space navigation bar
-through actions on the relevant navigation nodes. To do so, in Space
-Settings, select the Navigations bar, then right-click the relevant
-navigation node. See :ref:`Managing navigation nodes <ManagingNavigations>`
-for more details.
+Also, you can easily manage these applications display order on the space navigation bar
+by selecting choices between: *Move After* or *Move Before*.
 
-|image56|
-
-Creating a space page
------------------------
-
-To create a page that is accessible on the space navigation bar, simply
-add a navigation node that links to your desired page in the Page
-Selector tab. See :ref:`Adding a new node <ManagingNavigations.AddingNewNode>` 
-for more details.
-
-|image57|
-
-Also, you can create a space page using:
-
--  :ref:`Page Creation Wizard <PageCreationWizard>`;
-   Or
-
--  :ref:`Pages Management <PagesManagement>`.
-   In this case, Owner Type should be **group**, and Owner Id should be
-   **/spaces/[space\_node\_name]**. For example, if you want to add a
-   page to the space named PLF team, the Owner Id should be
-   **/spaces/plf\_team**. Remember that in this way, you only create the
-   space page that is still not accessible. To make this page
-   accessible, create a node that links to this page (in the Page
-   Selector tab).
-
-Editing a space page
----------------------
-
-To edit this space page, simply right-click the navigation node
-containing the page and select Edit Node's Page from the context menu.
-The **Edit Page** window will be displayed in the Page Properties view.
-See :ref:`Editing a page <ManagingPages.EditingPage>` for more details.
-
-Removing a space page
-----------------------
-
-If you right-click the node containing the page and select Delete Node
-from the context menu, only the navigation node linking to the page will
-be removed from the space navigation bar, but its page still exists. To
-actually delete this page, see :ref:`Deleting a page <ManagingPages.DeletingPage>`.
+Every changement is automatically saved and the new applications order is available after a refresh.
 
 
 .. _Join-Leave-Space:
@@ -809,7 +706,7 @@ Joining/Leaving a space
 Joining a space
 ~~~~~~~~~~~~~~~~~~
 
-:ref:`Go to the Spaces page <note-access-spaces-page>` and you will see All Spaces tab which displays all your spaces and ones
+:ref:`Go to the Spaces page <Access-Space>` and you will see all your spaces and ones
 whose :ref:`Visibility <About-space-visibility>` is set to "Visible".
 
 There are two cases to join a space:
@@ -844,10 +741,12 @@ you cannot leave a space will appear as below.
 
 |image61|
 
- .. note::After you have left a space, the space will not exist in the My
+ .. note: After you have left a space, the space will not exist in the My
 			Spaces tab, but in the All Spaces tab (for the "visible" space
 			only). You are not able to view activities of the spaces you have
 			left unless those where you have been mentioned.
+      Once you leave the space, you will not be able to see any activity, nor
+      receiving notifications of your former publications on this space
 
 .. _Delete-Space:
 
@@ -919,14 +818,8 @@ with the space name, the space avatar and the space description.
 |image66|
 
 If you are a member in the space and not an administrator or creator, in
-addition to the previously cited components, a Leave button is displayed
-in the popover allowing you to leave the space and Chat button allowing
+addition to the previously cited components, a Chat button allowing
 you to start a discussion with the space members.
-
-|image67|
-
-Once you leave the space, you will not be able to see any activity, nor
-receiving notifications of your former publications on this space
 
 Only the space managers and authors of the posts can delete the
 activities by clicking on the delete (1) icon in the corner. All
@@ -936,9 +829,9 @@ deleted.
 
 .. |SP-1| image:: images/spaces/spaces_list.png
 .. |SP-2| image:: images/spaces/Spaces_cards_list.png
-.. |SP-3| image:: images/spaces/Space_cards.gif
-.. |SP-4| image:: images/spaces/Space_details
-.. |SP-5| image:: images/spaces/Remove_space
+.. |SP-3| image:: images/spaces/Space_card.gif
+.. |SP-4| image:: images/spaces/Space_details.png
+.. |SP-5| image:: images/spaces/Remove_space.png
 .. |SP-6| image:: images/spaces/Revok_request.png
 .. |SP-7| image:: images/spaces/Invitations_to_space.png
 .. |SP-8| image:: images/spaces/Space_access.png
@@ -946,6 +839,23 @@ deleted.
 .. |SP-10| image:: images/spaces/Accept_space_invitation.png
 .. |SP-11| image:: images/spaces/Whos_Online.png
 .. |SP-12| image:: images/spaces/Swipe_mobile.gif
+.. |SP-13| image:: images/spaces/update_banner_icon.png
+.. |SP-14| image:: images/spaces/update_space_avatar.png
+.. |SP-15| image:: images/spaces/space_created.png
+.. |SP-16| image:: images/spaces/Description_portlet.png
+.. |SP-17| image:: images/spaces/invite_button.png
+.. |SP-18| image:: images/spaces/space_navbar.png
+.. |SP-19| image:: images/spaces/invited_users.png
+.. |SP-20| image:: images/spaces/requested_users.png
+.. |SP-21| image:: images/spaces/space_application_installer.png
+.. |SP-22| image:: images/spaces/promote_manager.png
+.. |SP-23| image:: images/spaces/invite_users_space.png
+.. |SP-24| image:: images/spaces/space_manager.png
+.. |SP-25| image:: images/spaces/space_settings.png
+.. |SP-26| image:: images/spaces/space_topbar.png
+.. |SP-27| image:: images/spaces/space_apps.png
+.. |SP-28| image:: images/spaces/space_app_actions.png
+.. |SP-29| image:: images/spaces/manage_space_drawer.png
 .. |image0| image:: images/social/spaces_list.png
 .. |image1| image:: images/common/1.png
 .. |image2| image:: images/common/2.png
