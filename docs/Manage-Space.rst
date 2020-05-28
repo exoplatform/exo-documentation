@@ -147,7 +147,7 @@ not its member yet, you will receive various instructions as follows:
 Space banner and avatar
 =======================
 
-After :ref:`creating a space <Create-Space>`, by default it has the default banner (related to the space template) and the default space's icon. 
+After :ref:`creating a space <Create-Space>`, it has the default banner (related to the space template) space icon. 
 You can choose different images for the banner and the avatar.
 
 .. _SpaceBanner:
