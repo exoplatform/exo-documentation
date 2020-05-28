@@ -585,7 +585,7 @@ You can filter space's members by choosing a value from the pulldown:
 Display Invited members
 -------------------------
 
-You can display the list of invited members just by selecting **Invited** on the filter space members pulldown.
+You can display the list of invited users just by selecting **Invited** on the filter space members pulldown.
 
 |SP-19|
 
