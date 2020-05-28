@@ -589,7 +589,7 @@ You can display the list of invited users just by selecting **Invited** on the f
 
 |SP-19|
 
-Display Requestd to join  members
+Display Requested to join  members
 ------------------------------------
 
 You can display the list of members who sent a request to join the space just by selecting **Requested** on the filter space members pulldown.
