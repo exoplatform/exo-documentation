@@ -187,7 +187,7 @@ The space's topbar contains:
 -  The same actions icons we already have in the platform default topbar: 
    Notifications, Applications center, Search icon and Chat.
 
-In mobile devices, applications navigation bar is displayed on the bottom and scrollable right and
+On mobile devices, application navigation bar is displayed at the bottom and can be scrolled from right to
 left.
 
 |SP-14|
