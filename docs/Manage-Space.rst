@@ -692,7 +692,7 @@ page, you will be redirected to it.
 Also, you can easily manage these applications display order on the space navigation bar
 by selecting choices between: *Move After* or *Move Before*.
 
-Every changement is automatically saved and the new applications order is available after a refresh.
+Every change is automatically saved and the new applications order is available after a refresh.
 
 
 .. _Join-Leave-Space:
