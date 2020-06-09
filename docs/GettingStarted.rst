@@ -1395,8 +1395,6 @@ You will be then directed to your **Activity Stream** page.
 
 .. _Share-AS:
 
-.. _News-composer:
-
 Sharing in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1483,6 +1481,10 @@ You just have to set the name for the automatically created folder, and then pre
 You can delete a folder from the select folder drawer by right clicking on the folder icon then choosing the delete option. You just have to confirm the action from the confirmation popup to delete definitely the selected folder.
 
 |image243|
+
+In the same way, you can also rename a folder by doing the same action and choosing the rename option. 
+
+|image246|
 
 
 Posting links in the activity stream
@@ -2771,3 +2773,4 @@ to display the original timestamp of the comment.
 .. |image243| image:: images/new_composer/delete_folder.png
 .. |image244| image:: images/new_composer/link_preview.png
 .. |image245| image:: images/new_composer/default_preview_link.png
+.. |image246| image:: images/new_composer/create_new_folder.gif
