@@ -1398,135 +1398,6 @@ You will be then directed to your **Activity Stream** page.
 Sharing in the activity stream
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using the acivity stream, you are able to share with your connections or
-other space members (in the space's activity stream):
-
--  A text Message to ask for help or to inform something.
-
--  A link.
-
--  A single file or many files.
-
-|image57|
-
-.. tip:: When you already started to type a text message, add attachement or link to an activity post 
-         and that the page will be refreshed, a confirmation popup appears to warn you about the unsaved changes.
-         
-         -  In chrome browser: 
-         
-                |image154|
-         
-         - In Firefox browser:
-         
-                |image155|
-
-
-.. _text-message:
-
-Posting a text message in the activity stream
---------------------------------------------------
-
-To share a text message with your connections or to other space's members, follow these steps:
-
-1. Click on *Message* tab form the activity composer, an area for message
-composing appears with a formatting toolbar.
-
-|image58|
-
-2. Type your message, you can format it using the buttons of the formatting toolbar:
-
-|image59|
-
--  |image60|: Selecting a text then clicking on that button makes it in
-   bold format.
-
--  |image61|: Selecting a text then clicking on that button makes it in
-   italic format.
-
--  |image62|: Selecting a formatted text then clicking on that button
-   eliminates the formatting on it.
-
--  |image63|: Allows to add/remove a numbered list.
-
--  |image64|: Allows to add/remove a bulleted list.
-
--  |image65|: Allow to quote a text.
-
--  |image66|: Allows to insert a link in the text message.
-
--  |image67|: Allows to attach an image to the text message.
-
-Click on |image68| button to share the message in the activity stream.
-
-|image69|
-
-.. note:: **2000** characters are allowed in the message activity post. If you exceed this limit, a warning message 
-          appears under the text composer:
-          
-          |image152|
-
-
-.. _files-in-AS:
-
-Posting files in the activity stream
---------------------------------------
-
-You can share a file or many files with your connections or in a space's
-activity stream by following this procedure:
-
-Click on File tab form the activity composer, an area allowing to upload
-file appears:
-
-|image70|
-
-Select the desired files either from your hard disk or from existing uploads in the Documents application. 
-
-.. note:: Uploaded files may be classified in different folders. 
-          More details in :ref:`Activity stream file's classification <AS_Files_Classification>` section.
-
-You can add a text message or not and then click on |image71| button to
-share the file(s) in the activity stream.
-
-|image72|
-
-.. _Link-post-in-AS:
-
-Posting link in the activity stream
-------------------------------------
-
-In additions to posting messages and files in activity stream, you can
-also share link by making these steps:
-
-Click on Link tab form the activity composer, two areas appears:
-
--  Composer: allowing to add or not a text message with the link.
-
--  Link area: allowing to attach a link in the activity stream.
-
-|image73|
-
-Add the link in the corresponding area and then click on |image74|.
-
-The link is attached and a thumbnail appears with a brief text from the
-corresponding page to the link:
-
-|image75|
-
-You can check No thumbnail to remove the thumbnail display.
-
-Add or not a text message and then click on |image76| button to share
-the link.
-
-|image77|
-
-    .. note:: If the activity composer is empty, the |image78| button still grey and unclickable until adding something (a text message, a link or a file) in the activity composer area.
-
-
-.. _News-composer:	
-	
-Posting in the activity stream via the New Composer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
-
 A new way to share in the activity stream is available via a clickable text "Post" from the home page and "Post in '$Space Name' " from space's home page.
 
 |image220|
@@ -1610,6 +1481,10 @@ You just have to set the name for the automatically created folder, and then pre
 You can delete a folder from the select folder drawer by right clicking on the folder icon then choosing the delete option. You just have to confirm the action from the confirmation popup to delete definitely the selected folder.
 
 |image243|
+
+In the same way, you can also rename a folder by doing the same action and choosing the rename option. 
+
+|image246|
 
 
 Posting links in the activity stream
@@ -2726,9 +2601,6 @@ to display the original timestamp of the comment.
 
 .. |image55| image:: images/platform/change_language.png
 .. |image56| image:: images/platform/language_setting.png
-.. |image57| image:: images/platform/activity_composer.png
-.. |image58| image:: images/platform/formatting_toolbar.png
-.. |image59| image:: images/platform/formatting_toolbar_actions.png
 .. |image60| image:: images/common/1.png
 .. |image61| image:: images/common/2.png
 .. |image62| image:: images/common/3.png
@@ -2737,17 +2609,6 @@ to display the original timestamp of the comment.
 .. |image65| image:: images/common/6.png
 .. |image66| image:: images/common/7.png
 .. |image67| image:: images/common/8.png
-.. |image68| image:: images/platform/post_button.png
-.. |image69| image:: images/platform/post_message.png
-.. |image70| image:: images/platform/post_file.png
-.. |image71| image:: images/platform/post_button.png
-.. |image72| image:: images/platform/posted_files.png
-.. |image73| image:: images/platform/link_area.png
-.. |image74| image:: images/platform/attach_button.png
-.. |image75| image:: images/platform/attached_link.png
-.. |image76| image:: images/platform/post_button.png
-.. |image77| image:: images/platform/attached_link_toAS.png
-.. |image78| image:: images/platform/post_button.png
 .. |toolbar| image:: images/platform/formatting_toolbar_actions.png
 .. |image79| image:: images/common/1.png
 .. |image80| image:: images/common/2.png
@@ -2826,8 +2687,6 @@ to display the original timestamp of the comment.
 .. |filter| image:: images/platform/activity_filter.png
 .. |image152| image:: images/platform/limit_activityMessage.png
 .. |image153| image:: images/platform/limit_comment.png
-.. |image154| image:: images/platform/confirmation_popup_Chrome.png
-.. |image155| image:: images/platform/Confirmation_popup_FF.png
 .. |image157| image:: images/sharenews/post.png
 .. |image158| image:: images/sharenews/posted_news.png
 .. |image159| image:: images/sharenews/creation_form.png
@@ -2914,3 +2773,4 @@ to display the original timestamp of the comment.
 .. |image243| image:: images/new_composer/delete_folder.png
 .. |image244| image:: images/new_composer/link_preview.png
 .. |image245| image:: images/new_composer/default_preview_link.png
+.. |image246| image:: images/new_composer/create_new_folder.gif
