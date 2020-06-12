@@ -43,6 +43,9 @@ Administering eXo Platform
     -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
        Instructions on how to manage spaces, their permissions and templates in
        eXo Platform.
+       
+    -  :ref:`Managing Application Center <AdminAppCenter>`
+       Instructions on how to manage Application Center       
 
     -  :ref:`Managing sites <ManagingSites>`
        In-depth instructions on how to create, edit and delete sites.
@@ -3059,6 +3062,39 @@ this entry is updated:
 -  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator (The removal from the group could only be done singularly i.e. only one user per action)
    
 -  The number of added users is increased if some users were added to the bound group by an administrator
+
+
+.. _AdminAppCenter:
+
+============================
+Managing Application Center
+============================
+
+As a platform administrator, you can manage the Application Center by:
+
+-  Defining the number of allowed favorite applications
+-  Defining mandatory applications that appear in every favorite applications drawer/list
+-  Defining default icon for added applications
+-  Adding new applications
+
+To access the administration menu for Application Center, you need to access to the left navigation menu through
+the hamburger icon -> Administration -> OTHER -> Applications
+
+|AC_image13|
+
+In the administration screen for Application Center, you have two tabs: Applications and Settings
+
+|AC_image14|
+
+.. _SettingsTabAppCenter:
+
+In the settings tab you can define the two properties:
+
+-  Number of favorites allowed: which defines the :ref:`maximum number of applications <max-fav-apps>` an end user is able to favorite
+
+-  Default app icon: which defines the icon that could take an application when it is added without icon
+
+.. _ApplicationsTabAppCenter:
 
 
 .. _ManagingSites:
@@ -6087,4 +6123,6 @@ The following image shows the screen when an anonymous user accesses
 .. |TA4| image:: images/platform/SpaceSettings.png
 .. |TA5| image:: images/platform/SpaceSettingsNavigations.png
 .. |TA6| image:: images/platform/DeleteNodeSpace.png
+.. |AC_image13| image:: images/platform/AppCenter/AdminMenuAppCenter.png
+.. |AC_image14| image:: images/platform/AppCenter/AdminAppCenterTabs.png
 

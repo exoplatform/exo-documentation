@@ -524,16 +524,20 @@ the top navigation bar.
 
 |AC_image1|
 
-A drawer will open displaying your favourite applications alphabetically sorted.
+A drawer will open displaying:
+
+-  Mandatory applications defined by an administrator pinned in the drawer, alphabetically sorted but not draggable
+
+-  Your favorite applications alphabetically sorted, by default, could be dragged and dropped to define your own choice.
 
 |AC_image2|
+
+.. note:: A separation line is present to differentiate mandatory applications from your favorite ones.
  
-You can reorganize your favorite applications by dragging and dropping their icons according to your choice.
+As cited above, you can reorganize your favorite applications by dragging and dropping their icons according to your choice.
 
 |AC_image3|
  
-.. note:: When an administrator sets some applications as mandatory, they also appear in your Application
-          center drawer.
 
 When you click on an application icon it will open in the same tab if it is an eXo Platform, otherwise,
 it will open in a new tab.
@@ -545,17 +549,31 @@ You just need to click on |AC_image4| button in the drawer to access the Applica
 
 |AC_image5|
 
-Application center is divided into 2 parts: on the right listing your favorite applications and 
-on the the left listing the whole applications your are allowed to view and use.
+Application center is divided into 2 parts: on the right listing your favorite applications with mandatory applications pinned 
+in the top and on the the left listing the whole applications your are allowed to view and use.
 
-This second part contains applications cards with these details for each one:
+.. note:: Mandatory applications coudn't be unfavorized and their star button is grey colored and unclickable in both parts: 
+          Favorite applications list and Application Center. 
+          On the grey star button's hover, a tooltip appears with the information "Mandatory application".
+          
+          |AC_image11|
+
+The second part contains applications cards with these details for each one:
 
 -  Application's name and image
 -  Application's description
 -  Two buttons "Open" and |AC_image6| in the card's bottom
 -  The icon |AC_image7| in the card's topper
 
-You can favorite an application in the Application Center by clicking on the |AC_image8| in the application's card.
+.. _star-button:
+
+.. tip:: The star button contains three statuses:
+
+         - Grey color, not clickable: for mandatory applications
+         - Yellow borders and white body: for application not yet favorized
+         - Yellow color: for applications already favorized
+
+You can favorite an application in the Application Center by clicking on the :ref:`star button <star-button>` in the application's card.
 The "Star" button will then be yellow colored and the application will be automatically added to the right panel
 i.e. to the "favorite applications" list and to the drawer.
 
@@ -563,9 +581,15 @@ You can also unfavorite an application in the Application Center either by click
 "Star" button on the application's card or on the "Star" button |AC_image9| in front of the application's name in the
 "favorite applications" list.
 
+.. _max-fav-apps:
+
 .. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message appears informing you that you are not allowed to add another favorite application.
           
           |AC_image10|
+          
+In the Application Center page, you can search for applications using a keyword allowing to filter on applications' names.
+
+|AC_image12|      
 
 
 .. _Managing-Notification:
@@ -1340,3 +1364,5 @@ such as:
 .. |AC_image8| image:: images/platform/AppCenter/UncheckStar.png
 .. |AC_image9| image:: images/platform/AppCenter/StarFavAppsList.png
 .. |AC_image10| image:: images/platform/AppCenter/maxFavAppsMsg.png
+.. |AC_image11| image:: images/platform/AppCenter/tooltip_mandatory.png
+.. |AC_image12| image:: images/platform/AppCenter/filter_app_center.png
