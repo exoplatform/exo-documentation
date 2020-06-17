@@ -1520,7 +1520,7 @@ It is possible to attach documents from one of your external drives by connectin
 
 |image247|
 
-From the root folder "Drives", the folders are organized by blocks :
+From the root folder "Drives", folders are organized by blocks :
 
 My drives: Contains your personal documents and shortcuts to your connected cloud drives.
 
