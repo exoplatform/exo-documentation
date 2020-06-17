@@ -1530,7 +1530,7 @@ Others : displays "Users" folder if you are a regular member and other administr
 
 To connect to a cloud drive account, you must use use the icon |image248|.
 
-This icon redirects you to "Connect your service" drawer that allows you to choose either to connect to a google drive account or a one drive account.
+It redirects you to "Connect your service" drawer allowing to choose either to connect to a google drive account or a one drive account.
 
 |image249|
 
