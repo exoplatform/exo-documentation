@@ -1428,7 +1428,7 @@ From the displayed interface, you have three options to add a file :
 
 - Drag and drop a file into the upload area
 - Upload manually from your device 
-- Select from existing uploads
+- Select from drives
 
 |image223|
 
@@ -1499,7 +1499,7 @@ Normal links preview:
 
 |image244|
 
-.. note:: If the link doesn't contain any image, the following default image appears as a preview 
+.. note:: If the link doesn't contain any image or isn't recognized, the following default image appears as a preview 
 			|image245|
 
 Video Links preview : 
@@ -1508,6 +1508,53 @@ Video Links preview :
 
 
 .. note:: The supported video players are Youtube, Vimeo and Dailymotion.
+
+
+.. _CloudDrives:
+
+
+Connecting to drives
+~~~~~~~~~~~~~~~~~~~~~
+
+It is possible to attach documents from one of your external drives by connecting to them from the composer's "Select from drives" drawer.
+
+|image247|
+
+From the root folder "Drives", the folders are organized by blocks :
+
+My drives: Contains your personal documents and shortcuts to your connected cloud drives.
+
+My spaces : Contains folders from the spaces in which you are a member.
+
+Others : displays "Users" folder if you are a regular member and other folders relatef to admins if you have the admin role.
+
+To connect to a cloud drive account, you must use use the icon |image248|.
+
+This icon redirects you to "Connect your service" drawer that allows you to choose either to connect to a google drive account or a one drive account.
+
+|image249|
+
+Once you choose the desired option, you only have to accept the permission request of the service provider to be redirected to the initial tab containing a shortcut of the Gdrive or one in the "My drives" section of the drawer.
+
+|image250|
+
+|image251|
+
+A loader is displayed while the connection is in progress and the shortcut color is grey.
+
+|image252|
+
+The confirmation message is displayed when the connection is succesfully done and the shortcut's color turns to blue.
+
+|image254|
+
+|image255|
+
+.. note:: The actual supported cloud drives for eXo 6.0 version are Google drive and One drive.
+
+.. note:: It is possible to delete the connection to a cloud drive by deleting the related folder from document application. 
+			|image254|
+
 
 
 .. _News:
@@ -2774,3 +2821,12 @@ to display the original timestamp of the comment.
 .. |image244| image:: images/new_composer/link_preview.png
 .. |image245| image:: images/new_composer/default_preview_link.png
 .. |image246| image:: images/new_composer/create_new_folder.gif
+.. |image247| image:: images/new_composer/drives_drawer.png
+.. |image248| image:: images/new_composer/connect_icon.png
+.. |image249| image:: images/new_composer/connect_services_drawer.png
+.. |image250| image:: images/new_composer/google_permission.png
+.. |image251| image:: images/new_composer/onedrive_permission.png
+.. |image252| image:: images/new_composer/connection_progress.png
+.. |image253| image:: images/new_composer/connection_confirmation.png
+.. |image254| image:: images/new_composer/delete_connection.png
+.. |image255| image:: images/new_composer/connected_drive.png
