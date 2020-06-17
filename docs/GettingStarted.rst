@@ -1516,7 +1516,7 @@ Video Links preview :
 Connecting to drives
 ~~~~~~~~~~~~~~~~~~~~~
 
-It is possible to attach documents from one of your external drives by connecting to them from the composer's "Select from drives" drawer.
+With the V6 of eXo Platfom, you are able to attach documents from your external drives. For that, you need first to connect to your external drive through the "Select from drives" drawer.
 
 |image247|
 
