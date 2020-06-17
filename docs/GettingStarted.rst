@@ -1526,7 +1526,7 @@ My drives: Contains your personal documents and shortcuts to your connected clou
 
 My spaces : Contains folders from the spaces in which you are a member.
 
-Others : displays "Users" folder if you are a regular member and other folders relatef to admins if you have the admin role.
+Others : displays "Users" folder if you are a regular member and other administrative folders if you belong to administrators group.
 
 To connect to a cloud drive account, you must use use the icon |image248|.
 
