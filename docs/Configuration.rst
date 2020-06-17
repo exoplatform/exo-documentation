@@ -2769,9 +2769,8 @@ in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
 			# Enable/Disable main stream composer
 			exo.config.mainStreamComposer.enabled=false
 
-By default, the main stream composer is hidden in eXo Platform and displayed in Meeds. 
-To enable it, i.e. dispaly it in the stream page for eXo Platform, 
-you should set the property to true.
+By default, the main stream composer is hidden in eXo Platform. 
+To enable it, i.e. dispaly it in the stream page, you should set the property to true.
 
 .. _Configuration.ActivityType:
 
