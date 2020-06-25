@@ -938,7 +938,7 @@ Quartz Scheduler
 |                                 | jobs.            |                             |
 +---------------------------------+------------------+-----------------------------+                                         
 
- **JobStore configuration Properties**                  
+ **JobStore configuration Properties (in cluster mode only)**                  
 
 +---------------------------------+------------------+-----------------------------+
 | Name                            | Description      | Default                     |
@@ -1072,7 +1072,7 @@ Quartz Scheduler
 |                                 | row.             |                             |
 +---------------------------------+------------------+-----------------------------+
 
- **Datasources configuration**  
+ **Datasources configuration (in cluster mode only)**  
  
 +---------------------------------+------------------+-----------------------------+
 | Name                            | Description      | Default                     |
@@ -1771,7 +1771,8 @@ execute concurrently. Quartz has its own cluster mode, with each
 instance of eXo Platform server as a node of Quartz load balancing and
 failover group.
 
-Since the version 4.4 of eXo Platform, Quatrz is used in persisted mode. So
+Since the version 6.0 of eXo Platform, Quatrz is used in in-memory mode. And
+it's switched to persisted mode when clustering is enabled. So
 it is automatically configured in eXo Platform. As an administrator, you can
 change default Quartz settings in eXo Platform through
 :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
@@ -1789,7 +1790,7 @@ By default, here are Quartz properties:
     #exo.quartz.threadPool.threadPriority=5
     #exo.quartz.threadPool.threadCount=25
 
-    #Configure JobStore
+    #Configure JobStore (In cluster mode only, where the persistent mode is enabled)
     #exo.quartz.jobStore.misfireThreshold=6000
     #exo.quartz.jobStore.class=org.quartz.impl.jdbcjobstore.JobStoreTX
     #For SQL server set exo.quartz.jobStore.driverDelegateClass=org.quartz.impl.jdbcjobstore.MSSQLDelegate
