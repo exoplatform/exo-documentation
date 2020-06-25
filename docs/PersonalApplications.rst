@@ -552,6 +552,8 @@ You just need to click on |AC_image4| button in the drawer to access the Applica
 Application center is divided into 2 parts: on the right listing your favorite applications with mandatory applications pinned 
 in the top and on the the left listing the whole applications your are allowed to view and use.
 
+.. _mandatoryApps:
+
 .. note:: Mandatory applications coudn't be unfavorized and their star button is grey colored and unclickable in both parts: 
           Favorite applications list and Application Center. 
           On the grey star button's hover, a tooltip appears with the information "Mandatory application".
@@ -565,13 +567,20 @@ The second part contains applications cards with these details for each one:
 -  Two buttons "Open" and |AC_image6| in the card's bottom
 -  The icon |AC_image7| in the card's topper
 
+|AC_image13|
+
+.. _helpPage:
+
+.. note:: The icon |AC_image14| may not appear in the application's card when the help page is not defined 
+          when creating the application.
+
 .. _star-button:
 
 .. tip:: The star button contains three statuses:
 
-         - Grey color, not clickable: for mandatory applications
-         - Yellow borders and white body: for application not yet favorized
-         - Yellow color: for applications already favorized
+         - |AC_image15| Grey color, not clickable: for mandatory applications
+         - |AC_image17| Yellow borders and white body: for application not yet favorized
+         - |AC_image16| Yellow color: for applications already favorized
 
 You can favorite an application in the Application Center by clicking on the :ref:`star button <star-button>` in the application's card.
 The "Star" button will then be yellow colored and the application will be automatically added to the right panel
@@ -586,6 +595,11 @@ You can also unfavorite an application in the Application Center either by click
 .. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message appears informing you that you are not allowed to add another favorite application.
           
           |AC_image10|
+          
+          Before reaching the maximum of favorite applications, you also have a message informing you about the 
+          number of maximum of allowed favorites.
+          
+          |AC_image18|
           
 In the Application Center page, you can search for applications using a keyword allowing to filter on applications' names.
 
@@ -1366,3 +1380,9 @@ such as:
 .. |AC_image10| image:: images/platform/AppCenter/maxFavAppsMsg.png
 .. |AC_image11| image:: images/platform/AppCenter/tooltip_mandatory.png
 .. |AC_image12| image:: images/platform/AppCenter/filter_app_center.png
+.. |AC_image13| image:: images/platform/AppCenter/AppCard.png
+.. |AC_image14| image:: images/platform/AppCenter/HelpIconCard.png
+.. |AC_image15| image:: images/platform/AppCenter/greyStar.png
+.. |AC_image16| image:: images/platform/AppCenter/YellowStar.png
+.. |AC_image17| image:: images/platform/AppCenter/unfavorizedAppStar.png
+.. |AC_image18| image:: images/platform/AppCenter/messageAllowedfav.png
