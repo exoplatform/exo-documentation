@@ -88,7 +88,7 @@ Setting up eXo Platform cluster
       -  **JCR**: datasource to store JCR Data.
 
       -  **JPA**: datasource to store entities mapped by Hibernate. Quartz
-         tables are stored in this datasource by default.
+         tables are stored in this datasource when clustering is setup only.
 
    -  *Disk*:
 
