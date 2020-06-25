@@ -1771,7 +1771,7 @@ execute concurrently. Quartz has its own cluster mode, with each
 instance of eXo Platform server as a node of Quartz load balancing and
 failover group.
 
-Since the version 6.0 of eXo Platform, Quatrz is used in in-memory mode. And
+Since the version 6.0 of eXo Platform, Quartz is used in in-memory mode. And
 it's switched to persisted mode when clustering is enabled. So
 it is automatically configured in eXo Platform. As an administrator, you can
 change default Quartz settings in eXo Platform through
