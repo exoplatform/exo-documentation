@@ -1412,7 +1412,7 @@ News application
 -----------------
 
 The News application displays all the articles posted in the spaces that you have access to, as well as the articles pinned on the home page. 
-This application is accessible through the ``News`` link  in the left navigation.
+This application is accessible through the app center if configured.
 
 |image187|
 
@@ -2357,7 +2357,7 @@ to display the original timestamp of the comment.
 .. |image184| image:: images/sharenews/unpin_success.png
 .. |image185| image:: images/sharenews/unpin_details.png
 .. |image186| image:: images/sharenews/unpin_edit.png
-.. |image187| image:: images/sharenews/news_leftnav.png
+.. |image187| image:: images/sharenews/appcenter_news.png
 .. |image188| image:: images/sharenews/news_app.png
 .. |image189| image:: images/sharenews/search_title.png
 .. |image190| image:: images/sharenews/search_user.png
