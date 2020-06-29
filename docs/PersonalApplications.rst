@@ -542,7 +542,7 @@ As cited above, you can reorganize your favorite applications by dragging and dr
 When you click on an application icon it will open in the same tab if it is an eXo Platform, otherwise,
 it will open in a new tab.
 
-In addition to your favorite application displayed in the drawer, you can also navigate through the whole 
+In addition to your favorite applications displayed in the drawer, you can also navigate through the whole 
 applications list you are allowed to view.
 
 You just need to click on |AC_image4| button in the drawer to access the Application Center.
@@ -579,7 +579,7 @@ The second part contains applications cards with these details for each one:
 .. tip:: The star button contains three statuses:
 
          - |AC_image15| Grey color, not clickable: for mandatory applications
-         - |AC_image17| Yellow borders and white body: for application not yet favorized
+         - |AC_image17| Yellow borders and white body: for applications not yet favorized
          - |AC_image16| Yellow color: for applications already favorized
 
 You can favorite an application in the Application Center by clicking on the :ref:`star button <star-button>` in the application's card.
@@ -601,10 +601,11 @@ You can also unfavorite an application in the Application Center either by click
           
           |AC_image18|
           
-In the Application Center page, you can search for applications using a keyword allowing to filter on applications' names.
+In the Application Center page, you can search for applications using a keyword allowing to filter applications.
 
 |AC_image12|      
 
+.. top:: Applications' filtering is made on names, descriptions and URLs.
 
 .. _Managing-Notification:
 

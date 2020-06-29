@@ -3089,13 +3089,15 @@ In the administration screen for Application Center, you have two tabs: Applicat
 .. _SettingsTabAppCenter:
 
 Settings tab
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
+
+|AC_image10|
 
 In the settings tab you can define the two properties:
 
 -  Number of favorites allowed: which defines the :ref:`maximum number of applications <max-fav-apps>` an end user is able to favorite
 
--  Default app icon: which defines the icon that could take an application when it is added without icon
+-  Default app icon: which defines the icon that could take an application when it is added without an icon
 
 To define the above properties, you just need to click on the corresponding edit icon |AC_image2| in front of 
 the property you want to redefine.
@@ -3122,6 +3124,41 @@ button allowing to restore the default icon.
 
 Applications tab
 ~~~~~~~~~~~~~~~~~
+
+|AC_image11|
+
+Applications tab contains:
+-  a table with the whole applications list with delete and edit actions for each line (i.e. each application)
+-  ``Add an application`` button
+
+In this table, the three radio button properties: ``Mandatory``, ``Active`` and ``Mobile``,  
+are editable through the table. You just need to switch the radio button.
+
+.. _EditApp:
+
+Edit action
+------------
+
+When you click on the edit action, a drawer opens containing the already seized properties.
+
+|AC_image12|
+
+
+.. note:: For system applications, i.e. those installed in the platform, name, URL and image fields
+          are not editable. They appear grey colored in the edit mode.
+          
+          |AC_image13|
+          
+.. _DeleteApp:
+
+Delete action
+---------------
+
+When you click on the delete action, a popup appears to confirm the application's deletion.
+
+|AC_image14|
+
+Clicking on ``Delete`` button confirms the deletions, clicking on ``Cancel`` cancels teh deletion and nothing happens.
 
 .. _AddApp:
 
@@ -3155,11 +3192,6 @@ allowing you to open the "Add application" drawer with these fields:
 .. note:: The |AC_image8| button remains on disabled status until mandatory fields (``Title`` and ``URL``) are set.
           It also ramains disabled if the ``URL`` field is not valid.
 
-
-.. _EditApp
-
-Edit an application
-~~~~~~~~~~~~~~~~~~~~
 
 
 .. _ManagingSites:
@@ -6198,4 +6230,9 @@ The following image shows the screen when an anonymous user accesses
 .. |AC_image7| image:: images/platform/AppCenter/AddApp.png
 .. |AC_image8| image:: images/platform/AppCenter/Savebtn.png
 .. |AC_image9| image:: images/platform/AppCenter/AddAppDrawer.png
+.. |AC_image10| image:: images/platform/AppCenter/AdminMenu_settingsTab.png
+.. |AC_image11| image:: images/platform/AppCenter/AdminMenu_Applications.png
+.. |AC_image12| image:: images/platform/AppCenter/EditApp.png
+.. |AC_image13| image:: images/platform/AppCenter/EditAppSys.png
+.. |AC_image14| image:: images/platform/AppCenter/deleteConfirmMsg.png
 
