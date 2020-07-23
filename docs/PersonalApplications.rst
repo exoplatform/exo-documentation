@@ -516,7 +516,7 @@ your own Wiki page. See the :ref:`Working With Wikis <Wiki>` chapter for the ful
 Managing your favorite applications
 =======================================
 
-Starting with eXo Platform 6, you can quickly access your favourite applications 
+Starting with eXo Platform 6, you can quickly access your favorite applications 
 through the Applications drawer.
 
 To access your favourite applications, you just need to click on this button |AC_image0| from

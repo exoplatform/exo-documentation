@@ -3128,7 +3128,9 @@ Applications tab
 |AC_image11|
 
 Applications tab contains:
+
 -  a table with the whole applications list with delete and edit actions for each line (i.e. each application)
+
 -  ``Add an application`` button
 
 In this table, the three radio button properties: ``Mandatory``, ``Active`` and ``Mobile``,  
@@ -3183,7 +3185,7 @@ allowing you to open the "Add application" drawer with these fields:
 -  ``Mobile``: Allows you to enable or disbale the application's display in mobile devices, i.e. if you judge it a not
    mobile friendly app, you can set this option to false and that way ot will not be displayed in mobile devices. 
    By default set to true.
--  ``Permissions``: to define the application's audience, By default set to *:/platform users i.e. if you don't define
+-  ``Permissions``: to define the application's audience, By default set to ***:/platform/users** i.e. if you don't define
    this field, the added application will be displayed for the platform users
 -  ``Help page``: Allows you to set a help page URL, it could be any page containing more details about the application
    or a how to guide. If you define this field, a :ref:`clickable question mark <helpPage>` will be added to the 
