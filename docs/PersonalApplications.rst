@@ -550,7 +550,7 @@ You just need to click on |AC_image4| button in the drawer to access the Applica
 |AC_image5|
 
 Application center is divided into 2 parts: on the right listing your favorite applications with mandatory applications pinned 
-in the top and on the the left listing the whole applications your are allowed to view and use.
+in the top and on the the left listing the whole applications you are allowed to view and use.
 
 .. _mandatoryApps:
 
