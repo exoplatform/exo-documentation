@@ -3158,7 +3158,7 @@ When you click on the delete action, a popup appears to confirm the application'
 
 |AC_image14|
 
-Clicking on ``Delete`` button confirms the deletions, clicking on ``Cancel`` cancels teh deletion and nothing happens.
+Clicking on ``Delete`` button confirms the deletion, clicking on ``Cancel`` cancels the deletion and nothing happens.
 
 .. _AddApp:
 
@@ -6235,4 +6235,3 @@ The following image shows the screen when an anonymous user accesses
 .. |AC_image12| image:: images/platform/AppCenter/EditApp.png
 .. |AC_image13| image:: images/platform/AppCenter/EditAppSys.png
 .. |AC_image14| image:: images/platform/AppCenter/deleteConfirmMsg.png
-
