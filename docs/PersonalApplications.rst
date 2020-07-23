@@ -539,7 +539,7 @@ As cited above, you can reorganize your favorite applications by dragging and dr
 |AC_image3|
  
 
-When you click on an application icon it will open in the same tab if it is an eXo Platform, otherwise,
+When you click on an application icon it will open in the same tab if it is an eXo Platform application, otherwise,
 it will open in a new tab.
 
 In addition to your favorite applications displayed in the drawer, you can also navigate through the whole 
