@@ -3181,7 +3181,7 @@ allowing you to open the "Add application" drawer with these fields:
 -  ``Active``: Allows you to define if the application should be enabled or not i.e. displayed to its 
    audience (defined in the ``Permissions`` field), by default set to "YES" i.e. active
 -  ``Mobile``: Allows you to enable or disbale the application's display in mobile devices, i.e. if you judge it a not
-   mobile friendly app, you can set this option to false and that way ot will not be dispaled in mobile devices. 
+   mobile friendly app, you can set this option to false and that way ot will not be displayed in mobile devices. 
    By default set to true.
 -  ``Permissions``: to define the application's audience, By default set to *:/platform users i.e. if you don't define
    this field, the added application will be displayed for the platform users
