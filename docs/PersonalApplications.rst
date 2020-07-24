@@ -15,6 +15,10 @@ How to update your current position/avatar and to edit your information.
 
 Introduction to your own Activity Stream page.
 
+:ref:`Managing your favourite applications <Managing-Fav-Apps>`
+
+Introduction to your favourite applications drawer.
+
 :ref:`Managing your connections <Managing-Connections>`
 
 How to view profiles of your contacts, to send/revoke a connection request, to accept/deny connection requests and to disconnect from your contacts.
@@ -251,7 +255,9 @@ To remove an experience, you can simply click on Remove Experience button.
 
 To add a new experience, you can simply click on Add new button in the top Work Experiences drawer, and a new empty experience form is added.
 
+
 |PRFL-17|
+
 
 .. _Kudos:
 
@@ -503,6 +509,103 @@ your own Wiki page. See the :ref:`Working With Wikis <Wiki>` chapter for the ful
 .. note:: Your wiki page is private by default. This means only you and your administrator can access this via the link (``.../wiki/user/[username]``). 
         However, if you have :ref:`made public <MakingPublic>` for your own wiki, anyone can access, read and edit it via the link.
 
+
+.. _Managing-Fav-Apps:
+
+=======================================
+Managing your favorite applications
+=======================================
+
+Starting with eXo Platform 6, you can quickly access your favorite applications 
+through the Applications drawer.
+
+To access your favourite applications, you just need to click on this button |AC_image0| from
+the top navigation bar.
+
+|AC_image1|
+
+A drawer will open displaying:
+
+-  Mandatory applications defined by an administrator pinned in the drawer, alphabetically sorted but not draggable
+
+-  Your favorite applications alphabetically sorted, by default, could be dragged and dropped to define your own choice.
+
+|AC_image2|
+
+.. note:: A separation line is present to differentiate mandatory applications from your favorite ones.
+ 
+As cited above, you can reorganize your favorite applications by dragging and dropping their icons according to your choice.
+
+|AC_image3|
+ 
+
+When you click on an application icon it will open in the same tab if it is an eXo Platform application, otherwise,
+it will open in a new tab.
+
+In addition to your favorite applications displayed in the drawer, you can also navigate through the whole 
+applications list you are allowed to view.
+
+You just need to click on |AC_image4| button in the drawer to access the Application Center.
+
+|AC_image5|
+
+Application center is divided into 2 parts: on the right listing your favorite applications with mandatory applications pinned 
+in the top and on the the left listing the whole applications you are allowed to view and use.
+
+.. _mandatoryApps:
+
+.. note:: Mandatory applications coudn't be unfavorized and their star button is grey colored and unclickable in both parts: 
+          Favorite applications list and Application Center. 
+          On the grey star button's hover, a tooltip appears with the information "Mandatory application".
+          
+          |AC_image11|
+
+The second part contains applications cards with these details for each one:
+
+-  Application's name and image
+-  Application's description
+-  Two buttons "Open" and |AC_image6| in the card's bottom
+-  The icon |AC_image7| in the card's topper
+
+|AC_image13|
+
+.. _helpPage:
+
+.. note:: The icon |AC_image14| may not appear in the application's card when the help page is not defined 
+          when creating the application.
+
+.. _star-button:
+
+.. tip:: The star button contains three statuses:
+
+         - |AC_image15| Grey color, not clickable: for mandatory applications
+         - |AC_image17| Yellow borders and white body: for applications not yet favorized
+         - |AC_image16| Yellow color: for applications already favorized
+
+You can favorite an application in the Application Center by clicking on the :ref:`star button <star-button>` in the application's card.
+The "Star" button will then be yellow colored and the application will be automatically added to the right panel
+i.e. to the "favorite applications" list and to the drawer.
+
+You can also unfavorite an application in the Application Center either by clicking on the yellow colored 
+"Star" button on the application's card or on the "Star" button |AC_image9| in front of the application's name in the
+"favorite applications" list.
+
+.. _max-fav-apps:
+
+.. note:: When you reach the maximum of allowed favorite defined by an administrator, a red colored message appears informing you that you are not allowed to add another favorite application.
+          
+          |AC_image10|
+          
+          Before reaching the maximum of favorite applications, you also have a message informing you about the 
+          number of maximum of allowed favorites.
+          
+          |AC_image18|
+          
+In the Application Center page, you can search for applications using a keyword allowing to filter applications.
+
+|AC_image12|      
+
+.. top:: Applications' filtering is made on names, descriptions and URLs.
 
 .. _Managing-Notification:
 
@@ -1265,3 +1368,22 @@ such as:
 .. |image101| image:: images/sharenews/shared_like_notif.png
 .. |image102| image:: images/sharenews/posted_comment_notif.png
 .. |image103| image:: images/sharenews/shared_comment_notif.png
+.. |AC_image0| image:: images/platform/AppCenter/app_center_btn.png
+.. |AC_image1| image:: images/platform/AppCenter/topbar.png
+.. |AC_image2| image:: images/platform/AppCenter/Apps_drawer.png
+.. |AC_image3| image:: images/platform/AppCenter/dnd.gif
+.. |AC_image4| image:: images/platform/AppCenter/ViewAllApps.png
+.. |AC_image5| image:: images/platform/AppCenter/AppCenter.png
+.. |AC_image6| image:: images/platform/AppCenter/StarButtonCard.png
+.. |AC_image7| image:: images/platform/AppCenter/HelpIconCard.png
+.. |AC_image8| image:: images/platform/AppCenter/UncheckStar.png
+.. |AC_image9| image:: images/platform/AppCenter/StarFavAppsList.png
+.. |AC_image10| image:: images/platform/AppCenter/maxFavAppsMsg.png
+.. |AC_image11| image:: images/platform/AppCenter/tooltip_mandatory.png
+.. |AC_image12| image:: images/platform/AppCenter/filter_app_center.png
+.. |AC_image13| image:: images/platform/AppCenter/AppCard.png
+.. |AC_image14| image:: images/platform/AppCenter/HelpIconCard.png
+.. |AC_image15| image:: images/platform/AppCenter/greyStar.png
+.. |AC_image16| image:: images/platform/AppCenter/YellowStar.png
+.. |AC_image17| image:: images/platform/AppCenter/unfavorizedAppStar.png
+.. |AC_image18| image:: images/platform/AppCenter/messageAllowedfav.png

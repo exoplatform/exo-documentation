@@ -43,6 +43,9 @@ Administering eXo Platform
     -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
        Instructions on how to manage spaces, their permissions and templates in
        eXo Platform.
+       
+    -  :ref:`Managing Application Center <AdminAppCenter>`
+       Instructions on how to manage Application Center       
 
     -  :ref:`Managing sites <ManagingSites>`
        In-depth instructions on how to create, edit and delete sites.
@@ -3059,6 +3062,138 @@ this entry is updated:
 -  The number of removed users is incremented by 1 if a user has been removed from the group by an administrator (The removal from the group could only be done singularly i.e. only one user per action)
    
 -  The number of added users is increased if some users were added to the bound group by an administrator
+
+
+.. _AdminAppCenter:
+
+============================
+Managing Application Center
+============================
+
+As a platform administrator, you can manage the Application Center by:
+
+-  Defining the number of allowed favorite applications
+-  Defining mandatory applications that appear in every favorite applications drawer/list
+-  Defining default icon for added applications
+-  Adding/Editing applications
+
+To access the administration menu for Application Center, you need to access to the left navigation menu through
+the hamburger icon -> Administration -> OTHER -> Applications
+
+|AC_image0|
+
+In the administration screen for Application Center, you have two tabs: Applications and Settings
+
+|AC_image1|
+
+.. _SettingsTabAppCenter:
+
+Settings tab
+~~~~~~~~~~~~~
+
+|AC_image10|
+
+In the settings tab you can define the two properties:
+
+-  Number of favorites allowed: which defines the :ref:`maximum number of applications <max-fav-apps>` an end user is able to favorite
+
+-  Default app icon: which defines the icon that could take an application when it is added without an icon
+
+To define the above properties, you just need to click on the corresponding edit icon |AC_image2| in front of 
+the property you want to redefine.
+
+For the property **Number of favorites allowed**, you need either to move the cursor or click on +/- icons to reach
+the desired value then click on save icon |AC_image4|.
+
+|AC_image3|
+
+To set a custom default icon for application, other the one defined by eXo Platform, you need to follow these steps:
+
+-  click on the edit icon 
+-  browse for an image in your machine
+-  click on save icon to load the image in its location
+
+|AC_image5|
+
+If you need to edit the image again, you will find the previous image name instead of the browse button with a delete
+button allowing to restore the default icon.
+
+|AC_image6|
+
+.. _ApplicationsTabAppCenter:
+
+Applications tab
+~~~~~~~~~~~~~~~~~
+
+|AC_image11|
+
+Applications tab contains:
+
+-  a table with the whole applications list with delete and edit actions for each line (i.e. each application)
+
+-  ``Add an application`` button
+
+In this table, the three radio button properties: ``Mandatory``, ``Active`` and ``Mobile``,  
+are editable through the table. You just need to switch the radio button.
+
+.. _EditApp:
+
+Edit action
+------------
+
+When you click on the edit action, a drawer opens containing the already seized properties.
+
+|AC_image12|
+
+
+.. note:: For system applications, i.e. those installed in the platform, name, URL and image fields
+          are not editable. They appear grey colored in the edit mode.
+          
+          |AC_image13|
+          
+.. _DeleteApp:
+
+Delete action
+---------------
+
+When you click on the delete action, a popup appears to confirm the application's deletion.
+
+|AC_image14|
+
+Clicking on ``Delete`` button confirms the deletion, clicking on ``Cancel`` cancels the deletion and nothing happens.
+
+.. _AddApp:
+
+Add an application
+~~~~~~~~~~~~~~~~~~~~
+
+In the :ref:`Applications tab <ApplicationsTabAppCenter>`, you have a button "Add new application" |AC_image7|
+allowing you to open the "Add application" drawer with these fields:
+
+|AC_image9|
+
+-  ``Title``: a mandatory field allowing to define the application's name
+-  ``URL``: a mandatory field allowing to set the access URL of the application
+-  ``Image``: not mandatory, allows you to define an icon for the application, you can browse for it through your files, it
+   should have a maximum size of 100 ko, otherwise, it will not be accepted.
+-  ``Description``: not mandatory, allows you to set a description for your application to explain more its usage. 
+   This field can contain a maximum of 1000 characters.
+-  ``Mandatory``: Allows you to define if the :ref:`application is mandatory <mandatoryApps>` for end users or not, 
+   by default set to NO   
+-  ``Active``: Allows you to define if the application should be enabled or not i.e. displayed to its 
+   audience (defined in the ``Permissions`` field), by default set to "YES" i.e. active
+-  ``Mobile``: Allows you to enable or disbale the application's display in mobile devices, i.e. if you judge it a not
+   mobile friendly app, you can set this option to false and that way ot will not be displayed in mobile devices. 
+   By default set to true.
+-  ``Permissions``: to define the application's audience, By default set to ***:/platform/users** i.e. if you don't define
+   this field, the added application will be displayed for the platform users
+-  ``Help page``: Allows you to set a help page URL, it could be any page containing more details about the application
+   or a how to guide. If you define this field, a :ref:`clickable question mark <helpPage>` will be added to the 
+   application's card and redirecting to the defined help page.
+   
+.. note:: The |AC_image8| button remains on disabled status until mandatory fields (``Title`` and ``URL``) are set.
+          It also ramains disabled if the ``URL`` field is not valid.
+
 
 
 .. _ManagingSites:
@@ -6087,4 +6222,18 @@ The following image shows the screen when an anonymous user accesses
 .. |TA4| image:: images/platform/SpaceSettings.png
 .. |TA5| image:: images/platform/SpaceSettingsNavigations.png
 .. |TA6| image:: images/platform/DeleteNodeSpace.png
-
+.. |AC_image0| image:: images/platform/AppCenter/AdminMenuAppCenter.png
+.. |AC_image1| image:: images/platform/AppCenter/AdminAppCenterTabs.png
+.. |AC_image2| image:: images/platform/AppCenter/EditIconAppCenter.png
+.. |AC_image3| image:: images/platform/AppCenter/maxfavEdit.png
+.. |AC_image4| image:: images/platform/AppCenter/SaveIcon.png
+.. |AC_image5| image:: images/platform/AppCenter/imageEditAppCenter.png
+.. |AC_image6| image:: images/platform/AppCenter/editAgain.png
+.. |AC_image7| image:: images/platform/AppCenter/AddApp.png
+.. |AC_image8| image:: images/platform/AppCenter/Savebtn.png
+.. |AC_image9| image:: images/platform/AppCenter/AddAppDrawer.png
+.. |AC_image10| image:: images/platform/AppCenter/AdminMenu_settingsTab.png
+.. |AC_image11| image:: images/platform/AppCenter/AdminMenu_Applications.png
+.. |AC_image12| image:: images/platform/AppCenter/EditApp.png
+.. |AC_image13| image:: images/platform/AppCenter/EditAppSys.png
+.. |AC_image14| image:: images/platform/AppCenter/deleteConfirmMsg.png
