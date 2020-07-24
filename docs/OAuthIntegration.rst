@@ -6,8 +6,10 @@ OAuth Integration
 
     Starting from 4.3 version, eXo Platform allows users to log in using 
     their social network accounts, including Facebook, Google+, Twitter, 
-    LinkedIn. To enable the feature, you need to do the main steps 
-    below:
+    LinkedIn.
+    Starting from 6.0 version, you can use an OpenId integration, which is
+    based on OAuth procole.
+    To enable the feature, you need to do the main steps below:
 
     -  Registering an application on the social network you want.
 
@@ -25,7 +27,7 @@ OAuth Integration
 
     -  :ref:`Registering your OAuth application <OAuthAuthentication.RegisteringOAuthApp>`
        How to register your OAuth applications, including Facebook,
-       Google+, Twitter, LinkedIn.
+       Google+, Twitter, LinkedIn, and OpenId
 
     -  :ref:`Setting up eXo Platform <OAuthAuthentication.SettingUpPlatform>`
        Steps to configure eXo Platform that enable the social network with
@@ -200,6 +202,15 @@ Google+
 
 |image13|
 
+OpenId
+~~~~~~~~
+
+The OpenId configuration will depends about which implementation you use, but the steps
+are quite same as for previous vendors :
+You have to create an appliation, provide Authorized Redirect URI, which is
+http://server.local.network.com:8080/portal/openidAuth
+Then, you will be able to collect a client ID, and a client secret, that will be needed
+to configure exo.
 
 .. _OAuthAuthentication.SettingUpPlatform:
 
@@ -245,6 +256,11 @@ you will need to:
 		exo.oauth.google.clientId=GooglePlus_Client_Id
 		exo.oauth.google.clientSecret=GooglePlus_Client_Secret
 
+		## OpenId
+		exo.oauth.openid.enabled=true
+		exo.oauth.openid.clientId=OpenId_Client_Id
+		exo.oauth.openid.clientSecret=OpenId_Client_Secret
+
    In which:
 
    -  ``exo.oauth.{OAuth_Provider}.enabled`` - Enables the integration 
@@ -256,6 +272,32 @@ you will need to:
 
    -  ``exo.oauth.{OAuth_Provider}.clientSecret`` - Client Secret of your
       application.
+
+For OpenId, you need to add 4 more properties which are urls which will be called during the protocol execution.
+Theses urls are implicit in other providers, but as OpenId can be implemented by different ways, we have to provide urls.
+In urls, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
+
+::
+
+		## OpenId Urls
+		exo.oauth.openid.authenticationURL=https://openid.server.com/authorize
+    exo.oauth.openid.accessTokenURL=https://openid.server.com/token
+    exo.oauth.openid.tokenInfoURL=https://openid.server.com/introspect
+    exo.oauth.openid.userInfoURL=https://openid.server.com/userinfo
+
+
+.. note:: Google provide an OpenId protocol implementation. You can use it by creating an Oauth
+   2.0 client ID (as explained previously), and by using it as openid provider, with theses parameters :
+
+::
+    exo.oauth.openid.enabled=true
+		exo.oauth.openid.clientId=GooglePlus_Client_Id
+		exo.oauth.openid.clientSecret=GooglePlus_Client_Secret
+    exo.oauth.openid.authenticationURL=https://accounts.google.com/o/oauth2/auth
+    exo.oauth.openid.accessTokenURL=https://oauth2.googleapis.com/token
+    exo.oauth.openid.tokenInfoURL=https://www.googleapis.com/oauth2/v2/tokeninfo
+    exo.oauth.openid.userInfoURL=https://openidconnect.googleapis.com/v1/userinfo
+
 
 3. Restart eXo Platform server. Your users should be able to register 
    or log in with their social network accounts.
@@ -280,7 +322,7 @@ following:
 
 ::
 
-    exo.oauth.registraterOnFly=FACEBOOK,GOOGLE,LINKEDIN
+    exo.oauth.registraterOnFly=FACEBOOK,GOOGLE,LINKEDIN,OPENID
 
 The on-the-fly registration option is not turned on for Twitter by
 default. In case of the on-the-fly registration, a random password will
