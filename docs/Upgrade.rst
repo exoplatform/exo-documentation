@@ -55,29 +55,54 @@ know before starting the upgrade to 6.0 version.
 
 The components architecture has changed in 6.0 version:
 
-- Forum addon has been deprecated and its support will be removed in future versions.
+- :ref:`Forum <Forum>`, :ref:`exo-remote-edit <OpenInOffice>` and:ref:`exo-lecko <LeckoAnalytics>`  
+  addons have been deprecated and their support will be removed in future versions.
+- :ref:`exo-web-pack <WCM>` is no more a supported addon.
 - JCR is not considered anymore as a basic component of the platform, and thus must be installed to be used.
 - Chromattic library has been deleted from pre-packaged bundle.
-- intranet site has been deprecated and moved to `exo-legacy-intranet <https://github.com/exoplatform/legacy-intranet>` addon 
-- `integration <https://github.com/exoplatform/integration>` is not used since 6.0 anymore
-- `platform <https://github.com/exoplatform/platform>` is not used since 6.0 anymore
-- `doc-style <https://github.com/exoplatform/doc-style>` is not used since 6.0 anymore
-- Layout management features has been moved to `exo-layout-management <https://github.com/exoplatform/layout-management>` addon
-- Usage and development using `Juzu <http://juzuweb.org/>` framework has been deprecated
+- intranet site has been deprecated and moved to `exo-legacy-intranet <https://github.com/exoplatform/legacy-intranet>`__ addon 
+- `integration <https://github.com/exoplatform/integration>`__, 
+  `platform <https://github.com/exoplatform/platform>`__ and 
+  `doc-style <https://github.com/exoplatform/doc-style>`__ are no more used starting 6.0 version
+- Layout management features has been moved to `exo-layout-management <https://github.com/exoplatform/layout-management>`__ addon
+- Usage and development using `Juzu <http://juzuweb.org/>` framework has been deprecated.
 
+.. note:: 1.  Some applications have been transformed into addons but they come prepackaged into the platform
+              server and could be uninstalled if you don't need to use them.
+              Here is the full list of the prepackaged addon-ons:
+            
+				- meeds-es-embedded
+				- meeds-gamification
+				- meeds-kudos
+				- meeds-perk-store
+				- meeds-push-notifications
+				- meeds-wallet
+				- meeds-app-center
+				- exo-chat
+				- exo-data-upgrade
+				- exo-digital-workplace 
+				- exo-ecms
+				- exo-jcr
+				- exo-layout-management
+				- exo-news
+				- exo-onlyoffice
+				- exo-tasks
+				- exo-web-conferencing
+				
+          2. Other addons such as exo-forum, exo-legacy-intranet and exo-calendar are available on the 
+             addons manager but not prepackaged with the platform server. You can install them using this command:
+             
+                .. code::
+  
+                     ./addon install addon-ID
+                 
+          
 **Templates changes**
 
 Some Groovy templates have been changed in eXo Platform 6.0, check
 out the :ref:`complete list <Upgrade.BreakingChanges.Templates>`. If 
 your custom extension overrides some Groovy templates, you must check 
 if it has been changed, and update it if it is the case.
-
-.. _ShindigRemoval:
-
-**Shindig removal**
-
-In eXo Platform 5.3 version, we no longer support gadgets as we dropped `Apache Shindig <https://shindig.apache.org/>` which has been retired.
-eXo opted for `Apache Shindig <https://shindig.apache.org/>` removal for many reasons cited on the :ref:`technical novelties section <TechnicalNovelties>`
 
 .. _Upgrade.BreakingChanges.Templates
 
@@ -210,11 +235,6 @@ Before the upgrade, you need to:
 
 -  Make sure that all required addons are installed (especially for: exo-jcr, exo-ecms, exo-wiki, exo-calendar and exo-forum).
 
--  Install ``exo-data-upgrade`` addon on eXo Platform 6.0 by using command line:
-
-   .. code::
-  
-      ./addon install exo-data-upgrade
 
 -  Perform one or more dry-run upgrade(s) to find out potential problems
    and estimate the upgrade time.
@@ -225,11 +245,6 @@ Before the upgrade, you need to:
 			-  Estimate how long the upgrade will take in your production environment.
 			-  Find out if you need to adjust anything to make your upgrade faster and more efficient.
 			
-.. note:: As mentioned in Breaking changes :ref:`section <ShindigRemoval>`, Shindig, the component which supports gadgets is removed 
-          from eXo Platfrom	5.3 and which leads to the removal of gadgets. In fact, dashboard application and all gadgets are automatically 
-          removed. Only four of them namely Login History, Bookmarks, RSS Reader and Featured Poll still remaining and could be placed in pages
-          if necessary.
-
 
 .. _Upgrade.Process:
 
@@ -237,18 +252,14 @@ Before the upgrade, you need to:
 Upgrade process
 ===============
 
-.. note:: When you upgrade to eXo Platform, notice that default password 
-		  encryption algorithm has changed so you need to reconfigure it 
-		  back to the one that you used before, otherwise old users will 
-		  not be able to log in. See details in :ref:`Password Encryption <PasswordEncryption>`.
-
 The upgrade procedure is only guaranteed and tested to be transparent
 from the previous maintenance version (x.y.z from x.y.z-1). So, we
 recommend to apply upgrade procedures for all versions between your
 current one and the target one. In this case it is from the latest 
 maitenance version of 5.3 to 6.0. 
-If you are on 5.1.1 version, you  should move into the 5.1.2 and then 
-move to 6.0 version. However, if you still  insist on skipping versions, 
+If you are on 5.2.1 version, you  should move into the different 5.2 
+maintenance versions then move to 5.3 and then move to 6.0 version.
+However, if you still  insist on skipping versions, 
 we strongly advise to read all upgrade notes of the versions you are 
 skipping to see if your project is  impacted by any previous upgrade 
 procedure.
@@ -269,8 +280,18 @@ procedure.
       activate the Organization Integration Service so that the data is
       synchronized. See :ref:`Synchronization <LDAP.Synchronization>` 
       for more details.
+      
+   -  If you have some customization into :ref:`the intranet site <PLFHomepage>`, 
+      you should install the addon ``exo-legacy-intranet``.
+             
+          .. code::
+  
+               ./addon install exo-legacy-intranet
 
-3. Configure the JCR and IDM databases. Refer to :ref:`Database <Database>`
+   .. note:: If you don't install the addon ``exo-legacy-intranet``, you may have some errors
+             on the server's startup caused by the fact that some intranet gadgets are not found.      
+
+3. Configure the JCR, IDM and JPA databases. Refer to :ref:`Database <Database>`
    for more details.
 
 4. Configure the **EXO\_DATA\_DIR** variable. Refer to :ref:`Data directory configuration <Configuration.DataDirectory>`
