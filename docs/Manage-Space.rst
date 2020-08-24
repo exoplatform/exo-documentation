@@ -372,7 +372,7 @@ The default space home page contains the following content:
           as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
 
 .. note:: When you are a  platform administrator and member of a space, you are able to add more portlets 
-          just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.    
+          just by clicking on Edit --> Page --> Edit layout and then drag and drop the app you want to add.    
 
 
 .. _Space-banner-avatar:
