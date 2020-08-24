@@ -601,7 +601,7 @@ You can display the list of members who sent a request to join the space just by
 Promoting/Demoting a member
 ----------------------------
 
--  To promote a member to the manager position, click **Promote Manager** in the
+-  To grant a member the space's manager role, click **Promote Manager** in the
    member pulldown. The member is automatically promoted as a manager
    in the current space.
 
