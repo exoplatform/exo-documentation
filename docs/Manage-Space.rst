@@ -303,7 +303,7 @@ Default Settings for the Community template are :
    -  Description: a general purpose area for collaboration and communication of a digital community.
    -  Hidden: No 
    -  Registration : Open
-   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Settings
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Notes, Calendar, Members, Settings
 
 
 **Project**
