@@ -706,7 +706,7 @@ Joining/Leaving a space
 Joining a space
 ~~~~~~~~~~~~~~~~~~
 
-:ref:`Go to the Spaces page <Access-Space>` and you will see all your spaces and ones
+:ref:`Go to the Spaces page <Access-Space>` and you will see all your spaces and those
 whose :ref:`Visibility <About-space-visibility>` is set to "Visible".
 
 There are two cases to join a space:
