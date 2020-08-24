@@ -315,7 +315,7 @@ Projects is ideal to coordinate actors toward a shared outcome.
    -  Description: A project space where members coordinate on tasks toward a predefined outcome.
    -  Hidden: No 
    -  Registration : Validation
-   -  Predefined Apps : Home, Tasks, Documents, Calendar, Wiki, Forum, Members, Settings
+   -  Predefined Apps : Home, Tasks, Documents, Calendar, Notes, Forum, Members, Settings
    
 **Team**
 
