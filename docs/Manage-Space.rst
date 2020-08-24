@@ -336,7 +336,7 @@ Communication is the perfect choice to exchange knowledges and skills.
    -  Description: Interpersonal communication where a space groups are involved in exchange of ideas, skills and interests.
    -  Hidden: No 
    -  Registration : Validation
-   -  Predefined Apps : Home, Documents, Tasks, Forum, Wiki, Calendar, Members, Settings
+   -  Predefined Apps : Home, Documents, Tasks, Forum, Notes, Calendar, Members, Settings
    
    You can redefine the space banner and the space avatar by mousing
    over and then clicking on |SP-13| allowing you to pick an image from
