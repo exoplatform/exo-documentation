@@ -172,7 +172,7 @@ Space avatar
 Unlike the banner, you can choose another space avatar only from space **Settings**.
 
 
-When scrolling down in the space's activity stream, or applications, you always have the space' avatar, the space name and their applications in the topbar.
+When scrolling down in the space's activity stream, or applications, you always have the space's avatar, the space name and their applications in the topbar.
 
 .. tip:: By opening a space, the default platform topbar is replaced by the space topbar.
 
