@@ -511,7 +511,7 @@ To open the Settings page, you can select the Settings tab in the space navigati
 
 **General**
 
-By clicking on the edit icon in front of the General label, uyou can change space's information like: 
+By clicking on the edit icon in front of the General label, you can change space's information like: 
 
 - Space avatar (See :ref:`Uploading your avatar <Change-your-avatar>` for more details.)
 
