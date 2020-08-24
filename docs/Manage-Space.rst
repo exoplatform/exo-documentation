@@ -326,7 +326,7 @@ For organizational teams or work groups.
    -  Description: A central destination for members of a team.
    -  Hidden: Yes
    -  Registration : Validation
-   -  Predefined Apps : Home, Calendar, Documents, Wiki, Tasks, Members, Settings
+   -  Predefined Apps : Home, Calendar, Documents, Notes, Tasks, Members, Settings
    
 **Communication**
 
