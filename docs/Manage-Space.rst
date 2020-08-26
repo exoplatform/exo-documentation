@@ -690,7 +690,7 @@ page, you will be redirected to it.
 |SP-26|
 
 Also, you can easily change the applications display order 
-by selecting choices between: *Move After* or *Move Before*.
+with *Move After* or *Move Before*.
 
 Every change is automatically saved and the new applications order is available after a refresh.
 
