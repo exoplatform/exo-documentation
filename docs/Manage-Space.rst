@@ -818,7 +818,7 @@ with the space name, the space avatar and the space description.
 |image66|
 
 If you are a member in the space and not an administrator
-addition to the previously cited components, a Chat button allowing
+you will see a Chat button allowing
 you to start a discussion with the space members.
 
 Only the space managers and authors of the posts can delete the
