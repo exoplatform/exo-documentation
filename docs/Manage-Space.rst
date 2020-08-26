@@ -692,7 +692,7 @@ page, you will be redirected to it.
 Also, you can easily change the applications display order 
 with *Move After* or *Move Before*.
 
-Every change is automatically saved and the new applications order is available after a refresh.
+All changes are automatically saved and the new order is applied after reloading the page.
 
 
 .. _Join-Leave-Space:
