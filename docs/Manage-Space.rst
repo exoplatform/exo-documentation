@@ -746,7 +746,7 @@ you cannot leave a space will appear as below.
 			only). You are not able to view activities of the spaces you have
 			left unless those where you have been mentioned.
       Once you leave the space, you will not be able to see any activity, nor
-      receiving notifications of your former publications on this space
+      receiving notifications of your former publications done in this space
 
 .. _Delete-Space:
 
