@@ -817,7 +817,7 @@ with the space name, the space avatar and the space description.
 
 |image66|
 
-If you are a member in the space and not an administrator or creator, in
+If you are a member in the space and not an administrator
 addition to the previously cited components, a Chat button allowing
 you to start a discussion with the space members.
 
