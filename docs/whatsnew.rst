@@ -97,7 +97,7 @@ A new UI for unified search results with an improved algorithm for better result
 
 :ref:`Chat drawer <Chat>`
 
-CHat discussions are easier now to access through the chat drawer.
+Chat discussions are easier to access now through the chat drawer.
 
 |image12|
 
