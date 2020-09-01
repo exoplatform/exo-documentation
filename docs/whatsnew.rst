@@ -110,7 +110,7 @@ Technical novelties in eXo Platform 6.0
 ========================================
 
 As usual, eXo Platform continues to devote efforts to enhance security and performance.
-In fact, eXo Platform 6.0 has a lightweight product with a revamped architecture.
+In fact, eXo Platform 6.0 has a lightweight core with a revamped architecture for more modularity.
 
 Take a look into the :ref:`Breaking Changes <Upgrade.BreakingChanges>` section for more details.
 
