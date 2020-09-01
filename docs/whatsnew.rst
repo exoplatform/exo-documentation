@@ -70,7 +70,7 @@ An easier and more confortable editor to facilitate notes creation. Discover the
 
 :ref:`New composer <Share-AS>`
 
-Post to your streams with a new composer in w drawer form easier to user and more elegant.
+Post to your streams with a new composer in a drawer form easier to use and more elegant.
 
 |image8|
 
