@@ -20,7 +20,7 @@ Functional features
 
 :ref:`Digital Workplace <DWHomepage>`
 
-A new portal, named DW, more elegant and user-friendly comes with the V6 to ficilitate your daily work through a snapshot page which summarizes 
+A new portal, named DW, more elegant and user-friendly comes with the V6 to facilitate your daily work through a snapshot page which summarizes 
 the recent activities and gives you quick access to different parts of the platform (Orders, Spaces, Connections, and much more...)
 
 |image0|
@@ -128,4 +128,3 @@ Take a look into the :ref:`Breaking Changes <Upgrade.BreakingChanges>` section f
 .. |image10| image:: images/whatsNew/PeopleCARDS.png
 .. |image11| image:: images/whatsNew/search.png
 .. |image12| image:: images/whatsNew/chat_drawer.png
-
