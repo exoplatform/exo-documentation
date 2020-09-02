@@ -48,7 +48,7 @@ With the V6, we created a launcher for your business applications in the Applica
 
 :ref:`Group Binding <SpaceGroupsBinding>`
 
-Go faster with users addition to a space with the space group binding feature.
+Automate space members provisioning/deprovisioning with the space group binding feature.
 
 |image5|
 
