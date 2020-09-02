@@ -39,7 +39,7 @@ Keep your community informed about your latest news through an easy to use appli
 
 :ref:`Application Center <Managing-Fav-Apps>`
 
-With the V6, we centralized all our applications in an application center to facilitate their access. We also added the possibility to favorite/unfavorites apps.
+With the V6, we created a launcher for your business applications in the Application Center. We also added the possibility to favorite/unfavorites apps.
 
 |image3|
 
