@@ -1,7 +1,7 @@
 .. _whatsnew:
 
 #################################
-What's new in eXo Platform 5.3?
+What's new in eXo Platform 6.0?
 #################################
 
 
