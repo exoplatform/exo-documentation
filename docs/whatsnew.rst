@@ -63,7 +63,7 @@ Connect your platform to your Microsoft OneDrive or Google Drive to easily acces
 
 :ref:`CKeditor 5 as notes editor <Wiki>`
 
-An easier and more confortable editor to facilitate notes creation. Discover the wiki edition with CKeditor 5.
+An easier and more confortable editor for wiki pages (now called notes) with CKeditor 5.
 
 |image7|
 
