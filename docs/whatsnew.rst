@@ -55,7 +55,7 @@ Automate space members provisioning/deprovisioning with the space group binding 
 
 :ref:`Cloud drives <CloudDrives>`
 
-Connect your platform to your One drive or Google drive to easily share files
+Connect your platform to your Microsoft OneDrive or Google Drive to easily access and share documents in eXo Platform.
 
 
 |image6|
