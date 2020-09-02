@@ -8,135 +8,123 @@ What's new in eXo Platform 5.3?
 .. _FunctionalNovelties:
 
 ==================================
-New features in eXo Platform 5.3?
+New features in eXo Platform 6.0?
 ==================================
 
-Many great enhancements come up in eXo Platform 5.3. Thanks to eXo teams 
+Many great enhancements come up in eXo Platform 6.0. Thanks to eXo teams 
 and community members who participated by contributing ideas, discussing 
 and voting for the new features.
 
 Functional features
 ~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Gamification <Gamification>`
+:ref:`Digital Workplace <DWHomepage>`
 
-Enhance your collaborators' engagement and motivate them to adopt a positive behavior with our gamification add-on.
+A new portal, named DW, more elegant and user-friendly comes with the V6 to facilitate your daily work through a snapshot page which summarizes 
+the recent activities and gives you quick access to different parts of the platform (Orders, Spaces, Connections, and much more...)
 
 |image0|
+
+
+:ref:`News <News>`
+
+
+Keep your community informed about your latest news through an easy to use application.
+
+|image1|
 
 |image2|
 
 
-:ref:`Rewards <UserWallet>`
 
-Discover our rewarding system allowing to recognize employees engagement through digital wallet, kudos and perk store.
+:ref:`Application Center <Managing-Fav-Apps>`
 
-|image1|
+With the V6, we created a launcher for your business applications in the Application Center. We also added the possibility to favorite/unfavorites apps.
 
 |image3|
 
 |image4|
 
 
-:ref:`OnlyOffice Connector <OnlyOffice>`
+:ref:`Group Binding <SpaceGroupsBinding>`
 
-eXo partenered with OnlyOffice editors to allow users the co-editing of MS Office documents.
- 
-|image5| 
+Automate space members provisioning/deprovisioning with the space group binding feature.
+
+|image5|
 
 
-:ref:`Company branding <BrandingeXoPlatform>`
+:ref:`Cloud drives <CloudDrives>`
 
-Brand your eXo Platform server by setting your company logo easily.
+Connect your platform to your Microsoft OneDrive or Google Drive to easily access and share documents in eXo Platform.
+
 
 |image6|
 
 
-:ref:`Space templates <Create-Space>`
+:ref:`CKeditor 5 as notes editor <Wiki>`
 
-With space templates feature, create a space with the template which the most matches your needs
-
+An easier and more confortable editor for wiki pages (now called notes) with CKeditor 5.
 
 |image7|
 
 
-:ref:`Space widgets <Create-Space>`
+:ref:`New composer <Share-AS>`
 
-New widgets are available on spaces' homepages to display descriptions, managers and events.
+Post to your streams with a new composer in a drawer form easier to use and more elegant.
 
 |image8|
+
+
 
 Other user experience improvements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:ref:`Home button in Desktop Chat application <Chat>`
 
-A new ``home`` button was added to the chat application on Desktop to easily go back the platform's homepage.
+:ref:`New UX for spaces and connections <SAccess-Space>`
+
+A new UX is introduced for both Spaces and People displaying them in flipping cards.
 
 |image9|
 
-
-:ref:`Confirm before refreshing a page <Share-AS>`
-
-A confirmation popup appears when refreshing a page where you already typed some data.
-
 |image10|
- 
- 
-:ref:`Open space applications by right-click <ManagingSpaceApplication>`
 
-It is now possible to open space applications in an another tab with a right-click.
 
-:ref:`Chat contacts filtering does not consider accents <Use-search-bar>`
+:ref:`Unified search new UI <Search>`
 
-Chat contact filtering is not sensitive to accents anymore.
+A new UI for unified search results with an improved algorithm for better results
 
 |image11|
 
-:ref:`Login History can now be disabled by configuration <Configuration.loginHistory>`
+:ref:`Chat drawer <Chat>`
 
-With the new property ``exo.audit.login.enabled``, it is possible to enable or disable the login history.
+Chat discussions are easier to access now through the chat drawer.
 
-:ref:`Remove uploaded files from chat <Upload-file-chat>`
+|image12|
 
-Files uploaded in chat rooms can now be deleted as any other message.
 
 
 .. _TechnicalNovelties:
 
 ========================================
-Technical novelties in eXo Platform 5.3
+Technical novelties in eXo Platform 6.0
 ========================================
 
 As usual, eXo Platform continues to devote efforts to enhance security and performance.
-In fact, in eXo Platform 5.3, new :ref:`parameters <ESClient>` has been introduced to configure max 
-concurrent requests to the ElasticSearch server.
+In fact, eXo Platform 6.0 has a lightweight core with a revamped architecture for more modularity.
 
-We also upgraded UI layer with latest versions of Vue.js and Vuetify frameworks.
-We invite you to read the whole tutorial to develop portlets in eXo with Vuetify and Vue.js 
-in  :ref:`this tutorial <PLFDevGuide.DevelopingApplications.DevelopingPortlet.Vuetify>`.
-
-In version 5.3, eXo Platform decided to remove `Shindig <https://shindig.apache.org/>`__, 
-the component used to support Gadgets.
-In fact `Shindig <https://shindig.apache.org/>`__ is no more maintained and this leads to many issues such as:
-
-- The dependance to specific versions of some important libraries namely Guava and which is hard to upgrade
-- Hardness with the platform server installation as it needs specific actions to make gadgets working
-
-In addition to all the above issues, maintaining and fixing issues related to gadgets and `Shindig <https://shindig.apache.org/>`__
-took too much time to resolve however it is no more used.
+Take a look into the :ref:`Breaking Changes <Upgrade.BreakingChanges>` section for more details.
 
 
-
-.. |image0| image:: images/whatsNew/gamificaton_board.png
-.. |image1| image:: images/whatsNew/Wallet.png
-.. |image2| image:: images/whatsNew/Badges.png
-.. |image3| image:: images/whatsNew/Kudos.png
-.. |image4| image:: images/whatsNew/PerkStore.png
-.. |image5| image:: images/whatsNew/OnlyOffice.png
-.. |image6| image:: images/platform/branding_page.png
-.. |image7| image:: images/social/add_space_settings_tab.png
-.. |image8| image:: images/whatsNew/SpaceWidgets.png
-.. |image9| image:: images/whatsNew/HomeButtonchat.png
-.. |image10| image:: images/platform/confirmation_popup_Chrome.png
-.. |image11| image:: images/whatsNew/chat_accents.png
+.. |image0| image:: images/whatsNew/DWSnapshot.png
+.. |image1| image:: images/whatsNew/News1.png
+.. |image2| image:: images/whatsNew/News2.png
+.. |image3| image:: images/whatsNew/AppCenter1.png
+.. |image4| image:: images/whatsNew/AppCenter2.png
+.. |image5| image:: images/whatsNew/GroupBinding.png
+.. |image6| image:: images/whatsNew/Drives.png
+.. |image7| image:: images/whatsNew/Notes.png
+.. |image8| image:: images/whatsNew/composer_drawer.png
+.. |image9| image:: images/whatsNew/SpacesCARDS.png
+.. |image10| image:: images/whatsNew/PeopleCARDS.png
+.. |image11| image:: images/whatsNew/search.png
+.. |image12| image:: images/whatsNew/chat_drawer.png
