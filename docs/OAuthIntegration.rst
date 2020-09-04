@@ -210,7 +210,6 @@ are similar :
 You have to create an application, provide Authorized Redirect URI, which is
 http://server.local.network.com:8080/portal/openidAuth
 Then, you will be able to obtain a client ID, and a client secret from the openID provider
-to configure exo.
 
 .. _OAuthAuthentication.SettingUpPlatform:
 
