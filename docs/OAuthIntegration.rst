@@ -206,7 +206,7 @@ OpenId
 ~~~~~~~~
 
 The OpenId configuration depends on which implementation you use, but the steps
-are quite same as for previous vendors :
+are similar :
 You have to create an appliation, provide Authorized Redirect URI, which is
 http://server.local.network.com:8080/portal/openidAuth
 Then, you will be able to collect a client ID, and a client secret, that will be needed
