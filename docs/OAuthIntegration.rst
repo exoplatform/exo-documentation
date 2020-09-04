@@ -274,7 +274,7 @@ you will need to:
       application.
 
 For OpenId, you need to add 4 more properties which are urls which will be called during the protocol execution.
-Theses urls are implicit in other providers, but as OpenId can be implemented by different ways, we have to provide urls.
+Theses urls are implicit in other providers, but as OpenId can be implemented in different ways, we have to provide urls.
 In urls, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
 
 ::
