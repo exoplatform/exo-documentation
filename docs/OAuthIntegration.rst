@@ -8,7 +8,7 @@ OAuth Integration
     their social network accounts, including Facebook, Google+, Twitter, 
     LinkedIn.
     Starting from 6.0 version, you can use an OpenId integration, which is
-    based on OAuth procole.
+    based on OAuth protocol.
     To enable the feature, you need to do the main steps below:
 
     -  Registering an application on the social network you want.
