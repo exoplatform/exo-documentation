@@ -1538,7 +1538,10 @@ You need to modify **gatein.sso.idp.host**, **gatein.sso.idp.url**, **gatein.sso
 to install your own keystore as instructed in :ref:`Generating and using your own keystore <eXoAddonsGuide.SSO.SAML2.GeneratingKeystore>`.
 
 .. note:: If your IDP send username in assertion with some char in capital letter, and you want to force lower case, you can add this property :
-gatein.sso.saml.username.forcelowercase=true
+   
+   ::
+
+		gatein.sso.saml.username.forcelowercase=true
 
 3. Download and import your generated IDP certificate to your keystore
    using this command:
