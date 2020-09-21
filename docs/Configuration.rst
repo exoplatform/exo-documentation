@@ -2017,7 +2017,7 @@ use the following configuration:
 ::
 
     # validators
-    gatein.validators.username.regexp=^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$
+    gatein.validators.userName.regexp=^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$
     gatein.validators.username.format.message=Username must be a valid email address
 
 When the username field does not conform to this rule, the account is
@@ -2028,7 +2028,7 @@ not created and there will be a warning message:
     The field "User Name" must match the format "Username must be a valid email address".
 
 In case you do not define ``gatein.validators.username.format.message``,
-the value of ``gatein.validators.username.regexp`` will be used in the
+the value of ``gatein.validators.userName.regexp`` will be used in the
 warning message:
 
 ::
