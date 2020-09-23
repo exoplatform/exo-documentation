@@ -63,7 +63,7 @@ Both views, i.e. list and cards display the same details:
 - Task's title
 - Task's project if it belongs to a project, otherwise display the label 'No project'
 - The avatars of participants to the project i.e. the assignee and coworkers if they exist
-- The nulber of associated labels if they exist otherwise, display the label 'No label'
+- The number of associated labels if they exist otherwise, display the label 'No label'
 - The number of comments and attachments 
 - The task's status in its project, otherwise display the label 'No status'
 - The task's due date if it is set, otherwise display the label 'No due date'
