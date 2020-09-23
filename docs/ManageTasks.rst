@@ -99,7 +99,7 @@ Clicking on the information icon flips the project's card to display a pie chart
 Add a new project
 ~~~~~~~~~~~~~~~~~~~
 
-A button is displayed in the top left "Add project" which opens a drawer allowing to add a nes project
+A button is displayed in the top-left "Add project" which opens a drawer allowing to add a new project
 
 |NewTask04|
 
