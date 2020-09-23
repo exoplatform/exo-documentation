@@ -12,6 +12,8 @@ Working With Tasks
     communicates to get work done.
 
     In this chapter:
+    
+:ref:`New Tasks <NewTasks>`    
 
 :ref:`Task Management overview <Intoduction>`
 
@@ -22,6 +24,93 @@ Working With Tasks
 :ref:`Managing Labels <Manage-label>`
 
 :ref:`Managing Views <Manage-view>`
+
+
+
+.._NewTasks:
+
+========================
+New Tasks Application
+========================
+
+.. note:: At the moment of writing this documentation, new tasks application represents ony a preview of the tasks application.
+          This preview app cohabits currently with the tasks application and could be used normally without any modification.
+
+With eXo Platform 6.1, Tasks application has been made a new skin for more confortable and user-friendly usage.
+Discover what's new in Tasks application through the following sections:
+
+:ref:`My tasks <MyTasks>`
+
+:ref:`My projects <Myprojects>`
+
+.._MyTasks:
+
+My Tasks
+~~~~~~~~~
+
+The list of my tasks could be displayed in two views: List or Cards.
+
+|NewTask00|
+
+The LIST view displays in a list form the tasks I created either in a project or not, my assigned tasks and those I am set as coworker.
+
+|NewTask01|
+
+CARDS view of my tasks displays the same task in a different view. Each task is represented by a card.
+
+Both views, i.e. list and cards display the same details: 
+
+- Task's title
+- Task's ID
+- Task's project if it belongs to a project, otherwise display the label 'No project'
+- The avatars of participants to the project i.e. the assignee and coworkers if they exist
+- The number of associated labels if they exist otherwise, display the label 'No label'
+- The number of comments and attachments 
+- The task's status in its project, otherwise display the label 'No status'
+- The task's due date if it is set, otherwise display the label 'No due date'
+
+
+.._Myprojects:
+
+My projects
+~~~~~~~~~~~~~~
+
+Projects are now displayed in CARDS form.
+
+|NewTask02|
+
+
+A project's CARD displays the following details:
+
+- The project's name
+- An information icon
+- 3 dots icon displaying the possible actions I can make on the project
+- The project's description , if it exists, otherwise display 'No description' label
+- Space's avatar and name if the project belongs to space, otherwise, 'No space' label with an empty icon is displayed
+- The project's managers avatars
+- Star button allowing to favorite a project
+
+|NewTask03|
+
+Clicking on the information icon flips the project's card to display a pie chart with statistics about the project's tasks.
+
+
+.._AddProject:
+
+Add a new project
+~~~~~~~~~~~~~~~~~~~
+
+A button is displayed in the top-left "Add project" which opens a drawer allowing to add a new project
+
+|NewTask04|
+
+A project is defined by these properties:
+
+- A title, mandatory to set
+- At least one Manager, set by default to the project's creator but could be edited
+- At least one participant, which could be a user or a group
+- A description which is not mandatory
+
 
 .. _Intoduction:
 
@@ -1053,3 +1142,8 @@ it on your own.
 .. |image81| image:: images/taskmanagement/between_labels.png
 .. |image82| image:: images/taskmanagement/edit_status.png
 .. |image83| image:: images/taskmanagement/delete_status.png
+.. |NewTask00| image:: images/NewTask/TasksList.png
+.. |NewTask01| image:: images/NewTask/TasksCARDS.png
+.. |NewTask02| image:: images/NewTask/ProejctCARDS.png
+.. |NewTask03| image:: images/NewTask/piechart.png
+.. |NewTask04| image:: images/NewTask/AddProjectdrawer.png
