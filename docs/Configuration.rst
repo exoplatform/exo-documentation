@@ -2774,6 +2774,7 @@ To enable/disable an activity type, you need to add
 By default, the parameter is set to ``true``, it means the activity of
 type `` activity-type-key`` is enabled i.e it posts in the streams.
 
+
 To disable the activity type, simply set the parameter to ``false``.
 
 .. note:: In the ``exo.activity-type.activity-type-key.enabled``,
@@ -2784,9 +2785,6 @@ To disable the activity type, simply set the parameter to ``false``.
 
 			-  **DEFAULT_ACTIVITY**: Activity posted by a user,  
 			   without documents or link attached.
-			-  **SPACE_ACTIVITY**: Activity posted when a space is  
-			   created. It contains the space's description and the 
-			   number of members.
 			-  **USER\_ACTIVITIES\_FOR\_SPACE**: Activity  posted when a 
 			   user creates an activity in a space.
 			-  **LINK\_ACTIVITY**: Activity with a link attachement.
@@ -2797,8 +2795,6 @@ To disable the activity type, simply set the parameter to ``false``.
 			-  **DOC\_ACTIVITY**: Activity with document posted via the 
 			   *Share feature* of the mobile application.
 			-  **files\\:spaces**: Activity with documents attached.
-			-  **sharefiles\\:spaces**: Activity automatically posted when a 
-			   document is shared in a space.
 			-  **contents\\:spaces**: Activity automatically posted when a 
 			   content is created.
 			-  **cs-calendar\\:spaces**: Activity automatically posted when a 
@@ -2811,23 +2807,38 @@ To disable the activity type, simply set the parameter to ``false``.
 			   poll is created.
 			-  **ks-wiki\\:spaces**: Activity automatically posted when a new 
 			   wiki page is created in a space wiki.
-			-  **USER\_ACTIVITIES\_FOR\_RELATIONSHIP**: Activity 
-			   automatically posted the first time a user is getting 
-			   connected to another one, containing the number of 
-			   relations.
 			-  **CALENDAR\_ACTIVITY**: Comment posted when an event is 
 			   updated
 			-  **exosocial\\:people**: Comment posted when a user updates 
 			   his/her profile.
-			-  **exosocial\\:spaces**: Comment posted when a member 
-			   joins/leaves a space.
-			-  **poll\\:spaces**: Comment posted when a poll is updated.
-			-  **USER\_COMMENTS\_ACTIVITY\_FOR\_RELATIONSHIP**: Comment 
-			   automatically posted when two users are getting connected.
+			-  **poll\\:spaces**: Comment posted when a poll is updated
 			-  **sharecontents\\:spaces**: Activity automatically posted when 
 			   a content is shared in a space.  
-			-  **exosocial\\:relationship**: Activity post when two user are
-			   connected together.
+
+			   
+			   
+Some activities types has been, by default, disabled since eXo Platform 6. 
+Here is the full list of the disabled activity types:
+
+			-  **sharefiles\\:spaces**: Activity automatically posted when a document is shared in a space.
+			-  **exosocial\\:spaces**: Comment posted when a member joins/leaves a space.
+			-  **SPACE_ACTIVITY**: Activity posted when a space is created. It contains the space's description and the 
+			   number of members.
+			-  **exosocial\\:relationship**: Activity post when two user are connected together.   
+			-  **USER\_ACTIVITIES\_FOR\_RELATIONSHIP**: Activity automatically posted the first time a user is getting 
+			   connected to another one, containing the number of relations.
+			-  **USER\_COMMENTS\_ACTIVITY\_FOR\_RELATIONSHIP**: Comment automatically posted when two users are getting connected.
+			
+In addition to disabling the above cited activity types, new ones were introduced and they are all, by default, disabled:
+
+			-  **files\\:spaces.CREATION_COMMENT**: Activity post when uploading a document
+			-  **files\\:spaces.RENAME_COMMENT**: Comments when renaming a document
+			-  **files\\:spaces.MOVE_COMMENT**: Comments when coping/pasting a document from a folder/drive to another
+			-  **files\\:spaces.TAG_ACTION_COMMENT**: Comments when adding/removing tag(s) to a document
+			
+
+
+		   
 		
 .. _Configuration.ActivityLinkPreview:		
 		
