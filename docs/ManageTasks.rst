@@ -61,6 +61,7 @@ CARDS view of my tasks displays the same task in a different view. Each task is 
 Both views, i.e. list and cards display the same details: 
 
 - Task's title
+- Task's ID
 - Task's project if it belongs to a project, otherwise display the label 'No project'
 - The avatars of participants to the project i.e. the assignee and coworkers if they exist
 - The number of associated labels if they exist otherwise, display the label 'No label'
@@ -85,7 +86,7 @@ A project's CARD displays the following details:
 - An information icon
 - 3 dots icon displaying the possible actions I can make on the project
 - The project's description , if it exists, otherwise display 'No description' label
-- Space's avatar and name if the project belongs to space, otherwise, No space label with an empty icon is displayed
+- Space's avatar and name if the project belongs to space, otherwise, 'No space' label with an empty icon is displayed
 - The project's managers avatars
 - Star button allowing to favorite a project
 
