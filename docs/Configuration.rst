@@ -2008,8 +2008,8 @@ By default, the username will be validated as follows:
 -  Must end with a lowercase letter or number.
 
 .. note:: Some components that leverage GateIn depend on usernames being all
-          lowercase. Therefore, you are strongly recommended to use a
-          lowercase username only.
+          lowercase. Therefore, we require to use a
+          **lowercase username only**.
 
 If you want to validate that username format is email-like, you could
 use the following configuration:
@@ -2017,7 +2017,7 @@ use the following configuration:
 ::
 
     # validators
-    gatein.validators.userName.regexp=^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$
+    gatein.validators.userName.regexp=^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$
     gatein.validators.username.format.message=Username must be a valid email address
 
 When the username field does not conform to this rule, the account is
@@ -2033,7 +2033,7 @@ warning message:
 
 ::
 
-    The field "User Name" must match the format "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$".
+    The field "User Name" must match the format "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$".
 
 .. _OutgoingMailService:
 
