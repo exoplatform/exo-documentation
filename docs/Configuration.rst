@@ -2008,7 +2008,7 @@ By default, the username will be validated as follows:
 -  Must end with a lowercase letter or number.
 
 .. note:: Some components that leverage GateIn depend on usernames being all
-          lowercase. Therefore, we recommended to use a
+          lowercase. Therefore, we require to use a
           **lowercase username only**.
 
 If you want to validate that username format is email-like, you could
