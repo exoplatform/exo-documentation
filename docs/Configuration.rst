@@ -2829,12 +2829,14 @@ Here is the full list of the disabled activity types:
 			   connected to another one, containing the number of relations.
 			-  **USER\_COMMENTS\_ACTIVITY\_FOR\_RELATIONSHIP**: Comment automatically posted when two users are getting connected.
 			
-In addition to disabling the above cited activity types, new ones were introduced and they are all, by default, disabled:
+In addition to disabling the above cited activity types, new ones were introduced and they are all, by default, disabled. Those property are not effective unless the activity type **files\\:spaces** is enabled :
 
-			-  **files\\:spaces.CREATION_COMMENT**: Activity post when uploading a document
-			-  **files\\:spaces.RENAME_COMMENT**: Comments when renaming a document
-			-  **files\\:spaces.MOVE_COMMENT**: Comments when coping/pasting a document from a folder/drive to another
-			-  **files\\:spaces.TAG_ACTION_COMMENT**: Comments when adding/removing tag(s) to a document
+			-  **files-spaces.CREATION_COMMENT**: Comment added after uploading a file
+			-  **files-spaces.UPDATE_COMMENT**: Comments when a file is renamed or one of its properties is updated
+			-  **files-spaces.MOVE_COMMENT**: Comments when moving a file from a folder to another one
+			-  **files-spaces.TAG_ACTION_COMMENT**: Comments when adding/removing tag(s) to a file
+			-  **files-spaces.ADD_PROPERTY**: Comments when a property is added to the file
+			-  **files-spaces.REMOVE_PROPERTY**: Comments when a property is removed from a file
 			
 
 
