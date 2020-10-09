@@ -12,8 +12,9 @@ Working With Tasks
     communicates to get work done.
 
     In this chapter:
-    
-:ref:`New Tasks <NewTasks>`    
+      
+
+:ref:`New Tasks <NewTasks>`  
 
 :ref:`Task Management overview <Intoduction>`
 
@@ -27,13 +28,13 @@ Working With Tasks
 
 
 
-.._NewTasks:
+.. _NewTasks:
 
 ========================
 New Tasks Application
 ========================
 
-.. note:: At the moment of writing this documentation, new tasks application represents ony a preview of the tasks application.
+.. note:: At the moment of writing this documentation, new tasks application represents only a preview of the tasks application.
           This preview app cohabits currently with the tasks application and could be used normally without any modification.
 
 With eXo Platform 6.1, Tasks application has been made a new skin for more confortable and user-friendly usage.
@@ -69,6 +70,38 @@ Both views, i.e. list and cards display the same details:
 - The task's status in its project, otherwise display the label 'No status'
 - The task's due date if it is set, otherwise display the label 'No due date'
 
+When a task has many coworkers, you just need to click on the +x label over the avatar to open a drawer with the whole list of assignee and coworkers.
+
+|NewTask05|
+
+
+.. _AddNewPersonalTask:
+
+How to add a new task?
+
+You can add a task in your Tasks list. For that you just need to click on "Add Task" button |NewTask07| on the top left of the page.
+A drawer opens allowing you to fill in the tasks' fields. 
+
+|NewTask08|
+
+.. note:: In TASKS tab, when you add a new task, it is by default assigned to you. You can, for sure, change the assignement.
+
+The title field is mandatory to enable tasks's creation.
+
+
+
+.. _SearchTask:
+
+How to search for a task?
+
+To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
+an advanced search with multiple criterias. It also allows to group and sort tasks.
+
+To use the first alternative, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in the 
+title or the description.
+
+|NewTask06|
+
 
 .._Myprojects:
 
@@ -76,9 +109,6 @@ My projects
 ~~~~~~~~~~~~~~
 
 Projects are now displayed in CARDS form.
-
-|NewTask02|
-
 
 A project's CARD displays the following details:
 
@@ -90,9 +120,12 @@ A project's CARD displays the following details:
 - The project's managers avatars
 - Star button allowing to favorite a project
 
-|NewTask03|
+|NewTask02|
+
 
 Clicking on the information icon flips the project's card to display a pie chart with statistics about the project's tasks.
+
+|NewTask03|
 
 
 .._AddProject:
@@ -110,6 +143,31 @@ A project is defined by these properties:
 - At least one Manager, set by default to the project's creator but could be edited
 - At least one participant, which could be a user or a group
 - A description which is not mandatory
+
+
+.._SearchProject:
+
+How to search for a project?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Same as for tasks, you can search for a project throught the filter field using a keyword.
+Results contains projects having the keyword in their titles or description.
+
+.._AccessProjectTasks:
+
+How to access a project's tasks?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To access the list of a project's tasks, you just need to click on the desciption on the project's CARD. You can choose between the two views BOARD or LIST.
+By default, project's Tasks are displayed on the BOARD view.
+
+
+|NewTask09|
+
+You can edit a task by clicking on its title which opens the "Edit task" drawer.
+
+|NewTask10|
+
 
 
 .. _Intoduction:
@@ -1147,3 +1205,9 @@ it on your own.
 .. |NewTask02| image:: images/NewTask/ProejctCARDS.png
 .. |NewTask03| image:: images/NewTask/piechart.png
 .. |NewTask04| image:: images/NewTask/AddProjectdrawer.png
+.. |NewTask05| image:: images/NewTask/ManyCoworkersDrawer.png
+.. |NewTask06| image:: images/NewTask/Search.png
+.. |NewTask07| image:: images/NewTask/AddTask.png
+.. |NewTask08| image:: images/NewTask/AddNewPTask.png
+.. |NewTask09| image:: images/NewTask/BOARDView.png
+.. |NewTask10| image:: images/NewTask/EditTask.png
