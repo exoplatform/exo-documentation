@@ -89,6 +89,18 @@ A drawer opens allowing you to fill in the tasks' fields.
 The title field is mandatory to enable tasks's creation.
 
 
+.. _SearchTask:
+
+How to search for a task?
+
+To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
+an advanced search with multiple criterias. It also allows to group and sort tasks.
+
+To use the first alternative, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in the 
+title or the description.
+
+|NewTask06|
+
 
 .. _SearchTask:
 
