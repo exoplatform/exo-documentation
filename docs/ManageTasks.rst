@@ -34,9 +34,9 @@ Working With Tasks
 New Tasks Application
 ========================
 
+
 .. note:: At the moment of writing this documentation, tasks and new tasks applications cohabit and each of them could be used. However, the new tasks app still missing some
           features which exist in the tasks app.
-
 
 With eXo Platform 6.1, Tasks application has been made a new skin for more confortable and user-friendly usage.
 Discover what's new in Tasks application through the following sections:
@@ -108,6 +108,7 @@ title or the description.
 
 How to search for a task?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
 an advanced search with multiple criterias. It also allows to group and sort tasks.
@@ -1257,3 +1258,4 @@ it on your own.
 .. |NewTask12| image:: images/NewTask/FilterTabDrawer.png
 .. |NewTask13| image:: images/NewTask/FinishTaskCARD.png
 .. |NewTask14| image:: images/NewTask/FinishTaskList.png
+
