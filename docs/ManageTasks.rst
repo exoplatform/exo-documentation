@@ -27,7 +27,7 @@ Working With Tasks
 
 
 
-.._NewTasks:
+.. _NewTasks:
 
 ========================
 New Tasks Application
@@ -43,7 +43,7 @@ Discover what's new in Tasks application through the following sections:
 
 :ref:`My projects <Myprojects>`
 
-.._MyTasks:
+.. _MyTasks:
 
 My Tasks
 ~~~~~~~~~
@@ -70,7 +70,7 @@ Both views, i.e. list and cards display the same details:
 - The task's due date if it is set, otherwise display the label 'No due date'
 
 
-.._Myprojects:
+.. _Myprojects:
 
 My projects
 ~~~~~~~~~~~~~~
@@ -95,7 +95,7 @@ A project's CARD displays the following details:
 Clicking on the information icon flips the project's card to display a pie chart with statistics about the project's tasks.
 
 
-.._AddProject:
+.. _AddProject:
 
 Add a new project
 ~~~~~~~~~~~~~~~~~~~
