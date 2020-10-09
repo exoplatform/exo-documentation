@@ -305,6 +305,18 @@ procedure.
    .. code::
   
       ./addon uninstall exo-data-upgrade
+       
+7. After making the above steps and restart the server, you will find in your spaces, the left navigation of the intranet site.
+
+  To apply the new layout, should perform a manual intervention following these steps:
+  
+  7.1- Connect with an administrator account
+  
+  7.2- Go to Administration -> PORTAL -> Group sites Management menu and then click on "Use a dynamic layout for all" button to apply it to the whole sites, or 
+       you can make it one by one (for the desired sites)
+       
+       |dynamiclayout|
+  
 
 
 .. _Upgrade.BestPractices:
@@ -419,3 +431,4 @@ for configuration changes.
 
 
 .. |image0| image:: images/login_page_version.png
+.. |dynamiclayout| image:: images/dynamicLayout.png
