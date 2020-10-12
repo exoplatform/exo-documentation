@@ -158,7 +158,7 @@ Results contains projects having the keyword in their titles or description.
 How to access a project's tasks?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To access the list of a project's tasks, you just need to click on the desciption on the project's CARD. You can choose between the two views BOARD or LIST.
+To access the list of a project's tasks, you just need to click on the description on the project's CARD. You can choose between the two views BOARD or LIST.
 By default, project's Tasks are displayed on the BOARD view.
 
 
