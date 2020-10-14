@@ -692,7 +692,13 @@ ECMS
 | ame <#PLFRefGuide.Configura     | name used when   |                         |
 | tions.ExternalComponentPlug     | making friendly  |                         |
 | ins.Content.FriendlyPlugin>`    | URLs.            |                         |
-+---------------------------------+------------------+-------------------------+                                         
++---------------------------------+------------------+-------------------------+
+| :ref:`exo.ecms.document.thumbnai| Enable Thumbnail | true                    |
+| ls.enabled <#<PLFRefGuide.Config| Icon for office  |                         |
+| urations.Components.Content     | documents and    |                         |
+| .ImagesProcessing.Thumbnail     | images           |                         |
+|  Service>`                      |                  |                         |
++---------------------------------+------------------+-------------------------+  
 
 
 .. _ECMSWatchDocument:
