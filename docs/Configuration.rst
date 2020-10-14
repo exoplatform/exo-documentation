@@ -694,7 +694,7 @@ ECMS
 | ins.Content.FriendlyPlugin>`    | URLs.            |                         |
 +---------------------------------+------------------+-------------------------+
 | :ref:`exo.ecms.document.thumbnai| Enable Thumbnail | true                    |
-| ls.enabled <#<PLFRefGuide.Config| Icon for office  |                         |
+| ls.enabled <#PLFRefGuide.Config| Icon for office  |                         |
 | urations.Components.Content     | documents and    |                         |
 | .ImagesProcessing.Thumbnail     | images           |                         |
 | Service>`                       |                  |                         |
