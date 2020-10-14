@@ -697,7 +697,7 @@ ECMS
 | ls.enabled <#<PLFRefGuide.Config| Icon for office  |                         |
 | urations.Components.Content     | documents and    |                         |
 | .ImagesProcessing.Thumbnail     | images           |                         |
-|  Service>`                      |                  |                         |
+| Service>`                       |                  |                         |
 +---------------------------------+------------------+-------------------------+  
 
 
