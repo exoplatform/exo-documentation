@@ -963,9 +963,8 @@ Thumbnail Service
 
 The **ThumbnailService** component is used to resize all the images into
 different sizes. Besides the default sizes, it also allows users to
-customize the images into the desired sizes. The configuration of this
-component is found in
-``/core/core-configuration/src/main/webapp/WEB-INF/conf/wcm-core/core-services-configuration.xml``.
+customize the images into the desired sizes.
+To disable generating thumbnail icons, set the property **exo.ecms.document.thumbnails.enabled** to false
 
 .. code:: xml
 
@@ -987,7 +986,7 @@ component is found in
             </value-param>
             <value-param>
                 <name>enable</name>
-                <value>false</value>
+                <value>true</value>
             </value-param>
             <value-param>
                 <name>mimetypes</name>
@@ -1009,7 +1008,7 @@ component is found in
 +------------------+-------------------------+------------------------------------------------+---------------------------------------------------+
 | **largeSize**    | ``integer x integer``   | ``300x300``                                    | The large thumbnail size.                         |
 +------------------+-------------------------+------------------------------------------------+---------------------------------------------------+
-| **enable**       | ``boolean``             | ``false``                                      | Specifies if the thumbnail is displayed or not.   |
+| **enable**       | ``boolean``             | ``true``                                      | Specifies if the thumbnail is displayed or not.   |
 +------------------+-------------------------+------------------------------------------------+---------------------------------------------------+
 | **mimetypes**    | ``Images formats``      | ``image/jpeg;image/png;image/gif;image/bmp``   | The image formats that are supported.             |
 +------------------+-------------------------+------------------------------------------------+---------------------------------------------------+
