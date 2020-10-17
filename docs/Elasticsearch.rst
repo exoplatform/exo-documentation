@@ -98,9 +98,8 @@ by setting to false the property :ref:`exo.es.embedded.enabled <Configuration.El
 
     exo.es.embedded.enabled=false
 
-The following plugins must be installed on Elasticsearch instance:
+The following plugin must be installed on Elasticsearch instance:
 
--  `Mapper Attachments plugin (5.6) <https://www.elastic.co/guide/en/elasticsearch/plugins/5.6/mapper-attachments.html>`__
 -  `Ingest Attachement Processor plugin (5.6) <https://www.elastic.co/guide/en/elasticsearch/plugins/5.6/ingest-attachment.html>`__
 
 .. note:: We highly recommend to use Elasticsearch 5.6 version.
