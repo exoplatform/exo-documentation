@@ -24,11 +24,11 @@ How to install eXo Platform cluster ?
 
 3. Install an :ref:`Elasticsearch and configure each eXo Platform cluster node <Elasticsearch.ES_External>`
 
-4. Install a :ref:`MongoDB <Configuration.MongoDBConfiguration>` and configure :ref:`each eXo Platform cluster node <Installation.ChatInstallation>`
+4. Install a :ref:`MongoDB <MongoDBConfiguration>` and configure :ref:`each eXo Platform cluster node <ChatInstallation>`
 
 5. Start each server using a command line using the following options:
 
-       ::
+   .. code:: shell
 
            ./start_eXo.sh --cluster --cluster-current-host $NODE_NAME \
                    --cluster-host name=$NODE1_NAME,address=$NODE1_ADDRESS,http_protocol=$NODE1_HTTP_PROTOCOL,http_port=$NODE1_HTTP_PORT,tcp1_port=$NODE1_TCP1_PORT,tcp2_port=$NODE1_TCP2_PORT \
@@ -36,7 +36,8 @@ How to install eXo Platform cluster ?
                    --cluster-host name=$NODE3_NAME,address=$NODE3_ADDRESS,http_protocol=$NODE3_HTTP_PROTOCOL,http_port=$NODE3_HTTP_PORT,tcp1_port=$NODE3_TCP1_PORT,tcp2_port=$NODE3_TCP2_PORT
 
 with
-       ::
+   .. code:: shell
+
           $NODE_NAME : current host name (a chosen unique alias, not related to DNS name)
           $NODE1_NAME, $NODE2_NAME... : each cluster host member name (you can pick any string, it has to be unique)
           $NODE1_ADDRESS,$NODE2_ADDRESS... : DNS name or IP address. (By default 127.0.0.1)
@@ -47,14 +48,15 @@ with
           $NODE1_TCP2_PORT, $NODE2_TCP2_PORT... : TCP (2) port that will be used for a second communication channel to synchronize caches.
                                                   (Default 7900.  When starting server if the chosen port is not allowed the next port 7901 will be attempted)
 
+
 By example for local tests, you can start local servers by using the following command lines :
-      ::
+
+   .. code:: shell
+
           # First cluster host startup command line
           ./start_eXo.sh --cluster --cluster-current-host node1 --cluster-host name=node1 --cluster-host name=node2
           # Second cluster host startup command line
           ./start_eXo.sh --cluster --cluster-current-host node2 --cluster-host name=node1 --cluster-host name=node2
-
-6. Install a Load balancer and configure it.
 
 .. _Clustering.LoadBalancing:
 
