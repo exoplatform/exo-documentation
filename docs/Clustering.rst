@@ -53,10 +53,10 @@ By example for local tests, you can start local servers by using the following c
 
    .. code:: shell
 
-          # First cluster host startup command line
-          ./start_eXo.sh --cluster --cluster-current-host node1 --cluster-host name=node1 --cluster-host name=node2
-          # Second cluster host startup command line
-          ./start_eXo.sh --cluster --cluster-current-host node2 --cluster-host name=node1 --cluster-host name=node2
+          # First cluster host startup command line (8080 is the server port configured for first host)
+          ./start_eXo.sh --cluster --cluster-current-host node1 --cluster-host name=node1,http_port=8080 --cluster-host name=node2,http_port=8081
+          # Second cluster host startup command line (8081 is the server port configured for second host)
+          ./start_eXo.sh --cluster --cluster-current-host node2 --cluster-host name=node1,http_port=8080 --cluster-host name=node2,http_port=8081
 
 .. _Clustering.LoadBalancing:
 
