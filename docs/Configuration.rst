@@ -497,21 +497,7 @@ JODConverter
 |                             	   | information      |                         |
 |                                  | type.            |                         |
 +----------------------------------+------------------+-------------------------+        
-| :ref:`exo.unified-search.indexing.| Maximum size of files to   | 20 MB                    |
-| file.maxSize              | index  |                         |
-| <SearchConnector>` |    |                         |
-|                                |   |                         |
-|                                |  |                         |
-|                                |   |                         |
-|                                |    |                         |
-+--------------------------------+------------------+-------------------------+
-| :ref:`exo.unified-search.| List of indexed file Types         |                 |
-| indexing.supportedMimeTypes	          |        |                         |
-| <SearchConnector>` |       |                         |
-|                                |     |                         |
-|                                |      |                         |
-|                                |        |                         |
-+--------------------------------+------------------+-------------------------+
+
 .. _UnifiedSearch:
 
 Unified Search
