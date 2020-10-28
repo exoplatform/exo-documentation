@@ -506,8 +506,8 @@ JODConverter
 |                                  |                  |                         |
 +----------------------------------+------------------+-------------------------+
 | :ref:`exo.unified-search.        | List of indexed  |                         |
-| indexing.supportedMimeTypes	   |  file Types      |				|
-| <SearchConnector>` 		   |                  |				|
+| indexing.supportedMimeTypes      | file Types       |                         |
+| <SearchConnector>`               |                  |                         |
 |                                  |                  |                         |
 |                                  |                  |                         |
 |                                  |                  |                         |
