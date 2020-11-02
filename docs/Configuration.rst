@@ -497,21 +497,21 @@ JODConverter
 |                             	   | information      |                         |
 |                                  | type.            |                         |
 +----------------------------------+------------------+-------------------------+        
-| :ref:`exo.unified-search.indexing.| Maximum size of files to   | 20 MB                    |
-| file.maxSize              | index  |                         |
-| <SearchConnector>` |    |                         |
-|                                |   |                         |
-|                                |  |                         |
-|                                |   |                         |
-|                                |    |                         |
-+--------------------------------+------------------+-------------------------+
-| :ref:`exo.unified-search.| List of indexed file Types         |                 |
-| indexing.supportedMimeTypes	          |        |                         |
-| <SearchConnector>` |       |                         |
-|                                |     |                         |
-|                                |      |                         |
-|                                |        |                         |
-+--------------------------------+------------------+-------------------------+
+| :ref:`exo.unified-search.        | Maximum size of  | 20 MB                   |
+| indexing.file.maxSize            | files to index   |                         |
+| <SearchConnector>`               |                  |                         |
+|                                  |                  |                         |
+|                                  |                  |                         |
+|                                  |                  |                         |
+|                                  |                  |                         |
++----------------------------------+------------------+-------------------------+
+| :ref:`exo.unified-search.        | List of indexed  |                         |
+| indexing.supportedMimeTypes      | file Types       |                         |
+| <SearchConnector>`               |                  |                         |
+|                                  |                  |                         |
+|                                  |                  |                         |
+|                                  |                  |                         |
++----------------------------------+------------------+-------------------------+
 .. _UnifiedSearch:
 
 Unified Search
