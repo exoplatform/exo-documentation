@@ -97,14 +97,14 @@ How to search for a task?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
-an advanced search with multiple criterias. It also allows to group and sort tasks.
+an advanced search with multiple criteria. It also allows to group and sort tasks.
 
 To use the first alternative, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in the 
 title or the description.
 
 |NewTask06|
 
-The second alternative consists on setting some choices to make a custom search based on precised criterias in the filter drawer.
+The second alternative consists on setting some choices to make a custom search based on precised criteria in the filter drawer.
 
 |NewTask12|
 
