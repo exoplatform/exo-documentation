@@ -691,10 +691,7 @@ If you want to re-install it again, you should just run this command:
 
     ./addon install exo-web-conferencing
 
-.. _CustomizingEnvironmentVariables:
-
 .. _RewardsInstall:
-
 
 =============================
 Rewards packages installation
@@ -719,6 +716,7 @@ If you want to re-install them again, you should just run these commands:
     ./addon install meeds-kudos
     ./addon install meeds-perk-store
 
+.. _CustomizingEnvironmentVariables:
 
 =================================
 Customizing environment variables
