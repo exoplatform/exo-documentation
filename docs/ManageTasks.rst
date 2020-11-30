@@ -221,7 +221,7 @@ At the bottom of the drawer, three actions are available :
 
 - Confirm: Validates the criteria and applies the filters to the current board/list of tasks.
 - Cancel: Dismisses the drawer without applying the filters.
-- Reset link: Allows to clear all the selected/inputted data
+- Reset: Clears all criteria, resetting them to their default value.
 
 Labels tab
 ````````````
