@@ -239,7 +239,7 @@ Mark a task as completed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-When you are done on a task and that you want to mark it as completed, you need simply to click on the radio button near the task's title.
+When you are done on a task and that you want to mark it as completed, you need simply to click on the radio button near the task's title. The task will disappear from the list/board (unless you selected "Show completed tasks" option in the filter dropdown).
 
 |NewTask13|
 
