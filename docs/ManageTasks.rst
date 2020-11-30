@@ -130,7 +130,7 @@ You can find a projects through the filter field by entering a keyword contained
 How to access a project's tasks?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To access the list of a project's tasks, you just need to click on it's title on the CARD. You can choose between the two views BOARD or LIST.
+To access the list of tasks in a project, just click the project title on the CARD. Two views are available for tasks : BOARD and LIST.
 By default, project's tasks are displayed on the BOARD view.
 
 
