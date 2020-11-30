@@ -226,7 +226,7 @@ At the bottom of the drawer, three actions are available :
 Labels tab
 ````````````
 
-The "Labels" tab allows you to search for tasks labelled with the inputted one.
+The "Labels" tab allows you to filter tasks based on their labels.
 
 |NewTask16|
 
