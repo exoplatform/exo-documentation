@@ -187,7 +187,7 @@ title or description.
 Finding a task using the Filter button
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The filter button allows you to make an advanced search and/or sort by setting the desired choices in 3 differents tabs.
+The filter button opens a drawer with more advanced criteria, grouping and sorting options.
 
 Group and Sort tab
 ````````````````````
