@@ -176,7 +176,7 @@ advanced cases, you can use the filter button to select multiple criteria as wel
 Finding a task using the Filter field
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use the first alternative .i.e. the filter field, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in the 
+To use the first alternative .i.e. the filter field, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in their 
 title or the description.
 
 |NewTask06|
