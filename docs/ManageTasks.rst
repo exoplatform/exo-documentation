@@ -131,7 +131,7 @@ How to access a project's tasks?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access the list of tasks in a project, just click the project title on the CARD. Two views are available for tasks : BOARD and LIST.
-By default, project's tasks are displayed on the BOARD view.
+By default, tasks are displayed in the BOARD.
 
 
 |NewTask09|
