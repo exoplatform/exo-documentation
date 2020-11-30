@@ -198,7 +198,7 @@ The group and sort tab allows you to group and/or sort tasks according to the se
 The "Group by" option groups the resulting tasks by a common criteria such as due date, assignee, etc.
 It's very useful to review the project from a certain angle
 
-The "Sort by" options allows to sort tasks in an order according to a criteria. For example when sorting by priority, tasks with the highest priority appear first.
+The "Sort by" options allows to sort tasks in an order according to a criteria. For example when sorting by priority, tasks with the highest priority appear first within their group.
 
 .. note:: Note that some critera in the "Group and Sort" tab differs between project's tasks and TASKS. FOr example, grouping project's tasks by project does not have sens
           as all the tasks belong to the same project.
