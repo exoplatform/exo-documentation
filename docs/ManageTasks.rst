@@ -214,7 +214,7 @@ The "Filter" lets you to run a custom search based on multiple criteria combined
   filter field when it is the only filled criteria.
 - Assignee: Lets you filter tasks assigned to a specific user. Start typing a name to trigger a list of suggested assignees among the participants of this project.
 - Due: Let you filter tasks based on their due date. A dropdown menu offers shortcuts : All, Overdue, Today, Tomorrow, Upcoming. 
-- Priority: A dropdown menu allowing to filter tasks by a selected priority: High, Normal, Low, None. Default set to All to display the whole tasks list.
+- Priority: Lets you filter tasks for a given priority. A dropdown menu offers the options : All, High, Normal, Low, None. 
 - Show completed tasks: a radio button allowing to display or not the :ref:`finished tasks <finishtask>`, default set to No, i.e. completed tasks are not displayed.
 
 In the drawer's footer, the buttons/link make the following:
