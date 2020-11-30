@@ -152,7 +152,7 @@ A drawer opens allowing you to fill in the tasks' fields.
 
 .. note:: The differences between a task added under TASKS tab and under a project:
           
-          -  In TASKS tab, only the assignee filed is pre-filled, and by default assigned to you.
+          -  In TASKS tab, the task is pre-assigned to you by default.
           
           -  Under a project, only the project field is pre-filled, by default set to the project under which you are adding a new task.
 
