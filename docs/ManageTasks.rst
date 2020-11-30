@@ -220,7 +220,7 @@ The "Filter" lets you to run a custom search based on multiple criteria combined
 At the bottom of the drawer, three actions are available :
 
 - Confirm: Validates the criteria and applies the filters to the current board/list of tasks.
-- Cancel: Allows to clear the selected/inputted data and close the drawer
+- Cancel: Dismisses the drawer without applying the filters.
 - Reset link: Allows to clear all the selected/inputted data
 
 Labels tab
