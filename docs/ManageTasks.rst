@@ -247,7 +247,7 @@ When you are done on a task and that you want to mark it as completed, you need 
 
 .. _ChangeStatus:
 
-How to change a task's status?
+How to change the status of a task?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When you want to change a task's from a column (status) to another, you can do it through two manners:
