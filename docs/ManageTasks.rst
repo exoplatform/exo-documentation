@@ -148,7 +148,7 @@ A drawer opens allowing you to fill in the tasks' fields.
 
 |NewTask08|
 
-.. tip:: The title field is mandatory to enable tasks's creation.
+.. tip:: Only the title field is mandatory save a task.
 
 .. note:: The differences between a task added under TASKS tab and under a project:
           
