@@ -154,7 +154,7 @@ A drawer opens allowing you to fill in the tasks' fields.
           
           -  In TASKS tab, the task is pre-assigned to you by default.
           
-          -  Under a project, only the project field is pre-filled, by default set to the project under which you are adding a new task.
+          -  Within a project, the project field pre-filled with this project.
 
 
 You can edit a task by clicking on its title which opens the "Edit task" drawer.
