@@ -89,7 +89,7 @@ A project's CARD displays the following details:
 - An information icon
 - 3 dots icon displaying the possible actions I can make on the project
 - The project's description , if it exists, otherwise display 'No description' label
-- Space's avatar and name if the project belongs to space, otherwise, 'No space' label with an empty icon is displayed
+- Space's avatar and name if the project belongs to a space, otherwise, 'No space' label with an empty icon is displayed
 - The project's managers avatars
 - Star button allowing to favorite a project
 
@@ -122,7 +122,7 @@ A project is defined by these properties:
 How to search for a project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can find a projects through the filter field by entering a keyword contained in the project title or description.
+You can find a project through the filter field by entering a keyword contained in the project title or description.
 
 
 .. _AccessProjectTasks:
@@ -144,17 +144,17 @@ How to add a new task?
 
 You can add a task either in your Tasks list (i.e. under TASKS tab) or under a project in which you are already a participant or manager. 
 Click on "Add Task" button |NewTask07| .
-A drawer opens allowing you to fill in the tasks' fields. 
+A drawer opens allowing you to fill in the task's fields. 
 
 |NewTask08|
 
-.. tip:: Only the title field is mandatory save a task.
+.. tip:: Only the title field is mandatory to save a task.
 
 .. note:: The differences between a task added under TASKS tab and under a project:
           
           -  In TASKS tab, the task is pre-assigned to you by default.
           
-          -  Within a project, the project field pre-filled with this project.
+          -  Within a project, the project field is pre-filled with this project.
 
 
 You can edit a task by clicking on its title which opens the "Edit task" drawer.
@@ -196,7 +196,7 @@ The group and sort tab allows you to group and/or sort tasks according to the se
 |NewTask15|
 
 The "Group by" option groups the resulting tasks by a common criteria such as due date, assignee, etc.
-It's very useful to review the project from a certain angle
+It's very useful to review the project from a certain angle.
 
 The "Sort by" options allows to sort tasks in an order according to a criteria. For example when sorting by priority, tasks with the highest priority appear first within their group.
 
@@ -205,17 +205,17 @@ The "Sort by" options allows to sort tasks in an order according to a criteria. 
 Filter tab
 ```````````
 
-The "Filter" lets you to run a custom search based on multiple criteria combined with a logical "AND".
+The "Filter" lets you run a custom search based on multiple criteria combined with a logical "AND".
 
 
 |NewTask12|
 
-- Contains: Enter any keywords in that field to match thats that contain these words in their title or description. It works exactly like the
+- Contains: Enter any keyword in that field to match tasks that contain these words in their title or description. It works exactly like the
   filter field when it is the only filled criteria.
 - Assignee: Lets you filter tasks assigned to a specific user. Start typing a name to trigger a list of suggested assignees among the participants of this project.
 - Due: Let you filter tasks based on their due date. A dropdown menu offers shortcuts : All, Overdue, Today, Tomorrow, Upcoming. 
 - Priority: Lets you filter tasks for a given priority. A dropdown menu offers the options : All, High, Normal, Low, None. 
-- Show completed tasks:  when turned on this option lets you display :ref:`completed tasks <finishtask>` as well as the others.
+- Show completed tasks:  when turned on, this option lets you display :ref:`completed tasks <finishtask>` as well as the others.
 
 At the bottom of the drawer, three actions are available :
 
@@ -238,7 +238,8 @@ Mark a task as completed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-When you are done on a task and that you want to mark it as completed, you need simply to click on the radio button near the task's title. The task will disappear from the list/board (unless you selected "Show completed tasks" option in the filter dropdown).
+When you are done on a task and that you want to mark it as completed, you need simply to click on the radio button near the task's title. 
+The task will disappear from the list/board (unless you selected "Show completed tasks" option in the filter dropdown).
 
 |NewTask13|
 
@@ -247,12 +248,14 @@ When you are done on a task and that you want to mark it as completed, you need 
 .. _ChangeStatus:
 
 How to change the status of a task?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To reflect the progress of a task, you can change its status. There are two ways of doing it:
 
--  Edit the task and change and select the corresponding status in their Status field.
--  Drag the task and drop it to the desired status column (BOARD view) or grouping (LIST view) .
+-  Edit the task to change it and select the corresponding status in its Status field.
+-  Drag the task and drop it to the desired status column (BOARD view) or grouping (LIST view).
+
+.. note:: The drag & drop option is inly available on projects views.
 
 .. _Intoduction:
 
