@@ -217,7 +217,7 @@ The "Filter" lets you to run a custom search based on multiple criteria combined
 - Priority: Lets you filter tasks for a given priority. A dropdown menu offers the options : All, High, Normal, Low, None. 
 - Show completed tasks:  when turned on this option lets you display :ref:`completed tasks <finishtask>` as well as the others.
 
-In the drawer's footer, the buttons/link make the following:
+At the bottom of the drawer, three actions are available :
 
 - Confirm: Allows to confirm the selected/inputted data and proceed to the filtering
 - Cancel: Allows to clear the selected/inputted data and close the drawer
