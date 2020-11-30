@@ -219,7 +219,7 @@ The "Filter" lets you to run a custom search based on multiple criteria combined
 
 At the bottom of the drawer, three actions are available :
 
-- Confirm: Allows to confirm the selected/inputted data and proceed to the filtering
+- Confirm: Validates the criteria and applies the filters to the current board/list of tasks.
 - Cancel: Allows to clear the selected/inputted data and close the drawer
 - Reset link: Allows to clear all the selected/inputted data
 
