@@ -200,7 +200,7 @@ It's very useful to review the project from a certain angle
 
 The "Sort by" options allows to sort tasks in an order according to a criteria. For example when sorting by priority, tasks with the highest priority appear first within their group.
 
-.. note:: Note that some critera in the "Group and Sort" tab differs between project's tasks and TASKS. FOr example, grouping project's tasks by project does not have sens
+.. note:: Note that some criteria in the "Group and Sort" tab differ between project's tasks and TASKS  tab. For example, grouping the tasks of a project by project does not make sense, so that option is not offered.
           as all the tasks belong to the same project.
 
 Filter tab
