@@ -252,7 +252,7 @@ How to change the status of a task?
 To reflect the progress of a task, you can change its status. There are two ways of doing it:
 
 -  Edit the task and change and select the corresponding status in their Status field.
--  Drag the task from its first column and the drop it to the desired one. The drag&drop is feasible in both views BOARD and LIST.
+-  Drag the task and drop it to the desired status column (BOARD view) or grouping (LIST view) .
 
 .. _Intoduction:
 
