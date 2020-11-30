@@ -38,16 +38,15 @@ New Tasks Application
           features which exist in the tasks app.
 
 With eXo Platform 6.1, Tasks application has been made a new skin for more confortable and user-friendly usage.
-Discover what's new in Tasks application through the following sections:
+Discover what's new in Tasks application in the following sections.
 
-:ref:`My tasks <MyTasks>`
-
-:ref:`My projects <Myprojects>`
 
 .. _MyTasks:
 
 My Tasks
 ~~~~~~~~~
+
+TASKS tab is where you can find the tasks assigned to you and tasks where you are set as coworker.
 
 The list of my tasks could be displayed in two views: List or Cards.
 
@@ -57,7 +56,7 @@ The LIST view displays in a list form the tasks I created either in a project or
 
 |NewTask01|
 
-CARDS view of my tasks displays the same task in a different view. Each task is represented by a card.
+CARDS view of my tasks displays the same tasks in a different view. Each task is represented by a card.
 
 Both views, i.e. list and cards display the same details: 
 
@@ -75,68 +74,14 @@ When a task has many coworkers, you just need to click on the +x label over the 
 |NewTask05|
 
 
-.. _AddNewPersonalTask:
-
-How to add a new task?
-^^^^^^^^^^^^^^^^^^^^^^^
-
-You can add a task in your Tasks list. For that you just need to click on "Add Task" button |NewTask07| on the top left of the page.
-A drawer opens allowing you to fill in the tasks' fields. 
-
-|NewTask08|
-
-.. note:: In TASKS tab, when you add a new task, it is by default assigned to you. You can, for sure, change the assignement.
-
-.. tip:: The title field is mandatory to enable tasks's creation.
-
-
-
-.. _SearchTask:
-
-How to search for a task?
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
-an advanced search with multiple criteria. It also allows to group and sort tasks.
-
-To use the first alternative, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in the 
-title or the description.
-
-|NewTask06|
-
-The second alternative consists on setting some choices to make a custom search based on precised criteria in the filter drawer.
-
-|NewTask12|
-
-- Contains: When setting a keyword in that field, the filter will search for tasks containing that word in its title or description.
-- Assignee: Allows to select a user and then to filter tasks assigned to him
-- Due: A dropdown menu allowing to filter tasks in accordance to their due date: Overdue, Today, Tomorrow, Upcoming. Default set to All to list all tasks
-- Priority: A dropdown menu allowing to filter tasks by a selected priority: High, Normal, Low, None. Default set to All to display the whole tasks list.
-- Show completed tasks: a radio button allowing to display or not the :ref:`finished tasks <finishtask>`, default set to No, i.e. completed tasks are not displayed.
-
-In the drawer's footer, the buttons/link make the following:
-
-- Confirm: Allows to confirm the selected/inputted date and proceed to the filtering
-- Cancel: Allows to clear the selected/inputted data and close the drawer
-- Reset link: Allows to clear all the selected/inputted data
-
-.. finishtask:
-
-Mark a task as completed
-^^^^^^^^^^^^^^^^^^^^^^^^^
-When you are done on a task and that you want to mark it as completed, you need simply to click on the radio button near the task's title.
-
-|NewTask13|
-
-|NewTask14|
-
-
 .. _Myprojects:
 
 My projects
 ~~~~~~~~~~~~~~
 
-Projects are now displayed in CARDS form.
+PROJECTS tab is where you can find your projects i.e. those you are the manger and those you are participant in.
+
+With the new tasks application, projects are represented in CARDS forms.
 
 A project's CARD displays the following details:
 
@@ -144,7 +89,7 @@ A project's CARD displays the following details:
 - An information icon
 - 3 dots icon displaying the possible actions I can make on the project
 - The project's description , if it exists, otherwise display 'No description' label
-- Space's avatar and name if the project belongs to space, otherwise, 'No space' label with an empty icon is displayed
+- Space's avatar and name if the project belongs to a space, otherwise, 'No space' label with an empty icon is displayed
 - The project's managers avatars
 - Star button allowing to favorite a project
 
@@ -172,31 +117,145 @@ A project is defined by these properties:
 - At least one participant, which could be a user or a group
 - A description which is not mandatory
 
-
-.._SearchProject:
+.. _SearchProject:
 
 How to search for a project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Same as for tasks, you can search for a project throught the filter field using a keyword.
-Results contains projects having the keyword in their titles or description.
+You can find a project through the filter field by entering a keyword contained in the project title or description.
 
-.._AccessProjectTasks:
+
+.. _AccessProjectTasks:
 
 How to access a project's tasks?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To access the list of a project's tasks, you just need to click on the description on the project's CARD. You can choose between the two views BOARD or LIST.
-By default, project's Tasks are displayed on the BOARD view.
+To access the list of tasks in a project, just click the project title on the CARD. Two views are available for tasks : BOARD and LIST.
+By default, tasks are displayed in the BOARD.
 
 
 |NewTask09|
+
+
+.. _AddTask:
+
+How to add a new task?
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can add a task either in your Tasks list (i.e. under TASKS tab) or under a project in which you are already a participant or manager. 
+Click on "Add Task" button |NewTask07| .
+A drawer opens allowing you to fill in the task's fields. 
+
+|NewTask08|
+
+.. tip:: Only the title field is mandatory to save a task.
+
+.. note:: The differences between a task added under TASKS tab and under a project:
+          
+          -  In TASKS tab, the task is pre-assigned to you by default.
+          
+          -  Within a project, the project field is pre-filled with this project.
+
 
 You can edit a task by clicking on its title which opens the "Edit task" drawer.
 
 |NewTask10|
 
+.. _SearchTask:
 
+How to search for a task?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Searching for a task works the same within the TASKS tab and within a project.
+
+To quickly find a task, you can use the filter field, to filter based on the list of tasks displayed. But for more
+advanced cases, you can use the filter button to select multiple criteria as well as grouping and sorting options.
+
+.. _SearchTaskFilterField:
+
+Finding a task using the Filter field
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use the first alternative .i.e. the filter field, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in their 
+title or description.
+
+|NewTask06|
+
+
+.. _SearchTaskFilterBtn:
+
+Finding a task using the Filter button
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The filter button opens a drawer with more advanced criteria, grouping and sorting options.
+
+Group and Sort tab
+````````````````````
+The group and sort tab allows you to group and/or sort tasks according to the selected choices.
+
+|NewTask15|
+
+The "Group by" option groups the resulting tasks by a common criteria such as due date, assignee, etc.
+It's very useful to review the project from a certain angle.
+
+The "Sort by" options allows to sort tasks in an order according to a criteria. For example when sorting by priority, tasks with the highest priority appear first within their group.
+
+.. note:: Note that some criteria in the "Group and Sort" tab differ between project's tasks and TASKS  tab. For example, grouping the tasks of a project by project does not make sense, so that option is not offered.
+
+Filter tab
+```````````
+
+The "Filter" lets you run a custom search based on multiple criteria combined with a logical "AND".
+
+
+|NewTask12|
+
+- Contains: Enter any keyword in that field to match tasks that contain these words in their title or description. It works exactly like the
+  filter field when it is the only filled criteria.
+- Assignee: Lets you filter tasks assigned to a specific user. Start typing a name to trigger a list of suggested assignees among the participants of this project.
+- Due: Let you filter tasks based on their due date. A dropdown menu offers shortcuts : All, Overdue, Today, Tomorrow, Upcoming. 
+- Priority: Lets you filter tasks for a given priority. A dropdown menu offers the options : All, High, Normal, Low, None. 
+- Show completed tasks:  when turned on, this option lets you display :ref:`completed tasks <finishtask>` as well as the others.
+
+At the bottom of the drawer, three actions are available :
+
+- Confirm: Validates the criteria and applies the filters to the current board/list of tasks.
+- Cancel: Dismisses the drawer without applying the filters.
+- Reset: Clears all criteria, resetting them to their default value.
+
+Labels tab
+````````````
+
+The "Labels" tab allows you to filter tasks based on their labels.
+
+|NewTask16|
+
+.. tip:: Currently, labels are combined with a logical 'AND' meaning the filtered list/board will contain tasks that have all the selected labels.
+
+.. _finishtask:
+
+Mark a task as completed
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+When you are done on a task and that you want to mark it as completed, you need simply to click on the radio button near the task's title. 
+The task will disappear from the list/board (unless you selected "Show completed tasks" option in the filter dropdown).
+
+|NewTask13|
+
+|NewTask14|
+
+.. _ChangeStatus:
+
+How to change the status of a task?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To reflect the progress of a task, you can change its status. There are two ways of doing it:
+
+-  Edit the task to change it and select the corresponding status in its Status field.
+-  Drag the task and drop it to the desired status column (BOARD view) or grouping (LIST view).
+
+.. note:: The drag & drop option is inly available on projects views.
 
 .. _Intoduction:
 
@@ -1243,3 +1302,5 @@ it on your own.
 .. |NewTask12| image:: images/NewTask/FilterTabDrawer.png
 .. |NewTask13| image:: images/NewTask/FinishTaskCARD.png
 .. |NewTask14| image:: images/NewTask/FinishTaskList.png
+.. |NewTask15| image:: images/NewTask/GroupSort.png
+.. |NewTask16| image:: images/NewTask/LabelsTab.png
