@@ -230,7 +230,7 @@ The "Labels" tab allows you to filter tasks based on their labels.
 
 |NewTask16|
 
-.. tip:: When inputting more than one label, search results will contain tasks labelled by all of the selected ones.
+.. tip:: Currently, labels are combined with a logical 'AND' meaning the filtered list/board will contain tasks that have all the selected labels.
 
 .. _finishtask:
 
