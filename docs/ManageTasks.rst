@@ -143,7 +143,7 @@ How to add a new task?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can add a task either in your Tasks list (i.e. under TASKS tab) or under a project in which you are already a participant or manager. 
-For that you just need to click on "Add Task" button |NewTask07| on the top left of the page.
+Click on "Add Task" button |NewTask07| .
 A drawer opens allowing you to fill in the tasks' fields. 
 
 |NewTask08|
