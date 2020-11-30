@@ -168,7 +168,7 @@ How to search for a task?
 
 Searching for a task works the same within the TASKS tab and within a project.
 
-To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
+To quickly find a task, you can use the filter field, to filter based on the list of tasks displayed. But for more
 an advanced search with multiple criteria. It also allows to group and sort tasks.
 
 .. _SearchTaskFilterField:
