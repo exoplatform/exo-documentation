@@ -122,7 +122,7 @@ A project is defined by these properties:
 How to search for a project?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can search for a project throught the filter field using a keyword. Results will contain projects having the keyword in their titles or description.
+You can find a projects through the filter field by entering a keyword contained in the project title or description.
 
 
 .. _AccessProjectTasks:
