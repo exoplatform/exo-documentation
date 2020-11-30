@@ -210,7 +210,7 @@ The "Filter" lets you to run a custom search based on multiple criteria combined
 
 |NewTask12|
 
-- Contains: When setting a keyword in that field, the filter will search for tasks containing that word in its title or description i.e. it does the same thing as 
+- Contains: Enter any keywords in that field to match thats that contain these words in their title or description. It works exactly like the
   the filter field when it is the only filled criteria.
 - Assignee: Allows to select a user and then to filter tasks assigned to him.
 - Due: A dropdown menu allowing to filter tasks in accordance to their due date: Overdue, Today, Tomorrow, Upcoming. Default set to All to list all tasks.
