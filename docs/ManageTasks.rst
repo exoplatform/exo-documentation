@@ -184,7 +184,7 @@ title or description.
 
 .. _SearchTaskFilterBtn:
 
-Search for a task using the Filter button
+Finding a task using the Filter button
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The filter button allows you to make an advanced search and/or sort by setting the desired choices in 3 differents tabs.
