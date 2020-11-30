@@ -249,7 +249,7 @@ When you are done on a task and that you want to mark it as completed, you need 
 How to change the status of a task?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When you want to change a task's from a column (status) to another, you can do it through two manners:
+To reflect the progress of a task, you can change its status. There are two ways of doing it:
 
 -  Edit the taks and change its status to the desired one
 -  Drag the task from its first column and the drop it to the desired one. The drag&drop is feasible in both views BOARD and LIST.
