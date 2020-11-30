@@ -166,7 +166,7 @@ You can edit a task by clicking on its title which opens the "Edit task" drawer.
 How to search for a task?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Searching for a task is made the same in both tabs: TASKS and under a project.
+Searching for a task works the same within the TASKS tab and within a project.
 
 To search for a task you can either use the filter field allowing to search a task through a keyword or use the filter drawer which allows to make 
 an advanced search with multiple criteria. It also allows to group and sort tasks.
