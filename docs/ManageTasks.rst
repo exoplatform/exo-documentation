@@ -173,7 +173,7 @@ advanced cases, you can use the filter button to select multiple criteria as wel
 
 .. _SearchTaskFilterField:
 
-Search for a task using the Filter field
+Finding a task using the Filter field
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use the first alternative .i.e. the filter field, you just need to type a keyword in the field. The returned results correspond to tasks containing the keyword in the 
