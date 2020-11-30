@@ -205,7 +205,7 @@ The "Sort by" options allows to sort tasks in an order according to a criteria. 
 Filter tab
 ```````````
 
-The tab "Filter" allows you to make a custom search based on the precised criteria.
+The "Filter" lets you to run a custom search based on multiple criteria combined with a logical "AND".
 
 
 |NewTask12|
