@@ -48,26 +48,21 @@ My Tasks
 
 TASKS tab is where you can find the tasks assigned to you and tasks where you are set as coworker.
 
-The list of my tasks could be displayed in two views: List or Cards.
+The list of my tasks could be displayed in a LIST view.
 
 |NewTask00|
 
 The LIST view displays in a list form the tasks I created either in a project or not, my assigned tasks and those I am set as coworker.
 
-|NewTask01|
-
-CARDS view of my tasks displays the same tasks in a different view. Each task is represented by a card.
-
-Both views, i.e. list and cards display the same details: 
+These details are shown for each task:
 
 - Task's title
-- Task's ID
-- Task's project if it belongs to a project, otherwise display the label 'No project'
-- The avatars of participants to the project i.e. the assignee and coworkers if they exist
-- The number of associated labels if they exist otherwise, display the label 'No label'
-- The number of comments and attachments 
-- The task's status in its project, otherwise display the label 'No status'
-- The task's due date if it is set, otherwise display the label 'No due date'
+- Task's project if it belongs to a project, otherwise nothing is displayed
+- The avatars of participants to the task i.e. the assignee and coworkers if they exist
+- The associated label if or the number of assiciated labels and they appears in a popup on hover |NewTask01|
+- The number of comments if they exist 
+- The task's status in its project, otherwise display nothing
+- The task's due date if it is set, otherwise display nothing
 
 When a task has many coworkers, you just need to click on the +x label over the avatar to open a drawer with the whole list of assignee and coworkers.
 
@@ -1288,7 +1283,7 @@ it on your own.
 .. |image82| image:: images/taskmanagement/edit_status.png
 .. |image83| image:: images/taskmanagement/delete_status.png
 .. |NewTask00| image:: images/NewTask/TasksList.png
-.. |NewTask01| image:: images/NewTask/TasksCARDS.png
+.. |NewTask01| image:: images/NewTask/LabelsOnHOver.png
 .. |NewTask02| image:: images/NewTask/ProejctCARDS.png
 .. |NewTask03| image:: images/NewTask/piechart.png
 .. |NewTask04| image:: images/NewTask/AddProjectdrawer.png
