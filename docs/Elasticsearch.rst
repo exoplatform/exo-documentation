@@ -21,6 +21,10 @@ Elasticsearch
 
 .. note:: With eXo Platform 4.4, the embedded mode is bundled by default with the platform as an add-on.
 
+.. note:: The default Mimetypes list which content is indexed by default: "text/., application/ms. , application/vnd.* , application/xml , application/excel , application/powerpoint , application/xls, application/ppt , application/pdf , application/xhtml+xml , application/javascript , application/x-javascript , application/x-jaxrs+groovy , script/groovy", this list can be re-defined in exo.properties file by adding the following parameter exo.unified-search.indexing.supportedMimeTypes=NEW-LIST (More information in :ref:`Search connector configuration <SearchConnector>` )
+
+.. note:: Max allowed Mimetype file size to be indexed is by default : 20 MB, a new Max size value can be re-defined in exo.properties file by adding the following parameter exo.unified-search.indexing.file.maxSize=xx (More information in :ref:`Search connector configuration <SearchConnector>` )
+
 
 This chapter covers the following topics:
 
