@@ -59,7 +59,7 @@ These details are shown for each task:
 - Task's title
 - Task's project if it belongs to a project, otherwise nothing is displayed
 - The avatars of participants to the task i.e. the assignee and coworkers if they exist
-- The associated label if or the number of assiciated labels and they appears in a popup on hover |NewTask01|
+- The associated label or the number of assiciated labels and they appears in a popup on hover |NewTask01|
 - The number of comments if they exist 
 - The task's status in its project, otherwise display nothing
 - The task's due date if it is set, otherwise display nothing
@@ -68,6 +68,24 @@ When a task has many coworkers, you just need to click on the +x label over the 
 
 |NewTask05|
 
+.. note:: In mobile devices, tasks appear in CARDs forms
+              
+              |NewTask17|
+
+
+.. _PrimaryFilterstaskstab:
+
+Primary filters in TASKS tab
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To facilitate and make smooth your work in TASKS tab, a primary filter is introduced allowing you to filter tasks assigned to you or where you are set as a coworker 
+or overdue ones or those which overdue today or tomorrow.
+
+
+|NewTask18|
+
+.. tip:: Primary filter is cumulated with other filters i.e. when you first select a primary filter and then want to more refine search results, you can do it with the 
+         :ref:`filter button <SearchTaskFilterBtn>` or the :ref:`filter field <SearchTaskFilterField>`.
 
 .. _Myprojects:
 
@@ -1299,3 +1317,5 @@ it on your own.
 .. |NewTask14| image:: images/NewTask/FinishTaskList.png
 .. |NewTask15| image:: images/NewTask/GroupSort.png
 .. |NewTask16| image:: images/NewTask/LabelsTab.png
+.. |NewTask17| image:: images/NewTask/mobileTASKS.png
+.. |NewTask18| image:: images/NewTask/PrimaryFiltersTasks.png
