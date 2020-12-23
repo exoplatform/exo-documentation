@@ -716,6 +716,27 @@ If you want to re-install them again, you should just run these commands:
     ./addon install meeds-kudos
     ./addon install meeds-perk-store
 
+.. _AgendaInstall:
+
+===========================
+Agenda package installation
+===========================
+
+.. note:: Only the administrator has the right to install and uninstall this application.
+
+Agenda add-on is pre-installed by default in Enterprise edition.
+You can uninstall it using this command :
+
+::
+
+    ./addon uninstall exo-agenda
+
+If you want to re-install it again, you should just run this command:
+
+::
+
+    ./addon install exo-agenda
+
 .. _CustomizingEnvironmentVariables:
 
 =================================
@@ -1247,4 +1268,3 @@ already.
 .. |image13| image:: images/left_navigation.png
 .. |image14| image:: images/chat/chat_icon.png
 .. |image15| image:: images/chat/standalone_mode.png
-
