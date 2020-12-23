@@ -731,7 +731,7 @@ You can uninstall it using this command :
 
     ./addon uninstall exo-agenda
 
-If you want to re-install them again, you should just run this command:
+If you want to re-install it again, you should just run this command:
 
 ::
 
@@ -1268,4 +1268,3 @@ already.
 .. |image13| image:: images/left_navigation.png
 .. |image14| image:: images/chat/chat_icon.png
 .. |image15| image:: images/chat/standalone_mode.png
-
