@@ -1,500 +1,128 @@
 .. _Calendar:
 
 ########################
-Managing Your Calendars
+Managing Your Agendas
 ########################
 
-    This chapter introduces you to the **Calendar** application and its
-    actions that allow you to schedule appointments and meetings,
-    establish recurring activities, create multiple calendars and share
-    calendars with others. With **Calendar**, it is easy to keep track
-    of all important events/tasks and collaborate with other people, all
-    in one place. This chapter is divided into the following topics:
+    This chapter introduces you to the **Agenda** application and its
+    actions that allow you to schedule appointments and meetings in your spaces,
+    establish recurring activities, set your remote Agenda and receive notifications for coming events. 
+    With **Agenda**, it is easy to keep track of all important events and collaborate with other 
+    people, all in one place. This chapter is divided into the following topics:
 
-    - :ref:`Calendar interface <Interface>`
+    - :ref:`Agenda interface <Interface>`
 
-       Introduction to the Calendar interface and its main components.
+       Introduction to the Agenda interface and its main components.
 
-    - :ref:`Creating a calendar <CreatingCalendar>`
+    - :ref:`Global and Spaces Agenda <Agendaapp>`
 
-       How to create a personal calendar, group calendar or remote
-       calendars.
-
-    - :ref:`Editing a calendar <EditingCalendar>`
-
-       Steps to edit details and properties of a calendar, to set the
-       calendar color, and to delete a calendar.
-
-    - :ref:`Exporting/Importing a calendar <ExportingImportingCalendar>`
-
-       How to import calendars or export calendars to a calendar
-       application that supports the iCalendar format.
-
-    - :ref:`Sharing a personal calendar <SharingPersonalCalendar>`
-
-       Information about setting permissions on your shared calendar and
-       how to share your personal calendar with other users so that they
-       can participate in all activities of the calendar.
+       Where i can find Agenda application.
 
     - :ref:`Scheduling an event <SchedulingEvent>`
 
-       How to to perform common actions with events in Calendar:
+       How to to perform common actions with events in Agenda:
        creating, editing, deleting, importing and exporting events.
 
-    - :ref:`Editing Calendar settings <EditingCalendarSettings>`
+    - :ref:`View event details <ViewEvent>`
 
-       Steps to change the Calendar preferences.
+       Steps to view event details.
 
-    - :ref:`Generating RSS <GeneratingRSS>`
+    - :ref:`Respond to event invitation <EventInvitation>`
 
-       Steps to publish your calendar as an RSS feed.
+       How to respond to event invitation.
 
-    - :ref:`Managing categories <ManagingCategories>`
+    - :ref:`Filter events and Agendas <FitlerEventAgendas>`
 
-       Steps to add, edit and delete categories which are used to
-       classify events and tasks.
+       Steps to filter Events and Agendas.
+
+    - :ref:`Editing Agenda Preferences <EditingAgendaPreferences>`
+
+       Steps to change the Agenda preferences.
+
+    - :ref:`Connect Personal Calendar <ConnectPersonalCalendar>`
+
+       Steps to connect your personal calendar and its display in the Agenda application.
+
+    - :ref:`Managing Agenda Notifications <ManagingNotifications>`
+
+       Steps to manage Agenda application notifications.
+
+    - :ref:`Agenda in Mobile <AgendaMobile>`
+
+       How Agenda application is used in Mobile.
 
 .. _Interface:
 
 ==================
-Calendar interface
+Agenda interface
 ==================
 
-The Calendar interface has 5 basic components.
+The Agenda interface has 2 basic sections.
 
-In which:
+The first section is the **Toolbar** that contains most of actions in Agenda:
 
--  |image0|: The **Toolbar** contains most of actions in Calendar, such
-   as adding an event, switching between view modes and more.
+-  Scheduling an event
 
--  |image1|: The **Search Pane** where you can perform quick and
-   advanced searches.
+-  Switching between view modes Day, Week and Month
 
--  |image2|: The **Mini calendar** where you can go backward/forward
-   months by clicking |image3|/ |image4|. Also, you can jump to your
-   desired date by directly clicking that date.
+-  Filter events (My events and All events)
 
--  |image5|: The **Calendar View pane** where you can create events
-   quickly and view your own events.
+-  Agendas' Filter and Settings 
 
--  |image6|: The **Calendars pane** which includes 3 groups:
+-  Agenda Preferences
 
-   -  Personal Calendars: Your private calendars.
+The second section presents events based on the selected view mode mentioned above.
 
-   -  Group Calendars: Calendars of groups in which you are a member.
+|AGENDA1|
 
-   -  Shared Calendars: Calendars which others share with you.
+.. _Agendaapp:
 
-.. note:: If the :ref:`Task Management application <Manage-Task>` is installed by your administrator, you will see another Calendar group named "*Task Calendars*\ " below your *Group Calendars*. Each project from this application will have an individual calendar here but for view purpose only. Under the group, there will be also a *Tasks* calendar that displays all tasks assigned to you.
+==========================
+Global and Spaces Agenda
+==========================
 
-.. _CreatingCalendar:
+each space has its own dedicated Agenda by default, and there is no longer a personal Agenda.
+All the Agendas of the spaces of which you are a member are displayed in the global Agenda
+application in the Digital Workplace.
 
-===================
-Creating a calendar
-===================
+To access the global Agenda application, simply open the Applications Center and click on Agenda.
 
-You may create a :ref:`personal calendar <PersonalCalendar>`
-or :ref:`group calendar <GroupCalendar>`
-that can be shared with specific users or groups to your desires. You
-can also create a calendar which is synchronized with a 
-:ref:`remote calendar <RemoteCalendar>`.
+|AGENDA2|
 
-.. _PersonalCalendar:
+.. note:: If you can't find the Agenda application, please add it to your Applications drawer, more details can be found 
+:ref:`here <AdminAppCenter>`.
 
-Creating a personal calendar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You can also open the Agenda of the space you are a member of just by clicking on Agenda application from the space toolbar applications.
 
-.. note:: All personal calendars will be put in the **Personal Calendars** pane.
+|AGENDA3|
 
-1. Click |image7|, then select Add Calendar from the drop-down menu.
+.. note:: If you can't find the Agenda application, please add it, if you are a space manager, from Settings, or you can ask the Space Manager.
 
-2. Fill in fields of the Details tab.
+The Agenda application contain : 
 
-|image8|
+- Agenda View 
 
-*Details:*
+- Events display in the agenda 
 
-+-----------------------+----------------------------------------------------+
-| Field                 | Description                                        |
-+=======================+====================================================+
-| Display Name          | The calendar name which is displayed.              |
-+-----------------------+----------------------------------------------------+
-| Description           | The brief description of the calendar.             |
-+-----------------------+----------------------------------------------------+
-| Time Zone             | The display time zone for the calendar activities  |
-|                       | which cannot be edited. However, you can change    |
-|                       | the time zone in your :ref:`calendar               |
-|                       | settings <TimeZone>`.                              |
-+-----------------------+----------------------------------------------------+
-| Color                 | The display color of the calendar activities that  |
-|                       | can be personalized.                               |
-+-----------------------+----------------------------------------------------+
+- 3 different views: Day, Week and Month 
 
-.. note:: If you select the :ref:`Show in Groups <ShowInGroupsForm>` tab, then click |image9| to define specific groups and click |image10|, the calendar will be put in the **Group Calendars** category, not in the **Personal Calendars** category.
+- Schedule Event button 
 
-3. Click Save to finish your creation.
+- Event filter pulldown (My Events, Declined Events and All events)
 
-.. _GroupCalendar:
+- Agenda' Filters
 
-Creating a group calendar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note:: All group calendars will be put in the **Group Calendars** pane.
-
-1. Follow steps as stated in :ref:`Creating a personal calendar <PersonalCalendar>`
-   to give details for your new calendar.
-
-.. _ShowInGroupsForm:
-
-2. Select the Show in Groups tab.
-
-|image11|
-
-3. Select groups that contain your created calendar. The users of the
-   selected groups can only view this calendar.
-
-**i.** Click |image12| to open the Group Selector form. This form will
-       help you select a group that you want to share.
-
-|image13|
-
-**ii.** Click your desired group, then select |image14| to add the
-        defined group.
-
-**iii.** Click |image15| or |image16| to grant permissions to specific
-users or memberships respectively from the selected group.
-
-.. note:: - If you set the \* membership in the User able to edit calendar column, all users of the selected group will be able to edit this calendar, regardless of their membership role.
-
-		  -  You can select more users/memberships by repeating the above steps. The selected users/memberships will be updated in corresponding textboxes.
-
-		  -  You can delete your selected users/memberships manually in the textboxes or click |image17| to remove the permissions.
-
-4. Click Save to finish creating your new group calendar.
-
-.. _RemoteCalendar:
-
-Creating a remote calendar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note:: To create a remote calendar in the **Calendar** application successfully, you need to learn about the calendar settings of the relevant provider. For more information about types of remote calendars, see :ref:`here <MoreAboutiCalCalDAV>`.
-
-1. Click |image18|, then select Remote Calendar from the drop-down menu. 
-   The Subscribe Calendar form appears.
-
-|image19|
-
-2. Select the type of the remote calendar: iCalendar or CalDAV.
-
-3. Enter the URL linking to your calendar server in the URL field.
-
-4. Click Next to go to the Remote Calendar form.
-
-|image20|
-
-5. Fill in the fields. The asterisk (\*) indicates the field is mandatory.
-
-6. Tick the Use Authentication checkbox, then enter the username and
-   password of your remote calendar server if the remote server requires
-   verification.
-
-7. Click Save to accept your creation.
-
-.. note:: After creating a remote calendar, you can ONLY VIEW all events and tasks which are created in the remote calendar server right in the **Calendar** application by clicking it. To get the updates, hover your cursor over the remote calendar, then click |image21| to select Refresh from the drop-down menu.
-
-.. _MoreAboutiCalCalDAV:
-
-More information about types of remote calendars
---------------------------------------------------
-
--  **iCalendar**:
-
-iCalendar provides a link to an online .ics file from another calendar
-servers, such as Google Calendar, Yahoo Calendar, or eXo Calendar
-(including public URL or private URL).
-
-An example of a Google Calendar URL (in iCal format):
-
-`https://calendar.google.com/calendar/ical/en.tn%23holiday%40group.v.calendar.google.com/public/basic.ics <http://calendar.google.com/calendar/ical/en.tn%23holiday%40group.v.calendar.google.com/public/basic.ics>`__
-
--  **CalDAV**:
-
-CalDAV is an open protocol that allows you to access calendars via
-WebDAV. With CalDAV, you can publish and subscribe to calendars, share
-them collaboratively, synchronize among multiple users or devices.
-
-**Google**: https://apidata.googleusercontent.com/caldav/v2/calid/events
-where ``calid`` is the calendar id to be accessed.
-
-**Yahoo**:
-https://caldav.calendar.yahoo.com/dav/your_yahoo_account@yahoo.com/Calendar/calendar_name/
-
-.. _ImportGoogleCalendar:
-
-How to import a Google calendar?
-----------------------------------
-
-Below an example of how to import a Google calendar to eXo Platform:
-
-1. Go to your Google calender interface and select the calendar you 
-   wish to import to eXo Platform.
-
-2. Click on options button |image22| of the chosen calendar and then 
-select *Settings and sharing*.
-
-|image23|
-
-3. An interface Settings appears, scroll down to the section Integrate
-   calendar and copy your calendar's public link in iCal format.
-
-|image24|
-
-4. Go to the calendar interface in eXo Platform and click on the 
-   |image25| then on Remote calendar.
-
-5. Paste the iCal link to the field URL.
-
-6. Click on Next to move to the form in calendar settings. Fill in the
-   needed fields.
-
-.. note:: If the imported remote calendar is not public, you should input your google account credentials in the "Authentication" section to enable the import procedure.
-
-.. _EditingCalendar:
-
-==================
-Editing a calendar
-==================
-
-.. note:: -  You can ONLY edit personal calendars and group calendars that you created.
-
-		  -  For group calendars which are created by another users, you can ONLY edit them if you are granted the **Edit** permission. Meanwhile, for shared calendars, you cannot edit them. If you are granted the **Edit** permission on them by the calendar creators, you can ONLY have the right on their tasks or events (for example, adding/modifying/deleting, exporting/importing).
-
-1. Hover your cursor over the calendar which you want to edit, then 
-click |image26| that appears.
-
-2. Click Edit from the drop-down menu. The form to edit the calendar 
-   will be different, depending on your selected calendar type. 
-   For example, if you select a personal calendar, the form only 
-   contains the Details tab.
-
-3. Make changes on the calendar, then click Save to accept your changes.
-
-.. _CalendarColor:
-
-Setting the calendar color
----------------------------
-
-The **Calendar** application allows you to select different colors for
-all types of calendars to recognize them easily.
-
-1. Hover your cursor over the calendar which you want to set the color,
-then click |image27| that appears.
-
-2. Select one color from the available 24-color palette.
-
-|image28|
-
-.. _DeleteCalendar:
-
-Deleting a calendar
-----------------------
-
-This function allows you to remove any calendars and all their events.
-
-.. note:: You cannot delete group calendars created by another users if you are not granted the **Edit** permission.
-
-1. Hover your cursor over the calendar which you want to delete, then 
-   click |image29| that appears.
-
-2. Select Remove from the drop-down menu.
-
-3. Click Yes in the confirmation message.
-
-
-.. _ExportingImportingCalendar:
-
-==============================
-Exporting/Importing a calendar
-==============================
-
-.. note:: You can only export the calendar which contains at least one event. Besides, for shared and group calendars, you can only export/import them if you have the **Edit** permission.
-
-.. _ExportCalendar:
-
-Exporting a calendar
-~~~~~~~~~~~~~~~~~~~~~
-
-This function allows you to export a calendar and its events into a
-separate file on your device.
-
-1. Hover your cursor over the calendar which you want to export, then click
-   |image30| that appears.
-
-2. Click Export from the drop-down menu to open the Export Calendar form.
-
-|image31|
-
-3. Enter the exported file name in the File Name field. The export format
-   is iCalendar by default.
-
-4. Click Save to finish your export.
-
-.. note:: You can only open the exported file if you have an application installed on your device that supports its format.
-
-.. _ImportCalendar:
-
-Importing a calendar
-~~~~~~~~~~~~~~~~~~~~~
-
-This function allows you to import one calendar from your device to a
-selected calendar in **Calendar**.
-
-1. Hover your cursor over the calendar which you want to import, then 
-   click |image32| that appears.
-
-2. Click Import from the drop-down menu to open the Calendar form.
-
-|image33|
-
-3. Select a format type from the Format drop-down menu. At present, only
-   the .ics and .csv formats are supported.
-
-4. Click Select File to open a window that allows you to browse your
-   selected file.
-
-5. Select your desired file from your local device, then click Open to
-   upload it.
-
--  Click |image34| next to the name of your uploaded file if you want to
-   remove it and upload again.
-
-6. Click the Import in field to select the calendar in which you want to
-   import your uploaded file;
-
-Or, create a new calendar where your uploaded file is imported by
-clicking |image35| next to the Import in field.
-
-7. Click Save to finish your import.
-
-.. _SharingPersonalCalendar:
-
-===========================
-Sharing a personal calendar
-===========================
-
-This function allows you to share your personal calendar with other
-users, so that they can participate in all activities of this calendar.
-
-You can set permissions on your shared calendar based on 2 levels:
-
--  **View permission** allows shared users to view the shared calendar
-   and its events/tasks, but cannot change any information. It means
-   that the shared users cannot add/edit/delete events or tasks, or
-   edit, import and export the shared calendar.
-
--  **Edit permission** allows shared users to view, import and export
-   the shared calendar or add, edit, delete events/tasks inside the
-   shared calendar. However, you cannot edit detailed information of a
-   shared calendar, such as its display name.
-
-.. note:: If other users share their calendars with you, you will see them in the **Shared Calendars** category even after the users :ref:`are suspended <ManagingUsers.DisablingUser>`.
-
-.. _SharePersonalCalendar:
-
-Sharing a personal calendar
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Hover your cursor over the calendar which you want to share, then 
-   click |image36| that appears.
-
-2. Click Share from the drop-down menu to open the Share Calendar form:
-
-|image37|
-
-3. Select users, memberships or users that you want to share by clicking
-   |image38| respectively,
-
-Or enter name of users, memberships or users into the text-box manually,
-separated by commas.
-
-.. note:: If you set the \* membership for a group, all users of the group will be able to access this calendar, regardless of their membership role.
-
-4. Click |image39| to add your selected ones.
-
-5. Check the Edit Permission checkbox if you want to grant the Edit
-   permission to the corresponding users/memberships/groups.
-
-6. Click Save to accept sharing your personal calendar.
-
--  If you select to share with any group, you will see a popup showing
-   the sharing process:
-
--  You cannot abort your sharing till the process is finished.
-
--  The shared user/group can perform the following actions on the shared
-   calendar:
-
-   -  Remove and Refresh, if the Read permission only is granted.
-
-   -  Add Event, Add Task, Remove, Import, Export and Refresh, if the
-      Edit permission is granted.
-
-.. _ShareUsingiCal:
-
-Sharing a calendar using iCal
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-iCal provides a link that allows users to download a *\*.ics* file which
-contains all events and tasks of a calendar. iCal is supported by many
-popular products, such as Microsoft Outlook, Google Calendar, Apple
-iCal.
-
--  **Public URL**: The Public URL link allows you to share your calendar
-   with other users. They do not need to have Calendar accounts to
-   download the file, but they must use a calendar application which
-   supports the .ics to open and view it. By default, Public URL is
-   empty and it is only accessible when public access is explicitly
-   enabled.
-
--  **Private URL**: iCal is used for personal use. It means that as the
-   creator of the calendar, you can download it to your computer and use
-   any calendar applications which support the .ics format to open it.
-   You can also import it into another calendar.
-
-.. _DownloadiCal:
-
-Getting the link to download iCal
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Hover your cursor over the calendar which you want to get iCal, then
-   click |image40| that appears.
-
-2. Click Edit from the drop-down menu to open the Calendar form.
-
-|image41|
-
-3. Get a Public URL or Private URL by clicking |image41|. 
-   For Public URL, you must assure that the iCal is public. If it is not
-   public, simply click the "Disable Public Access" link.
-
-One Calendar Feed form will pop up.
-
-4. Copy the link in the Calendar Feed form, then send it to another 
-   users.
-   The shared users can use this link to download the *.ics* file which 
-   can be opened in popular calendar applications, such as Microsoft 
-   Outlook, Google Calendar, Apple iCal.
-
+- Agenda Preferences
 
 .. _SchedulingEvent:
 
-===================
+=====================
 Scheduling an event
-===================
+=====================
 
 This section consists of the following topics:
 
-- :ref:`Creating a new event <CreatingNewEvent>`
+- :ref:`Scheduling a new event <CreatingNewEvent>`
 
    Ways to create new events, including **Quick adding an event** and
    **Adding a detailed event**.
@@ -508,74 +136,43 @@ This section consists of the following topics:
    Steps to change the start date and time of an event conveniently via
    the Drag and Drop feature.
 
-- :ref:`Exporting/Importing an event <ExportingImportingEvent>`
+- :ref:`Cancel an event <DeletingEvent>`
 
-   Instructions on how to export and import an event.
-
-- :ref:`Deleting an event <DeletingEvent>`
-
-   Instructions on how to remove an event from a calendar.
-
-Before learning to schedule an event, you should know how to view an
-event of a specific calendar with its details:
-
-**The first way**
-
-Hover your cursor over the event to see its detailed view.
-
-|image43|
-
-**The second way**
-
-Right-click the event in the Calendar View pane, then select View from
-the drop-down menu.
-
-The **Preview** form will appear.
-
-|image44|
-
-At the Preview form, if the event includes attachments, you can download
-them by directly clicking its title. If the attachment is an image, you
-can also click View to preview it.
+   Instructions on how to cancel an event from a Agenda.
 
 .. _CreatingNewEvent:
 
-Creating a new event
-~~~~~~~~~~~~~~~~~~~~~
+Scheduling a new event
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Open the **Add Event** form via either of these 4 ways:
 
 **The first way**
 
-Click |image45| on the toolbar.
+Click |AGENDA4| on the toolbar to open the :ref:`Create Event Stepper <create_event_stepper>`.
 
-|image99|
+|AGENDA5|
 
 **The second way**
 
-Right-click the **Calendar View pane**, then select Add New Event from
-the drop-down menu.
+Click on a timeslot in the Agenda view to open the  :ref:`Quick Schedule Event drawer <create_event_drawer`.
 
-|image46|
+The quick add event drawer is opened with the selected timeslot in the Agenda view displayed in background.
+
+|AGENDA6|
 
 **The third way**
 
+Click on Add event button in the Agenda widget in the Snapshot page to open the quick schedule event drawer.
 
-i.  Hover your cursor over the calendar which you want to add new events, then click |image47| that appears.
+|AGENDA7|
 
-ii.  Click **Add Event** from the drop-down menu.
+**The fourth way**
 
-|image100|
+Click on Add event button in the Agenda widget in the Digital workplace or Space Stream page to open the quick schedule event drawer.
 
-**The forth way**
+|AGENDA8|
 
-Click the appropriate time slot in the calendar view pane. Drag your
-cursor to alter the length of the event. For more details, see
-:ref:`here <DraggingDroppingEvent>`.
-
-==> The **Add Event** form appears in the right of the screen.
-
-|image48|
 
 **Details:**
 
@@ -584,7 +181,8 @@ cursor to alter the length of the event. For more details, see
 +=======================+====================================================+
 | Title                 | The event title which is required.                 |
 +-----------------------+----------------------------------------------------+
-| Event Category        | The category which contains the event.             |
+| Space Agenda          | The space agenda which contains the event          | 
+|                       | (Required).                                        |
 +-----------------------+----------------------------------------------------+
 | From                  | The start date and time of the event.              |
 +-----------------------+----------------------------------------------------+
@@ -601,89 +199,191 @@ cursor to alter the length of the event. For more details, see
 +-----------------------+----------------------------------------------------+
 | Participants          | Persons to be invited to the event.                |
 +-----------------------+----------------------------------------------------+
-| Calendar              | The calendar which contains the event.             |
+| Agenda                | The Space' Agenda which contains the event.        |
 +-----------------------+----------------------------------------------------+
 | Description           | The detailed description of the event.             |
 +-----------------------+----------------------------------------------------+
-| Attachments           | Files to attach to the event.                      |
+| Occurence             | An event can repeat on certain days.               |
++-----------------------+----------------------------------------------------+
+| Conference            | A conference link for the event.                   |
++-----------------------+----------------------------------------------------+
+| Modify Event          | An event can be modified by its participants.      |
 +-----------------------+----------------------------------------------------+
 
 .. tip:: To create an event, you don't have to fill all the fields cited above. You can just fill 
-         :ref:`mandatory fields <required_fields>` to add an event in your **personal calendar**. 
+         :ref:`mandatory fields <required_fields>` to add an event in **Space Agenda**. 
 
 .. _required_fields:
 
-2. Give necessary information for your event: title, time slot i.e. *from*
-   and *to* fields
+2. Give necessary information for your event: Title and Space Agenda.
 
-.. note:: -  When you right-click to add an event, the start date and time are
-             where the click occurs and the default duration is one hour. When you 
-             click Event on the top left corner of Calendar or Add Event
-             by selecting |image49|, the start date is the current one with
-             duration of 1 hour.
+.. note:: -  Event start date and time are the current one with default
+             duration of 30 minutes.
 
           -  When you select a start date/time, an end date/time will be
              suggested. You can select another values to your desires.
 
-3. You can click "Save" to finish creating your new event in your **persanal 
-   calendar** or you can fill in :ref:`more fields <detailed_event>` for 
+3. You can click "Save" to finish creating your new event in your **Space 
+   Agenda** or you can fill in :ref:`more fields <detailed_event>` for 
    a detailed event.
 
 .. _detailed_event:
 
-|image101|
-
 To create a detailed event you can, in addition to :ref:`required fields <required_fields>`,
 fill in these fields:
-
--  |image102| Select the event's category.
    
--  |image103| Add the event's location.
+-  Add the event's location.
 
--  |image104| :ref:`Add participants to the event <AddingParticipantsToEvent>` 
-   and |image105| check their :ref:`availability <ViewingTimeAvailability>`.
+-  :ref:`Add participants to the event <AddingParticipantsToEvent>`.
 
--  |image106| Select the calendar where you wish to add your event.
-
--  |image107| :ref:`Create a reminder for upcoming events <CreatingEventReminder>`
+-  :ref:`Update predefined reminders for upcoming events <CreatingEventReminder>`
    with your own notification settings.
 
--  |image108| Save time by :ref:`creating a recurring event <CreatingRecurringEvent>`
+-  Save time by :ref:`creating a recurring event <CreatingRecurringEvent>`
    rather than entering each instance separately.
    
--  |image109| Add description of the event.   
+-  Add description of the event.   
 
--  |image110| :ref:`Add attachments to the event <attachement_event>`
+-  :ref:`Create Event conference link <attachement_event>`
 
-.. note:: You can attach a maximum of 10 files to an event. Also, the size of each file must be less than 10 MB.
+.. _create_event_stepper:
 
+Create event with stepper
+---------------------------
+
+The create event stepper contain 2 steps to create a new event: 
+
+1. Event details:
+
++-----------------------+----------------------------------------------------+
+| Field                 | Description                                        |
++=======================+====================================================+
+| Title                 | The event title which is required.                 |
++-----------------------+----------------------------------------------------+
+| Space Agenda          | The space agenda which contains the event          | 
+|                       | (Required).                                        |
++-----------------------+----------------------------------------------------+
+| Location              | The Place where the event will occur.              |
++-----------------------+----------------------------------------------------+
+| Participants          | Persons to be invited to the event.                |
++-----------------------+----------------------------------------------------+
+| Agenda                | The Space' Agenda which contains the event.        |
++-----------------------+----------------------------------------------------+
+| Description           | The detailed description of the event.             |
++-----------------------+----------------------------------------------------+
+| Occurence             | An event can repeat on certain days.               |
++-----------------------+----------------------------------------------------+
+| Conference            | A conference link for the event.                   |
++-----------------------+----------------------------------------------------+
+| Modify Event          | Grant the edit event permission to participants.   |
++-----------------------+----------------------------------------------------+
+
+- Choose a date:
+
++-----------------------+----------------------------------------------------+
+| Field                 | Description                                        |
++=======================+====================================================+
+| Event display         | Event to create display in the Agenda Week view.   |
++-----------------------+----------------------------------------------------+
+| Event popover         | The start and end date and time of the event.      |
+|                       | If the event does not have a specific time, select |
+|                       | the All Day option in the event popover .          |
+|                       | This option allows setting the event duration      |
+|                       | to be all day or not. If you do not check this     |
+|                       | option, you have to define the start date/time and |
+|                       | end date/time. By default, the start date and end  |
+|                       | date is the current date.                          |
++-----------------------+----------------------------------------------------+
+| Connect to personal   | Possibility to connect to your personal calendar.  |
+| Calendar              |                                                    |
++-----------------------+----------------------------------------------------+
+| Event Timezone        | Possibility to fix the Event Timezone.             |
++-----------------------+----------------------------------------------------+
+| Now Time Line         | A now Time line displaying the current time        |
++-----------------------+----------------------------------------------------+
+
+.. _create_event_drawer:
+
+Create event with drawer
+---------------------------
+
+Quick schedule event drawer is displayed when you click on the Add event in: 
+
+- Snapshot page 
+
+- Global Stream Page Event widget 
+
+- Space Stream Page Event widget 
+
+Schedule event drawer contains: 
+
++-----------------------+----------------------------------------------------+
+| Field                 | Description                                        |
++=======================+====================================================+
+| Title                 | The event title which is required.                 |
++-----------------------+----------------------------------------------------+
+| Space Agenda          | The space agenda which contains the event          | 
+|                       | (Required).                                        |
++-----------------------+----------------------------------------------------+
+| Start and End date    | The start and end date and time of the event.      |
+| and time              |                                                    |
++-----------------------+----------------------------------------------------+
+| All Day               | If the event does not have a specific time, select |
+|                       | the All Day option in the event popover .          |
+|                       | This option allows setting the event duration      |
+|                       | to be all day or not. If you do not check this     |
+|                       | option, you have to define the start date/time and |
+|                       | end date/time. By default, the start date and end  |
+|                       | date is the current date.                          |
++-----------------------+----------------------------------------------------+
+| Event Timezone        | Possibility to fix the Event Timezone.             |
++-----------------------+----------------------------------------------------+
+| Location              | The Place where the event will occur.              |
++-----------------------+----------------------------------------------------+
+| Participants          | Persons to be invited to the event.                |
++-----------------------+----------------------------------------------------+
+| Description           | The detailed description of the event.             |
++-----------------------+----------------------------------------------------+
+
+.. note:: - You can click on **More details** to open the event on creation in the Event stepper with already filled information.
+ - The **More details** button is not displayed in the Create event drawer from Space stream page.
+ - A limitation for the Description field is fixed to 1300 characters to avoid large descriptions for events.
+ - If you exceeds this limitation, a message Only 1300 characters allowed is displayed just below the Description field that will be underlined in Red and the Continue button will be disabled.
 
 .. _CreatingRecurringEvent:
 
 Creating a recurring event
 ---------------------------
 
-Tick the Repeat checkbox to open the Recurring Event form.
+An occurrence pulldown displays different propositions: 
 
-|image55|
+|AGENDA9|
 
 Here, you can define the repeating time for your event as follows:
 
-1. Select the type of your repeating event from the ``Repeat`` option.
+   -  Do not repeat: No occurrence planified (Default value)
 
    -  Daily: The event will be repeated every day.
 
-   -  Weekly: The event will be repeated every week that is set by default.
+   -  Working Week Days: The event will be repeated only on Working week days.
 
-   -  Monthly: The event will be repeated every month.
+   -  Weekly on X (Current Day): The event will be repeated every week on the current day (for example Weekly on Wednesday).
 
-   -  Yearly: The event will be repeated every year.
+   -  Monthly on X (Day number): The event will be repeated every month on the current day number (for example Monthly on 23) .
 
-2. Select the frequency and date for repeating your event in the ``Repeat every``
-   and ``Repeat on`` fields respectively. The selected frequency will 
-   work on the Repeat value. For example, if you set Weekly in ``Repeat``, 
-   **5** in ``Repeat every`` and **WE** in ``Repeat on``, the event will be 
-   repeated every 5 weeks on Wednesdays.
+   -  Yearly on XY (X = Month and Y= Date number) : The event will be repeated every year on the current month and day (for example Yearly on December 23).
+
+   - Custom: You will be able to configure your own occurrence using a **Custom Occurrence** drawer.
+
+By clicking on Custom, a drawer is opened so that you can configure your occurrence frequency and date for repeating your event
+
+Available fields are: 
+   
+1. Repeat every specific period. For example, if you set Weekly and 2 just after  
+     ``Repeat every``, the event will be repeated every 2 weeks on Wednesdays.
+
+2. Repeat on: you can select days you want that the event repeats in. 
+      By default all days are selected, you can simply click on a day to remove it. 
 
 3. Select the option for ending your repeating event by ticking the
    relevant checkbox.
@@ -695,39 +395,38 @@ Here, you can define the repeating time for your event as follows:
 
    -  By this date: Your repeating event will end before your specified
       date. Point your cursor over the textbox and select the date from the
-      drop-down calendar.
+      drop-down Agenda.
 
 The recurring event will be shown as below:
 
-|image56|
+|AGENDA10|
+
+.. note:: You can edit the custom event occurrence by clicking on Edit button and the Custom
+      Occurrence drawer is opened with pre-filled values. 
 
 .. _CreatingEventReminder:
 
-Creating a reminder for upcoming events
+Configure a reminder for upcoming events
 ------------------------------------------
 
-The **Calendar** application provides 2 options for reminding users who
+The **Agenda** application provides 2 options for reminding users who
 will take part in events. A reminder includes the summary information of
-the event, such as title, time and location. To use this feature, juts 
-activate the ``Reminder`` option.
+the event, such as title, space agenda and time. To use this feature, just 
+configure the ``Reminder`` option in Agenda Prenferences or Global Settings.
 
-|image57|
+|AGENDA11|
 
 **Details:**
 
--  Remind by Email: This option is to remind users of upcoming events
-   via emails. This option is set default. If you do not use this
-   option, simply untick the checkbox.
+- You can add to 5 reminders at maximum.
 
-+------------------------+---------------------------------------------------+
-| Field                  | Description                                       |
-+========================+===================================================+
-| Remind by Email before | The interval time that the reminder will be       |
-| the event starts       | repeated before an event starts.                  |
-+------------------------+---------------------------------------------------+
-| **Display a            | Remind users of upcoming events via pop-up        |
-| notification pop-up**  | messages.                                         |
-+------------------------+---------------------------------------------------+
+- Configured reminders are displayed in the event view. 
+
+- The interval time that the reminder will be repeated before an event starts is fixed by 2 values : Time number and duration (Minutes, Hours, Days).
+
+-  Reminders will be received by configured channels on Settings.
+
+- by default, you have 2 reminders: 10 mn before the event starts, and when the event starts (value is 0 minutes)
 
 
 .. _AddingParticipantsToEvent:
@@ -739,97 +438,30 @@ If you want to invite people to attend at an event, fill in the
 ``Participants`` field. When typing in the field, type-ahead suggestions 
 will appear below for easier selection of users.
 
-|image111|
+   .. note:: Only space' participants are displayed in the suggester. 
 
-Participants will receive invitations via emails. Their statuses will be
-updated in the Status column after they have answered the invitations
-via emails.
+|AGENDA42|
 
--  If the participants agree to participate (by clicking **Yes** in
-   their received invitation emails), their statuses will be yes.
+Participants status label are displayed when you mouse hover status icons. 
 
--  If the participants do not agree to participate (by clicking **No**),
-   their statuses will be no.
+If the participants have not answered to the event invitation yet, no status is displayed for them.  
 
--  If the participants have not decided to take part in the event (by
-   clicking Not sure), their statuses will be pending.
+Participants are displayed by their avatars and Full names. 
 
-Also, participants can import the event directly into their calendars or
-jump to the calendar by clicking the relevant links in the invitation
-emails.
+By a mouse hove on the participant avatar or full name, the participant popover is displayed.
 
-.. _ViewingTimeAvailability:
-
-Viewing the availability time of participants
-----------------------------------------------
-
-|image66|
-
-Click on ``Find a time`` link on **Add event** form to select the 
-correct event's start and end time, depending on participants' availabilities.
-By default, it is the start and end time of the event which you defined in 
-the **Add event** form.
-
-Busy periods are displayed in red so you can easily detect the schedule
-conflicts to manage the alternate meeting time that works best for all
-participants.
-
-You can schedule the event (its start/end time) by dragging and
-dropping. The selected period is displayed in green.
-
-Adding participants
-````````````````````
-
-Click |image67| in the left pane to select users from the Select Users
-form.
-
-Deleting participants
-```````````````````````
-
-Tick the checkboxes corresponding to users in the **Participants** list,
-then click |image68|. The deleted users will be removed from the
-participants list.
-
-Applying selected day
-```````````````````````
-
-.. note:: It is required to have at least 1 user in the **Participants** list.
-
-1. Enter the time manually into the From and To fields;
-
-   Or, tick the All Day checkbox if your event will be hold for all day;
-
-   Or, hover your cursor over the time pane to visually select the
-   available time of users. The selected period will become green and 
-   the corresponding time will be automatically updated into the *From* 
-   and *To* fields.
-
-.. note:: If you do not see any available time for your selected date in 
-          the time pane, you can switch to another dates by clicking 
-          |image69|/|image70| to check another time availability of users.
-
-2. Click the Apply Selected Day checkbox to accept applying your 
-   selected date and time into the Details tab.
+|AGENDA12|
 
 .. _EditingEvent:
 
 Editing an event
 ~~~~~~~~~~~~~~~~~
 
-1. Open the **Edit Event** form by doing one of two following ways:
+Open the 3 dots button in the event view to **Edit an Event**
 
-**The first way**
+|AGENDA13|
 
-Double-click the event you want to edit.
-
-**The second way**
-
-Right-click the event that you want to edit and select Edit from the
-drop-down menu.
-
-|image71|
-
-The **Edit Event** form is displayed with information already filled 
+The **Edit Event** stepper is displayed with information already filled 
 when adding your event.
 
 2. Edit information of your event, then click ``Save`` to complete.
@@ -839,25 +471,21 @@ when adding your event.
 
 -  If you make changes on a recurring event, the Edit recurring event pop-up will be displayed:
 
-      |image72|
+|AGENDA43|
 
-   -  *Only this event*: The changes will be applied into the
+   -  *Save event*: The changes will be applied into the
       selected event only. This event will be marked with the text:
       "Edited Recurring event".
-
-      |image73|
-
-   -  *Following events*: The changes will be applied into the
-      selected event and the following events of the series.
 
    -  *All events*: The changes will be applied into all events of
       the series.
 
-.. note:: -  For shared and group calendars, you can only edit their events if you have the edit permission.
-		  -  When editing an event, you can add/remove the attachment files or download them by directly clicking 
-		     their titles.
-		  -  If you only want to change the start date and time of the event, you can also use the drag-and-drop 
-		     feature to edit the time for the event directly on the **Calendar View pane**.
+.. note:: - You can only edit their events if you have the edit permission.
+      -  When editing an event, you can add/remove the attachment files or download them by directly clicking 
+         their titles.
+      -  If you only want to change the start date and time of the event, you can also use the drag-and-drop 
+         feature to edit the time for the event directly on the **Agenda View**.
+      -  When you edit an event, or an event that you particpate is edited, all participants receives a notification. 
 
 
 .. _DraggingDroppingEvent:
@@ -867,14 +495,9 @@ Dragging and dropping an event
 
 The drag-and-drop feature helps you change the start date and time of an
 event more conveniently. You only need to click the event, drag and drop
-it into another date or new time area in the **Calendar View pane**.
+it into another date or new time area in the **Agenda View pane**.
 
-You also can hover your cursor over the **Scroll** button to alter the
-event period.
-
-|image76|
-
-According to the features of the Calendar pane view, the drag-and-drop
+According to the features of the Agenda view, the drag-and-drop
 feature can be applied to the date and time differently.
 
 -  In the Day view, all events are shown in a day, so you can change the
@@ -887,282 +510,355 @@ feature can be applied to the date and time differently.
    the event date only. You can also change more events at the same time
    by ticking their checkboxes and using the drag-and-drop feature.
 
-.. note:: For shared and group calendars, you can only drag and drop their events if you have the **Edit** permission on these calendars. If you drag and drop an event of one calendar on which you do not have the edit permission, you will get a warning message.
-
-.. _ExportingImportingEvent:
-
-Exporting/Importing an event
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. _ExportEvent:
-
-Exporting an event
--------------------
-
-This function allows you to export one event into a file on your device.
-This file can be imported to use in another **Calendar** application.
-
-1. Right-click the event that you want to export, then select Export 
-   from the drop-down menu.
-   
-|image77|
-
-The Export Calendar form will appear.
-
-|image78|
-
-2. Enter a file name, the export format is iCalendar by default.
-
-3. Click Save to accept exporting the event.
-
-4. Click **OK** in the confirmation message to save the exported file 
-   into your device.
-
-.. note:: In fact, exporting an event means exporting a calendar with one event only. Therefore, the exported file format and the way to export an event is similar to the way to export a calendar with multiple events.
-
-.. _ImportEvent:
-
-Importing an event
---------------------
-
-You can import an event into a specific calendar. The process to import
-an event is similar to importing a calendar. For more details, see
-:ref:`Importing a calendar <ImportCalendar>`.
+.. note:: You can only drag and drop their events if you have the **Edit** permission on these Agendas. You are not able to drag and drop an event of one Agenda on which you do not have the edit permission, the action is not authorised.
 
 .. _DeletingEvent:
 
-Deleting an event
+Cancel an event
 ~~~~~~~~~~~~~~~~~~
 
-This function allows you to remove events from a calendar. To do this,
-simply right-click the event you want to delete, then select Delete from
+This function allows you to cancel (remove) events from a Agenda. To do this,
+simply open the event you want to delete, then select Delete from
 the drop-down menu.
 
 .. _DeletRecurrentEvent:
 
-Deleting a recurring event
+Cancel a recurring event
 -----------------------------
 
-If you delete a recurring event, the Delete Recurring Event popup will
+If you cancel a recurring event, the cancel Recurring Event popup will
 be displayed:
 
-|image79|
+|AGENDA14|
 
--  Select Only this event to delete the selected event only.
-
--  Select Following events to delete the selected event and following
-   events of the series.
+-  Select Save event to delete the selected event only.
 
 -  Select All events to delete all events of the series.
 
-When you delete an edited recurring event in a space calendar, its
-activity on the activity stream is also deleted and a comment informing
-the date of the event cancelled is added to the main activity of the
-series.
+When you cancel an edited recurring event in a space Agenda, you will receive a notification.
 
--  If you select Only this event, a comment informing the date of the
-   event cancelled is added to the main activity of the series.
+.. _ViewEvent:
 
-   |image80|
+====================
+View Event details
+====================
 
--  If you select Following events, and in case there are activities for
-   some future edited recurring events of the series, they are deleted
-   and a comment informing the date of repetition stop is added to the
-   main activity of the series.
+You have all your specified details of the event, with an indication of the answer of all participants in the new Event view. 
 
-   |image81|
+.. note:: Only filled informations are displayed in the event view. 
 
--  If you select All events, the main activity of the series is deleted.
-
-.. _DeleteEventMonthView:
-
-Deleting an event in the Month view
---------------------------------------
-
-In the Month view, you can delete one or multiple events at the same
-time.
-
-1. Tick the checkboxes corresponding to the events you want to delete.
-
-2. Click |image82| on the **Month** information bar.
-
-   |image83|
-
-3. Click Delete in the confirmation message.
-
-.. note:: For shared and group calendars, you can only delete their events if you have the **Edit** permission on these calendars.
-
-
-.. _EditingCalendarSettings:
-
-==========================
-Editing Calendar settings
-==========================
-
-You can change the Calendar preferences as follows:
-
-1. Open the Calendar Settings form via either of the following ways:
-
-   -  **The first way**: Click |image84| on the Calendar toolbar.
-
-   -  **The second way**: Click |image85|, then select Calendar Settings
-      from the drop-down menu.
-
-The Calendar Settings form appears:
-
-|image86|
-
-2. Change your desired preferences.
-
-**i.** In the Settings tab, you can change the Calendar general
-       settings:
-
-.. _TimeZone:
-
-+------------------------+---------------------------------------------------+
-| Field                  | Description                                       |
-+========================+===================================================+
-| Default View           | The view type of Calendar View pane. You can      |
-|                        | define the default view type when you start       |
-|                        | **Calendar** (Day, Week, Month, List, Work Week). |
-+------------------------+---------------------------------------------------+
-| Date Format            | The date format which is displayed in             |
-|                        | **Calendar**, such as Starting date, Ending date  |
-|                        | in events/tasks.                                  |
-+------------------------+---------------------------------------------------+
-| Time Format            | The time format which is displayed in             |
-|                        | **Calendar**, such as time of Starting date, or   |
-|                        | Ending Date and time displayed in the Calendar    |
-|                        | View pane.                                        |
-+------------------------+---------------------------------------------------+
-| Time Zone              | The default time zone displayed in Calendar.      |
-+------------------------+---------------------------------------------------+
-| Week Start on          | The first day of the week displayed in the        |
-|                        | **Week** and **Work Week** views.                 |
-+------------------------+---------------------------------------------------+
-| Show Working Times     | Clicks the checkbox to display the working times  |
-|                        | when viewing the calendar. The working time can   |
-|                        | be defined by selecting Starting and Ending time. |
-+------------------------+---------------------------------------------------+
-| Send Event Invitations | Ticks one checkbox to set the default action that |
-|                        | you want **Calendar** to perform once events have |
-|                        | been created. There are 3 options:                |
-|                        |                                                   |
-|                        | -  Never: **Calendar** will not send invitations. |
-|                        |                                                   |
-|                        | -  Always: **Calendar** will send invitations     |
-|                        |    automatically to the participants.             |
-|                        |                                                   |
-|                        | -  Asked: **Calendar** will ask you whether to    |
-|                        |    send invitations or not.                       |
-|                        |                                                   |                                                                          
-+------------------------+---------------------------------------------------+
-
-**ii.** In the Displayed Calendars tab, you can define which calendars
-to be displayed in the **Calendar** application by simply ticking
-checkboxes.
-
-**iii.** In the Feeds tab, you can generate an RSS feed as stated in
-:ref:`Generating RSS <GeneratingRSS>`.
-
-.. _GeneratingRSS:
-
-==============
-Generating RSS
-==============
-
-This function allows you to publish your calendar as an RSS feed. It
-will build a URL that helps you keep track of all events via the RSS
-reader.
-
-1. Follow `Step 1 <EditingCalendarSettings>` to open the Calendar
-   Settings form, then select the Feeds tab.
-   
-   |image87|
-
-2. Click Add to open the Edit Feed form.
-
-   |image88|
+|AGENDA15|
 
 **Details:**
 
-+---------------------+------------------------------------------------------+
-| Field               | Description                                          |
-+=====================+======================================================+
-| Name                | The name of the feed (required).                     |
-+---------------------+------------------------------------------------------+
-| URL                 | The link of the feed (required).                     |
-+---------------------+------------------------------------------------------+
-| Calendar(s)         | The calendar(s) which you will get feeds.            |
-+---------------------+------------------------------------------------------+
-| Add More            | Adds the calendar that you want to get RSS feed.     |
-+---------------------+------------------------------------------------------+
++-----------------------+----------------------------------------------------+
+| Information           | Description                                        |
++=======================+====================================================+
+| Title                 | The event title.                                   |
++-----------------------+----------------------------------------------------+
+| Space Agenda          | The space agenda which contains the event          | 
++-----------------------+----------------------------------------------------+
+| Event Date            | The date of the event.                             |
++-----------------------+----------------------------------------------------+
+| To                    | The end date and time of the event.                |
++-----------------------+----------------------------------------------------+
+| Location              | The Place where the event will occur.              |
++-----------------------+----------------------------------------------------+
+| Participants          | Persons invited to the event with their response.  |
++-----------------------+----------------------------------------------------+
+| Description           | The detailed description of the event.             |
++-----------------------+----------------------------------------------------+
+| Occurence             | Event occurrence.                                  |
++-----------------------+----------------------------------------------------+
+| Conference            | A conference link for the event.                   |
++-----------------------+----------------------------------------------------+
+| Reminder Notification | Pre-configured Reminders.                          |
++-----------------------+----------------------------------------------------+
+| Personal Calendar     | Personal Calendar section.                         |
++-----------------------+----------------------------------------------------+
 
-3. Input the name of RSS in the Name field.
+.. note:: - In the participants section, the event creator is displayed with a crown icon next to his Full Name. 
+   - you can close it by clicking on the ESC button from your keyboard in Desktop devices. 
 
-   Click |image89| to generate the RSS link. The URL will be 
-   automatically generated into the URL field. Click |image90| to reset 
-   the RSS link.
+Edit Specific Event Reminders 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4. Select the calendar name that you want to get the RSS feed in the Add
-   More field, then click |image91| to add your selected calendar.
+If you already configured your reminders, yo can find them in the event view and you can edit them only for this event.
 
-   Click |image92| corresponding to the calendar name to delete your 
-   added calendar.
+A click on the Edit icon next to the first reminder opens the Event reminders drawer, in which you can edit your personal reminders for this event.
 
-5. Click Save to accept generating the feed, then click **OK** in the
-   notification message.
+.. note:: Changes done for the event reminder are applied only for this event and you conserve your pre-configured reminders. 
 
-The created feed will be shown as below.
+|AGENDA16|
 
-|image93|
-
--  Click |image94| to get the RSS feed link which can be used in an RSS
-   reader application to directly view your calendar events and tasks.
-
-
-.. _ManagingCategories:
-
-====================
-Managing categories
-====================
-
-Categories are used to classify events and tasks. For example, you could
-use a 'Meeting' category for all meetings with your colleagues or
-customers in your company. By default, PRODUCT provides 6 available
-categories in Calendar: All, Calls, Meeting, Holiday, Clients,
-Anniversary. You can add and view events/tasks in default categories. In
-addition, you also can edit, delete default categories or create new
-categories by yourself.
-
-To manage categories, click |image95|, then select Add Event Category
-from the drop-down menu.
-
-The Event Categories form will appear.
-
-|image96|
-
-.. _AddNewCategory:
-
-Adding a new category
+Event in Agenda view 
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Simply enter the category name (that does not contain special
-characters, for example #,$) in the Event Category field, then click Add
-to add this category.
+Event are displayed in the Agenda view with different views: 
 
-.. _EditDeleteCategory:
+- Full colour card : If you are a participant in the event (responded by **Yes** or **May Be**).
 
-Editing/Deleting a category
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|AGENDA21|
 
--  **Edit a category** by clicking |image97|. Next, enter a new name in
-   the Event Category field, then click Update to apply your changes.
+- Colored border card : If you are not a participant or invitated and waiting for your response.
 
--  **Delete a category** by clicking |image98|. Next, click Yes in the
-   confirmation message.
+|AGENDA22|
 
-.. note:: The events/tasks under the deleted categories are still kept. These events will then be auto-assigned to the default **All** category.
+- Crossed labels card : If you responded by **No**.
+
+|AGENDA23|
+
+- Faded colour card : If you have any passed event of the 3 mentioned cards.
+
+|AGENDA24|
+
+.. note:: All day display event is displayed just below the Date and above the hours lines. 
+
+|AGENDA40|
+
+.. _EventInvitation:
+
+==============================
+Respond to event invitation 
+==============================
+
+Participants will receive invitations instaltly when you confirm their invitations. 
+
+Their statuses will be in front of their Full Name after they have answered the invitations via the event view.
+
+You can respond to the event invitation from the event view topbar or via received invitation emails.
+
+|AGENDA17|
+
+-  If the participants agree to participate (by clicking **Yes**), their statuses will be yes.
+
+-  If the participants do not agree to participate (by clicking **No**),
+   their statuses will be no.
+
+-  If the participants have not decided to take part in the event (by
+   clicking **May Be**), their statuses will be pending.
+ 
+**i.** You can change your response just by clicking on a new response, and your response status will be updated instantly.
+
+.. note:: Only not yet responded participants does not have a status icon. 
+
+.. _FitlerEventAgendas:
+
+===========================
+Filter Event and Agendas 
+===========================
+
+Agendas Filter 
+~~~~~~~~~~~~~~~~~
+
+Agenda Filter is used to choose what spaces' agenda to display in the Agenda application. 
+
+A list of all your spaces agenda is displayed with the possibility to filter on them by text.
+
+Only checked spaces agenda are displayed in the Agenda application. 
+
+|AGENDA18|
+
+.. note:: - Only spaces managers can edit the space agenda color from the Agendas Filter using a color picker. 
+ - Number of selected filters for Filter Agendas is displayed so that you have the information of how much spaces agenda are displayed.
+ - If you select all Agendas to be displayed, no number is displayed and you have only the Filters icon.
+
+|AGENDA19|
+
+Events Filter 
+~~~~~~~~~~~~~~~
+
+Events Filter is used to choose what type of event to display in the Agenda view: 
+
+- My Events: Event that you are a participant in (responded by **Yes** or **Maybe**).
+
+- Declined Events: Event that you responded by **No**. 
+
+- All Events: All events are displayed via this fitler, in which you are participant, or not even invited. 
+
+|AGENDA20|
+
+.. _EditingAgendaSettings:
+
+==========================
+Editing Agenda settings
+==========================
+
+You can change the Agenda preferences as follows:
+
+1. Open the Agenda Settings form via either of the following ways:
+
+   -  **The first way**: Click |AGENDA15| on the Agenda toolbar.
+
+   -  **The second way**: Click |AGENDA16|, then select edit Agenda Settings button.
+
+In this new setting, you are able to edit your Agenda preferences by configuring: 
+
+  - Agenda default view 
+
+  - Week Starting day 
+
+  - Working time 
+
+  - Default Reminders
+
+By clicking on the edit button, a drawer is opened to edit these preferences. 
+
+The Agenda Settings form appears:
+
+|AGENDA25|
+
+2. Change your desired preferences.
+
+**i.** In the Settings tab, you can change the Agenda general
+       settings:
+
+.. _ConnectPersonalCalendar:
+
+==========================
+Connect Personal Calendar
+==========================
+
+You are now able to connect your personal calendar and display your personal events in your **Schedule meeting** view to help you scheduling your meeting or event.
+
+Where Can I Connect to my Personal Calendar ? 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can Connect to your personal Calendar via either of these 3 ways:
+
+**The first way**
+
+You are invited to open your Settings page and just below the Agenda section, you  find a new section Connect your personal Calendar.
+
+|AGENDA26|
+
+By default, you do not have a connected personal calendar, so a message is displayed : *You are invited to connect to your personal calendar.*
+
+**The second way**
+
+A new section is added to the Choose a date stepper in which you find if you are connected to your Google personal Calendar or not.
+
+You need to click on the *Connect your personal calendar* button to choose it.
+
+|AGENDA27|
+
+**The third way**
+
+A new section is added to any event view you are invited to participate to in which you find if you are connected to your Google personal Calendar or not.
+
+You need to click on the *Connect your personal calendar* button to choose it.
+
+|AGENDA28|
+
+.. note:: If no personal calendar connector is displayed in the Personal Calendar drawer, an information message is displayed. 
+   |AGENDA29|.
+   you can take a look on :ref:`Manage Personal Calendar <UserGuide.AdministratingAgenda>` for 
+   more detail about enabling and displaying Personal Calendars.
+  
+
+How can I connect my personal calendar ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can simply click on the *edit icon* in the Settings page, or Connect to my personal Calendar in the *Choose a date* stepper or *Event view*.
+
+A drawer that contains the Calendars connectors is displayed.
+
+You have 2 choices: Google Calendar and Microsoft Outlook. 
+
+|AGENDA30|
+
+You are invited to click on connect in front of one of these choices. 
+
+If you are not connected to your personal calendar, you can click on You are invited to connect to your personal Calendar and the Connect to personal calendar drawer is opened so that you can connect to it.
+
+When you click on connect, a popup of your connected email in the browser is displayed, or you can connect to another email.
+
+|AGENDA31|
+
+.. note:: You are allowed to connect to only one personal calendar. 
+
+Once connected, you will have your personal connected Google email and Google avatar for Google account, and same for Outlook account.
+
+|AGENDA32|
+
+How can I view my personal events ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can view your personal events via either of these 2 views:
+
+**Choose a date stepper**:
+
+As long as your personal calendar is connected to the digital workplace, you are able to view your personal events in the Choose a date step when you create a new event so that you are aware about your events in the chosen space to create the event into and your Google personal events.
+
+Personal events are presented with a different display of the Agenda application events with blue border and text blue coloured and the display of Google avatar.
+
+|AGENDA41|
+
+**Event View**:
+
+Same Personal events cards are displayed in the Event view, when you are connected to your personal calendar, just below the Participants list.
+
+You are able to view the disposition of the event to participate in chronological order with the personal events. 
+
+|AGENDA33|
+
+.. _ManagingNotifications:
+
+================================
+Managing Agenda Notifications
+================================
+
+You can edit your default notifications for both regular events and all-day events. 
+
+You can also choose to be notified with on-site, Email and Mobile push notifications.
+
+By clicking on Settings -> Manage Notification, you find a specific section for all Events Notification, named **Agenda**.
+
+In this section, you are able to configure notifications when : 
+
+ - Someone invites you to an event 
+
+ - Someone updates an event you are attending 
+
+ - Someone cancels an event in which you were invited
+
+ - Reminders on events you participate 
+
+|AGENDA34|
+
+You can enable or disable all Agenda notifications type, and they will display once you apply your choices from the Notification drawer.
+
+|AGENDA35|
+
+.. _AgendaMobile:
+
+===================
+Agenda in Mobile 
+===================
+
+Mobile version for the Agenda application is much more smooth and simple use. 
+
+In Agenda app Mobile version, you are able to : 
+
+ - View events Timeline 
+
+ |AGENDA36|
+
+ - View events view
+
+ |AGENDA37|
+
+ - Schedule a new Event 
+
+ |AGENDA38|
+
+ - Edit your events
+
+ - View and Edit your Agenda Filters
+
+ |AGENDA39|
+
+The default view displays the Day view as a Timeline in which you will have your next 10 events on your agenda application starting from the current day (or a date you selects from the Date picker just above).
 
 
 
@@ -1170,65 +866,107 @@ Editing/Deleting a category
 
 
 
-
+.. |AGENDA1| image:: images/Agenda/agendamonthview.png
+.. |AGENDA2| image:: images/Agenda/Appcenterdrawer.png
+.. |AGENDA3| image:: images/Agenda/spaceapptoolbar.png
+.. |AGENDA4| image:: images/Agenda/Scheduleeventbutton.png
+.. |AGENDA5| image:: images/Agenda/scheduleeventtoolbar.png
+.. |AGENDA6| image:: images/Agenda/quickaddevent.png
+.. |AGENDA7| image:: images/Agenda/agendawidget.png
+.. |AGENDA8| image:: images/Agenda/spaceagendawidget.png
+.. |AGENDA9| image:: images/Agenda/occurrencepulldown.png
+.. |AGENDA10| image:: images/Agenda/occurrenceeventview.png
+.. |AGENDA11| image:: images/Agenda/customreminder.png
+.. |AGENDA12| image:: images/Agenda/participantpopover.png
+.. |AGENDA13| image:: images/Agenda/editeventpulldown.png
+.. |AGENDA14| image:: images/Agenda/canceleventpopup.png
+.. |AGENDA15| image:: images/Agenda/eventview.png
+.. |AGENDA16| image:: images/Agenda/specificreminder.png
+.. |AGENDA17| image:: images/Agenda/respondinvitation.png
+.. |AGENDA18| image:: images/Agenda/agendafilters.png
+.. |AGENDA19| image:: images/Agenda/Agendafilternumber.png
+.. |AGENDA20| image:: images/Agenda/eventfilter.png
+.. |AGENDA21| image:: images/Agenda/eventparticipate.png
+.. |AGENDA22| image:: images/Agenda/nonparticipateevent.png
+.. |AGENDA23| image:: images/Agenda/refusedevent.png
+.. |AGENDA24| image:: images/Agenda/passedevent.png
+.. |AGENDA25| image:: images/Agenda/agendapreferences.png
+.. |AGENDA26| image:: images/Agenda/nonconnectedpersonalcalendar.png
+.. |AGENDA27| image:: images/Agenda/chooseadateconnectpersonalcalendar.png
+.. |AGENDA28| image:: images/Agenda/eventviewconnectedpersonalcalendar.png
+.. |AGENDA29| image:: images/Agenda/nopersonalcalendarconnector.png
+.. |AGENDA30| image:: images/Agenda/personalcalendardrawer.png
+.. |AGENDA31| image:: images/Agenda/connectpersonalcalendar.png
+.. |AGENDA32| image:: images/Agenda/connectedpersonalcalendarsettings.png
+.. |AGENDA33| image:: images/Agenda/eventview.png
+.. |AGENDA34| image:: images/Agenda/agendanotifications.png
+.. |AGENDA35| image:: images/Agenda/editnotif.png
+.. |AGENDA36| image:: images/Agenda/mobiletimeline.png
+.. |AGENDA37| image:: images/Agenda/vieweventmobile.png
+.. |AGENDA38| image:: images/Agenda/scheduleeventmobile.png
+.. |AGENDA39| image:: images/Agenda/filteragendamobile.png
+.. |AGENDA40| image:: images/Agenda/currentday.png
+.. |AGENDA41| image:: images/Agenda/chooseadatepersonalevent.png
+.. |AGENDA42| image:: images/Agenda/participantssuggester.png
+.. |AGENDA43| image:: images/Agenda/saveeventpopup.png
 .. |image0| image:: images/common/1.png
 .. |image1| image:: images/common/2.png
 .. |image2| image:: images/common/3.png
-.. |image3| image:: images/calendar/left_arrow_icon.png
-.. |image4| image:: images/calendar/right_arrow_icon.png
+.. |image3| image:: images/Agenda/left_arrow_icon.png
+.. |image4| image:: images/Agenda/right_arrow_icon.png
 .. |image5| image:: images/common/4.png
 .. |image6| image:: images/common/5.png
-.. |image7| image:: images/calendar/add_icon_calendar.png
-.. |image8| image:: images/calendar/calendar_form.png
+.. |image7| image:: images/Agenda/add_icon_Agenda.png
+.. |image8| image:: images/Agenda/Agenda_form.png
 .. |image9| image:: images/common/select_everyone_icon.png
-.. |image10| image:: images/calendar/add_button.png
-.. |image11| image:: images/calendar/show_in_groups_tab.png
+.. |image10| image:: images/Agenda/add_button.png
+.. |image11| image:: images/Agenda/show_in_groups_tab.png
 .. |image12| image:: images/common/select_group_icon.png
-.. |image13| image:: images/calendar/group_selector.png
-.. |image14| image:: images/calendar/add_button.png
+.. |image13| image:: images/Agenda/group_selector.png
+.. |image14| image:: images/Agenda/add_button.png
 .. |image15| image:: images/common/select_user_icon.png
 .. |image16| image:: images/common/select_role_icon.png
 .. |image17| image:: images/common/delete_icon.png
-.. |image18| image:: images/calendar/add_icon_calendar.png
-.. |image19| image:: images/calendar/subscribe_calendar.png
-.. |image20| image:: images/calendar/remote_calendar_form.png
-.. |image21| image:: images/calendar/calendar_setting_icon.png
-.. |image22| image:: images/calendar/options_button.png
-.. |image23| image:: images/calendar/settings_sharing_option.png
-.. |image24| image:: images/calendar/public_address_ical.png
-.. |image25| image:: images/calendar/add_icon_calendar.png
-.. |image26| image:: images/calendar/calendar_setting_icon.png
-.. |image27| image:: images/calendar/calendar_setting_icon.png
-.. |image28| image:: images/calendar/calendar-color.png
-.. |image29| image:: images/calendar/calendar_setting_icon.png
-.. |image30| image:: images/calendar/calendar_setting_icon.png
-.. |image31| image:: images/calendar/export_calendar_form.png
-.. |image32| image:: images/calendar/calendar_setting_icon.png
-.. |image33| image:: images/calendar/import_calendar_form.png
+.. |image18| image:: images/Agenda/add_icon_Agenda.png
+.. |image19| image:: images/Agenda/subscribe_Agenda.png
+.. |image20| image:: images/Agenda/remote_Agenda_form.png
+.. |image21| image:: images/Agenda/Agenda_setting_icon.png
+.. |image22| image:: images/Agenda/options_button.png
+.. |image23| image:: images/Agenda/settings_sharing_option.png
+.. |image24| image:: images/Agenda/public_address_ical.png
+.. |image25| image:: images/Agenda/add_icon_Agenda.png
+.. |image26| image:: images/Agenda/Agenda_setting_icon.png
+.. |image27| image:: images/Agenda/Agenda_setting_icon.png
+.. |image28| image:: images/Agenda/Agenda-color.png
+.. |image29| image:: images/Agenda/Agenda_setting_icon.png
+.. |image30| image:: images/Agenda/Agenda_setting_icon.png
+.. |image31| image:: images/Agenda/export_Agenda_form.png
+.. |image32| image:: images/Agenda/Agenda_setting_icon.png
+.. |image33| image:: images/Agenda/import_Agenda_form.png
 .. |image34| image:: images/common/delete_icon.png
 .. |image35| image:: images/common/plus_icon.png
-.. |image36| image:: images/calendar/calendar_setting_icon.png
-.. |image37| image:: images/calendar/share_calendar.png
+.. |image36| image:: images/Agenda/Agenda_setting_icon.png
+.. |image37| image:: images/Agenda/share_Agenda.png
 .. |image38| image:: images/common/select_permission_icon.png
-.. |image39| image:: images/calendar/add_button.png
-.. |image40| image:: images/calendar/calendar_setting_icon.png
-.. |image41| image:: images/calendar/calendar_detail.png
-.. |image42| image:: images/calendar/ical_icon.png
-.. |image43| image:: images/calendar/view_detailed_event.png
-.. |image44| image:: images/calendar/view_detailed_event2.png
-.. |image45| image:: images/calendar/event_button.png
-.. |image46| image:: images/calendar/add_new_event.png
-.. |image47| image:: images/calendar/calendar_setting_icon.png
-.. |image48| image:: images/calendar/Add_event_drawer.png
-.. |image49| image:: images/calendar/calendar_setting_icon.png
-.. |image50| image:: images/calendar/more_details_button.png
-.. |image51| image:: images/calendar/more_details_button.png
-.. |image52| image:: images/calendar/add_event_detailed_tab.png
+.. |image39| image:: images/Agenda/add_button.png
+.. |image40| image:: images/Agenda/Agenda_setting_icon.png
+.. |image41| image:: images/Agenda/Agenda_detail.png
+.. |image42| image:: images/Agenda/ical_icon.png
+.. |image43| image:: images/Agenda/view_detailed_event.png
+.. |image44| image:: images/Agenda/view_detailed_event2.png
+.. |image45| image:: images/Agenda/event_button.png
+.. |image46| image:: images/Agenda/add_new_event.png
+.. |image47| image:: images/Agenda/Agenda_setting_icon.png
+.. |image48| image:: images/Agenda/Add_event_drawer.png
+.. |image49| image:: images/Agenda/Agenda_setting_icon.png
+.. |image50| image:: images/Agenda/more_details_button.png
+.. |image51| image:: images/Agenda/more_details_button.png
+.. |image52| image:: images/Agenda/add_event_detailed_tab.png
 .. |image53| image:: images/common/add_attachment_button.png
-.. |image54| image:: images/calendar/calendar_activity_stream_update.png
-.. |image55| image:: images/calendar/repeat_event_form.png
-.. |image56| image:: images/calendar/recurring_event_display.png
-.. |image57| image:: images/calendar/reminder_event.png
+.. |image54| image:: images/Agenda/Agenda_activity_stream_update.png
+.. |image55| image:: images/Agenda/repeat_event_form.png
+.. |image56| image:: images/Agenda/recurring_event_display.png
+.. |image57| image:: images/Agenda/reminder_event.png
 .. |image58| image:: images/common/delete_icon.png
 .. |image59| image:: images/common/plus_icon.png
 .. |image60| image:: images/common/delete_icon.png
@@ -1236,50 +974,50 @@ Editing/Deleting a category
 .. |image62| image:: images/common/plus_icon.png
 .. |image63| image:: images/common/select_user_icon.png
 .. |image64| image:: images/common/delete_icon.png
-.. |image65| image:: images/calendar/confirmation_sending_participants.png
-.. |image66| image:: images/calendar/availability.png
-.. |image67| image:: images/calendar/add_selector_icon.png
-.. |image68| image:: images/calendar/delete_selector_icon.png
-.. |image69| image:: images/calendar/left_arrow_icon.png
-.. |image70| image:: images/calendar/right_arrow_icon.png
-.. |image71| image:: images/calendar/edit_event_menu.png
-.. |image72| image:: images/calendar/edit_recurring_event_form.png
-.. |image73| image:: images/calendar/edited_recurring_event.png
-.. |image74| image:: images/calendar/set_repeat_event.png
-.. |image75| image:: images/calendar/edit_following_events.png
-.. |image76| image:: images/calendar/drag_mouse.png
-.. |image77| image:: images/calendar/export.png
-.. |image78| image:: images/calendar/export_calendar_form.png
-.. |image79| image:: images/calendar/delete_recurring_event_form.png
-.. |image80| image:: images/calendar/delete_only_this_event.png
-.. |image81| image:: images/calendar/delete_following_events.png
+.. |image65| image:: images/Agenda/confirmation_sending_participants.png
+.. |image66| image:: images/Agenda/availability.png
+.. |image67| image:: images/Agenda/add_selector_icon.png
+.. |image68| image:: images/Agenda/delete_selector_icon.png
+.. |image69| image:: images/Agenda/left_arrow_icon.png
+.. |image70| image:: images/Agenda/right_arrow_icon.png
+.. |image71| image:: images/Agenda/edit_event_menu.png
+.. |image72| image:: images/Agenda/edit_recurring_event_form.png
+.. |image73| image:: images/Agenda/edited_recurring_event.png
+.. |image74| image:: images/Agenda/set_repeat_event.png
+.. |image75| image:: images/Agenda/edit_following_events.png
+.. |image76| image:: images/Agenda/drag_mouse.png
+.. |image77| image:: images/Agenda/export.png
+.. |image78| image:: images/Agenda/export_Agenda_form.png
+.. |image79| image:: images/Agenda/delete_recurring_event_form.png
+.. |image80| image:: images/Agenda/delete_only_this_event.png
+.. |image81| image:: images/Agenda/delete_following_events.png
 .. |image82| image:: images/common/delete_icon.png
-.. |image83| image:: images/calendar/month_view_calendar_panel.png 
+.. |image83| image:: images/Agenda/month_view_Agenda_panel.png 
 .. |OK1| image:: images/common/yes.png
 .. |OK2| image:: images/common/yes.png
 .. |OK3| image:: images/common/yes.png
 .. |OK4| image:: images/common/yes.png
 .. |OK5| image:: images/common/yes.png
 .. |OK6| image:: images/common/yes.png
-.. |image84| image:: images/calendar/setting_icon.png
-.. |image85| image:: images/calendar/add_icon_calendar.png
-.. |image86| image:: images/calendar/calendar_setting_form.png
-.. |image87| image:: images/calendar/calendar_setting_feed.png
-.. |image88| image:: images/calendar/calendar_setting_feed_edit.png
+.. |image84| image:: images/Agenda/setting_icon.png
+.. |image85| image:: images/Agenda/add_icon_Agenda.png
+.. |image86| image:: images/Agenda/Agenda_setting_form.png
+.. |image87| image:: images/Agenda/Agenda_setting_feed.png
+.. |image88| image:: images/Agenda/Agenda_setting_feed_edit.png
 .. |image89| image:: images/common/settings_icon.png
 .. |image90| image:: images/common/refresh_icon.png
 .. |image91| image:: images/common/plus_icon.png
 .. |image92| image:: images/common/delete_icon.png
-.. |image93| image:: images/calendar/created_calendar_feed.png
-.. |image94| image:: images/calendar/get_url_icon.png
-.. |image95| image:: images/calendar/add_icon_calendar.png
-.. |image96| image:: images/calendar/event_category_form.png
+.. |image93| image:: images/Agenda/created_Agenda_feed.png
+.. |image94| image:: images/Agenda/get_url_icon.png
+.. |image95| image:: images/Agenda/add_icon_Agenda.png
+.. |image96| image:: images/Agenda/event_category_form.png
 .. |image97| image:: images/common/edit_icon.png
 .. |image98| image:: images/common/delete_icon.png
-.. |image99| image:: images/calendar/topbar_calendar.png
-.. |image100| image:: images/calendar/Add_event_settings_calendar.png
-.. |image101| image:: images/calendar/detailed_event.png
-.. |image111| image:: images/calendar/type-ahead-suggestions-participants.png
+.. |image99| image:: images/Agenda/topbar_Agenda.png
+.. |image100| image:: images/Agenda/Add_event_settings_Agenda.png
+.. |image101| image:: images/Agenda/detailed_event.png
+.. |image111| image:: images/Agenda/type-ahead-suggestions-participants.png
 .. |image102| image:: images/1.png
 .. |image103| image:: images/3.png
 .. |image104| image:: images/4.png
