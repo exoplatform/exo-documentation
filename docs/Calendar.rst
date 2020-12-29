@@ -752,7 +752,7 @@ You need to click on the *Connect your personal calendar* button to choose it.
 
 .. note:: If no personal calendar connector is displayed in the Personal Calendar drawer, an information message is displayed. 
    |AGENDA29|.
-   you can take a look on :ref:`Manage Personal Calendar <UserGuide.AdministratingAgenda>` for 
+   you can take a look on :ref:`Manage Personal Calendar <ManagePersonalCalendar>` for 
    more detail about enabling and displaying Personal Calendars.
   
 
