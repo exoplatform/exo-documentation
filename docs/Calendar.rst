@@ -767,7 +767,7 @@ You have 2 choices: Google Calendar and Microsoft Outlook.
 
 |AGENDA30|
 
-You are invited to click on connect in front of one of these choices. 
+Click on Connect in front of one of these options. 
 
 If you are not connected to your personal calendar, you can click on You are invited to connect to your personal Calendar and the Connect to personal calendar drawer is opened so that you can connect to it.
 
