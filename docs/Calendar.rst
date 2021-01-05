@@ -788,7 +788,7 @@ You can view your personal events via either of these 2 views:
 
 **Choose a date stepper**:
 
-As long as your personal calendar is connected to the digital workplace, you are able to view your personal events in the Choose a date step when you create a new event so that you are aware about your events in the chosen space to create the event into and your Google personal events.
+As long as your personal calendar is connected to the digital workplace, you can view your personal events in the Choose a date step when you create a new event so that you are aware about your events in the chosen space to create the event into and your Google personal events.
 
 Personal events are presented with a different display of the Agenda application events with blue border and text blue coloured and the display of Google avatar.
 
