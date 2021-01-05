@@ -728,7 +728,7 @@ You can Connect to your personal Calendar via either of these 3 ways:
 
 **The first way**
 
-You are invited to open your Settings page and just below the Agenda section, you  find a new section Connect your personal Calendar.
+Go to your personal your Settings and just below the Agenda section, find  section : Connect your personal Calendar.
 
 |AGENDA26|
 
