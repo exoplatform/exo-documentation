@@ -11,7 +11,7 @@ In this chapter, we will introduce the eXo Analytics application which lets you 
 
 The chapter will present these themes:
 
--  :ref:`Default analytics page <defaultPage>`  
+-  :ref:`Main Analytics Dashboard <defaultPage>`  
 
 
 .. _defaultPage:
