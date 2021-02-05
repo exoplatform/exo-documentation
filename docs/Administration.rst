@@ -78,7 +78,7 @@ Administering eXo Platform
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
-    -  :ref:`Managing kudos <ManagingKudos>`
+    -  :ref:`Managing Kudos <ManagingKudos>`
        How to manage the use of kudos by users.
      
     -  :ref:`Managing rewards <ManagingRewards>`
