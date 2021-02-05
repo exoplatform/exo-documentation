@@ -7,7 +7,7 @@ Working with Analytics
 
 In this chapter, we will introduce the eXo Analytics application which lets you to get data insights  about the usage of your digital workplace.
 
-.. note:: To be able to access analytics pages, you should be part of the group /platform/analytics
+.. note:: Access to Analytics pages, requires membership in the group /platform/analytics
 
 The chapter will present these themes:
 
