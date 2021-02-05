@@ -17,7 +17,7 @@ The chapter will present these themes:
 .. _defaultPage:
 
 ========================
-Default analytics page
+Main Analytics Dashboard
 ========================
 
 When accessing the analytics application from the application center, you will be redirected to the "analytics" page which contains four charts:
