@@ -24,7 +24,7 @@ Click Analytics from the Application Center, to access the main analytics  dashb
 
 -  **Distinct logins**: represents the count of users who logged in the platform per day
 -  **Users count**: shows the users number (external and internal) in the platform per day
--  Spaces count: shows the number of spaces in the platform per day
+-  **Spaces count**: shows the number of spaces in the platform per day
 -  Activities: represents a pie chart of the activities made on the platform by module
 
 |image0|
