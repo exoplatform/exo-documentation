@@ -20,7 +20,7 @@ The chapter will present these themes:
 Main Analytics Dashboard
 ========================
 
-When accessing the analytics application from the application center, you will be redirected to the "analytics" page which contains four charts:
+Click Analytics from the Application Center, to access the main analytics  dashboard. It contains four charts:
 
 -  Distinct logins: represents the count of users who logged in the platform per day
 -  Users count: shows the users number (external and internal) in the platform per day
