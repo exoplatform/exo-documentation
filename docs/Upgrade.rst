@@ -276,10 +276,12 @@ procedure.
       ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` you can update them to the same file in the new eXo 
       Platform version.
 
-   -  If you use a populated organizational data source (such as LDAP),
-      activate the Organization Integration Service so that the data is
-      synchronized. See :ref:`Synchronization <LDAP.Synchronization>` 
-      for more details.
+   -  If you use a populated organizational data source (such as LDAP) you have to add the following property to the file exo.properties
+   
+          .. code::
+  
+               exo.group.platform.identity.type=.platform
+
       
    -  If you have some customization into :ref:`the intranet site <PLFHomepage>`, 
       you should install the addon ``exo-legacy-intranet``.
