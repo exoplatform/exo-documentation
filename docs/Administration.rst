@@ -3646,7 +3646,7 @@ for more details.
 | Use dynamic layout     | When enabled, the group (can be a space) site layout  |
 |                        | will be retrieved from current PORTAL site layout.    |
 |                        | This options will be turned off automatically         |
-|                        | if the user edits the group site layout and           |           |
+|                        | if the user edits the group site layout and           |
 |                        | saves changes.                                        |
 |                        | To turn it on again, you should edit the group site   |
 |                        | properties then enable the checkbox and save changes. |
