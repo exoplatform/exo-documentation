@@ -106,7 +106,7 @@ Configuration reference
 
 Here is the list of all available configuration properties for directory integration to define in ``exo.properties``:
 
-   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
+   +================================================+=========================================================+===========================+====================================+=========================================+
    | Name                                           | Description                                             | Value                     | Default                            | Example                                 |
    +================================================+=========================================================+===========================+====================================+=========================================+
    | exo.ldap.type                                  | Type of LDAP server                                     | ``ldap``, ``ad`` or empty | Empty (no LDAP/AD integration)     | ``ldap``                                |
@@ -193,11 +193,22 @@ Here is the list of all available configuration properties for directory integra
    |                                                | childMembershipAttributeName are fully qualified        |                           |                                    |                                         |
    |                                                | LDAP DNs.                                               |                           |                                    |                                         |
    +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-   | exo.ldap.groups.rootGroup                      | Root group to bind LDAP/AD groups, all LDAP/AD groups   | Any group id, ending      | ``/platform/*``                    |                                         |
+   | exo.ldap.groups.rootGroup                      | Root group to bind LDAP/AD groups, all LDAP/AD groups   | Any group id, ending      | ``/ldap-groups/*``                 |                                         |
    |                                                | will be available under this group. It must end         | with ``/``                |                                    |                                         |
    |                                                | with ``/``. Root group ("/") cannot be used.            |                           |                                    |                                         |
    +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
-
+   | exo.group.platform.identity.type               | it defines the identity type of groups under /platform  | ``String``                | ``GROUP``                          |                                         |
+   |                                                | group.Before meeds 1.0/eXo platform 6.0, the value was  |                           |                                    |                                         |
+   |                                                | '.platform', starting meeds 1.0 the default value       |                           |                                    |                                         |
+   |                                                | is 'GROUP'. If upgrading from eXo platform 5.3,         |                           |                                    |                                         |
+   |                                                | the value should be kept as '.platform'                 |                           |                                    |                                         |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
+   | exo.ldap.groups.identity.type                  | it defines the identity type for groups imported from   | ``String``                | ``LDAP_MAPPED_GROUP``              |                                         |
+   |                                                | LDAP/AD.If upgrading from eXo platform 5.3,             |                           |                                    |                                         |
+   |                                                | the value should be kept as it saved in database        |                           |                                    |                                         |                                                |                           |                                    |                                         |
+   |                                                |                                                         |                           |                                    |                                         |
+   +------------------------------------------------+---------------------------------------------------------+---------------------------+------------------------------------+-----------------------------------------+
+ 
 LDAP/AD connection pool can also be customized in the ``exo.properties`` file using `JVM standard system properties <https://docs.oracle.com/javase/jndi/tutorial/ldap/connect/config.html>`__.
 
 

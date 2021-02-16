@@ -773,8 +773,8 @@ To learn about differences between these views, see the following table:
 |            | Watch Document, Overload       |            |                      |
 |            | Thumbnail                      |            |                      |
 +------------+--------------------------------+------------+----------------------+
-| **List**   | Add Folder, Edit Document,     | List       | ``*:/platform/users` |
-|            | Manage Versions, View          |            | `                    |
+| **List**   | Add Folder, Edit Document,     | List       | ``*:/platform/users``|
+|            | Manage Versions, View          |            |                      |
 |            | Permissions, Tag Document,     |            |                      |
 |            | Upload, View Metadata, Vote,   |            |                      |
 |            | Comment, Watch Document        |            |                      |
@@ -2258,7 +2258,7 @@ should be noticed:
 -  Their account will not be listed when someone :ref:`adds permissions on content <ManagingPermissions>`,
    sets permissions on :ref:`public tags <SettingPermissionsOnPublicTags>`
    or :ref:`category trees <Categories.AddingCategoryTree>`,
-   or :ref:`adds or edits <ViewsIneXoPlatform.AddingView>` a view <ViewsIneXo>`.
+   or :ref:`adds or edits <ViewsIneXoPlatform.AddingView>` a view `<ViewsIneXo>`.
 
 -  They will no longer receive any email from the :ref:`Document Watch feature <WatchingUnwatchingDocument>`.
 
@@ -2375,7 +2375,7 @@ The Add New Group form will be displayed in the right panel.
 
 **Details:**
 
-+--------------------+--------------------------------------------------------+
++====================+========================================================+
 | Field              | Description                                            |
 +====================+========================================================+
 | Group Name         | Name of the group that is required and unique within   |
@@ -3242,7 +3242,7 @@ Settings tab, will open.
 
 **Details:**
 
-+--------------------+--------------------------------------------------------+
++====================+========================================================+
 | Field              | Description                                            |
 +====================+========================================================+
 | Keep session alive | Keeps the working session for a long time to avoid the |
@@ -3453,7 +3453,7 @@ The wizard is divided into two sections.
 
 **In which:**
 
-+--------------------------+--------------------------------------------------+
++==========================+==================================================+
 | Field                    | Description                                      |
 +==========================+==================================================+
 | Selected Page Node       | The path of the selected node to add a new       |
@@ -3528,7 +3528,7 @@ In this step, you can arrange the page's layout by:
 
    **In which:**
 
-   +----------------------+-----------------------------------------------------+
+   +======================+=====================================================+
    | Tab                  | Description                                         |
    +======================+=====================================================+
    | Applications         | This tab lists all existing categories and their    |
@@ -3601,56 +3601,56 @@ for more details.
 
 **In which:**
 
-+------------------------+---------------------------------------------------+
-| Field                  | Description                                       |
-+========================+===================================================+
-| Page Id                | The page's identification string which will be    |
-|                        | automatically generated when the page is created. |
-+------------------------+---------------------------------------------------+
-| Owner Type             | -  If Owner Type is "*portal*\ ", the page is     |
-|                        |    created for a portal. Therefore, only users    |
-|                        |    who have the *Edit* permission on the portal   |
-|                        |    can create this page type.                     |
-|                        |                                                   |
-|                        | -  If Owner Type is "*group*\ ", the page is      |
-|                        |    created for a group. Therefore, only users who |
-|                        |    are the *manager* of that group can create     |
-|                        |    this page type.                                |
-|                        |                                                   |                                                                           
-+------------------------+---------------------------------------------------+
-| Owner Id               | The identification name of the page's owner which |
-|                        | will be automatically created after you have      |
-|                        | selected Owner Type.                              |
-|                        |                                                   |
-|                        | -  When the owner type is set to "group", a list  |
-|                        |    of groups will allow you to select one user as |
-|                        |    the 'owner'.                                   |
-|                        |                                                   |
-|                        | -  The name of the current portal is              |
-|                        |    automatically selected for Owner Id, ensuring  |
-|                        |    the *Edit* permission is assigned to users who |
-|                        |    can edit the current portal.                   |
-|                        |                                                   |                                                                          
-+------------------------+---------------------------------------------------+
-| Page Name              | The page name which is required, unique and       |
-|                        | starts with a letter. Only alphabetical,          |
-|                        | numerical, dash and underscore characters are     |
-|                        | allowed with its length from 3 to 30 characters.  |
-+------------------------+---------------------------------------------------+
-| Page Title             | The page title which is optional with its length  |
-|                        | from 3 to 30 characters.                          |
-+------------------------+---------------------------------------------------+
-| Show Max Window        | The option enables the page to be shown at the    |
-|                        | maximum size or not.                              |
-+------------------------+---------------------------------------------------+
-| Use dynamic layout     | When enabled, the group (can be a space) site layout |
-|                        | will be retrieved from current PORTAL site layout. |
-|                        | This options will be turned off automatically |
-|                        | if the user edits the group site |
-|                        | layout and saves changes. |
-|                        | To turn it on again, you should edit the group site |
++========================+=======================================================+
+| Field                  | Description                                           |
++========================+=======================================================+
+| Page Id                | The page's identification string which will be        |
+|                        | automatically generated when the page is created.     |
++------------------------+-------------------------------------------------------+
+| Owner Type             | -  If Owner Type is "*portal*\ ", the page is         |
+|                        |    created for a portal. Therefore, only users        | 
+|                        |    who have the *Edit* permission on the portal       |
+|                        |    can create this page type.                         |
+|                        |                                                       |
+|                        | -  If Owner Type is "*group*\ ", the page is          |
+|                        |    created for a group. Therefore, only users who     |
+|                        |    are the *manager* of that group can create         |
+|                        |    this page type.                                    |
+|                        |                                                       |                                                                           
++------------------------+-------------------------------------------------------+
+| Owner Id               | The identification name of the page's owner which     |
+|                        | will be automatically created after you have          |
+|                        | selected Owner Type.                                  |
+|                        |                                                       |
+|                        | -  When the owner type is set to "group", a list      |
+|                        |    of groups will allow you to select one user as     |
+|                        |    the 'owner'.                                       |
+|                        |                                                       |
+|                        | -  The name of the current portal is                  |
+|                        |    automatically selected for Owner Id, ensuring      |
+|                        |    the *Edit* permission is assigned to users who     |
+|                        |    can edit the current portal.                       |
+|                        |                                                       |                                                                          
++------------------------+-------------------------------------------------------+
+| Page Name              | The page name which is required, unique and           |
+|                        | starts with a letter. Only alphabetical,              |
+|                        | numerical, dash and underscore characters are         |
+|                        | allowed with its length from 3 to 30 characters.      |
++------------------------+-------------------------------------------------------+
+| Page Title             | The page title which is optional with its length      |
+|                        | from 3 to 30 characters.                              |
++------------------------+-------------------------------------------------------+
+| Show Max Window        | The option enables the page to be shown at the        |
+|                        | maximum size or not.                                  |
++------------------------+-------------------------------------------------------+
+| Use dynamic layout     | When enabled, the group (can be a space) site layout  |
+|                        | will be retrieved from current PORTAL site layout.    |
+|                        | This options will be turned off automatically         |
+|                        | if the user edits the group site layout and           |
+|                        | saves changes.                                        |
+|                        | To turn it on again, you should edit the group site   |
 |                        | properties then enable the checkbox and save changes. |
-+------------------------+---------------------------------------------------+
++------------------------+-------------------------------------------------------+
 
 
 3. Define the page layout in the Page Layout tab.
@@ -4379,7 +4379,7 @@ The Add/Edit Page Node form appears.
 
 **In which:**
 
-+--------------------------+--------------------------------------------------+
++==========================+==================================================+
 | Field                    | Description                                      |
 +==========================+==================================================+
 | Page Id                  | The identification string of the page which is   |
@@ -4848,7 +4848,7 @@ interface details.
 
    **In which:**
 
-   +-----------------------+----------------------------------------------------+
+   +=======================+====================================================+
    | Field                 | Description                                        |
    +=======================+====================================================+
    | Display Name          | The display name of portlet which cannot be        |
