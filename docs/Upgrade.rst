@@ -306,9 +306,7 @@ procedure.
   
       ./addon uninstall exo-data-upgrade
        
-7. After making the above steps and restart the server, you will find in your spaces, the left navigation of the intranet site.
-
-  To apply the new layout, should perform a manual intervention following these steps:
+7. After making the above steps and restart the server, you will find in your spaces, the left navigation of the intranet site. To apply the new layout, should         perform a manual intervention following these steps:
   
   7.1- Connect with an administrator account
   
