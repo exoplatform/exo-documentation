@@ -14,6 +14,7 @@
 
 import sys
 import os
+import time
 
 import sphinx_rtd_theme
 
@@ -48,7 +49,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'eXo Platform'
-copyright = u'2021, eXoPlatform'
+year = time.strftime("%Y")
+copyright = u'' + year + ', eXoPlatform'
 author = u'eXoPlatform'
 
 # The version info for the project you're documenting, acts as replacement for
