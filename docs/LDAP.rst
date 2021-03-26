@@ -226,6 +226,11 @@ The periodicity of these jobs can be changed in the ``exo.properties`` file than
     # injected in queue
     # (Default value = every minute)
     exo.idm.externalStore.queue.processing.cronExpression=0 */1 * ? * *
+    # When users are removed from LDAP/AD or are not retrievable for other reasons (Communication failure, LDAP Filter modified), 
+    # we have two options, either they are removed or they are disabled from the internal store.
+    # exo.idm.externalStore.entries.missing.delete=true (Default behavior, if value is equal to true users are removed)
+    # exo.idm.externalStore.entries.missing.delete=false (if value is equal to true users are disabled)
+    exo.idm.externalStore.entries.missing.delete=true
 
 By default, user data are synchronized with the LDAP when he/she signs in. This can be disabled by modifying this property:
 
