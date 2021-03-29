@@ -242,7 +242,7 @@ he/she gets prompted to enter username and password, rather than getting
 an Unauthorized error.
 
 Via a tool like curl, you can use -u option:
-``curl -X GET -uroot:gtn http://localhost:8080/rest/private/v1/calendar``.
+``curl -X GET -uroot:password http://localhost:8080/rest/private/v1/calendar``.
 
 If you are developing a Java application using URLConnection, basically
 you have to add "Authorization" header to every request:
@@ -250,7 +250,7 @@ you have to add "Authorization" header to every request:
 .. code:: java
 
     URL url = new URL("http://localhost:8080/rest/private/v1/calendar/calendars");
-    String auth = new sun.misc.BASE64Encoder().encode("root:gtn".getBytes());
+    String auth = new sun.misc.BASE64Encoder().encode("root:password".getBytes());
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
     connection.setRequestMethod("GET");
     connection.setRequestProperty("Authorization", "Basic " + auth);

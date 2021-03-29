@@ -5043,7 +5043,7 @@ the list of memberships granted to the user. Here is an extract:
             <value>
                 <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field name="userName"><string>${exo.super.user}</string></field>
-                    <field name="password"><string>gtn</string></field>
+                    <field name="password"><string>password</string></field>
                     <field name="firstName"><string>Root</string></field>
                     <field name="lastName"><string>Root</string></field>
                     <field name="email"><string>root@localhost</string></field>
