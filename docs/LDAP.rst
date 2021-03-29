@@ -995,7 +995,7 @@ The directory connection (URL and credentials) is Store configuration. It is pro
 				</option>
 				<option>
 					<name>adminPassword</name>
-					<value>gtn</value>
+					<value>password</value>
 				</option>
 				...
 			</options>

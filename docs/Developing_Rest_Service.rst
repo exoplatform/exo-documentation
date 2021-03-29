@@ -355,7 +355,7 @@ The war custom-extension now looks like:
 
 			.. code:: groovy
 
-				$curl -uroot:gtn \
+				$curl -uroot:password \
 				-X POST \
 				-H 'Content-type:script/groovy' \
 				--data-binary @GroovyRest.groovy \

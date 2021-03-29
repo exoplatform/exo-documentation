@@ -296,7 +296,7 @@ properties are used especially for substitute values in this
 Once these changes have been made, all links to the user authentication
 pages will redirect to the CAS centralized authentication form. And on
 CAS you will be able to authenticate with portal credentials (like
-john/gtn) thanks to Authentication plugin.
+john/password) thanks to Authentication plugin.
 
 
 .. _eXoAddonsGuide.SSO.CAS.Testing:
@@ -316,7 +316,7 @@ For the callback case, testing is quite simple as follows:
    |image0|
 
 3. Log in with the eXo Platform credentials (using the default account -
-   root/gtn, for example). You will be auto-logged in and redirected to 
+   root/password, for example). You will be auto-logged in and redirected to 
    the eXo Platform homepage.
 
 In case of non-callback, note that the user must be registered in both
@@ -741,7 +741,7 @@ For the callback case, testing is quite simple as follows:
 2. Open a browser, then browse http://localhost:8080/portal/. You will be
    redirected to the OpenAM centralized authentication form.
 
-3. Log in with the eXo Platform credentials (for example, root/gtn). You 
+3. Log in with the eXo Platform credentials (for example, root/password). You 
    will be auto-logged in and redirected to the eXo Platform homepage.
 
 In case of non-callback, note again that the user must be registered in
