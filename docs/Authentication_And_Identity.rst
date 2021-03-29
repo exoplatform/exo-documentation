@@ -157,7 +157,7 @@ plugin.
                                             <string>custom</string>
                                         </field>
                                         <field name="password">
-                                            <string>gtn</string>
+                                            <string>password</string>
                                         </field>
                                         <field name="firstName">
                                             <string>Custom-firstName</string>
