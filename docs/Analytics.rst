@@ -15,7 +15,7 @@ The chapter will present these themes:
 -  :ref:`Create new analytics page <NewPage>`    
 -  :ref:`Custom period selector <PeriodSelector>`    
 -  :ref:`Users analytics table <UsersAnalytics>`    
-
+-  :ref:`Spaces analytics table <SpacesAnalytics>` 
 
 .. _defaultPage:
 
@@ -76,8 +76,55 @@ You can also change the count type and the property to focus on through the Y ax
 Users analytics table
 =========================
 
+An analysis page about users is added by default under the menu drawer of analytics page.
+It displays a table listing the platform users with some analytics details about them:
+
+-  **Creation date**
+-  **Last connection** displays the date of the user's last connection in-depending of the selected period
+-  **Connections count** displays the count of connections per user during the selected period
+-  **Activities** displays the count of user's activities during the selected period
+-  **Favorite module** displays the most used module by user during the selected period
+
+|image21|
+
+You can sort the Users table based on ascending or descending order of a column. Sortable columns are: **Last connection**, **Connections count** and **Activities**.
+
+Example: You can sort the table to display the most/least active users in the platform by switching the arrow direction of the **Activities** column
+
+|image23|
 
 
+.. _SpacesAnalytics:
+
+=========================
+Spaces analytics table
+=========================
+
+Same as for users, a default page for spaces is available as a sub analytics page. It also displays a table for spaces with some analytical data about them:
+
+-  **Creation date**
+-  **Members count** which displays the total number of space members during the selected period with a comparative indication with the previous period
+-  **% active members** which displays the percentage of active members (i.e. those who make activities in the space) with  a comparative indication with the previous period
+-  **Activities** is the count of activities in the space during the selected period
+-  **Main module** is the most used module by space members during the selected period
+
+Some columns are sortable allowing you to sort the table's data: **Members count**, **% active members** and **Activities**
+
+|image24|
+
+Example: You can sort the table based on **Members count** column to display the most/least populated spaces by clicking on the arrow near the column's name
+
+|image22|
+
+.. note:: Both Spaces and Users tables are configurable i.e. it is possible to define:
+         
+          -  the number of lines per table to display by default
+          -  the main column to which other columns will rely on i.e. analytics data id related to that main column
+          -  calculation rules for each column
+          -  add/delete columns         
+            
+            |image25|
+          
 .. _NewPage:
 
 ==========================
@@ -148,8 +195,7 @@ Example:
 
 |image20|
       
-   
-   
+  
       
 .. |image0| image:: images/Analytics/defaultPage.png
 .. |image1| image:: images/Analytics/periodSelector.png
@@ -172,3 +218,8 @@ Example:
 .. |image18| image:: images/Analytics/breadcrumb.png
 .. |image19| image:: images/Analytics/EditTime.png
 .. |image20| image:: images/Analytics/Synchronize.png
+.. |image21| image:: images/Analytics/UsersTable.png
+.. |image22| image:: images/Analytics/sortSpaceTable.png
+.. |image23| image:: images/Analytics/sortUsersTable.png
+.. |image24| image:: images/Analytics/SpacesTable.png
+.. |image25| image:: images/Analytics/TableSettings.png
