@@ -492,7 +492,7 @@ Use Case: Browse Drives via getRepository
 
 ::
 
-    curl -o repos.xml -u root:gtn http://localhost:8080/rest/private/cmisatom/
+    curl -o repos.xml -u root:password http://localhost:8080/rest/private/cmisatom/
 
 The output file ``repos.xml`` contains a list of CMIS repositories
 (Content drives):
@@ -628,7 +628,7 @@ Use Case: Follow Symlinks
 
    ::
 
-       curl -o news.xml -u root:gtn http://localhost:8080/rest/private/cmisatom/Managed%20Sites/objectbypath?path=/intranet/categories/intranet/news
+       curl -o news.xml -u root:password http://localhost:8080/rest/private/cmisatom/Managed%20Sites/objectbypath?path=/intranet/categories/intranet/news
 
    The output file (``news.xml``) contains the entry with information about
    the folder, in which you will find a link (to get children) like this:
@@ -642,7 +642,7 @@ Use Case: Follow Symlinks
 
    ::
 
-       curl -o children.xml -u root:gtn http://localhost:8080/rest/private/cmisatom/Managed%20Sites/children/03dcf0827f00000100cf3b9a4cbf3de4
+       curl -o children.xml -u root:password http://localhost:8080/rest/private/cmisatom/Managed%20Sites/children/03dcf0827f00000100cf3b9a4cbf3de4
 
    The output file (``children.xml`` contains an entry (related to
    ``test.txt``) that has an ID:
@@ -660,7 +660,7 @@ Use Case: Follow Symlinks
 
    ::
 
-       curl -o test.txt -u root:gtn http://localhost:8080/rest/private/cmisatom/Managed%20Sites/file/03dd409c7f000001010b7e050789d358
+       curl -o test.txt -u root:password http://localhost:8080/rest/private/cmisatom/Managed%20Sites/file/03dd409c7f000001010b7e050789d358
 
 .. _eXoAddonsGuide.CMIS.Features.IntegrationWithContent.ModifyingContentViaCMIS:
 
@@ -676,7 +676,7 @@ Content drive using the *file* service again but with PUT method.
 
 ::
 
-    curl -T test.txt -X PUT -H "Content-Type:text/plain; charset=UTF-8" -u root:gtn http://localhost:8080/rest/private/cmisatom/Managed%20Sites/file/03dd409c7f000001010b7e050789d358
+    curl -T test.txt -X PUT -H "Content-Type:text/plain; charset=UTF-8" -u root:password http://localhost:8080/rest/private/cmisatom/Managed%20Sites/file/03dd409c7f000001010b7e050789d358
 
 Then check the new content of ``/intranet/documents/test.txt`` in **Sites Explorer**.
 
@@ -812,7 +812,7 @@ Send the GET request to *query* service by curl:
 
 ::
 
-    curl -o result.xml -uroot:gtn http://localhost:8080/rest/private/cmisatom/Collaboration/query?q=SELECT%20*%20FROM%20cmis:document
+    curl -o result.xml -uroot:password http://localhost:8080/rest/private/cmisatom/Collaboration/query?q=SELECT%20*%20FROM%20cmis:document
 
 The output file (``result.xml``) contains an entry of test.txt:
 
@@ -849,7 +849,7 @@ Then send it by the following command (for example you saved the file as
 
 ::
 
-    curl -o result.xml -X POST -uroot:gtn http://localhost:8080/rest/private/cmisatom/Collaboration/query -H "Content-Type: text/xml; charset=UTF-8" -d @query.xml
+    curl -o result.xml -X POST -uroot:password http://localhost:8080/rest/private/cmisatom/Collaboration/query -H "Content-Type: text/xml; charset=UTF-8" -d @query.xml
 
 .. _eXoAddonsGuide.CMIS.Features.Search.QueryExamples.FindDocumentBySeveralConstraints:
 
@@ -1570,7 +1570,7 @@ Login to repository
      HttpClient client = new HttpClient();
      client.getState().setCredentials(
      new AuthScope("localhost", 8080, "realm"),
-     new UsernamePasswordCredentials("root", "gtn");
+     new UsernamePasswordCredentials("root", "password");
      ....
 
 .. _eXoAddonsGuide.CMIS.CodeExamples.ListOfDocuments:
