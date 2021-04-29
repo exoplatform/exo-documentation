@@ -865,7 +865,7 @@ Select the desired status that will instantly change.
 |image112|
 
 Same as for desktop version, it is possible to filter your discussions
-on mobile, simply by clicking the filter icon |image135|:
+on mobile, simply by clicking on the filter icon |image135|:
 
 |image136|
 
