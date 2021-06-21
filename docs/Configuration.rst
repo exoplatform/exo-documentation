@@ -2186,8 +2186,7 @@ Here is the sample using *smtp.gmail.com* server:
     exo.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 
 .. note:: If you want to use SMTP gateway over SSL, and starting from openjdk 11.0.11, 
-          which no longer supports legacy SSL versions (SSLv3, TLSv1, TLSv1.1) , the following property ``mail.smtp.ssl.protocols=TLSv1.2``
-	   has to be added in eXo Platform.
+          which no longer supports legacy SSL versions (SSLv3, TLSv1, TLSv1.1) , the following property ``mail.smtp.ssl.protocols=TLSv1.2`` has to be added in eXo Platform.
 
 To make the configuration work, you need to:
 
