@@ -2145,7 +2145,8 @@ need to edit it):
     exo.email.smtp.socketFactory.port=
     # This class will be used to create SMTP sockets. Sample: exo.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
     exo.email.smtp.socketFactory.class=
-
+    # (SSL Only) Starting from OpenJDK 11.0.11, legacy SSL protocols are no longer support. Need to enforce TLS version.
+    mail.smtp.ssl.protocols=TLSv1.2 # (or TLSv1.3)
 Read the inline comments to understand each property. Here are some
 remarks:
 
@@ -2184,6 +2185,10 @@ Here is the sample using *smtp.gmail.com* server:
     exo.email.smtp.socketFactory.port=465
     exo.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
 
+.. note:: If you want to use SMTP gateway over SSL, and starting from openjdk 11.0.11, 
+          which no longer supports legacy SSL versions (SSLv3, TLSv1, TLSv1.1) , the following environment properties ``mail.smtp.ssl.protocols=TLSv1.2` 
+	   has to be added in eXo Platform as an environment setting.
+
 To make the configuration work, you need to:
 
 -  Register a Google account that is *exo.test100@gmail.com* in the
@@ -2210,10 +2215,6 @@ access.
 
 To do so, follow `this guide of
 Google <https://support.google.com/mail/answer/22370?hl=en>`__.
-
-.. note:: If you want to use SMTP gateway over SSL, and starting from openjdk 11.0.11, 
-          which no longer supports TLS1, the following environment properties ``-Dmail.smtp.ssl.protocols=TLSv1.2` 
-	  has to be added in eXo Platform as an environment setting.
 
 In case the *from* parameter is not valid, it does not fail the email
 sending and the main account will be displayed instead.
