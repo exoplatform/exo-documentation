@@ -2208,6 +2208,10 @@ access.
           ``exo.email.smtp.username``) to add this *from* email as another
           "send as".
 
+.. note:: In case of Gmail, and starting from openjdk 11.0.11, which no longer supports TLS1,
+          the following environment properties ``-Dmail.smtp.ssl.protocols=TLSv1.2` has to be
+          added in eXo Platform as an environment setting.
+
 To do so, follow `this guide of
 Google <https://support.google.com/mail/answer/22370?hl=en>`__.
 
