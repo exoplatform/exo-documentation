@@ -2211,9 +2211,9 @@ access.
 To do so, follow `this guide of
 Google <https://support.google.com/mail/answer/22370?hl=en>`__.
 
-.. note:: Starting from openjdk 11.0.11, which no longer supports TLS1,
-          the following environment properties ``-Dmail.smtp.ssl.protocols=TLSv1.2` has to be
-          added in eXo Platform as an environment setting.
+.. note:: If you want to use SMTP gateway over SSL, and starting from openjdk 11.0.11, 
+          which no longer supports TLS1, the following environment properties ``-Dmail.smtp.ssl.protocols=TLSv1.2` 
+	  has to be added in eXo Platform as an environment setting.
 
 In case the *from* parameter is not valid, it does not fail the email
 sending and the main account will be displayed instead.
