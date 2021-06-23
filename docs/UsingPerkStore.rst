@@ -46,10 +46,10 @@ How to configure your wallet?
 
 *section to come later*
 
-.. |image0| image:: images/reward/purchaseIcon.png
-.. |image1| image:: images/reward/catalog.png
-.. |image2| image:: images/reward/Message.png
-.. |image3| image:: images/reward/productPreview.png
-.. |image4| image:: images/reward/pendingProduct.png
+.. |image0| image:: images/rewards/purchaseIcon.png
+.. |image1| image:: images/rewards/catalog.png
+.. |image2| image:: images/rewards/Message.png
+.. |image3| image:: images/rewards/productPreview.png
+.. |image4| image:: images/rewards/pendingProduct.png
 
 
