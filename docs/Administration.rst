@@ -72,16 +72,16 @@ Administering eXo Platform
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
     
-  -  :ref:`Managing News <ManagingNews>`
+    -  :ref:`Managing News <ManagingNews>`
        How to manage News related pages and content.
     
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
-  -  :ref:`Managing kudos <ManagingKudos>`
+    -  :ref:`Managing Kudos <ManagingKudos>`
        How to manage the use of kudos by users.
      
-  -  :ref:`Managing rewards <ManagingRewards>`
+    -  :ref:`Managing Rewards <ManagingRewards>`
        How to manage the rewarding programs.
      
     -  :ref:`Managing gamification <ManagingGamification>`

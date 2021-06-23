@@ -50,6 +50,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    Calendar
    Manage-Sites
    Search
+   Analytics
    Administration
    
 .. _admin-docs:   
