@@ -14,28 +14,28 @@ How to buy a product from the perk store?
 
 You are a platform user and want to benefit from products proposed in the perk store? You just need to follow these steps:
 
-1- Go to the perk store through the application center => You'll be redirected to the perk store's catalog where you can display the proposed perks
+1-  Go to the perk store through the application center => You'll be redirected to the perk store's catalog where you can display the proposed perks
 
-   |image1|
+    |image1|
+   
+2-  If you have already an initialized wallet, then go to step 3 otherwise click on the message in the top of the catalog inviting to configure 
+    your wallet and follow steps of `this section <configureWallet>`
+   
+    |image2|
+   
+3-  Choose the product you want to buy and click on the purchase icon |image0| or whenever in the inferior part of the product's card => a full preview of the 
+    product will be displayed in a drawer for more details about it: images, the merchant of the product ...
+   
+    |image3|
+   
+4-  Select the quantity to buy and then type your wallet password in the corresponding field
 
-2- If you have already an initialized wallet, then go to step 3 otherwise click on the message in the top of the catalog inviting to configure your wallet 
-   and follow steps of `this section <configureWallet>`
+5-  Click on "Buy" button => The product's merchant will be notified of your order which is in the "Pending" status and will proceed to the delivery, 
+    check the section `orders delivery <deliverProduct>` for more details
    
-   |image2|
+    |image4|
    
-3- Choose the product you want to buy and click on the purchase icon |image0| or whenever in the inferior part of the product's card => a full preview of the 
-   product will be displayed in a drawer for more details about it: images, the merchant of the product ...
-   
-   |image3|
-   
-4- Select the quantity to buy and then type your wallet password in the corresponding field
-
-5- Click on "Buy" button => The product's merchant will be notified of your order which is in the "Pending" status and will proceed to the delivery, check the section
-   `orders delivery <deliverProduct>` for more details
-   
-   |image4|
-   
-6- When the product's merchant delivers you, the pending status disappears and you can get your order   
+6-  When the product's merchant delivers you, the pending status disappears and you can get your order   
 
 
 
