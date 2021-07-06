@@ -236,12 +236,7 @@ services are called ResourceContainers.
 
 5. Build the Maven project using the command: ``mvn clean install``.
 
-6. Put the ``.jar`` file into the eXo Platform package.
-
-	-  ``$PLATFORM_TOMCAT_HOME/lib`` (in Tomcat).
-
-	-  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear!/lib`` 
-	   (in JBoss).
+6. Put the ``.jar`` file into the eXo Platform package: ``$PLATFORM_TOMCAT_HOME/lib``
 
 7. Restart the server, then open
    http://mycompany.com:8080/portal/rest/demo/listusers/0 in your browser.
@@ -328,8 +323,7 @@ The war custom-extension now looks like:
 
 3. Deploy your custom-extension into eXo Platform by putting
    ``custom-extension.war`` in the ``webapps`` folder and
-   ``custom-extension-config.jar`` in the ``lib`` folder. See :ref:`How to <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>` 
-   for both Tomcat and JBoss.
+   ``custom-extension-config.jar`` in the ``lib`` folder. See :ref:`How to <PLFDevGuide.eXoAdd-ons.PortalExtension.Howto>`.
 
 4. Start eXo Platform, then go to 
    http://mycompany.com:8080/portal/rest/groovyrest/helloworld/eXo. The

@@ -77,7 +77,8 @@ spaces under MY SPACES on the left pane of the page.
 
  .. note::   You can also see all your spaces by directly clicking the |image4| link or clicking Join a space to open the Spaces page, then selecting the My Spaces tab.
 
-|image5|
+                 |image5|
+                 
 
 The Space navigation includes the following tabs:
 
@@ -98,7 +99,7 @@ The Space navigation includes the following tabs:
 To access a specific space, just click the space name.
 
   .. tip::  You can quickly find out your desired space from the list of your spaces by typing its name/description into the Search Spaces box on the left pane or using the **Search** feature in the Space application. 
-			See the :ref:`Searching for spaces <Search-Space` section for more details.
+			See the :ref:`Searching for spaces <Search-Space>` section for more details.
 
 **Accessing via URL**
 
@@ -142,12 +143,12 @@ Space banner
 ~~~~~~~~~~~~~~
 
 To change the banner just mouse over in the top right corner of the
-space banner, an icon |image10| and a tooltip will appear.
+space banner, an icon |image10| will appear.
 
 When you click on the icon |image68|, an ``Update`` button |image69| appears  
 allowing you to pick up an image from your computer.
 
-The tooltip indicates you the banner size which should be 130 pixels height minimum.
+.. tip:: The banner size should be 130 pixels height minimum.
 
    |image11|
 
@@ -266,6 +267,8 @@ A description of each template is displayed below the selectors.
 
    -  Close: The user cannot request for joining, but only the space
       manager can invite him.
+      
+.. _Users_invitation:      
 
 
 .. note:: Template, Visibility and registration fields have a description of the choice selected to help you choosing the best template for your needs when creating a new space.
@@ -350,20 +353,50 @@ Communication is the perfect choice to exchange knowledges and skills.
    More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
 
 
+.. _SpaceHome:
+
+**Space home**
+
+The default space home page contains the following content:
+
+-  Activity stream: displays the space's activities
+-  Description: displays the space's description and the list of the space's managers
+
+   |image76|
+   
+-  :ref:`Calendar <CalendarApp>`: displays the events of the space's calendar by day (today's events by default)
+   
+   |image79|
+   
+.. tip:: You can view other events of the previous and the following days simply by clicking on arrows |image80|.
+   
+-  :ref:`Who is on line? <WhoIsOnlineApp>`: displays the online members of the space. 
+   It appears while at least one member is online.
+   
+   |image78|
+
+.. note:: :ref:`Calendar <CalendarApp>` and :ref:`Who is on line? <WhoIsOnlineApp>` portlets are the same
+          as for :ref:`intranet homepage <PLFHomepage>` but specific for the space's calendar and members.
+
+.. note:: When you are a  platform administrator and member of a space, you are able to add more portlets 
+          just by clicking on Edit --> Page --> Edit layout and then drag and drop the portelt you want to add.
+          
+              |image81|
+
+
 .. _Space-banner-avatar:
 
 **Space banner and avatar**
 
 
-  By default, the space banner is set to be the one predefined in the template and the space.
+By default, the space banner is set to be the one predefined in the template and the space.
 
    |image28|
 
-   You can redefine the space banner and the space avatar by mousing
-   over and then clicking on |image29| allowing you to pick an image from
-   your computer.
+You can redefine the space banner and the space avatar by mousingover and then clicking on 
+|image29| allowing you to pick an image from your computer.
 
-   More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
+More details about how to redefine space banner and profile :ref:`here <Space-banner>`.
 
 *Space applications*
 
@@ -408,7 +441,7 @@ Communication is the perfect choice to exchange knowledges and skills.
 		  
 **Others**
 
-   When a new space is created:
+When a new space is created:
 
    -  A forum with the same name as this space is also created in the
       **Forums** application of the portal. In case this forum is
@@ -942,10 +975,17 @@ deleted.
 .. |image66| image:: images/social/space_popover.png
 .. |image67| image:: images/social/space_popover_member.png
 .. |image68| image:: images/social/update_image_icon.png
-.. |image69| image:: images/social/update_space_banner
+.. |image69| image:: images/social/update_space_banner.png
 .. |image70| image:: images/social/update_image_icon.png
 .. |image71| image:: images/social/update_image_icon.png
 .. |image72| image:: images/social/update_reset_space_icon.png
 .. |image73| image:: images/social/rename_space_app.png
 .. |image74| image:: images/social/Delete_space_confirmation.png
 .. |image75| image:: images/social/special_characters_space_name.png
+.. |image76| image:: images/social/Description_portlet.png
+.. |image77| image:: images/social/CalendarPortlet.png
+.. |image78| image:: images/social/WhoIsOnLinePortlet.png
+.. |image79| image:: images/social/CalendarPortletPopulated.png
+.. |image80| image:: images/social/arrowsCalendar.png
+.. |image81| image:: images/social/editPage.png
+

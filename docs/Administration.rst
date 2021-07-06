@@ -61,6 +61,9 @@ Administering eXo Platform
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
 	  
+	-  :ref:`Managing News <ManagingNews>`
+       How to manage News related pages and content.
+	  
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
@@ -4574,6 +4577,72 @@ The Service Management page is displayed.
    To invoke a method of the selected service, click Run corresponding
    to it. After invoking it successfully, you will see the result
    returned if any.
+   
+   
+.. _ManagingNews:
+
+==============
+Managing News
+==============
+
+How to display pinned News on a page
+-------------------------------------
+
+The pinned articles are not highlighted by default in the platform (you can refer to 
+:ref:`this chapter <Pinning-a-News>` to know more how pin function works).
+
+In order to display these pinned articles in a page, edit the page layout then add a "Content by query" application at the desired location.
+
+|image348| 
+
+|image349| 
+
+Once the application is added in the page, edit its settings and choose the folder path.
+
+|image350| 
+
+Then you have to choose the appriopriate template from "Display Settings" tab of "Edit Mode" : 
+
+- For the blog layout, select "NewsPin.gtmpl".
+- For the latest News layout, select "LatestNews.gtmpl". 
+
+|image351| 
+
+Next, fill in the field "Header", this information will be displayed in the top left of the block.
+
+|image352| 
+
+From advanced tab, fill in the following query in the field "By query" :
+
+       *select * from exo:symlink where jcr:path like '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC*
+
+Then select the page *News* > *Details* from the selector "Show in page"
+
+|image353| 
+
+Then tick the checkbox "Restricted by user role" and click on "Save" button. 
+
+Finally, from access permission tab, tick the checkbox "Everyone" then click on "Save and close" button.
+
+|image357| 
+
+.. note:: An issue was detected in the 5.3 version for the display of pinned news for users who are not members of the post space. This issue is due to incompatibility between News and Web-pack Addons. 
+To work around the problem you can either uninstall Web-pack addon as explained :ref:`here <eXoAddonsGuide.WCM.Installation.uninstall>` or replace the exo:news view template as explained in the following section.
+
+Go to 'Administration > Content > Content Administration' then 'Templates > Documents'. 
+
+|image354| 
+
+From the Documents interface, click on 'edit' action for News template
+
+|image355| 
+
+A popup "View & Edit Template" is displayed. Go to 'View' tab, click on the edit button of the existing 'View' 
+template then copy paste the template from the following 
+`link <https://raw.githubusercontent.com/exoplatform/news/1.1.1/webapp/src/main/webapp/WEB-INF/conf/news/nodetypes-templates/news/views/view1.gtmpl>`__ in the content field and save the action.
+
+|image356| 
+
 
 .. _ManagingWallets:
 
@@ -5560,5 +5629,13 @@ The following image shows the screen when an anonymous user accesses
 .. |image345| image:: images/managerewards/reward_details.png
 .. |image346| image:: images/managerewards/display_disabled_users.png
 .. |image347| image:: images/managerewards/search_bar.png
-
-
+.. |image348| image:: images/sharenews/edit_layout.png
+.. |image349| image:: images/sharenews/content_by_query.png
+.. |image350| image:: images/sharenews/folder_path.png
+.. |image351| image:: images/sharenews/template_selector.png
+.. |image352| image:: images/sharenews/header_block.png
+.. |image353| image:: images/sharenews/show_in_page.png
+.. |image354| image:: images/sharenews/content_administration.png
+.. |image355| image:: images/sharenews/news_template.png
+.. |image356| image:: images/sharenews/view_tab.png
+.. |image357| image:: images/sharenews/access_permission.png

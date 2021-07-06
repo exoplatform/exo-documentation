@@ -51,21 +51,6 @@ In this section, we will present all the breaking changes you should
 know before starting the upgrade to 5.3 version.
 
 
-**JBoss EAP upgrade**
-
-JBoss EAP 7.1 version is used in eXo Platform 5.1.
-
-This version comes with a bunch of improvements, including the use of 
-the new security framework WildFly Elytron and the support of HTTP/2.
-More information on this new version are available at 
-`https://www.redhat.com/en/blog/red-hat-releases-jboss-eap-71 <https://www.redhat.com/en/blog/red-hat-releases-jboss-eap-71>`__.
-
-
-You can find
-`here <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html-single/migration_guide/index>`__,
-a full documentation about the upgrade to JBoss EAP 7.1.
-
-
 **Templates changes**
 
 Some Groovy templates have been changed in eXo Platform 5.3, check
@@ -73,6 +58,12 @@ out the :ref:`complete list <Upgrade.BreakingChanges.Templates>`. If
 your custom extension overrides some Groovy templates, you must check 
 if it has been changed, and update it if it is the case.
 
+.. _ShindigRemoval:
+
+**Shindig removal**
+
+In eXo Platform 5.3 version, we no longer support gadgets as we dropped `Apache Shindig <https://shindig.apache.org/>` which has been retired.
+eXo opted for `Apache Shindig <https://shindig.apache.org/>` removal for many reasons cited on the :ref:`technical novelties section <TechnicalNovelties>`
 
 .. _Upgrade.BreakingChanges.Templates
 
@@ -218,10 +209,11 @@ Before the upgrade, you need to:
 			-  Detect and handle issues to make sure they will not happen during the real upgrade.
 			-  Estimate how long the upgrade will take in your production environment.
 			-  Find out if you need to adjust anything to make your upgrade faster and more efficient.
-
-
-.. tip:: JBoss EAP was upgraded to 7.1 version to benefit from its last updates and improvements.
-		 You can check changelogs `for JBOSS <https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/7.1.0_release_notes/index>`__.
+			
+.. note:: As mentioned in Breaking changes :ref:`section <ShindigRemoval>`, Shindig, the component which supports gadgets is removed 
+          from eXo Platfrom	5.3 and which leads to the removal of gadgets. In fact, dashboard application and all gadgets are automatically 
+          removed. Only four of them namely Login History, Bookmarks, RSS Reader and Featured Poll still remaining and could be placed in pages
+          if necessary.
 
 
 .. _Upgrade.Process:
@@ -249,16 +241,13 @@ procedure.
 
 **Upgrade to a new eXo Platform version**
 
-**For Tomcat and JBoss packages**
 
 1. Stop the old version of eXo Platform, in this case the 5.1 version.
 
 2. Apply your customizations into eXo Platform 5.3.
 
    -  If you have changed the configuration properties via
-      ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` (Tomcat) or
-      ``$PLATFORM_JBOSS_HOME/standalone/configuration/gatein/exo.properties``
-      (JBoss), you can update them to the same file in the new eXo 
+      ``$PLATFORM_TOMCAT_HOME/gatein/conf/exo.properties`` you can update them to the same file in the new eXo 
       Platform version.
 
    -  If you use a populated organizational data source (such as LDAP),
@@ -299,9 +288,7 @@ Here are good ways you can follow during and after upgrading:
 
 -  Monitor the server console/log file to be aware of the upgrade status
    or any issues during the upgrade. By default, eXo Platform records all
-   information in ``$PLATFORM_TOMCAT_HOME/logs/platform.log`` (in
-   Tomcat), ``$PLATFORM_JBOSS_HOME/standalone/log/server.log`` (in
-   JBoss).
+   information in ``$PLATFORM_TOMCAT_HOME/logs/platform.log``.
 
    A successful upgrade typically logs the followings:
 

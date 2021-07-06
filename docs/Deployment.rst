@@ -14,8 +14,7 @@ Deployment
        reverse-proxy front-end.
 
     -  :ref:`Configuring HTTP session timeout <Deployment.ConfiguringHTTPSessionTimeout>`
-       Instructions on how to configure the session timeout of the
-       Tomcat and Jboss servers.
+       Instructions on how to configure the session timeout of the platform.
 
 .. _Deployment.RemoveSampleApp:
 
@@ -34,8 +33,6 @@ First case - Your package is fresh so data is empty
 
 .. _First.Tomcat:
 
-In Tomcat:
-----------
 
 Remove the following files:
 
@@ -44,38 +41,6 @@ Remove the following files:
 -  ``$PLATFORM_TOMCAT_HOME/webapps/acme-intranet-portlet.war``
 
 -  ``$PLATFORM_TOMCAT_HOME/lib/platform-sample-acme-intranet-config-*.jar``
-
-.. _First.Jboss:
-
-In JBoss:
-----------
-
-1. Remove the following files:
-
-   -  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/platform-sample-acme-intranet-webapp.war``
-
-   -  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/platform-sample-acme-intranet-portlet.war``
-
-   -  ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/lib/platform-sample-acme-intranet-config.jar``
-
-2. Open the
-   ``$PLATFORM_JBOSS_HOME/standalone/deployments/platform.ear/META-INF/application.xml``
-   file to comment out the following lines:
-
-	.. code:: xml
-
-		<module>
-		<web>
-		  <web-uri>platform-sample-acme-intranet-portlet.war</web-uri>
-		  <context-root>acme-intranet-portlet</context-root>
-		</web>
-		</module>
-		<module>
-		<web>
-		  <web-uri>platform-sample-acme-intranet-webapp.war</web-uri>
-		  <context-root>acme-intranet</context-root>
-		</web>
-		</module>
 		
 .. _RemoveSampleApp.Second:
 
@@ -89,15 +54,10 @@ To clean the data entirely, do the following steps:
 
 1. Stop the server if it is running.
 
-2. Remove the files (and change the configuration file for JBoss) as
-   described above.
+2. Remove the files as described above.
 
 3. Remove associated data. If you did not change the default data
-   configuration, just need to remove:
-
--  ``$PLATFORM_TOMCAT_HOME/gatein/data/`` (in Tomcat).
-
--  ``$PLATFORM_JBOSS_HOME/standalone/data/gatein/*`` (in JBoss).
+   configuration, just need to remove ``$PLATFORM_TOMCAT_HOME/gatein/data/``.
 
 4. Restart your server.
 

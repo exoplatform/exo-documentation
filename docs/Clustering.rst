@@ -131,17 +131,7 @@ Setting up eXo Platform cluster
 6. Configure ``exo.cluster.node.name`` property. Use a different name 
    for each node:
 
-   -  In JBoss, edit this property in the ``standalone-exo-cluster.xml``
-      file:
-
-      .. code:: xml
-
-            <system-properties>
-                <property name="exo.cluster.node.name" value="node1"/>
-            </system-properties>
-                           
-
-   -  In Tomcat, add the property in ``setenv-customize.sh`` (.bat for
+   -  Add the property in ``setenv-customize.sh`` (.bat for
       windows environments):
 
       -  For windows:
@@ -164,13 +154,8 @@ Setting up eXo Platform cluster
 8. Configure CometD Oort URL. Replace *localhost* in the following 
    examples with the IP or host name of the node.
 
-   -  In JBoss, edit ``standalone-exo-cluster.xml``:
 
-      .. code:: xml
-
-          <property name="exo.cometd.oort.url" value="http://localhost:8080/cometd/cometd"/>
-
-   -  In Tomcat, edit ``exo.properties``:
+   -  Edit ``exo.properties``:
 
       ::
 
@@ -188,14 +173,8 @@ Setting up eXo Platform cluster
    from the default port (``5577``). The situation is likely to happen 
    in a testing environment.
 
-   -  In JBoss, edit ``standalone-exo-cluster.xml`` file:
 
-      .. code:: xml
-
-          <!-- Configure the same port for all nodes in your cluster -->
-          <property name="exo.cometd.oort.multicast.groupPort" value="5579"/>
-
-   -  In Tomcat, edit ``exo.properties`` file:
+   -  Edit ``exo.properties`` file:
 
       ::
 
@@ -222,7 +201,7 @@ Setting up eXo Platform cluster
        node of this ``exo.properties`` is host1:port1, and that the 
        cluster is composed of three nodes : host1, host2 and host3.
 
-11. Only in Tomcat, configure the following:
+11. Configure the following:
 
     -  In ``setenv-customize.sh (.bat for Windows)``:
 
@@ -243,26 +222,10 @@ Setting up eXo Platform cluster
 12. Start the servers. **You must wait until node1 is fully started, 
     then start node2.**
 
-    In JBoss, you need to indicate the configuration file with -c option:
-    ``./bin/standalone.sh -b 0.0.0.0 -c standalone-exo-cluster.xml`` 
-    (.bat for Windows).
-
-    Only in JBoss, some other options that you can use in the start command:
-
-    -  **-Dexo.cluster.node.name=a-node-name** overrides the node name 
-       in the configuration file.
-
-    -  **-Djboss.socket.binding.port-offset=101**
-
-       This is useful in case you set up nodes in the same machine for
-       testing. You will not need to configure the port for every node. 
-       Just use a different port-offset in each start command.
 
 .. note:: If you run two nodes in the same machine for testing, change the default ports of node2 to avoid port conflict.
+		  Ports are configured in ``conf/server.xml``.
 
-		  In Tomcat, ports are configured in ``conf/server.xml``.
-
-		  In JBoss, use ``-Djboss.socket.binding.port-offset`` option mentioned above.
 
 To configure a front-end for your nodes, follow :ref:`Setting up Apache front-end <SetUpHttpFrontend.SetupApacheFrontend>`.
 
@@ -312,13 +275,7 @@ understanding:
    for details.
 
 For LOCAL INDEXING, the index directory should be a local path for each
-node. In JBoss it is set already by default:
-
-.. code:: xml
-
-    <property name="exo.jcr.index.data.dir" value="${exo.jcr.data.dir}/index"/>
-
-But for Tomcat, you need to set it yourself, in ``exo.properties`` file:
+node. You need to set it yourself, in ``exo.properties`` file:
 
 ::
 
@@ -328,14 +285,8 @@ If you want to use a SHARED INDEX for every node:
 
 Enable the profile *cluster-index-shared*.
 
--  In JBoss, edit
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo-cluster.xml``:
 
-   .. code:: xml
-
-       <property name="exo.profiles" value="all,cluster,cluster-index-shared"/>
-
--  In Tomcat, edit ``setenv-customize.sh`` (.bat for Windows, see
+-  Edit ``setenv-customize.sh`` (.bat for Windows, see
    :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`):
 
    ::
@@ -345,14 +296,8 @@ Enable the profile *cluster-index-shared*.
 Set the index directory (``exo.jcr.index.data.dir``) to a network
 sharing path.
 
--  In JBoss, edit
-   ``$PLATFORM_JBOSS_HOME/standalone/configuration/standalone-exo-cluster.xml``:
 
-   .. code:: xml
-
-       <property name="exo.jcr.index.data.dir" value="${exo.shared.dir}/jcr/index"/>
-
--  In Tomcat, if you do not configure it, ``exo.jcr.index.data.dir`` is
+-  If you do not configure it, ``exo.jcr.index.data.dir`` is
    already set to a sub-folder of the shared directory ``EXO_DATA_DIR``.
    It is done in ``setenv.*``:
 
@@ -386,17 +331,8 @@ for the ``exo.properties`` file.
 To activate TCP default configuration files, enable the profile
 ``cluster-jgroups-tcp``:
 
--  In JBoss, edit ``standalone-exo-cluster.xml``:
 
-   .. code:: xml
-
-       <system-properties>
-           ...
-           <property name="exo.profiles" value="all,cluster,cluster-jgroups-tcp"/>
-           ...
-       </system-properties>
-
--  In Tomcat, edit ``setenv-customize.sh`` (.bat for Windows, see :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`):
+-  Edit ``setenv-customize.sh`` (.bat for Windows, see :ref:`Customizing environment variables <CustomizingEnvironmentVariables>`):
 
    ::
 
@@ -1276,9 +1212,7 @@ Only when the variables are not enough, or when migrating from previous
 version you want to re-use your JGroups configuration files, you will
 follow this section to activate your xml files.
 
-1. Put your xml file somewhere, typically
-   ``standalone/configuration/gatein/jgroups/`` in JBoss and
-   ``gatein/conf/jgroups/`` in Tomcat.
+1. Put your xml file somewhere, typically ``gatein/conf/jgroups/``.
 
 2. Edit the following properties in ``exo.properties``:
 
@@ -1288,8 +1222,7 @@ follow this section to activate your xml files.
        exo.jcr.cluster.jgroups.config-url=file:${exo.jcr.cluster.jgroups.config}
        exo.service.cluster.jgroups.config=${exo.conf.dir}/jgroups/jgroups-service.xml
 
-In which ``exo.conf.dir`` is ``standalone/configuration/gatein`` in
-JBoss and ``gatein/conf`` in Tomcat by default.
+In which ``exo.conf.dir`` is ``gatein/conf`` by default.
 
 If you put your files somewhere else, pay attention that you must use an
 absolute path after "file:".
