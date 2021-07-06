@@ -5745,6 +5745,10 @@ In configuration, plug it to the following target component:
                         <field name="sourcePath">
                             <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/FrenchTranslations.xml</string>
                         </field>
+                        <field name="versionHistoryPath">
+                            <string>war:/conf/acme-portal/wcm/artifacts/site-resources/acme/
+                            FrenchTranslations_versionHistory.zip</string>
+                        </field>
                         <field name="cleanupPublicationType">
                             <string>publish-first-publication</string>
                         </field>
@@ -5837,6 +5841,12 @@ In which:
 |                |        |                                        |    as the    |
 |                |        |                                        |    first     |
 |                |        |                                        |    version.  |
++----------------+--------+----------------------------------------+--------------+
+| **versionHisto | ``Stri | ``war:/conf/acme-portal/wcm/artifacts/ | The          |
+|   ryPath**     | ng``   | site-resources/acme/FrenchTranslations | absolute     |
+|                |        | _versionHistory.zip``                  | path of the  |
+|                |        |                                        | version      |
+|                |        |                                        | history file.|
 +----------------+--------+----------------------------------------+--------------+
 
 -  **Object type**:
