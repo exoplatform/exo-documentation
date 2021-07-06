@@ -19,7 +19,7 @@ You are a platform user and want to benefit from products proposed in the perk s
     |image1|
    
 2-  If you have already an initialized wallet, then go to step 3 otherwise click on the message in the top of the catalog inviting to configure 
-    your wallet and follow steps of `this section <configureWallet>`
+    your wallet and follow steps of :ref:`this section <configureWallet>`
    
     |image2|
    
@@ -31,11 +31,41 @@ You are a platform user and want to benefit from products proposed in the perk s
 4-  Select the quantity to buy and then type your wallet password in the corresponding field
 
 5-  Click on "Buy" button => The product's merchant will be notified of your order which is in the "Pending" status and will proceed to the delivery, 
-    check the section `orders delivery <deliverProduct>` for more details
+    check the section :ref:`orders delivery <deliverProduct>` for more details
    
     |image4|
    
 6-  When the product's merchant delivers you, the pending status disappears and you can get your order   
+
+
+.. _SellProduct:
+
+How to sell a product from the perk store?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Now you need to propose products and gain from the perk store, here are the needed steps:
+
+1-  Go to the perk store application and then click on "Add product" button
+
+    |image5|
+
+2-  Fill in the fields, and then click save. Note that there are some mandotory fields to enable the "Save" button, more details below => Your product will be listed among 
+    other products in the perk store.
+    
+    |image6|
+
+.. note:: Mandatory fields for product creation are the following: Product name, price, at least an image, merchant wallet and product editors.
+          The last two fields i.e. merchant wallet and product editors are set by default to your account as you are the product's creator.
+          
+3-  When an another user clicks to buy your product following the steps of :ref:`buying a product <buyProduct>`, you receive a notification, clicking on it redirects you to the
+    oerder's CARD in the "Ordered" status
+    
+    |image7|
+    
+4-  When the transaction is well passed, then the order's status moves to "Paid" and you can so proceed to the delivery by clicking on "Deliver" button to buy the product or 
+    you can click on "Refund" to give back the money to the buyer and not proceed to the product's sell      
+    
+    |image8| 
 
 
 
@@ -51,5 +81,9 @@ How to configure your wallet?
 .. |image2| image:: images/rewards/Message.png
 .. |image3| image:: images/rewards/productPreview.png
 .. |image4| image:: images/rewards/pendingProduct.png
+.. |image5| image:: images/rewards/addButton.png
+.. |image6| image:: images/rewards/AddProductDrawer.png
+.. |image7| image:: images/rewards/ordered.png
+.. |image8| image:: images/rewards/Paid.png
 
 
