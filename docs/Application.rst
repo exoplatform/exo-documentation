@@ -3528,7 +3528,7 @@ gadget uses the same jQuery version, instead of adding each jQuery in
 its own package) and take advantages of automatic skin changing/updating
 when ``exo-gadget-resources`` is updated.
 
-A simple example of applying resources into a gadget is to use a
+A sample of applying resources into a gadget is to use a
 JavaScript. In this example, you will add a button to the Hello World
 gadget and use jQuery to register an event for the button. When you
 click the "here" button, the color of welcome message will be changed.
@@ -4088,7 +4088,7 @@ Extending eXo applications
 
 -  :ref:`Applications Plugins <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins>`
    Tutorials to add plugin to eXo applications, such as Activity
-   composer or action in Wiki using UI Extension framework.
+   extensions or action in Wiki using UI Extension framework.
 
 -  :ref:`Notification <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.Notification>`
    Tutorials to extend or customize the notification system in eXo Platform.
@@ -4182,12 +4182,9 @@ In case, you need to define new elements in HTML ``<head>`` element of pages, yo
 Applications Plugins
 ~~~~~~~~~~~~~~~~~~~~~
 
-Hereafter are some tutorials to write eXo add-ons using the UI Extension
-framework:
+Here after are some tutorials to write eXo add-ons using the UI Extension framework:
 
--  :ref:`Creating a new activity type <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ActivityType>`
-
--  :ref:`Creating an activity composer <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ActivityComposer>`
+-  :ref:`Extending Activity UI <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ExtendingActivityUI>`
 
 -  :ref:`Adding your own Content UI Extensions <PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ContentUIExtension>`
 
@@ -4211,948 +4208,357 @@ might read more about the subjects:
 
 -  :ref:`JavaScript development <#sect-Reference_Guide-Javascript_Development>`__
 
-.. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ActivityType:
-
-Creating a new activity type
------------------------------
-
-The creation of an activity type involves a UI Component which is
-required for the activity display. In this tutorial, you define an
-activity type and your own UI Component to display it. You can download
-all source code of this tutorial
-`here <https://github.com/exo-samples/docs-samples/tree/4.3.x/create-new-activity-type>`__.
-
-1. Create a Maven project as follows:
-
-|image37|
-
-2. Edit the ``pom.xml`` file:
-
-   .. code:: xml
-
-		<?xml version="1.0" encoding="UTF-8"?>
-		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-			<modelVersion>4.0.0</modelVersion>
-			<parent>
-				<artifactId>integ-wiki</artifactId>
-				<groupId>org.exoplatform.integration</groupId>
-				<version>4.0.4</version>
-			</parent>
-			<artifactId>wiki-activity-type</artifactId>
-			<packaging>jar</packaging>
-			<version>1.0</version>
-			<name>Activity type</name>
-			<description>UI Extension - Activity type</description>
-			<dependencies>
-				<dependency>
-					<groupId>org.exoplatform.platform-ui</groupId>
-					<artifactId>platform-ui-webui-core</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.gatein.portal</groupId>
-					<artifactId>exo.portal.webui.framework</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.exoplatform.social</groupId>
-					<artifactId>social-component-webui</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.exoplatform.kernel</groupId>
-					<artifactId>exo.kernel.container</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.exoplatform.core</groupId>
-					<artifactId>exo.core.component.security.core</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.exoplatform.social</groupId>
-					<artifactId>social-component-core</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.exoplatform.wiki</groupId>
-					<artifactId>wiki-service</artifactId>
-				</dependency>
-			</dependencies>
-		</project>
-
-3. Edit the ``SampleUIActivity.java`` file:
-
-   .. code:: java
-
-		package com.acme.samples.activitytype;
-
-		import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-		import org.exoplatform.webui.config.annotation.ComponentConfig;
-		import org.exoplatform.social.webui.activity.BaseUIActivity;
-
-		@ComponentConfig(
-		  lifecycle = UIFormLifecycle.class,
-		  template = "classpath:groovy/com/acme/samples/SampleUIActivity.gtmpl"
-		)
-
-		public class SampleUIActivity extends BaseUIActivity {
-
-		}
-
-4. Edit the ``SampleUIActivity.gtmpl`` file. You can copy the code of
-   ``social-extension.war!/groovy/social/webui/activity/UIDefaultActivity.gtmpl``.
-
-	Some samples that you can refer:
-
-	-  ``integ-wiki-social-4.x.x.jar!/groovy/wiki/social-integration/plugin/space/WikiUIActivity.gtmpl``
-
-	-  ``integ-calendar-social-4.x.x.jar!/groovy/cs/social-integration/plugin/space/CalendarUIActivity.gtmpl``
-
-	-  ``integ-ecms-social-4.x.x.jar!/groovy/ecm/social-integration/plugin/space/ContentUIActivity.gtmpl``
-
-5. Edit the ``SampleUIActivityBuilder.java`` file:
-
-   .. code:: java
-
-		package com.acme.samples.activitytype;
-
-		import org.exoplatform.social.core.activity.model.ExoSocialActivity;
-		import org.exoplatform.social.webui.activity.BaseUIActivity;
-		import org.exoplatform.social.webui.activity.BaseUIActivityBuilder;
-
-		public class SampleUIActivityBuilder extends BaseUIActivityBuilder {
-
-		  @Override
-		  protected void extendUIActivity(BaseUIActivity uiActivity, ExoSocialActivity activity) {
-			//
-		  }
-		}
-
-6. Edit the ``configuration.xml`` file:
-
-   .. code:: xml
-
-		<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-		  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-			<external-component-plugins>
-				<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
-				<component-plugin>
-					<name>add.action</name>
-					<set-method>registerUIExtensionPlugin</set-method>
-					<type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
-					<init-params>
-						<object-param>
-							<name>Space Activity</name>
-							<object type="org.exoplatform.social.webui.activity.UIActivityExtension">
-								<field name="type"><string>org.exoplatform.social.webui.activity.BaseUIActivity</string></field>
-								<field name="name"><string>test-activity-type</string></field>
-								<field name="component">
-									<string>com.acme.samples.activitytype.SampleUIActivity</string>
-								</field>
-								<field name="activityBuiderClass">
-									<string>com.acme.samples.activitytype.SampleUIActivityBuilder</string>
-								</field>
-							</object>
-						</object-param>
-					</init-params>
-				</component-plugin>
-			</external-component-plugins>
-
-			<external-component-plugins>
-				<target-component>org.exoplatform.wiki.service.WikiService</target-component>
-				<component-plugin>
-					<name>Wiki listener</name>
-					<set-method>addComponentPlugin</set-method>
-					<type>com.acme.samples.activitytype.GenerateActivity4Testing</type>
-					<init-params>
-						<value-param>
-							<name>wikiPortletName</name>
-							<value>wiki</value>
-						</value-param>
-					</init-params>
-				</component-plugin>
-			</external-component-plugins>
-			
-		</configuration>
-
-	The configuration fulfils two tasks:
-
-	-  Register the plugin for UIActivityExtension, using the UI Extension
-	   mechanism. Pay attention that the activity type is registered as
-	   ``test-activity-type``.
-
-	-  Register your GenerateActivity4Testing as a wiki listener.
-
-7. Edit the ``GenerateActivity4Testing.java`` file:
-
-   .. code:: java
-
-		package com.acme.samples.activitytype;
-
-		import org.exoplatform.container.PortalContainer;
-		import org.exoplatform.services.security.ConversationState;
-		import org.exoplatform.social.core.identity.model.Identity;
-		import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
-
-		import org.exoplatform.social.core.activity.model.ExoSocialActivity;
-		import org.exoplatform.social.core.activity.model.ExoSocialActivityImpl;
-		import org.exoplatform.social.core.manager.ActivityManager;
-		import org.exoplatform.social.core.manager.IdentityManager;
-
-		import org.exoplatform.wiki.service.listener.PageWikiListener;
-		import org.exoplatform.wiki.mow.api.Page;
-
-		public class GenerateActivity4Testing extends PageWikiListener {
-			
-			public static final String ACTIVITY_TYPE = "test-activity-type";
-			
-			private void generateActivity() throws Exception {
-				// Get current user and assign to ownerStream
-				String username = ConversationState.getCurrent().getIdentity().getUserId();
-				IdentityManager identityM = 
-					(IdentityManager) PortalContainer.getInstance().getComponentInstanceOfType(IdentityManager.class);
-				Identity userIdentity = identityM.getOrCreateIdentity(OrganizationIdentityProvider.NAME, username, false);
-				Identity ownerStream = userIdentity;
-				
-				// New activity
-				ExoSocialActivityImpl activity = new ExoSocialActivityImpl();
-				activity.setUserId(userIdentity.getId());
-				activity.setTitle("This is an activity of type <b>" + ACTIVITY_TYPE + "</b>.");
-				activity.setBody("This is for testing");
-				activity.setType(ACTIVITY_TYPE);
-				
-				// Save activity
-				ActivityManager activityM = 
-					(ActivityManager) PortalContainer.getInstance().getComponentInstanceOfType(ActivityManager.class);
-				activityM.saveActivityNoReturn(ownerStream, activity);
-				
-			}
-			
-			@Override
-			public void postAddPage(String wikiType, String wikiOwner, String pageId, Page page) throws Exception {
-				
-				generateActivity();
-				
-			}
-			
-			@Override
-			public void postDeletePage(String wikiType, String wikiOwner, String pageId, Page page) throws Exception {
-				//
-			}
-			
-			@Override
-			public void postUpdatePage(String wikiType, String wikiOwner, String pageId, Page page, String wikiUpdateType) throws Exception {
-				//
-			}
-		}
-
-	This is supposed to create an activity of ``test-activity-type`` 
-	when a wiki page is added.
-
-8. Build and deploy the ``.jar`` file
-   (``target/wiki-activity-type-1.0.jar``) into eXo Platform package.
-
-	-  ``$PLATFORM_TOMCAT_HOME/lib``.
-
-**Testing**
-
-Start the server, log in and go to Wiki. Here, create a new wiki page,
-then test the activity in the Intranet homepage:
-
-|image38|
-
-You have re-used the UIDefaultActivity template. To imagine out what can
-be done with your own template, let's see the wiki activity that uses
-WikiUIActivity.gtmpl. Pay attention to the book icon on the leftmost,
-the link to the relevant wiki page, and the excerpt of its content:
-
-|image39|
-
-**What is ActivityBuilder?**
-
-In the above example, you extend BaseUIActivityBuilder and do not write
-any extra code. To understand what you can do with your ActivityBuilder,
-let's see the following code of UILinkActivityBuilder:
-
-.. code:: java
-
-    public class UILinkActivityBuilder extends BaseUIActivityBuilder {
-      private static final Log LOG = ExoLogger.getLogger(UILinkActivityBuilder.class);
-      @Override
-      protected void extendUIActivity(BaseUIActivity uiActivity, ExoSocialActivity activity) {
-        UILinkActivity uiLinkActivity = (UILinkActivity) uiActivity;
-        Map<String, String> templateParams = activity.getTemplateParams();
-        uiLinkActivity.setLinkSource(templateParams.get(UILinkActivityComposer.LINK_PARAM));
-        uiLinkActivity.setLinkTitle(templateParams.get(UILinkActivityComposer.TITLE_PARAM));
-        uiLinkActivity.setLinkImage(templateParams.get(UILinkActivityComposer.IMAGE_PARAM));
-        uiLinkActivity.setLinkDescription(templateParams.get(UILinkActivityComposer.DESCRIPTION_PARAM));
-        uiLinkActivity.setLinkComment(templateParams.get(UILinkActivityComposer.COMMENT_PARAM));
-      }
-    }
-
-You can see more complex codes at `the eXo Integration project <https://github.com/exoplatform/integration/tree/develop>`__
-where many activity types are created. The example of this tutorial is
-very similar to (and simpler than) the `ks-wiki:spaces <https://github.com/exoplatform/integration/tree/develop/integ-wiki>`__
-type.
-
-.. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ActivityComposer:
-
-Creating an activity composer
--------------------------------
-
-The Activity Stream portlet features a Composer container that contains
-some built-in composers, like the *File* composer to share a document,
-or the *Link* composer to share any external media resource. In general,
-a composer is a UI form/dialog that binds to a Java class to compose and
-save an activity.
-
-The container is extensible, so you can add your own composer. In this
-tutorial, it is assumed that you will add a *LocationComposer* that
-functions as below:
-
--  In the container, a Check-in icon is added (see the screenshot). A
-   click on it will expand an input field and a Check-in button.
-
--  The user inputs his location and clicks the button. The input is
-   validated (for simplification, the sample code just checks that it is
-   empty or not), then the Share button is enabled. By clicking Share,
-   the user posts to the activity stream a message saying he "checked in
-   at" the location.
-
-|image40|
-
-Your project involves a Java class, a Groovy template, JavaScript and
-some other resources. All source code of this project is provided
-`here <https://github.com/exo-samples/docs-samples/tree/master/create-activity-composer>`__
-for downloading.
-
-1. Create a Maven project with 2 modules:
-
-|image41|
-
-2. Edit the ``pom.xml`` file:
-
-	.. code:: xml
-
-		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-		  <modelVersion>4.0.0</modelVersion>
-		  <parent>
-			<artifactId>social</artifactId>
-			<groupId>org.exoplatform.social</groupId>
-			<version>4.0.4</version>
-		  </parent>
-		  <artifactId>social-location-composer</artifactId>
-		  <version>4.0.x</version>
-		  <packaging>pom</packaging>
-		  <name>eXo Social - Location Composer</name>
-		  <description>eXo Social - Location Composer</description>
-		  <modules>
-			<module>resources</module>
-			<module>composer-plugin</module>
-		  </modules>
-		</project>
-
-3. Create folders and files for the **composer-plugin** folder, as follows:
-
-|image42|
-
-4. Edit the ``composer-plugin/pom.xml`` file:
-
-	.. code:: xml
-
-		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-		  <modelVersion>4.0.0</modelVersion>
-		  <parent>
-			<artifactId>social-location-composer</artifactId>
-			<groupId>org.exoplatform.social</groupId>
-			<version>4.0.x</version>
-		  </parent>
-		  <groupId>com.acme.samples</groupId>
-		  <artifactId>acme-location-composer-plugin</artifactId>
-		  <packaging>jar</packaging>
-		  <name>Sample activity composer plugin</name>
-		  <description>Sample activity composer plugin</description>
-		  <dependencies>
-			<dependency>
-			  <groupId>org.exoplatform.social</groupId>
-			  <artifactId>social-component-common</artifactId>
-			  <version>4.0.4</version>
-			  <scope>provided</scope>
-			</dependency>
-			<dependency>
-			  <groupId>org.exoplatform.social</groupId>
-			  <artifactId>social-component-core</artifactId>
-			  <version>4.0.4</version>
-			  <scope>provided</scope>
-			</dependency>
-			 <dependency>
-			  <groupId>org.exoplatform.kernel</groupId>
-			  <artifactId>exo.kernel.commons</artifactId>
-			  <version>2.4.7-GA</version>
-			  <scope>provided</scope>
-			</dependency>
-			<dependency>
-			  <groupId>org.exoplatform.social</groupId>
-			  <artifactId>social-component-webui</artifactId>
-			  <version>4.0.4</version>
-			  <scope>provided</scope>
-			</dependency>
-			<dependency>
-			  <groupId>org.exoplatform.platform-ui</groupId>
-			  <artifactId>platform-ui-webui-core</artifactId>
-			  <version>4.0.4</version>
-			  <scope>provided</scope>
-			</dependency>
-			<dependency>
-			  <groupId>org.gatein.portal</groupId>
-			  <artifactId>exo.portal.component.web.controller</artifactId>
-			  <version>3.5.8-PLF</version>
-			  <scope>provided</scope>
-			</dependency>
-			<dependency>
-			  <groupId>org.gatein.portal</groupId>
-			  <artifactId>exo.portal.webui.framework</artifactId>
-			  <version>3.5.8-PLF</version>
-			  <scope>provided</scope>
-			</dependency>
-		  </dependencies>
-		</project>
-
-5. Edit the ``SampleActivityComposer.java`` file:
-
-	.. code:: java
-
-		package com.acme.samples;
-
-		import java.util.LinkedHashMap;
-		import java.util.Map;
-		import java.util.ResourceBundle;
-
-		import org.exoplatform.social.core.activity.model.ExoSocialActivity;
-		import org.exoplatform.social.core.activity.model.ExoSocialActivityImpl;
-		import org.exoplatform.social.core.application.PeopleService;
-		import org.exoplatform.social.core.identity.model.Identity;
-		import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider;
-		import org.exoplatform.social.core.identity.provider.SpaceIdentityProvider;
-		import org.exoplatform.social.core.space.model.Space;
-		import org.exoplatform.social.core.space.spi.SpaceService;
-		import org.exoplatform.social.webui.Utils;
-		import org.exoplatform.social.webui.activity.UIDefaultActivity;
-		import org.exoplatform.social.webui.composer.UIActivityComposer;
-		import org.exoplatform.social.webui.composer.UIComposer;
-		import org.exoplatform.social.webui.composer.UIComposer.PostContext;
-		import org.exoplatform.social.webui.profile.UIUserActivitiesDisplay;
-		import org.exoplatform.social.webui.profile.UIUserActivitiesDisplay.DisplayMode;
-		import org.exoplatform.social.webui.space.UISpaceActivitiesDisplay;
-		import org.exoplatform.web.application.ApplicationMessage;
-		import org.exoplatform.webui.application.WebuiRequestContext;
-		import org.exoplatform.webui.config.annotation.ComponentConfig;
-		import org.exoplatform.webui.config.annotation.EventConfig;
-		import org.exoplatform.webui.core.UIApplication;
-		import org.exoplatform.webui.core.UIComponent;
-		import org.exoplatform.webui.event.Event;
-		import org.exoplatform.webui.event.EventListener;
-		import org.exoplatform.webui.form.UIFormStringInput;
-		import org.exoplatform.webui.form.UIFormTextAreaInput;
-
-		@ComponentConfig(template = "war:/groovy/com/acme/samples/SampleActivityComposer.gtmpl", events = {
-			@EventConfig(listeners = SampleActivityComposer.CheckinActionListener.class),
-			@EventConfig(listeners = UIActivityComposer.CloseActionListener.class),
-			@EventConfig(listeners = UIActivityComposer.SubmitContentActionListener.class),
-			@EventConfig(listeners = UIActivityComposer.ActivateActionListener.class) })
-		public class SampleActivityComposer extends UIActivityComposer {
-
-		  public static final String LOCATION = "location";
-		  
-		  private String location_ = "";
-
-		  private boolean isLocationValid_ = false;
-
-		  private Map<String, String> templateParams;
-
-		  public SampleActivityComposer() {
-			setReadyForPostingActivity(false);
-			UIFormStringInput inputLocation = new UIFormStringInput("InputLocation", "InputLocation", null);
-			addChild(inputLocation);
-		  }
-
-		  public void setLocationValid(boolean isValid) {
-			isLocationValid_ = isValid;
-		  }
-
-		  public boolean isLocationValid() {
-			return isLocationValid_;
-		  }
-
-		  public void setTemplateParams(Map<String, String> tempParams) {
-			templateParams = tempParams;
-		  }
-
-		  public Map<String, String> getTemplateParams() {
-			return templateParams;
-		  }
-
-		  public void clearLocation() {
-			location_ = "";
-		  }
-
-		  public String getLocation() {
-			return location_;
-		  }
-
-		  private void setLocation(String city, WebuiRequestContext requestContext) {
-			location_ = city;
-			if (location_ == null || location_ == "") {
-			  UIApplication uiApp = requestContext.getUIApplication();
-			  uiApp.addMessage(new ApplicationMessage("Invalid location!", null, ApplicationMessage.ERROR));
-			  return;
-			}
-
-			templateParams = new LinkedHashMap<String, String>();
-			templateParams.put(LOCATION, location_);
-
-			setLocationValid(true);
-		  }
-
-		  @Override
-		  public void onActivate(Event<UIActivityComposer> uiActivityComposer) {
-		  }
-
-		  @Override
-		  public void onSubmit(Event<UIActivityComposer> uiActivityComposer) {
-		  }
-
-		  @Override
-		  public void onClose(Event<UIActivityComposer> uiActivityComposer) {
-		  }
-
-		  /* called when user clicks "Share" button.
-		   * create and save activity.
-		   */
-		  @Override
-		  public void onPostActivity(PostContext postContext,
-									 UIComponent uiComponent,
-									 WebuiRequestContext requestContext,
-									 String postedMessage) throws Exception {
-			if (postContext == UIComposer.PostContext.SPACE){
-			  UISpaceActivitiesDisplay uiDisplaySpaceActivities = (UISpaceActivitiesDisplay) getActivityDisplay();
-			  Space space = uiDisplaySpaceActivities.getSpace();
-
-			  Identity spaceIdentity = Utils.getIdentityManager().getOrCreateIdentity(SpaceIdentityProvider.NAME,
-																	   space.getPrettyName(),
-																	   false);
-			  ExoSocialActivity activity = new ExoSocialActivityImpl(Utils.getViewerIdentity().getId(),
-										   SpaceService.SPACES_APP_ID,
-										   postedMessage,
-										   null);
-			  activity.setType(UIDefaultActivity.ACTIVITY_TYPE);
-			  Utils.getActivityManager().saveActivityNoReturn(spaceIdentity, activity);
-			  uiDisplaySpaceActivities.init();
-			} else if (postContext == PostContext.USER) {
-			  UIUserActivitiesDisplay uiUserActivitiesDisplay = (UIUserActivitiesDisplay) getActivityDisplay();
-			  Identity ownerIdentity = Utils.getIdentityManager().getOrCreateIdentity(OrganizationIdentityProvider.NAME,
-																		   uiUserActivitiesDisplay.getOwnerName(), false);
-			  if (postedMessage.length() > 0) {
-				postedMessage += "<br>";
-			  }
-			  
-			  if (this.getLocation() != null && this.getLocation().length() > 0) {
-				postedMessage += String.format("%s checked in at %s.", ownerIdentity.getProfile().getFullName(), this.getLocation());
-			  } else {
-				postedMessage += String.format("%s checked in at Nowhere.", ownerIdentity.getProfile().getFullName());
-			  }
-			  ExoSocialActivity activity = new ExoSocialActivityImpl(Utils.getViewerIdentity().getId(),
-											   PeopleService.PEOPLE_APP_ID,
-											   postedMessage,
-											   null);
-			  activity.setType(UIDefaultActivity.ACTIVITY_TYPE);
-			  activity.setTemplateParams(templateParams);
-			  this.clearLocation();
-			  Utils.getActivityManager().saveActivityNoReturn(ownerIdentity, activity);
-
-			  this.setLocationValid(false);
-			  if (uiUserActivitiesDisplay.getSelectedDisplayMode() == DisplayMode.MY_SPACE) {
-				uiUserActivitiesDisplay.setSelectedDisplayMode(DisplayMode.ALL_ACTIVITIES);
-			  }
-			}
-		  }
-
-		  public static class CheckinActionListener extends EventListener<SampleActivityComposer> {
-			
-			// this is called on event "Checkin" (when users clicks Check-in button).
-			@Override
-			public void execute(Event<SampleActivityComposer> event) throws Exception {
-			  WebuiRequestContext requestContext = event.getRequestContext();
-			  SampleActivityComposer sampleActivityComposer = event.getSource();
-
-			  String city;
-			  try {
-				city = requestContext.getRequestParameter(OBJECTID).trim();
-			  } catch (Exception e) {
-				System.out.println("Exception when getting OBJECTID!");
-				return;
-			  }
-
-			  if (city != null && city.length() > 0) {
-				sampleActivityComposer.setLocationValid(true);
-			  } else {
-				sampleActivityComposer.setLocationValid(false);
-			  }
-			  
-			  sampleActivityComposer.setLocation(city, requestContext);
-			  if (sampleActivityComposer.location_ != null && sampleActivityComposer.location_.length() > 0) {
-				requestContext.addUIComponentToUpdateByAjax(sampleActivityComposer);
-				event.getSource().setReadyForPostingActivity(true);
-			  }
-			}
-		  }
-
-		}
-
-	Some remarks:
-
-	-  The groovy template
-	   (``groovy/com/acme/SampleActivityComposer.gtmpl``) is configured in
-	   this class to be rendered when the composer is activated.
-
-	-  The inner class (``CheckinActionListener``) listens to the "Checkin"
-	   events (when the user clicks the Check-in button). The class name is
-	   bound to the event name.
-
-6. Edit the ``composer-plugin/src/main/resources/conf/configuration.xml``
-   file to register the extension:
-
-	.. code:: xml
-
-		<configuration
-			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-			xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-
-		  <external-component-plugins>
-			<target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
-			<component-plugin>
-			  <name>Add PortalContainer Definitions</name>
-			  <set-method>registerChangePlugin</set-method>
-			  <type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-			  <priority>101</priority>
-			  <init-params>
-				<values-param>
-				  <name>apply.specific</name>
-				  <value>portal</value>
-				</values-param>
-				<object-param>
-				  <name>addDependencies</name>
-				  <object type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
-					<field name="dependencies">
-					  <collection type="java.util.ArrayList">
-						<value>
-						  <string>acme-extension</string>
-						</value>
-					  </collection>
-					</field>
-				  </object>
-				</object-param>
-			  </init-params>
-			</component-plugin>
-		  </external-component-plugins>
-		</configuration>
-
-7. Edit the ``composer-plugin/src/main/resources/conf/portal/configuration.xml``
-   file to configure ``UIExtensionManager`` and ``ResourceBundleService``:
-
-	.. code:: xml
-
-		<configuration
-		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd http://www.exoplatform.org/xml/ns/kernel_1_1.xsd"
-		   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_1.xsd">
-		  <external-component-plugins>
-			<target-component>org.exoplatform.webui.ext.UIExtensionManager</target-component>
-			<component-plugin>
-			  <name>add.action</name>
-			  <set-method>registerUIExtensionPlugin</set-method>
-			  <type>org.exoplatform.webui.ext.UIExtensionPlugin</type>
-			  <init-params>
-				<object-param>
-				  <name>Sample Activity Composer</name>
-				  <object type="org.exoplatform.webui.ext.UIExtension">
-					<field name="type"><string>org.exoplatform.social.webui.composer.UIActivityComposer</string></field>
-					<field name="name"><string>SampleActivityComposer</string></field>
-					<field name="component"><string>com.acme.samples.SampleActivityComposer</string></field>
-					<field name="rank"><int>1</int></field>
-				  </object>
-				</object-param>
-			  </init-params>
-			</component-plugin>
-		  </external-component-plugins>
-
-		  <external-component-plugins>
-			<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
-			<component-plugin>
-			  <name>Location Activity Composer Plugin</name>
-			  <set-method>addResourceBundle</set-method>
-			  <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
-			  <init-params>
-				<values-param>
-				  <name>classpath.resources</name>
-				  <description></description>
-				  <value>locale.com.acme.LocationComposer</value>
-				</values-param>
-				<values-param>
-				  <name>portal.resource.names</name>
-				  <description></description>
-				  <value>locale.com.acme.LocationComposer</value>
-				</values-param>
-			  </init-params>
-			</component-plugin>
-		  </external-component-plugins>
-		</configuration>
-
-8. Edit the resources in the ``locale/com/acme/LocationComposer_en.properties`` 
-   file (that is configured as ``locale.com.acme.LocationComposer`` in 
-   the previous step):
-
-	::
-
-		UIActivityComposer.label.SampleActivityComposer=Check-in
-		com.acme.LocationComposer.CheckinBtn=Check-in
-
-	The first line is for the tooltip of the composer icon, it is looked 
-	up by the composer container so you must use the property name as it 
-	is. The second property is for the label of the button, it is 
-	handled by yourself in the ``SampleActivityComposer.gtmpl`` so name 
-	it as you want.
-
-9. Create folders and files of the ``resources`` module. It will be 
-   built into ``acme-extension.war`` that you have registered in the
-   ``conf/configuration.xml`` file.
-
-|image43|
-
-10. Edit the ``resources/pom.xml`` file:
-
-	.. code:: xml
-
-		<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-		  <modelVersion>4.0.0</modelVersion>
-		  <parent>
-			<artifactId>social-location-composer</artifactId>
-			<groupId>org.exoplatform.social</groupId>
-			<version>4.0.x</version>
-		  </parent>
-		  <groupId>com.acme.samples</groupId>
-		  <artifactId>acme-extension</artifactId>
-		  <packaging>war</packaging>
-		  <name>eXo Social Location Composer Resources</name>
-		  <description>eXo Social Location Composer Resources</description>
-		  <build>
-			<finalName>acme-extension</finalName>
-		  </build>
-		</project>
-
-11. Edit the ``web.xml`` file:
-
-	.. code:: xml
-
-		<web-app>
-		  <display-name>acme-extension</display-name>
-		  <listener>
-			<listener-class>org.exoplatform.container.web.PortalContainerConfigOwner</listener-class>
-		  </listener>
-		  <filter>
-			<filter-name>ResourceRequestFilter</filter-name>
-			<filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
-		  </filter>
-
-		  <filter-mapping>
-			<filter-name>ResourceRequestFilter</filter-name>
-			<url-pattern>/*</url-pattern>
-		  </filter-mapping>
-
-		  <servlet>
-			<servlet-name>GateInServlet</servlet-name>
-			<servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
-			<load-on-startup>0</load-on-startup>
-		  </servlet>
-		  <servlet-mapping>
-			<servlet-name>GateInServlet</servlet-name>
-			<url-pattern>/gateinservlet</url-pattern>
-		  </servlet-mapping>
-
-		</web-app>
-
-12. Edit the ``gatein-resources.xml`` file to register JavaScript and 
-    CSS resources:
-
-	.. code:: xml
-
-		<gatein-resources
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
-		  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
-		  
-		  <portal-skin>
-			<skin-name>Enterprise</skin-name>
-			<skin-module>acme.samples</skin-module>
-			<css-path>/skin/DefaultSkin/Stylesheet.css</css-path>
-		  </portal-skin>
-		  <module>
-			<name>location-activity-composer</name>
-			<script>
-			  <path>/javascript/acme/samples/LocationComposer.js</path>
-			</script>
-			<depends>
-			  <module>socialUtil</module>
-			</depends>
-			<depends>
-			  <module>jquery</module>
-			  <as>jq</as>
-			</depends>
-			<depends>
-			   <module>mentionsPlugin</module>
-			</depends>
-			<depends>
-			  <module>mentionsLib</module>
-			  <as>mentions</as>
-			</depends>
-			<depends>
-			  <module>webui</module>
-			</depends>
-		  </module>
-		</gatein-resources>
-
-13. Edit the ``javascript/acme/samples/LocationComposer.js`` file:
-
-	.. code:: javascript
-
-		(function($) {
-		  var LocationComposer = {
-			ENTER_KEY_CODE: 13,
-			
-			onLoad: function(params) {
-			  LocationComposer.configure(params);
-			  LocationComposer.init();
-			},
-			
-			configure: function(params) {
-			  this.locationValid = params.locationValid || false;
-			  this.inputLocationId = params.inputLocationId || 'InputLocation';
-			  this.checkinButtonId = params.checkinButtonId || 'CheckinButton';
-			  this.checkinUrl = decodeURI(params.checkinUrl || "");
-			  this.location = params.location || '';
-			},
-			
-			init: function() {
-			  LocationComposer = this;
-			  
-			  if (this.locationValid === "false") {
-				this.inputLocation = $('#' + this.inputLocationId);
-				this.checkinButton = $('#' + this.checkinButtonId);
-				
-				var LocationComposer = this;
-				var inputLocation = this.inputLocation;
-				var checkinBtn = this.checkinButton;
-				inputLocation.on('focus', function(evt) {
-				  if (inputLocation.val() === '') {
-					inputLocation.val('');
-				  }
-				});
-				this.inputLocation.on('keypress', function(evt) {
-				  if (LocationComposer.ENTER_KEY_CODE == (evt.which ? evt.which : evt.keyCode)) {
-					$(checkinBtn).click();
-				  } 
-				});
-				this.checkinButton.removeAttr('disabled');
-				this.checkinButton.on('click', function(evt) {
-				  if (inputLocation.val() === '') {
-					return;
-				  }
-				  var url = LocationComposer.checkinUrl.replace(/&amp;/g, "&") + '&objectId=' + encodeURI(inputLocation.val()) + '&ajaxRequest=true';
-				  ajaxGet(url, function() {
-					try {
-					  $('textarea#composerInput').exoMentions('showButton', function() {});
-					} catch (e) {
-					  console.log(e);
-					}
-				  });
-				});
-			  }
-			  
-			  var closeButton = $('#UIActivityComposerContainer').find('a.uiIconClose:first');
-			  if (closeButton.length > 0) {
-				closeButton.on('click', function() {
-				  $('textarea#composerInput').exoMentions('clearLink', function() { });
-				});
-			  }
-			}
-		  };
-		  return LocationComposer;
-		})(jq);
-
-14. Edit the ``SampleActivityComposer.gtmpl`` file:
-
-	.. code:: groovy
-
-		<%
-		  import org.exoplatform.webui.form.UIFormStringInput;
-		  
-		  def uicomponentId = uicomponent.id;
-		  def labelCheckin = _ctx.appRes("com.acme.LocationComposer.CheckinBtn");
-		  
-		  def locationValid = uicomponent.isLocationValid();
-		  uicomponent.setLocationValid(false);
-		  def location = uicomponent.getLocation();
-		  
-		  def params = "{" +
-						  "locationValid: '" + locationValid + "'," +
-						  "inputLocationId: 'InputLocation'," +
-						  "checkinButtonId: 'CheckinButton'," +
-						  "checkinUrl: encodeURI('" + uicomponent.url("Checkin") + "')," +
-						  "location: '" + location + "'" +
-						  "}";
-		   
-		  def requestContext = _ctx.getRequestContext();
-		  def jsManager = requestContext.getJavascriptManager();
-		  jsManager.require("SHARED/jquery", "jq").require("SHARED/location-activity-composer", "locComposer").addScripts("locComposer.onLoad($params);");
-		  
-		%>
-		<div id="$uicomponentId">
-		  <div id="LocationComposerContainer" class="uiComposerLink clearfix">
-			<button id="CheckinButton" class="btn pull-right">$labelCheckin</button>
-			<div class="Title Editable">
-			  <%if (locationValid) {%>
-				<span class="tabName">Location: $location</span>
-			  <%} else {
-				uicomponent.renderChild(UIFormStringInput.class);
-			  }%>
-			</div>
-		  </div>
-		</div>
-
-	This code calls the ``location-activity-composer`` JavaScript module
-	that you registered in the ``gatein-resources.xml`` file.
-
-15. Edit the CSS resources in the ``skin/Default/Stylesheet.css`` file:
-
-	.. code:: css
-
-		.sampleactivitycomposer .uiIconSocSampleActivityComposer {
-		  background: url('/eXoSkin/skin/images/themes/default/social/skin/UIManageSpaces/Member.png') no-repeat left 3px 3px;
-		}
-		a.sampleactivitycomposer:hover .uiIconSocSampleActivityComposer  {
-		  background: url('/eXoSkin/skin/images/themes/default/social/skin/UIManageSpaces/Member.png') no-repeat left 3px 3px;
-		}
-
-	Here you re-use the background image that is packaged in
-	``eXoSkin.war``. You can create your own icon.
-
-16. Build the project, then deploy
-``composer-plugin/target/acme-location-composer-plugin-4.0.x.jar`` into
-``$PLATFORM_TOMCAT_HOME/lib``, and
-``resources/target/acme-extension.war`` into
-``$PLATFORM_TOMCAT_HOME/webapps``.
-
-**Testing**
-
-Click the icon (with the "Check-in" tooltip) to bring up the location
-input. Type something, click Check-in, then click Share. An activity
-will display like you see at the beginning of this page.
+.. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ExtendingActivityUI:
+
+Extending Activity UI
+~~~~~~~~~~~~~~~~~~~~~
+
+The Activity Stream is extensible and allows to add features into it without overriding the Stream Application.
+In fact, even the default Stream uses the same mechanisms to inject additional behaviors, depending on installed addons.
+The extensible parts of the Activity are :
+
+* **Activity UI**: the activity body is extensible in two ways:
+
+  - ``Activity Type``: this will allow you to define a specific UI for the whole Body content of the Activity
+    By example, the news detail that is displayed in standalone mode (not integrated in the stream) redefine the whole content Body
+
+  - ``Activity Body``: this type of extensions will allow you to append additional content to the Current Activity Body
+
+* ``Activity Menu items``: as made for existing menu items (``Edit``, ``Delete``, ``Copy link``...), this type of extension allows to append an additional action in the Activity Menu
+* ``Activity Footer Action buttons``: as made for all existing buttons (``Like``, ``Share``, ``Comment``...), this type of extension allow to append an additional button in the Activity Footer part near the Activity Reactions
+* ``Comment Body``: knowing that a comment is the same Entity as the Activity, the same extension mechanism, as for ``Activity Body extensions``, is used to extend comment body the same way that it's done for the activity body.
+* ``Comment Menu items``: The same ``Activity Menu items`` extension mechanism is used with a different ``extensionRegistry`` name and type
+* ``Comment Footer Action buttons``: The same ``Activity Footer Action buttons`` extension mechanism is used with a different ``extensionRegistry`` name and type
+
+How to define a UI for a specific Activity Type ?
+--------------------------------------------------
+
+You may need to add a 'Poll' Activity, a 'Day Humor' Activity type...
+By using this extension mechanism you will be able to define complex and feature complete Activity extensions.
+
+A sample of an Activity type extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/activity-type>`_.
+In this example, a new Activity Type (``aCustomType``) is defined to display the activity content inside a colored box: green for activity and red for comments:
+
+  |SampleActivityTypeExtension|
+
+To register a new Activity Type extension, the ``extensionRegistry`` is used with parameters ``activity`` and ``type``:
+
+.. code:: javascript
+
+    extensionRegistry.registerExtension('activity', 'type', {
+      // Activity.type. 'default' corresponds to all activities which doesn't have a corresponding extension
+      type: 'aCustomType',
+      options: {
+        // Redefine the activity display by a custom one
+        getExtendedComponent: (activity, isActivityDetail) => ({ // The method receives the current activity and isActivityDetail to let you choose component to display switch activity properties
+          component: SampleActivityType, // Vue component to use for the display of component
+          overrideHeader: false, // Whether to hide the default header of the activity or not
+          overrideFooter: false, // Whether to hide the default footer of the activity that contains actions and reactions or not
+          overrideComments: false, // Whether to hide the list of comments preview or not
+        }),
+        // Whether to display edit button or not when user have permission
+        canEdit: (activity) => true,
+        // The content to display in Activity Editor (AKA Composer)
+        getBodyToEdit: (activity) => {
+          const templateParams = activity.templateParams;
+          return Vue.prototype.$utils.trim(window.decodeURIComponent(templateParams
+            && templateParams.default_title
+            && templateParams.default_title
+            || activity.title
+            || activity.body
+            || ''));
+        },
+        // Whether the activity is shareable or not
+        canShare: (activity) => true,
+      },
+    });
+
+Inside the Vue Component, you will automatically receive in the ``props``, the current activity to display.
+Possible ``props`` objects are :
+
+.. code:: javascript
+
+    props: {
+      activity: { // Activity or comment to display
+        type: Object,
+        default: null,
+      },
+      isActivityDetail: { // Activity is displayed in standalone mode or not (Single activity display or display of the activity in the stream)
+        type: Boolean,
+        default: null,
+      },
+      activityTypeExtension: { // The specific or generic registered Activity Type Extension (See adequate section defining Activity Types) 
+        type: Boolean,
+        default: null,
+      },
+    },
+
+How to extend Activity/Comment Body by new content ?
+----------------------------------------------------
+
+You may need to add an extra content in all or specific activities, like **User Activity Rating UI**, **User Favorite**, **Number of User Views**...
+
+* **Activity Extension**
+
+A sample of an Activity body extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/activity-body>`_.
+
+In this example, it will display an icon when the content of the activity contains the word ``favorite``.
+
+  |SampleActivityBodyExtension|
+
+To register a new Activity Body extension, the ``extensionRegistry`` is used with parameters ``ActivityContent`` and ``activity-content-extensions``:
+
+.. code:: javascript
+
+    extensionRegistry.registerComponent('ActivityContent', 'activity-content-extensions', {
+      id: 'hasFavoriteWordActivity', // Unique Identifier of the extension
+      isEnabled: (params) => { // Check whether the extension should be enabled or not
+        const activity = params && params.activity;
+        return activity
+          && !activity.activityId // The activity isn't a comment
+          && activity.title // The activity has a title
+          && activity.title.toLowerCase().includes('favorite'); // The activity content has at least one occurrence of 'favorite' word
+      },
+      vueComponent: SampleActivityBodyExtension, // Vue component to use to display the extension
+      rank: 50, // Display order comparing to other body extensions
+    });
+
+Inside the Vue Component, you will automatically receive in the ``props``, the current activity to display.
+Possible ``props`` objects are :
+
+.. code:: javascript
+
+    props: {
+      activity: { // Activity or comment to display
+        type: Object,
+        default: null,
+      },
+      isActivityDetail: { // Activity is displayed in standalone mode or not (Single activity display or display of the activity in the stream)
+        type: Boolean,
+        default: null,
+      },
+      activityTypeExtension: { // The specific or generic registered Activity Type Extension (See adequate section defining Activity Types) 
+        type: Boolean,
+        default: null,
+      },
+    },
+
+* **Comment Extension**
+
+A sample of a body extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/comment-body>`_.
+
+In this example, it will display an icon when the content of the comment contains the word ``favorite``.
+
+  |CommentBodyExtension|
+
+By default, the **same body extensions** of Activity is used for Comments.
+In fact, the Data model retrieved through REST APIs is exactly the same except a property ``activityId`` that can be found in a Comment and not in Activity.
+So by testing on existence of this property, you will be able to distinguish an Activity from a Comment.
+Thus, to register a new Comment Body extension, the ``extensionRegistry`` is used with the same Activity Extension name ``ActivityContent`` and ``activity-content-extensions``:
+
+.. code:: javascript
+
+    extensionRegistry.registerComponent('ActivityContent', 'activity-content-extensions', {
+      id: 'hasFavoriteWordComment', // Unique Identifier of the extension
+      isEnabled: (params) => { // Check whether the extension should be enabled or not
+        const activity = params && params.activity;
+        return activity
+          && activity.activityId // The activity is a comment
+          && activity.title // The comment has a title
+          && activity.title.toLowerCase().includes('favorite'); // The comment content has at least one occurrence of 'favorite' word
+      },
+      vueComponent: SampleCommentBodyExtension, // Vue component to use to display the extension
+      rank: 50, // Display order comparing to other body extensions
+    });
+
+Inside the Vue Component, you will automatically receive in the ``props``, the current activity to display.
+Possible ``props`` objects are :
+
+.. code:: javascript
+
+    props: {
+      activity: { // Activity or comment to display
+        type: Object,
+        default: null,
+      },
+      activityTypeExtension: { // The specific or generic registered Activity Type Extension (See adequate section defining Activity Types) 
+        type: Boolean,
+        default: null,
+      },
+    },
+
+How to define an Menu Item Action for activities ?
+--------------------------------------------------
+
+Like it was done for ``Edit``, ``Delete``, ``Download``, ``Copy link``... and other activity menu items, you may need to add an extra action.
+
+* **Activity Extension**
+
+A sample of an Activity Menu Item extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/activity-menu-item>`_.
+In this example, a new Activity Menu Item is defined to change the current activity type to ``aCustomType``:
+
+  |ActivityMenuItem|
+
+To register a new Activity Menu Item extension, the ``extensionRegistry`` is used with parameters ``activity`` and ``action``:
+
+.. code:: javascript
+
+    extensionRegistry.registerExtension('activity', 'action', {
+      id: 'changeType', // Unique identifier of the menu item
+      labelKey: 'Change to Custom Type', // label I18n key or simple text
+      // A method to check whether to enable display of the menu item or not
+      isEnabled: (activity) => activity && activity.type !== 'aCustomType',
+      // This method will be triggered once the user clicks on the item
+      click: (activity) => {
+        // return is used to display a loading icon in menu until the fetch Promise gets resolved
+        return fetch(`/portal/rest/v1/social/activities/${activity.id}`, {
+          'headers': {
+            'content-type': 'application/json',
+          },
+          'body': JSON.stringify({
+            type: 'aCustomType',
+          }),
+          'method': 'PUT',
+          'credentials': 'include'
+        }).then(() => {
+          // Dispatch event to refresh the display of the activity
+          document.dispatchEvent(new CustomEvent('activity-updated', {detail: activity.id}));
+        });
+      },
+    });
+
+* **Comment Extension**
+
+A sample of a Comment Menu Item extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/comment-menu-item>`_.
+In this example, a new Comment Menu Item is defined to change the current comment type to ``aCustomType``:
+
+  |CommentMenuItemExtension|
+
+To register a new Comment Menu Item extension, the ``extensionRegistry`` is used with parameters ``activity`` and ``comment-action``:
+
+.. code:: javascript
+
+    extensionRegistry.registerExtension('activity', 'action', {
+      id: 'changeType', // Unique identifier of the menu item
+      labelKey: 'Change to Custom Type', // label I18n key or simple text
+      // A method to check whether to enable display of the menu item or not
+      isEnabled: (activity, comment) => comment && comment.type !== 'aCustomType',
+      // This method will be triggered once the user clicks on the item
+      click: (activity, comment) => {
+        // return is used to display a loading icon in menu until the fetch Promise gets resolved
+        return fetch(`/portal/rest/v1/social/activities/${comment.id}`, {
+          'headers': {
+            'content-type': 'application/json',
+          },
+          'body': JSON.stringify({
+            type: 'aCustomType',
+          }),
+          'method': 'PUT',
+          'credentials': 'include'
+        }).then(() => {
+          comment.type = 'aCustomType';
+          // Dispatch event to refresh the display of the comment
+          document.dispatchEvent(new CustomEvent('activity-comment-updated', {detail: comment}));
+        });
+      },
+    });
+
+How to define a Footer Action for activities ?
+--------------------------------------------------
+
+As made for Activity footer buttons ``Like``, ``Kudos``, ``Share`` and ``Comment``, you may need to add extra actions.
+
+* **Activity Extension**
+
+A sample of an Activity Footer Buttons extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/activity-action>`_.
+In this example, a new Activity Footer Button is defined to flip the Activity Card using an animation:
+
+  |ActivityFooterActionExtension|
+
+To register a new Activity Footer Button extension, the ``extensionRegistry`` is used with parameters ``ActivityFooter`` and ``activity-footer-action``:
+
+.. code:: javascript
+
+    extensionRegistry.registerComponent('ActivityFooter', 'activity-footer-action', {
+      id: 'flip', // Unique identifier of the Action button
+      vueComponent: SampleActivityActionExtension, // Vue component to use to display action button
+      rank: 0, // Order display of the button: 0 = first
+    });
+
+Inside the Vue Component, you will automatically receive in the ``props``, the current activity to display.
+Possible ``props`` objects are :
+
+.. code:: javascript
+
+    props: {
+      activity: { // Activity or comment to display
+        type: Object,
+        default: null,
+      },
+      activityTypeExtension: { // The specific or generic registered Activity Type Extension (See adequate section defining Activity Types)
+        type: Boolean,
+        default: null,
+      },
+    },
+
+* **Comment Extension**
+
+A sample of a Comment Footer Buttons extension can be found `here <https://github.com/exo-samples/docs-samples/tree/master/activity-extensions/src/main/webapp/vue-apps/comment-action>`_.
+In this example, a new Comment Footer Button is defined to zoom In the text of a regular comment:
+
+  |CommentActionExtension|
+
+To register a new Comment Footer Button extension, the ``extensionRegistry`` is used with parameters ``ActivityCommentFooter`` and ``activity-comment-footer-action``:
+
+.. code:: javascript
+
+    extensionRegistry.registerComponent('ActivityCommentFooter', 'activity-comment-footer-action', {
+      id: 'zoomIn', // Unique identifier of the Action button
+      vueComponent: SampleCommentActionExtension, // Vue component to use to display action button
+      rank: 50, // Order display of the button: 0 = first
+    });
+
+Inside the Vue Component, you will automatically receive in the ``props``, the current comment to display.
+Possible ``props`` objects are :
+
+.. code:: javascript
+
+    props: {
+      activity: { // Parent Activity (not comment)
+        type: Object,
+        default: null,
+      },
+      comment: { // Displayed comment
+        type: Object,
+        default: null,
+      },
+      commentTypeExtension: { // The specific or generic registered Activity Type Extension (See adequate section defining Activity Types)
+        type: Boolean,
+        default: null,
+      },
+    },
+
+
+How to redefine the UI of a predefined Activity Type ?
+------------------------------------------------------
+
+Each Activity has an associated type. By example:
+
+- A **news activity** is of type ``news`` (`Activity type definition <https://github.com/exoplatform/news/blob/stable/2.2.x/webapp/src/main/webapp/news-extensions/extensions.js#L107>`_)
+
+- A **kudos activity** is of type ``exokudos:activity`` (`Activity type definition <https://github.com/Meeds-io/kudos/blob/stable/2.2.x/kudos-webapps/src/main/webapp/vue-app/js/Kudos.js#L221>`_)
+
+- A **notes activity** is of type ``ks-wiki:spaces`` (`Activity type definition <https://github.com/Meeds-io/notes/blob/stable/1.0.x/notes-webapp/src/main/webapp/javascript/eXo/wiki/notesExtensions.js#L5>`_)
+
+- A **default activity** (that could have attachments, mentions, link or youtube embedded video) doesn't define a type (`Default activity type definition <https://github.com/Meeds-io/social/blob/develop/webapp/portlet/src/main/webapp/vue-apps/activity-stream/extensions.js#L96>`_)
+
+To override, the notes Activity, by example:
+
+1. Copy the JS content from `here <https://github.com/Meeds-io/notes/blob/stable/1.0.x/notes-webapp/src/main/webapp/javascript/eXo/wiki/notesExtensions.js>`_ (link of file corresponding to Notes version 1.0.x = eXo Platform 6.2.x)
+
+2. Inject the JS to the page using :ref:`AMD <JavaScript>`
+
+You can play with its content and see how it's behaving.
 
 .. _PLFDevGuide.DevelopingApplications.ExtendingeXoApplications.ApplicationPlugins.ContentUIExtension:
 
@@ -8544,3 +7950,10 @@ from the cloned source code.
 .. |image75| image:: images/application_plugins/content/zip-viewer-project.png
 .. |image76| image:: images/application_plugins/content/zip-preview-final.png
 .. |image77| image:: images/application_plugins/wiki/New_action.png
+.. |ActivityFooterActionExtension| image:: images/activity-extensions/ActivityFooterActionExtension.png
+.. |ActivityMenuItem| image:: images/activity-extensions/ActivityMenuItem.png
+.. |CommentActionExtension| image:: images/activity-extensions/CommentActionExtension.png
+.. |CommentMenuItemExtension| image:: images/activity-extensions/CommentMenuItemExtension.png
+.. |SampleActivityBodyExtension| image:: images/activity-extensions/SampleActivityBodyExtension.png
+.. |SampleActivityTypeExtension| image:: images/activity-extensions/SampleActivityTypeExtension.png
+.. |CommentBodyExtension| image:: images/activity-extensions/CommentBodyExtension.png
