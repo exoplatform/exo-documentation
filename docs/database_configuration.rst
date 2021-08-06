@@ -524,7 +524,7 @@ configuration is in the section *MongoDB*):
     chatServerBase=http://127.0.0.1:8080
     chatServerUrl=/chatServer
     chatPortalPage=/portal/intranet/chat
-    chatCronNotifCleanup=0 0/60 * * * ?
+    chatCronNotifCleanup=0 0 * * * ?
     teamAdminGroup=/platform/users
     chatReadTotalJson=200
 

@@ -1415,7 +1415,7 @@ MongoDB configuration
 |                             | eXo Chat         |                             |
 |                             | server.          |                             |
 +-----------------------------+------------------+-----------------------------+
-| :ref:`chatCronNotifCleanup  | The frequency of | 0 0/60 \* \* \* ?           |
+| :ref:`chatCronNotifCleanup  | The frequency of | 0 0 \* \* \* ?           |
 | <ChatServerConf>`           | cleaning eXo     |                             |
 |                             | Chat             |                             |
 |                             | notifications.Th |                             |
@@ -5819,7 +5819,7 @@ Chat Server
 | ``chatPassPhrase``      | *chat*             | The password to access REST service  |
 |                         |                    | on the eXo Chat server.              |
 +-------------------------+--------------------+--------------------------------------+
-| ``chatCronNotifCleanup``| *0 0/60 \* \* \* ?*| The notifications are cleaned up     |
+| ``chatCronNotifCleanup``| *0 0 \* \* \* ?*| The notifications are cleaned up     |
 |                         |                    | every one hour by default. To learn  |
 |                         |                    | the syntax of Cron expression, see   |
 |                         |                    | :ref:`Scheduled synchronization,     |
