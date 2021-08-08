@@ -1415,7 +1415,7 @@ MongoDB configuration
 |                             | eXo Chat         |                             |
 |                             | server.          |                             |
 +-----------------------------+------------------+-----------------------------+
-| :ref:`chatCronNotifCleanup  | The frequency of | 0 0/60 \* \* \* ?           |
+| :ref:`chatCronNotifCleanup  | The frequency of | 0 0 \* \* \* ?           |
 | <ChatServerConf>`           | cleaning eXo     |                             |
 |                             | Chat             |                             |
 |                             | notifications.Th |                             |
@@ -1624,6 +1624,52 @@ Files upload limit
 |                               | application.     |                             |
 +-------------------------------+------------------+-----------------------------+                                 
 
+.. _Agenda:
+
+Agenda
+~~~~~~
+
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| Name                                                                                      | Description                                                                                                   | Default                                   |
++===========================================================================================+===============================================================================================================+===========================================+
+| :ref:`exo.agenda.calendar.defaultColor1 <Configuration.AgendaDefaultColor1>`              | A set of default colors to use for newly created Space Calendars                                              | defaultColor1:#08a554                     |
+| to                                                                                        |                                                                                                               | defaultColor2:#f8b121                     |
+| :ref:`exo.agenda.calendar.defaultColor10 <Configuration.AgendaDefaultColor10>`            |                                                                                                               | defaultColor3:#ee7429                     |
+|                                                                                           |                                                                                                               | defaultColor4:#e5282c                     |
+|                                                                                           |                                                                                                               | defaultColor5:#e32386                     |
+|                                                                                           |                                                                                                               | defaultColor6:#2aa8e2                     |
+|                                                                                           |                                                                                                               | defaultColor7:#743289                     |
+|                                                                                           |                                                                                                               | defaultColor8:#ac2986                     |
+|                                                                                           |                                                                                                               | defaultColor9:#3853a0                     |
+|                                                                                           |                                                                                                               | defaultColor10:#32388c                    |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.reminder.computing.period <Configuration.AgendaReminderComputingPeriod>` | Reminders of occurrent events are computed periodically to store its exact date of notification.              | 2 (two days)                              |
+|                                                                                           | This is the period, in days, of next upcoming event reminders to compute using a Periodic Job.                |                                           |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.webConferencing.default <Configuration.AgendaWebConferencingProvider>`   | Name of default Web Conferencing Provider to use.                                                             | jitsi (when exo-jitsi addon is installed) |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.settings.agendaDefaultView <Configuration.AgendaDefaultView>`            | Default user setting for Agenda view for new users. Possible values: month, week or day                       | week                                      |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.settings.agendaWeekStartOn <Configuration.AgendaWeekStartOn>`            | Default user setting for first day of the week. Possible values: MO, TU, WE, TH, FR, SA or SU                 | MO                                        |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.settings.showWorkingTime <Configuration.AgnedaShowWorkingTime>`          | Default user setting for showing or not working time in Agenda (add gray background on non working hours)     | false                                     |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.settings.workingTimeStart <Configuration.AgendaWorkingTimeStart>`        | Default user setting for working hour start                                                                   | 09:00                                     |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.settings.workingTimeEnd <Configuration.AgendaWorkingTimeEnd>`            | Default user setting for working hour end                                                                     | 18:00                                     |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.settings.automaticPushEvents <Configuration.AgendaAutomaticPushEvents>`  | Default user setting for automatic pushing events remotely into connected Remote Agenda Provider or not.      | true                                      |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.google.connector.enabled <Configuration.AgendaGoogleConnectorEnabled>`   | Global setting to allow users to connect their personal Google Calendar with eXo Agenda or not.               | true                                      |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.google.connector.key <Configuration.AgendaGoogleCalendarOauthAPIKey>`    | Client API Key to be generated from Google Console to identify current site that uses eXo Agenda application. |                                           |
+|                                                                                           | See https://developers.google.com/calendar/auth                                                               |                                           |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.office.connector.enabled <Configuration.AgendaOfficeConnectorEnabled>`   | Global setting to allow users to connect their personal Office 365 Outlook Calendar with eXo Agenda or not.   | true                                      |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
+| :ref:`exo.agenda.office.connector.key <Configuration.AgendaOfficeCalendarOauthAPIKey>`    | Client API Key to be generated from Office 365 to identify current site that uses eXo Agenda application.     |                                           |
+|                                                                                           | See https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow         |                                           |
++-------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------------------------------------------+
 
 .. _CaseSensitiveUsername:
 
@@ -2099,7 +2145,8 @@ need to edit it):
     exo.email.smtp.socketFactory.port=
     # This class will be used to create SMTP sockets. Sample: exo.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
     exo.email.smtp.socketFactory.class=
-
+    # (SSL Only) Starting from OpenJDK 11.0.11, legacy SSL protocols are no longer supported. Need to enforce TLS version.
+    mail.smtp.ssl.protocols=TLSv1.2 # (or TLSv1.3)
 Read the inline comments to understand each property. Here are some
 remarks:
 
@@ -2137,6 +2184,9 @@ Here is the sample using *smtp.gmail.com* server:
     exo.email.smtp.password=***
     exo.email.smtp.socketFactory.port=465
     exo.email.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+
+.. note:: If you want to use SMTP gateway over SSL, and starting from openjdk 11.0.11, 
+          which no longer supports legacy SSL versions (SSLv3, TLSv1, TLSv1.1) , the following property ``mail.smtp.ssl.protocols=TLSv1.2`` has to be added in eXo Platform.
 
 To make the configuration work, you need to:
 
@@ -4997,7 +5047,7 @@ the list of memberships granted to the user. Here is an extract:
             <value>
                 <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field name="userName"><string>${exo.super.user}</string></field>
-                    <field name="password"><string>gtn</string></field>
+                    <field name="password"><string>password</string></field>
                     <field name="firstName"><string>Root</string></field>
                     <field name="lastName"><string>Root</string></field>
                     <field name="email"><string>root@localhost</string></field>
@@ -5769,7 +5819,7 @@ Chat Server
 | ``chatPassPhrase``      | *chat*             | The password to access REST service  |
 |                         |                    | on the eXo Chat server.              |
 +-------------------------+--------------------+--------------------------------------+
-| ``chatCronNotifCleanup``| *0 0/60 \* \* \* ?*| The notifications are cleaned up     |
+| ``chatCronNotifCleanup``| *0 0 \* \* \* ?*| The notifications are cleaned up     |
 |                         |                    | every one hour by default. To learn  |
 |                         |                    | the syntax of Cron expression, see   |
 |                         |                    | :ref:`Scheduled synchronization,     |

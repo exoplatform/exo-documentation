@@ -1869,15 +1869,46 @@ In which:
       add a tab to the page, use ``UITabContainer``. See more samples in
       ``portal.war!/WEB-INF/conf/portal/template/pages``.
 
-3. Copy content of the
-   ``portal.war!/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy``
-   to your ``PageConfigOptions.groovy`` file. Add the following code:
+3. Declare your custom page template by adding a new component plugin (to import in one of configuration files)
 
-   .. code:: groovy
+   .. code:: xml
 
-		SelectItemCategory customPageConfigs = new SelectItemCategory("customPageConfigs") ;
-		categories.add(customPageConfigs) ;
-		customPageConfigs.addSelectItemOption(new SelectItemOption("customPage.CustomLayout", "custom", "CustomLayout")) ;
+    <external-component-plugins>
+      <target-component>org.exoplatform.portal.page.PageTemplateService</target-component>
+      <component-plugin>
+        <name>analyticsPageConfigs</name>
+        <set-method>addPageTemplate</set-method>
+        <type>org.exoplatform.portal.page.PageTemplatePlugin</type>
+        <init-params>
+          <object-param>
+            <name>category</name>
+            <object type="org.exoplatform.webui.core.model.SelectItemCategory">
+              <field name="name">
+                <string>customPageConfigs</string>
+              </field>
+              <field name="options">
+                <collection type="java.util.ArrayList" item-type="org.exoplatform.webui.core.model.SelectItemOption">
+                  <value>
+                    <object type="org.exoplatform.webui.core.model.SelectItemOption">
+                      <field name="label">
+                        <string>customPage.CustomLayout</string>
+                      </field>
+                      <field name="value">
+                        <string>custom</string>
+                      </field>
+                      <field name="icon">
+                        <string>CustomLayout</string>
+                      </field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+    </external-component-plugins>
+
 
 This code adds a category named "customPageConfigs" and a template named "CustomLayout".
 The arguments of the SelectItemOption object are:
@@ -1886,53 +1917,7 @@ The arguments of the SelectItemOption object are:
   - the unique name of the template. This name must be the folder name containing the page.xml file (WEB-INF/conf/portal/template/pages/<name>/page.xml)
   - the CSS class name for the template icon
 
-4. Localize the labels as follows:
-
-   -  **i.** Edit the ``locale-configuration.xml`` file:
-
-      .. code:: xml
-
-		   <configuration
-			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-			  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-			  
-			   <external-component-plugins>
-				   <target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
-				   <component-plugin>
-					   <name>webui resources</name>
-					   <set-method>addResourceBundle</set-method>
-					   <type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
-					   <init-params>
-						   <values-param>
-							   <name>init.resources</name>
-							   <value>locale.portal.webui</value>
-						   </values-param>
-						   <values-param>
-							   <name>portal.resource.names</name>
-							   <value>locale.portal.webui</value>
-						   </values-param>
-					   </init-params>
-				   </component-plugin>
-			   </external-component-plugins>
-
-		   </configuration>
-
-   -  **ii.** Edit the ``configuration.xml`` file to import
-      ``locale-configuration.xml``:
-
-      .. code:: xml
-
-		   <configuration
-			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
-			  xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
-			  
-			   <import>war:/conf/locale-configuration.xml</import>
-			   
-		   </configuration>
-
-   -  **iii.** Edit the ``webui_en.properties`` file to have:
+4. Add the file ``WEB-INF/classes/locale/portal/webui_en.properties`` inside your extension WAR:
 
       ::
 
@@ -1950,10 +1935,10 @@ Add the preview icon as follows:
    .. code:: css
 
 		   .CustomLayout {
-			 width: 270px;
-			 height: 170px;
-			 margin: auto;
-			 background: url('images/ItemSelector.gif') no-repeat left -680px;
+  			 width: 270px;
+  			 height: 170px;
+  			 margin: auto;
+  			 background: url('images/ItemSelector.gif') no-repeat left -680px;
 		   }
 
 -  **ii.** For simplification, you can copy the image named

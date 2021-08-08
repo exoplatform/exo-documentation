@@ -662,6 +662,9 @@ in front of it.
 If there is no available application, ask your system administrator to
 gain the access right.
 
+.. note:: System Administartors can manage Space's applications in **Space Management Administartion** by adding/removing applications. 
+          |SP-30|
+
 Deleting an application
 --------------------------
 
@@ -856,6 +859,7 @@ deleted.
 .. |SP-27| image:: images/spaces/space_apps.png
 .. |SP-28| image:: images/spaces/space_app_actions.png
 .. |SP-29| image:: images/spaces/manage_space_drawer.png
+.. |SP-30| image:: images/spaces/SP-APP.gif
 .. |image0| image:: images/social/spaces_list.png
 .. |image1| image:: images/common/1.png
 .. |image2| image:: images/common/2.png

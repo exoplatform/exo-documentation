@@ -271,7 +271,7 @@ The Account Setup window consists of 2 sub-forms:
    highest rights in the system.
 
 You can select Skip to ignore this step, then sign in as the root user
-with the default password (gtn).
+with the default password (password).
 
 Setting up your account
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

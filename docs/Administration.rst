@@ -43,6 +43,11 @@ Administering eXo Platform
     -  :ref:`Administrating spaces <UserGuide.AdministratingSpaces>`
        Instructions on how to manage spaces, their permissions and templates in
        eXo Platform.
+
+
+    -  :ref:`Administrating Agenda <UserGuide.AdministratingAgenda>`
+       Instructions on how to manage Agenda Connectors and Webconferencing on Agenda application in
+       eXo Platform.
        
     -  :ref:`Managing Application Center <AdminAppCenter>`
        Instructions on how to manage Application Center       
@@ -67,16 +72,16 @@ Administering eXo Platform
        How to manage categories, portlets and gadgets, and introduction
        to management and monitoring gadgets in eXo Platform.
     
-  -  :ref:`Managing News <ManagingNews>`
+    -  :ref:`Managing News <ManagingNews>`
        How to manage News related pages and content.
     
     -  :ref:`Managing wallets <ManagingWallets>`
        How to manage users and spaces wallets.
 
-  -  :ref:`Managing kudos <ManagingKudos>`
+    -  :ref:`Managing Kudos <ManagingKudos>`
        How to manage the use of kudos by users.
      
-  -  :ref:`Managing rewards <ManagingRewards>`
+    -  :ref:`Managing Rewards <ManagingRewards>`
        How to manage the rewarding programs.
      
     -  :ref:`Managing gamification <ManagingGamification>`
@@ -2718,7 +2723,53 @@ A confirmation popup appears to confirm deletion of the space or to cancel
 .. warning:: When deleting a space, all its data is also removed and can't be recovered.
 
 
-.. _SpaceBindingIcon:
+.. _UserGuide.AdministratingAgenda:
+
+======================
+Administrating Agenda 
+======================
+
+The Agenda administration interface is accessible via the menu Administration --> Agenda.
+
+|AGENDA1|
+
+This Administration Agenda page allows you, as an administrator to:
+
+- Configure Personal Calendar Connectors 
+
+- Configure Agenda Webconferencing 
+
+|AGENDA2|
+
+Manage Calendar Connectors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|AGENDA3|
+
+The Calendar connector table displays all Personal Calendar connectors that can be chosen by all users.
+
+All connectors are presented in a table with: 
+
+- Avatar: Avatar of the Calendar connector.
+
+- Name : Name of the Personal Calendar as shown to end users.
+
+- Description : description of the Personal Calendar.
+
+- Client API Key: API key to enable the connection service.
+
+- Active : Switch button to enable or disable the display of the Personal Calendar connector.
+
+.. note:: By default, you have 2 personal calendar connectors: **Google Calendar** and **Microsoft Outlook**.
+
+Manage Agenda Webconferencing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|AGENDA4|
+
+The Agenda Webconferencing pulldown allows you to choose the agenda conferencing provider.
+
+In case you don't want to have any Agenda Webconferencing, you can simply choose **No Webconferencing Provider**.
 
 Space binding
 ````````````````
@@ -6237,3 +6288,7 @@ The following image shows the screen when an anonymous user accesses
 .. |AC_image12| image:: images/platform/AppCenter/EditApp.png
 .. |AC_image13| image:: images/platform/AppCenter/EditAppSys.png
 .. |AC_image14| image:: images/platform/AppCenter/deleteConfirmMsg.png
+.. |AGENDA1| image:: images/Agenda/administrationagenda.png
+.. |AGENDA2| image:: images/Agenda/Agendaadministrationpage.png
+.. |AGENDA3| image:: images/Agenda/agendaconnectors.png
+.. |AGENDA4| image:: images/Agenda/agendawebconferencing.png

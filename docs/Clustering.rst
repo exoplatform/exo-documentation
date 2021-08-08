@@ -58,6 +58,17 @@ By example for local tests, you can start local servers by using the following c
           # Second cluster host startup command line (8081 is the server port configured for second host)
           ./start_eXo.sh --cluster --cluster-current-host node2 --cluster-host name=node1,http_port=8080 --cluster-host name=node2,http_port=8081
 
+============================================
+How to install eXo Chat in standalone mode ?
+============================================
+
+You can choose to deploy eXo Chat Server in standalone mode in order to reduce the load on eXo Platform servers.
+
+Some additional steps are required to install eXo Chat Server in standalone mode.
+In order to simplify installation steps, you can use the following `docker-compose.yml <https://github.com/exo-docker/exo/blob/master/test/cluster/docker-compose.yml>`__ example.
+
+.. note:: This configuration must be adapted to you specific needs and used eXo Platform versions.
+
 .. _Clustering.LoadBalancing:
 
 ==========================

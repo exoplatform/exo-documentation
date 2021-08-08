@@ -533,100 +533,70 @@ The schema below summaries the standalone mode architecture:
 
 To install eXo Chat in standalone mode, follow this procedure:
 
-1. Ensure to uninstall eXo Chat from eXo Platform server if it is already
-   installed by the Addon manager: ``addon uninstall exo-chat``
+1. Download eXo Chat Tomcat Server package (use same version as installed eXo Chat client addon):
+   `chat-standalone-server-packaging <https://repository.exoplatform.org/content/groups/public/org/exoplatform/addons/chat/chat-standalone-server-tomcat-distrib/>`__
 
-2. Download eXo Chat package:
-   `chat-standalone-server-packaging <https://repository.exoplatform.org/content/groups/public/org/exoplatform/addons/chat/chat-standalone-server-packaging/2.0.0/chat-standalone-server-packaging-2.0.0.zip>`__
-   into a known location and rename it to chat\_server\_package.
-
-   The package ``chat_server_package`` contains these files:
-
-   -  ``exo-chat-standalone-application-x.y.z.zip`` containing the files:
-      ``chat-services.jar`` ``chat-extension.war``, ``chat-common.jar`` and
-      ``chat.war``.
-
-   -  ``exo-chat-standalone-server-x.y.z.zip`` containing the war
-      ``chatServer.war``
-
-   -  ``chat-sample.properties``
-
-3. Install and configure `MongoDB <https://www.mongodb.com/download-center#atlas>`__ database by following this :ref:`link <Database.ChatDatabase>`.
-
-4. Configure chat server on Tomcat by following these steps:
-
-   -  Install the latest update of `Apache Tomcat 8 <https://tomcat.apache.org/download-80.cgi>`__ 
-      and rename it to chat-server.
-
-   -  Change the ``server.xml`` file to use the port 8280:
-
-   .. code:: xml
-
-       <Connector port="8280" protocol="HTTP/1.1"
-                      connectionTimeout="20000"
-                      redirectPort="8243" URIEncoding="UTF-8" />
-                      ....
+2. Unzip downloaded file into a known location (we will use ``CHAT_SERVER`` to reference the home folder of this server)
 
 .. note:: Make sure there is no port conflicts between the eXo Chat server and other systems. If you deploy the eXo Chat server on
           the same host than eXo Platform, then, you should change all the ports as in the example above.
-          
 
-   -  Deploy chat application in Apache tomcat by copying the following
-      files:
+3. Install and configure `MongoDB <https://www.mongodb.com/download-center#atlas>`__ database by following this :ref:`link <Database.ChatDatabase>`.
 
-		-  Copy the war file ``chatServer.war`` from
-		   chat\_server\_package/exo-chat-standalone-server-x.y.z to
-           ``chat-server/webapps/`` folder.
+4. Add file ``CHAT_SERVER/conf/chat.properties`` and add the following configuration entries (you will need to adapt this configuration sample to you installation):
 
-		-  Copy ``chat-sample.properties`` to ``chat-server/conf/`` folder
-           and rename it to ``chat.properties``.
+.. code:: properties
 
-		-  Adapt the configuration file ``chat.properties`` to fit with your
-           environments by updating the following properties:
+    standaloneChatServer=true
+    # Used by front-end UI, example: https://host.domain.com/
+    chatServerBase=[eXo-Platform-FRONTAL-HTTP-URL]
+    chatPortalPage=/portal/dw/chat
+    # Must be the same in server and client side
+    chatPassPhrase=[change-me]
+    dbServerHost=[MongoDB-Host]
+    dbServerPort=[MongoDB-Port]
+    dbName=chat
+    dbAuthentication=false
+    # When authentication enabled on DB
+    dbUser=[MongoDB-User]
+    dbPassword=[MongoDB-Pass]
 
-			::
+5. Start the chat server:
 
-			  standaloneChatServer=true
-			  dbServerHost=[MongoDB-Host]
-			  dbServerPort=[MongoDB-Port]
-			  dbName=chat
-			  dbAuthentication=false
-			  dbUser=admin
-			  dbPassword=pass
-			  chatPortalPage=/portal/intranet/chat
-			  chatPassPhrase=change-me
+::
 
-   -  Start the chat server:
+    ./start_chatServer.sh
 
-      ::
+6. Ensure to uninstall eXo Chat from eXo Platform server if it is already
+   installed by the Addon manager: ``addon uninstall exo-chat``
 
-          cd  chat-server
-          ./bin/catalina.sh run
+7. Install eXo Chat Client package to eXo Platform server by using
+   the Addon manager: ``addon install exo-chat-client``
 
-5. Install Chat application into eXo Platform server :
-   ``./addon install exo-chat-client``
+8. Configure these properties in ``EXO_PLATFORM_TOMCAT/gatein/conf/chat.properties``:
 
-6. Configure these properties in ``eXo_tomcat/gatein/conf/chat.properties``:
+.. code:: properties
 
-   ::
+    standaloneChatServer=true
+    # Used by backend flow, example: http://localhost:8280/chatServer
+    chatServiceUrl=[CHAT_SERVER_DIRECT-HTTP-URL]/chatServer
+    # Used by front-end UI, example: https://host.domain.com
+    chatServerUrl=[eXo-Platform-FRONTAL-HTTP-URL]
+    chatPortalPage=/portal/dw/chat
+    chatIntervalSession=60000
+    # Must be the same in server and client side
+    chatPassPhrase=[change-me]
 
-		standaloneChatServer=true 
-		chatServerBase=http://[chat-server-IP-address]:8280
-		chatPortalPage=/portal/intranet/chat
-		chatIntervalSession=60000
-		chatPassPhrase=change-me
-
-7. Start eXo Platform server:
+9. Start eXo Platform server:
 
    ::
 
 		cd eXo_tomcat 
 		./start_eXo.sh
-            
 
-8. Install a frontal server and configure it to redirect Chat server
+10. Install a frontal server and configure it to redirect Chat server
    requests to the right server. Below an example of an Apache2
-   configuration file (It should be adapted according to your environment):
+   configuration file (It should be adapted according to your environment, 8280 is the HTTP port of Chat Server):
 
 .. code:: xml
 
@@ -635,38 +605,31 @@ To install eXo Chat in standalone mode, follow this procedure:
         CustomLog /var/log/apache2/access.log combined
         #Put your used ServerName 
         ServerName www.domainexo.com
-         
-         <Proxy *>
-            Order deny,allow
-            Allow from all
-         </Proxy>
 
-         <IfModule proxy_wstunnel_module>    
-
-    ProxyPass /chatServer/cometd ws://localhost:8280/chatServer/cometd  max=100 acquire=5000   retry=5 disablereuse=on flushpackets=on 
-
-      ProxyPass /cometd  ws://localhost:8080/cometd/ max=100 acquire=5000 retry=5  disablereuse=on flushpackets=on 
-
-         </IfModule>
-         
-         ProxyPass /chatServer  http://localhost:8280/chatServer
-         ProxyPassReverse /chatServer http://localhost:8280/chatServer
-         ProxyPassReverse /chatServer/cometd/  ws://localhost:8280/chatServer/cometd/
-
+        <Proxy *>
+          Order deny,allow
+          Allow from all
+        </Proxy>
         
-
-         ProxyPassReverse /cometd  ws://localhost:8080/cometd/
-         ProxyPass / http://localhost:8080/
-         ProxyPassReverse / http://localhost:8080/  
-       
-         ProxyRequests Off
-         ProxyPreserveHost On
+        <IfModule proxy_wstunnel_module>
+        ProxyPass /chatServer/cometd ws://localhost:8280/chatServer/cometd  max=100 acquire=5000   retry=5 disablereuse=on flushpackets=on
+        ProxyPass /cometd  ws://localhost:8080/cometd/ max=100 acquire=5000 retry=5  disablereuse=on flushpackets=on
+        </IfModule>
+        
+        ProxyPass /chatServer  http://localhost:8280/chatServer
+        ProxyPassReverse /chatServer http://localhost:8280/chatServer
+        ProxyPassReverse /chatServer/cometd/  ws://localhost:8280/chatServer/cometd/
+        
+        ProxyPassReverse /cometd  ws://localhost:8080/cometd/
+        ProxyPass / http://localhost:8080/
+        ProxyPassReverse / http://localhost:8080/
+        
+        ProxyRequests Off
+        ProxyPreserveHost On
     </VirtualHost>
 
 
-            
-
-9. Login to the platform using this url `http://www.domainexo.com:80/portal/intranet/ <#>`__, 
+11. Login to the platform using this url `http://www.domainexo.com:80/portal/intranet/ <#>`__, 
    you should have the chat application in the top navigation menu.
 				
 .. _WebConfInstall:
@@ -715,6 +678,27 @@ If you want to re-install them again, you should just run these commands:
     ./addon install meeds-wallet
     ./addon install meeds-kudos
     ./addon install meeds-perk-store
+
+.. _AgendaInstall:
+
+===========================
+Agenda package installation
+===========================
+
+.. note:: Only the administrator has the right to install and uninstall this application.
+
+Agenda add-on is pre-installed by default in Enterprise edition.
+You can uninstall it using this command :
+
+::
+
+    ./addon uninstall exo-agenda
+
+If you want to re-install it again, you should just run this command:
+
+::
+
+    ./addon install exo-agenda
 
 .. _CustomizingEnvironmentVariables:
 
@@ -1247,4 +1231,3 @@ already.
 .. |image13| image:: images/left_navigation.png
 .. |image14| image:: images/chat/chat_icon.png
 .. |image15| image:: images/chat/standalone_mode.png
-
