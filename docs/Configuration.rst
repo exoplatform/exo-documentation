@@ -6110,7 +6110,7 @@ Blockchain transaction settings
     .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed in eXo's internal database.
               if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
 
-* When a new user creates his wallet, we could set the value of Ether/Matic to send him so he could pay the transactions on th eblockchain using the following property. If not set , the user will be sent an amount enough to pay a single transaction calculated using the detected Gas price on the blockchain.
+* When a new user creates his wallet, we could set the Ether/Matic value to send to him so that he can pay for a transaction on the blockchain using the following property. If not set, the user will receive an amount sufficient to pay for a single transaction calculated using the gas price detected on the blockchain.
 
     .. code-block:: jproperties
 
