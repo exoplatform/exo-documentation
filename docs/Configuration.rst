@@ -6110,6 +6110,12 @@ Blockchain transaction settings
     .. note:: If the transaction is still not mined after ``exo.wallet.transaction.pending.maxDays`` days, it will be marked as a failed in eXo's internal database.
               if/when it gets eventually mined (pending.maxDays), the Job ``ContractTransactionVerifierJob`` will detect it and will update the real transaction status coming from the blockchain and send notifications.
 
+* When a new user creates his wallet, we could set the Ether/Matic value to send to him so that he can pay for a transaction on the blockchain using the following property. If not set, the user will receive an amount sufficient to pay for a single transaction calculated using the gas price detected on the blockchain.
+
+    .. code-block:: jproperties
+
+          exo.wallet.blockchain.defaultInitialCryptoCurrencyFunds=0.3    
+
 
 Wallet types
 ~~~~~~~~~~~~
@@ -6118,7 +6124,7 @@ Wallet types
 
   The *Admin wallet* is created automatically during first startup of the eXo Platform server.
 
-  In order to be able to submit transactions to the blockchain using `Web3j<https://web3j.io/>`__ server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
+  In order to be able to submit transactions to the blockchain using `Web3j<https://web3j.io/>`_ server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
   The private key is encrypted by combining two passwords:
 
      -  A first password is read from a keystore file ( see :ref:`Updating password encryption key <UpdatePasswordEncryptionKey>` )
