@@ -6124,7 +6124,7 @@ Wallet types
 
   The *Admin wallet* is created automatically during first startup of the eXo Platform server.
 
-  In order to be able to submit transactions to the blockchain using `Web3j<https://web3j.io/>`_server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
+  In order to be able to submit transactions to the blockchain using `Web3j<https://web3j.io/>`_ server side, the private key of the *Admin wallet* is stored (in encrypted form) in the internal database.
   The private key is encrypted by combining two passwords:
 
      -  A first password is read from a keystore file ( see :ref:`Updating password encryption key <UpdatePasswordEncryptionKey>` )
