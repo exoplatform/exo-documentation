@@ -2015,6 +2015,9 @@ validator aspects:
    -  **username**: Validates the 'Username' field in the Create or Edit
       user form.
 
+   -  **password**: Validates the 'Password' field in the Create or Edit
+      user form.
+
    -  **groupmembership**: There is a built-in regex that is currently
       not used to validate any field:
 
@@ -2054,7 +2057,7 @@ validator aspects:
       information message that is displayed when the field does not
       conform to the specified regular expression.
 
-See details about the "*username*\ " validator as below. For
+See details about the "*username*\ " and "*password*\ " validators as below. For
 instructions on how to add a new validator (not in the above list), see
 :ref:`Developing your own validator <#PLFDevGuide.AuthenticationAndIdentity.DevelopingValidators>`.
 
@@ -2100,6 +2103,46 @@ warning message:
 ::
 
     The field "User Name" must match the format "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$".
+
+**Configuration of password validator**
+
+By default, the password will be validated as follows:
+
+-  The length must be between 9 and 256 characters.
+
+-  Must contains at minima 1 digit, 1 lower case, 1 upper case
+
+This default configuration correspond to the minimal password length required by
+`ANSSI <https://www.ssi.gouv.fr/uploads/2021/10/anssi-guide-authentification_multifacteur_et_mots_de_passe.pdf>`__
+
+If you want to change the password validation to use the middle level defined by ANSSI, you could use the following
+configuration :
+
+::
+
+    # validators
+    gatein.validators.passwordpolicy.regexp=((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).\\{12,256\\})
+    gatein.validators.passwordpolicy.length.max=256
+    gatein.validators.passwordpolicy.length.min=12
+    gatein.validators.passwordpolicy.format.message=Minimum of 1 digit, 1 lower case, 1 upper case, minimum of 12 chars.
+
+If you want to change the password validation to use the strong level defined by ANSSI, you could use the following configuration :
+
+::
+
+    # validators
+    gatein.validators.passwordpolicy.regexp=((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).\\{15,256\\})
+    gatein.validators.passwordpolicy.length.max=256
+    gatein.validators.passwordpolicy.length.min=15
+    gatein.validators.passwordpolicy.format.message=Minimum of 1 digit, 1 lower case, 1 upper case, minimum of 15 chars.
+
+
+.. note:: Even if we define a maximum for the password length, we do not display it to the user. It a technical limit to prevent
+          some attacks related to very long password.
+
+.. note:: If you need to define more rules for password complexity, you can update the regexp according to your rules. Remember
+          to update the error message according to your modifications.
+
 
 .. _OutgoingMailService:
 
