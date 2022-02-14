@@ -2141,7 +2141,7 @@ If you want to change the password validation to use the strong level defined by
           some attacks related to very long password.
 
 .. note:: If you need to define more rules for password complexity, you can update the regexp according to your rules. Remember
-          to update the error message according to your modifications.
+          to update the error message accordingly to help the user enter a valid password.
 
 
 .. _OutgoingMailService:
