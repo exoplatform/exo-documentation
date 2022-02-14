@@ -2115,7 +2115,7 @@ By default, the password will be validated as follows:
 This default configuration correspond to the minimal password length recommended by
 `ANSSI-PG-078 <https://www.ssi.gouv.fr/uploads/2021/10/anssi-guide-authentification_multifacteur_et_mots_de_passe.pdf>`__ in low to medium sensitivity contexts.
 
-If you want to change the password validation to use the middle level defined by ANSSI, you could use the following
+If you want to change the password validation in medium to high sensitivity contexts, the ANSSI recommends to use the following
 configuration :
 
 ::
