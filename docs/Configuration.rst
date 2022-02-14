@@ -2113,7 +2113,7 @@ By default, the password will be validated as follows:
 -  Must contains at minima 1 digit, 1 lower case, 1 upper case
 
 This default configuration correspond to the minimal password length recommended by
-`ANSSI <https://www.ssi.gouv.fr/uploads/2021/10/anssi-guide-authentification_multifacteur_et_mots_de_passe.pdf>`__
+`ANSSI-PG-078 <https://www.ssi.gouv.fr/uploads/2021/10/anssi-guide-authentification_multifacteur_et_mots_de_passe.pdf>`__ in low to medium sensitivity contexts.
 
 If you want to change the password validation to use the middle level defined by ANSSI, you could use the following
 configuration :
