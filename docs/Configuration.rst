@@ -2137,7 +2137,7 @@ If you want to change the password validation to use the strong level defined by
     gatein.validators.passwordpolicy.format.message=Minimum of 1 digit, 1 lower case, 1 upper case, minimum of 15 chars.
 
 
-.. note:: Even if we define a maximum for the password length, we do not display it to the user. It a technical limit to prevent
+.. note:: Even when the maximum password length is not set, that maximum will not be revealed to the end user. This is done on purpose to limit exposure to
           some attacks related to very long password.
 
 .. note:: If you need to define more rules for password complexity, you can update the regexp according to your rules. Remember
