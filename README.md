@@ -1,3 +1,7 @@
+## Build status 🏗️
+
+[![Documentation Status](https://readthedocs.com/projects/exo-platform-exo-documentation/badge/?version=latest)](https://docs.exoplatform.org/en/latest/?badge=latest)
+
 ## How To build
 
 ```bash
