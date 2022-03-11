@@ -276,27 +276,34 @@ For OpenId, you need to add 4 more properties which are urls which will be calle
 Theses urls are implicit in other providers, but as OpenId can be implemented in different ways, we have to provide urls.
 In urls, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
 
-::
+	::
 
-		## OpenId Urls
-		exo.oauth.openid.authenticationURL=https://openid.server.com/authorize
-    exo.oauth.openid.accessTokenURL=https://openid.server.com/token
-    exo.oauth.openid.tokenInfoURL=https://openid.server.com/introspect
-    exo.oauth.openid.userInfoURL=https://openid.server.com/userinfo
-
+	    ## OpenId Urls
+	    exo.oauth.openid.authenticationURL=https://openid.server.com/authorize
+	    exo.oauth.openid.accessTokenURL=https://openid.server.com/token
+	    exo.oauth.openid.tokenInfoURL=https://openid.server.com/introspect
+	    exo.oauth.openid.userInfoURL=https://openid.server.com/userinfo
+    
 
 .. note:: Google provide an OpenId protocol implementation. You can use it by creating an Oauth
    2.0 client ID (as explained previously), and by using it as openid provider, with theses parameters :
 
-::
-    exo.oauth.openid.enabled=true
-		exo.oauth.openid.clientId=GooglePlus_Client_Id
-		exo.oauth.openid.clientSecret=GooglePlus_Client_Secret
-    exo.oauth.openid.authenticationURL=https://accounts.google.com/o/oauth2/auth
-    exo.oauth.openid.accessTokenURL=https://oauth2.googleapis.com/token
-    exo.oauth.openid.tokenInfoURL=https://www.googleapis.com/oauth2/v2/tokeninfo
-    exo.oauth.openid.userInfoURL=https://openidconnect.googleapis.com/v1/userinfo
+	::
+	
+	    exo.oauth.openid.enabled=true
+	    exo.oauth.openid.clientId=GooglePlus_Client_Id
+	    exo.oauth.openid.clientSecret=GooglePlus_Client_Secret
+	    exo.oauth.openid.authenticationURL=https://accounts.google.com/o/oauth2/auth
+	    exo.oauth.openid.accessTokenURL=https://oauth2.googleapis.com/token
+	    exo.oauth.openid.tokenInfoURL=https://www.googleapis.com/oauth2/v2/tokeninfo
+	    exo.oauth.openid.userInfoURL=https://openidconnect.googleapis.com/v1/userinfo
+    
+Finally, for OpenId, you need a redirectUrl which will be called by your openid server after successful authentication. This url will "read" the loggued user, and redirect him to the portal
 
+	::
+	
+	    exo.oauth.openid.redirectURL=http://server.local.network.com:8080/portal/openidAuth
+    
 
 3. Restart eXo Platform server. Your users should be able to register 
    or log in with their social network accounts.
