@@ -25,6 +25,9 @@ Security
     -  :ref:`XSS protection <Security.XSSProtection>`
        To activate XSS protection mechanisms.
 
+    -  :ref:`SameSite Configuration <Security.SameSiteConfiguration>`
+       To configure SameSite property for cookies
+
     -  :ref:`Securing the MongoDB Database <Security.MongoDBSecure>`
        How to secure eXo chat database.
 
@@ -658,6 +661,44 @@ configuration :
             ...
 
 
+.. _Security.SameSiteConfiguration:
+
+======================
+SameSite Configuration
+======================
+
+SameSite is a property set on HTTP cookies. It can prevent some CSRF attacks.
+SameSite property can take one of theses values : None, Strict, and Lax
+
+With value **None**, when a request is done on eXo Server, there is no verification on the referer. The cookies is used.
+For example, if a user receive a forged email, containing a link to call a REST allowing to modify data, like delete a space,
+if the user have a session on eXo, when he clicks on the link, the session cookie is used and the request is executed. It is a
+CSRF attack.
+
+With value **Strict**; when a request is done on eXo Server, the referer is checked. If the referer have a different
+domain than the eXo Server domain, the request will not use the cookie.
+In the above example, the request is not directly executed, and the user is redirected to the login URL.
+This behaviour is also applied for GET HTTP requests. So, when a user click on a link in a notification for example, he have to
+login again.
+
+With value **Lax**; when a request is done on eXo Server, the referer is checked. If the referer have a different
+domain than the eXo Server domain, and if the request is not a GET request, the request will not use the cookie. So this
+intermediate option allows to use link in mail notification, and protect sensible urls which modify data.
+
+By default, eXo use **Lax** value for cookies.
+It can be change by configuration if a different value is needed. For that, rename file (if not already done)
+``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sample.sh`` in ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sh`` and then
+uncomment the line
+
+::
+
+            ...
+            CATALINA_OPTS="$CATALINA_OPTS -Dexo.cookie.samesite=Lax"
+            ...
+
+Then modify the value to use *None* or *Strict*
+
+For Windows environment, use the file ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sample.bat``
 
 .. _Security.MongoDBSecure:
 
