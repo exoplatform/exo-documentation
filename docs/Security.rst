@@ -675,18 +675,19 @@ For example, if a user receive a forged email, containing a link to call a REST 
 if the user have a session on eXo, when he clicks on the link, the session cookie is used and the request is executed. It is a
 CSRF attack.
 
-With value **Strict**; when a request is done on eXo Server, the referer is checked. If the referer have a different
+With value **Strict**; when a request is done on eXo Server, the referer is checked. If the referer has a different
 domain than the eXo Server domain, the request will not use the cookie.
 In the above example, the request is not directly executed, and the user is redirected to the login URL.
-This behaviour is also applied for GET HTTP requests. So, when a user click on a link in a notification for example, he have to
-login again.
+This behaviour is also applied for HTTP GET requests. So, when a user clicks on a link in a notification for example, he has to
+login again. 
+With this value, all SSO systems (SAML, OAuth, OpenIdConnect ...), generally based on redirections between different hosts, **will not work**.
 
-With value **Lax**; when a request is done on eXo Server, the referer is checked. If the referer have a different
+With value **Lax**; when a request is done on eXo Server, the referer is checked. If the referer has a different
 domain than the eXo Server domain, and if the request is not a GET request, the request will not use the cookie. So this
-intermediate option allows to use link in mail notification, and protect sensible urls which modify data.
+intermediate option allows to use link in mail notification, and protects sensitive urls which modify data.
 
 By default, eXo use **Lax** value for cookies.
-It can be change by configuration if a different value is needed. For that, rename file (if not already done)
+It can be changed by configuration if a different value is needed. For that, rename file (if not already done)
 ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sample.sh`` in ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sh`` and then
 uncomment the line
 
