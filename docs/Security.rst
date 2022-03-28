@@ -686,7 +686,7 @@ With value **Lax**; when a request arrives on the eXo server, the referer is als
 domain than the eXo server's domain, only GET requests will use the cookie. So this
 intermediate option allows to use links read only endpoints in email notifications, and still protect sensitive requests that may alter data.
 
-By default, eXo use **Lax** value for cookies.
+By default, eXo uses **Lax** policy in order to have email notification links and SSO configurations work.
 It can be changed by configuration if a different value is needed. For that, rename file (if not already done)
 ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sample.sh`` in ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sh`` and then
 uncomment the line
