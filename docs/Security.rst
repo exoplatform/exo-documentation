@@ -671,20 +671,20 @@ SameSite is a property set on HTTP cookies. It can prevent some CSRF attacks.
 SameSite property can take one of theses values : None, Strict, and Lax
 
 With value **None**, when a request is done on eXo Server, there is no verification on the referer. The cookies is used.
-For example, if a user receive a forged email, containing a link to call a REST allowing to modify data, like delete a space,
-if the user have a session on eXo, when he clicks on the link, the session cookie is used and the request is executed. It is a
+For example, if a user receives a malicious email, containing a link forged to call a REST endpoint altering data, like deleting a space, changing a permission, etc..
+if the user has a valid session on eXo, when he clicks on the link, the session cookie would be used and the request would executed on his behalf. It is a
 CSRF attack.
 
-With value **Strict**; when a request is done on eXo Server, the referer is checked. If the referer has a different
-domain than the eXo Server domain, the request will not use the cookie.
-In the above example, the request is not directly executed, and the user is redirected to the login URL.
+With value **Strict**; when a request arrives on the eXo server, the referer is verified. If the referer has a different
+domain than the eXo server's domain, the request will not use the cookie.
+In the situation described above, the request would not  be directly executed. The user would be redirected to the login page first.
 This behaviour is also applied for HTTP GET requests. So, when a user clicks on a link in a notification for example, he has to
 login again. 
 With this value, all SSO systems (SAML, OAuth, OpenIdConnect ...), generally based on redirections between different hosts, **will not work**.
 
-With value **Lax**; when a request is done on eXo Server, the referer is checked. If the referer has a different
-domain than the eXo Server domain, and if the request is not a GET request, the request will not use the cookie. So this
-intermediate option allows to use link in mail notification, and protects sensitive urls which modify data.
+With value **Lax**; when a request arrives on the eXo server, the referer is also verified. If the referer has a different
+domain than the eXo server's domain, only GET requests will use the cookie. So this
+intermediate option allows to use links read only endpoints in email notifications, and still protect sensitive requests that may alter data.
 
 By default, eXo use **Lax** value for cookies.
 It can be changed by configuration if a different value is needed. For that, rename file (if not already done)
