@@ -672,7 +672,7 @@ SameSite property can take one of theses values : None, Strict, and Lax
 
 With value **None**, when a request is done on eXo Server, there is no verification on the referer. The cookies is used.
 For example, if a user receives a malicious email, containing a link forged to call a REST endpoint altering data, like deleting a space, changing a permission, etc..
-if the user has a valid session on eXo, when he clicks on the link, the session cookie would be used and the request would executed on his behalf. It is a
+if the user has a valid session on eXo, clicking the link would alter data on their behalf. It is a
 CSRF attack.
 
 With value **Strict**; when a request arrives on the eXo server, the referer is verified. If the referer has a different
