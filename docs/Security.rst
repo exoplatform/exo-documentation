@@ -671,7 +671,7 @@ SameSite is a property set on HTTP cookies. It can prevent some CSRF attacks.
 SameSite property can take one of theses values : None, Strict, and Lax
 
 With value **None**, when a request is done on eXo Server, there is no verification on the referer. The cookies is used.
-For example, if a user receives a malicious email, containing a link forged to call a REST endpoint altering data, like deleting a space, changing a permission, etc..
+For example, when a user receives a malicious email, containing a link forged to call a data-altering REST endpoint such as deleting a space, changing a permission, etc..
 if the user has a valid session on eXo, clicking the link would alter data on their behalf. It is a
 CSRF attack.
 
