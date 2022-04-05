@@ -25,6 +25,9 @@ Security
     -  :ref:`XSS protection <Security.XSSProtection>`
        To activate XSS protection mechanisms.
 
+    -  :ref:`SameSite Configuration <Security.SameSiteConfiguration>`
+       To configure SameSite property for cookies
+
     -  :ref:`Securing the MongoDB Database <Security.MongoDBSecure>`
        How to secure eXo chat database.
 
@@ -658,6 +661,45 @@ configuration :
             ...
 
 
+.. _Security.SameSiteConfiguration:
+
+======================
+SameSite Configuration
+======================
+
+SameSite is a property set on HTTP cookies. It can prevent some CSRF attacks.
+SameSite property can take one of theses values : None, Strict, and Lax
+
+With value **None**, when a request is done on eXo Server, there is no verification on the referer. The cookies is used.
+For example, when a user receives a malicious email, containing a link forged to call a data-altering REST endpoint such as deleting a space, changing a permission, etc..
+if the user has a valid session on eXo, clicking the link would alter data on their behalf. It is a
+CSRF attack.
+
+With value **Strict**; when a request arrives on the eXo server, the referer is verified. If the referer has a different
+domain than the eXo server's domain, the request will not use the cookie.
+In the situation described above, the request would not  be directly executed. The user would be redirected to the login page first.
+This behaviour is also applied for HTTP GET requests. So, when a user clicks on a link in a notification for example, he has to
+login again. 
+With this value, all SSO systems (SAML, OAuth, OpenIdConnect ...), generally based on redirections between different hosts, **will not work**.
+
+With value **Lax**; when a request arrives on the eXo server, the referer is also verified. If the referer has a different
+domain than the eXo server's domain, only GET requests will use the cookie. So this
+intermediate option allows to use links read only endpoints in email notifications, and still protect sensitive requests that may alter data.
+
+By default, eXo uses **Lax** policy in order to have email notification links and SSO configurations work.
+It can be changed by configuration if a different value is needed. For that, rename file (if not already done)
+``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sample.sh`` in ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sh`` and then
+uncomment the line
+
+::
+
+            ...
+            CATALINA_OPTS="$CATALINA_OPTS -Dexo.cookie.samesite=Lax"
+            ...
+
+Then modify the value to use *None* or *Strict*
+
+For Windows environment, use the file ``$PLATFORM_TOMCAT_HOME/bin/setenv-customize.sample.bat``
 
 .. _Security.MongoDBSecure:
 
