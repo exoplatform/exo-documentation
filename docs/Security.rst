@@ -22,6 +22,9 @@ Security
        Information about the file location and steps to update the
        "Remember My Login" password encryption key.
 
+    -  :ref:`Anti Brute Force <Security.AntibruteForce>`
+       To configure antibrute force system.
+
     -  :ref:`XSS protection <Security.XSSProtection>`
        To activate XSS protection mechanisms.
 
@@ -608,6 +611,32 @@ restart the server. The keystore file will be re-created at the startup
 time.
 
 .. note:: Updating the password encryption key causes the invalidation of existing tokens, so the users must re-login.
+
+.. _Security.AntibruteForce:
+
+=================================
+Anti Brute Force Login Protection
+=================================
+
+To prevent an attack based on bruteforce on login form, eXo Platform have an antibrute force system.
+After few failed logins attempts in a short time, the concerned user account is locked for some minutes.
+
+When an account is locked, the user can make a forgot password request. After resetting his password, the account is unlocked
+and the user can login normally.
+
+There are two properties to configure this feature. To modify it, you can add it in ``exo.properties``.
+
+The following property allow to configure the number of attempts before the account is locked. The default value is 5 attempts
+
+   ::
+
+		exo.authentication.antibruteforce.maxAuthenticationAttempts=5
+
+The following property allow to configure the number of minutes the account is locked. The default value is 10 minutes.
+
+   ::
+
+		exo.authentication.antibruteforce.blockingTime=10
 
 .. _Security.XSSProtection:
 
