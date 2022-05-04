@@ -23,7 +23,7 @@ Security
        "Remember My Login" password encryption key.
 
     -  :ref:`Anti Brute Force <Security.AntibruteForce>`
-       To configure antibrute force system.
+       To configure the mechanim that protects against brute force attacks on password authentication.
 
     -  :ref:`XSS protection <Security.XSSProtection>`
        To activate XSS protection mechanisms.
@@ -615,24 +615,23 @@ time.
 .. _Security.AntibruteForce:
 
 =================================
-Anti Brute Force Login Protection
+Login Brute Force Attacks Protection
 =================================
 
-To prevent an attack based on bruteforce on login form, eXo Platform have an antibrute force system.
-After few failed logins attempts in a short time, the concerned user account is locked for some minutes.
+To prevent an attack based on brute force on login/password form, a built-in protection mechanism exists.
+When multiple failed login attempts occur in a short time, the target user account is temporarily locked for a few minutes.
 
-When an account is locked, the user can make a forgot password request. After resetting his password, the account is unlocked
-and the user can login normally.
+When an account is locked, the user can immediately unlock it by resetting its password through a __forgot password__ request.
 
-There are two properties to configure this feature. To modify it, you can add it in ``exo.properties``.
+Two properties control the brute force attack protection mechanism. To configure it, you can add them in ``exo.properties``.
 
-The following property allow to configure the number of attempts before the account is locked. The default value is 5 attempts
+The following property determines the number of unsuccessful login attempts before the account is locked. The default value is 5 attempts
 
    ::
 
 		exo.authentication.antibruteforce.maxAuthenticationAttempts=5
 
-The following property allow to configure the number of minutes the account is locked. The default value is 10 minutes.
+The following property determines how long (in minutes) an account is locked when the protection mechanism is triggered. The default value is 10 minutes.
 
    ::
 
