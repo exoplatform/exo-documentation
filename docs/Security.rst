@@ -618,10 +618,10 @@ time.
 Login Brute Force Attacks Protection
 =================================
 
-To prevent an attack based on brute force on login/password form, a built-in protection mechanism exists.
-When multiple failed login attempts occur in a short time, the target user account is temporarily locked for a few minutes.
+To prevent an attack based on brute force on login/password form, a built-in protection mechanism exists : 
+when multiple failed login attempts occur in a short time, the target user account is temporarily locked for a few minutes.
 
-When an account is locked, the user can immediately unlock it by resetting its password through a __forgot password__ request.
+When an account is locked, the user can immediately unlock it by resetting its password through a **forgot password** request.
 
 Two properties control the brute force attack protection mechanism. To configure it, you can add them in ``exo.properties``.
 
