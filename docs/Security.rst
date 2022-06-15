@@ -22,6 +22,9 @@ Security
        Information about the file location and steps to update the
        "Remember My Login" password encryption key.
 
+    -  :ref:`Anti Brute Force <Security.AntibruteForce>`
+       To configure the mechanim that protects against brute force attacks on password authentication.
+
     -  :ref:`XSS protection <Security.XSSProtection>`
        To activate XSS protection mechanisms.
 
@@ -608,6 +611,31 @@ restart the server. The keystore file will be re-created at the startup
 time.
 
 .. note:: Updating the password encryption key causes the invalidation of existing tokens, so the users must re-login.
+
+.. _Security.AntibruteForce:
+
+=================================
+Login Brute Force Attacks Protection
+=================================
+
+To prevent an attack based on brute force on login/password form, a built-in protection mechanism exists : 
+when multiple failed login attempts occur in a short time, the target user account is temporarily locked for a few minutes.
+
+When an account is locked, the user can immediately unlock it by resetting its password through a **forgot password** request.
+
+Two properties control the brute force attack protection mechanism. To configure it, you can add them in ``exo.properties``.
+
+The following property determines the number of unsuccessful login attempts before the account is locked. The default value is 5 attempts
+
+   ::
+
+		exo.authentication.antibruteforce.maxAuthenticationAttempts=5
+
+The following property determines how long (in minutes) an account is locked when the protection mechanism is triggered. The default value is 10 minutes.
+
+   ::
+
+		exo.authentication.antibruteforce.blockingTime=10
 
 .. _Security.XSSProtection:
 
