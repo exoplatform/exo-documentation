@@ -15,7 +15,8 @@ eXo Rest APIs
 
   **Social Rest Api**
 
-  Swagger ui based rest documentation for social.
+  The eXo Social REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Social functionality.
+  Following the list of eXo Social API operations : 
 
  .. raw:: html
    :file: embed/social-docs-swagger.html
