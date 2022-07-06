@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to eXo Platform documentation!
+Welcome to eXo Platform documentation 6.0!
 =======================================
 
 The main guides in eXo Platform documentation:
