@@ -25,7 +25,8 @@ eXo Rest APIs
 
   **Gatein-portal Rest Api**
 
-  Swagger ui based rest documentation for Gatein-Portal.
+  The eXo Portal REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Portal layer functionality.
+  Following the list of eXo Portal API operations : 
 
  .. raw:: html
    :file: embed/gatein-portal-docs-swagger.html
