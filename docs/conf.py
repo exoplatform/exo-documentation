@@ -113,7 +113,14 @@ todo_include_todos = False
 # a list of builtin themes.
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-
+html_js_files = [
+    'js/DocsUtils.js',
+    ('https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-bundle.js', {'crossorigin': ''}),
+    ('https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-standalone-preset.js', {'crossorigin': ''}),
+]
+html_css_files = [
+    'https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui.css'
+]
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.

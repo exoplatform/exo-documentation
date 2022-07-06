@@ -119,6 +119,8 @@ integrate eXo services into their applications.
 See `REST API Documentation 5.0 <../../../PLF50/rest-api>`__ for more
 details.
 
+See :ref:`eXo Rest APIs Swagger Documented <SWAGGER.REST.APIS>` for more details.
+
 **JavaScript API**
 
 -  **`OpenSocial 2.5.1 Gadget
