@@ -10,6 +10,7 @@ eXo Rest APIs
 
  :ref:`Gatein-Portal Rest API <GATEIN_PORTAL_REST_API>`
 
+ :ref:`Commons Rest API <COMMONS_REST_API>`
 
 .. _SOCIAL_REST_API:
 
@@ -30,3 +31,13 @@ eXo Rest APIs
 
  .. raw:: html
    :file: embed/gatein-portal-docs-swagger.html
+
+.. _COMMONS_REST_API:
+
+  **Commons Rest Api**
+
+  The eXo Commons REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Commons functionality.
+  Following the list of eXo Commons API operations :
+
+ .. raw:: html
+   :file: embed/commons-docs-swagger.html
