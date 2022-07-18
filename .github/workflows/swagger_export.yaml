@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Download nexus metadata
         run: |
-          curl  -s ${SERVER_URL}/${PREFIX}/commons/commons-component-common/6.4.x-devx-SNAPSHOT/${maven-metadata} | cat > commons-metadata.txt
+          url=${SERVER_URL}/${PREFIX}/commons/commons-component-common/6.4.x-devx-SNAPSHOT/${maven-metadata}
+          echo $url
+          curl  -s $url | cat > commons-metadata.txt
           cat commons-metadata.txt
 
