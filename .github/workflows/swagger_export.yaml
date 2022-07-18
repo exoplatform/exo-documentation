@@ -1,0 +1,32 @@
+name: Commit new Swagger files to exo_documentation
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 1 * *' # First day of the week at midnight
+
+jobs:
+  get_swagger_files_from_nexus:
+      runs-on: ubuntu-latest
+      env:
+          SERVER_URL: "https://repository.exoplatform.org"
+          PREFIX: "/content/repositories/public/org/exoplatform"
+          URLS_OF_FILES:
+              - "commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-TIMESTAMP-BUILD_NUMBER-swagger.json"           #commons
+              - "social/social-component-service/6.4.x-devx-SNAPSHOT"            #social
+              - "gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT"  #gatein_portal
+              - "ecms/ecms-core-services/6.4.x-devx-SNAPSHOT"                    #ecms
+              - "addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT"                    #dlp_addon
+              - "anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT"         #anti-malware
+          maven-metadata: "maven-metadata.xml"
+
+      steps:
+        - name: Download nexus metadata
+          run: |
+            mkdir -p Download_file
+            pushd Download_file
+            curl -s ${SERVER_URL}/${PREFIX}/social/6.4.x-devx-SNAPSHOT/${maven-metadata} | cat > social-metadata.txt
+            TIMESTAMP=$((awk '/<timestamp>/ {print $1}'  meta-data.txt) | tr -dc '0-9''.')
+            BUILD_NUMBER=$((awk '/<buildNumber>/ {print $1}'  meta-data.txt) | tr -dc '0-9''.')
+            curl -s ${SERVER_URL}/${PREFIX}/social/6.4.x-devx-SNAPSHOT/commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json > swagger_common.json
+            cat swagger_common.json
