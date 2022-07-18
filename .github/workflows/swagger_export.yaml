@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Download nexus metadata
         run: |
-          mkdir -p Download_file
-          pushd Download_file
+#           mkdir -p Download_file
+#           pushd Download_file
           curl -u nexus:Nexus@eXo2020 -s ${SERVER_URL}/${PREFIX}/social/6.4.x-devx-SNAPSHOT/${maven-metadata} | cat > commons-metadata.txt
           TIMESTAMP=$((awk '/<timestamp>/ {print $1}'  commons-metadata.txt) | tr -dc '0-9''.')
           BUILD_NUMBER=$((awk '/<buildNumber>/ {print $1}'  commons-metadata.txt) | tr -dc '0-9''.')
