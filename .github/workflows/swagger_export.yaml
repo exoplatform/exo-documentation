@@ -22,7 +22,7 @@ jobs:
         run: |
           mkdir -p Download_file
           pushd Download_file
-          curl -s ${SERVER_URL}/${PREFIX}/social/6.4.x-devx-SNAPSHOT/${maven-metadata} | cat > social-metadata.txt
+          curl -u nexus:Nexus@eXo2020 -s ${SERVER_URL}/${PREFIX}/social/6.4.x-devx-SNAPSHOT/${maven-metadata} | cat > social-metadata.txt
           TIMESTAMP=$((awk '/<timestamp>/ {print $1}'  meta-data.txt) | tr -dc '0-9''.')
           BUILD_NUMBER=$((awk '/<buildNumber>/ {print $1}'  meta-data.txt) | tr -dc '0-9''.')
           curl -s ${SERVER_URL}/${PREFIX}/social/6.4.x-devx-SNAPSHOT/commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json > swagger_common.json
