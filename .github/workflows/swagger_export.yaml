@@ -15,12 +15,12 @@ jobs:
 #           - "ecms/ecms-core-services/6.4.x-devx-SNAPSHOT"                                                                                            #ecms
 #           - "addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT"                                                                                            #dlp_addon
 #           - "anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT"                                                                                 #anti-malware
-      maven-metadata: "maven-metadata.xml"
+      MAVEN_METADATA: "maven-metadata.xml"
 
     steps:
       - name: Download nexus metadata
         run: |
-          url=${SERVER_URL}/${PREFIX}/commons/commons-component-common/6.4.x-devx-SNAPSHOT/${maven-metadata}
+          url=${SERVER_URL}/${PREFIX}/commons/commons-component-common/6.4.x-devx-SNAPSHOT/${MAVEN_METADATA}
           echo $url
           curl  -s $url | cat > commons-metadata.txt
           cat commons-metadata.txt
