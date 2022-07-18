@@ -1,9 +1,6 @@
 name: Commit new Swagger files to exo_documentation
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  schedule:
-    - cron:  '0 18 * * *' # Everyday at 6PM
+- push
 
 jobs:
   get_and_commit_kb_export_files:
