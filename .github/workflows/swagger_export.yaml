@@ -13,11 +13,11 @@ jobs:
           PREFIX: "/content/repositories/public/org/exoplatform"
           URLS_OF_FILES:
               - "commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-TIMESTAMP-BUILD_NUMBER-swagger.json"           #commons
-              - "social/social-component-service/6.4.x-devx-SNAPSHOT"            #social
-              - "gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT"  #gatein_portal
-              - "ecms/ecms-core-services/6.4.x-devx-SNAPSHOT"                    #ecms
-              - "addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT"                    #dlp_addon
-              - "anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT"         #anti-malware
+              - "social/social-component-service/6.4.x-devx-SNAPSHOT"                                                                                    #social
+              - "gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT"                                                                          #gatein_portal
+              - "ecms/ecms-core-services/6.4.x-devx-SNAPSHOT"                                                                                            #ecms
+              - "addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT"                                                                                            #dlp_addon
+              - "anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT"                                                                                 #anti-malware
           maven-metadata: "maven-metadata.xml"
 
       steps:
