@@ -272,14 +272,14 @@ you will need to:
    -  ``exo.oauth.{OAuth_Provider}.clientSecret`` - Client Secret of your
       application.
 
-For OpenId, you need to add 4 more properties which are urls which will be called during the protocol execution.
+For OpenId, you need to add 1 more properties which is url will contains parameters userInfoUrl to be called during the protocol execution.
 Theses urls are implicit in other providers, but as OpenId can be implemented in different ways, we have to provide urls.
 In urls, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
 
 	::
 
 	    ## OpenId Urls
-
+exo.oauth.openid.wellKnownConfigurationUrl=https://openid.server.com/.well-known/openid-configuration
     
 
 .. note:: Google provide an OpenId protocol implementation. You can use it by creating an Oauth
