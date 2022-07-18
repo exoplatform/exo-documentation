@@ -1,0 +1,23 @@
+# Workflow : download yml swagger documents from repository.exoplatform.org to add them to exo documents
+name: Get Swagger yml to eXo documents
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 1 * *' # First day of the week at midnight
+
+jobs:
+  get_swagger_files_from_nexus:
+    runs-on: ubuntu-latest
+    env:
+
+      SERVER_URL: "https://repository.exoplatform.org"
+
+
+    steps:
+       
+      - name: Download nexus metadata
+        run: |
+          
+          curl -s ${SERVER_URL}/service/local/repositories/exo-snapshots/content/org/exoplatform/social/social/6.4.x-devx-SNAPSHOT/maven-metadata.xml | cat > test.txt
+         
