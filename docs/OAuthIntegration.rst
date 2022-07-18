@@ -279,10 +279,7 @@ In urls, replace `openid.server.com <openid.server.com>` by the name of your Ope
 	::
 
 	    ## OpenId Urls
-	    exo.oauth.openid.authenticationURL=https://openid.server.com/authorize
-	    exo.oauth.openid.accessTokenURL=https://openid.server.com/token
-	    exo.oauth.openid.tokenInfoURL=https://openid.server.com/introspect
-	    exo.oauth.openid.userInfoURL=https://openid.server.com/userinfo
+
     
 
 .. note:: Google provide an OpenId protocol implementation. You can use it by creating an Oauth
@@ -293,10 +290,7 @@ In urls, replace `openid.server.com <openid.server.com>` by the name of your Ope
 	    exo.oauth.openid.enabled=true
 	    exo.oauth.openid.clientId=GooglePlus_Client_Id
 	    exo.oauth.openid.clientSecret=GooglePlus_Client_Secret
-	    exo.oauth.openid.authenticationURL=https://accounts.google.com/o/oauth2/auth
-	    exo.oauth.openid.accessTokenURL=https://oauth2.googleapis.com/token
-	    exo.oauth.openid.tokenInfoURL=https://www.googleapis.com/oauth2/v2/tokeninfo
-	    exo.oauth.openid.userInfoURL=https://openidconnect.googleapis.com/v1/userinfo
+	    exo.oauth.openid.wellKnownConfigurationUrl=https://accounts.google.com/.well-known/openid-configuration
     
 Finally, for OpenId, you need a redirectUrl which will be called by your openid server after successful authentication. This url will "read" the loggued user, and redirect him to the portal
 
