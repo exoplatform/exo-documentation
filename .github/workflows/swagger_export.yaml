@@ -28,7 +28,7 @@ jobs:
 
       - name: Download nexus metadata
         run: |
-        for item in $projects;
+        for item in $projects
         do
          STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${item} --write-out '%{http_code}' --output commons_swagger.json)
          if test $STATUSCODE -ne 200; then
