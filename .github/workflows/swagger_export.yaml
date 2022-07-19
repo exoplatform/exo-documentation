@@ -30,7 +30,5 @@ jobs:
     steps:
       - name: Download nexus metadata
         run: |
-          for url in URLS_OF_FILES
-          do
           url_metadata=${SERVER_URL}/${PREFIX}/${commons_metadata}
           echo $url_metadata
