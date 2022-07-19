@@ -6,14 +6,15 @@ jobs:
   get_and_commit_kb_export_files:
     runs-on: ubuntu-latest
     env:
+      TARGET_FOLDER: "docs"
       SERVER_URL: "https://repository.exoplatform.org"
       PREFIX: "service/local/artifact/maven/redirect?r=exo-snapshots&g=org.exoplatform."
 
-      projects:
-        commons:  "commons&a=commons-component-common&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
-        social:  "social&a=social-component-service&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
-        gatein_portal:  "gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
-        ecms:  "ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
+#       projects:
+     commons:  "commons&a=commons-component-common&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
+     social:  "social&a=social-component-service&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
+     gatein_portal:  "gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
+     ecms:  "ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
 #         "addons.dlp&a=dlp-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json"
 #         "anti-malware&a=anti-malware-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json"
 
@@ -28,12 +29,22 @@ jobs:
 
       - name: Download nexus metadata
         run: |
-        for item in $projects
-        do
-         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${item} --write-out '%{http_code}' --output commons_swagger.json)
+         cd $TARGET_FOLDER
+         mkdir -p swagger
+         pushd swagger
+         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${commons} --write-out '%{http_code}' --output commons_swagger.json)
          if test $STATUSCODE -ne 200; then
            echo "ERROR: commons_swagger.json : download Error. Status code : ${STATUSCODE}"
+           echo "No files downloaded : nothing to commit"
            exit 1
          else
            echo "commons_swagger.json download OK"
+           cd $GITHUB_WORKSPACE
+           git status
+           git config --global user.email "exo-swf@exoplatform.com"
+           git config --global user.name "eXo Software Factory"
+           git add -A
+           git diff-index --quiet HEAD || git commit -m "Automated KB exports commit"
+           git push
          fi
+
