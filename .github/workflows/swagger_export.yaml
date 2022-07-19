@@ -34,7 +34,7 @@ jobs:
           curl  -s $url_metadata | cat > commons-metadata.txt
           TIMESTAMP=$((awk '/<timestamp>/ {print $1}'  commons-metadata.txt) | tr -dc '0-9''.')
           BUILD_NUMBER=$((awk '/<buildNumber>/ {print $1}'  commons-metadata.txt) | tr -dc '0-9''.')
-          commons_swagger: "commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+          commons_swagger="commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
           url_swagger=${SERVER_URL}/${PREFIX}/${commons_swagger}
           echo $url_swagger
           curl -s $url_swagger > swagger_common.json
