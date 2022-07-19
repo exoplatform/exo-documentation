@@ -27,6 +27,13 @@ jobs:
 #           swagger:  anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT/anti-malware-services-1.0.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
     steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.SWF_TOKEN }}
+          ref: tmp-181042
+          lfs: true
+
       - name: Download nexus metadata
         run: |
           url_metadata=${SERVER_URL}/${PREFIX}/${commons_metadata}
