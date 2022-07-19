@@ -22,11 +22,7 @@ jobs:
 
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
-#       - uses: actions/checkout@v2
-#         with:
-#           token: ${{ secrets.SWF_TOKEN }}
-#           ref: tmp-181042
-#           lfs: true
+      - uses: actions/checkout@v2
 
       - name: Download nexus metadata
         run: |
