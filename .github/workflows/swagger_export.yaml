@@ -26,7 +26,7 @@ jobs:
 
       - name: Download nexus metadata
         run: |
-         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${commons} > commons_swagger.json)
+         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${commons} --write-out '%{http_code}' --output commons_swagger.json)
 
          if test $STATUSCODE -ne 200; then
                 echo "ERROR: commons_swagger.json : download Error. Status code : ${STATUSCODE}"
