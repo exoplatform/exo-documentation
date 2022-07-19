@@ -279,7 +279,7 @@ In urls, replace `openid.server.com <openid.server.com>` by the name of your Ope
 	::
 
 	    ## OpenId Urls
-exo.oauth.openid.wellKnownConfigurationUrl=https://openid.server.com/.well-known/openid-configuration
+	    exo.oauth.openid.wellKnownConfigurationUrl=https://openid.server.com/.well-known/openid-configuration
     
 
 .. note:: Google provide an OpenId protocol implementation. You can use it by creating an Oauth
