@@ -8,7 +8,7 @@ jobs:
     env:
       SERVER_URL: "https://repository.exoplatform.org"
       PREFIX: "content/repositories/public/org/exoplatform"
-      URLS_OF_FILES:
+      - URLS_OF_FILES:
         - metadata: commons/commons-component-common/6.4.x-devx-SNAPSHOT/maven-metadata.xml
           swagger: commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
