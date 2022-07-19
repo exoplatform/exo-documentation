@@ -9,23 +9,23 @@ jobs:
       SERVER_URL: "https://repository.exoplatform.org"
       PREFIX: "content/repositories/public/org/exoplatform"
       URLS_OF_FILES:
-        - metadata: "commons/commons-component-common/6.4.x-devx-SNAPSHOT/maven-metadata.xml"
-          swagger: "commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+        - metadata: commons/commons-component-common/6.4.x-devx-SNAPSHOT/maven-metadata.xml
+          swagger: commons/commons-component-common/6.4.x-devx-SNAPSHOT/commons-component-common-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
-        - metadata: "social/social-component-service/6.4.x-devx-SNAPSHOT/maven-metadata.xml"
-          swagger:  "social/social-component-service/6.4.x-devx-SNAPSHOT/social-component-service-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+        - metadata: social/social-component-service/6.4.x-devx-SNAPSHOT/maven-metadata.xml
+          swagger:  social/social-component-service/6.4.x-devx-SNAPSHOT/social-component-service-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
-        - metadata: "gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT/maven-metadata.xml"
-          swagger:   "gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT/exo.portal.component.portal-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+        - metadata: gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT/maven-metadata.xml
+          swagger:  gatein/portal/exo.portal.component.portal/6.4.x-devx-SNAPSHOT/exo.portal.component.portal-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
-        - metadata: "ecms/ecms-core-services/6.4.x-devx-SNAPSHOT/maven-metadata.xml"
-          swagger: "ecms/ecms-core-services/6.4.x-devx-SNAPSHOT/ecms-core-services-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+        - metadata: ecms/ecms-core-services/6.4.x-devx-SNAPSHOT/maven-metadata.xml
+          swagger:  ecms/ecms-core-services/6.4.x-devx-SNAPSHOT/ecms-core-services-6.4.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
-        - metadata: "addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT/maven-metadata.xml"
-          swagger: "addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT/dlp-services-1.0.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+        - metadata: addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT/maven-metadata.xml
+          swagger:  addons/dlp/dlp-services/1.0.x-devx-SNAPSHOT/dlp-services-1.0.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
-        - metadata: "anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT/maven-metadata.xml"
-          swagger:  "anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT/anti-malware-services-1.0.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json"
+        - metadata: anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT/maven-metadata.xml
+          swagger:  anti-malware/anti-malware-services/1.0.x-devx-SNAPSHOT/anti-malware-services-1.0.x-devx-${TIMESTAMP}-${BUILD_NUMBER}-swagger.json
 
     steps:
       - name: Download nexus metadata
