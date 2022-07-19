@@ -30,5 +30,7 @@ jobs:
 
       - name: Download nexus metadata
         run: |
-          curl -s -L ${SERVER_URL}/${PREFIX}${commons} > swagger_common.json
-          cat swagger_common.json
+          curl -s -L ${SERVER_URL}/${PREFIX}${commons} > commons_swagger.json
+          curl -s -L ${SERVER_URL}/${PREFIX}${social} > social_swagger.json
+          curl -s -L ${SERVER_URL}/${PREFIX}${gatein_portal} > gatein_portal_swagger.json
+          curl -s -L ${SERVER_URL}/${PREFIX}${ecms} > ecms_swagger.json
