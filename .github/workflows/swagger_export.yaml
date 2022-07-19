@@ -32,3 +32,4 @@ jobs:
            exit 1
          else
            echo "commons_swagger.json download OK"
+         fi
