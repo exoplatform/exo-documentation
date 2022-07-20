@@ -20,5 +20,7 @@ jobs:
          for item in ${url}
          do
          echo `expr index "$item" =`
+         i=$(strchr "$item" '&')
+         echo "i: $i"
          done
          echo "done !!!!" 
