@@ -17,7 +17,7 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-         file_name=${item:0:8}
+         file_name=${item%%&*}
           echo "this is file name $file_name "
          done
          echo "done !!!!" 
