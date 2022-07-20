@@ -16,5 +16,5 @@ jobs:
         run: |
          for item in ${url}
          do
-         echo ${item}
+         echo "this is  ${item}""
          done
