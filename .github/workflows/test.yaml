@@ -14,7 +14,9 @@ jobs:
     steps:
       - name: test
         run: |
+         echo "this is my ${url}" 
          for item in ${url}
          do
+
          echo "this is  ${item}"
          done
