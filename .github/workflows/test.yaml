@@ -17,10 +17,7 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-         index=$(`expr index ${item} &`)
-         echo `expr index ${item} &`
-         echo "index=${index}"
-         echo "this is  ${item}"
-         file_name=
+         file_name=${item:0:8}
+          echo "this is file name $file_name "
          done
          echo "done !!!!" 
