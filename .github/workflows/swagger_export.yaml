@@ -33,6 +33,7 @@ jobs:
          STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${commons} --write-out '%{http_code}' --output commons_swagger.json)
          if test $STATUSCODE -ne 200; then
            echo "ERROR: commons_swagger.json : download Error. Status code : ${STATUSCODE}"
+           echo ${SERVER_URL}/${PREFIX}${commons}
            echo "No files downloaded : nothing to commit"
            exit 1
          else
