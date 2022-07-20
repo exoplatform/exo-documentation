@@ -17,6 +17,6 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-
          echo "this is  ${item}"
          done
+         echo "done !!!!" 
