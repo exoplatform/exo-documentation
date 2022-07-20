@@ -42,7 +42,7 @@ jobs:
            git config --global user.email "exo-swf@exoplatform.com"
            git config --global user.name "eXo Software Factory"
            git add -A
-           git diff-index --quiet HEAD || git commit -m "Automated KB exports commit"
+           git diff-index --quiet HEAD || git commit -m "Automated swagger exports commit"
            git push
          fi
 
