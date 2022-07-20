@@ -28,10 +28,7 @@ jobs:
               "social&a=social-component-service&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json",
               "gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json",
               "ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"]
-        file_name: [commons,
-                    social,
-                    gatein_portal,
-                    ecms]     
+ 
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
@@ -41,14 +38,14 @@ jobs:
          cd $TARGET_FOLDER
          mkdir -p swagger
          pushd swagger
-         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${matrix.ulr} --write-out '%{http_code}' --output ${matrix.file_name}_swagger.json)
+         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${matrix.ulr} --write-out '%{http_code}' --output social_swagger.json)
          if test $STATUSCODE -ne 200; then
-           echo "ERROR: ${matrix.file_name}_swagger.json : download Error. Status code : ${STATUSCODE}"
-           echo ${SERVER_URL}/${PREFIX}{matrix.ulr}
+           echo "ERROR: social_swagger.json : download Error. Status code : ${STATUSCODE}"
+           echo ${SERVER_URL}/${PREFIX}${matrix.ulr} 
            echo "No files downloaded : nothing to commit"
            exit 1
          else
-           echo "${matrix.file_name}_swagger.json download OK"
+           echo "social_swagger.json download OK"
            cd $GITHUB_WORKSPACE
            git status
            git config --global user.email "exo-swf@exoplatform.com"
