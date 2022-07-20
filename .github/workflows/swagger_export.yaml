@@ -30,14 +30,14 @@ jobs:
          cd $TARGET_FOLDER
          mkdir -p swagger
          pushd swagger
-         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${commons} --write-out '%{http_code}' --output commons_swagger.json)
+         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${social} --write-out '%{http_code}' --output social_swagger.json)
          if test $STATUSCODE -ne 200; then
-           echo "ERROR: commons_swagger.json : download Error. Status code : ${STATUSCODE}"
-           echo ${SERVER_URL}/${PREFIX}${commons}
+           echo "ERROR: social_swagger.json : download Error. Status code : ${STATUSCODE}"
+           echo ${SERVER_URL}/${PREFIX}${social}
            echo "No files downloaded : nothing to commit"
            exit 1
          else
-           echo "commons_swagger.json download OK"
+           echo "social_swagger.json download OK"
            cd $GITHUB_WORKSPACE
            git status
            git config --global user.email "exo-swf@exoplatform.com"
