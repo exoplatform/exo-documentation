@@ -19,6 +19,6 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-         echo `expr index "$item" &a`
+         echo `expr index "$item" a=`
          done
          echo "done !!!!" 
