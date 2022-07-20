@@ -6,10 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     env:
       url: 
-           commons&a=commons-component-common&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
-           social&a=social-component-service&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
-           gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
-           ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
+           r=exo-snapshots&g=org.exoplatform.commons&a=commons-component-common&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
+           r=exo-snapshots&g=org.exoplatform.social&a=social-component-service&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
+           r=exo-snapshots&g=org.exoplatform.gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
+           r=exo-snapshots&g=org.exoplatform.ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
+           r=exo-addons-snapshots&g=org.exoplatform.addons.dlp&a=dlp-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json
+           r=exo-addons-snapshots&g=org.exoplatform.anti-malware&a=anti-malware-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json
           
     steps:
       - name: test
@@ -17,9 +19,6 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-         file_name=${item%%&*}
-          echo "this is file name $file_name "
-          final_name=${file_name//./_}
-          echo "this is final_name $final_name "
+         echo `expr index "$item" rm.`
          done
          echo "done !!!!" 
