@@ -274,7 +274,7 @@ you will need to:
 
 For OpenId, you need to add 1 more property which is the url of the resource named well-known configuration file. In this file, all other information are present.
 This configuration is implicit in other providers, but as OpenId can be implemented in different ways, we have to provide url.
-In urls, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
+In url, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
 
 	::
 
