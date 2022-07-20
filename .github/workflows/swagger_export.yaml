@@ -15,11 +15,6 @@ jobs:
            gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
            ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
 
-
-#      commons:  "commons&a=commons-component-common&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
- #     social:  "social&a=social-component-service&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
-  #    gatein_portal:  "gatein.portal&a=exo.portal.component.portal&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
-   #   ecms:  "ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json"
 #         "addons.dlp&a=dlp-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json"
 #         "anti-malware&a=anti-malware-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json"
 
