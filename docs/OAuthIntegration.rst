@@ -272,17 +272,14 @@ you will need to:
    -  ``exo.oauth.{OAuth_Provider}.clientSecret`` - Client Secret of your
       application.
 
-For OpenId, you need to add 4 more properties which are urls which will be called during the protocol execution.
-Theses urls are implicit in other providers, but as OpenId can be implemented in different ways, we have to provide urls.
-In urls, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
+For OpenId, you need to add 1 more property which is the url of the resource named well-known configuration file. In this file, all other information are present.
+This configuration is implicit in other providers, but as OpenId can be implemented in different ways, we have to provide url.
+In url, replace `openid.server.com <openid.server.com>` by the name of your OpenId server.
 
 	::
 
 	    ## OpenId Urls
-	    exo.oauth.openid.authenticationURL=https://openid.server.com/authorize
-	    exo.oauth.openid.accessTokenURL=https://openid.server.com/token
-	    exo.oauth.openid.tokenInfoURL=https://openid.server.com/introspect
-	    exo.oauth.openid.userInfoURL=https://openid.server.com/userinfo
+	    exo.oauth.openid.wellKnownConfigurationUrl=https://openid.server.com/.well-known/openid-configuration
     
 
 .. note:: Google provide an OpenId protocol implementation. You can use it by creating an Oauth
@@ -293,10 +290,7 @@ In urls, replace `openid.server.com <openid.server.com>` by the name of your Ope
 	    exo.oauth.openid.enabled=true
 	    exo.oauth.openid.clientId=GooglePlus_Client_Id
 	    exo.oauth.openid.clientSecret=GooglePlus_Client_Secret
-	    exo.oauth.openid.authenticationURL=https://accounts.google.com/o/oauth2/auth
-	    exo.oauth.openid.accessTokenURL=https://oauth2.googleapis.com/token
-	    exo.oauth.openid.tokenInfoURL=https://www.googleapis.com/oauth2/v2/tokeninfo
-	    exo.oauth.openid.userInfoURL=https://openidconnect.googleapis.com/v1/userinfo
+	    exo.oauth.openid.wellKnownConfigurationUrl=https://accounts.google.com/.well-known/openid-configuration
     
 Finally, for OpenId, you need a redirectUrl which will be called by your openid server after successful authentication. This url will "read" the loggued user, and redirect him to the portal
 
