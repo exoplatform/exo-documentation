@@ -35,14 +35,16 @@ jobs:
          pushd swagger
          for item in ${url}
          do
-         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${item} --write-out '%{http_code}' --output social_swagger.json)
+          file_name=${item%%&*}
+          final_name=${file_name//./_}
+         STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${item} --write-out '%{http_code}' --output ${file_name}_swagger.json)
          if test $STATUSCODE -ne 200; then
-           echo "ERROR: social_swagger.json : download Error. Status code : ${STATUSCODE}"
-           echo ${SERVER_URL}/${PREFIX}${matrix.ulr} 
+           echo "ERROR: ${file_name}_swagger.json : download Error. Status code : ${STATUSCODE}"
+           echo ${SERVER_URL}/${PREFIX}${item} 
            echo "No files downloaded : nothing to commit"
            exit 1
          else
-           echo "social_swagger.json download OK"
+           echo "${file_name}_swagger.json download OK"
          fi
          done
          cd $GITHUB_WORKSPACE
