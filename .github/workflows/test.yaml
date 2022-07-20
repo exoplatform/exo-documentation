@@ -19,8 +19,8 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-         echo `expr index "$item" =`
-         i=$(strchr "$item" 'e')
-         echo "i: $i"
+         echo `expr index "$item"'m.'`
+
+
          done
          echo "done !!!!" 
