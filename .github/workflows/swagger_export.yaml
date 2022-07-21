@@ -1,9 +1,6 @@
 name: Commit new Swagger files to exo_documentation
 on:
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-  schedule:
-    - cron:  '0 18 * * *' # Everyday at 6PM (before CI/CD)
+- push
 jobs:
   get_and_commit_swagger_export_files:
     runs-on: ubuntu-latest
@@ -18,13 +15,6 @@ jobs:
            r=exo-snapshots&g=org.exoplatform.ecms&a=ecms-core-services&v=6.4.x-devx-SNAPSHOT&c=swagger&e=json
            r=exo-addons-snapshots&g=org.exoplatform.addons.dlp&a=dlp-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json
            r=exo-addons-snapshots&g=org.exoplatform.anti-malware&a=anti-malware-services&v=1.0.x-devx-SNAPSHOT&c=swagger&e=json
-
-
-
-  
-
-      
- 
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
@@ -36,7 +26,7 @@ jobs:
          pushd swagger
          for item in ${url}
          do
-          file_name=${item%%&*}
+          file_name=$(echo ${item} | grep -o -P '(?<=m.).*(?=&a)')
           final_name=${file_name//./_}
          STATUSCODE=$(curl -s -L ${SERVER_URL}/${PREFIX}${item} --write-out '%{http_code}' --output ${final_name}_swagger.json)
          if test $STATUSCODE -ne 200; then
