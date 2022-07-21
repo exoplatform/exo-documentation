@@ -20,7 +20,7 @@ jobs:
          for item in ${url}
          do
          name=${item} | grep -o -P '(?<=m.).*(?=&a)'
-            echo $name
+            echo "$name"
 
          done
          echo "done !!!!" 
