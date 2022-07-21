@@ -1,6 +1,9 @@
 name: Commit new Swagger files to exo_documentation
 on:
-- push
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 18 * * *' # Everyday at 6PM (before CI/CD)
 jobs:
   get_and_commit_swagger_export_files:
     runs-on: ubuntu-latest
