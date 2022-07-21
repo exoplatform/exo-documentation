@@ -19,7 +19,7 @@ jobs:
          echo "this is my ${url}" 
          for item in ${url}
          do
-         echo "the ${item%%&a*}"
+         echo "the ${item} | grep -o -P '(?<=m.).*(?=&a)'"
 
 
          done
