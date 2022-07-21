@@ -1,0 +1,140 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Dlp Rest Api",
+    "description" : "Used Dlp addon rest endpoints",
+    "license" : {
+      "name" : "AGPL",
+      "url" : "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/dlp/changeFeatureActivation/{isActive}" : {
+      "put" : {
+        "operationId" : "changeFeatureActivation",
+        "parameters" : [ {
+          "name" : "isActive",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/dlp/items" : {
+      "get" : {
+        "operationId" : "getDlpPositiveItems",
+        "parameters" : [ {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/dlp/items/item/restore/{id}" : {
+      "put" : {
+        "operationId" : "restoreDlpPositiveItems",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/dlp/items/item/{id}" : {
+      "delete" : {
+        "operationId" : "deleteDlpDocumentById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/dlp/items/keywords" : {
+      "get" : {
+        "operationId" : "getDlpKeywords",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "setDlpKeywords",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    }
+  }
+}
