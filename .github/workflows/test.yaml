@@ -20,7 +20,7 @@ jobs:
          for item in ${url}
          do
          name=${item} | grep -o -P '(?<=m.).*(?=&a)'
-            echo "$name"
-
+         final_name=${name//./_}
+         echo "the final name is ${final_name} "
          done
          echo "done !!!!" 
