@@ -8,7 +8,7 @@ jobs:
   get_and_commit_swagger_export_files:
     runs-on: ubuntu-latest
     env:
-      TARGET_FOLDER: "docs"
+      TARGET_FOLDER: "docs/_static"
       SERVER_URL: "https://repository.exoplatform.org"
       PREFIX: "service/local/artifact/maven/redirect?"
       url: 
