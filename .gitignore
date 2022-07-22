@@ -118,3 +118,5 @@ _templates
 .classpath
 .project
 *.log
+# VS Code project files
+.vscode/

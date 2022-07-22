@@ -9,6 +9,7 @@ Welcome to eXo Platform documentation!
 The main guides in eXo Platform documentation:
 
 * :ref:`whatsnew`
+* :ref:`GettingStarted`
 * :ref:`user-docs`
 * :ref:`admin-docs`
 * :ref:`developer-docs`
@@ -18,8 +19,6 @@ The main guides in eXo Platform documentation:
 * :ref:`reference-eXo-foundations-docs`
 * :ref:`reference-platform-docs`
 
-Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`__
-
 .. _whatsnew:
 
 .. toctree::
@@ -27,6 +26,14 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    :caption: What's new in eXo Platform 6.4?
    
    whatsnew
+
+.. _GettingStarted:
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Start and try eXo platform community edition
+   
+   GettingStartedeXoCommunity   
    
 .. _user-docs:
 
