@@ -102,7 +102,6 @@ ENV/
 
 # Sphinx 
 _build
-_static
 _templates
 /bin/
 
