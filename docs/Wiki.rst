@@ -7,8 +7,9 @@ Working With Wikis
 
     The **Wiki** application provides the content productivity to portal
     users as a tool to forge the unstructured knowledge. With **Wiki**,
-    you can create and edit pages by using a simplified markup language
-    or a WYSIWYG editor. Also, your company can use **Wiki** as an
+    you can create and edit pages by using a simplified rich text editor 
+    based on `CKEditor 5 <https://ckeditor.com/ckeditor-5/>__.
+    Also, your company can use **Wiki** as an
     internal reference, such as work policy or a public wiki for
     comprehensive product information. **Wiki** along with **Forums**
     will complete the ideal combination that helps users enhance their
@@ -19,15 +20,16 @@ Working With Wikis
 		 indicating in which wiki you are in.
 
 			-  If you are in a user's wiki application, the welcome page
-			 will display the message **Welcome to $FirstName $LastName Wiki**, where FirstName and LastName are the first and the last name of the user.
+			   will display the message **Welcome to $FirstName $LastName Wiki**, 
+			   where FirstName and LastName are the first and the last name of the user.
 			
-			|image95|
+			   |image95|
 			
 			-  If you are in a space's wiki application, the welcome 
-			page will display the message **Welcome to Space $SpaceName 
-			Wiki**, where SpaceName is the space name.
+			   page will display the message **Welcome to Space $SpaceName 
+			   Wiki**, where SpaceName is the space name.
 			
-			|image96|
+			   |image96|
 
 
 .. note:: The message of the welcome page in Wiki application, either 
@@ -308,30 +310,24 @@ The toolbar in the **Edit** mode will be changed to activate the following actio
 +--------------------+--------------------------------------------------------+
 | Item               | Description                                            |
 +====================+========================================================+
-||image15|           | Switches to the **Rich Text (WYSIWYG)** editor.        |
+||image15|           | The editor's toolbar.                                  |
 +--------------------+--------------------------------------------------------+
-|                    | Displays the preview mode of the currently edited      |
-||image16|           | content. Previewing a page helps you verify the result |
-|                    | of rendering the markup you just entered without       |
-|                    | saving.                                                |
+||image16|           | The wiki page content to be edited.                    |
 +--------------------+--------------------------------------------------------+
-||image17|           | Opens the Wiki syntax help panel.                      |
-+--------------------+--------------------------------------------------------+
-||image18|           | Shows more syntax help.                                |
-+--------------------+--------------------------------------------------------+
-||image19|           | Ticks the Publish Activity checkbox to publish your    |
+||image17|           | Ticks the Publish Activity checkbox to publish your    |
 |                    | content modification on Activity Stream after saving   |
-|                    | your changes                                           |
+|                    | your changes.                                          |
 +--------------------+--------------------------------------------------------+
-||image20|           | Inputs the edit reason if necessary.                   |
+||image18|           | Inputs the edit reason if necessary.                   |
 +--------------------+--------------------------------------------------------+
-|                    | Saves the current page and go back to the view mode.   |
+||image19|           |  Discards the current changes and go back to the       |
+|                    | **View** mode.                                         |
++--------------------+--------------------------------------------------------+
+||image20|           | Saves the current page and go back to the view mode.   |
 |                    | Changes will be sent to watchers via mail              |
-||image21|           | notification.                                          |
+|                    | notification.                                          |
 +--------------------+--------------------------------------------------------+
-|                    | Discards the current changes and go back to the        |
-||image22|           | **View** mode.                                         |
-+--------------------+--------------------------------------------------------+
+
 
 .. tip:: When you input the ``Version Note`` field i.e. the field |image98|, and you check the option 
 	     ``Publish on the Activity Stream``, the text appears as a comment to the activity generated 
@@ -339,146 +335,17 @@ The toolbar in the **Edit** mode will be changed to activate the following actio
 	         |image99|
 	     You can input the field ``Version Note``even if you did not any change on the wiki page content.
 
-**Editing a page section**
-
-To edit only a section in the whole page content, hover your cursor over
-the title of the section you want to edit, then click |image12|.
-
-|image23|
-
-The selected section will be switched to the **Edit** mode.
-
-
-.. tip::    In the **View** mode, you can quickly edit the page title by double-clicking it, then press **Enter** when finishing.
-
-
 .. _Editors:
 
 
-Using WYSIWYG editor (Rich Text editor)
-----------------------------------------
+Using Wiki editor (CKEditor5)
+-------------------------------
 
-**WYSIWYG** stands for What You See Is What You Get. The **WYSIWYG**
-editor allows you to edit an wiki page directly in the wiki markup
-language. This has the advantage of being faster than the :ref:`Source Editor <Use-source-editor>`
-for content formatting tasks.
+Starting from eXo Platform 6 generation, wiki edition is made with `CKEditor 5 <https://ckeditor.com/ckeditor-5/>__.
+We made some customization on ot to keep some used functionalities such as some 
+text styles (Note, tip, warning...) and some macros (insert children pages, include page, insert table of contents).
 
-.. _switch-editors:
-
-You can switch between the **Source** and **WYSIWYG** editors at any
-time by clicking |image24| or |image25|.
-
-In the **Source** editor, which is selected by default when you edit a
-page, you have to use the wiki markup language for text formatting,
-while the **WYSIWYG** editor enables the content to be appeared during
-editing that is very similar to the published result. Thanks to
-available tools on this editor, you can format your content visually
-without using wiki markups.
-
-.. note::If the final result is not similar to what you wish when editing a
-			page by the **WYSIWYG** editor, you can go back to the **Source**
-			editor and use **Wiki** markups to edit the content.
-
-    When using the **Source** editor, examples of commonly used markups
-    are displayed in a lateral panel with a link to the :ref:`Full Syntax Notation <Syntax-help>`
-    page for more details.
-
-To learn more about the **WYSIWYG** editor, you can refer to the
-`WYSIWYG editor user
-guide <http://platform.xwiki.org/xwiki/bin/view/Features/WysiwygEditor>`__.
-
-.. _Insert-images-files:
-
-**Inserting images and files**
-
-.. _insert-image:
-
-*Inserting an image*
-
-You can insert an attached image or an external image by clicking
-|image26| on the text editor.
-
-|image27|
-
--  **Inserting an attached image**
-
-1. Select **Attached Image...** from the drop-down menu.
-
-2. Follow the steps in the :ref:`Adding an attachment to a
-page <add-an-attachment>` section.
-
--  **Inserting an external image**
-
-1. Select **External Image...** from the drop-down menu.
-
-2. Insert the image URL into the input-text box.
-
-|image28|
-
-3. Optionally, edit the image parameters by clicking Image Settings.
-
-|image29|
-
-4. Click Insert Image button to accept inserting the external image into your Wiki
-page or click Change Image to select another image.
-
-.. _Attach-files:
-
-*Attaching files*
-
-To attach files to a page, follow the steps in the :ref:`Adding an attachment to a page <add-an-attachment>` section.
-
-.. _work-with-macros:
-
-**Working with Macros**
-
-By using macros, you can apply extra formatting, functionality and
-customization to your content. You can easily add macro tags by using
-the **Rich Text** editor.
-
-1. Switch to :ref:`Rich Text editor <switch-editors>`.
-
-2. Click Macro, then select Insert Macro... from the drop-down menu.
-
-The Insert Macro form appears.
-
-The macro is classified into different categories: **Content**,
-**Development**, **Formatting** and **Navigation** and **Other**.
-
-3. Select a macro category.
-
-4. Select your desired macro from the selected categories list, then click
-the Select button, or simply double-click it. For example, if you select
-the Box macro, you will go to the macro parameters form.
-
-5. Enter parameters into the corresponding fields for your selected macro.
-Click Insert Macro to perform your macro insertion, or click Previous to
-return to the initial Insert Macro form.
-
-
-.. tip: Move up/down the scroll bar to see functional description of macros.
-
-.. _Use-source-editor:
-
-**Using Source Editor**
-
-.. _Syntax-help:
-
-*Syntax Help*
-
-If you do not know how to use a syntax, you can use the **Syntax Help**
-function. The **Syntax Help** is displayed by clicking |image30| from the
-page toolbar. When being clicked, a lateral pane beside the editing area
-will show all the Confluence syntax information. The lateral pane can be
-hidden by clicking |image31| in the upper right corner or by clicking
-|image32| again.
-
-You can click |image33| at the bottom of the short Help Tips form to open
-the **Full Syntax Notation** page.
-
-You can insert icons, emoticons to emphasize the content. The usage is
-described in the **Full Syntax Notation \| Icon/Emoticon Support** page
-with examples so you can easily remember and use them.
+|WEditor10| 
 
 .. _Managing-Page-Drafts:
 
@@ -1351,5 +1218,6 @@ use the wiki syntax to format content as normal.
 .. |image95| image:: images/wiki/usersWiki.png
 .. |image96| image:: images/wiki/spaceWiki.png
 .. |image97| image:: images/wiki/changed-name.png
-.. |image98| image:: images/common/6.png
+.. |image98| image:: images/common/4.png
 .. |image99| image:: images/wiki/version_note.png
+.. |WEditor10| image:: images/wiki/WikiEditorToolbar.png
