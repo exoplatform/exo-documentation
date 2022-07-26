@@ -6,6 +6,7 @@ eXo Rest APIs
 
  This chapter includes an overview to eXo Rest APIs definitions.
 
+<<<<<<< HEAD
  :ref:`Agenda Addon Rest API <AGENDA_ADDON_REST_API>`
 
  :ref:`Anti-Malware Addon Rest API <ANTI_MALWARE_ADDON_REST_API>`
@@ -247,18 +248,30 @@ eXo Rest APIs
 
  .. raw:: html
    :file: embed/poll-docs-swagger.html
+=======
+ :ref:`Social Rest API <SOCIAL_REST_API>`
+
+ :ref:`Gatein-Portal Rest API <GATEIN_PORTAL_REST_API>`
+
+ :ref:`Commons Rest API <COMMONS_REST_API>`
+>>>>>>> 15a09e8 (TASK-58038: Add based swagger ui rest documentation (#331))
 
 .. _SOCIAL_REST_API:
 
   **Social Rest Api**
 
   The eXo Social REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Social functionality.
+<<<<<<< HEAD
 
   Following the list of eXo Social API operations :
+=======
+  Following the list of eXo Social API operations : 
+>>>>>>> 15a09e8 (TASK-58038: Add based swagger ui rest documentation (#331))
 
  .. raw:: html
    :file: embed/social-docs-swagger.html
 
+<<<<<<< HEAD
 .. _TASKS_ADDON_REST_API:
 
   **Tasks Addon Rest Api**
@@ -292,3 +305,24 @@ eXo Rest APIs
  .. raw:: html
    :file: embed/web-conferencing-docs-swagger.html
 
+=======
+.. _GATEIN_PORTAL_REST_API:
+
+  **Gatein-portal Rest Api**
+
+  The eXo Portal REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Portal layer functionality.
+  Following the list of eXo Portal API operations : 
+
+ .. raw:: html
+   :file: embed/gatein-portal-docs-swagger.html
+
+.. _COMMONS_REST_API:
+
+  **Commons Rest Api**
+
+  The eXo Commons REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Commons functionality.
+  Following the list of eXo Commons API operations :
+
+ .. raw:: html
+   :file: embed/commons-docs-swagger.html
+>>>>>>> 15a09e8 (TASK-58038: Add based swagger ui rest documentation (#331))
