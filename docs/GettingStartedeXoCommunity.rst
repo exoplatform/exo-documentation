@@ -4,7 +4,9 @@
 Getting started
 ################
 
-This chapter covers the following topics:   
+This chapter covers the following topics: 
+ - The minimum system requirements needed to run the stack of tools used by eXo platform
+ - The software prerequisites needed to be installed before running the eXo platform stack
 
 
 .. _SystemRequirements:
@@ -25,11 +27,6 @@ To run the Docker compose of eXo Platform 6.4, your system is required to meet t
    (4GB free for database, Elasticsearch, Jitsi and Onlyoffice services and file system caches).
 
 -  Free disk space: 10GB minimum
-
--  Java 8+: JDK 11 is required for eXo Platform 6.4 version. Set the **JAVA\_HOME** environment variable to point to your JDK
-   installation.
-
--  Java 7 and below is incompatible for eXo Platform 6 version.
 
 -  Browser Compatibility: Check Browser compatibility section in Supported Environment https://www.exoplatform.com/supported-environments
 
@@ -54,6 +51,6 @@ Start eXo platform
  - Create a new folder EXO_HOME
  - Download the Docker Compose from `here <https://github.com/exoplatform/exo-community/blob/develop/exo-community-compose.yml>` and save it under EXO_HOME
  - Using your preferred tool, start the environment :
-   - Ubuntu : docker-compose -f exo-community-compose.yml 
+   - Ubuntu : docker-compose -f exo-community-compose.yml up
    - Mac : 
  - Open your browser and open the URL : http://localhost/
