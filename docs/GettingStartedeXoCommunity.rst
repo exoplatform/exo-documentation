@@ -51,6 +51,11 @@ Start eXo platform
  - Create a new folder EXO_HOME
  - Download the Docker Compose from `here <https://github.com/exoplatform/exo-community/blob/develop/exo-community-compose.yml>` and save it under EXO_HOME
  - Using your preferred tool, start the environment :
-   - Ubuntu : docker-compose -f exo-community-compose.yml up
-   - Mac : 
+
+   - Ubuntu :
+     
+   .. code-block:: console 
+
+        docker-compose -f exo-community-compose.yml up
+
  - Open your browser and open the URL : http://localhost/
