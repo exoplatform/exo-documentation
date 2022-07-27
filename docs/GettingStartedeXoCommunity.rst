@@ -41,21 +41,21 @@ Prerequisites
 =============
 
 The full environment will be provided as Docker containers assembled together using a Docker Compose file.
-To install and try eXo platform community edition, you need to install `Docker <https://docs.docker.com/engine/install/>`__ and `Docker Compose <https://docs.docker.com/compose/install/>`__ and 
+To install and try eXo platform community edition, you need to install `Docker <https://docs.docker.com/engine/install/>`__ and `Docker Compose <https://docs.docker.com/compose/install/>`__
 
 
 ==================
 Start eXo platform       
 ==================
 
- - Create a new folder EXO_HOME
- - Download the Docker Compose from `here <https://github.com/exoplatform/exo-community/blob/develop/exo-community-compose.yml>` and save it under EXO_HOME
- - Using your preferred tool, start the environment :
-
-   - Ubuntu :
+ - Create a new folder EXO_HOME, this file will contain all files needed to run the eXo platform environment
+ - Download the Docker Compose from `here <https://raw.githubusercontent.com/exo-docker/exo-community/master/docker-compose.yml>`__ and save it under EXO_HOME
+ - Create the folder **conf** which will contain configuration files needed for the services deployed in docker images
+ - Download the file configuration file of Nging server from `here <https://raw.githubusercontent.com/exo-docker/exo-community/master/conf/nginx.conf>`__ and save it under the folder **conf**
+ - Using your preferred console, start the environment with the command:
      
    .. code-block:: console 
 
-        docker-compose -f exo-community-compose.yml up
+        docker-compose -f docker-compose.yml up
 
  - Open your browser and open the URL : http://localhost/
