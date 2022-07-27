@@ -31,7 +31,7 @@ The main guides in eXo Platform documentation:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Start and try eXo platform community edition
+   :caption: Start eXo platform community
    
    GettingStartedeXoCommunity   
    
