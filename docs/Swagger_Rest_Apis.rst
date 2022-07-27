@@ -248,7 +248,6 @@ eXo Rest APIs
  .. raw:: html
    :file: embed/poll-docs-swagger.html
 
- :ref:`Commons Rest API <COMMONS_REST_API>`
 
 .. _SOCIAL_REST_API:
 
@@ -294,3 +293,5 @@ eXo Rest APIs
 
  .. raw:: html
    :file: embed/web-conferencing-docs-swagger.html
+
+
