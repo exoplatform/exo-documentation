@@ -1,0 +1,296 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Chat application Rest Api",
+    "description" : "Chat application addon rest endpoints",
+    "license" : {
+      "name" : "AGPL",
+      "url" : "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/chat/api/1.0/user/cometdToken" : {
+      "get" : {
+        "operationId" : "getCometdToken",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/getModalParticipantsToSuggest" : {
+      "post" : {
+        "operationId" : "getModalParticipantsToSuggest",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/UserBean"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/getRoomParticipantsToSuggest" : {
+      "post" : {
+        "operationId" : "getRoomParticipantsToSuggest",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/UserBean"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/getUserState" : {
+      "get" : {
+        "operationId" : "getUserState",
+        "parameters" : [ {
+          "name" : "user",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/mentionNotifications" : {
+      "post" : {
+        "operationId" : "sendNotificationToMentionUsers",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/MentionModel"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/messageReceivedNotification" : {
+      "post" : {
+        "operationId" : "sendNotificationToUsers",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/MessageReceivedModel"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/onlineStatus" : {
+      "get" : {
+        "operationId" : "getOnlineStatus",
+        "parameters" : [ {
+          "name" : "users",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/onlineUsers" : {
+      "get" : {
+        "operationId" : "getOnlineUsers",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/settings" : {
+      "get" : {
+        "operationId" : "getUserSettings",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/chat/api/1.0/user/token" : {
+      "get" : {
+        "operationId" : "getToken",
+        "parameters" : [ {
+          "name" : "tokenOnly",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "MentionModel" : {
+        "type" : "object",
+        "properties" : {
+          "mentionedUsers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "roomId" : {
+            "type" : "string"
+          },
+          "roomName" : {
+            "type" : "string"
+          },
+          "sender" : {
+            "type" : "string"
+          },
+          "senderFullName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MessageReceivedModel" : {
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          },
+          "receivers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "roomId" : {
+            "type" : "string"
+          },
+          "roomName" : {
+            "type" : "string"
+          },
+          "sender" : {
+            "type" : "string"
+          },
+          "senderFullName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserBean" : {
+        "type" : "object",
+        "properties" : {
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "email" : {
+            "type" : "string"
+          },
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "enabledUser" : {
+            "type" : "boolean"
+          },
+          "external" : {
+            "type" : "string",
+            "writeOnly" : true
+          },
+          "favorites" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "fullname" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

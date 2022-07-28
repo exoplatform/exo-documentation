@@ -1,0 +1,1066 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Gatein-portal Rest APIs",
+    "description" : "{rest.api.doc.description}",
+    "license" : {
+      "name" : "LGPL",
+      "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/v1/groups" : {
+      "get" : {
+        "operationId" : "getGroups",
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "tree",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateGroup",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GroupImpl"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createGroup",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GroupImpl"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteGroup",
+        "parameters" : [ {
+          "name" : "groupId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/groups/memberships" : {
+      "get" : {
+        "operationId" : "getGroupMemberships",
+        "parameters" : [ {
+          "name" : "groupId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateMembership",
+        "parameters" : [ {
+          "name" : "membershipId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/MembershipImpl"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createMembership",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/MembershipImpl"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteMembership",
+        "parameters" : [ {
+          "name" : "membershipId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/groups/memberships/bulk" : {
+      "post" : {
+        "operationId" : "createMultipleMembership",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/MembershipImpl"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/groups/tree" : {
+      "get" : {
+        "operationId" : "getGroupsTree",
+        "parameters" : [ {
+          "name" : "parentId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/groups/treeMembers" : {
+      "get" : {
+        "operationId" : "getGroupsTreeMembers",
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "groupMember",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "groupType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/membershipTypes" : {
+      "get" : {
+        "operationId" : "getMembershipType",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateMembershipType",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/MembershipTypeImpl"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createMembershipType",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/MembershipTypeImpl"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/membershipTypes/{membershipType}" : {
+      "delete" : {
+        "operationId" : "deleteMembershipType",
+        "parameters" : [ {
+          "name" : "membershipType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/navigations" : {
+      "get" : {
+        "operationId" : "getSiteNavigation",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/navigations/categories" : {
+      "get" : {
+        "operationId" : "getNavigationCategories",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/navigations/{siteType}" : {
+      "get" : {
+        "operationId" : "getSiteTypeNavigations",
+        "parameters" : [ {
+          "name" : "siteType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "exclude",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "siteName",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "scope",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "visibility",
+          "in" : "query",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/platform/branding" : {
+      "get" : {
+        "operationId" : "getBrandingInformation",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateBrandingInformation",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Branding"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/platform/branding/css" : {
+      "get" : {
+        "operationId" : "getBrandingCSS",
+        "parameters" : [ {
+          "name" : "v",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/platform/branding/defaultLogo" : {
+      "get" : {
+        "operationId" : "getBrandingDefaultLogo",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/platform/branding/logo" : {
+      "get" : {
+        "operationId" : "getBrandingLogo",
+        "parameters" : [ {
+          "name" : "lastModified",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "image/png" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/settings/{context}/{scope}/{settingKey}" : {
+      "get" : {
+        "operationId" : "getSetting",
+        "parameters" : [ {
+          "name" : "context",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "scope",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "settingKey",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "setSetting",
+        "parameters" : [ {
+          "name" : "context",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "scope",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "settingKey",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/SettingValueEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users" : {
+      "get" : {
+        "operationId" : "getUsers",
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateUser",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserRestEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createUser",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UserRestEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/isDelegatedAdministrator" : {
+      "get" : {
+        "operationId" : "isDelegatedAdministrator",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/isSuperUser" : {
+      "get" : {
+        "operationId" : "isSuperUser",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/isSynchronizedUserAllowedToChangePassword" : {
+      "get" : {
+        "operationId" : "isSynchronizedUserAllowedToChangePassword",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/{id}" : {
+      "get" : {
+        "operationId" : "getUser",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteUser",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/{id}/changePassword" : {
+      "patch" : {
+        "operationId" : "changePassword",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "currentPassword" : {
+                    "type" : "string"
+                  },
+                  "newPassword" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/users/{id}/memberships" : {
+      "get" : {
+        "operationId" : "getUserMemberships",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Branding" : {
+        "type" : "object",
+        "properties" : {
+          "companyLink" : {
+            "type" : "string"
+          },
+          "companyName" : {
+            "type" : "string"
+          },
+          "lastUpdatedTime" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "logo" : {
+            "$ref" : "#/components/schemas/Logo"
+          },
+          "siteName" : {
+            "type" : "string"
+          },
+          "themeColors" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "topBarTheme" : {
+            "type" : "string"
+          }
+        }
+      },
+      "GroupImpl" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "groupName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "internalStore" : {
+            "type" : "boolean"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "originatingStore" : {
+            "type" : "string"
+          },
+          "parentId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Logo" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "updatedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "uploadId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MembershipImpl" : {
+        "type" : "object",
+        "properties" : {
+          "groupId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "membershipType" : {
+            "type" : "string"
+          },
+          "userName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MembershipTypeImpl" : {
+        "type" : "object",
+        "properties" : {
+          "createdDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "modifiedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "owner" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SettingValueEntity" : {
+        "type" : "object",
+        "properties" : {
+          "value" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserRestEntity" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string"
+          },
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "fullName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string"
+          },
+          "platformAdministrator" : {
+            "type" : "boolean"
+          },
+          "userName" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

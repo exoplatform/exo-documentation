@@ -1,0 +1,178 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Poll Rest Api",
+    "description" : "Poll addon rest endpoints",
+    "license" : {
+      "name" : "LGPL",
+      "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/v1/poll" : {
+      "post" : {
+        "operationId" : "createPoll",
+        "parameters" : [ {
+          "name" : "spaceId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PollRestEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/poll/vote/{optionId}" : {
+      "post" : {
+        "operationId" : "vote",
+        "parameters" : [ {
+          "name" : "optionId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/poll/{id}" : {
+      "get" : {
+        "operationId" : "getPollById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "ActivityFile" : {
+        "type" : "object",
+        "properties" : {
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "destinationFolder" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "inputStream" : {
+            "type" : "object"
+          },
+          "lastModified" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "storage" : {
+            "type" : "string"
+          },
+          "uploadId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PollOptionRestEntity" : {
+        "type" : "object",
+        "properties" : {
+          "description" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "voted" : {
+            "type" : "boolean"
+          },
+          "votes" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "PollRestEntity" : {
+        "type" : "object",
+        "properties" : {
+          "creator" : {
+            "type" : "string"
+          },
+          "duration" : {
+            "type" : "string"
+          },
+          "endDateTime" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "files" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ActivityFile"
+            }
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "options" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PollOptionRestEntity"
+            }
+          },
+          "question" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

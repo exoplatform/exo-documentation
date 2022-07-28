@@ -1,0 +1,1091 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Notes Rest Api",
+    "description" : "Notes addon rest endpoints",
+    "license" : {
+      "name" : "LGPL",
+      "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/notes/contextsearch" : {
+      "get" : {
+        "operationId" : "searchData",
+        "parameters" : [ {
+          "name" : "keyword",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "wikiType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "wikiOwner",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "favorites",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/draftNote/{noteId}" : {
+      "get" : {
+        "operationId" : "getDraftNoteById",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteDraftNote",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/latestDraftNote/{noteId}" : {
+      "get" : {
+        "operationId" : "getLatestDraftOfPage",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note" : {
+      "post" : {
+        "operationId" : "createNote",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Page"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/export/cancel/{exportId}" : {
+      "put" : {
+        "operationId" : "cancelExportNote",
+        "parameters" : [ {
+          "name" : "exportId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/export/status/{exportId}" : {
+      "get" : {
+        "operationId" : "getExportNoteStatus",
+        "parameters" : [ {
+          "name" : "exportId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/export/zip/{exportId}" : {
+      "get" : {
+        "operationId" : "getExportedZip",
+        "parameters" : [ {
+          "name" : "exportId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/export/{exportId}/{notes}" : {
+      "post" : {
+        "operationId" : "exportNote",
+        "parameters" : [ {
+          "name" : "notes",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "exportId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "exportAll",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/import/{noteId}/{uploadId}" : {
+      "post" : {
+        "operationId" : "importNote",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uploadId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "conflict",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/move/{noteId}/{destinationNoteId}" : {
+      "patch" : {
+        "operationId" : "moveNote",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "destinationNoteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/{noteBookType}/{noteBookOwner}/{noteId}" : {
+      "get" : {
+        "operationId" : "getNote",
+        "parameters" : [ {
+          "name" : "noteBookType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteBookOwner",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "source",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateNote",
+        "parameters" : [ {
+          "name" : "noteBookType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteBookOwner",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Page"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteNote",
+        "parameters" : [ {
+          "name" : "noteBookType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteBookOwner",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/note/{noteId}" : {
+      "get" : {
+        "operationId" : "getNoteById",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteBookType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "noteBookOwner",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "withChildren",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "source",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateNoteById",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Page"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteNoteById",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/restore/{noteVersion}" : {
+      "put" : {
+        "operationId" : "RestoreNoteVersion",
+        "parameters" : [ {
+          "name" : "noteVersion",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Page"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/saveDraft" : {
+      "post" : {
+        "operationId" : "saveDraft",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/DraftPage"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/tree/full" : {
+      "get" : {
+        "operationId" : "getFullTreeData",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "withDrafts",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/tree/{type}" : {
+      "get" : {
+        "operationId" : "getTreeData",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "canEdit",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "excerpt",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "depth",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/notes/versions/{noteId}" : {
+      "get" : {
+        "operationId" : "getNoteVersions",
+        "parameters" : [ {
+          "name" : "noteId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "BreadcrumbData" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "noteId" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "wikiOwner" : {
+            "type" : "string"
+          },
+          "wikiType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "DiffResult" : {
+        "type" : "object",
+        "properties" : {
+          "changes" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "diffHTML" : {
+            "type" : "string"
+          }
+        }
+      },
+      "DraftPage" : {
+        "type" : "object",
+        "properties" : {
+          "activityId" : {
+            "type" : "string"
+          },
+          "appName" : {
+            "type" : "string"
+          },
+          "author" : {
+            "type" : "string"
+          },
+          "authorFullName" : {
+            "type" : "string"
+          },
+          "breadcrumb" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BreadcrumbData"
+            }
+          },
+          "canImport" : {
+            "type" : "boolean"
+          },
+          "canManage" : {
+            "type" : "boolean"
+          },
+          "canView" : {
+            "type" : "boolean"
+          },
+          "changes" : {
+            "$ref" : "#/components/schemas/DiffResult"
+          },
+          "children" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Page"
+            }
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "content" : {
+            "type" : "string"
+          },
+          "createdDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "draftPage" : {
+            "type" : "boolean"
+          },
+          "hasChild" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "metadatas" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/MetadataItem"
+              }
+            }
+          },
+          "minorEdit" : {
+            "type" : "boolean"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "newPage" : {
+            "type" : "boolean"
+          },
+          "owner" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "#/components/schemas/Page"
+          },
+          "parentPageId" : {
+            "type" : "string"
+          },
+          "parentPageName" : {
+            "type" : "string"
+          },
+          "permissions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PermissionEntry"
+            }
+          },
+          "syntax" : {
+            "type" : "string"
+          },
+          "targetPageId" : {
+            "type" : "string"
+          },
+          "targetPageRevision" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "toBePublished" : {
+            "type" : "boolean"
+          },
+          "updatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "wikiId" : {
+            "type" : "string"
+          },
+          "wikiOwner" : {
+            "type" : "string"
+          },
+          "wikiType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Metadata" : {
+        "type" : "object",
+        "properties" : {
+          "audienceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "createdDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "creatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "properties" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "type" : {
+            "$ref" : "#/components/schemas/MetadataType"
+          },
+          "typeName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MetadataItem" : {
+        "type" : "object",
+        "properties" : {
+          "createdDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "creatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "metadata" : {
+            "$ref" : "#/components/schemas/Metadata"
+          },
+          "metadataTypeName" : {
+            "type" : "string"
+          },
+          "object" : {
+            "$ref" : "#/components/schemas/MetadataObject"
+          },
+          "objectId" : {
+            "type" : "string"
+          },
+          "objectType" : {
+            "type" : "string"
+          },
+          "parentObjectId" : {
+            "type" : "string"
+          },
+          "properties" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "spaceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "MetadataObject" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "parentId" : {
+            "type" : "string"
+          },
+          "spaceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MetadataType" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Page" : {
+        "type" : "object",
+        "properties" : {
+          "activityId" : {
+            "type" : "string"
+          },
+          "appName" : {
+            "type" : "string"
+          },
+          "author" : {
+            "type" : "string"
+          },
+          "authorFullName" : {
+            "type" : "string"
+          },
+          "breadcrumb" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/BreadcrumbData"
+            }
+          },
+          "canImport" : {
+            "type" : "boolean"
+          },
+          "canManage" : {
+            "type" : "boolean"
+          },
+          "canView" : {
+            "type" : "boolean"
+          },
+          "children" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Page"
+            }
+          },
+          "comment" : {
+            "type" : "string"
+          },
+          "content" : {
+            "type" : "string"
+          },
+          "createdDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "draftPage" : {
+            "type" : "boolean"
+          },
+          "hasChild" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "metadatas" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/MetadataItem"
+              }
+            }
+          },
+          "minorEdit" : {
+            "type" : "boolean"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "owner" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "#/components/schemas/Page"
+          },
+          "parentPageId" : {
+            "type" : "string"
+          },
+          "parentPageName" : {
+            "type" : "string"
+          },
+          "permissions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PermissionEntry"
+            }
+          },
+          "syntax" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "toBePublished" : {
+            "type" : "boolean"
+          },
+          "updatedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "wikiId" : {
+            "type" : "string"
+          },
+          "wikiOwner" : {
+            "type" : "string"
+          },
+          "wikiType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Permission" : {
+        "type" : "object",
+        "properties" : {
+          "allowed" : {
+            "type" : "boolean"
+          },
+          "permissionType" : {
+            "type" : "string",
+            "enum" : [ "VIEWPAGE", "EDITPAGE", "ADMINPAGE", "ADMINSPACE", "VIEW_ATTACHMENT", "EDIT_ATTACHMENT" ]
+          }
+        }
+      },
+      "PermissionEntry" : {
+        "type" : "object",
+        "properties" : {
+          "fullName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "idType" : {
+            "type" : "string",
+            "enum" : [ "GROUP", "MEMBERSHIP", "USER" ]
+          },
+          "permissions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Permission"
+            }
+          }
+        }
+      }
+    }
+  }
+}

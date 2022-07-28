@@ -1,0 +1,189 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "WebConferencing Rest Api",
+    "description" : "WebConferencing addon rest endpoints",
+    "license" : {
+      "name" : "AGPL",
+      "url" : "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/webconferencing/provider/{type}/configuration" : {
+      "get" : {
+        "operationId" : "getProviderConfig",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "postProviderConfig",
+        "parameters" : [ {
+          "name" : "type",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "active" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/webconferencing/providers/configuration" : {
+      "get" : {
+        "operationId" : "getProviderConfigs",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/webconferencing/room/{id}" : {
+      "get" : {
+        "operationId" : "getRoomInfo",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "title",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "members",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/webconferencing/space-event/{spaceIdentityId}" : {
+      "get" : {
+        "operationId" : "getSpaceEventInfo",
+        "parameters" : [ {
+          "name" : "spaceIdentityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "participants",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "spaces",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/webconferencing/space/{spaceName}" : {
+      "get" : {
+        "operationId" : "getSpaceInfo",
+        "parameters" : [ {
+          "name" : "spaceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/webconferencing/user/{name}" : {
+      "get" : {
+        "operationId" : "getUserInfo",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  }
+}

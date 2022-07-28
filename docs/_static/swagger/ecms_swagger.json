@@ -1,0 +1,3047 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Ecms Rest Api",
+    "description" : "{rest.api.doc.description}",
+    "license" : {
+      "name" : "AGPL",
+      "url" : "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/" : {
+      "get" : {
+        "operationId" : "listJSON",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/RootResourcesList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attachments/downloadByPath" : {
+      "post" : {
+        "operationId" : "downloadActivityAttachments",
+        "parameters" : [ {
+          "name" : "fileName",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "array",
+                "items" : {
+                  "$ref" : "#/components/schemas/ActivityFileAttachment"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/attachments/newDoc" : {
+      "post" : {
+        "operationId" : "createNewDocument",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "title" : {
+                    "type" : "string"
+                  },
+                  "path" : {
+                    "type" : "string"
+                  },
+                  "pathDrive" : {
+                    "type" : "string"
+                  },
+                  "templateName" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/attachments/{attachmentId}" : {
+      "get" : {
+        "operationId" : "getAttachmentById",
+        "parameters" : [ {
+          "name" : "attachmentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/attachments/{attachmentId}/move" : {
+      "post" : {
+        "operationId" : "moveAttachmentToNewPath",
+        "parameters" : [ {
+          "name" : "attachmentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "newPath" : {
+                    "type" : "string"
+                  },
+                  "newPathDrive" : {
+                    "type" : "string"
+                  },
+                  "entityType" : {
+                    "type" : "string"
+                  },
+                  "entityId" : {
+                    "type" : "integer",
+                    "format" : "int64"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/attachments/{entityType}/{entityId}" : {
+      "get" : {
+        "operationId" : "getAttachmentsByEntity",
+        "parameters" : [ {
+          "name" : "entityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "entityType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateAttachmentsLinkedToContext",
+        "parameters" : [ {
+          "name" : "entityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "entityType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "attachmentId" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteAttachmentsByEntity",
+        "parameters" : [ {
+          "name" : "entityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "entityType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/attachments/{entityType}/{entityId}/{attachmentId}" : {
+      "get" : {
+        "operationId" : "getAttachmentByIdByEntity",
+        "parameters" : [ {
+          "name" : "attachmentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "entityType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "linkAttachmentToEntity",
+        "parameters" : [ {
+          "name" : "entityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "entityType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "attachmentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "deleteEntityAttachment",
+        "parameters" : [ {
+          "name" : "entityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "entityType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "attachmentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/bench/execute/{injectorId}" : {
+      "get" : {
+        "operationId" : "execute",
+        "parameters" : [ {
+          "name" : "injectorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/bench/inject/{injectorId}" : {
+      "get" : {
+        "operationId" : "inject",
+        "parameters" : [ {
+          "name" : "injectorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/bench/reject/{injectorId}" : {
+      "get" : {
+        "operationId" : "reject",
+        "parameters" : [ {
+          "name" : "injectorId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/documents/favorite" : {
+      "get" : {
+        "operationId" : "getFavoriteDocuments",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/documents/folder" : {
+      "get" : {
+        "operationId" : "getDocumentsByFolder",
+        "parameters" : [ {
+          "name" : "folder",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/documents/query" : {
+      "get" : {
+        "operationId" : "getDocumentsByQuery",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/documents/shared" : {
+      "get" : {
+        "operationId" : "getSharedDocuments",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/documents/view/{workspaceName}/{docId}" : {
+      "get" : {
+        "operationId" : "redirect",
+        "parameters" : [ {
+          "name" : "workspaceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "docId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/drop-workspace/{repo}/{ws}/{force-session-close}" : {
+      "get" : {
+        "operationId" : "dropWorkspace",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ws",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "force-session-close",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info" : {
+      "get" : {
+        "operationId" : "info",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup" : {
+      "get" : {
+        "operationId" : "infoBackup",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup-repository" : {
+      "get" : {
+        "operationId" : "infoBackupRepository",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup-repository-id/{id}" : {
+      "get" : {
+        "operationId" : "infoBackupRepositoryId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup-repository/completed" : {
+      "get" : {
+        "operationId" : "infoBackupRepositoryCompleted",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup-repository/current" : {
+      "get" : {
+        "operationId" : "infoBackupRepositoryCurrent",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup-repository/{repo}" : {
+      "get" : {
+        "operationId" : "infoBackupByRepository",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup/completed" : {
+      "get" : {
+        "operationId" : "infoBackupCompleted",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup/current" : {
+      "get" : {
+        "operationId" : "infoBackupCurrent",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup/{id}" : {
+      "get" : {
+        "operationId" : "infoBackupId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/backup/{repo}/{ws}" : {
+      "get" : {
+        "operationId" : "infoBackupByWorkspace",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ws",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/default-repository-config" : {
+      "get" : {
+        "operationId" : "getDefaultRepositoryConfig",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/default-ws-config" : {
+      "get" : {
+        "operationId" : "getDefaultWorkspaceConfig",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/restore-repository/{repo}" : {
+      "get" : {
+        "operationId" : "infoRestoreRepository",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/restore/{repo}/{ws}" : {
+      "get" : {
+        "operationId" : "infoRestore",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ws",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/restores" : {
+      "get" : {
+        "operationId" : "infoRestores",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/info/restores-repository" : {
+      "get" : {
+        "operationId" : "infoRestoresRepository",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore-repository/backup-set/{remove-Existing}" : {
+      "post" : {
+        "operationId" : "restoreRepositoryBackupSet",
+        "parameters" : [ {
+          "name" : "backup-set-path",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RepositoryEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore-repository/{id}" : {
+      "post" : {
+        "operationId" : "restoreRepository_1",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RepositoryEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore-repository/{id}/{remove-Existing}" : {
+      "get" : {
+        "operationId" : "restoreRepository",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "restoreRepository_2",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RepositoryEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore/backup-set/{remove-Existing}" : {
+      "get" : {
+        "operationId" : "restoreFromBackupSet",
+        "parameters" : [ {
+          "name" : "backup-set-path",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore/backup-set/{repo}/{remove-Existing}" : {
+      "post" : {
+        "operationId" : "restoreBackupSet",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "backup-set-path",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkspaceEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore/{id}/{remove-Existing}" : {
+      "get" : {
+        "operationId" : "restore",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore/{repo}/{id}" : {
+      "post" : {
+        "operationId" : "restore_1",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkspaceEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/restore/{repo}/{id}/{remove-Existing}" : {
+      "post" : {
+        "operationId" : "restore_2",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "remove-Existing",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkspaceEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/start-backup-repository/{repo}" : {
+      "post" : {
+        "operationId" : "startBackupRepository",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BackupConfigBean"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/start/{repo}/{ws}" : {
+      "post" : {
+        "operationId" : "start",
+        "parameters" : [ {
+          "name" : "repo",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ws",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BackupConfigBean"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/stop-backup-repository/{id}" : {
+      "get" : {
+        "operationId" : "stopBackupRepository",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-backup/stop/{id}" : {
+      "get" : {
+        "operationId" : "stop",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/create-repository" : {
+      "post" : {
+        "operationId" : "createRepository",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RepositoryEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/create-workspace/{repositoryName}" : {
+      "post" : {
+        "operationId" : "createWorkspace",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkspaceEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/default-ws-config/{repositoryName}" : {
+      "get" : {
+        "operationId" : "getDefaultWorkspaceConfig_1",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/remove-repository/{repositoryName}/{forseSessionClose}" : {
+      "get" : {
+        "operationId" : "removeRepository",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "forseSessionClose",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/remove-workspace/{repositoryName}/{workspaceName}/{forseSessionClose}" : {
+      "post" : {
+        "operationId" : "removeWorkspace",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspaceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "forseSessionClose",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/repositories" : {
+      "get" : {
+        "operationId" : "getRepositoryNames",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/repository-service-configuration" : {
+      "get" : {
+        "operationId" : "getRepositoryServiceConfiguration",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/update-workspace-config/{repositoryName}/{workspaceName}" : {
+      "post" : {
+        "operationId" : "updateWorkspaceConfiguration",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspaceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkspaceEntry"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-service/workspaces/{repositoryName}" : {
+      "get" : {
+        "operationId" : "getWorkspaceNames",
+        "parameters" : [ {
+          "name" : "repositoryName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr-xml-view/{viewType}/{repoName}/{repoPath}" : {
+      "get" : {
+        "operationId" : "getXML",
+        "parameters" : [ {
+          "name" : "repoName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repoPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "viewType",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr/{repoName}/{path}" : {
+      "options" : {
+        "operationId" : "options_1",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/jcr/{repoName}/{repoPath}" : {
+      "get" : {
+        "operationId" : "get_1",
+        "parameters" : [ {
+          "name" : "repoName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repoPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Range",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "If-Modified-Since",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "If-None-Match",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "version",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "put_1",
+        "parameters" : [ {
+          "name" : "repoName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repoPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "lock-token",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "If",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "File-NodeType",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Content-NodeType",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "Content-MixinTypes",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "User-Agent",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "delete_1",
+        "parameters" : [ {
+          "name" : "repoName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repoPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "lock-token",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "If",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "head" : {
+        "operationId" : "head_1",
+        "parameters" : [ {
+          "name" : "repoName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "repoPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/lnkproducer/{linkFilePath}" : {
+      "get" : {
+        "operationId" : "produceLink",
+        "parameters" : [ {
+          "name" : "linkFilePath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/octet-stream" : { }
+            }
+          }
+        }
+      }
+    },
+    "/management" : {
+      "get" : {
+        "operationId" : "list_1",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/maven2" : {
+      "get" : {
+        "operationId" : "getRootNodeList",
+        "parameters" : [ {
+          "name" : "view",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "gadget",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/maven2-structure-corrector" : {
+      "get" : {
+        "operationId" : "correctStructure",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/maven2/{path}" : {
+      "get" : {
+        "operationId" : "getResource",
+        "parameters" : [ {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "view",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "gadget",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/proxy" : {
+      "get" : {
+        "operationId" : "doProxyGet",
+        "parameters" : [ {
+          "name" : "url",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "doProxyPut",
+        "parameters" : [ {
+          "name" : "url",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "doProxyPost",
+        "parameters" : [ {
+          "name" : "url",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "doProxyDelete",
+        "parameters" : [ {
+          "name" : "url",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/registry" : {
+      "get" : {
+        "operationId" : "getRegistry",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/xml" : { }
+            }
+          }
+        }
+      }
+    },
+    "/registry/{entryPath}" : {
+      "get" : {
+        "operationId" : "getEntry",
+        "parameters" : [ {
+          "name" : "entryPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/xml" : { }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "operationId" : "removeEntry",
+        "parameters" : [ {
+          "name" : "entryPath",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/registry/{groupName}" : {
+      "put" : {
+        "operationId" : "recreateEntry",
+        "parameters" : [ {
+          "name" : "groupName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "createIfNotExist",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createEntry",
+        "parameters" : [ {
+          "name" : "groupName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/xml" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/add/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "addScript_1",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/*" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/autoload/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "autoload",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "state",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean",
+            "default" : true
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/delete/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "deleteScript",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/list/{repository}/{workspace}" : {
+      "post" : {
+        "operationId" : "list",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/load/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "load",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "state",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean",
+            "default" : true
+          }
+        }, {
+          "name" : "sources",
+          "in" : "query",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }, {
+          "name" : "file",
+          "in" : "query",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/meta/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "getScriptMetadata",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/src/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "getScript",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "script/groovy" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/update/{repository}/{workspace}/{path}" : {
+      "post" : {
+        "operationId" : "updateScript_1",
+        "parameters" : [ {
+          "name" : "repository",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "workspace",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "path",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "multipart/*" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/script/groovy/validate{name}" : {
+      "post" : {
+        "operationId" : "validateScript",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sources",
+          "in" : "query",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }, {
+          "name" : "file",
+          "in" : "query",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "script/groovy" : {
+              "schema" : {
+                "type" : "object"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/state/status" : {
+      "get" : {
+        "operationId" : "online",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "setStatus",
+        "parameters" : [ {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/state/status/{userId}" : {
+      "get" : {
+        "operationId" : "getStatus",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "setStatus_1",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        },
+        "deprecated" : true
+      }
+    },
+    "/transferRules/getTransfertRulesDocumentStatus" : {
+      "get" : {
+        "operationId" : "getTransfertRulesDocumentStatus",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/transferRules/saveDownloadDocumentStatus" : {
+      "put" : {
+        "operationId" : "saveDownloadDocumentStatus",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/transferRules/saveSharedDocumentStatus" : {
+      "put" : {
+        "operationId" : "saveSharedDocumentStatus",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AccessManagerEntry" : {
+        "type" : "object",
+        "properties" : {
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ActivityFileAttachment" : {
+        "type" : "object",
+        "properties" : {
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "destinationFolder" : {
+            "type" : "string"
+          },
+          "docPath" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "inputStream" : {
+            "type" : "object"
+          },
+          "lastModified" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "repository" : {
+            "type" : "string"
+          },
+          "storage" : {
+            "type" : "string"
+          },
+          "uploadId" : {
+            "type" : "string"
+          },
+          "workspace" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BackupConfigBean" : {
+        "type" : "object",
+        "properties" : {
+          "backupDir" : {
+            "type" : "string"
+          },
+          "backupType" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "fullBackupJobConfig" : {
+            "$ref" : "#/components/schemas/BackupJobConfig"
+          },
+          "incrementalBackupJobConfig" : {
+            "$ref" : "#/components/schemas/BackupJobConfig"
+          },
+          "incrementalJobPeriod" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "incrementalRepetitionNumber" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "BackupJobConfig" : {
+        "type" : "object",
+        "properties" : {
+          "backupJob" : {
+            "type" : "string"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Pair"
+            }
+          }
+        }
+      },
+      "CacheEntry" : {
+        "type" : "object",
+        "properties" : {
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ContainerEntry" : {
+        "type" : "object",
+        "properties" : {
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "valueStorages" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ValueStorageEntry"
+            }
+          }
+        }
+      },
+      "HierarchicalProperty" : {
+        "type" : "object",
+        "properties" : {
+          "attributes" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "children" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/HierarchicalProperty"
+            }
+          },
+          "name" : {
+            "type" : "object",
+            "properties" : {
+              "localPart" : {
+                "type" : "string"
+              },
+              "namespaceURI" : {
+                "type" : "string"
+              },
+              "prefix" : {
+                "type" : "string"
+              }
+            }
+          },
+          "stringName" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        }
+      },
+      "LockManagerEntry" : {
+        "type" : "object",
+        "properties" : {
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MappedParametrizedObjectEntry" : {
+        "type" : "object",
+        "properties" : {
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Pair" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        }
+      },
+      "QueryHandlerEntry" : {
+        "type" : "object",
+        "properties" : {
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RepositoryEntry" : {
+        "type" : "object",
+        "properties" : {
+          "accessControl" : {
+            "type" : "string"
+          },
+          "authenticationPolicy" : {
+            "type" : "string"
+          },
+          "defaultWorkspaceName" : {
+            "type" : "string"
+          },
+          "lockRemoverThreadsCount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "securityDomain" : {
+            "type" : "string"
+          },
+          "sessionTimeOut" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "systemWorkspaceName" : {
+            "type" : "string"
+          },
+          "workspaceEntries" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/WorkspaceEntry"
+            }
+          }
+        }
+      },
+      "RootResource" : {
+        "type" : "object",
+        "properties" : {
+          "fqn" : {
+            "type" : "string"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "regex" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RootResourcesList" : {
+        "type" : "object",
+        "properties" : {
+          "rootResources" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RootResource"
+            }
+          }
+        }
+      },
+      "SimpleParameterEntry" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "string"
+          }
+        }
+      },
+      "SystemParameterUpdater" : {
+        "type" : "object",
+        "properties" : {
+          "parameters" : {
+            "$ref" : "#/components/schemas/MappedParametrizedObjectEntry"
+          },
+          "updatedParametersAmount" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "workspaceInitializer" : {
+            "$ref" : "#/components/schemas/WorkspaceInitializer"
+          }
+        }
+      },
+      "ValueStorageEntry" : {
+        "type" : "object",
+        "properties" : {
+          "filters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ValueStorageFilterEntry"
+            }
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ValueStorageFilterEntry" : {
+        "type" : "object",
+        "properties" : {
+          "ancestorPath" : {
+            "type" : "string"
+          },
+          "minValueSize" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "propertyName" : {
+            "type" : "string"
+          },
+          "propertyType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "WorkspaceEntry" : {
+        "type" : "object",
+        "properties" : {
+          "accessManager" : {
+            "$ref" : "#/components/schemas/AccessManagerEntry"
+          },
+          "cache" : {
+            "$ref" : "#/components/schemas/CacheEntry"
+          },
+          "container" : {
+            "$ref" : "#/components/schemas/ContainerEntry"
+          },
+          "initializer" : {
+            "$ref" : "#/components/schemas/WorkspaceInitializerEntry"
+          },
+          "lazyReadThreshold" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "lockManager" : {
+            "$ref" : "#/components/schemas/LockManagerEntry"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "queryHandler" : {
+            "$ref" : "#/components/schemas/QueryHandlerEntry"
+          },
+          "uniqueName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "WorkspaceInitializer" : {
+        "type" : "object",
+        "properties" : {
+          "workspaceInitialized" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "WorkspaceInitializerEntry" : {
+        "type" : "object",
+        "properties" : {
+          "parameterIterator" : {
+            "type" : "object"
+          },
+          "parameters" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SimpleParameterEntry"
+            }
+          },
+          "systemParameterUpdater" : {
+            "$ref" : "#/components/schemas/SystemParameterUpdater"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
