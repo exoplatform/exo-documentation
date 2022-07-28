@@ -37,6 +37,8 @@ jobs:
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.SWF_TOKEN }}
 
       - name: Download nexus metadata
         run: |
