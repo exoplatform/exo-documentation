@@ -328,6 +328,12 @@
             "type" : "boolean"
           }
         }, {
+          "name" : "manager",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
           "name" : "query",
           "in" : "query",
           "schema" : {
@@ -700,6 +706,31 @@
           }
         }
       },
+      "CreatorIdentityEntity" : {
+        "type" : "object",
+        "properties" : {
+          "identity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          }
+        }
+      },
+      "IdentityEntity" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "profile" : {
+            "$ref" : "#/components/schemas/ProfileEntity"
+          },
+          "providerId" : {
+            "type" : "string"
+          },
+          "remoteId" : {
+            "type" : "string"
+          }
+        }
+      },
       "IllustrativeAttachment" : {
         "type" : "object",
         "properties" : {
@@ -755,11 +786,25 @@
           "canAccess" : {
             "type" : "boolean"
           },
+          "canAddRequest" : {
+            "type" : "boolean"
+          },
           "canDelete" : {
             "type" : "boolean"
           },
           "canEdit" : {
             "type" : "boolean"
+          }
+        }
+      },
+      "ProfileEntity" : {
+        "type" : "object",
+        "properties" : {
+          "avatar" : {
+            "type" : "string"
+          },
+          "fullname" : {
+            "type" : "string"
           }
         }
       },
@@ -1235,6 +1280,9 @@
               "$ref" : "#/components/schemas/Attachment"
             }
           },
+          "canShowPending" : {
+            "type" : "boolean"
+          },
           "createdDate" : {
             "type" : "string",
             "format" : "date-time"
@@ -1276,6 +1324,12 @@
           "projectId" : {
             "type" : "integer",
             "format" : "int64"
+          },
+          "requestsCreators" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/CreatorIdentityEntity"
+            }
           },
           "statuses" : {
             "type" : "array",
