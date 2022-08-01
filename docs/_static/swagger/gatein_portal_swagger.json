@@ -2,7 +2,7 @@
   "openapi" : "3.0.1",
   "info" : {
     "title" : "Gatein-portal Rest APIs",
-    "description" : "{rest.api.doc.description}",
+    "description" : "Gatein-portal used Rest endpoints",
     "license" : {
       "name" : "LGPL",
       "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
