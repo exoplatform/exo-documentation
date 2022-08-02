@@ -264,29 +264,7 @@
         }
       }
     },
-    "/gamification/challenge/api/addChallenge" : {
-      "post" : {
-        "operationId" : "createChallenge",
-        "requestBody" : {
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/Challenge"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
-          }
-        }
-      }
-    },
-    "/gamification/challenge/api/allChallenge" : {
+    "/gamification/challenges" : {
       "get" : {
         "operationId" : "getAllChallengesByUser",
         "parameters" : [ {
@@ -323,40 +301,11 @@
             "type" : "integer",
             "format" : "int32"
           }
-        } ],
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
-          }
-        }
-      }
-    },
-    "/gamification/challenge/api/canAddChallenge" : {
-      "get" : {
-        "operationId" : "canAddChallenge",
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
-          }
-        }
-      }
-    },
-    "/gamification/challenge/api/delete/{id}" : {
-      "delete" : {
-        "operationId" : "deleteChallenge",
-        "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
+        }, {
+          "name" : "term",
+          "in" : "query",
           "schema" : {
-            "type" : "integer",
-            "format" : "int64"
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -367,28 +316,29 @@
             }
           }
         }
-      }
-    },
-    "/gamification/challenge/api/updateChallenge" : {
+      },
       "put" : {
         "operationId" : "updateChallenge",
-        "parameters" : [ {
-          "name" : "offset",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 0
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Challenge"
+              }
+            }
           }
-        }, {
-          "name" : "limit",
-          "in" : "query",
-          "schema" : {
-            "type" : "integer",
-            "format" : "int32",
-            "default" : 10
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
           }
-        } ],
+        }
+      },
+      "post" : {
+        "operationId" : "createChallenge",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -408,7 +358,20 @@
         }
       }
     },
-    "/gamification/challenge/api/{challengeId}" : {
+    "/gamification/challenges/canAddChallenge" : {
+      "get" : {
+        "operationId" : "canAddChallenge",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/gamification/challenges/{challengeId}" : {
       "get" : {
         "operationId" : "getChallengeById",
         "parameters" : [ {
@@ -434,6 +397,28 @@
             "type" : "integer",
             "format" : "int32",
             "default" : 10
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/gamification/challenges/{id}" : {
+      "delete" : {
+        "operationId" : "deleteChallenge",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
@@ -1113,6 +1098,9 @@
           "challengeId" : {
             "type" : "integer",
             "format" : "int64"
+          },
+          "challengeTitle" : {
+            "type" : "string"
           },
           "comment" : {
             "type" : "string"

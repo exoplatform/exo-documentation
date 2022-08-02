@@ -62,7 +62,7 @@
           "in" : "query",
           "schema" : {
             "type" : "string",
-            "enum" : [ "ALL_STREAM", "USER_STREAM", "USER_FAVORITE_STREAM", "MANAGE_SPACES_STREAM", "FAVORITE_SPACES_STREAM" ]
+            "enum" : [ "ALL_STREAM", "USER_STREAM", "USER_FAVORITE_STREAM", "MANAGE_SPACES_STREAM", "FAVORITE_SPACES_STREAM", "ANY_SPACE_ACTIVITY" ]
           }
         } ],
         "responses" : {
