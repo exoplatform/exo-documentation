@@ -307,6 +307,13 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "filter",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "default" : "ALL"
+          }
         } ],
         "responses" : {
           "default" : {
