@@ -671,6 +671,20 @@
             "type" : "string"
           }
         }, {
+          "name" : "sortBy",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "default" : "date"
+          }
+        }, {
+          "name" : "sortDescending",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean",
+            "default" : true
+          }
+        }, {
           "name" : "offset",
           "in" : "query",
           "schema" : {
