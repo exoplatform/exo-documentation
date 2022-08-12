@@ -119,6 +119,12 @@
             "type" : "boolean",
             "default" : false
           }
+        }, {
+          "name" : "showHiddenFiles",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
         } ],
         "responses" : {
           "200" : {
