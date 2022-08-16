@@ -665,6 +665,12 @@
             "type" : "integer",
             "format" : "int64"
           }
+        }, {
+          "name" : "size",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "default" : {
