@@ -1,0 +1,1384 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Wallet Rest Api",
+    "description" : "Wallet addon rest endpoints",
+    "license" : {
+      "name" : "LGPL",
+      "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/wallet/api/account/deleteWallet" : {
+      "get" : {
+        "operationId" : "deleteWallet",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/detailsByAddress" : {
+      "get" : {
+        "operationId" : "getWalletByAddress",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/detailsById" : {
+      "get" : {
+        "operationId" : "getWalletByTypeAndID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/enable" : {
+      "get" : {
+        "operationId" : "enableWalletByAddress",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "enable",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/fundRequestSent" : {
+      "get" : {
+        "operationId" : "isFundRequestSent",
+        "parameters" : [ {
+          "name" : "notificationId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/getPrivateKey" : {
+      "get" : {
+        "operationId" : "getPrivateKey",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/list" : {
+      "get" : {
+        "operationId" : "getWallets",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/markFundRequestAsSent" : {
+      "get" : {
+        "operationId" : "markFundRequestAsSent",
+        "parameters" : [ {
+          "name" : "notificationId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/provider" : {
+      "post" : {
+        "operationId" : "saveWalletProvider",
+        "requestBody" : {
+          "content" : {
+            "application/x-www-form-urlencoded" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "provider" : {
+                    "type" : "string",
+                    "enum" : [ "INTERNAL_WALLET", "METAMASK" ]
+                  },
+                  "address" : {
+                    "type" : "string"
+                  },
+                  "rawMessage" : {
+                    "type" : "string"
+                  },
+                  "signedMessage" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/refreshWalletFromBlockchain" : {
+      "get" : {
+        "operationId" : "refreshWalletFromBlockchain",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/removePrivateKey" : {
+      "get" : {
+        "operationId" : "removePrivateKey",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/requestAuthorization" : {
+      "get" : {
+        "operationId" : "requestAuthorization",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/requestFunds" : {
+      "post" : {
+        "operationId" : "requestFunds",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/FundsRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/saveAddress" : {
+      "post" : {
+        "operationId" : "saveWallet",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Wallet"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/saveBackupState" : {
+      "post" : {
+        "operationId" : "saveWalletBackupState",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "walletId" : {
+                    "type" : "integer",
+                    "format" : "int64"
+                  },
+                  "backedUp" : {
+                    "type" : "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/saveOrDeleteAddressLabel" : {
+      "post" : {
+        "operationId" : "saveOrDeleteAddressLabel",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WalletAddressLabel"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/savePrivateKey" : {
+      "post" : {
+        "operationId" : "savePrivateKey",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "address" : {
+                    "type" : "string"
+                  },
+                  "privateKey" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/account/setInitializationStatus" : {
+      "get" : {
+        "operationId" : "setInitializationStatus",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/admin/transaction/intiialize" : {
+      "post" : {
+        "operationId" : "initializeWallet",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "receiver" : {
+                    "type" : "string"
+                  },
+                  "etherAmount" : {
+                    "type" : "number",
+                    "format" : "double"
+                  },
+                  "tokenAmount" : {
+                    "type" : "number",
+                    "format" : "double"
+                  },
+                  "transactionLabel" : {
+                    "type" : "string"
+                  },
+                  "transactionMessage" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/admin/transaction/sendEther" : {
+      "post" : {
+        "operationId" : "sendEther",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "receiver" : {
+                    "type" : "string"
+                  },
+                  "etherAmount" : {
+                    "type" : "number",
+                    "format" : "double"
+                  },
+                  "transactionLabel" : {
+                    "type" : "string"
+                  },
+                  "transactionMessage" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/admin/transaction/sendToken" : {
+      "post" : {
+        "operationId" : "sendToken",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "receiver" : {
+                    "type" : "string"
+                  },
+                  "transactionLabel" : {
+                    "type" : "string"
+                  },
+                  "transactionMessage" : {
+                    "type" : "string"
+                  },
+                  "tokenAmount" : {
+                    "type" : "number",
+                    "format" : "double"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/contract" : {
+      "get" : {
+        "operationId" : "getContract",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/contract/abi/{name}" : {
+      "get" : {
+        "operationId" : "getAbi",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/contract/bin/{name}" : {
+      "get" : {
+        "operationId" : "getBin",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/compute" : {
+      "get" : {
+        "operationId" : "computeRewards",
+        "parameters" : [ {
+          "name" : "periodDateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/countRewards" : {
+      "get" : {
+        "operationId" : "countRewards",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/list" : {
+      "get" : {
+        "operationId" : "listRewards",
+        "parameters" : [ {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/send" : {
+      "get" : {
+        "operationId" : "sendRewards",
+        "parameters" : [ {
+          "name" : "periodDateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/settings" : {
+      "get" : {
+        "operationId" : "getSettings_1",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/settings/getDates" : {
+      "get" : {
+        "operationId" : "getRewardDates",
+        "parameters" : [ {
+          "name" : "periodType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/settings/save" : {
+      "post" : {
+        "operationId" : "saveSettings",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RewardSettings"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/team/list" : {
+      "get" : {
+        "operationId" : "listTeams",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/team/remove" : {
+      "get" : {
+        "operationId" : "removeTeam",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/reward/team/save" : {
+      "post" : {
+        "operationId" : "saveTeam",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RewardTeam"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/settings" : {
+      "get" : {
+        "operationId" : "getSettings",
+        "parameters" : [ {
+          "name" : "spaceId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "administration",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/settings/saveInitialFunds" : {
+      "post" : {
+        "operationId" : "saveInitialFundsSettings",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/InitialFundsSettings"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/getNonce" : {
+      "get" : {
+        "operationId" : "getNonce",
+        "parameters" : [ {
+          "name" : "from",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/getSavedTransactionByHash" : {
+      "get" : {
+        "operationId" : "getSavedTransactionByHash",
+        "parameters" : [ {
+          "name" : "hash",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/getTransactions" : {
+      "get" : {
+        "operationId" : "getTransactions",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "contractAddress",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "contractMethodName",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "hash",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "pending",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "administration",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/getTransactionsAmounts" : {
+      "get" : {
+        "operationId" : "getTransactionsAmounts",
+        "parameters" : [ {
+          "name" : "address",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "periodicity",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "date",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "lang",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/refreshTransactionFromBlockchain" : {
+      "get" : {
+        "operationId" : "refreshTransactionFromBlockchain",
+        "parameters" : [ {
+          "name" : "hash",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/saveTransactionDetails" : {
+      "post" : {
+        "operationId" : "saveTransactionDetails",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TransactionDetail"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "FundsRequest" : {
+        "type" : "object",
+        "properties" : {
+          "address" : {
+            "type" : "string"
+          },
+          "amount" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "contract" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "receipient" : {
+            "type" : "string"
+          },
+          "receipientType" : {
+            "type" : "string"
+          }
+        }
+      },
+      "InitialFundsSettings" : {
+        "type" : "object",
+        "properties" : {
+          "etherAmount" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "fundsHolder" : {
+            "type" : "string"
+          },
+          "fundsHolderType" : {
+            "type" : "string"
+          },
+          "requestMessage" : {
+            "type" : "string"
+          },
+          "tokenAmount" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "RewardPluginSettings" : {
+        "type" : "object",
+        "properties" : {
+          "amount" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "budgetType" : {
+            "type" : "string",
+            "enum" : [ "COMPUTED", "FIXED", "FIXED_PER_MEMBER", "FIXED_PER_POINT" ]
+          },
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "pluginId" : {
+            "type" : "string"
+          },
+          "threshold" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "usePools" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "RewardSettings" : {
+        "type" : "object",
+        "properties" : {
+          "periodType" : {
+            "type" : "string",
+            "enum" : [ "WEEK", "MONTH", "QUARTER", "SEMESTER", "YEAR" ]
+          },
+          "pluginSettings" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RewardPluginSettings"
+            }
+          }
+        }
+      },
+      "RewardTeam" : {
+        "type" : "object",
+        "properties" : {
+          "budget" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "disabled" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "manager" : {
+            "$ref" : "#/components/schemas/RewardTeamMember"
+          },
+          "members" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/RewardTeamMember"
+            }
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "rewardType" : {
+            "type" : "string",
+            "enum" : [ "COMPUTED", "FIXED", "FIXED_PER_MEMBER", "FIXED_PER_POINT" ]
+          },
+          "spaceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "spacePrettyName" : {
+            "type" : "string"
+          }
+        }
+      },
+      "RewardTeamMember" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "identityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "providerId" : {
+            "type" : "string"
+          },
+          "technicalId" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "TransactionDetail" : {
+        "type" : "object",
+        "properties" : {
+          "adminOperation" : {
+            "type" : "boolean"
+          },
+          "boost" : {
+            "type" : "boolean"
+          },
+          "by" : {
+            "type" : "string"
+          },
+          "byWallet" : {
+            "$ref" : "#/components/schemas/Wallet"
+          },
+          "contractAddress" : {
+            "type" : "string"
+          },
+          "contractAmount" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "contractMethodName" : {
+            "type" : "string"
+          },
+          "etherFee" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "from" : {
+            "type" : "string"
+          },
+          "fromWallet" : {
+            "$ref" : "#/components/schemas/Wallet"
+          },
+          "gasPrice" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "gasUsed" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "hash" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "issuer" : {
+            "$ref" : "#/components/schemas/Wallet"
+          },
+          "issuerId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "networkId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "noContractFunds" : {
+            "type" : "boolean"
+          },
+          "nonce" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "pending" : {
+            "type" : "boolean"
+          },
+          "rawTransaction" : {
+            "type" : "string"
+          },
+          "sendingAttemptCount" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "sentTimestamp" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "succeeded" : {
+            "type" : "boolean"
+          },
+          "timestamp" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "to" : {
+            "type" : "string"
+          },
+          "toWallet" : {
+            "$ref" : "#/components/schemas/Wallet"
+          },
+          "tokenFee" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "value" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        }
+      },
+      "Wallet" : {
+        "type" : "object",
+        "properties" : {
+          "address" : {
+            "type" : "string"
+          },
+          "avatar" : {
+            "type" : "string"
+          },
+          "backedUp" : {
+            "type" : "boolean"
+          },
+          "deletedUser" : {
+            "type" : "boolean"
+          },
+          "disabledUser" : {
+            "type" : "boolean"
+          },
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "etherBalance" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "hasPrivateKey" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "initializationState" : {
+            "type" : "string"
+          },
+          "isInitialized" : {
+            "type" : "boolean"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "passPhrase" : {
+            "type" : "string"
+          },
+          "provider" : {
+            "type" : "string"
+          },
+          "spaceAdministrator" : {
+            "type" : "boolean"
+          },
+          "spaceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "technicalId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "tokenBalance" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "WalletAddressLabel" : {
+        "type" : "object",
+        "properties" : {
+          "address" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "identityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "label" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

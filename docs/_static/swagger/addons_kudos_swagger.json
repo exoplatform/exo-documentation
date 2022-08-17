@@ -1,0 +1,480 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Kudos Rest Api",
+    "description" : "Kudos addon rest endpoints",
+    "license" : {
+      "name" : "LGPL",
+      "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/kudos/api/account/isAuthorized" : {
+      "get" : {
+        "operationId" : "isAuthorized",
+        "parameters" : [ {
+          "name" : "username",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/account/settings" : {
+      "get" : {
+        "operationId" : "getSettings",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos" : {
+      "get" : {
+        "operationId" : "getKudosByPeriodOfDate",
+        "parameters" : [ {
+          "name" : "dateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createKudos",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Kudos"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/byActivity/{activityId}" : {
+      "get" : {
+        "operationId" : "getKudosByActivityId",
+        "parameters" : [ {
+          "name" : "activityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/byActivity/{activityId}/all" : {
+      "get" : {
+        "operationId" : "getKudosListOfActivity",
+        "parameters" : [ {
+          "name" : "activityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/byDates" : {
+      "get" : {
+        "operationId" : "getKudosByDates",
+        "parameters" : [ {
+          "name" : "startDateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "endDateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/byEntity" : {
+      "get" : {
+        "operationId" : "getEntityKudos",
+        "parameters" : [ {
+          "name" : "entityType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entityId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/byEntity/sent/count" : {
+      "get" : {
+        "operationId" : "countKudosByEntityAndSender",
+        "parameters" : [ {
+          "name" : "entityType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entityId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/period" : {
+      "get" : {
+        "operationId" : "getPeriodDates",
+        "parameters" : [ {
+          "name" : "periodType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/{identityId}/received" : {
+      "get" : {
+        "operationId" : "getReceivedKudosByPeriod",
+        "parameters" : [ {
+          "name" : "identityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "dateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "periodType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/kudos/{identityId}/sent" : {
+      "get" : {
+        "operationId" : "getSentKudosByPeriod",
+        "parameters" : [ {
+          "name" : "identityId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "dateInSeconds",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "periodType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/settings" : {
+      "get" : {
+        "operationId" : "getSettings_1",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/kudos/api/settings/save" : {
+      "post" : {
+        "operationId" : "saveSettings",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GlobalSettings"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "GlobalSettings" : {
+        "type" : "object",
+        "properties" : {
+          "accessPermission" : {
+            "type" : "string"
+          },
+          "kudosPerPeriod" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "kudosPeriodType" : {
+            "type" : "string",
+            "enum" : [ "WEEK", "MONTH", "QUARTER", "SEMESTER", "YEAR" ]
+          }
+        }
+      },
+      "Kudos" : {
+        "type" : "object",
+        "properties" : {
+          "activityId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "entityId" : {
+            "type" : "string"
+          },
+          "entityType" : {
+            "type" : "string"
+          },
+          "externalReceiver" : {
+            "type" : "boolean"
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "parentEntityId" : {
+            "type" : "string"
+          },
+          "receiverAvatar" : {
+            "type" : "string"
+          },
+          "receiverFullName" : {
+            "type" : "string"
+          },
+          "receiverId" : {
+            "type" : "string"
+          },
+          "receiverIdentityId" : {
+            "type" : "string"
+          },
+          "receiverPosition" : {
+            "type" : "string"
+          },
+          "receiverType" : {
+            "type" : "string"
+          },
+          "receiverURL" : {
+            "type" : "string"
+          },
+          "senderAvatar" : {
+            "type" : "string"
+          },
+          "senderFullName" : {
+            "type" : "string"
+          },
+          "senderId" : {
+            "type" : "string"
+          },
+          "senderIdentityId" : {
+            "type" : "string"
+          },
+          "senderURL" : {
+            "type" : "string"
+          },
+          "spacePrettyName" : {
+            "type" : "string"
+          },
+          "technicalId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "timeInSeconds" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      }
+    }
+  }
+}

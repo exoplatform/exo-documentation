@@ -1,0 +1,725 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Documents Rest Api",
+    "description" : "Documents addon rest endpoints",
+    "license" : {
+      "name" : "AGPL",
+      "url" : "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/v1/documents" : {
+      "get" : {
+        "operationId" : "getDocumentItems",
+        "parameters" : [ {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "parentFolderId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "folderPath",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "listingType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "TIMELINE", "FOLDER" ]
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "userId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "favorites",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sortField",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ascending",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "showHiddenFiles",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/breadcrumb" : {
+      "get" : {
+        "operationId" : "getBreadcrumb",
+        "parameters" : [ {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "folderId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "folderPath",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/duplicate" : {
+      "post" : {
+        "operationId" : "duplicateDocument",
+        "parameters" : [ {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "fileId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "prefixClone",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/folder" : {
+      "post" : {
+        "operationId" : "createFolder",
+        "parameters" : [ {
+          "name" : "parentid",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "folderPath",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/fullTree" : {
+      "get" : {
+        "operationId" : "getFullTreeData",
+        "parameters" : [ {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "folderId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/group/count" : {
+      "get" : {
+        "operationId" : "getDocumentGroupsCount",
+        "parameters" : [ {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "parentFolderId",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "favorites",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/move" : {
+      "put" : {
+        "operationId" : "moveDocument",
+        "parameters" : [ {
+          "name" : "documentID",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "destPath",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/newname" : {
+      "get" : {
+        "operationId" : "getNewName",
+        "parameters" : [ {
+          "name" : "parentid",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "folderPath",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "name",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/permissions" : {
+      "post" : {
+        "operationId" : "updatePermissions",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/FileNodeEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/rename" : {
+      "put" : {
+        "operationId" : "renameDocument",
+        "parameters" : [ {
+          "name" : "documentID",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "ownerId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "newName",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{documentId}" : {
+      "delete" : {
+        "operationId" : "deleteDocument",
+        "parameters" : [ {
+          "name" : "documentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "documentPath",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "favorite",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "delay",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/documents/{documentId}/undoDelete" : {
+      "post" : {
+        "operationId" : "undoDeleteDocument",
+        "parameters" : [ {
+          "name" : "documentId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "FileNodeEntity" : {
+        "type" : "object",
+        "properties" : {
+          "acl" : {
+            "$ref" : "#/components/schemas/NodePermissionEntity"
+          },
+          "auditTrails" : {
+            "$ref" : "#/components/schemas/NodeAuditTrailsEntity"
+          },
+          "createdDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "creatorIdentity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          },
+          "datasource" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "favorite" : {
+            "type" : "boolean"
+          },
+          "folder" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "linkedFileId" : {
+            "type" : "string"
+          },
+          "metadatas" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/MetadataItemEntity"
+              }
+            }
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "modifiedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "modifierIdentity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "ownerIdentity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          },
+          "parentFolderId" : {
+            "type" : "string"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "sourceID" : {
+            "type" : "string"
+          },
+          "versionnedFileId" : {
+            "type" : "string"
+          },
+          "versions" : {
+            "$ref" : "#/components/schemas/FileVersionsEntity"
+          }
+        }
+      },
+      "FileVersionsEntity" : {
+        "type" : "object",
+        "properties" : {
+          "limit" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "versions" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "$ref" : "#/components/schemas/FileNodeEntity"
+            }
+          }
+        }
+      },
+      "IdentityEntity" : {
+        "type" : "object",
+        "properties" : {
+          "avatar" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "providerId" : {
+            "type" : "string"
+          },
+          "remoteId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MetadataItemEntity" : {
+        "type" : "object",
+        "properties" : {
+          "audienceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "creatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "objectId" : {
+            "type" : "string"
+          },
+          "objectType" : {
+            "type" : "string"
+          },
+          "parentObjectId" : {
+            "type" : "string"
+          },
+          "properties" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "NodeAuditTrailItemEntity" : {
+        "type" : "object",
+        "properties" : {
+          "actionType" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "properties" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "targetIdentity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          },
+          "userIdentity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          }
+        }
+      },
+      "NodeAuditTrailsEntity" : {
+        "type" : "object",
+        "properties" : {
+          "limit" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "trails" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/NodeAuditTrailItemEntity"
+            }
+          }
+        }
+      },
+      "NodePermissionEntity" : {
+        "type" : "object",
+        "properties" : {
+          "allMembersCanEdit" : {
+            "type" : "boolean"
+          },
+          "canAccess" : {
+            "type" : "boolean"
+          },
+          "canDelete" : {
+            "type" : "boolean"
+          },
+          "canEdit" : {
+            "type" : "boolean"
+          },
+          "collaborators" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/PermissionEntryEntity"
+            }
+          },
+          "visibilityChoice" : {
+            "type" : "string"
+          }
+        }
+      },
+      "PermissionEntryEntity" : {
+        "type" : "object",
+        "properties" : {
+          "identity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          },
+          "permission" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

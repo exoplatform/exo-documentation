@@ -1,0 +1,1350 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Processes Rest Api",
+    "description" : "Processes addon rest endpoints",
+    "license" : {
+      "name" : "AGPL",
+      "url" : "https://www.gnu.org/licenses/agpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/v1/processes/attachment/newDoc" : {
+      "post" : {
+        "operationId" : "createNewFormDocument",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "title" : {
+                    "type" : "string"
+                  },
+                  "path" : {
+                    "type" : "string"
+                  },
+                  "pathDrive" : {
+                    "type" : "string"
+                  },
+                  "templateName" : {
+                    "type" : "string"
+                  },
+                  "entityType" : {
+                    "type" : "string"
+                  },
+                  "entityId" : {
+                    "type" : "integer",
+                    "format" : "int64"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/countWorks/{projectId}" : {
+      "get" : {
+        "operationId" : "countWorksByWorkflow",
+        "parameters" : [ {
+          "name" : "projectId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "isCompleted",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean",
+            "default" : true
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/illustration/{workflowId}" : {
+      "get" : {
+        "operationId" : "getImageIllustration",
+        "parameters" : [ {
+          "name" : "workflowId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "v",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/permissions" : {
+      "get" : {
+        "operationId" : "isProcessesManager",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/work/{workId}" : {
+      "delete" : {
+        "operationId" : "deleteWork",
+        "parameters" : [ {
+          "name" : "workId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      },
+      "patch" : {
+        "operationId" : "updateWorkCompleted",
+        "parameters" : [ {
+          "name" : "workId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "boolean"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/workDraft" : {
+      "put" : {
+        "operationId" : "updateWorkDraft",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createWorkDraft",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/workDraft/{draftId}" : {
+      "delete" : {
+        "operationId" : "deleteWorkDraft",
+        "parameters" : [ {
+          "name" : "draftId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/workDrafts" : {
+      "get" : {
+        "operationId" : "getWorkDrafts",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/workflow/{workflowId}" : {
+      "delete" : {
+        "operationId" : "deleteWorkflow",
+        "parameters" : [ {
+          "name" : "workflowId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "text/plain" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/workflows" : {
+      "get" : {
+        "operationId" : "getWorkFlows",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "enabled",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "manager",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateWorkFlow",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkFlowEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createWorkFlow",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkFlowEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/workflows/{workflowId}" : {
+      "get" : {
+        "operationId" : "getWorkFlowById",
+        "parameters" : [ {
+          "name" : "workflowId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/works" : {
+      "get" : {
+        "operationId" : "getWorks",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "completed",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "put" : {
+        "operationId" : "updateWork",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "createWork",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/WorkEntity"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/works/statuses" : {
+      "get" : {
+        "operationId" : "getAvailableWorkStatuses",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/processes/works/{workId}" : {
+      "get" : {
+        "operationId" : "getWorkById",
+        "parameters" : [ {
+          "name" : "workId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "expand",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Attachment" : {
+        "type" : "object",
+        "properties" : {
+          "acl" : {
+            "$ref" : "#/components/schemas/Permission"
+          },
+          "created" : {
+            "type" : "string"
+          },
+          "creatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "downloadUrl" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "isPublic" : {
+            "type" : "boolean"
+          },
+          "mimetype" : {
+            "type" : "string"
+          },
+          "openUrl" : {
+            "type" : "string"
+          },
+          "path" : {
+            "type" : "string"
+          },
+          "previewBreadcrumb" : {
+            "type" : "object",
+            "additionalProperties" : {
+              "type" : "string"
+            }
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "updated" : {
+            "type" : "string"
+          },
+          "updater" : {
+            "type" : "string"
+          },
+          "version" : {
+            "type" : "string"
+          }
+        }
+      },
+      "AvatarAttachment" : {
+        "type" : "object",
+        "properties" : {
+          "attachmentType" : {
+            "type" : "string"
+          },
+          "fileName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "imageBytes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          },
+          "inputStream" : {
+            "type" : "object",
+            "writeOnly" : true
+          },
+          "lastModified" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "string"
+          }
+        }
+      },
+      "BannerAttachment" : {
+        "type" : "object",
+        "properties" : {
+          "attachmentType" : {
+            "type" : "string"
+          },
+          "fileName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "imageBytes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          },
+          "inputStream" : {
+            "type" : "object",
+            "writeOnly" : true
+          },
+          "lastModified" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CreatorIdentityEntity" : {
+        "type" : "object",
+        "properties" : {
+          "identity" : {
+            "$ref" : "#/components/schemas/IdentityEntity"
+          }
+        }
+      },
+      "IdentityEntity" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "profile" : {
+            "$ref" : "#/components/schemas/ProfileEntity"
+          },
+          "providerId" : {
+            "type" : "string"
+          },
+          "remoteId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "IllustrativeAttachment" : {
+        "type" : "object",
+        "properties" : {
+          "fileBody" : {
+            "type" : "string"
+          },
+          "fileInputStream" : {
+            "type" : "object"
+          },
+          "fileName" : {
+            "type" : "string"
+          },
+          "fileSize" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lastUpdated" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "mimeType" : {
+            "type" : "string"
+          },
+          "toDelete" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "Permission" : {
+        "type" : "object",
+        "properties" : {
+          "canAccess" : {
+            "type" : "boolean"
+          },
+          "canDetach" : {
+            "type" : "boolean"
+          },
+          "canEdit" : {
+            "type" : "boolean"
+          },
+          "canView" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "ProcessPermission" : {
+        "type" : "object",
+        "properties" : {
+          "canAccess" : {
+            "type" : "boolean"
+          },
+          "canAddRequest" : {
+            "type" : "boolean"
+          },
+          "canDelete" : {
+            "type" : "boolean"
+          },
+          "canEdit" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "ProfileEntity" : {
+        "type" : "object",
+        "properties" : {
+          "avatar" : {
+            "type" : "string"
+          },
+          "fullname" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Project" : {
+        "type" : "object",
+        "properties" : {
+          "children" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Project"
+            }
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "dueDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "hiddenOn" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserSetting"
+            }
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lastModifiedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "manager" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "#/components/schemas/Project"
+          },
+          "participator" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "status" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Status"
+            }
+          }
+        }
+      },
+      "ProjectDto" : {
+        "type" : "object",
+        "properties" : {
+          "children" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProjectDto"
+            }
+          },
+          "color" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "dueDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "hiddenOn" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/UserSetting"
+            }
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lastModifiedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "manager" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "$ref" : "#/components/schemas/ProjectDto"
+          },
+          "participator" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "spaceName" : {
+            "type" : "string"
+          },
+          "status" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StatusDto"
+            }
+          }
+        }
+      },
+      "Space" : {
+        "type" : "object",
+        "properties" : {
+          "app" : {
+            "type" : "string"
+          },
+          "avatarAttachment" : {
+            "$ref" : "#/components/schemas/AvatarAttachment"
+          },
+          "avatarLastUpdated" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "avatarUrl" : {
+            "type" : "string"
+          },
+          "bannerAttachment" : {
+            "$ref" : "#/components/schemas/BannerAttachment"
+          },
+          "bannerLastUpdated" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "bannerUrl" : {
+            "type" : "string"
+          },
+          "cacheTime" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "createdTime" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "creator" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "displayName" : {
+            "type" : "string"
+          },
+          "editor" : {
+            "type" : "string"
+          },
+          "field" : {
+            "type" : "string",
+            "enum" : [ "DESCRIPTION" ]
+          },
+          "groupId" : {
+            "type" : "string"
+          },
+          "hasBindings" : {
+            "type" : "boolean",
+            "writeOnly" : true
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "invitedUsers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "lastUpdatedTime" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "managers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "members" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "parent" : {
+            "type" : "string"
+          },
+          "pendingUsers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "prettyName" : {
+            "type" : "string"
+          },
+          "priority" : {
+            "type" : "string"
+          },
+          "redactors" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "registration" : {
+            "type" : "string"
+          },
+          "shortName" : {
+            "type" : "string"
+          },
+          "tag" : {
+            "type" : "string"
+          },
+          "template" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "visibility" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Status" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "project" : {
+            "$ref" : "#/components/schemas/Project"
+          },
+          "rank" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "StatusDto" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "project" : {
+            "$ref" : "#/components/schemas/ProjectDto"
+          },
+          "rank" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "tasks" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Task"
+            }
+          }
+        }
+      },
+      "Task" : {
+        "type" : "object",
+        "properties" : {
+          "activityId" : {
+            "type" : "string"
+          },
+          "assignee" : {
+            "type" : "string"
+          },
+          "completed" : {
+            "type" : "boolean"
+          },
+          "context" : {
+            "type" : "string"
+          },
+          "coworker" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "createdBy" : {
+            "type" : "string"
+          },
+          "createdTime" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "dueDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "priority" : {
+            "type" : "string",
+            "enum" : [ "NONE", "LOW", "NORMAL", "HIGH" ]
+          },
+          "rank" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/Status"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "watcher" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "UserSetting" : {
+        "type" : "object",
+        "properties" : {
+          "hiddenProjects" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Project"
+            }
+          },
+          "showHiddenLabel" : {
+            "type" : "boolean"
+          },
+          "showHiddenProject" : {
+            "type" : "boolean"
+          },
+          "username" : {
+            "type" : "string"
+          }
+        }
+      },
+      "WorkEntity" : {
+        "type" : "object",
+        "properties" : {
+          "completed" : {
+            "type" : "boolean"
+          },
+          "createdBy" : {
+            "type" : "string"
+          },
+          "createdTime" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "creatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "draftId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "dueDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "endDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "isDraft" : {
+            "type" : "boolean"
+          },
+          "modifiedTime" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "projectId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "startDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "taskId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "workFlow" : {
+            "$ref" : "#/components/schemas/WorkFlowEntity"
+          }
+        }
+      },
+      "WorkFlowEntity" : {
+        "type" : "object",
+        "properties" : {
+          "acl" : {
+            "$ref" : "#/components/schemas/ProcessPermission"
+          },
+          "attachments" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Attachment"
+            }
+          },
+          "canShowPending" : {
+            "type" : "boolean"
+          },
+          "createdDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "creatorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "helpLink" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "illustrativeAttachment" : {
+            "$ref" : "#/components/schemas/IllustrativeAttachment"
+          },
+          "image" : {
+            "type" : "string"
+          },
+          "modifiedDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "modifierId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "parentSpace" : {
+            "$ref" : "#/components/schemas/Space"
+          },
+          "projectId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "requestsCreators" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/CreatorIdentityEntity"
+            }
+          },
+          "statuses" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/StatusDto"
+            }
+          },
+          "summary" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}

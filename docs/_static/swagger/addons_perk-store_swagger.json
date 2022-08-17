@@ -1,0 +1,649 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Perk Store Rest Api",
+    "description" : "Perk Store addon rest endpoints",
+    "license" : {
+      "name" : "LGPL",
+      "url" : "https://www.gnu.org/licenses/lgpl-3.0.en.html"
+    },
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/perkstore/api/order/list" : {
+      "post" : {
+        "operationId" : "listOrders",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OrderFilter"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/order/save" : {
+      "post" : {
+        "operationId" : "createOrder",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductOrder"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/order/saveSimulate" : {
+      "post" : {
+        "operationId" : "saveOrderSimulate",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductOrder"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/order/saveStatus" : {
+      "post" : {
+        "operationId" : "saveOrder",
+        "parameters" : [ {
+          "name" : "modificationType",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ProductOrder"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/product" : {
+      "get" : {
+        "operationId" : "listProducts",
+        "parameters" : [ {
+          "name" : "available",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      },
+      "post" : {
+        "operationId" : "saveProduct",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/product/delete/{productId}" : {
+      "put" : {
+        "operationId" : "deleteProduct",
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/product/{productId}" : {
+      "get" : {
+        "operationId" : "getProduct",
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/product/{productId}/image/{imageId}" : {
+      "get" : {
+        "operationId" : "getProductImage",
+        "parameters" : [ {
+          "name" : "productId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "imageId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "*/*" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/settings" : {
+      "get" : {
+        "operationId" : "getSettings",
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/perkstore/api/settings/save" : {
+      "post" : {
+        "operationId" : "saveSettings",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GlobalSettings"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "FileDetail" : {
+        "type" : "object",
+        "properties" : {
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "format" : "byte"
+            }
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lastUpdated" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "src" : {
+            "type" : "string"
+          },
+          "uploadId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "GlobalSettings" : {
+        "type" : "object",
+        "properties" : {
+          "accessPermissions" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "accessPermissionsProfiles" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Profile"
+            }
+          },
+          "managers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "managersProfiles" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Profile"
+            }
+          },
+          "productCreationPermissions" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "productCreationPermissionsProfiles" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Profile"
+            }
+          },
+          "symbol" : {
+            "type" : "string"
+          },
+          "userSettings" : {
+            "$ref" : "#/components/schemas/UserSettings"
+          }
+        }
+      },
+      "OrderFilter" : {
+        "type" : "object",
+        "properties" : {
+          "canceled" : {
+            "type" : "boolean"
+          },
+          "delivered" : {
+            "type" : "boolean"
+          },
+          "error" : {
+            "type" : "boolean"
+          },
+          "fraud" : {
+            "type" : "boolean"
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "notProcessed" : {
+            "type" : "boolean"
+          },
+          "ordered" : {
+            "type" : "boolean"
+          },
+          "ordersType" : {
+            "type" : "string",
+            "enum" : [ "ALL", "SENT", "RECEIVED" ]
+          },
+          "paid" : {
+            "type" : "boolean"
+          },
+          "partial" : {
+            "type" : "boolean"
+          },
+          "productId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "refunded" : {
+            "type" : "boolean"
+          },
+          "searchInDates" : {
+            "type" : "boolean"
+          },
+          "selectedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "selectedOrderId" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }
+      },
+      "Product" : {
+        "type" : "object",
+        "properties" : {
+          "accessPermissions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Profile"
+            }
+          },
+          "allowFraction" : {
+            "type" : "boolean"
+          },
+          "createdDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "creator" : {
+            "$ref" : "#/components/schemas/Profile"
+          },
+          "deleted" : {
+            "type" : "boolean"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "enabled" : {
+            "type" : "boolean"
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "illustrationURL" : {
+            "type" : "string"
+          },
+          "imageFiles" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/FileDetail"
+            }
+          },
+          "lastModifiedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "lastModifier" : {
+            "$ref" : "#/components/schemas/Profile"
+          },
+          "marchands" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Profile"
+            }
+          },
+          "maxOrdersPerUser" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "notProcessedOrders" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "orderPeriodicity" : {
+            "type" : "string"
+          },
+          "orderPeriodicityLabel" : {
+            "type" : "string"
+          },
+          "price" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "purchased" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "receiverMarchand" : {
+            "$ref" : "#/components/schemas/Profile"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "totalSupply" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "unlimited" : {
+            "type" : "boolean"
+          },
+          "userData" : {
+            "$ref" : "#/components/schemas/UserProductData"
+          }
+        }
+      },
+      "ProductOrder" : {
+        "type" : "object",
+        "properties" : {
+          "amount" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "createdDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "deliveredDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "deliveredQuantity" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "error" : {
+            "type" : "string",
+            "enum" : [ "GLOBAL_SETTINGS_ACCESS_DENIED", "GLOBAL_SETTINGS_MODIFICATION_DENIED", "PRODUCT_CREATION_DENIED", "PRODUCT_MODIFICATION_DENIED", "PRODUCT_NOT_EXISTS", "ORDER_CREATION_DENIED", "ORDER_CREATION_STATUS_DENIED", "ORDER_CREATION_EMPTY_TX", "ORDER_CREATION_EMPTY_QUANTITY", "ORDER_CREATION_EMPTY_AMOUNT", "ORDER_CREATION_EMPTY_RECEIVER", "ORDER_CREATION_EMPTY_SENDER", "ORDER_CREATION_QUANTITY_EXCEEDS_SUPPLY", "ORDER_CREATION_QUANTITY_EXCEEDS_ALLOWED", "ORDER_MODIFICATION_DENIED", "ORDER_MODIFICATION_QUANTITY_INVALID_REMAINING", "ORDER_NOT_EXISTS", "ORDER_CREATION_EMPTY_PRODUCT", "PRODUCT_IS_DISABLED", "PRODUCT_ACCESS_DENIED", "ORDER_ACCESS_DENIED", "ORDER_FRAUD_NOT_TOKEN_TRANSACTION", "ORDER_FRAUD_WRONG_TOKEN_TRANSFER_METHOD", "ORDER_FRAUD_WRONG_AMOUNT", "ORDER_FRAUD_WRONG_SENDER", "ORDER_FRAUD_WRONG_RECEIVER" ]
+          },
+          "id" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "productId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "productTitle" : {
+            "type" : "string"
+          },
+          "quantity" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "receiver" : {
+            "$ref" : "#/components/schemas/Profile"
+          },
+          "refundTransactionHash" : {
+            "type" : "string"
+          },
+          "refundTransactionStatus" : {
+            "type" : "string"
+          },
+          "refundedAmount" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "refundedDate" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "refundedQuantity" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "remainingQuantityToProcess" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "sender" : {
+            "$ref" : "#/components/schemas/Profile"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "transactionHash" : {
+            "type" : "string"
+          },
+          "transactionStatus" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Profile" : {
+        "type" : "object",
+        "properties" : {
+          "displayName" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "spaceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "spaceURLId" : {
+            "type" : "string"
+          },
+          "technicalId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "type" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserProductData" : {
+        "type" : "object",
+        "properties" : {
+          "canEdit" : {
+            "type" : "boolean"
+          },
+          "canOrder" : {
+            "type" : "boolean"
+          },
+          "notProcessedOrders" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "purchasedInCurrentPeriod" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "totalPurchased" : {
+            "type" : "number",
+            "format" : "double"
+          },
+          "username" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UserSettings" : {
+        "type" : "object",
+        "properties" : {
+          "administrator" : {
+            "type" : "boolean"
+          },
+          "canAddProduct" : {
+            "type" : "boolean"
+          },
+          "cometdChannel" : {
+            "type" : "string"
+          },
+          "cometdContext" : {
+            "type" : "string"
+          },
+          "cometdToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
