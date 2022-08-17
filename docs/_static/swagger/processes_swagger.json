@@ -481,12 +481,6 @@
             "type" : "boolean"
           }
         }, {
-          "name" : "manager",
-          "in" : "query",
-          "schema" : {
-            "type" : "boolean"
-          }
-        }, {
           "name" : "query",
           "in" : "query",
           "description" : "Search query entered by the user",
