@@ -9,6 +9,16 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/attachments",
+    "description" : "Managing attachments"
+  }, {
+    "name" : "/documents",
+    "description" : "Managing documents"
+  }, {
+    "name" : "/transferRules",
+    "description" : "Managing transfer rules"
+  } ],
   "paths" : {
     "/" : {
       "get" : {
@@ -29,15 +39,21 @@
     },
     "/attachments/downloadByPath" : {
       "post" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Downloads a list of attachments by it paths",
+        "description" : "redirects to download URL of binary that contains the list of attachments in a Zip file if multiple, else the selected file",
         "operationId" : "downloadActivityAttachments",
         "parameters" : [ {
           "name" : "fileName",
           "in" : "query",
+          "description" : "Filename to use for download",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "List of file attachments to download",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -47,38 +63,52 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "303" : {
+            "description" : "Request Redirect"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/attachments/newDoc" : {
       "post" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "create new document",
+        "description" : "create new document and returns a new created document",
         "operationId" : "createNewDocument",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "path", "pathDrive" ],
                 "type" : "object",
                 "properties" : {
                   "title" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "title",
+                    "default" : "20"
                   },
                   "path" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "path of new document"
                   },
                   "pathDrive" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "New destination path's drive"
                   },
                   "templateName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "template name of new document",
+                    "default" : "20"
                   }
                 }
               }
@@ -86,42 +116,53 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/attachments/{attachmentId}" : {
       "get" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Get an attachment with its jcr uuid",
+        "description" : "Get an attachment with its jcr uuid",
         "operationId" : "getAttachmentById",
         "parameters" : [ {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "Attachment technical identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/attachments/{attachmentId}/move" : {
       "post" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Move an attachment to a destination path",
+        "description" : "Move an attachment to a destination path and returns empty response",
         "operationId" : "moveAttachmentToNewPath",
         "parameters" : [ {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "Entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -131,19 +172,24 @@
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
+                "required" : [ "entityId", "entityType", "newPath", "newPathDrive" ],
                 "type" : "object",
                 "properties" : {
                   "newPath" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "New path"
                   },
                   "newPathDrive" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "New destination path's drive"
                   },
                   "entityType" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "New destination path's drive"
                   },
                   "entityId" : {
                     "type" : "integer",
+                    "description" : "Entity technical identifier",
                     "format" : "int64"
                   }
                 }
@@ -152,21 +198,31 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/attachments/{entityType}/{entityId}" : {
       "get" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Get list of attachments linked to an entity",
+        "description" : "Get the list of attachments linked to the given entity",
         "operationId" : "getAttachmentsByEntity",
         "parameters" : [ {
           "name" : "entityId",
           "in" : "path",
+          "description" : "Entity technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -175,25 +231,36 @@
         }, {
           "name" : "entityType",
           "in" : "path",
+          "description" : "Entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Update entity's attachments list",
+        "description" : "Update entity's attachments list",
         "operationId" : "updateAttachmentsLinkedToContext",
         "parameters" : [ {
           "name" : "entityId",
           "in" : "path",
+          "description" : "entity technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -202,6 +269,7 @@
         }, {
           "name" : "entityType",
           "in" : "path",
+          "description" : "entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -211,10 +279,12 @@
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
+                "required" : [ "attachmentId" ],
                 "type" : "object",
                 "properties" : {
                   "attachmentId" : {
                     "type" : "array",
+                    "description" : "list of files uuid stored in jcr attached to the provided entity",
                     "items" : {
                       "type" : "string"
                     }
@@ -225,19 +295,29 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Delete a list of attachments",
+        "description" : "Delete the list of attachments linked to the given entity",
         "operationId" : "deleteAttachmentsByEntity",
         "parameters" : [ {
           "name" : "entityId",
           "in" : "path",
+          "description" : "Entity technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -246,27 +326,38 @@
         }, {
           "name" : "entityType",
           "in" : "path",
+          "description" : "Entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/attachments/{entityType}/{entityId}/{attachmentId}" : {
       "get" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Get list of attachments linked to the given entity",
+        "description" : "Get the list of attachments linked to the given entity",
         "operationId" : "getAttachmentByIdByEntity",
         "parameters" : [ {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "Attachment technical identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -274,6 +365,7 @@
         }, {
           "name" : "entityId",
           "in" : "path",
+          "description" : "Entity technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -282,25 +374,36 @@
         }, {
           "name" : "entityType",
           "in" : "path",
+          "description" : "Entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Link an attachment to an entity",
+        "description" : "Link an existing attachment to the given entity (Event, Task, Wiki,...)",
         "operationId" : "linkAttachmentToEntity",
         "parameters" : [ {
           "name" : "entityId",
           "in" : "path",
+          "description" : "entity technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -309,6 +412,7 @@
         }, {
           "name" : "entityType",
           "in" : "path",
+          "description" : "entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -316,25 +420,36 @@
         }, {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "file uuid stored in jcr to be attached to the provided entity",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/attachments" ],
+        "summary" : "Delete an attachment linked to the given entity",
+        "description" : "Delete an attachment linked to the given entity and returns the deleted attachment",
         "operationId" : "deleteEntityAttachment",
         "parameters" : [ {
           "name" : "entityId",
           "in" : "path",
+          "description" : "Entity technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -343,6 +458,7 @@
         }, {
           "name" : "entityType",
           "in" : "path",
+          "description" : "Entity type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -350,17 +466,24 @@
         }, {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "Attachment id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
@@ -430,96 +553,114 @@
     },
     "/documents/favorite" : {
       "get" : {
+        "tags" : [ "/documents" ],
+        "summary" : "Gets favorite documents",
+        "description" : "This returns favorite documents",
         "operationId" : "getFavoriteDocuments",
         "parameters" : [ {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/documents/folder" : {
       "get" : {
+        "tags" : [ "/documents" ],
+        "summary" : "Gets documents by folder",
+        "description" : "This returns documents by folder",
         "operationId" : "getDocumentsByFolder",
         "parameters" : [ {
           "name" : "folder",
           "in" : "query",
+          "description" : "Folder from which documents to be retrieved",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/documents/query" : {
       "get" : {
+        "tags" : [ "/documents" ],
+        "summary" : "Gets documents by quey",
+        "description" : "This returns documents by quey",
         "operationId" : "getDocumentsByQuery",
         "parameters" : [ {
           "name" : "query",
           "in" : "query",
+          "description" : "Query from which documents to be retrieved",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/documents/shared" : {
       "get" : {
+        "tags" : [ "/documents" ],
+        "summary" : "Gets shared documents",
+        "description" : "This returns shared documents",
         "operationId" : "getSharedDocuments",
         "parameters" : [ {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
@@ -2532,19 +2673,25 @@
     },
     "/transferRules/getTransfertRulesDocumentStatus" : {
       "get" : {
+        "tags" : [ "/transferRules" ],
+        "summary" : "Gets the status of the transfert rules documents",
+        "description" : "This returns the status of the transfert rules documents",
         "operationId" : "getTransfertRulesDocumentStatus",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/transferRules/saveDownloadDocumentStatus" : {
       "put" : {
+        "tags" : [ "/transferRules" ],
+        "summary" : "Updates the download document status",
+        "description" : "Updates the download document status.",
         "operationId" : "saveDownloadDocumentStatus",
         "requestBody" : {
           "content" : {
@@ -2556,17 +2703,23 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/transferRules/saveSharedDocumentStatus" : {
       "put" : {
+        "tags" : [ "/transferRules" ],
+        "summary" : "Updates the shared document status",
+        "description" : "Updates the shared document status.",
         "operationId" : "saveSharedDocumentStatus",
         "requestBody" : {
           "content" : {
@@ -2578,11 +2731,14 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }

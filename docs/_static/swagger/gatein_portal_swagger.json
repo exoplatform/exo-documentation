@@ -9,19 +9,43 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/v1/platform/branding",
+    "description" : "Managing branding information"
+  }, {
+    "name" : "v1/navigations",
+    "description" : "Retrieve sites navigations"
+  }, {
+    "name" : "v1/groups",
+    "description" : "Manages groups operations"
+  }, {
+    "name" : "v1/membershipTypes",
+    "description" : "Manage membership types operations"
+  }, {
+    "name" : "v1/users",
+    "description" : "Manage User operations"
+  }, {
+    "name" : "/v1/settings",
+    "description" : "Managing settings"
+  } ],
   "paths" : {
     "/v1/groups" : {
       "get" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Gets groups",
+        "description" : "Gets groups",
         "operationId" : "getGroups",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "Search text to filter groups",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -29,6 +53,7 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -36,8 +61,10 @@
         }, {
           "name" : "tree",
           "in" : "query",
+          "description" : "Whether build tree until results or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "returnSize",
@@ -53,15 +80,21 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Updates an existing Group",
+        "description" : "Updates an existing Group",
         "operationId" : "updateGroup",
         "requestBody" : {
           "content" : {
@@ -73,15 +106,24 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Creates a new group",
+        "description" : "Creates a new group",
         "operationId" : "createGroup",
         "requestBody" : {
           "content" : {
@@ -93,82 +135,119 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Deletes an existing Group",
+        "description" : "Deletes an existing Group",
         "operationId" : "deleteGroup",
         "parameters" : [ {
           "name" : "groupId",
           "in" : "query",
+          "description" : "Group id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/groups/memberships" : {
       "get" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Gets Group memberships list",
+        "description" : "Gets Group memberships list",
         "operationId" : "getGroupMemberships",
         "parameters" : [ {
           "name" : "groupId",
           "in" : "query",
+          "description" : "Group identifier",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of users found or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Group not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Updates an existing membership",
+        "description" : "Updates an existing membership",
         "operationId" : "updateMembership",
         "parameters" : [ {
           "name" : "membershipId",
           "in" : "query",
+          "description" : "Membership identifier with format: MEMBERSHIP_TYPE:GROUP_ID:USER_NAME",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Membership object",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -178,17 +257,27 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Creates a new membership",
+        "description" : "Creates a new membership",
         "operationId" : "createMembership",
         "requestBody" : {
+          "description" : "Membership Object",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -198,37 +287,58 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Deletes an existing membership",
+        "description" : "Deletes an existing membership",
         "operationId" : "deleteMembership",
         "parameters" : [ {
           "name" : "membershipId",
           "in" : "query",
+          "description" : "Membership identifier with format: MEMBERSHIP_TYPE:GROUP_ID:USER_NAME",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/groups/memberships/bulk" : {
       "post" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Creates new memberships",
+        "description" : "Creates new memberships",
         "operationId" : "createMultipleMembership",
         "requestBody" : {
+          "description" : "List of membership objects",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -241,33 +351,45 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/groups/tree" : {
       "get" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Gets groups tree",
+        "description" : "Gets groups tree",
         "operationId" : "getGroupsTree",
         "parameters" : [ {
           "name" : "parentId",
           "in" : "query",
+          "description" : "Parent groupId to search",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "q",
           "in" : "query",
+          "description" : "Search text to filter groups",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -275,6 +397,7 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -287,39 +410,49 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/groups/treeMembers" : {
       "get" : {
+        "tags" : [ "v1/groups" ],
+        "summary" : "Gets groups tree",
+        "description" : "Gets groups tree",
         "operationId" : "getGroupsTreeMembers",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "Search text to filter groups",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "groupMember",
           "in" : "query",
+          "description" : "Group member",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "groupType",
           "in" : "query",
+          "description" : "Group type",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -327,6 +460,7 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -339,30 +473,50 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
+          "200" : {
+            "description" : "Request fulfilled",
             "content" : {
-              "application/json" : { }
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CollectionEntity"
+                }
+              }
             }
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/membershipTypes" : {
       "get" : {
+        "tags" : [ "v1/membershipTypes" ],
+        "summary" : "Gets membership types",
+        "description" : "Gets membership types",
         "operationId" : "getMembershipType",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/membershipTypes" ],
+        "summary" : "Updates an existing membership type",
+        "description" : "Updates an existing membership type",
         "operationId" : "updateMembershipType",
         "requestBody" : {
+          "description" : "Membership type object",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -372,17 +526,27 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/membershipTypes" ],
+        "summary" : "Creates a new membership type",
+        "description" : "Creates a new membership type",
         "operationId" : "createMembershipType",
         "requestBody" : {
+          "description" : "Membership type object",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -392,68 +556,100 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/membershipTypes/{membershipType}" : {
       "delete" : {
+        "tags" : [ "v1/membershipTypes" ],
+        "summary" : "Deletes an existing membership type",
+        "description" : "Deletes an existing membership type",
         "operationId" : "deleteMembershipType",
         "parameters" : [ {
           "name" : "membershipType",
           "in" : "path",
+          "description" : "Membership type name",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/navigations" : {
       "get" : {
+        "tags" : [ "v1/navigations" ],
+        "summary" : "Gets navigations",
+        "description" : "Gets navigations",
         "operationId" : "getSiteNavigation",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Navigation does not exist"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/navigations/categories" : {
       "get" : {
+        "tags" : [ "v1/navigations" ],
+        "summary" : "Gets navigations categories for UI",
+        "description" : "Gets navigations categories for UI",
         "operationId" : "getNavigationCategories",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/navigations/{siteType}" : {
       "get" : {
+        "tags" : [ "v1/navigations" ],
+        "summary" : "Gets navigations of one or multiple site navigations",
+        "description" : "Gets navigations of one or multiple site navigations",
         "operationId" : "getSiteTypeNavigations",
         "parameters" : [ {
           "name" : "siteType",
           "in" : "path",
+          "description" : "Portal site type, possible values: PORTAL, GROUP or USER",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -461,54 +657,74 @@
         }, {
           "name" : "exclude",
           "in" : "query",
+          "description" : "Site names regex to exclude from results",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "siteName",
           "in" : "query",
+          "description" : "Portal site name",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "scope",
           "in" : "query",
+          "description" : "Scope of navigations tree to retrieve, possible values: ALL, CHILDREN, GRANDCHILDREN, SINGLE",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "ALL"
           }
         }, {
           "name" : "visibility",
           "in" : "query",
+          "description" : "Multivalued visibilities of navigation nodes to retrieve, possible values: DISPLAYED, HIDDEN, SYSTEM or TEMPORAL. If empty, all visibilities will be used.",
           "schema" : {
             "type" : "array",
             "items" : {
-              "type" : "string"
-            }
+              "type" : "string",
+              "default" : "All possible values combined"
+            },
+            "default" : "All possible values combined"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Navigation does not exist"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/platform/branding" : {
       "get" : {
+        "tags" : [ "/v1/platform/branding" ],
+        "summary" : "Get Branding information",
+        "description" : "Get Branding information",
         "operationId" : "getBrandingInformation",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Server error when retrieving branding information"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/platform/branding" ],
+        "summary" : "Update Branding information",
+        "description" : "Update Branding information",
         "operationId" : "updateBrandingInformation",
         "requestBody" : {
           "content" : {
@@ -520,74 +736,98 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Branding information updated"
+          },
+          "500" : {
+            "description" : "Server error when updating branding information"
           }
         }
       }
     },
     "/v1/platform/branding/css" : {
       "get" : {
+        "tags" : [ "/v1/platform/branding" ],
+        "summary" : "Get Branding CSS content",
+        "description" : "Get Branding CSS content",
         "operationId" : "getBrandingCSS",
         "parameters" : [ {
           "name" : "v",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Branding css retrieved"
+          },
+          "304" : {
+            "description" : "Branding css not modified"
+          },
+          "500" : {
+            "description" : "Server error when retrieving branding css"
           }
         }
       }
     },
     "/v1/platform/branding/defaultLogo" : {
       "get" : {
+        "tags" : [ "/v1/platform/branding" ],
+        "summary" : "Get Branding default logo",
+        "description" : "Get Branding default logo",
         "operationId" : "getBrandingDefaultLogo",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Branding default logo retrieved"
+          },
+          "404" : {
+            "description" : "Branding default logo not found"
+          },
+          "500" : {
+            "description" : "Server error when retrieving branding default logo"
           }
         }
       }
     },
     "/v1/platform/branding/logo" : {
       "get" : {
+        "tags" : [ "/v1/platform/branding" ],
+        "summary" : "Get Branding logo",
+        "description" : "Get Branding logo",
         "operationId" : "getBrandingLogo",
         "parameters" : [ {
           "name" : "lastModified",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "image/png" : { }
-            }
+          "200" : {
+            "description" : "Branding logo retrieved"
+          },
+          "404" : {
+            "description" : "Branding logo not found"
+          },
+          "500" : {
+            "description" : "Server error when retrieving branding logo"
           }
         }
       }
     },
     "/v1/settings/{context}/{scope}/{settingKey}" : {
       "get" : {
+        "tags" : [ "/v1/settings" ],
+        "summary" : "Gets a specific setting value",
+        "description" : "Gets a specific setting value",
         "operationId" : "getSetting",
         "parameters" : [ {
           "name" : "context",
           "in" : "path",
+          "description" : "Context - Format 'contextName,contextId' where 'contextId' is optional. Example: GLOBAL or USER,john",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -595,6 +835,7 @@
         }, {
           "name" : "scope",
           "in" : "path",
+          "description" : "Scope - Format 'scopeName,scopeId' where 'scopeId' is optional. Example: GLOBAL or APPLICATION,wiki or SPACE,marketing",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -602,25 +843,39 @@
         }, {
           "name" : "settingKey",
           "in" : "path",
+          "description" : "Setting key",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User does not have permissions to get it"
+          },
+          "404" : {
+            "description" : "Setting does not exist"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/settings" ],
+        "summary" : "Sets a specific setting value",
+        "description" : "Sets a specific setting value",
         "operationId" : "setSetting",
         "parameters" : [ {
           "name" : "context",
           "in" : "path",
+          "description" : "Context - Format 'contextName,contextId' where 'contextId' is optional. Example: GLOBAL or USER,john",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -628,6 +883,7 @@
         }, {
           "name" : "scope",
           "in" : "path",
+          "description" : "Scope - Format 'scopeName,scopeId' where 'scopeId' is optional. Example: GLOBAL or APPLICATION,wiki or SPACE,marketing",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -635,78 +891,103 @@
         }, {
           "name" : "settingKey",
           "in" : "path",
+          "description" : "Setting key",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Setting value",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/SettingValueEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User does not have permissions to update it"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/users" : {
       "get" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Gets all users",
+        "description" : "Gets all users",
         "operationId" : "getUsers",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "User name information to filter, ex: user name, last name, first name or full name",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "status",
           "in" : "query",
+          "description" : "User status : ANY, ENABLED or DISABLED",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "ANY"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of users found or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Update an existing user",
+        "description" : "Update an existing user",
         "operationId" : "updateUser",
         "requestBody" : {
+          "description" : "User Object",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -716,17 +997,24 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Create new user",
+        "description" : "Create new user",
         "operationId" : "createUser",
         "requestBody" : {
+          "description" : "User Object",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -736,100 +1024,136 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/v1/users/isDelegatedAdministrator" : {
       "get" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Check if current user is a delegated administrator",
+        "description" : "Check if current user is a delegated administrator",
         "operationId" : "isDelegatedAdministrator",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/v1/users/isSuperUser" : {
       "get" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Check if current user is a superUser",
+        "description" : "Check if current user is a superUser",
         "operationId" : "isSuperUser",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/v1/users/isSynchronizedUserAllowedToChangePassword" : {
       "get" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Check if synchronized user is allowed to change his password",
+        "description" : "Check if synchronized user is allowed to change his password",
         "operationId" : "isSynchronizedUserAllowedToChangePassword",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/v1/users/{id}" : {
       "get" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Gets a user identified by its id",
+        "description" : "Gets a user identified by its id",
         "operationId" : "getUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "404" : {
+            "description" : "User not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Deletes a user identified by its id",
+        "description" : "Deletes a user identified by its id",
         "operationId" : "deleteUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "404" : {
+            "description" : "User not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/users/{id}/changePassword" : {
       "patch" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Changes user password",
+        "description" : "Changes user password",
         "operationId" : "changePassword",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "username to change his password",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -839,13 +1163,16 @@
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "currentPassword", "newPassword" ],
                 "type" : "object",
                 "properties" : {
                   "currentPassword" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Current user password"
                   },
                   "newPassword" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "New user password"
                   }
                 }
               }
@@ -853,21 +1180,31 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "404" : {
+            "description" : "User not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/users/{id}/memberships" : {
       "get" : {
+        "tags" : [ "v1/users" ],
+        "summary" : "Gets User memberships list",
+        "description" : "Gets User memberships list",
         "operationId" : "getUserMemberships",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -875,30 +1212,39 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of users found or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "User not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
@@ -934,6 +1280,35 @@
           "topBarTheme" : {
             "type" : "string"
           }
+        }
+      },
+      "CollectionEntity" : {
+        "type" : "object",
+        "properties" : {
+          "empty" : {
+            "type" : "boolean"
+          },
+          "entities" : {
+            "type" : "array",
+            "items" : {
+              "type" : "object"
+            }
+          },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "offset" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        },
+        "additionalProperties" : {
+          "type" : "object"
         }
       },
       "GroupImpl" : {

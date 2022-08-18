@@ -9,26 +9,38 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/app-center",
+    "description" : "Manage and access application center applications"
+  } ],
   "paths" : {
     "/app-center" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Retrieves all available sub resources of current endpoint",
+        "description" : "Retrieves all available sub resources of current endpoint",
         "operationId" : "getAvailableSubResources",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Retrieves all available applications",
+        "description" : "Return list of applications in json format",
         "operationId" : "getApplicationsList",
         "parameters" : [ {
           "name" : "offset",
           "in" : "query",
+          "description" : "Query Offset",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -36,6 +48,8 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Query results limit",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -43,66 +57,89 @@
         }, {
           "name" : "keyword",
           "in" : "query",
+          "description" : "Keyword to search in applications title and url",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Updates an existing application identified by its id or title or url",
+        "description" : "Updates an existing application identified by its id or title or url",
         "operationId" : "updateApplication",
         "requestBody" : {
+          "description" : "Application to update",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Application"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Creates a new application in application center",
+        "description" : "Creates a new application in application center and returns an empty response",
         "operationId" : "createApplication",
         "requestBody" : {
+          "description" : "Application to save",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Application"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/authorized" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Retrieves all authorized applications for currently authenticated user",
+        "description" : "Return list of applications in json format",
         "operationId" : "getAuthorizedApplicationsList",
         "parameters" : [ {
           "name" : "offset",
           "in" : "query",
+          "description" : "Query Offset",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -110,6 +147,8 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Query results limit",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -117,35 +156,44 @@
         }, {
           "name" : "keyword",
           "in" : "query",
+          "description" : "Keyword to search in applications title and url",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/favorites" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Retrieves favorite applications for currently authenticated user",
+        "description" : "Return list of applications in json format",
         "operationId" : "getFavoriteApplicationsList",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Updates an existing application's order identified by its id",
+        "description" : "Updates an existing application's order identified by its id and returns an empty response",
         "operationId" : "updateApplicationsOrder",
         "requestBody" : {
+          "description" : "Application to update",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -155,24 +203,32 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/favorites/{applicationId}" : {
       "post" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Adds an existing application identified by its id as favorite for current authenticated user",
+        "description" : "Adds an existing application identified by its id as favorite for current authenticated user",
         "operationId" : "addFavoriteApplication",
         "parameters" : [ {
           "name" : "applicationId",
           "in" : "path",
+          "description" : "Application technical id to add as favorite",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -180,19 +236,23 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Deletes an existing application identified by its id from current authenticated user favorites",
+        "description" : "Deletes an existing application identified by its id from current authenticated user favorites and returns an empty response",
         "operationId" : "deleteFavoriteApplication",
         "parameters" : [ {
           "name" : "applicationId",
           "in" : "path",
+          "description" : "Application technical id to delete from favorite",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -200,21 +260,25 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/illustration/{applicationId}" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Gets an application illustration by application id",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getApplicationIllustration",
         "parameters" : [ {
           "name" : "applicationId",
           "in" : "path",
+          "description" : "Application id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -223,40 +287,54 @@
         }, {
           "name" : "v",
           "in" : "query",
+          "description" : "Optional last modified parameter",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/app-center/applications/logClickAllApplications" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Log that the currently authenticated user clicked on View All Applications button",
+        "description" : "Log that the currently authenticated user clicked on View All Applications button and returns an empty response",
         "operationId" : "logClickAllApplications",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/logClickApplication/{applicationId}" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Log that the currently authenticated user clicked on one Application",
+        "description" : "Log that the currently authenticated user clicked on one Application and returns an empty response",
         "operationId" : "logClickOneApplications",
         "parameters" : [ {
           "name" : "applicationId",
           "in" : "path",
+          "description" : "Application technical id to log",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -264,34 +342,41 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/logOpenDrawer" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Log that the currently authenticated user has opened the favorites drawer",
+        "description" : "Log that the currently authenticated user has opened the favorites drawer and returns an empty response",
         "operationId" : "logOpenDrawer",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/applications/{applicationId}" : {
       "delete" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Deletes an existing application identified by its id",
+        "description" : "Deletes an existing application identified by its id",
         "operationId" : "deleteApplication",
         "parameters" : [ {
           "name" : "applicationId",
           "in" : "path",
+          "description" : "Application technical id to delete",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -299,67 +384,83 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/settings" : {
       "get" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Modifies default application image setting",
+        "description" : "Modifies default application image setting and returns an empty response",
         "operationId" : "getAppGeneralSettings",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/settings/image" : {
       "patch" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Modifies default application image setting",
+        "description" : "Modifies default application image setting",
         "operationId" : "setDefaultAppImage",
         "requestBody" : {
+          "description" : "Application image id, body and name",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ApplicationImage"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/app-center/settings/maxFavorites" : {
       "patch" : {
+        "tags" : [ "/app-center" ],
+        "summary" : "Modifies maximum application count to add as favorites for all users",
+        "description" : "Modifies maximum application count to add as favorites for all users",
         "operationId" : "setMaxFavoriteApps",
         "parameters" : [ {
           "name" : "number",
           "in" : "query",
+          "description" : "Max favorites number",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

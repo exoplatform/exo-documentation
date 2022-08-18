@@ -9,33 +9,49 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/v1/processes",
+    "description" : "Manages processes"
+  } ],
   "paths" : {
     "/v1/processes/attachment/newDoc" : {
       "post" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "create new form document",
+        "description" : "create new form document",
         "operationId" : "createNewFormDocument",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "path", "pathDrive", "templateName", "title" ],
                 "type" : "object",
                 "properties" : {
                   "title" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "title",
+                    "default" : "20"
                   },
                   "path" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "path of new document"
                   },
                   "pathDrive" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "New destination path's drive"
                   },
                   "templateName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "template name of new document",
+                    "default" : "20"
                   },
                   "entityType" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "entity type"
                   },
                   "entityId" : {
                     "type" : "integer",
+                    "description" : "entity id",
                     "format" : "int64"
                   }
                 }
@@ -44,21 +60,34 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/countWorks/{projectId}" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Count tasks by completed and uncompleted status",
+        "description" : "Count tasks by completed and uncompleted status",
         "operationId" : "countWorksByWorkflow",
         "parameters" : [ {
           "name" : "projectId",
           "in" : "path",
+          "description" : "Tasks project id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -67,27 +96,41 @@
         }, {
           "name" : "isCompleted",
           "in" : "query",
+          "description" : "Processes properties to expand.",
           "schema" : {
             "type" : "boolean",
             "default" : true
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/illustration/{workflowId}" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Gets a workflow illustration image by its id",
+        "description" : "Gets a workflow illustration image by its id",
         "operationId" : "getImageIllustration",
         "parameters" : [ {
           "name" : "workflowId",
           "in" : "path",
+          "description" : "workflow id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -96,40 +139,60 @@
         }, {
           "name" : "v",
           "in" : "query",
+          "description" : "Optional last modified parameter",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/v1/processes/permissions" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "checks is current user is a processes manager",
+        "description" : "checks is current user is a processes manager",
         "operationId" : "isProcessesManager",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/work/{workId}" : {
       "delete" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "delete a work by its id",
+        "description" : "delete a work by its id",
         "operationId" : "deleteWork",
         "parameters" : [ {
           "name" : "workId",
           "in" : "path",
+          "description" : "work id to delete",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -137,19 +200,29 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "patch" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "cancel or resume a work by its id",
+        "description" : "cancel or resume a work by its id",
         "operationId" : "updateWorkCompleted",
         "parameters" : [ {
           "name" : "workId",
           "in" : "path",
+          "description" : "work id to be updated",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -157,6 +230,7 @@
           }
         } ],
         "requestBody" : {
+          "description" : "completed object property",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -166,66 +240,99 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/workDraft" : {
       "put" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Updates a new workDraft",
+        "description" : "Updates a new workDraft",
         "operationId" : "updateWorkDraft",
         "requestBody" : {
+          "description" : "Work object to update",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WorkEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Creates a new WorkDraft",
+        "description" : "Creates a new WorkDraft",
         "operationId" : "createWorkDraft",
         "requestBody" : {
+          "description" : "WorkDaft object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WorkEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/workDraft/{draftId}" : {
       "delete" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "delete a work draft by its id",
+        "description" : "delete a work draft by its id",
         "operationId" : "deleteWorkDraft",
         "parameters" : [ {
           "name" : "draftId",
           "in" : "path",
+          "description" : "Work draft id to delete",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -233,21 +340,34 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/workDrafts" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Retrieves the list of workDrafts",
+        "description" : "Retrieves the list of workDrafts for an authenticated user",
         "operationId" : "getWorkDrafts",
         "parameters" : [ {
           "name" : "userId",
           "in" : "query",
+          "description" : "Identity technical identifier",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -255,46 +375,59 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Processes properties to expand.",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "query",
           "in" : "query",
+          "description" : "Work query.",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset of results to return",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/workflow/{workflowId}" : {
       "delete" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "delete a workflow by its id",
+        "description" : "delete a workflow by its id",
         "operationId" : "deleteWorkflow",
         "parameters" : [ {
           "name" : "workflowId",
           "in" : "path",
+          "description" : "Workflow id to delete",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -302,20 +435,32 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/workflows" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Retrieves the list of workFlows",
+        "description" : "Retrieves the list of workFlows for an authenticated user",
         "operationId" : "getWorkFlows",
         "parameters" : [ {
-          "name" : "userId",
+          "name" : "Identity technical identifier",
           "in" : "query",
           "schema" : {
             "type" : "integer",
@@ -324,98 +469,144 @@
         }, {
           "name" : "enabled",
           "in" : "query",
+          "description" : "filter workflow by status",
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "manager",
           "in" : "query",
+          "description" : "filter workflow that i manage",
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "query",
           "in" : "query",
+          "description" : "Search query entered by the user",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Processes properties to expand.",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset of results to return",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Updates a workFlow",
+        "description" : "Updates a workFlow",
         "operationId" : "updateWorkFlow",
         "requestBody" : {
+          "description" : "WorkFlow object to update",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WorkFlowEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Object to update not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Creates a new WorkFlow",
+        "description" : "Creates a new WorkFlow",
         "operationId" : "createWorkFlow",
         "requestBody" : {
+          "description" : "WorkFlow object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WorkFlowEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/workflows/{workflowId}" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Retrieves a workflow by its given id",
+        "description" : "Retrieves a workflow by its given id",
         "operationId" : "getWorkFlowById",
         "parameters" : [ {
           "name" : "workflowId",
           "in" : "path",
+          "description" : "workflow id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -424,26 +615,40 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Processes properties to expand",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/works" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Retrieves the list of works",
+        "description" : "Retrieves the list of works for an authenticated user",
         "operationId" : "getWorks",
         "parameters" : [ {
           "name" : "userId",
           "in" : "query",
+          "description" : "Identity technical identifier",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -451,111 +656,157 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Processes properties to expand.",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "completed",
           "in" : "query",
+          "description" : "work completed property",
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "status",
           "in" : "query",
+          "description" : "Works status",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "query",
           "in" : "query",
+          "description" : "Works query",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset of results to return",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Updates a new work",
+        "description" : "Updates a new work",
         "operationId" : "updateWork",
         "requestBody" : {
+          "description" : "Work object to update",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WorkEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Creates a Work",
+        "description" : "Creates a Work",
         "operationId" : "createWork",
         "requestBody" : {
+          "description" : "Work object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WorkEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/works/statuses" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Retrieves the list of workDrafts",
+        "description" : "Retrieves the list of workDrafts for an authenticated user",
         "operationId" : "getAvailableWorkStatuses",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/processes/works/{workId}" : {
       "get" : {
+        "tags" : [ "/v1/processes" ],
+        "summary" : "Retrieves a work by its given id",
+        "description" : "Retrieves a work by its given id",
         "operationId" : "getWorkById",
         "parameters" : [ {
           "name" : "workId",
           "in" : "path",
+          "description" : "Work id.",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -564,16 +815,26 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Processes properties to expand.",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

@@ -9,9 +9,14 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/notes",
+    "description" : "Managing notes"
+  } ],
   "paths" : {
     "/notes/contextsearch" : {
       "get" : {
+        "tags" : [ "/notes" ],
         "operationId" : "searchData",
         "parameters" : [ {
           "name" : "keyword",
@@ -57,93 +62,138 @@
     },
     "/notes/draftNote/{noteId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get draft note by id",
+        "description" : "This returns the draft note if the authenticated user is the author of the draft.",
         "operationId" : "getDraftNoteById",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Delete note by note's params",
+        "description" : "This deletes the note if the authenticated user has EDIT permissions.",
         "operationId" : "deleteDraftNote",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/latestDraftNote/{noteId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get latest draft note of page",
+        "description" : "This returns the latest draft of the note if the authenticated user is the author of the draft.",
         "operationId" : "getLatestDraftOfPage",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note" : {
       "post" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Add a new note",
+        "description" : "This adds a new note.",
         "operationId" : "createNote",
         "requestBody" : {
+          "description" : "note object to be created",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Page"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/export/cancel/{exportId}" : {
       "put" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Export notes",
+        "description" : "This cancel export.",
         "operationId" : "cancelExportNote",
         "parameters" : [ {
           "name" : "exportId",
           "in" : "path",
+          "description" : "export id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -151,21 +201,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/export/status/{exportId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Export notes",
+        "description" : "This export selected notes and provide a zip file.",
         "operationId" : "getExportNoteStatus",
         "parameters" : [ {
           "name" : "exportId",
           "in" : "path",
+          "description" : "export id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -173,21 +233,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/export/zip/{exportId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Export notes",
+        "description" : "This export selected notes and provide a zip file.",
         "operationId" : "getExportedZip",
         "parameters" : [ {
           "name" : "exportId",
           "in" : "path",
+          "description" : "List of notes ids",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -195,21 +265,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/export/{exportId}/{notes}" : {
       "post" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Export notes",
+        "description" : "This export selected notes and provide a zip file.",
         "operationId" : "exportNote",
         "parameters" : [ {
           "name" : "notes",
           "in" : "path",
+          "description" : "List of notes ids",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -217,6 +297,7 @@
         }, {
           "name" : "exportId",
           "in" : "path",
+          "description" : "export ID",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -225,26 +306,37 @@
         }, {
           "name" : "exportAll",
           "in" : "query",
+          "description" : "exportAll",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/import/{noteId}/{uploadId}" : {
       "post" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Import notes from a zip file",
+        "description" : "This import notes from defined zip file under given note.",
         "operationId" : "importNote",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -252,6 +344,7 @@
         }, {
           "name" : "uploadId",
           "in" : "path",
+          "description" : "Upload id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -259,26 +352,38 @@
         }, {
           "name" : "conflict",
           "in" : "query",
+          "description" : "Conflict",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/move/{noteId}/{destinationNoteId}" : {
       "patch" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Move note under the destination one",
+        "description" : "This moves the note if the authenticated user has EDIT permissions.",
         "operationId" : "moveNote",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -286,27 +391,38 @@
         }, {
           "name" : "destinationNoteId",
           "in" : "path",
+          "description" : "Destination Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/{noteBookType}/{noteBookOwner}/{noteId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get note by notes params",
+        "description" : "This get the not if the authenticated user has permissions to view the objects linked to this note.",
         "operationId" : "getNote",
         "parameters" : [ {
           "name" : "noteBookType",
           "in" : "path",
+          "description" : "NoteBook Type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -314,6 +430,7 @@
         }, {
           "name" : "noteBookOwner",
           "in" : "path",
+          "description" : "NoteBook Owner",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -321,6 +438,7 @@
         }, {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -328,24 +446,36 @@
         }, {
           "name" : "source",
           "in" : "query",
+          "description" : "source",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "put" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Updates a specific note by note's params",
+        "description" : "This updates the note if the authenticated user has UPDATE permissions.",
         "operationId" : "updateNote",
         "parameters" : [ {
           "name" : "noteBookType",
           "in" : "path",
+          "description" : "NoteBook Type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -353,6 +483,7 @@
         }, {
           "name" : "noteBookOwner",
           "in" : "path",
+          "description" : "NoteBook Owner",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -360,34 +491,47 @@
         }, {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "note object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Page"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Delete note by note's params",
+        "description" : "This delets the note if the authenticated user has EDIT permissions.",
         "operationId" : "deleteNote",
         "parameters" : [ {
           "name" : "noteBookType",
           "in" : "path",
+          "description" : "NoteBook Type",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -395,6 +539,7 @@
         }, {
           "name" : "noteBookOwner",
           "in" : "path",
+          "description" : "NoteBook Owner",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -402,27 +547,38 @@
         }, {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/note/{noteId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get note by id",
+        "description" : "This get the note if the authenticated user has permissions to view the objects linked to this note.",
         "operationId" : "getNoteById",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -430,165 +586,236 @@
         }, {
           "name" : "noteBookType",
           "in" : "query",
+          "description" : "noteBookType",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "noteBookOwner",
           "in" : "query",
+          "description" : "noteBookOwner",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "withChildren",
           "in" : "query",
+          "description" : "withChildren",
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "source",
           "in" : "query",
+          "description" : "source",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "put" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Updates a specific note by id",
+        "description" : "This updates the note if the authenticated user has UPDATE permissions.",
         "operationId" : "updateNoteById",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "note object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Page"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Delete note by note's params",
+        "description" : "This deletes the note if the authenticated user has EDIT permissions.",
         "operationId" : "deleteNoteById",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/restore/{noteVersion}" : {
       "put" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Restore a specific note version by version id",
+        "description" : "This restore the note if the authenticated user has UPDATE permissions.",
         "operationId" : "RestoreNoteVersion",
         "parameters" : [ {
           "name" : "noteVersion",
           "in" : "path",
+          "description" : "Version Number",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "note object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Page"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/saveDraft" : {
       "post" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Add or update a new note draft page",
+        "description" : "This adds a new note draft page or updates an existing one.",
         "operationId" : "saveDraft",
         "requestBody" : {
+          "description" : "Note draft page object to be created",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/DraftPage"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/tree/full" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get node's tree",
+        "description" : "Display the current tree of a noteBook based on is path",
         "operationId" : "getFullTreeData",
         "parameters" : [ {
           "name" : "path",
           "in" : "query",
+          "description" : "Note path",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "withDrafts",
           "in" : "query",
+          "description" : "With draft notes",
+          "required" : true,
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/tree/{type}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get node's tree",
+        "description" : "Display the current tree of a noteBook based on is path",
         "operationId" : "getTreeData",
         "parameters" : [ {
           "name" : "type",
@@ -629,32 +856,48 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/notes/versions/{noteId}" : {
       "get" : {
+        "tags" : [ "/notes" ],
+        "summary" : "Get versions of note by id",
+        "description" : "This get the versions of a note if the authenticated user has permissions to view the objects linked to this note.",
         "operationId" : "getNoteVersions",
         "parameters" : [ {
           "name" : "noteId",
           "in" : "path",
+          "description" : "Note id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }

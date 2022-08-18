@@ -9,193 +9,316 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/wallet/api/account",
+    "description" : "Manages wallets objects associated to users, spaces and admin"
+  }, {
+    "name" : "/wallet/api/admin/transaction",
+    "description" : "Manages admin wallet transactions to send on blockchain"
+  }, {
+    "name" : "/wallet/api/contract",
+    "description" : "Manages internally stored token contract detail"
+  }, {
+    "name" : "/wallet/api/settings",
+    "description" : "Manage wallet settings operations"
+  }, {
+    "name" : "/wallet/api/transaction",
+    "description" : "Manages internally stored transactions"
+  }, {
+    "name" : "/wallet/api/reward",
+    "description" : "Manage wallet rewards"
+  }, {
+    "name" : "/wallet/api/reward/settings",
+    "description" : "Manage reward module settings"
+  }, {
+    "name" : "/wallet/api/reward/team",
+    "description" : "Manage reward teams (pools)"
+  } ],
   "paths" : {
     "/wallet/api/account/deleteWallet" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Modify initialization status of wallet to delete",
+        "description" : "returns empty response",
         "operationId" : "deleteWallet",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/detailsByAddress" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Retrieves the user or space wallet identified by an address",
+        "description" : "returns the associated Wallet object, if not found it will return an empty object",
         "operationId" : "getWalletByAddress",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/detailsById" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Retrieves the user or space wallet identified by username or space pretty name",
+        "description" : "returns the associated Wallet object, if not found it will return an empty object",
         "operationId" : "getWalletByTypeAndID",
         "parameters" : [ {
           "name" : "id",
           "in" : "query",
+          "description" : "username or space pretty name",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "type",
           "in" : "query",
+          "description" : "'user' or 'space'",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/enable" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Enable or disable a wallet identified by its address",
+        "description" : "returns empty response",
         "operationId" : "enableWalletByAddress",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "enable",
           "in" : "query",
+          "description" : "true to enable wallet, else false",
+          "required" : true,
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/fundRequestSent" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Returns fund request status",
+        "description" : "returns fund request status (true if notification sent, else false)",
         "operationId" : "isFundRequestSent",
         "parameters" : [ {
           "name" : "notificationId",
           "in" : "query",
+          "description" : "web notification id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/getPrivateKey" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Get encrypted private key of a wallet",
+        "description" : "returns encoded wallet private key in String format",
         "operationId" : "getPrivateKey",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/list" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Get list of wallet accounts",
+        "description" : "Get list of wallet accounts (array of wallets objects)",
         "operationId" : "getWallets",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/markFundRequestAsSent" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Mark a web notification of funds request as sent",
+        "description" : "Mark a web notification of funds request as sent and returns an empty response",
         "operationId" : "markFundRequestAsSent",
         "parameters" : [ {
           "name" : "notificationId",
           "in" : "query",
+          "description" : "web notification id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/provider" : {
       "post" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Switches user wallet provider",
+        "description" : "Switches user wallet provider and returns an empty response",
         "operationId" : "saveWalletProvider",
         "requestBody" : {
           "content" : {
             "application/x-www-form-urlencoded" : {
               "schema" : {
+                "required" : [ "provider" ],
                 "type" : "object",
                 "properties" : {
                   "provider" : {
                     "type" : "string",
+                    "description" : "New Wallet provider",
                     "enum" : [ "INTERNAL_WALLET", "METAMASK" ]
                   },
                   "address" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Selected Wallet Address of provider"
                   },
                   "rawMessage" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Signed Raw message by external Wallet Provider"
                   },
                   "signedMessage" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Signed message by external Wallet Provider"
                   }
                 }
               }
@@ -203,134 +326,201 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/refreshWalletFromBlockchain" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "force refresh wallet from blockchain",
+        "description" : "force refresh wallet from blockchain",
         "operationId" : "refreshWalletFromBlockchain",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/removePrivateKey" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Removes associated private key of a wallet",
+        "description" : "Removes associated private key of a wallet and returns an empty response",
         "operationId" : "removePrivateKey",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/requestAuthorization" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Modify initialization status from DENIED to MODIFIED",
+        "description" : "This is used in case when a wallet has been denied access, in that case, a new authorization request can be done",
         "operationId" : "requestAuthorization",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address to change its status",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/requestFunds" : {
       "post" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Sends a fund request to a user or space",
+        "description" : "Sends a fund request to a user or space and returns an empty response",
         "operationId" : "requestFunds",
         "requestBody" : {
+          "description" : "funds request object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/FundsRequest"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/saveAddress" : {
       "post" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Associates a wallet address to a user or a space",
+        "description" : "Associates a wallet address to a user or a space and returns the generated password for newly saved wallet",
         "operationId" : "saveWallet",
         "requestBody" : {
+          "description" : "wallet details to save",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Wallet"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/saveBackupState" : {
       "post" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Saves wallet backup state",
+        "description" : "Saves wallet backup state and returns the modified wallet",
         "operationId" : "saveWalletBackupState",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "backedUp", "walletId" ],
                 "type" : "object",
                 "properties" : {
                   "walletId" : {
                     "type" : "integer",
+                    "description" : "wallet technical id",
                     "format" : "int64"
                   },
                   "backedUp" : {
-                    "type" : "boolean"
+                    "type" : "boolean",
+                    "description" : "whether wallet backedUp or not"
                   }
                 }
               }
@@ -338,51 +528,74 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/saveOrDeleteAddressLabel" : {
       "post" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Saves or deletes a label associated to an address",
+        "description" : "Saves or deletes a label associated to an address. If label is empty, then deletes it, else saves it. returns saved label object",
         "operationId" : "saveOrDeleteAddressLabel",
         "requestBody" : {
+          "description" : "blockchain address label",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/WalletAddressLabel"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/savePrivateKey" : {
       "post" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Save encrypted private key of a wallet",
+        "description" : "Save encrypted private key of a wallet and returns an empty response",
         "operationId" : "savePrivateKey",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "address", "privateKey" ],
                 "type" : "object",
                 "properties" : {
                   "address" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "wallet address to save its encrypted private key"
                   },
                   "privateKey" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "encrypted wallet private key"
                   }
                 }
               }
@@ -390,66 +603,94 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/account/setInitializationStatus" : {
       "get" : {
+        "tags" : [ "/wallet/api/account" ],
+        "summary" : "Modify initialization status of wallet",
+        "description" : "returns empty response",
         "operationId" : "setInitializationStatus",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "status",
           "in" : "query",
+          "description" : "initialization status: new, modified, pending, initialized or denied",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/admin/transaction/intiialize" : {
       "post" : {
+        "tags" : [ "/wallet/api/admin/transaction" ],
+        "summary" : "Send blockchain transaction using Admin wallet to initialize wallet identified by its address",
+        "description" : "Send blockchain transaction using Admin wallet to initialize wallet identified by its address and returns transaction hash",
         "operationId" : "initializeWallet",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "receiver" ],
                 "type" : "object",
                 "properties" : {
                   "receiver" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "receiver wallet address"
                   },
                   "etherAmount" : {
                     "type" : "number",
+                    "description" : "ether amount to send to wallet",
                     "format" : "double"
                   },
                   "tokenAmount" : {
                     "type" : "number",
+                    "description" : "token amount to send to wallet",
                     "format" : "double"
                   },
                   "transactionLabel" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "transaction label"
                   },
                   "transactionMessage" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "transaction message to send to receiver with transaction"
                   }
                 }
               }
@@ -457,36 +698,50 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/admin/transaction/sendEther" : {
       "post" : {
+        "tags" : [ "/wallet/api/admin/transaction" ],
+        "summary" : "Send ether using blockchain transaction from Admin wallet",
+        "description" : "Send ether using blockchain transaction from Admin wallet and returns transaction hash",
         "operationId" : "sendEther",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "etherAmount", "receiver" ],
                 "type" : "object",
                 "properties" : {
                   "receiver" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "receiver wallet address"
                   },
                   "etherAmount" : {
                     "type" : "number",
+                    "description" : "ether amount to send",
                     "format" : "double"
                   },
                   "transactionLabel" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "transaction label"
                   },
                   "transactionMessage" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "transaction message to send to receiver with transaction"
                   }
                 }
               }
@@ -494,35 +749,49 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/admin/transaction/sendToken" : {
       "post" : {
+        "tags" : [ "/wallet/api/admin/transaction" ],
+        "summary" : "Send tokens using blockchain transaction from Admin wallet",
+        "description" : "Send tokens using blockchain transaction from Admin wallet and returns transaction hash",
         "operationId" : "sendToken",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "receiver" ],
                 "type" : "object",
                 "properties" : {
                   "receiver" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "receiver wallet address"
                   },
                   "transactionLabel" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "transaction label"
                   },
                   "transactionMessage" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "transaction message to send to receiver with transaction"
                   },
                   "tokenAmount" : {
                     "type" : "number",
+                    "description" : "value of token to send to receiver",
                     "format" : "double"
                   }
                 }
@@ -531,396 +800,572 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/contract" : {
       "get" : {
+        "tags" : [ "/wallet/api/contract" ],
+        "summary" : "Retrieves stored contract details in internal datasource",
+        "description" : "Retrieves stored contract details in internal datasource",
         "operationId" : "getContract",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "contract address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/contract/abi/{name}" : {
       "get" : {
+        "tags" : [ "/wallet/api/contract" ],
+        "summary" : "Retrieves contract ABI",
+        "description" : "returns contract ABI object",
         "operationId" : "getAbi",
         "parameters" : [ {
           "name" : "name",
           "in" : "path",
+          "description" : "contract name",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/contract/bin/{name}" : {
       "get" : {
+        "tags" : [ "/wallet/api/contract" ],
+        "summary" : "Retrieves contract binary",
+        "description" : "returns contract bin content",
         "operationId" : "getBin",
         "parameters" : [ {
           "name" : "name",
           "in" : "path",
+          "description" : "contract name",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/compute" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward" ],
+        "summary" : "Compute rewards of wallets per a chosen period of time",
+        "description" : "returns a set of wallet reward object",
         "operationId" : "computeRewards",
         "parameters" : [ {
           "name" : "periodDateInSeconds",
           "in" : "query",
+          "description" : "Start date of period in milliseconds",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/countRewards" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward" ],
+        "summary" : "Return sum of rewards for user",
+        "description" : "return sum of rewards per user",
         "operationId" : "countRewards",
         "parameters" : [ {
           "name" : "userId",
           "in" : "query",
+          "description" : "user id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/list" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward" ],
+        "summary" : "Return list of rewards for current user with a limit of items to return",
+        "description" : "return list of rewards per user",
         "operationId" : "listRewards",
         "parameters" : [ {
           "name" : "limit",
           "in" : "query",
+          "description" : "limit of items to load",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/send" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward" ],
+        "summary" : "Send rewards of wallets per a chosen period of time",
+        "description" : "Send rewards of wallets per a chosen period of time and returns an empty response",
         "operationId" : "sendRewards",
         "parameters" : [ {
           "name" : "periodDateInSeconds",
           "in" : "query",
+          "description" : "Start date of period in milliseconds",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/settings" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward/settings" ],
+        "summary" : "Get reward settings",
+        "description" : "returns reward settings object",
         "operationId" : "getSettings_1",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/settings/getDates" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward/settings" ],
+        "summary" : "Get dates corresponding to chosen period type and start date",
+        "description" : "returns reward period dates object",
         "operationId" : "getRewardDates",
         "parameters" : [ {
           "name" : "periodType",
           "in" : "query",
+          "description" : "Reward period type",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "dateInSeconds",
           "in" : "query",
+          "description" : "A chosen date to calculate its period",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/settings/save" : {
       "post" : {
+        "tags" : [ "/wallet/api/reward/settings" ],
+        "summary" : "Get reward settings",
+        "description" : "returns reward settings object",
         "operationId" : "saveSettings",
         "requestBody" : {
+          "description" : "Reward settings object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RewardSettings"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/team/list" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward/team" ],
+        "summary" : "Get reward teams with their members",
+        "description" : "returns the list of reward team objects",
         "operationId" : "listTeams",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/team/remove" : {
       "get" : {
+        "tags" : [ "/wallet/api/reward/team" ],
+        "summary" : "Remove a reward team",
+        "description" : "Remove a reward team and returns an empty response",
         "operationId" : "removeTeam",
         "parameters" : [ {
           "name" : "id",
           "in" : "query",
+          "description" : "Reward team technical id",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/reward/team/save" : {
       "post" : {
+        "tags" : [ "/wallet/api/reward/team" ],
+        "summary" : "Save a reward team",
+        "description" : "Save a reward team and returns the saved reward team object",
         "operationId" : "saveTeam",
         "requestBody" : {
+          "description" : "Reward team object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RewardTeam"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/settings" : {
       "get" : {
+        "tags" : [ "/wallet/api/settings" ],
+        "summary" : "Retrieves user settings by including space settings when added in parameters",
+        "description" : "Retrieves user settings by including space settings when added in parameters",
         "operationId" : "getSettings",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "Space pretty name",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "administration",
           "in" : "query",
+          "description" : "Space pretty name",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/settings/saveInitialFunds" : {
       "post" : {
+        "tags" : [ "/wallet/api/settings" ],
+        "summary" : "Saves initial funds settings",
+        "description" : "Saves initial funds settings and returns an empty response",
         "operationId" : "saveInitialFundsSettings",
         "requestBody" : {
+          "description" : "Initial funds settings",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/InitialFundsSettings"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/transaction/getNonce" : {
       "get" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "Get nonce to include in next transaction to send for a wallet",
+        "description" : "Get nonce to include in next transaction to send for a wallet",
         "operationId" : "getNonce",
         "parameters" : [ {
           "name" : "from",
           "in" : "query",
+          "description" : "Transaction sender address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/transaction/getSavedTransactionByHash" : {
       "get" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "Get saved transaction in internal database by hash",
+        "description" : "Get saved transaction in internal database by hash and returns transaction detail",
         "operationId" : "getSavedTransactionByHash",
         "parameters" : [ {
           "name" : "hash",
           "in" : "query",
+          "description" : "transaction hash",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/transaction/getTransactions" : {
       "get" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "Get list of transactions of an address",
+        "description" : "returns list of transaction detail object",
         "operationId" : "getTransactions",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "contractAddress",
           "in" : "query",
+          "description" : "token contract address to filter with",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "contractMethodName",
           "in" : "query",
+          "description" : "token contract method to filter with",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "hash",
           "in" : "query",
+          "description" : "transaction hash to include in response",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "limit transactions to retrieve",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -928,102 +1373,141 @@
         }, {
           "name" : "pending",
           "in" : "query",
+          "description" : "whether to include only pending or not",
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "administration",
           "in" : "query",
+          "description" : "whether to include administration transactions or not",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/transaction/getTransactionsAmounts" : {
       "get" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "Get token amounts sent per each period of time by a wallet identified by its address",
+        "description" : "returns transaction statistics object",
         "operationId" : "getTransactionsAmounts",
         "parameters" : [ {
           "name" : "address",
           "in" : "query",
+          "description" : "wallet address",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "periodicity",
           "in" : "query",
+          "description" : "periodicity : month or year",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "date",
           "in" : "query",
+          "description" : "Selected date",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "lang",
           "in" : "query",
+          "description" : "user locale language",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/transaction/refreshTransactionFromBlockchain" : {
       "get" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "refresh transaction detail from blockchain",
+        "description" : "return transaction detail refreshed from blockchain",
         "operationId" : "refreshTransactionFromBlockchain",
         "parameters" : [ {
           "name" : "hash",
           "in" : "query",
+          "description" : "transaction hash",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/wallet/api/transaction/saveTransactionDetails" : {
       "post" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "Save transaction details in internal datasource",
+        "description" : "Save transaction details in internal datasource",
         "operationId" : "saveTransactionDetails",
         "requestBody" : {
+          "description" : "transaction detail object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TransactionDetail"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

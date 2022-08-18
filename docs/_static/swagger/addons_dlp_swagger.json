@@ -9,62 +9,93 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/dlp/items",
+    "description" : "Manages Dlp positive items"
+  }, {
+    "name" : "/dlp",
+    "description" : "Manage dlp activation"
+  } ],
   "paths" : {
     "/dlp/changeFeatureActivation/{isActive}" : {
       "put" : {
+        "tags" : [ "/dlp" ],
+        "summary" : "Change a feature activation.",
+        "description" : "Change a feature activation",
         "operationId" : "changeFeatureActivation",
         "parameters" : [ {
           "name" : "isActive",
           "in" : "path",
+          "description" : "Is active feature",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/dlp/items" : {
       "get" : {
+        "tags" : [ "/dlp/items" ],
+        "summary" : "Retrieves the list of dlp positive items",
+        "description" : "Return list of dlp positive items in json format",
         "operationId" : "getDlpPositiveItems",
         "parameters" : [ {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "50" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/dlp/items/item/restore/{id}" : {
       "put" : {
+        "tags" : [ "/dlp/items" ],
+        "summary" : "Restore the dlp positive items",
+        "description" : "Return the restored positive item",
         "operationId" : "restoreDlpPositiveItems",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Document id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -72,21 +103,28 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/dlp/items/item/{id}" : {
       "delete" : {
+        "tags" : [ "/dlp/items" ],
+        "summary" : "Delete a document by id",
+        "description" : "This delete the document if the authenticated user is a super manager",
         "operationId" : "deleteDlpDocumentById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Document id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -94,44 +132,61 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/dlp/items/keywords" : {
       "get" : {
+        "tags" : [ "/dlp/items" ],
+        "summary" : "Retrieves the list of dlp keywords",
+        "description" : "Return list of dlp keywords in json format",
         "operationId" : "getDlpKeywords",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/dlp/items" ],
+        "summary" : "set dlp keywords",
+        "description" : "set the dlp keywords",
         "operationId" : "setDlpKeywords",
         "requestBody" : {
+          "description" : "keywords",
           "content" : {
             "*/*" : {
               "schema" : {
                 "type" : "string"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

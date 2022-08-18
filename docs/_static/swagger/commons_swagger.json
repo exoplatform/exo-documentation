@@ -9,6 +9,13 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/v1/features",
+    "description" : "Manages product experimental features"
+  }, {
+    "name" : "/v1/settings",
+    "description" : "Managing settings"
+  } ],
   "paths" : {
     "/state/status" : {
       "get" : {
@@ -90,31 +97,45 @@
     },
     "/v1/features/{featureName}" : {
       "get" : {
+        "tags" : [ "/v1/features" ],
+        "summary" : "Check if a feature is enabled for a user",
+        "description" : "Check if a feature is enabled for a user",
         "operationId" : "isFeatureActiveForUser",
         "parameters" : [ {
           "name" : "featureName",
           "in" : "path",
+          "description" : "Feature name identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/settings/{context}/{scope}/{settingKey}" : {
       "get" : {
+        "tags" : [ "/v1/settings" ],
+        "summary" : "Gets a specific setting value",
+        "description" : "Gets a specific setting value",
         "operationId" : "getSetting",
         "parameters" : [ {
           "name" : "context",
           "in" : "path",
+          "description" : "Context - Format 'contextName,contextId' where 'contextId' is optional. Example: GLOBAL or USER,john",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -122,6 +143,7 @@
         }, {
           "name" : "scope",
           "in" : "path",
+          "description" : "Scope - Format 'scopeName,scopeId' where 'scopeId' is optional. Example: GLOBAL or APPLICATION,wiki or SPACE,marketing",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -129,25 +151,39 @@
         }, {
           "name" : "settingKey",
           "in" : "path",
+          "description" : "Setting key",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User does not have permissions to get it"
+          },
+          "404" : {
+            "description" : "Setting does not exist"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/settings" ],
+        "summary" : "Sets a specific setting value",
+        "description" : "Sets a specific setting value",
         "operationId" : "setSetting",
         "parameters" : [ {
           "name" : "context",
           "in" : "path",
+          "description" : "Context - Format 'contextName,contextId' where 'contextId' is optional. Example: GLOBAL or USER,john",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -155,6 +191,7 @@
         }, {
           "name" : "scope",
           "in" : "path",
+          "description" : "Scope - Format 'scopeName,scopeId' where 'scopeId' is optional. Example: GLOBAL or APPLICATION,wiki or SPACE,marketing",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -162,26 +199,35 @@
         }, {
           "name" : "settingKey",
           "in" : "path",
+          "description" : "Setting key",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Setting value",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/SettingValueEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User does not have permissions to update it"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

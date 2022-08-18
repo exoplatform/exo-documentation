@@ -9,175 +9,260 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "v1/news",
+    "description" : "Managing news"
+  }, {
+    "name" : "v1/news/targeting",
+    "description" : "Manage news targeting operations"
+  } ],
   "paths" : {
     "/v1/news" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Get news list",
+        "description" : "This gets the list of news with the given search text, of the given author, in the given space or spaces, with the given publication state, with the given pinned state if the authenticated user is a member of the spaces or a super manager.",
         "operationId" : "getNews",
         "parameters" : [ {
           "name" : "author",
           "in" : "query",
+          "description" : "News author",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "spaces",
           "in" : "query",
+          "description" : "News spaces",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "filter",
           "in" : "query",
+          "description" : "News filter",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "text",
           "in" : "query",
+          "description" : "search text",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "News pagination offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "News pagination limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "News total size",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News list returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news list"
+          },
+          "404" : {
+            "description" : "News list not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Create a news",
+        "description" : "This creates the news if the authenticated user is a member of the space or a spaces super manager. The news is created in draft status, unless the publicationState property is set to 'published'.",
         "operationId" : "createNews",
         "requestBody" : {
+          "description" : "News object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/News"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News created"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to create the news"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/attachments/{attachmentId}" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Get a news attachment",
+        "description" : "This gets the news attachment with the given id if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "getNewsAttachmentById",
         "parameters" : [ {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "News attachment id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/attachments/{attachmentId}/file" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Download a news attachment",
+        "description" : "This downloads the news attachment with the given id if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "getNewsAttachmentBinaryById",
         "parameters" : [ {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "News attachment id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "News returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/attachments/{attachmentId}/open" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Opens a news attachment",
+        "description" : "This opens the news attachment with the given id if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "openNewsAttachmentById",
         "parameters" : [ {
           "name" : "attachmentId",
           "in" : "path",
+          "description" : "News attachment id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "News returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/byActivity/{activityId}" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Get a news identified by its activity or shared activity identifier",
+        "description" : "This gets the news with the given id if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "getNewsByActivityId",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/byTarget/{targetName}" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Get news list",
+        "description" : "This gets the list of news by the given target.",
         "operationId" : "getNewsByTarget",
         "parameters" : [ {
           "name" : "targetName",
           "in" : "path",
+          "description" : "News target name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -185,157 +270,229 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "News pagination offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "News pagination limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "News total size",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News list returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news list"
+          },
+          "404" : {
+            "description" : "News list not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/canCreateNews/{spaceId}" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "check if the current user can create a news in the given space",
+        "description" : "This checks if the current user can create a news in the given space",
         "operationId" : "canCreateNews",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "path",
+          "description" : "space id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "User ability to create a news is returned"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to create a news"
+          },
+          "404" : {
+            "description" : "Space not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/canPublishNews" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "check if the current user can publish a news to all users",
+        "description" : "This checks if the current user can publish a news to all users",
         "operationId" : "canPublishNews",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "User ability to publish a news is returned"
+          },
+          "401" : {
+            "description" : "User not authorized to publish a news"
           }
         }
       }
     },
     "/v1/news/canScheduleNews/{spaceId}" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "check if the current user can schedule a news in the given space",
+        "description" : "This checks if the current user can schedule a news in the given space",
         "operationId" : "canScheduleNews",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "path",
+          "description" : "space id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "User ability to schedule a news"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to schedule a news"
+          },
+          "404" : {
+            "description" : "Space not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/markAsRead/{id}" : {
       "post" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "mark a news article as read",
+        "description" : "This marks a news article as read by the user who accessed its details.",
         "operationId" : "markNewsAsRead",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/schedule" : {
       "patch" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Schedule a news",
+        "description" : "This schedules the news if the authenticated user is a member of the space or a spaces super manager. The news is created in staged status, after reaching a date of publication startPublishedDate, the publicationState property is set to 'published'.",
         "operationId" : "scheduleNews",
         "requestBody" : {
+          "description" : "News object to be scheduled",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/News"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News scheduled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to schedule the news"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/search" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Search the list of news available with query",
+        "description" : "Search the list of news available with query",
         "operationId" : "search",
         "parameters" : [ {
           "name" : "query",
           "in" : "query",
+          "description" : "Term to search",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "tags",
           "in" : "query",
+          "description" : "Tag names used to search news",
+          "required" : true,
           "schema" : {
             "type" : "array",
             "items" : {
@@ -345,109 +502,152 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "favorites",
           "in" : "query",
+          "description" : "Favorites",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/targeting" : {
       "get" : {
+        "tags" : [ "v1/news/targeting" ],
+        "summary" : "Get all news targets by a giving type",
+        "description" : "Get all news targets by a giving type",
         "operationId" : "getTargets",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/news/targeting" ],
+        "summary" : "Create news target",
+        "description" : "Create news target",
         "operationId" : "createNewsTarget",
         "requestBody" : {
+          "description" : "News target to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/NewsTargetingEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "User not authorized to create news target"
+          },
+          "409" : {
+            "description" : "Conflict operation"
           }
         }
       }
     },
     "/v1/news/targeting/referenced" : {
       "get" : {
+        "tags" : [ "v1/news/targeting" ],
+        "summary" : "Get all news targets by a giving property",
+        "description" : "Get all news targets by a giving property",
         "operationId" : "getReferencedTargets",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
           }
         }
       }
     },
     "/v1/news/targeting/{originalTargetName}" : {
       "put" : {
+        "tags" : [ "v1/news/targeting" ],
+        "summary" : "Update an existing news target",
+        "description" : "Update an existing news target",
         "operationId" : "updateNewsTarget",
         "parameters" : [ {
           "name" : "originalTargetName",
           "in" : "path",
+          "description" : "Original news target name",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "News target to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/NewsTargetingEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "404" : {
+            "description" : "Object not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "409" : {
+            "description" : "Conflict operation"
           }
         }
       }
     },
     "/v1/news/targeting/{targetName}" : {
       "delete" : {
+        "tags" : [ "v1/news/targeting" ],
+        "summary" : "Delete news target",
+        "description" : "This deletes news target",
         "operationId" : "deleteTarget",
         "parameters" : [ {
           "name" : "targetName",
           "in" : "path",
+          "description" : "Target name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -455,48 +655,63 @@
         }, {
           "name" : "delay",
           "in" : "query",
+          "description" : "Time to effectively delete news target",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News target deleted"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to delete the news target"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/targeting/{targetName}/undoDelete" : {
       "post" : {
+        "tags" : [ "v1/news/targeting" ],
+        "summary" : "Undo deleting news target if not yet effectively deleted",
+        "description" : "Undo deleting news target if not yet effectively deleted",
         "operationId" : "undoDeleteTarget",
         "parameters" : [ {
           "name" : "targetName",
           "in" : "path",
+          "description" : "News target name identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
           }
         }
       }
     },
     "/v1/news/{id}" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Get a news",
+        "description" : "This gets the news with the given id if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "getNewsById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -504,30 +719,44 @@
         }, {
           "name" : "fields",
           "in" : "query",
+          "description" : "fields",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "editMode",
           "in" : "query",
+          "description" : "Is edit mode",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Create a news",
+        "description" : "This updates the news if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "updateNews",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -535,33 +764,46 @@
         }, {
           "name" : "post",
           "in" : "query",
+          "description" : "Post news",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "requestBody" : {
+          "description" : "News object to be updated",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/News"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News updated"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to update the news"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Delete news",
+        "description" : "This deletes the news",
         "operationId" : "deleteNews",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -569,91 +811,125 @@
         }, {
           "name" : "isDraft",
           "in" : "query",
+          "description" : "Is draft to delete",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "delay",
           "in" : "query",
+          "description" : "Time to effectively delete news",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "News deleted"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to delete the news"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "patch" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Update a news",
+        "description" : "This updates the sent fields of a news",
         "operationId" : "patchNews",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "News object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/News"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "News updated"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to update the news"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/{id}/click" : {
       "post" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Log a click action on a news",
+        "description" : "This logs a message when the user performs a click on a news",
         "operationId" : "clickOnNews",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "The clicked element",
           "content" : {
             "*/*" : {
               "schema" : {
                 "type" : "string"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Click logged"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/{id}/illustration" : {
       "get" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Get a news illustration",
+        "description" : "This gets the news illustration with the given id if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "getNewsIllustration",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -661,6 +937,7 @@
         }, {
           "name" : "v",
           "in" : "query",
+          "description" : "last modified date",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -668,37 +945,57 @@
         }, {
           "name" : "size",
           "in" : "query",
+          "description" : "resized image size",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "News returned"
+          },
+          "401" : {
+            "description" : "User not authorized to get the news"
+          },
+          "404" : {
+            "description" : "News not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/news/{id}/undoDelete" : {
       "post" : {
+        "tags" : [ "v1/news" ],
+        "summary" : "Undo deleting news if not yet effectively deleted",
+        "description" : "Undo deleting news if not yet effectively deleted",
         "operationId" : "undoDeleteNews",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "News node identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

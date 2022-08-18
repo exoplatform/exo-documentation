@@ -9,74 +9,104 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/v1/poll",
+    "description" : "Managing poll"
+  } ],
   "paths" : {
     "/v1/poll" : {
       "post" : {
+        "tags" : [ "/v1/poll" ],
+        "summary" : "Create a new poll",
+        "description" : "Create a new poll",
         "operationId" : "createPoll",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "space identifier",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Poll object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/PollRestEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "50" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/poll/vote/{optionId}" : {
       "post" : {
+        "tags" : [ "/v1/poll" ],
+        "summary" : "Vote in a poll",
+        "description" : "Vote in a poll",
         "operationId" : "vote",
         "parameters" : [ {
           "name" : "optionId",
           "in" : "path",
+          "description" : "Poll option id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Poll option not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/poll/{id}" : {
       "get" : {
+        "tags" : [ "/v1/poll" ],
+        "summary" : "Get a poll",
+        "description" : "This gets the poll with the given id if the authenticated user is a member of the space.",
         "operationId" : "getPollById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Poll id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Poll not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

@@ -9,13 +9,27 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/projects",
+    "description" : "Managing tasks"
+  }, {
+    "name" : "/status",
+    "description" : "Managing status"
+  }, {
+    "name" : "/tasks",
+    "description" : "Managing tasks"
+  } ],
   "paths" : {
     "/projects/changeProjectColor/{projectId}" : {
       "put" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Change Project Color",
+        "description" : "This change Project Color",
         "operationId" : "changeProjectColor",
         "parameters" : [ {
           "name" : "projectId",
           "in" : "path",
+          "description" : "projectId",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -24,70 +38,104 @@
         }, {
           "name" : "color",
           "in" : "query",
+          "description" : "color",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "null"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/projects/cloneproject" : {
       "post" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Clone a project",
+        "description" : "This Clone project",
         "operationId" : "cloneProject",
         "requestBody" : {
+          "description" : "Project object to clone",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProjectDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/projects/createproject" : {
       "post" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Adds a project",
+        "description" : "This Adds project",
         "operationId" : "createProject",
         "requestBody" : {
+          "description" : "Project object to create",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProjectDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/projects/project/statistics/{id}" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets users by query and project name",
+        "description" : "This returns users by query and project name",
         "operationId" : "getProjectsStatistics",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -95,21 +143,22 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/projects/projectParticipants/{idProject}/{term}" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets participants",
+        "description" : "This returns participants in project",
         "operationId" : "getProjectParticipants",
         "parameters" : [ {
           "name" : "idProject",
           "in" : "path",
+          "description" : "Project id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -118,6 +167,7 @@
         }, {
           "name" : "term",
           "in" : "path",
+          "description" : "User name search information",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -125,78 +175,94 @@
         }, {
           "name" : "includeCurrentUser",
           "in" : "query",
+          "description" : "Include or not current user",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/projects/projects" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets projects",
+        "description" : "This returns projects of the authenticated user",
         "operationId" : "getProjects",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "Search term",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "null"
           }
         }, {
           "name" : "spaceName",
           "in" : "query",
+          "description" : "Space Name",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "null"
           }
         }, {
           "name" : "projectsFilter",
           "in" : "query",
+          "description" : "Filter",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : -1
           }
         }, {
           "name" : "participatorParam",
           "in" : "query",
+          "description" : "Participator Need",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/projects/projects/status/{id}" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets the default status by project id",
+        "description" : "This returns the default status by project id",
         "operationId" : "getDefaultStatusByProjectId",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Project id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -204,21 +270,28 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/projects/projects/statuses/{id}" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets the statuses by project id",
+        "description" : "This returns the statuses by project id",
         "operationId" : "getStatusesByProjectId",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Project id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -226,21 +299,28 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/projects/projects/{id}" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets  project by id",
+        "description" : "This returns the default status by project id",
         "operationId" : "getProjectById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Project id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -249,26 +329,35 @@
         }, {
           "name" : "participatorParam",
           "in" : "query",
+          "description" : "Participator Need",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/projects/updateproject/{projectId}" : {
       "put" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Update Project",
+        "description" : "This Update Project info",
         "operationId" : "updateProject",
         "parameters" : [ {
           "name" : "projectId",
           "in" : "path",
+          "description" : "projectId",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -276,30 +365,42 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Project object to update",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProjectDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/projects/users/{query}/{projectName}" : {
       "get" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Gets users by query and project name",
+        "description" : "This returns users by query and project name",
         "operationId" : "getUsersByQueryAndProjectName",
         "parameters" : [ {
           "name" : "query",
           "in" : "path",
+          "description" : "Query",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -307,27 +408,29 @@
         }, {
           "name" : "projectName",
           "in" : "path",
+          "description" : "projectName",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/projects/{projectId}" : {
       "delete" : {
+        "tags" : [ "/projects" ],
+        "summary" : "Delete Project",
+        "description" : "This deletes the Project",
         "operationId" : "deleteProject",
         "parameters" : [ {
           "name" : "projectId",
           "in" : "path",
+          "description" : "projectId",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -336,38 +439,54 @@
         }, {
           "name" : "deleteChild",
           "in" : "query",
+          "description" : "deleteChild",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : -1
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Project deleted"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to delete the Project"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/status" : {
       "post" : {
+        "tags" : [ "/status" ],
+        "summary" : "Create Status",
+        "description" : "This create new status",
         "operationId" : "addStatus",
         "requestBody" : {
+          "description" : "Status object to be created",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -377,22 +496,33 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/status/move" : {
       "put" : {
+        "tags" : [ "/status" ],
+        "summary" : "move Status",
+        "description" : "This moves status",
         "operationId" : "moveStatus",
         "requestBody" : {
+          "description" : "Status to be moved",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -402,24 +532,35 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/status/{statusId}" : {
       "get" : {
+        "tags" : [ "/status" ],
+        "summary" : "get Status by Id",
+        "description" : "This get status by Id",
         "operationId" : "getStatus",
         "parameters" : [ {
           "name" : "statusId",
           "in" : "path",
+          "description" : "statusId",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -427,19 +568,29 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "put" : {
+        "tags" : [ "/status" ],
+        "summary" : "Update StatusId",
+        "description" : "This Update status name",
         "operationId" : "updateStatus",
         "parameters" : [ {
           "name" : "statusId",
           "in" : "path",
+          "description" : "statusId",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -447,28 +598,40 @@
           }
         } ],
         "requestBody" : {
+          "description" : "status object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/StatusDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/status" ],
+        "summary" : "Delete status",
+        "description" : "This deletes the status",
         "operationId" : "deleteStatus",
         "parameters" : [ {
           "name" : "statusId",
           "in" : "path",
+          "description" : "status Id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -476,93 +639,124 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Project deleted"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "User not authorized to delete the Project"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/tasks" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets uncompleted tasks of the authenticated user",
+        "description" : "This returns uncompleted tasks of the authenticated user in the following cases: <br/><ul><li>The authenticated is the creator of the task</li><li>The authenticated is the assignee of the task</li><li>The authenticated is a coworker of the task</li></ul>",
         "operationId" : "getTasks",
         "parameters" : [ {
           "name" : "status",
           "in" : "query",
+          "description" : "Type of task to get (all, incoming, overdue)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "q",
           "in" : "query",
+          "description" : "Search term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of tasks or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "returnDetails",
           "in" : "query",
+          "description" : "Returning All Details",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       },
       "post" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Add a new task",
+        "description" : "This adds a new task.",
         "operationId" : "addTask",
         "requestBody" : {
+          "description" : "task object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TaskDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/clone/{taskId}" : {
       "post" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Clones a specific task by id",
+        "description" : "This clones the task if the authenticated user has permissions to edit the objects linked to this task.",
         "operationId" : "cloneTask",
         "parameters" : [ {
           "name" : "taskId",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -570,21 +764,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/comments/{commentId}" : {
       "delete" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Deletes a specific task comment by id",
+        "description" : "This deletes a specific task comment by id",
         "operationId" : "deleteComment",
         "parameters" : [ {
           "name" : "commentId",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -592,21 +796,28 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/comments/{commentId}/{id}" : {
       "post" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Adds a sub comment to a specific parent comment by id and a specific task by id",
+        "description" : "This Adds sub comment to a parent comment in specific task by id",
         "operationId" : "addTaskSubComment",
         "parameters" : [ {
           "name" : "commentId",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -615,6 +826,7 @@
         }, {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -622,30 +834,42 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Comment text",
           "content" : {
             "*/*" : {
               "schema" : {
                 "type" : "string"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/comments/{id}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets a comment list of a specific task",
+        "description" : "This returns a comment list of a specific task",
         "operationId" : "getTaskComments",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -654,32 +878,43 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : -1
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "post" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Adds comment to a specific task by id",
+        "description" : "This Adds comment to a specific task by id",
         "operationId" : "addTaskComment",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -687,115 +922,143 @@
           }
         } ],
         "requestBody" : {
+          "description" : "Comment text",
           "content" : {
             "*/*" : {
               "schema" : {
                 "type" : "string"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/filter" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets  a specific task",
+        "description" : "This returns  a specific task",
         "operationId" : "filterTasks",
         "parameters" : [ {
           "name" : "statusDto",
           "in" : "query",
+          "description" : "Type of task to get (all, incoming, overdue)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "projectId",
           "in" : "query",
+          "description" : "projectId term",
           "schema" : {
             "type" : "integer",
-            "format" : "int64"
+            "format" : "int64",
+            "default" : -2
           }
         }, {
           "name" : "query",
           "in" : "query",
+          "description" : "Search term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "dueCategory",
           "in" : "query",
+          "description" : "dueCategory term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "priority",
           "in" : "query",
+          "description" : "priority term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "assignee",
           "in" : "query",
+          "description" : "assignee term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "coworker",
           "in" : "query",
+          "description" : "coworker term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "watcher",
           "in" : "query",
+          "description" : "watchers term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "showCompletedTasks",
           "in" : "query",
+          "description" : "showCompletedTasks term",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "statusId",
           "in" : "query",
+          "description" : "statusId term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "space_group_id",
           "in" : "query",
+          "description" : "space_group_id term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "groupBy",
           "in" : "query",
+          "description" : "groupBy term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "orderBy",
           "in" : "query",
+          "description" : "orderBy term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "dueDate",
           "in" : "query",
+          "description" : "dueDate term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "labelId",
           "in" : "query",
+          "description" : "labelId term",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -803,85 +1066,112 @@
         }, {
           "name" : "filterLabelIds",
           "in" : "query",
+          "description" : "filterLabelIds term",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of tasks or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "returnDetails",
           "in" : "query",
+          "description" : "Returning All Details",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request ful"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/labels" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets labels of the authenticated user",
+        "description" : "This returns labels of the authenticated user",
         "operationId" : "getLabels",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       },
       "post" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Adds a specific task by id to a label",
+        "description" : "This adds a specific task by id to a label",
         "operationId" : "addLabel",
         "requestBody" : {
+          "description" : "label object to create",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/LabelDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/labels/project/{id}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets labels of the given project",
+        "description" : "This returns labels of the given project",
         "operationId" : "getLabelsByProjectId",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "project id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -889,21 +1179,22 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/tasks/labels/{id}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets labels of a specific task by id",
+        "description" : "This returns labels of a specific task by id",
         "operationId" : "getLabelsByTaskId",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -911,19 +1202,23 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Adds a specific task by id to a label",
+        "description" : "This adds a specific task by id to a label",
         "operationId" : "addTaskToLabel",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -931,30 +1226,42 @@
           }
         } ],
         "requestBody" : {
+          "description" : "label",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/LabelDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/labels/{id}/{labelId}" : {
       "delete" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Deletes a specific task association to a specific label",
+        "description" : "This deletes a specific task association to a specific label",
         "operationId" : "removeTaskFromLabel",
         "parameters" : [ {
           "name" : "labelId",
           "in" : "path",
+          "description" : "label id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -963,6 +1270,7 @@
         }, {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -970,21 +1278,28 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/labels/{labelId}" : {
       "put" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Adds a specific task by id to a label",
+        "description" : "This adds a specific task by id to a label",
         "operationId" : "editLabel",
         "parameters" : [ {
           "name" : "labelId",
           "in" : "path",
+          "description" : "label id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -992,28 +1307,40 @@
           }
         } ],
         "requestBody" : {
+          "description" : "label object to update",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/LabelDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Deletes a specific  label",
+        "description" : "This deletes a specific task association to a specific label",
         "operationId" : "removeLabel",
         "parameters" : [ {
           "name" : "labelId",
           "in" : "path",
+          "description" : "label id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1021,21 +1348,28 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/logs/{id}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets a logs of a specific task",
+        "description" : "This returns a logs of a specific task",
         "operationId" : "getTaskLogs",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1044,88 +1378,111 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : -1
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/project/{id}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets tasks by projectIdr",
+        "description" : "This returns list of tasks by project",
         "operationId" : "getTasksByProjectId",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Id",
           "required" : true,
           "schema" : {
             "type" : "integer",
-            "format" : "int64"
+            "format" : "int64",
+            "default" : 0
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "completed",
           "in" : "query",
+          "description" : "Returning the Completed tasks",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of tasks or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "returnDetails",
           "in" : "query",
+          "description" : "Returning All Details",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/tasks/updateCompleted/{idTask}" : {
       "put" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Updates a specific task by id",
+        "description" : "This updates the task if the authenticated user has permissions to view the objects linked to this task.",
         "operationId" : "updateCompleted",
         "parameters" : [ {
           "name" : "idTask",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1134,47 +1491,60 @@
         }, {
           "name" : "isCompleted",
           "in" : "query",
+          "description" : "isCompleted",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/tasks/usersToMention/{query}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Gets users to mention in comment",
+        "description" : "This returns users to mention in comment",
         "operationId" : "findUsersToMention",
         "parameters" : [ {
           "name" : "query",
           "in" : "path",
+          "description" : "Query",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/tasks/{id}" : {
       "get" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Get task by id",
+        "description" : "This get the task if the authenticated user has permissions to view the objects linked to this task.",
         "operationId" : "getTaskById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1182,19 +1552,29 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "put" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Updates a specific task by id",
+        "description" : "This updates the task if the authenticated user has permissions to view the objects linked to this task.",
         "operationId" : "updateTaskById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1202,28 +1582,40 @@
           }
         } ],
         "requestBody" : {
+          "description" : "task object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/TaskDto"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/tasks" ],
+        "summary" : "Updates a specific task by id",
+        "description" : "This updates the task if the authenticated user has permissions to view the objects linked to this task.",
         "operationId" : "deleteTaskById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Task id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1231,11 +1623,17 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
