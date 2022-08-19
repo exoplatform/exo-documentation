@@ -965,7 +965,7 @@
       }
     },
     "/v1/agenda/events/{eventId}/response/send" : {
-      "get" : {
+      "post" : {
         "tags" : [ "/v1/agenda/events" ],
         "summary" : "Send event invitation response for currently authenticated user",
         "description" : "Send event invitation response for currently authenticated user (using token or effectively authenticated)",
