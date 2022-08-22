@@ -753,6 +753,9 @@
           "avatar" : {
             "type" : "string"
           },
+          "fullname" : {
+            "type" : "string"
+          },
           "id" : {
             "type" : "string"
           },
