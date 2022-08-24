@@ -67,8 +67,7 @@ The main guides in eXo Platform documentation:
 .. toctree::
    :maxdepth: 2
    :caption: eXo Add-on Guide 
-   
-   LeckoAnalytics
+
    OnlyOffice
    SSO
    WCM
