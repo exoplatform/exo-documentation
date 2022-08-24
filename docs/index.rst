@@ -10,8 +10,7 @@ The main guides in eXo Platform documentation:
 
 * :ref:`whatsnew`
 * :ref:`GettingStarted`
-* :ref:`user-docs`
-* :ref:`admin-docs`
+* :ref:`user-admin-docs`
 * :ref:`developer-docs`
 * :ref:`addons-docs`
 * :ref:`mobile-docs`
@@ -35,51 +34,13 @@ The main guides in eXo Platform documentation:
    
    GettingStartedeXoCommunity   
    
-.. _user-docs:
+.. _user-admin-docs:
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide  
-   
-   introduction
-   GettingStarted
-   PersonalApplications
-   UserWallet
-   UsingPerkStore
-   UsingKudos
-   ManageTasks
-   Chat
-   webconferencing
-   Manage-Space
-   Wiki
-   Manage-Documents
-   Forum
-   Calendar
-   Manage-Sites
-   Search
-   Analytics
-   Administration
-   
-.. _admin-docs:   
+   :caption: User and Administrator Guides
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Administrator Guide
-   
-   Installation
-   eXo_addons
-   Configuration
-   database_configuration
-   Deployment
-   Management
-   Clustering
-   LDAP
-   OAuthIntegration
-   Backup
-   Upgrade
-   Security
-   Elasticsearch
-   Indexing
+   GetStartedUserGuide
 
 .. _developer-docs:  
 
@@ -106,8 +67,7 @@ The main guides in eXo Platform documentation:
 .. toctree::
    :maxdepth: 2
    :caption: eXo Add-on Guide 
-   
-   LeckoAnalytics
+
    OnlyOffice
    SSO
    WCM
@@ -147,9 +107,7 @@ The main guides in eXo Platform documentation:
    eXo_Kernel
    eXo_Core
    eXo_Web_Services
-   
-      
-   
+
 .. _reference-platform-docs:
 
 .. toctree::
