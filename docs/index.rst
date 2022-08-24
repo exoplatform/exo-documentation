@@ -36,11 +36,11 @@ The main guides in eXo Platform documentation:
    
 .. _user-admin-docs:
 
-################
-User and Administrator Guide
-################
+.. toctree::
+   :maxdepth: 2
+   :caption: User and Administrator Guides
 
-User and Administrator guides are now directly shipped in the platform. You can find them in space "Knowledge base".
+   GetStartedUserGuide
 
 .. _developer-docs:  
 
@@ -108,9 +108,7 @@ User and Administrator guides are now directly shipped in the platform. You can 
    eXo_Kernel
    eXo_Core
    eXo_Web_Services
-   
-      
-   
+
 .. _reference-platform-docs:
 
 .. toctree::
