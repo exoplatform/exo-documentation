@@ -848,6 +848,9 @@
           "acl" : {
             "$ref" : "#/components/schemas/Permission"
           },
+          "cloudDrive" : {
+            "type" : "boolean"
+          },
           "created" : {
             "type" : "string"
           },
