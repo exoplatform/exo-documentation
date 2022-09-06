@@ -650,6 +650,9 @@
           "auditTrails" : {
             "$ref" : "#/components/schemas/NodeAuditTrailsEntity"
           },
+          "cloudDriveFile" : {
+            "type" : "boolean"
+          },
           "cloudDriveFolder" : {
             "type" : "boolean"
           },
