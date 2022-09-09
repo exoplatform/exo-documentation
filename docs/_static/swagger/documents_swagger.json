@@ -187,6 +187,54 @@
         }
       }
     },
+    "/v1/documents/description" : {
+      "put" : {
+        "tags" : [ "/v1/documents" ],
+        "summary" : "update or create a document's description",
+        "description" : "This creates or updates a given document's description.",
+        "operationId" : "updateDocumentDescription",
+        "parameters" : [ {
+          "name" : "ownerId",
+          "in" : "query",
+          "description" : "owner id",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "documentId",
+          "in" : "query",
+          "description" : "document id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "description",
+          "in" : "query",
+          "description" : "document id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          }
+        }
+      }
+    },
     "/v1/documents/duplicate" : {
       "post" : {
         "tags" : [ "/v1/documents" ],

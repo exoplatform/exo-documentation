@@ -605,6 +605,27 @@
         }
       }
     },
+    "/clouddrive/settings/providers" : {
+      "get" : {
+        "tags" : [ "/clouddrive/settings" ],
+        "summary" : "Retrieves cloud drive providers",
+        "operationId" : "getCloudDriveProviders",
+        "responses" : {
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
     "/documents/favorite" : {
       "get" : {
         "tags" : [ "/documents" ],
