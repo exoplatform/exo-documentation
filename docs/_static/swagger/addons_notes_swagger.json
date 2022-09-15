@@ -185,7 +185,7 @@
       }
     },
     "/notes/note/export/cancel/{exportId}" : {
-      "put" : {
+      "get" : {
         "tags" : [ "/notes" ],
         "summary" : "Export notes",
         "description" : "This cancel export.",
@@ -281,7 +281,7 @@
       }
     },
     "/notes/note/export/{exportId}/{notes}" : {
-      "post" : {
+      "get" : {
         "tags" : [ "/notes" ],
         "summary" : "Export notes",
         "description" : "This export selected notes and provide a zip file.",
