@@ -657,62 +657,6 @@
         }
       }
     },
-    "/wallet/api/admin/transaction/intiialize" : {
-      "post" : {
-        "tags" : [ "/wallet/api/admin/transaction" ],
-        "summary" : "Send blockchain transaction using Admin wallet to initialize wallet identified by its address",
-        "description" : "Send blockchain transaction using Admin wallet to initialize wallet identified by its address and returns transaction hash",
-        "operationId" : "initializeWallet",
-        "requestBody" : {
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "required" : [ "receiver" ],
-                "type" : "object",
-                "properties" : {
-                  "receiver" : {
-                    "type" : "string",
-                    "description" : "receiver wallet address"
-                  },
-                  "etherAmount" : {
-                    "type" : "number",
-                    "description" : "ether amount to send to wallet",
-                    "format" : "double"
-                  },
-                  "tokenAmount" : {
-                    "type" : "number",
-                    "description" : "token amount to send to wallet",
-                    "format" : "double"
-                  },
-                  "transactionLabel" : {
-                    "type" : "string",
-                    "description" : "transaction label"
-                  },
-                  "transactionMessage" : {
-                    "type" : "string",
-                    "description" : "transaction message to send to receiver with transaction"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses" : {
-          "200" : {
-            "description" : "Request fulfilled"
-          },
-          "400" : {
-            "description" : "Invalid query input"
-          },
-          "401" : {
-            "description" : "Unauthorized operation"
-          },
-          "500" : {
-            "description" : "Internal server error"
-          }
-        }
-      }
-    },
     "/wallet/api/admin/transaction/sendEther" : {
       "post" : {
         "tags" : [ "/wallet/api/admin/transaction" ],
@@ -915,18 +859,20 @@
         "description" : "returns a set of wallet reward object",
         "operationId" : "computeRewards",
         "parameters" : [ {
-          "name" : "periodDateInSeconds",
+          "name" : "date",
           "in" : "query",
-          "description" : "Start date of period in milliseconds",
+          "description" : "A date with format yyyy-MM-dd",
           "required" : true,
           "schema" : {
-            "type" : "integer",
-            "format" : "int64"
+            "type" : "string"
           }
         } ],
         "responses" : {
           "200" : {
             "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           },
           "401" : {
             "description" : "Unauthorized operation"
@@ -1000,18 +946,20 @@
         "description" : "Send rewards of wallets per a chosen period of time and returns an empty response",
         "operationId" : "sendRewards",
         "parameters" : [ {
-          "name" : "periodDateInSeconds",
+          "name" : "date",
           "in" : "query",
-          "description" : "Start date of period in milliseconds",
+          "description" : "A date with format yyyy-MM-dd",
           "required" : true,
           "schema" : {
-            "type" : "integer",
-            "format" : "int64"
+            "type" : "string"
           }
         } ],
         "responses" : {
           "204" : {
             "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           },
           "401" : {
             "description" : "Unauthorized operation"
@@ -1048,21 +996,12 @@
         "description" : "returns reward period dates object",
         "operationId" : "getRewardDates",
         "parameters" : [ {
-          "name" : "periodType",
+          "name" : "date",
           "in" : "query",
-          "description" : "Reward period type",
+          "description" : "A date with format yyyy-MM-dd",
           "required" : true,
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "dateInSeconds",
-          "in" : "query",
-          "description" : "A chosen date to calculate its period",
-          "required" : true,
-          "schema" : {
-            "type" : "integer",
-            "format" : "int64"
           }
         } ],
         "responses" : {
@@ -1258,6 +1197,22 @@
           },
           "401" : {
             "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/wallet/api/transaction/getGasPrice" : {
+      "get" : {
+        "tags" : [ "/wallet/api/transaction" ],
+        "summary" : "Get current gas price from blockchain",
+        "description" : "Get current gas price from blockchain to be used to send a transaction",
+        "operationId" : "getGasPrice",
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
           },
           "500" : {
             "description" : "Internal server error"
@@ -1600,6 +1555,9 @@
             "items" : {
               "$ref" : "#/components/schemas/RewardPluginSettings"
             }
+          },
+          "timeZone" : {
+            "type" : "string"
           }
         }
       },
@@ -1691,6 +1649,9 @@
           },
           "contractMethodName" : {
             "type" : "string"
+          },
+          "dropped" : {
+            "type" : "boolean"
           },
           "etherFee" : {
             "type" : "number",
