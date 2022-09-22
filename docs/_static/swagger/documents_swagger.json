@@ -607,6 +607,43 @@
         }
       }
     },
+    "/v1/documents/shortcut" : {
+      "post" : {
+        "tags" : [ "/v1/documents" ],
+        "summary" : "document shortcut",
+        "description" : "Creates a document shortcut.",
+        "operationId" : "createShortcut",
+        "parameters" : [ {
+          "name" : "documentID",
+          "in" : "query",
+          "description" : "document id",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "destPath",
+          "in" : "query",
+          "description" : "new path",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          }
+        }
+      }
+    },
     "/v1/documents/{documentId}" : {
       "delete" : {
         "tags" : [ "/v1/documents" ],
