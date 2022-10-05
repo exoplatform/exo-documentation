@@ -644,6 +644,126 @@
         }
       }
     },
+    "/v1/documents/versions" : {
+      "get" : {
+        "tags" : [ "/v1/documents" ],
+        "summary" : "Get versions list of a a given document",
+        "description" : "Get versions list of a a given document",
+        "operationId" : "getFileVersions",
+        "parameters" : [ {
+          "name" : "fileId",
+          "in" : "query",
+          "description" : "Identity technical identifier",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "/v1/documents" ],
+        "summary" : "Restore a document to a specific version",
+        "description" : "Restore a document to a specific version",
+        "operationId" : "restoreVersion",
+        "parameters" : [ {
+          "name" : "versionId",
+          "in" : "query",
+          "description" : "version file node identifier",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "/v1/documents" ],
+        "summary" : "update version summary of a give document version",
+        "description" : "update version summary of a give document version",
+        "operationId" : "updateVersionSummary",
+        "parameters" : [ {
+          "name" : "originFileId",
+          "in" : "query",
+          "description" : "original file node identifier",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "versionId",
+          "in" : "query",
+          "description" : "version file node identifier",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "version summary to update",
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "type" : "object",
+                "additionalProperties" : {
+                  "type" : "string"
+                }
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
     "/v1/documents/{documentId}" : {
       "delete" : {
         "tags" : [ "/v1/documents" ],
@@ -804,11 +924,55 @@
           "sourceID" : {
             "type" : "string"
           },
+          "versionNumber" : {
+            "type" : "string"
+          },
           "versionnedFileId" : {
             "type" : "string"
           },
           "versions" : {
             "$ref" : "#/components/schemas/FileVersionsEntity"
+          }
+        }
+      },
+      "FileVersionEntity" : {
+        "type" : "object",
+        "properties" : {
+          "author" : {
+            "type" : "string"
+          },
+          "authorFullName" : {
+            "type" : "string"
+          },
+          "createdDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "current" : {
+            "type" : "boolean"
+          },
+          "frozenId" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "originId" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "summary" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "versionNumber" : {
+            "type" : "integer",
+            "format" : "int32"
           }
         }
       },
@@ -828,9 +992,9 @@
             "format" : "int64"
           },
           "versions" : {
-            "type" : "object",
-            "additionalProperties" : {
-              "$ref" : "#/components/schemas/FileNodeEntity"
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/FileVersionEntity"
             }
           }
         }
