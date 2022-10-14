@@ -9,16 +9,14 @@ Welcome to eXo Platform documentation!
 The main guides in eXo Platform documentation:
 
 * :ref:`whatsnew`
-* :ref:`user-docs`
-* :ref:`admin-docs`
+* :ref:`GettingStarted`
+* :ref:`user-admin-docs`
 * :ref:`developer-docs`
 * :ref:`addons-docs`
 * :ref:`mobile-docs`
 * :ref:`reference-JCR-docs`
 * :ref:`reference-eXo-foundations-docs`
 * :ref:`reference-platform-docs`
-
-Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`__
 
 .. _whatsnew:
 
@@ -27,52 +25,22 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    :caption: What's new in eXo Platform 6.4?
    
    whatsnew
-   
-.. _user-docs:
+
+.. _GettingStarted:
 
 .. toctree::
    :maxdepth: 2
-   :caption: User Guide  
+   :caption: Start eXo platform community
    
-   introduction
-   GettingStarted
-   PersonalApplications
-   UserWallet
-   UsingPerkStore
-   UsingKudos
-   ManageTasks
-   Chat
-   webconferencing
-   Manage-Space
-   Wiki
-   Manage-Documents
-   Forum
-   Calendar
-   Manage-Sites
-   Search
-   Analytics
-   Administration
+   GettingStartedeXoCommunity   
    
-.. _admin-docs:   
+.. _user-admin-docs:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Administrator Guide
-   
-   Installation
-   eXo_addons
-   Configuration
-   database_configuration
-   Deployment
-   Management
-   Clustering
-   LDAP
-   OAuthIntegration
-   Backup
-   Upgrade
-   Security
-   Elasticsearch
-   Indexing
+   :caption: User and Administrator Guides
+
+   GetStartedUserGuide
 
 .. _developer-docs:  
 
@@ -99,8 +67,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
 .. toctree::
    :maxdepth: 2
    :caption: eXo Add-on Guide 
-   
-   LeckoAnalytics
+
    OnlyOffice
    SSO
    WCM
@@ -140,9 +107,7 @@ Discover also `eXo UX Guidelines <http://exoplatform.github.io/ux-guidelines/>`_
    eXo_Kernel
    eXo_Core
    eXo_Web_Services
-   
-      
-   
+
 .. _reference-platform-docs:
 
 .. toctree::

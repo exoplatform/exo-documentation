@@ -9,32 +9,50 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/webconferencing",
+    "description" : "Operations on call providers and participant information"
+  } ],
   "paths" : {
     "/webconferencing/provider/{type}/configuration" : {
       "get" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Read a call provider configuration",
+        "description" : "Use this method to read a call provider configuration. This operation only available to Administrator user.",
         "operationId" : "getProviderConfig",
         "parameters" : [ {
           "name" : "type",
           "in" : "path",
+          "description" : "Call provider type, ex: 'webrtc'",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. Provider configuration object returned."
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "404" : {
+            "description" : "Provider not found. Error code: NOT_FOUND_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       },
       "post" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Updates a call provider activation status",
+        "description" : "Use this method to enable or disable a call provider. This operation only available to Administrator user.",
         "operationId" : "postProviderConfig",
         "parameters" : [ {
           "name" : "type",
           "in" : "path",
+          "description" : "Call provider type, ex: 'webrtc'",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -44,10 +62,12 @@
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "active" ],
                 "type" : "object",
                 "properties" : {
                   "active" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Activation switch in form of boolean value (case insensitive), 'true' to enable, disable by any other value"
                   }
                 }
               }
@@ -55,34 +75,50 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. Updated provider config returned."
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "404" : {
+            "description" : "Provider not found. Error code: NOT_FOUND_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       }
     },
     "/webconferencing/providers/configuration" : {
       "get" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Read call providers configurations",
+        "description" : "Use this method to read all providers configuration. This operation only available to Administrator user.",
         "operationId" : "getProviderConfigs",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. Providers configurations returned."
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       }
     },
     "/webconferencing/room/{id}" : {
       "get" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Return chat room information",
+        "description" : "Use this method to chat room info used as call owner and origins. This operation is available to all Platform users.",
         "operationId" : "getRoomInfo",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Room ID, ex: 'team-ec5e257858734e40a98505475d8eedc4'",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -90,32 +126,52 @@
         }, {
           "name" : "title",
           "in" : "query",
+          "description" : "Room title, ex: 'ACME meetings'",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "members",
           "in" : "query",
+          "description" : "Room members (platform users or external Chat users), a string of comma-separated names, ex: 'john,james,julia'",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. Chat room info object returned."
+          },
+          "400" : {
+            "description" : "Wrong request parameters: members. Error code: CLIENT_ERROR"
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "403" : {
+            "description" : "Not room member. Error code: ACCESS_ERROR"
+          },
+          "404" : {
+            "description" : "Room not found or not accessible. Error code: NOT_FOUND_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data reading from DB, its encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       }
     },
     "/webconferencing/space-event/{spaceIdentityId}" : {
       "get" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Return a Social space event information",
+        "description" : "Use this method to read a Social space event used as call origin. This operation is available to all Platform users.",
         "operationId" : "getSpaceEventInfo",
         "parameters" : [ {
           "name" : "spaceIdentityId",
           "in" : "path",
+          "description" : "Space pretty name used as the event host, ex: 'sales_team'",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -123,64 +179,109 @@
         }, {
           "name" : "participants",
           "in" : "query",
+          "description" : "Participants directly invited to the event, a string of comma-separated names, ex: 'john,mary,james'",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "spaces",
           "in" : "query",
+          "description" : "Space pretty names for inviting its participants to the event, a string of comma-separated names, ex: 'sales_team,acme_project,ux_pride'",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. Space event info object returned."
+          },
+          "400" : {
+            "description" : "Wrong request parameters: spaces. Error code: CLIENT_ERROR"
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "403" : {
+            "description" : "Not space member. Error code: ACCESS_ERROR"
+          },
+          "404" : {
+            "description" : "Space not found or not accessible. Error code: NOT_FOUND_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data reading from DB, its encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       }
     },
     "/webconferencing/space/{spaceName}" : {
       "get" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Return social space information",
+        "description" : "Use this method to read a Social space info used as call owner and origins. This operation is available to all Platform users.",
         "operationId" : "getSpaceInfo",
         "parameters" : [ {
           "name" : "spaceName",
           "in" : "path",
+          "description" : "Space pretty name, ex: 'sales_team'",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. Space info object returned."
+          },
+          "400" : {
+            "description" : "Wrong request parameters: spaceName. Error code: CLIENT_ERROR"
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "403" : {
+            "description" : "Not space member. Error code: ACCESS_ERROR"
+          },
+          "404" : {
+            "description" : "Space not found or not accessible. Error code: NOT_FOUND_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data reading from DB, its encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       }
     },
     "/webconferencing/user/{name}" : {
       "get" : {
+        "tags" : [ "/webconferencing" ],
+        "summary" : "Return user information",
+        "description" : "Use this method to read an user info used as call owner or participants. This operation is available to all Platform users.",
         "operationId" : "getUserInfo",
         "parameters" : [ {
           "name" : "name",
           "in" : "path",
+          "description" : "Call provider name, ex: 'webrtc'",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled. User info object returned."
+          },
+          "400" : {
+            "description" : "Wrong request parameters: name. Error code: CLIENT_ERROR"
+          },
+          "401" : {
+            "description" : "Unauthorized user (conversation state not present). Error code: ACCESS_ERROR"
+          },
+          "404" : {
+            "description" : "User not found. Error code: NOT_FOUND_ERROR"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding or formatting result to JSON. Error code: SERVER_ERROR"
           }
         }
       }

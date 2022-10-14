@@ -9,31 +9,83 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "v1/social/activities",
+    "description" : "Managing activities together with comments and likes"
+  }, {
+    "name" : "v1/social/groupSpaceBindings",
+    "description" : "API  to manage the binding between a space and an organization group"
+  }, {
+    "name" : "v1/social/comments",
+    "description" : "Operations on a comment"
+  }, {
+    "name" : "v1/social/favorites",
+    "description" : "Managing favorites for any type of data"
+  }, {
+    "name" : "v1/social/identities",
+    "description" : "Managing identities"
+  }, {
+    "name" : "v1/social/relationships",
+    "description" : "Managing relationships of identities"
+  }, {
+    "name" : "v1/social/search",
+    "description" : "Operations on search connectors"
+  }, {
+    "name" : "v1/social/spaces",
+    "description" : "Operations on spaces with their activities and users"
+  }, {
+    "name" : "v1/social/spacesMemberships",
+    "description" : "Managing memberships of users in a space"
+  }, {
+    "name" : "v1/social/spacesAdministration",
+    "description" : "Managing Spaces Administration settings"
+  }, {
+    "name" : "v1/social/spaceTemplates",
+    "description" : "Managing Spaces Templates"
+  }, {
+    "name" : "v1/social/tags",
+    "description" : "Managing tags for any type of data"
+  }, {
+    "name" : "v1/social/users",
+    "description" : "Operations on users with their activities, connections and spaces"
+  }, {
+    "name" : "v1/social/usersRelationships",
+    "description" : "Managing relationships of users"
+  } ],
   "paths" : {
     "/v1/social/activities" : {
       "get" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Gets activities of a specific user",
+        "description" : "This returns an activity in the list in the following cases: <br/><ul><li>this is a user activity and the owner of the activity isthe authenticated user or one of his connections</li><li>this is a space activity and the authenticated user is a member of the space</li></ul>",
         "operationId" : "getActivities",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "Space technical identifier",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "beforeTime",
           "in" : "query",
+          "description" : "offset time to use for searching newer activities until a time identified using format yyyy-MM-dd HH:mm:ss",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "0"
           }
         }, {
           "name" : "afterTime",
           "in" : "query",
+          "description" : "offset time to use for searching newer activities since a time identified using format yyyy-MM-dd HH:mm:ss",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "0"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -41,91 +93,120 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of activities or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: <em>comments</em> or <em>likes</em>",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "streamType",
           "in" : "query",
+          "description" : "Activity stream type. Possible values: ALL_STREAM, USER_STREAM, USER_FAVORITE_STREAM, MANAGE_SPACES_STREAM, FAVORITE_SPACES_STREAM.",
           "schema" : {
             "type" : "string",
-            "enum" : [ "ALL_STREAM", "USER_STREAM", "USER_FAVORITE_STREAM", "MANAGE_SPACES_STREAM", "FAVORITE_SPACES_STREAM" ]
+            "enum" : [ "ALL_STREAM", "USER_STREAM", "USER_FAVORITE_STREAM", "MANAGE_SPACES_STREAM", "FAVORITE_SPACES_STREAM", "ANY_SPACE_ACTIVITY" ]
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Posts an activity to a specific space",
+        "description" : "This posts the activity if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "postActivity",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "Space id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: comments or likes",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Activity object to be created",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ActivityEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/activities/search" : {
       "get" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Search activities using a query",
+        "description" : "This returns a list of activities found by using search term",
         "operationId" : "searchActivities",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "Term to search",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "favorites",
           "in" : "query",
+          "description" : "Whether to search in favorites only or not",
+          "required" : true,
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "tags",
           "in" : "query",
+          "description" : "Tag names used to search activities",
+          "required" : true,
           "schema" : {
             "type" : "array",
             "items" : {
@@ -135,34 +216,45 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/activities/{activityId}" : {
       "get" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Gets a specific activity by id",
+        "description" : "This returns the activity in the following cases: <br/><ul><li>this is a user activity and the owner of the activity is the authenticated user or one of his connections</li><li>this is a space activity and the authenticated user is a member of the space</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "getActivityById",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -170,24 +262,32 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: comments or likes",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Updates a specific activity by id",
+        "description" : "This updates the activity in the following cases: <br/><ul><li>this is a user activity and the owner of the activity is the authenticated user</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "updateActivityById",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -195,33 +295,43 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: comments or likes",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Activity object to be updated, ex: <br/>{<br/>\"title\" : \"My activity\"<br/>}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ActivityEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Deletes a specific activity by id",
+        "description" : "This deletes the activity in the following cases: <br/><ul><li>this is a user activity and the owner of the activity is the authenticated user</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "deleteActivityById",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -229,32 +339,42 @@
         }, {
           "name" : "hide",
           "in" : "query",
+          "description" : "Whether to just hide the activity or effectively delete it from database",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/activities/{activityId}/comments" : {
       "get" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Gets comments of a specific activity",
+        "description" : "This returns a list of comments if the authenticated user has permissions to see the activity.",
         "operationId" : "getComments",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -262,50 +382,66 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of activities or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "sortDescending",
           "in" : "query",
+          "description" : "Retrieve comments by last post time or by first post time",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Updates an existing comment",
+        "description" : "This updates an existing comment if the authenticated user is poster of the comment.",
         "operationId" : "updateComment",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -313,33 +449,43 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Comment object to be posted, ex: <br/>{<br/>\"title\" : \"My comment\"<br/>}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/CommentEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Posts a comment on a specific activity",
+        "description" : "This posts the comment if the authenticated user has permissions to see the activity.",
         "operationId" : "postComment",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -347,35 +493,45 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Comment object to be posted, ex: <br/>{<br/>\"title\" : \"My comment\"<br/>}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/CommentEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/activities/{activityId}/likes" : {
       "get" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Gets likes of a specific activity",
+        "description" : "This returns a list of likes if the authenticated user has permissions to see the activity.",
         "operationId" : "getLikesOfActivity",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -383,78 +539,104 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Adds a like to a specific activity",
+        "description" : "This adds the like if the authenticated user has permissions to see the activity.",
         "operationId" : "addLike",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Deletes a like of a specific user for a given activity",
+        "description" : "This deletes the like of authenticated user from an activity",
         "operationId" : "deleteLike",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/activities/{activityId}/share" : {
       "post" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Shares a specific activity to specific spaces",
+        "description" : "This shares the given activity to the target spaces if the authenticated user has permissions to post to the target spaces",
         "operationId" : "shareActivity",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "Activity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -462,35 +644,48 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: comments or likes",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Share target spaces",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ActivityEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/comments/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/comments" ],
+        "summary" : "Gets a specific comment by id",
+        "description" : "This returns the comment if the authenticated user has permissions to see the related activity.",
         "operationId" : "getCommentById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -498,25 +693,33 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
       },
       "put" : {
+        "tags" : [ "v1/social/comments" ],
+        "summary" : "Updates a specific comment by id",
+        "description" : "This updates the comment in the following cases: <br/><ul><li>the authenticated user is the owner of the comment</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "updateCommentById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -524,34 +727,44 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Comment object to be updated, in which the title of comment is required.",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/CommentEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
       },
       "delete" : {
+        "tags" : [ "v1/social/comments" ],
+        "summary" : "Deletes a specific comment by id",
+        "description" : "This deletes the comment in the following cases: <br/><ul><li>the authenticated user is the owner of the comment</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "deleteCommentById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -559,16 +772,20 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
@@ -576,10 +793,14 @@
     },
     "/v1/social/comments/{id}/likes" : {
       "get" : {
+        "tags" : [ "v1/social/comments" ],
+        "summary" : "Gets likes of a specific comment",
+        "description" : "This returns a list of likes if the authenticated user has permissions to see the comment.",
         "operationId" : "getLikesOfComment",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -587,39 +808,51 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
       },
       "post" : {
+        "tags" : [ "v1/social/comments" ],
+        "summary" : "Adds a like to a specific comment",
+        "description" : "This adds the like if the authenticated user has permissions to see the comment.",
         "operationId" : "addLikeOnComment",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -627,16 +860,20 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
@@ -644,10 +881,14 @@
     },
     "/v1/social/comments/{id}/likes/{username}" : {
       "delete" : {
+        "tags" : [ "v1/social/comments" ],
+        "summary" : "Deletes a like of a specific user for a given comment",
+        "description" : "This deletes the like if the authenticated user is the given user or the super user.",
         "operationId" : "deleteLikeOnComment",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Comment id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -655,6 +896,7 @@
         }, {
           "name" : "username",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -662,16 +904,20 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
@@ -679,10 +925,15 @@
     },
     "/v1/social/favorites" : {
       "get" : {
+        "tags" : [ "v1/social/favorites" ],
+        "summary" : "Retrieves all favorites object of the current user",
+        "description" : "Retrieves all favorites object of the current user",
         "operationId" : "getFavoritesList",
         "parameters" : [ {
           "name" : "offset",
           "in" : "query",
+          "description" : "Query Offset",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -690,6 +941,8 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Query results limit",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -697,26 +950,32 @@
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Fovorites total size",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/favorites/{objectType}/{objectId}" : {
       "post" : {
+        "tags" : [ "v1/social/favorites" ],
+        "summary" : "Creates a favorite object",
+        "description" : "Creates a favorite object",
         "operationId" : "createFavorite",
         "parameters" : [ {
           "name" : "objectType",
           "in" : "path",
+          "description" : "Object type: activity, comment, notes ...",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -724,6 +983,7 @@
         }, {
           "name" : "objectId",
           "in" : "path",
+          "description" : "Object identifier: technical id to identify object as favorite",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -731,12 +991,14 @@
         }, {
           "name" : "parentObjectId",
           "in" : "query",
+          "description" : "Object parent identifier: technical id to identify the parent of an object like the activity Id for a comment entity",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "Space technical identitifier of the bookmarked object",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -744,24 +1006,36 @@
         }, {
           "name" : "ignoreWhenExisting",
           "in" : "query",
+          "description" : "Whether ignore favorite when already exists or return a HTTP 409 code",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "409" : {
+            "description" : "Conflict"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/favorites" ],
+        "summary" : "Deletes a metadata item identified by its id",
+        "description" : "Deletes a metadata item identified by its id",
         "operationId" : "deleteFavorite",
         "parameters" : [ {
           "name" : "objectType",
           "in" : "path",
+          "description" : "Object type: activity, comment, notes ...",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -769,6 +1043,7 @@
         }, {
           "name" : "objectId",
           "in" : "path",
+          "description" : "Object identifier: technical id to identify object as favorite",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -776,72 +1051,102 @@
         }, {
           "name" : "ignoreNotExisting",
           "in" : "query",
+          "description" : "Whether ignore when not existing Metadata item or not.If true, it will return a HTTP code 204 when not existing else a 404.",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       }
     },
     "/v1/social/identities" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets all identities",
+        "description" : "This returns a list of identities in the following cases: <br/><ul><li>the authenticated user has permissions to view the object linked to these identities</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "getIdentities",
         "parameters" : [ {
           "name" : "type",
           "in" : "query",
+          "description" : "Provider type: space or organization",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "organization"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of identities or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/identities/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets an identity by id",
+        "description" : "This returns the identity if the authenticated user has permissions to view the object linked to this identity.",
         "operationId" : "getIdentityById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Identity id which is a UUID such as 40487b7e7f00010104499b339f056aa4",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -849,68 +1154,96 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/identities/{id}/avatar" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets an identity avatar by id",
+        "description" : "Gets an identity avatar by id, This can only be done by the logged in user.",
         "operationId" : "getIdentityAvatarById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Identity id which is a UUID",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/v1/social/identities/{id}/banner" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets an identity banner by id",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getIdentityBannerById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Identity id which is a UUID",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/v1/social/identities/{id}/commonConnections" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets common connections with identity",
+        "description" : "This returns the common connections between a the authenticated user and a given identity.",
         "operationId" : "getCommonConnectionsWithIdentity",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "The given identity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -918,46 +1251,60 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of common connections or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/identities/{id}/relationships" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets relationships of a specific identity",
+        "description" : "This returns a list of relationships if the authenticated user can view the object linked to the identity.",
         "operationId" : "getRelationshipsOfIdentity",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "The given identity id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -965,52 +1312,67 @@
         }, {
           "name" : "with",
           "in" : "query",
+          "description" : "The other identity id to get the relationship with the given one",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of relationships or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/identities/{providerId}/{remoteId}" : {
       "get" : {
+        "tags" : [ "v1/social/identities" ],
+        "summary" : "Gets an identity by id",
+        "description" : "This returns the identity if the authenticated user has permissions to view the object linked to this identity.",
         "operationId" : "getIdentityByProviderIdAndRemoteId",
         "parameters" : [ {
           "name" : "providerId",
           "in" : "path",
+          "description" : "Identity provider id which can be of type 'space' or 'organization' for example",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1018,6 +1380,7 @@
         }, {
           "name" : "remoteId",
           "in" : "path",
+          "description" : "Identity id which is the unique name (remote id) of identity",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1025,99 +1388,133 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/relationships" : {
       "get" : {
+        "tags" : [ "v1/social/relationships" ],
+        "summary" : "Gets relationships of identities",
+        "description" : "This returns a list of relationships in the following cases: <br/><ul><li>the authenticated user has permissions to view the 2 objects linked to the 2 identities</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "getRelationships",
         "parameters" : [ {
           "name" : "status",
           "in" : "query",
+          "description" : "Status of the target relationship: pending, confirmed or all",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "identityId",
           "in" : "query",
+          "description" : "Identity id which is a UUID such as 40487b7e7f00010104499b339f056aa4",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of relationships or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "412" : {
+            "description" : "Precondition failed, check your input params"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/relationships" ],
+        "summary" : "Creates a relationship",
+        "description" : "This creates the relationship in the following cases: <br/><ul><li>the authenticated user has permissions to view the 2 objects linked to the 2 identities</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "createRelationship",
         "parameters" : [ {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Relationship object to be created",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RelationshipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/relationships/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/relationships" ],
+        "summary" : "Gets a specific relationship by id",
+        "description" : "This returns the relationship if the authenticated user has permissions to view the objects linked to this relationship.",
         "operationId" : "getRelationshipById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1125,24 +1522,32 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/relationships" ],
+        "summary" : "Updates a specific relationship by id",
+        "description" : "This updates the relationship if the authenticated user has permissions to view the objects linked to this relationship.",
         "operationId" : "updateRelationshipById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1150,33 +1555,43 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Relationship object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RelationshipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/relationships" ],
+        "summary" : "Deletes a specific relationship by id",
+        "description" : "This deletes the relationship if the authenticated user has permissions to view the objects linked to this relationship.",
         "operationId" : "deleteRelationshipById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1184,39 +1599,47 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/search" : {
       "get" : {
+        "tags" : [ "v1/social/search" ],
+        "summary" : "Gets search connectors",
+        "description" : "This returns a list of search connectors",
         "operationId" : "getConnectors",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           }
         }
       }
     },
     "/v1/social/search/{connectorName}" : {
       "put" : {
+        "tags" : [ "v1/social/search" ],
+        "summary" : "Changes status of search connector",
+        "description" : "This changes the status of a specific search connector",
         "operationId" : "changeConnectorStatus",
         "parameters" : [ {
           "name" : "connectorName",
           "in" : "path",
+          "description" : "Search connector name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1224,117 +1647,163 @@
         }, {
           "name" : "enable",
           "in" : "query",
+          "description" : "Search connector status enabled/disabled. possible values: true for enabled, else false",
+          "required" : true,
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Not authorized"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/spaceGroupBindings/getBindingReportOperations" : {
       "get" : {
+        "tags" : [ "v1/social/groupSpaceBindings" ],
+        "summary" : "Gets list of groups entities from the parent group root.",
+        "description" : "Returns a list of group entities in the following cases if the authenticated user is an administrator.",
         "operationId" : "getBindingReportOperations",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaceGroupBindings/getExport" : {
       "get" : {
+        "tags" : [ "v1/social/groupSpaceBindings" ],
+        "summary" : "Gets CSV report",
+        "description" : "Given a (space,group,action,groupBindingId), it return all lines of the report in a csv file",
         "operationId" : "getReport",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "spaceId",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "action",
           "in" : "query",
+          "description" : "action",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "group",
           "in" : "query",
+          "description" : "group",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "groupBindingId",
           "in" : "query",
+          "description" : "groupBindingId",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/vnd.ms-excel" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaceGroupBindings/getGroupsTree" : {
       "get" : {
+        "tags" : [ "v1/social/groupSpaceBindings" ],
+        "summary" : "Gets list of groups entities from the parent group root.",
+        "description" : "Returns a list of group entities in the following cases if the authenticated user is an administrator.",
         "operationId" : "getGroupsTree",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaceGroupBindings/removeGroupSpaceBinding/{bindingId}" : {
       "delete" : {
+        "tags" : [ "v1/social/groupSpaceBindings" ],
+        "summary" : "Deletes a binding.",
+        "description" : "This method deletes a binding in the following cases the authenticated user is an administrator.",
         "operationId" : "deleteSpaceBinding",
         "parameters" : [ {
           "name" : "bindingId",
           "in" : "path",
+          "description" : "spaceId",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaceGroupBindings/saveGroupsSpaceBindings/{spaceId}" : {
       "post" : {
+        "tags" : [ "v1/social/groupSpaceBindings" ],
+        "summary" : "Save space group bindings",
+        "description" : "This method set bindings for a specific space with a list of groups if the authenticated user is an administrator.",
         "operationId" : "saveGroupSpaceBindings",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "path",
+          "description" : "SpaceId of the space",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "List of group names to be bound to the space",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1344,77 +1813,99 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/v1/social/spaceGroupBindings/{spaceId}" : {
       "get" : {
+        "tags" : [ "v1/social/groupSpaceBindings" ],
+        "summary" : "Gets list of binding for a space.",
+        "description" : "Returns a list of bindings in the following cases if the authenticated user is an administrator.",
         "operationId" : "getBindingsBySpaceId",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "Space id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of spaces found or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaceTemplates/templates" : {
       "get" : {
+        "tags" : [ "v1/social/spaceTemplates" ],
+        "summary" : "Gets all spaces templates",
+        "description" : "This returns space templates details",
         "operationId" : "getAllTemplates",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/spaceTemplates/{templateName}/banner" : {
       "get" : {
+        "tags" : [ "v1/social/spaceTemplates" ],
+        "summary" : "Gets space template banner",
+        "description" : "This returns space template banner input stream",
         "operationId" : "getBannerStream",
         "parameters" : [ {
           "name" : "templateName",
           "in" : "path",
+          "description" : "Space template name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1422,130 +1913,172 @@
         }, {
           "name" : "lastModified",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/spaces" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets spaces of user",
+        "description" : "This returns a list of spaces switch request parameters",
         "operationId" : "getSpaces",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "Space name search information",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "filterType",
           "in" : "query",
+          "description" : "Type of spaces to retrieve: all, userSpaces, invited, pending or requests",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "all"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit, if equals to 0, it will not retrieve spaces",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "sort",
           "in" : "query",
+          "description" : "Sort",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "order",
           "in" : "query",
+          "description" : "Order",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of spaces found or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "favorites",
           "in" : "query",
+          "description" : "Returning the favorite spaces of current user not not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: members or managers",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Creates a space",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "createSpace",
         "parameters" : [ {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: members or managers",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Space object to be created, ex:<br />{<br />\"displayName\": \"My space\",<br />\"description\": \"This is my space\",<br />\"groupId\": \"/spaces/my_space\",<br />\"visibility\": \"private\",<br />\"subscription\": \"validation\"<br />}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/SpaceEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/applications" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Return list of applications that a use is allowed to add to a space",
+        "description" : "Return list of applications that a use is allowed to add to a space",
         "operationId" : "getSpaceApplicationsChoices",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Add an application into list of allowed application to instantiate in spaces",
+        "description" : "Add an application into list of allowed application to instantiate in spaces",
         "operationId" : "addSpaceApplication",
         "requestBody" : {
           "content" : {
@@ -1557,42 +2090,56 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       }
     },
     "/v1/social/spaces/applications/{applicationName}" : {
       "delete" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Deletes an application from list of allowed application to instantiate in spaces",
+        "description" : "Deletes an application from list of allowed application to instantiate in spaces",
         "operationId" : "deleteSpaceApplication",
         "parameters" : [ {
           "name" : "applicationName",
           "in" : "path",
+          "description" : "Application name",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       }
     },
     "/v1/social/spaces/byDisplayName/{displayName}" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets a specific space by display name",
+        "description" : "This returns the space in the following cases: <br/><ul><li>the authenticated user is a member of the space</li><li>the space is \"public\"</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "getSpaceByDisplayName",
         "parameters" : [ {
           "name" : "displayName",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1600,26 +2147,34 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: members or managers",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/byPrettyName/{prettyName}" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets a specific space by pretty name",
+        "description" : "This returns the space in the following cases: <br/><ul><li>the authenticated user is a member of the space</li><li>the space is \"public\"</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "getSpaceByPrettyName",
         "parameters" : [ {
           "name" : "prettyName",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1627,47 +2182,62 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: members or managers",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/externalInvitations/{invitationId}" : {
       "delete" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Delete a specific external invitation from a specific space",
+        "description" : "This Delete a specific external invitation from a specific space if the authenticated user is a member or manager of the space or a spaces super manager.",
         "operationId" : "declineExternalInvitations",
         "parameters" : [ {
           "name" : "invitationId",
           "in" : "path",
+          "description" : "invitation id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets a specific space by id",
+        "description" : "This returns the space in the following cases: <br/><ul><li>the authenticated user is a member of the space</li><li>the space is \"public\"</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "getSpaceById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1675,24 +2245,32 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: members or managers",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Updates a specific space by id",
+        "description" : "This updates the space in the following cases: <br/><ul><li>the authenticated user is a manager of the space</li><li>the authenticated user is the owner of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "updateSpaceById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1700,33 +2278,43 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: members or managers",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Space object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/SpaceEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Deletes a specific space by id",
+        "description" : "This deletes the space in the following cases: <br/><ul><li>the authenticated user is a manager of the space</li><li>the authenticated user is the owner of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "deleteSpaceById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1734,26 +2322,34 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/activities" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets space activities by space id",
+        "description" : "This returns the space's activities if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "getSpaceActivitiesById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1761,57 +2357,73 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "before",
           "in" : "query",
+          "description" : "Base time to load older activities (yyyy-MM-dd HH:mm:ss)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "after",
           "in" : "query",
+          "description" : "Base time to load newer activities (yyyy-MM-dd HH:mm:ss)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of activities or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: comments or likes",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
       },
       "post" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Posts an activity to a specific space",
+        "description" : "This posts the activity if the authenticated user is a member of the space or a spaces super manager.",
         "operationId" : "postActivityOnSpace",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1819,25 +2431,31 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: comments or likes",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Activity object to be created",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ActivityEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
@@ -1845,29 +2463,40 @@
     },
     "/v1/social/spaces/{id}/applications" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Return list of applications of a space",
+        "description" : "Return list of applications of a space",
         "operationId" : "getSpaceApplications",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Add a new application into space",
+        "description" : "Add a new application into space",
         "operationId" : "addSpaceApplication_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1877,10 +2506,12 @@
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "appId" ],
                 "type" : "object",
                 "properties" : {
                   "appId" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Application id"
                   }
                 }
               }
@@ -1888,21 +2519,28 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/applications/{appId}" : {
       "put" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Deletes a selected application of a space",
+        "description" : "Deletes a selected application of a space",
         "operationId" : "moveSpaceApplicationOrder",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1910,6 +2548,7 @@
         }, {
           "name" : "appId",
           "in" : "path",
+          "description" : "Application id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1919,10 +2558,12 @@
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "transition" ],
                 "type" : "object",
                 "properties" : {
                   "transition" : {
                     "type" : "integer",
+                    "description" : "Move transition: 1 to move up, -1 to move down",
                     "format" : "int32"
                   }
                 }
@@ -1931,19 +2572,26 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Deletes a selected application of a space",
+        "description" : "Deletes a selected application of a space",
         "operationId" : "deleteSpaceApplication_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1951,33 +2599,42 @@
         }, {
           "name" : "appId",
           "in" : "path",
+          "description" : "Application id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/avatar" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets a space avatar by pretty name",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getSpaceAvatarById",
         "parameters" : [ {
           "name" : "lastModified",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "id",
           "in" : "path",
+          "description" : "Space pretty name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -1985,32 +2642,44 @@
         }, {
           "name" : "r",
           "in" : "query",
+          "description" : "A mandatory valid token that is used to authorize anonymous request",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/banner" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets a space banner by id",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getSpaceBannerById",
         "parameters" : [ {
           "name" : "lastModified",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2018,68 +2687,93 @@
         }, {
           "name" : "r",
           "in" : "query",
+          "description" : "A mandatory valid token that is used to authorize anonymous request",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/externalInvitations" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets external invitations of a specific space",
+        "description" : "This returns a list of external invitations if the authenticated user is a member or manager of the space or a spaces super manager.",
         "operationId" : "getSpaceExternalInvitations",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/navigations" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Return list of navigations of a space",
+        "description" : "Return list of navigations of a space",
         "operationId" : "getSpaceNavigations",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "401" : {
+            "description" : "Unauthorized"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/users" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Gets users of a specific space",
+        "description" : "This returns a list of users if the authenticated user is a member or manager of the space or a spaces super manager.",
         "operationId" : "getSpaceMembers",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2087,58 +2781,75 @@
         }, {
           "name" : "q",
           "in" : "query",
+          "description" : "User name search information",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "role",
           "in" : "query",
+          "description" : "Role of the target user in this space: manager, member, invited and pending",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "member"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of users or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/{id}/users/{userId}" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Checks if the given user is a member of a specific space or not",
+        "description" : "This Checks if user is a member of a specific spacer o not.",
         "operationId" : "isSpaceMember",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2146,91 +2857,143 @@
         }, {
           "name" : "userId",
           "in" : "path",
+          "description" : "User id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spaces/{spaceId}/checkExternals" : {
       "get" : {
+        "tags" : [ "v1/social/spaces" ],
+        "summary" : "Checks if a specific a space contains an external members",
+        "description" : "This returns the space if it contains external members",
         "operationId" : "isSpaceContainsExternals",
         "parameters" : [ {
           "name" : "spaceId",
           "in" : "path",
+          "description" : "Space Id",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spacesAdministration/permissions" : {
       "get" : {
+        "tags" : [ "v1/social/spacesAdministration" ],
+        "summary" : "Gets all spaces administrators permissions settings",
+        "description" : "This returns space memberships in the following cases: <br/><ul><li>the sender of the space membership is the authenticated user</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "getAllSettings",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User unauthorized"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spacesAdministration/permissions/canCreatespaces/{username}" : {
       "get" : {
+        "tags" : [ "v1/social/spacesAdministration" ],
+        "summary" : "Check if members can create spaces",
+        "description" : "This returns if members can add spaces",
         "operationId" : "canCreatespaces",
         "parameters" : [ {
           "name" : "username",
           "in" : "path",
+          "description" : "Username",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/spacesAdministration/permissions/spacesAdministrators" : {
       "get" : {
+        "tags" : [ "v1/social/spacesAdministration" ],
+        "summary" : "Gets spaces administrators memberships",
+        "description" : "This returns space memberships in the following cases: <br/><ul><li>the sender of the space membership is the authenticated user</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "getSpacesAdministrators",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/spacesAdministration" ],
+        "summary" : "Updates spaces creators memberships",
+        "description" : "This updates the space membership in the following cases: <br/><ul><li>the user of the space membership is the authenticated user  but he cannot update his own membership to \"approved\" for a space with a \"validation\" subscription</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "updateSpacesAdministrators",
         "requestBody" : {
+          "description" : "Space membership object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -2240,33 +3003,53 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/spacesAdministration/permissions/spacesCreators" : {
       "get" : {
+        "tags" : [ "v1/social/spacesAdministration" ],
+        "summary" : "Gets spaces creators memberships",
+        "description" : "This returns space memberships in the following cases: <br/><ul><li>the sender of the space membership is the authenticated user</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "getSpacesCreators",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/spacesAdministration" ],
+        "summary" : "Updates spaces creators memberships",
+        "description" : "This updates the space membership in the following cases: <br/><ul><li>the user of the space membership is the authenticated user  but he cannot update his own membership to \"approved\" for a space with a \"validation\" subscription</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "updateSpacesCreators",
         "requestBody" : {
+          "description" : "Space membership object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -2276,109 +3059,145 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "User not authorized to call this endpoint"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/spacesMemberships" : {
       "get" : {
+        "tags" : [ "v1/social/spacesMemberships" ],
+        "summary" : "Gets space memberships",
+        "description" : "This returns space memberships in the following cases: <br/><ul><li>the sender of the space membership is the authenticated user</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is the super user</li></ul>",
         "operationId" : "getSpacesMemberships",
         "parameters" : [ {
           "name" : "space",
           "in" : "query",
+          "description" : "Space display name to get membership, ex: my space",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "user",
           "in" : "query",
+          "description" : "User name to filter only memberships of the given user",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "status",
           "in" : "query",
+          "description" : "Type of membership to get (All, Pending, Approved, Invited)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of memberships or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/spacesMemberships" ],
+        "summary" : "Creates a space membership for a specific user",
+        "description" : "This creates the space membership in the following cases: <br/><ul><li>the sender of the space membership is the authenticated user and the space subscription is open</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "addSpacesMemberships",
         "parameters" : [ {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Space membership object to be created, ex:<br />{<br />\"role\": \"manager\",<br />\"user\": \"john\",<br />\"space\": \"my space\"<br />}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/SpaceMembershipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/spacesMemberships/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/spacesMemberships" ],
+        "summary" : "Gets a specific space membership by id",
+        "description" : "This returns the space membership in the following cases: <br/><ul><li>the user of the space membership is the authenticated user</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "getSpaceMembershipById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space membership id which is in format spaceName:userName:role, ex: my_space:root:manager",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2386,24 +3205,32 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/spacesMemberships" ],
+        "summary" : "Updates a specific space membership by id",
+        "description" : "This updates the space membership in the following cases: <br/><ul><li>the user of the space membership is the authenticated user but he cannot update his own membership to \"approved\" for a space with a \"validation\" subscription</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is a spaces super manager</li><li>the user of the space membership is the authenticated user, he can update his own membership to \"approved\" or \"ignored\" for a space with a \"closed\" subscription</li></ul>",
         "operationId" : "updateSpaceMembershipById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space membership id which is in format spaceName:userName:role, ex: my_space:root:manager",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2411,33 +3238,40 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Space membership object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/SpaceMembershipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/spacesMemberships" ],
+        "summary" : "Deletes a specific space membership by id",
+        "description" : "This deletes the space membership in the following cases: <br/><ul><li>the user of the space membership is the authenticated user</li><li>the authenticated user is a manager of the space</li><li>the authenticated user is a spaces super manager</li></ul>",
         "operationId" : "deleteSpaceMembershipById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Space membership id which is in format spaceName:userName:role, ex: my_space:root:manager",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2445,65 +3279,84 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "412" : {
+            "description" : "Precondition is not acceptable. For instance, the last manager membership could not be removed."
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
           }
         }
       }
     },
     "/v1/social/tags" : {
       "get" : {
+        "tags" : [ "v1/social/tags" ],
+        "summary" : "Find list of tags using a search term",
+        "description" : "Returns list of tags",
         "operationId" : "findTags",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "Search term",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "false"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Search results limit",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/social/users" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets all users",
+        "description" : "Using the query param \"q\" to filter the target users, ex: \"q=jo*\" returns all the users beginning by \"jo\".Using the query param \"status\" to filter the target users, ex: \"status=online*\" returns the visible online users.Using the query params \"status\" and \"spaceId\" together to filter the target users, ex: \"status=online*\" and \"spaceId=1*\" returns the visible online users who are member of space with id=1.The params \"status\" and \"spaceId\" cannot be used with \"q\" param since it will falsify the \"limit\" param which is 20 by default. If these 3 parameters are used together, the parameter \"q\" will be ignored",
         "operationId" : "getUsers",
         "parameters" : [ {
           "name" : "q",
           "in" : "query",
+          "description" : "User name information to filter, ex: user name, last name, first name or full name",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "status",
           "in" : "query",
+          "description" : "User status to filter online users, ex: online",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "userType",
           "in" : "query",
+          "description" : "User type to filter, ex: internal, external",
           "schema" : {
             "type" : "string",
             "default" : "internal"
@@ -2511,103 +3364,132 @@
         }, {
           "name" : "isConnected",
           "in" : "query",
+          "description" : "Is connected users",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "spaceId",
           "in" : "query",
+          "description" : "Space id to filter only its members, ex: 1",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "isDisabled",
           "in" : "query",
+          "description" : "Is disabled users",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "enrollmentStatus",
           "in" : "query",
+          "description" : "Enrollment status, ex: enrolled, not enrolled, no possible enrollment",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of users found or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Creates a new user",
+        "description" : "This creates the user if the authenticated user is in the /platform/administrators group.",
         "operationId" : "addUser",
         "parameters" : [ {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "User object to be created, ex:<br />{<br />\"username\": \"john\",<br />\"password\": \"gtngtn\",<br />\"email\": \"john@exoplatform.com\",<br />\"firstname\": \"John\",<br />\"lastname\": \"Smith\"<br />}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/UserEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/users/bulk/{action}" : {
       "patch" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Make action on list of users",
+        "description" : "This will realize the action on the list of users if possible",
         "operationId" : "bulk",
         "parameters" : [ {
           "name" : "action",
           "in" : "path",
+          "description" : "Action",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "User List",
           "content" : {
             "*/*" : {
               "schema" : {
@@ -2617,7 +3499,8 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {
@@ -2631,16 +3514,22 @@
     },
     "/v1/social/users/connections/invitations" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets received invitations of current user",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getInvitationsOfUser",
         "parameters" : [ {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of connections or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
@@ -2657,16 +3546,22 @@
     },
     "/v1/social/users/connections/pending" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets received invitations of current user",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getPendingOfUser",
         "parameters" : [ {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of connections or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
@@ -2683,24 +3578,35 @@
     },
     "/v1/social/users/csv" : {
       "post" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Import users using CSV file",
+        "description" : "Import users using CSV file that has a header defining user fields names.exemple of first line of CSV file: userName,firstName,lastName,password,email,groups,aboutMe,timeZone,company,position",
         "operationId" : "importUsers",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "uploadId" ],
                 "type" : "object",
                 "properties" : {
                   "uploadId" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "CSV File uploadId retrieved after uploading"
                   },
                   "progress" : {
-                    "type" : "boolean"
+                    "type" : "boolean",
+                    "description" : "Get processing progress percentage of imported file",
+                    "default" : false
                   },
                   "clean" : {
-                    "type" : "boolean"
+                    "type" : "boolean",
+                    "description" : "Whether clean file after processing or not",
+                    "default" : false
                   },
                   "sync" : {
-                    "type" : "boolean"
+                    "type" : "boolean",
+                    "description" : "Whether process importing users in a sync or async way of current request",
+                    "default" : false
                   }
                 }
               }
@@ -2719,31 +3625,45 @@
     },
     "/v1/social/users/email/{email}" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets a specific user by user email",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getUserByEmail",
         "parameters" : [ {
           "name" : "email",
           "in" : "path",
+          "description" : "User email",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/users/onboard/{id}" : {
       "patch" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Send onBoarding email to a specific user",
+        "description" : "This send onBoarding email to a specific user.",
         "operationId" : "sendOnBoardingEmail",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2761,10 +3681,14 @@
     },
     "/v1/social/users/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets a specific user by user name",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getUserById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2772,24 +3696,35 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Updates a specific user by user name",
+        "description" : "This updates the user if he is the authenticated user.",
         "operationId" : "updateUserById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2797,18 +3732,21 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "User object to be updated, ex:<br />{<br />\"username\": \"john\",<br />\"password\": \"gtngtn\",<br />\"email\": \"john@exoplatform.com\",<br />\"firstname\": \"John\",<br />\"lastname\": \"Smith\"<br />}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/UserEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {
@@ -2820,10 +3758,14 @@
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Deletes a specific user by user name",
+        "description" : "This deletes the user if the authenticated user is in the /platform/administrators group.",
         "operationId" : "deleteUserById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2831,6 +3773,7 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
@@ -2845,10 +3788,14 @@
         }
       },
       "patch" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Update user property",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "updateUserProfileAttribute",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2858,13 +3805,16 @@
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "name", "value" ],
                 "type" : "object",
                 "properties" : {
                   "name" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "User profile attribute name"
                   },
                   "value" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "User profile attribute value"
                   }
                 }
               }
@@ -2872,21 +3822,31 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled but not content returned"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "403" : {
+            "description" : "Unothorized to modify user profile"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/users/{id}/activities" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets activities of a specific user",
+        "description" : "This returns an activity in the list in the following cases: <br/><ul><li>this is a user activity and the owner of the activity is the authenticated user or one of his connections</li><li>this is a space activity and the authenticated user is a member of the space</li></ul>",
         "operationId" : "getActivitiesOfUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2894,44 +3854,55 @@
         }, {
           "name" : "type",
           "in" : "query",
+          "description" : "Activity stream type, ex: <em>owner, connections, spaces</em> or <em>all</em>",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "all"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "before",
           "in" : "query",
+          "description" : "Base time to load older activities (yyyy-MM-dd HH:mm:ss)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "after",
           "in" : "query",
+          "description" : "Base time to load newer activities (yyyy-MM-dd HH:mm:ss)",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of activities or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: <em>comments</em> or <em>likes</em>",
           "schema" : {
             "type" : "string"
           }
@@ -2947,10 +3918,14 @@
         "deprecated" : true
       },
       "post" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Creates an activity by a specific user",
+        "description" : "This creates the activity if the given user is the authenticated user.",
         "operationId" : "addActivityByUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2958,18 +3933,21 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: <em>comments</em> or <em>likes</em>",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Activity object to be created, in which the title of activity is required, ex: <br/>{\"title\": \"act4 posted\"}",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ActivityEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
           "default" : {
@@ -2984,10 +3962,14 @@
     },
     "/v1/social/users/{id}/avatar" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets a specific user avatar by username",
+        "description" : "The user avatar will be returned only if there is a currently authenticated user or an anonymous user that has a valid token generated by a Server encryption key.",
         "operationId" : "getUserAvatarById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -2995,32 +3977,44 @@
         }, {
           "name" : "lastModified",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "r",
           "in" : "query",
+          "description" : "A mandatory valid token that is used to authorize anonymous request",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/users/{id}/banner" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets a specific user banner by username",
+        "description" : "The user avatar will be returned only if there is a currently authenticated user or an anonymous user that has a valid token generated by a Server encryption key.",
         "operationId" : "getUserBannerById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3028,32 +4022,44 @@
         }, {
           "name" : "lastModified",
           "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "r",
           "in" : "query",
+          "description" : "A mandatory valid token that is used to authorize anonymous request",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Resource not found"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/users/{id}/connections" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets connections of a specific user",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "getConnectionsOfUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3061,6 +4067,7 @@
         }, {
           "name" : "q",
           "in" : "path",
+          "description" : "User name information to filter, ex: user name, last name, first name or full name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3068,12 +4075,15 @@
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of connections or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
@@ -3090,40 +4100,56 @@
     },
     "/v1/social/users/{id}/profile" : {
       "patch" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Update set of properties in user profile",
+        "description" : "This can only be done by the logged in user.",
         "operationId" : "updateUserProfileAttributes",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "User profile attributes map",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProfileEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled but not content returned"
+          },
+          "500" : {
+            "description" : "Internal server error due to data encoding"
+          },
+          "403" : {
+            "description" : "Unothorized to modify user profile"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/users/{id}/spaces" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets spaces of a specific user",
+        "description" : "This returns a list of spaces in the following cases: <br/><ul><li>the given user is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "getSpacesOfUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "User name",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3131,26 +4157,33 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of spaces or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: <em>members</em> or <em>managers</em>",
           "schema" : {
             "type" : "string"
           }
@@ -3167,10 +4200,14 @@
     },
     "/v1/social/users/{userId}/spaces/{profileId}" : {
       "get" : {
+        "tags" : [ "v1/social/users" ],
+        "summary" : "Gets commons spaces of current user",
+        "description" : "This returns a list of commons spaces in the following cases: <br/><ul><li>the given user is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "getCommonSpacesOfUser",
         "parameters" : [ {
           "name" : "userId",
           "in" : "path",
+          "description" : "User Id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3178,6 +4215,7 @@
         }, {
           "name" : "profileId",
           "in" : "path",
+          "description" : "Profile Id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3185,26 +4223,33 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of spaces or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: <em>members</em> or <em>managers</em>",
           "schema" : {
             "type" : "string"
           }
@@ -3221,122 +4266,161 @@
     },
     "/v1/social/usersRelationships" : {
       "get" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Gets all user relationships",
+        "description" : "This returns a list of relationships in the following cases: <br/><ul><li>if the query param \"user\" is not defined: returns the relationships of the authenticated user</li><li>if the \"user\" is defined and the authenticated user is not an administrator: returns the relationships of the authenticated user</li><li>if the \"user\" is defined and the authenticated user is an administrator: returns the relationships of the defined user</li><li>if the \"others\" is defined: returns the relationships between the user and the users defined in \"others\" only</li></ul>",
         "operationId" : "getUsersRelationships",
         "parameters" : [ {
           "name" : "status",
           "in" : "query",
+          "description" : "Specific status of relationships: pending, confirmed or all",
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "default" : "all"
           }
         }, {
           "name" : "user",
           "in" : "query",
+          "description" : "User name to get relationships",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "others",
           "in" : "query",
+          "description" : "Usernames of the others users to get relationships with the given user",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of relationships or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "put" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Updates a specific relationship of two users. One of them must be the current user.",
+        "description" : "Return updated relationship",
         "operationId" : "updateUsersRelationship",
         "parameters" : [ {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Relationship object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RelationshipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "post" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Creates a relationship between two specific users",
+        "description" : "This creates the relationship in the following cases: <br/><ul><li>the sender or the receiver of the user relationship is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "createUsersRelationships",
         "parameters" : [ {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Relationship object to be created, required fields: <br/>sender - user name of the sender,<br/>receiver - user name of the receiver,<br/>status - pending or confirmed",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RelationshipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }
     },
     "/v1/social/usersRelationships/{id}" : {
       "get" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Gets a specific relationship of user by id",
+        "description" : "This returns the relationship in the following cases: <br/><ul><li>the sender or the receiver of the user relationship is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "getUsersRelationshipsById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3344,25 +4428,33 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
       },
       "put" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Updates a specific relationship of user by id",
+        "description" : "This updates the relationship in the following cases: <br/><ul><li>the sender or the receiver of the user relationship is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "updateUsersRelationshipsById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3370,34 +4462,44 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Relationship object to be updated",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/RelationshipEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
       },
       "delete" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Deletes a specific relationship of user by id",
+        "description" : "This deletes the relationship in the following cases: <br/><ul><li>the sender or the receiver of the user relationship is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "deleteUsersRelationshipsById",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3405,16 +4507,20 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource if any",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         },
         "deprecated" : true
@@ -3422,10 +4528,14 @@
     },
     "/v1/social/usersRelationships/{sender}/{receiver}" : {
       "get" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Gets a specific relationship of user with another user",
+        "description" : "This returns the relationship in the following cases: <br/><ul><li>the sender or the receiver of the user relationship is the authenticated user</li><li>the authenticated user is in the group /platform/administrators</li></ul>",
         "operationId" : "getUsersRelationship",
         "parameters" : [ {
           "name" : "sender",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3433,6 +4543,7 @@
         }, {
           "name" : "receiver",
           "in" : "path",
+          "description" : "Relationship id",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3440,24 +4551,32 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       },
       "delete" : {
+        "tags" : [ "v1/social/usersRelationships" ],
+        "summary" : "Deletes a specific relationship of two users.One of them must be currrent user",
+        "description" : "Return the deleted relationship",
         "operationId" : "deleteUsersRelationship",
         "parameters" : [ {
           "name" : "sender",
           "in" : "path",
+          "description" : "Relationship sender",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3465,6 +4584,7 @@
         }, {
           "name" : "receiver",
           "in" : "path",
+          "description" : "Relationship receiver",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -3472,16 +4592,20 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Asking for a full representation of a specific subresource, ex: sender or receiver",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
           }
         }
       }

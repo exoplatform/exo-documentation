@@ -9,13 +9,27 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/v1/agenda/calendars",
+    "description" : "Manages agenda calendars associated to users and spaces"
+  }, {
+    "name" : "/v1/agenda/events",
+    "description" : "Manages agenda events associated to users and spaces"
+  }, {
+    "name" : "/v1/agenda/settings",
+    "description" : "Manages agenda settings associated to users"
+  } ],
   "paths" : {
     "/v1/agenda/calendars" : {
       "get" : {
+        "tags" : [ "/v1/agenda/calendars" ],
+        "summary" : "Retrieves the list of calendars",
+        "description" : "Retrieves the list of calendars available for an owner of type user or space, identitifed by its identity technical identifier. If no designated owner, all calendars available for authenticated user will be retrieved.",
         "operationId" : "list",
         "parameters" : [ {
           "name" : "ownerIds",
           "in" : "query",
+          "description" : "Limit of calendar owner identity ids to incluse in results",
           "schema" : {
             "type" : "array",
             "items" : {
@@ -26,78 +40,113 @@
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Whether return size of results or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset of result",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of result",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/agenda/calendars" ],
+        "summary" : "Updates an existing calendar",
+        "description" : "Updates an existing calendar",
         "operationId" : "updateCalendar",
         "requestBody" : {
+          "description" : "Calendar object to update",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/CalendarEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/v1/agenda/calendars" ],
+        "summary" : "Creates a new calendar",
+        "description" : "Creates a new calendar",
         "operationId" : "createCalendar",
         "requestBody" : {
+          "description" : "Calendar object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/CalendarEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/v1/agenda/calendars" ],
+        "summary" : "Deletes an existing calendar",
+        "description" : "Deletes an existing calendar",
         "operationId" : "deleteCalendar",
         "parameters" : [ {
           "name" : "calendarId",
           "in" : "path",
+          "description" : "Calendar technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -105,21 +154,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/calendars/{calendarId}" : {
       "get" : {
+        "tags" : [ "/v1/agenda/calendars" ],
+        "summary" : "Retrieves a calendar identified by its technical identifier",
+        "description" : "Retrieves a calendar identified by its technical identifier",
         "operationId" : "getCalendarById",
         "parameters" : [ {
           "name" : "calendarId",
           "in" : "path",
+          "description" : "Calendar technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -127,21 +186,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves the list of events available for an owner of type user or space",
+        "description" : "Retrieves the list of events available for an owner of type user or space, identitifed by its identity technical identifier. If no designated owner, all events available for authenticated user will be retrieved.",
         "operationId" : "getEvents",
         "parameters" : [ {
           "name" : "ownerIds",
           "in" : "query",
+          "description" : "Identity technical identifiers of calendar owners",
           "schema" : {
             "type" : "array",
             "items" : {
@@ -152,6 +221,8 @@
         }, {
           "name" : "attendeeIdentityId",
           "in" : "query",
+          "description" : "Attendee identity identifier to filter on events where user is attendee",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -159,37 +230,45 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "start",
           "in" : "query",
+          "description" : "Start datetime using RFC-3339 representation",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "end",
           "in" : "query",
+          "description" : "End datetime using RFC-3339 representation",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return, used only when end date isn't set",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 10
           }
         }, {
           "name" : "responseTypes",
           "in" : "query",
+          "description" : "Attendee Response statuses to filter events by attendee response",
           "schema" : {
             "type" : "array",
             "items" : {
@@ -199,75 +278,109 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Update an existing event",
+        "description" : "Update an existing event",
         "operationId" : "updateEvent",
         "parameters" : [ {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Event object to update",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/EventEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Create a new event",
+        "description" : "Create a new event",
         "operationId" : "createEvent",
         "parameters" : [ {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "Event object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/EventEntity"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/datePolls" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves the list of pending date polls for currently authenticated user",
+        "description" : "Retrieves the list of pending date polls for currently authenticated user.",
         "operationId" : "getDatePolls",
         "parameters" : [ {
           "name" : "ownerIds",
           "in" : "query",
+          "description" : "Identity technical identifiers of calendar owners",
           "schema" : {
             "type" : "array",
             "items" : {
@@ -278,13 +391,16 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -292,44 +408,56 @@
         }, {
           "name" : "start",
           "in" : "query",
+          "description" : "Start datetime using RFC-3339 representation",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "end",
           "in" : "query",
+          "description" : "End datetime using RFC-3339 representation",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/occurrence/{parentEventId}/{occurrenceId}" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves an event identified by its technical identifier",
+        "description" : "Retrieves an event identified by its technical identifier",
         "operationId" : "getEventOccurrence",
         "parameters" : [ {
           "name" : "parentEventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -338,6 +466,7 @@
         }, {
           "name" : "occurrenceId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
@@ -345,32 +474,44 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/pending" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves the list of pending events for currently authenticated user",
+        "description" : "Retrieves the list of pending events for currently authenticated user.",
         "operationId" : "getPendingEvents",
         "parameters" : [ {
           "name" : "ownerIds",
           "in" : "query",
+          "description" : "Identity technical identifiers of calendar owners",
           "schema" : {
             "type" : "array",
             "items" : {
@@ -381,13 +522,16 @@
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -395,78 +539,101 @@
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/search" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Search the list of events available with query for an owner of type user or space",
+        "description" : "Search the list of events available with query for an owner of type user or space, identified by its identity technical identifier. If no designated owner, all events available for authenticated user will be retrieved.",
         "operationId" : "search",
         "parameters" : [ {
           "name" : "query",
           "in" : "query",
+          "description" : "Term to search",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "offset",
           "in" : "query",
+          "description" : "Offset",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 0
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit",
           "schema" : {
             "type" : "integer",
-            "format" : "int32"
+            "format" : "int32",
+            "default" : 20
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves an event identified by its technical identifier",
+        "description" : "Retrieves an event identified by its technical identifier",
         "operationId" : "getEventById",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -475,36 +642,48 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "firstOccurrence",
           "in" : "query",
+          "description" : "Whether to retrieve first occurrence or not",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Delete an existing event or delay deleting an existing event with a fixed period.",
         "operationId" : "deleteEvent",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -513,6 +692,7 @@
         }, {
           "name" : "delay",
           "in" : "query",
+          "description" : "Time to effectively delete event",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -520,24 +700,38 @@
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "patch" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Update an attribute of an existing event",
+        "description" : "Update an attribute of an existing event",
         "operationId" : "updateEventFields",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -546,38 +740,56 @@
         }, {
           "name" : "updateAllOccurrences",
           "in" : "query",
+          "description" : "Update all event occurrences or only parent occurrence",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "sendInvitations",
           "in" : "query",
+          "description" : "Whether notify attendees about the modification or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/exceptionalOccurrences" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves the list of exceptional occurrences of an event",
+        "description" : "Retrieves the list of exceptional occurrences of an event",
         "operationId" : "getEventExceptionalOccurrences",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -586,32 +798,41 @@
         }, {
           "name" : "expand",
           "in" : "query",
+          "description" : "Properties to expand",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "timeZoneId",
           "in" : "query",
+          "description" : "IANA Time zone identitifer",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/reminders" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieve preferred reminders for currently authenticated user for an event",
+        "description" : "Retrieve preferred reminders for currently authenticated user for an event identified by its technical identifier.",
         "operationId" : "getEventRemindersById",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -619,19 +840,29 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Update the list of preferred reminders for authenticated user on a selected event.",
+        "description" : "Update the list of preferred reminders for authenticated user on a selected event",
         "operationId" : "saveEventReminders",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -640,17 +871,22 @@
         }, {
           "name" : "occurrenceId",
           "in" : "query",
+          "description" : "Event occurrence identifier",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "upcoming",
           "in" : "query",
+          "description" : "Whether apply on Event occurrence and its upcoming or not",
+          "required" : true,
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "requestBody" : {
+          "description" : "List of reminders to store on event for currently authenticated user",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -660,24 +896,35 @@
                 }
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/response" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Retrieves currently authenticated user response to an event",
+        "description" : "Retrieves currently authenticated (using token or effectively authenticated) user response to an event.",
         "operationId" : "getEventResponse",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -686,32 +933,47 @@
         }, {
           "name" : "occurrenceId",
           "in" : "query",
+          "description" : "Event occurrence identifier",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "token",
           "in" : "query",
+          "description" : "User token to ",
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/response/send" : {
       "get" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Send event invitation response for currently authenticated user",
+        "description" : "Send event invitation response for currently authenticated user (using token or effectively authenticated)",
         "operationId" : "sendEventResponse",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -720,50 +982,67 @@
         }, {
           "name" : "occurrenceId",
           "in" : "query",
+          "description" : "Event occurrence identifier",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "response",
           "in" : "query",
+          "description" : "Response to event invitation. Possible values: ACCEPTED, DECLINED or TENTATIVE.",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "upcoming",
           "in" : "query",
+          "description" : "Whether apply response on upcoming event of a recurrent event or not",
           "schema" : {
             "type" : "boolean"
           }
         }, {
           "name" : "token",
           "in" : "query",
+          "description" : "User token used to identify user and his response to apply new reponse even when user is not authenticated",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "redirect",
           "in" : "query",
+          "description" : "Whether redirect to Event details after applying new response or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/selectDateOption/{dateOptionId}" : {
       "post" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Select an Date Option for an event having multiple dates options",
+        "description" : "Select an Date Option for an event having multiple dates options",
         "operationId" : "selectEventDateOption",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -772,6 +1051,7 @@
         }, {
           "name" : "dateOptionId",
           "in" : "path",
+          "description" : "Event date option technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -779,21 +1059,34 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/undoDelete" : {
       "post" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Undo deleting event if not yet effectively deleted",
+        "description" : "Undo deleting event if not yet effectively deleted",
         "operationId" : "undoDeleteEvent",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -801,21 +1094,34 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/votes" : {
       "post" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Registers voted date poll options for currently authenticated user",
+        "description" : "Registers voted date poll options for currently authenticated user",
         "operationId" : "voteEvent",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -830,6 +1136,7 @@
                 "properties" : {
                   "dateOptionId" : {
                     "type" : "array",
+                    "description" : "Accepted event date options technical identifier",
                     "items" : {
                       "type" : "integer",
                       "format" : "int64"
@@ -841,21 +1148,34 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/events/{eventId}/votes/{dateOptionId}" : {
       "post" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Registers voted date poll option for currently authenticated user",
+        "description" : "Registers voted date poll option for currently authenticated user",
         "operationId" : "voteEventDateOption",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -864,6 +1184,7 @@
         }, {
           "name" : "dateOptionId",
           "in" : "path",
+          "description" : "Event date option technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -871,19 +1192,32 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "delete" : {
+        "tags" : [ "/v1/agenda/events" ],
+        "summary" : "Dismisses vote on date poll option for currently authenticated user",
+        "description" : "Dismisses vote on date poll option for currently authenticated user",
         "operationId" : "dismissEventDateOption",
         "parameters" : [ {
           "name" : "eventId",
           "in" : "path",
+          "description" : "Event technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -892,6 +1226,7 @@
         }, {
           "name" : "dateOptionId",
           "in" : "path",
+          "description" : "Event date option technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -899,73 +1234,113 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden operation"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/settings" : {
       "get" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Get User agenda settings",
         "operationId" : "getUserSettings",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "put" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves agenda settings for authenticated user",
+        "description" : "Saves agenda settings for authenticated user",
         "operationId" : "saveUserSettings",
         "requestBody" : {
+          "description" : "User agenda settings to update",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/AgendaUserSettings"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/settings/connector" : {
       "delete" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Deletes agenda connector settings for authenticated user",
+        "description" : "Deletes agenda connector settings for authenticated user",
         "operationId" : "deleteUserConnectorSettings",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "patch" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves agenda connector settings for authenticated user",
+        "description" : "Saves agenda connector settings for authenticated user",
         "operationId" : "saveUserConnectorSettings",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "connectorName", "connectorUserId" ],
                 "type" : "object",
                 "properties" : {
                   "connectorName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "User connector name"
                   },
                   "connectorUserId" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "User connector identifier"
                   }
                 }
               }
@@ -973,29 +1348,41 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/settings/connector/apiKey" : {
       "post" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves agenda connector Client API Key that will be accessible by all users to access connector remote API",
+        "description" : "Saves agenda connector Client API Key that will be accessible by all users to access connector remote API",
         "operationId" : "saveRemoteProviderApiKey",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "apiKey", "connectorName" ],
                 "type" : "object",
                 "properties" : {
                   "connectorName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Remote connector name"
                   },
                   "apiKey" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Remote connector Api Key"
                   }
                 }
               }
@@ -1003,32 +1390,45 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/settings/connector/status" : {
       "post" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves agenda connector status whether enabled or disabled for all users",
+        "description" : "Saves agenda connector status whether enabled or disabled for all users",
         "operationId" : "saveRemoteProviderStatus",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "connectorName", "enabled", "isOauth" ],
                 "type" : "object",
                 "properties" : {
                   "connectorName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Remote connector name"
                   },
                   "enabled" : {
-                    "type" : "boolean"
+                    "type" : "boolean",
+                    "description" : "Remote connector status"
                   },
                   "isOauth" : {
-                    "type" : "boolean"
+                    "type" : "boolean",
+                    "description" : "Remote connector uses Oauth or not"
                   }
                 }
               }
@@ -1036,26 +1436,37 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/settings/timeZone" : {
       "patch" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves agenda time zone setting for authenticated user",
+        "description" : "Saves agenda time zone setting for authenticated user",
         "operationId" : "saveUserTimeZoneSetting",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "timeZoneId" ],
                 "type" : "object",
                 "properties" : {
                   "timeZoneId" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "User preferred time zone"
                   }
                 }
               }
@@ -1063,26 +1474,37 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/v1/agenda/settings/webConferencing" : {
       "post" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves enabled web conferencing provider to use for all users",
+        "description" : "Saves enabled web conferencing provider to use for all users",
         "operationId" : "saveEnabledWebConferencing",
         "requestBody" : {
           "content" : {
             "*/*" : {
               "schema" : {
+                "required" : [ "providerName" ],
                 "type" : "object",
                 "properties" : {
                   "providerName" : {
-                    "type" : "string"
+                    "type" : "string",
+                    "description" : "Web conferencing provider name"
                   }
                 }
               }
@@ -1090,11 +1512,14 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

@@ -248,6 +248,7 @@ eXo Rest APIs
  .. raw:: html
    :file: embed/poll-docs-swagger.html
 
+
 .. _SOCIAL_REST_API:
 
   **Social Rest Api**
@@ -255,6 +256,7 @@ eXo Rest APIs
   The eXo Social REST APIs provide service endpoints for listing, creating, updating and deleting entities related to Social functionality.
 
   Following the list of eXo Social API operations :
+
 
  .. raw:: html
    :file: embed/social-docs-swagger.html
@@ -291,4 +293,5 @@ eXo Rest APIs
 
  .. raw:: html
    :file: embed/web-conferencing-docs-swagger.html
+
 

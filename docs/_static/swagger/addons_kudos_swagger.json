@@ -9,46 +9,77 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/kudos/api/account",
+    "description" : "Retrieve Kudos settings for users and spaces"
+  }, {
+    "name" : "/kudos/api/kudos",
+    "description" : "Manages Kudos"
+  }, {
+    "name" : "/kudos/api/settings",
+    "description" : "Manages Kudos global settings"
+  } ],
   "paths" : {
     "/kudos/api/account/isAuthorized" : {
       "get" : {
+        "tags" : [ "/kudos/api/account" ],
+        "summary" : "Checks if username is authorized to use Kudos",
+        "description" : "Checks if username is authorized to use Kudos and returns empty response",
         "operationId" : "isAuthorized",
         "parameters" : [ {
           "name" : "username",
           "in" : "query",
+          "description" : "User login",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/account/settings" : {
       "get" : {
+        "tags" : [ "/kudos/api/account" ],
+        "summary" : "Retrieves user/space settings for kudos",
+        "description" : "returns account settings object",
         "operationId" : "getSettings",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos list created in a period contained a selected date in seconds",
+        "description" : "Get Kudos list created in a period contained a selected date in seconds and returns list of Kudos",
         "operationId" : "getKudosByPeriodOfDate",
         "parameters" : [ {
           "name" : "dateInSeconds",
           "in" : "query",
+          "description" : "Timestamp in seconds of date in the middle of selected period. If not defined, current time will be used.",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -56,85 +87,129 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Creates new Kudos",
+        "description" : "Creates new Kudos and returns an empty response",
         "operationId" : "createKudos",
         "requestBody" : {
+          "description" : "Kudos object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Kudos"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/byActivity/{activityId}" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos by its generated comment or activity id",
+        "description" : "Get Kudos by its generated comment or activity id",
         "operationId" : "getKudosByActivityId",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "kudos activity or comment identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Entity Not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/byActivity/{activityId}/all" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos List attached to a parent activity, whether the activity itself or in a comment",
+        "description" : "Get Kudos List attached to a parent activity, whether the activity itself or in a comment",
         "operationId" : "getKudosListOfActivity",
         "parameters" : [ {
           "name" : "activityId",
           "in" : "path",
+          "description" : "kudos parent activity identifier",
           "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Entity Not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/byDates" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos list created between start and end dates in seconds",
+        "description" : "Get Kudos list created between start and end dates in seconds",
         "operationId" : "getKudosByDates",
         "parameters" : [ {
           "name" : "startDateInSeconds",
@@ -153,113 +228,162 @@
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/byEntity" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos list by entity type and id",
+        "description" : "Get Kudos list by entity type and id and returns list of Kudos",
         "operationId" : "getEntityKudos",
         "parameters" : [ {
           "name" : "entityType",
           "in" : "query",
+          "description" : "kudos entity type (for example activity, comment...)",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "entityId",
           "in" : "query",
+          "description" : "kudos entity id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of results to return",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/byEntity/sent/count" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos count by entity and current user as sender",
+        "description" : "Get Kudos count by entity and current user as sender",
         "operationId" : "countKudosByEntityAndSender",
         "parameters" : [ {
           "name" : "entityType",
           "in" : "query",
+          "description" : "kudos entity type (for example activity, comment...)",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "entityId",
           "in" : "query",
+          "description" : "kudos entity id",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "text/plain" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/period" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Get Kudos period of time by computing it using period type and a selected date",
+        "description" : "Get Kudos period of time by computing it using period type and a selected date",
         "operationId" : "getPeriodDates",
         "parameters" : [ {
           "name" : "periodType",
           "in" : "query",
+          "description" : "Period type, can be: WEEK, MONTH, QUARTER, SEMESTER and YEAR. Default is the same as configured period",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "dateInSeconds",
           "in" : "query",
+          "description" : "Date in the middle of a period defined using a timestamp in seconds",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/{identityId}/received" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Retrieve the list of received Kudos by a user or space in a selected period",
+        "description" : "Retrieve the list of received Kudos by a user or space in a selected period",
         "operationId" : "getReceivedKudosByPeriod",
         "parameters" : [ {
           "name" : "identityId",
           "in" : "path",
+          "description" : "User or space identity technical id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -268,6 +392,8 @@
         }, {
           "name" : "dateInSeconds",
           "in" : "query",
+          "description" : "Date in the middle of a period defined using a timestamp in seconds",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -275,12 +401,16 @@
         }, {
           "name" : "periodType",
           "in" : "query",
+          "description" : "Period type, can be: WEEK, MONTH, QUARTER, SEMESTER and YEAR. Default is the same as configured period",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of kudos to retrieve, if equal to 0, no kudos will be retrieved",
+          "required" : true,
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -288,26 +418,34 @@
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Whether return size of received kudos, default = false",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/kudos/{identityId}/sent" : {
       "get" : {
+        "tags" : [ "/kudos/api/kudos" ],
+        "summary" : "Retrieve the list of sent Kudos for a user in a selected period",
+        "description" : "Retrieve the list of sent Kudos for a user in a selected period",
         "operationId" : "getSentKudosByPeriod",
         "parameters" : [ {
           "name" : "identityId",
           "in" : "path",
+          "description" : "User or space identity technical id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -316,6 +454,7 @@
         }, {
           "name" : "dateInSeconds",
           "in" : "query",
+          "description" : "Date in the middle of a period defined using a timestamp in seconds",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
@@ -323,12 +462,14 @@
         }, {
           "name" : "periodType",
           "in" : "query",
+          "description" : "Period type, can be: WEEK, MONTH, QUARTER, SEMESTER and YEAR. Default is the same as configured period",
           "schema" : {
             "type" : "string"
           }
         }, {
           "name" : "limit",
           "in" : "query",
+          "description" : "Limit of kudos to retrieve, if equal to 0, no kudos will be retrieved",
           "schema" : {
             "type" : "integer",
             "format" : "int32"
@@ -336,35 +477,48 @@
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Whether return size of sent kudos, default = false",
           "schema" : {
             "type" : "boolean"
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/settings" : {
       "get" : {
+        "tags" : [ "/kudos/api/settings" ],
+        "summary" : "Get Kudos global settings",
+        "description" : "Get Kudos global settings",
         "operationId" : "getSettings_1",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/kudos/api/settings/save" : {
       "post" : {
+        "tags" : [ "/kudos/api/settings" ],
+        "summary" : "Saves Kudos global settings",
+        "description" : "Saves Kudos global settings and returns an empty response",
         "operationId" : "saveSettings",
         "requestBody" : {
           "content" : {
@@ -376,11 +530,17 @@
           }
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }

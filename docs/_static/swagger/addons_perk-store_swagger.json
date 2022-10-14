@@ -9,154 +9,235 @@
     },
     "version" : "1.0"
   },
+  "tags" : [ {
+    "name" : "/perkstore/api/order",
+    "description" : "Manages perk store product orders"
+  }, {
+    "name" : "/perkstore/api/product",
+    "description" : "Manages perk store products"
+  }, {
+    "name" : "/perkstore/api/settings",
+    "description" : "Manages perk store application settings"
+  } ],
   "paths" : {
     "/perkstore/api/order/list" : {
       "post" : {
+        "tags" : [ "/perkstore/api/order" ],
+        "summary" : "Retrieves the list of orders for current user using a filter",
+        "description" : "Retrieves the list of orders for current user using a filter",
         "operationId" : "listOrders",
         "requestBody" : {
+          "description" : "OrderFilter object with search conditions",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/OrderFilter"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/order/save" : {
       "post" : {
+        "tags" : [ "/perkstore/api/order" ],
+        "summary" : "Creates a new order for current user on a selected product",
+        "description" : "Creates a new order for current user on a selected product",
         "operationId" : "createOrder",
         "requestBody" : {
+          "description" : "ProductOrder object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProductOrder"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/order/saveSimulate" : {
       "post" : {
+        "tags" : [ "/perkstore/api/order" ],
+        "summary" : "Check that order can be saved with given attributes",
+        "description" : "Check that order can be saved with given attributes",
         "operationId" : "saveOrderSimulate",
         "requestBody" : {
+          "description" : "ProductOrder object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProductOrder"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/order/saveStatus" : {
       "post" : {
+        "tags" : [ "/perkstore/api/order" ],
+        "summary" : "Modifies an existing order by specifying the type of modification",
+        "description" : "Modifies an existing order by specifying the type of modification (order attribute to change)",
         "operationId" : "saveOrder",
         "parameters" : [ {
           "name" : "modificationType",
           "in" : "query",
+          "description" : "ProductOrderModificationType enum name",
+          "required" : true,
           "schema" : {
             "type" : "string"
           }
         } ],
         "requestBody" : {
+          "description" : "ProductOrder object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/ProductOrder"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/product" : {
       "get" : {
+        "tags" : [ "/perkstore/api/product" ],
+        "summary" : "Get the list of product accessible by current user",
+        "description" : "returns list of products",
         "operationId" : "listProducts",
         "parameters" : [ {
           "name" : "available",
           "in" : "query",
+          "description" : "Returning only the available products or all products",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         }, {
           "name" : "returnSize",
           "in" : "query",
+          "description" : "Returning the number of Products or not",
           "schema" : {
-            "type" : "boolean"
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
+        "tags" : [ "/perkstore/api/product" ],
+        "summary" : "Creates or modifies a product",
+        "description" : "Creates or modifies a product and returns the saved product",
         "operationId" : "saveProduct",
         "requestBody" : {
+          "description" : "Product object",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/Product"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/product/delete/{productId}" : {
       "put" : {
+        "tags" : [ "/perkstore/api/product" ],
+        "summary" : "Retrieves a product by its id",
+        "description" : "returns selected product if exists",
         "operationId" : "deleteProduct",
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
+          "description" : "Product technical id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -164,21 +245,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/product/{productId}" : {
       "get" : {
+        "tags" : [ "/perkstore/api/product" ],
+        "summary" : "Retrieves a product by its id",
+        "description" : "Retrieves a product by its id and returns the selected product if exists",
         "operationId" : "getProduct",
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
+          "description" : "Product technical id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -186,21 +277,31 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/product/{productId}/image/{imageId}" : {
       "get" : {
+        "tags" : [ "/perkstore/api/product" ],
+        "summary" : "Get product image by its id",
+        "description" : "returns image content of a product by its id",
         "operationId" : "getProductImage",
         "parameters" : [ {
           "name" : "productId",
           "in" : "path",
+          "description" : "Product technical id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -209,6 +310,7 @@
         }, {
           "name" : "imageId",
           "in" : "path",
+          "description" : "Image file technical id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -216,46 +318,69 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "*/*" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "304" : {
+            "description" : "Image not modified"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/settings" : {
       "get" : {
+        "tags" : [ "/perkstore/api/settings" ],
+        "summary" : "Retrieves perk store settings with user settings",
+        "description" : "returns global having user settings object",
         "operationId" : "getSettings",
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/perkstore/api/settings/save" : {
       "post" : {
+        "tags" : [ "/perkstore/api/settings" ],
+        "summary" : "Saves perk store global settings",
+        "description" : "Saves perk store global settings and returns an empty response",
         "operationId" : "saveSettings",
         "requestBody" : {
+          "description" : "Global settings to save",
           "content" : {
             "*/*" : {
               "schema" : {
                 "$ref" : "#/components/schemas/GlobalSettings"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
