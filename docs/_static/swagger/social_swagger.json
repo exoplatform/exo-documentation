@@ -120,7 +120,7 @@
           "description" : "Activity stream type. Possible values: ALL_STREAM, USER_STREAM, USER_FAVORITE_STREAM, MANAGE_SPACES_STREAM, FAVORITE_SPACES_STREAM.",
           "schema" : {
             "type" : "string",
-            "enum" : [ "ALL_STREAM", "USER_STREAM", "USER_FAVORITE_STREAM", "MANAGE_SPACES_STREAM", "FAVORITE_SPACES_STREAM", "ANY_SPACE_ACTIVITY" ]
+            "enum" : [ "ALL_STREAM", "USER_STREAM", "USER_FAVORITE_STREAM", "MANAGE_SPACES_STREAM", "FAVORITE_SPACES_STREAM", "ANY_SPACE_ACTIVITY", "PIN_STREAM" ]
           }
         } ],
         "responses" : {
@@ -623,6 +623,66 @@
           },
           "400" : {
             "description" : "Invalid query input"
+          }
+        }
+      }
+    },
+    "/v1/social/activities/{activityId}/pins" : {
+      "post" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Pin a specific activity to space stream",
+        "description" : "This pins an activity to space stream if the authenticated user is a manager or a redactor of the space.",
+        "operationId" : "pinActivity",
+        "parameters" : [ {
+          "name" : "activityId",
+          "in" : "path",
+          "description" : "Activity id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Activity not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "v1/social/activities" ],
+        "summary" : "Unpin a specific activity from space stream",
+        "description" : "This Unpins an activity from space stream",
+        "operationId" : "unpinActivity",
+        "parameters" : [ {
+          "name" : "activityId",
+          "in" : "path",
+          "description" : "Activity id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Activity not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
@@ -4639,6 +4699,10 @@
           "canEdit" : {
             "type" : "boolean"
           },
+          "canPin" : {
+            "type" : "boolean",
+            "writeOnly" : true
+          },
           "comments" : {
             "type" : "string"
           },
@@ -4720,6 +4784,16 @@
           },
           "owner" : {
             "type" : "string"
+          },
+          "pinAuthorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "pinDate" : {
+            "type" : "string"
+          },
+          "pinned" : {
+            "type" : "boolean"
           },
           "priority" : {
             "type" : "string"
@@ -4930,6 +5004,10 @@
           "canEdit" : {
             "type" : "boolean"
           },
+          "canPin" : {
+            "type" : "boolean",
+            "writeOnly" : true
+          },
           "comments" : {
             "type" : "string"
           },
@@ -5014,6 +5092,16 @@
           },
           "parentCommentId" : {
             "type" : "string"
+          },
+          "pinAuthorId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "pinDate" : {
+            "type" : "string"
+          },
+          "pinned" : {
+            "type" : "boolean"
           },
           "poster" : {
             "type" : "string"
