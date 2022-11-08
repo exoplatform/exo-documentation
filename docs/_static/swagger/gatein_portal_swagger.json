@@ -309,7 +309,7 @@
         "parameters" : [ {
           "name" : "membershipId",
           "in" : "query",
-          "description" : "Membership identifier with format: MEMBERSHIP_TYPE:GROUP_ID:USER_NAME",
+          "description" : "Membership identifier with format: MEMBERSHIP_TYPE:USER_NAME:GROUP_ID",
           "required" : true,
           "schema" : {
             "type" : "string"
