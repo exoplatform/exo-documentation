@@ -1405,6 +1405,45 @@
         }
       }
     },
+    "/v1/agenda/settings/connector/secretKey" : {
+      "post" : {
+        "tags" : [ "/v1/agenda/settings" ],
+        "summary" : "Saves agenda connector Client Secret Key that will be accessible by all users to access connector remote API",
+        "description" : "Saves agenda connector Client Secret Key that will be accessible by all users to access connector remote API",
+        "operationId" : "saveRemoteProviderSecretKey",
+        "requestBody" : {
+          "content" : {
+            "*/*" : {
+              "schema" : {
+                "required" : [ "connectorName", "secretKey" ],
+                "type" : "object",
+                "properties" : {
+                  "connectorName" : {
+                    "type" : "string",
+                    "description" : "Remote connector name"
+                  },
+                  "secretKey" : {
+                    "type" : "string",
+                    "description" : "Remote connector Secret Key"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Bad request"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
     "/v1/agenda/settings/connector/status" : {
       "post" : {
         "tags" : [ "/v1/agenda/settings" ],
@@ -2461,6 +2500,9 @@
           },
           "oauth" : {
             "type" : "boolean"
+          },
+          "secretKey" : {
+            "type" : "string"
           }
         }
       },
