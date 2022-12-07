@@ -5548,9 +5548,6 @@
           "isSpaceRedactor" : {
             "type" : "boolean"
           },
-          "isSpacesManager" : {
-            "type" : "boolean"
-          },
           "lastLoginTime" : {
             "type" : "string"
           },
