@@ -1301,6 +1301,12 @@
           "priority" : {
             "type" : "string"
           },
+          "publishers" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
           "redactors" : {
             "type" : "array",
             "items" : {
