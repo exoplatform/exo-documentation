@@ -2416,6 +2416,9 @@
           "isPending" : {
             "type" : "boolean"
           },
+          "isSpacePublisher" : {
+            "type" : "boolean"
+          },
           "isSpaceRedactor" : {
             "type" : "boolean"
           },
@@ -2586,6 +2589,9 @@
           "isPending" : {
             "type" : "boolean"
           },
+          "isPublisher" : {
+            "type" : "boolean"
+          },
           "isRedactor" : {
             "type" : "boolean"
           },
@@ -2615,6 +2621,13 @@
           },
           "prettyName" : {
             "type" : "string"
+          },
+          "publishers" : {
+            "type" : "string"
+          },
+          "publishersCount" : {
+            "type" : "integer",
+            "format" : "int32"
           },
           "redactors" : {
             "type" : "string"
