@@ -1324,11 +1324,37 @@
           "name" : {
             "type" : "string"
           },
+          "permissions" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/NewsTargetingPermissionsEntity"
+            }
+          },
           "properties" : {
             "type" : "object",
             "additionalProperties" : {
               "type" : "string"
             }
+          }
+        }
+      },
+      "NewsTargetingPermissionsEntity" : {
+        "type" : "object",
+        "properties" : {
+          "avatar" : {
+            "type" : "string"
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "providerId" : {
+            "type" : "string"
+          },
+          "remoteId" : {
+            "type" : "string"
           }
         }
       }
