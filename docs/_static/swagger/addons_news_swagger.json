@@ -533,9 +533,9 @@
     "/v1/news/targeting" : {
       "get" : {
         "tags" : [ "v1/news/targeting" ],
-        "summary" : "Get all news targets by a giving type",
-        "description" : "Get all news targets by a giving type",
-        "operationId" : "getTargets",
+        "summary" : "Get all news targets",
+        "description" : "Get all news targets",
+        "operationId" : "getAllTargets",
         "responses" : {
           "200" : {
             "description" : "Request fulfilled"
@@ -577,21 +577,18 @@
         }
       }
     },
-    "/v1/news/targeting/referenced" : {
+    "/v1/news/targeting/allowed" : {
       "get" : {
         "tags" : [ "v1/news/targeting" ],
-        "summary" : "Get all news targets by a giving property",
-        "description" : "Get all news targets by a giving property",
-        "operationId" : "getReferencedTargets",
+        "summary" : "Get all allowed news targets of the current user",
+        "description" : "Get all allowed news targets of the current user",
+        "operationId" : "getAllowedTargets",
         "responses" : {
           "200" : {
             "description" : "Request fulfilled"
           },
           "500" : {
             "description" : "Internal server error"
-          },
-          "401" : {
-            "description" : "Unauthorized operation"
           }
         }
       }
