@@ -364,6 +364,25 @@
             "type" : "string",
             "default" : "ALL"
           }
+        }, {
+          "name" : "orderByRealizations",
+          "in" : "query",
+          "description" : "is popular challenges",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "excludedChallengesIds",
+          "in" : "query",
+          "description" : "Excluded challenges Ids",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
         } ],
         "responses" : {
           "200" : {
@@ -546,43 +565,202 @@
     },
     "/gamification/domains" : {
       "get" : {
-        "operationId" : "getAllDomains",
+        "summary" : "Retrieves the list of available domains",
+        "operationId" : "getDomains_1",
+        "parameters" : [ {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Offset of results to retrieve",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit of results to retrieve",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "description" : "Domains type filtering, possible values: AUTOMATIC, MANUAL and ALL. Default value = AUTOMATIC.",
+          "schema" : {
+            "type" : "string",
+            "default" : "AUTOMATIC"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "Domains status filtering, possible values: ENABLED, DISABLED and ALL. Default value = ENABLED.",
+          "schema" : {
+            "type" : "string",
+            "default" : "ENABLED"
+          }
+        }, {
+          "name" : "sortByBudget",
+          "in" : "query",
+          "description" : "If true, this will return the filtered domains sorted by budget. Possible values = true or false. Default value = false.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "includeDeleted",
+          "in" : "query",
+          "description" : "If true, this will return the filtered domains including deleted domains. Possible values = true or false. Default value = false.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "description" : "If true, this will return the total count of filtered domains. Possible values = true or false. Default value = false.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Term to search.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       },
       "post" : {
-        "operationId" : "addDomain",
+        "summary" : "Creates a domain",
+        "operationId" : "createDomain",
         "requestBody" : {
+          "description" : "Domain object to create",
           "content" : {
             "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/DomainDTO"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/gamification/domains/canAddProgram" : {
+      "get" : {
+        "summary" : "check if the current user can add a program",
+        "operationId" : "canAddProgram",
+        "responses" : {
+          "200" : {
+            "description" : "User ability to add a program is returned"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
+    "/gamification/domains/{domainId}" : {
+      "get" : {
+        "summary" : "Retrieves a domain by its id",
+        "operationId" : "getDomainById",
+        "parameters" : [ {
+          "name" : "domainId",
+          "in" : "path",
+          "description" : "domain id",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "404" : {
+            "description" : "Not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes an existing domain identified by its id",
+        "operationId" : "deleteDomain",
+        "parameters" : [ {
+          "name" : "domainId",
+          "in" : "path",
+          "description" : "domain id to be deleted",
+          "required" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
     },
     "/gamification/domains/{id}" : {
       "put" : {
+        "summary" : "updates created domain",
         "operationId" : "updateDomain",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
+          "description" : "domain id",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -590,40 +768,76 @@
           }
         } ],
         "requestBody" : {
+          "description" : "domain object to update",
           "content" : {
-            "*/*" : {
+            "application/json" : {
               "schema" : {
                 "$ref" : "#/components/schemas/DomainDTO"
               }
             }
-          }
+          },
+          "required" : true
         },
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
-      },
-      "delete" : {
-        "operationId" : "deleteRule",
+      }
+    },
+    "/gamification/domains/{id}/cover" : {
+      "get" : {
+        "summary" : "Gets a domain cover",
+        "operationId" : "getDomainCoverById",
         "parameters" : [ {
-          "name" : "id",
-          "in" : "path",
-          "required" : true,
+          "name" : "lastModified",
+          "in" : "query",
+          "description" : "The value of lastModified parameter will determine whether the query should be cached by browser or not. If not set, no 'expires HTTP Header will be sent'",
           "schema" : {
             "type" : "integer",
             "format" : "int64"
           }
+        }, {
+          "name" : "id",
+          "in" : "path",
+          "description" : "domain id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "r",
+          "in" : "query",
+          "description" : "A mandatory valid token that is used to authorize anonymous request",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "403" : {
+            "description" : "Forbidden request"
+          },
+          "404" : {
+            "description" : "Resource not found"
           }
         }
       }
@@ -768,7 +982,7 @@
     "/gamification/realizations/api/allRealizations" : {
       "get" : {
         "tags" : [ "/gamification/realizations/api" ],
-        "summary" : "Retrieves the list of challenges available for an owner",
+        "summary" : "Retrieves the list of achievements switch a filter. The returned format can be of type JSON or XLSX",
         "description" : "Retrieves the list of challenges available for an owner",
         "operationId" : "getAllRealizations",
         "parameters" : [ {
@@ -804,6 +1018,16 @@
             "default" : true
           }
         }, {
+          "name" : "earnerIds",
+          "in" : "query",
+          "description" : "earnerIds, that will be used to filter achievements",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }, {
           "name" : "offset",
           "in" : "query",
           "description" : "Offset of result",
@@ -818,8 +1042,41 @@
           "description" : "Limit of result",
           "schema" : {
             "type" : "integer",
-            "format" : "int32",
-            "default" : 10
+            "format" : "int32"
+          }
+        }, {
+          "name" : "returnType",
+          "in" : "query",
+          "description" : "Response Type",
+          "schema" : {
+            "type" : "string",
+            "default" : ""
+          }
+        }, {
+          "name" : "identityType",
+          "in" : "query",
+          "description" : "identity Type",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "domainIds",
+          "in" : "query",
+          "description" : "domainIds. that will be used to filter achievements",
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "description" : "If true, this will return the total count of filtered realizations. Possible values = true or false. Default value = false.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
@@ -831,42 +1088,6 @@
           },
           "500" : {
             "description" : "Internal server error"
-          }
-        }
-      }
-    },
-    "/gamification/realizations/api/getExport" : {
-      "get" : {
-        "tags" : [ "/gamification/realizations/api" ],
-        "summary" : "Gets CSV report",
-        "description" : "returns a csv file of actions",
-        "operationId" : "getReport",
-        "parameters" : [ {
-          "name" : "fromDate",
-          "in" : "query",
-          "description" : "result fromDate",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        }, {
-          "name" : "toDate",
-          "in" : "query",
-          "description" : "result toDate",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Request fulfilled"
-          },
-          "500" : {
-            "description" : "Internal server error"
-          },
-          "400" : {
-            "description" : "Invalid query input"
           }
         }
       }
@@ -1105,6 +1326,156 @@
         }
       }
     },
+    "/gamification/rules" : {
+      "get" : {
+        "tags" : [ "/gamification/rules" ],
+        "summary" : "Retrieves the list of available rules",
+        "operationId" : "getRules",
+        "parameters" : [ {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Offset of results to retrieve",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit of results to retrieve",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 20
+          }
+        }, {
+          "name" : "domainId",
+          "in" : "query",
+          "description" : "Used to filter rules by domain",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "description" : "Rules type filtering, possible values: AUTOMATIC, MANUAL and ALL. Default value = ALL.",
+          "schema" : {
+            "type" : "string",
+            "default" : "ALL"
+          }
+        }, {
+          "name" : "status",
+          "in" : "query",
+          "description" : "Rules status filtering, possible values: ENABLED, DISABLED and ALL. Default value = ENABLED.",
+          "schema" : {
+            "type" : "string",
+            "default" : "ENABLED"
+          }
+        }, {
+          "name" : "includeDeleted",
+          "in" : "query",
+          "description" : "If true, this will return the filtered rules including deleted rules. Possible values = true or false. Default value = false.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "term",
+          "in" : "query",
+          "description" : "term to search rules with",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "returnSize",
+          "in" : "query",
+          "description" : "If true, this will return the total count of filtered domains. Possible values = true or false. Default value = false.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "/gamification/rules" ],
+        "summary" : "Updates a rule",
+        "operationId" : "updateRule",
+        "requestBody" : {
+          "description" : "rule object to update",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RuleDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "204" : {
+            "description" : "Request fulfilled"
+          },
+          "404" : {
+            "description" : "Object not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "/gamification/rules" ],
+        "summary" : "Creates a rule",
+        "operationId" : "createRule",
+        "requestBody" : {
+          "description" : "rule object to save",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/RuleDTO"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Request fulfilled"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
+          }
+        }
+      }
+    },
     "/gamification/rules/active" : {
       "get" : {
         "tags" : [ "/gamification/rules" ],
@@ -1119,53 +1490,15 @@
         }
       }
     },
-    "/gamification/rules/add" : {
-      "post" : {
+    "/gamification/rules/{ruleId}" : {
+      "delete" : {
         "tags" : [ "/gamification/rules" ],
-        "operationId" : "addRule",
-        "requestBody" : {
-          "description" : "rule object to save",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/RuleDTO"
-              }
-            }
-          },
-          "required" : true
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
-          }
-        }
-      }
-    },
-    "/gamification/rules/all" : {
-      "get" : {
-        "tags" : [ "/gamification/rules" ],
-        "operationId" : "getAllRules",
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
-          }
-        }
-      }
-    },
-    "/gamification/rules/delete/{id}" : {
-      "put" : {
-        "tags" : [ "/gamification/rules" ],
-        "operationId" : "deleteRule_1",
+        "summary" : "Deletes a rule",
+        "operationId" : "deleteRule",
         "parameters" : [ {
-          "name" : "id",
+          "name" : "ruleId",
           "in" : "path",
-          "description" : "id of the rule",
+          "description" : "Rule technical identifier",
           "required" : true,
           "schema" : {
             "type" : "integer",
@@ -1173,36 +1506,20 @@
           }
         } ],
         "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
-          }
-        }
-      }
-    },
-    "/gamification/rules/update" : {
-      "put" : {
-        "tags" : [ "/gamification/rules" ],
-        "operationId" : "updateRule",
-        "requestBody" : {
-          "description" : "rule object to update",
-          "content" : {
-            "*/*" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/RuleDTO"
-              }
-            }
+          "200" : {
+            "description" : "Request fulfilled"
           },
-          "required" : true
-        },
-        "responses" : {
-          "default" : {
-            "description" : "default response",
-            "content" : {
-              "application/json" : { }
-            }
+          "404" : {
+            "description" : "Object not found"
+          },
+          "400" : {
+            "description" : "Invalid query input"
+          },
+          "401" : {
+            "description" : "Unauthorized operation"
+          },
+          "500" : {
+            "description" : "Internal server error"
           }
         }
       }
@@ -1381,6 +1698,9 @@
           "description" : {
             "type" : "string"
           },
+          "enabled" : {
+            "type" : "boolean"
+          },
           "endDate" : {
             "type" : "string"
           },
@@ -1402,6 +1722,10 @@
           "program" : {
             "type" : "string"
           },
+          "programId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
           "startDate" : {
             "type" : "string"
           },
@@ -1413,6 +1737,24 @@
       "DomainDTO" : {
         "type" : "object",
         "properties" : {
+          "audienceId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "budget" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "coverFileId" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "coverUploadId" : {
+            "type" : "string"
+          },
+          "coverUrl" : {
+            "type" : "string"
+          },
           "createdBy" : {
             "type" : "string"
           },
@@ -1438,11 +1780,22 @@
           "lastModifiedDate" : {
             "type" : "string"
           },
+          "owners" : {
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
           "priority" : {
             "type" : "integer",
             "format" : "int32"
           },
           "title" : {
+            "type" : "string"
+          },
+          "type" : {
             "type" : "string"
           }
         }
