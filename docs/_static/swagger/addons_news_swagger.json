@@ -350,6 +350,15 @@
         "summary" : "check if the current user can publish a news to all users",
         "description" : "This checks if the current user can publish a news to all users",
         "operationId" : "canPublishNews",
+        "parameters" : [ {
+          "name" : "spaceId",
+          "in" : "query",
+          "description" : "space id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
         "responses" : {
           "200" : {
             "description" : "User ability to publish a news is returned"
