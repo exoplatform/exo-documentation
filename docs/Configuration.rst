@@ -95,6 +95,9 @@ Configuration
        Instructions on how to enable/disable auto-creating a taxonomy
        tree during a new site creation.
 
+    -  :ref:`Enabling/Disabling composer in stream page <Configuration.ComposerStream>`
+       Instructions on how to enable/disable the composer from the stream page
+
     -  :ref:`Enabling/Disabling Activity type <Configuration.ActivityType>`
        Instructions on how to enable/disable an activity type from
        posting on streams.
@@ -2864,6 +2867,24 @@ By default, the parameter is set to ``false``, it means the creation of
 a taxonomy tree is disabled when you create a new site.
 
 To enable the function, simply set the parameter to ``true``.
+
+.. _Configuration.ComposerStream:
+
+=============================================
+Enabling/Disabling composer in stream page
+=============================================
+
+eXo Platform allows you to enable/disable the composer display in the stream page.
+You just need to define the property ``exo.config.mainStreamComposer.enabled``
+in :ref:`exo.properties <Configuration.ConfigurationOverview>` file.
+
+.. code:: java
+
+			# Enable/Disable main stream composer
+			exo.config.mainStreamComposer.enabled=false
+
+By default, the main stream composer is hidden in eXo Platform. 
+To enable it, i.e. dispaly it in the stream page, you should set the property to true.
 
 .. _Configuration.ActivityType:
 
